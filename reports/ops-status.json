@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 155856,
     "manifest_upload_ready_episodes": 1003,
-    "uploaded_episodes": 37581,
+    "uploaded_episodes": 37582,
     "prepared_source_episodes": 45874,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 24,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 39,
-    "language_whisper_attempted_sources": 39,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56533,
     "whisper_review_pending_sources": 48237,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-23T21:18:48Z",
+      "databaseId": 32667132514,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-23T21:18:43Z",
+      "databaseId": 32667128720,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-23T21:17:21Z",
+      "databaseId": 32667056749,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-23T21:16:22Z",
       "databaseId": 32667007164,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -91,11 +115,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-23T21:07:15Z",
       "databaseId": 32666522206,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -111,7 +135,7 @@
       "createdAt": "2026-08-23T21:06:52Z",
       "databaseId": 32666502161,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-23T20:57:51Z",
-      "databaseId": 32666026692,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-23T20:54:46Z",
-      "databaseId": 32665869006,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-23T20:53:47Z",
-      "databaseId": 32665817943,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -90374,6 +90374,11 @@
         "episode_id": 170692,
         "display_name": "Bewitched S06E20 - 20. epizoda CZ Titulky",
         "video_id": 28750499
+      },
+      {
+        "episode_id": 58968,
+        "display_name": "Záměna  S03E21 - 21. epizoda CZ Titulky",
+        "video_id": 28750872
       },
       {
         "episode_id": 17265,
@@ -253263,6 +253268,11 @@
         "video_id": 28750499
       },
       {
+        "episode_id": 58968,
+        "display_name": "Záměna  S03E21 - 21. epizoda CZ Titulky",
+        "video_id": 28750872
+      },
+      {
         "episode_id": 17265,
         "display_name": "Kohout S01E03 - Bílá velryba CZ Dabing",
         "video_id": 28749055
@@ -327217,7 +327227,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 38,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
