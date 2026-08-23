@@ -121,7 +121,7 @@ stay in the durable reservoir.
 ### `sync.yml` - continuous uploads
 
 - Scheduled every 10 minutes and dispatchable manually.
-- Workflow-level concurrency group: `series-to-prehrajto-sync` with
+- Workflow-level concurrency group: `series-to-prehrajto-1-sync` with
   `cancel-in-progress: false`.
 - Exactly one full sync run is active; GitHub may replace an older pending run
   with a newer pending trigger, but must not cancel the active run.
@@ -144,7 +144,7 @@ successful, followed within seconds by a new run with all active shards in
 - Scheduled every 10 minutes and also dispatched by the watchdog and other
   workflows.
 - One active run and one replaceable pending run use concurrency group
-  `series-to-prehrajto-prepare`.
+  `series-to-prehrajto-1-prepare`.
 - The default claim atomically reserves 60 episodes: 30 per preparation shard.
   Supporting callers may intentionally request a smaller 10-per-shard batch.
 - Claims are persisted in `plans/preparation-claims.jsonl` with a TTL so two

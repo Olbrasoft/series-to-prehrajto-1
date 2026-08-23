@@ -34,7 +34,7 @@ def gh_runs() -> list[dict]:
         out = subprocess.check_output(
             [
                 "gh", "run", "list",
-                "--repo", "Olbrasoft/series-to-prehrajto",
+                "--repo", "Olbrasoft/series-to-prehrajto-1",
                 "--limit", "20",
                 "--json", "databaseId,workflowName,status,conclusion,createdAt,headBranch",
             ],
