@@ -265,7 +265,7 @@ def main() -> int:
                 "batch_size": "8",
                 "num_shards": "4",
                 "allow_subtitles": "true",
-                "download_timeout_seconds": "240",
+                "download_timeout_seconds": "1200",
                 "max_episode_attempts": "16",
                 "continue_uploads": "true",
             },

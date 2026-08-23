@@ -18,7 +18,7 @@ on:
       download_timeout_seconds:
         description: "Maximum seconds spent downloading one source"
         required: false
-        default: "240"
+        default: "1200"
       max_episode_attempts:
         description: "Maximum episodes inspected while filling one shard batch"
         required: false
@@ -103,7 +103,7 @@ jobs:
           WHISPER_LANGUAGE_CHECK: ${{ vars.WHISPER_LANGUAGE_CHECK || '0' }}
           REQUIRE_PREPARED_DESCRIPTIONS: "0"
           REQUIRE_PREPARED_SOURCES: "1"
-          SYNC_DOWNLOAD_TIMEOUT_SECONDS: ${{ inputs.download_timeout_seconds || '240' }}
+          SYNC_DOWNLOAD_TIMEOUT_SECONDS: ${{ inputs.download_timeout_seconds || '1200' }}
           SYNC_DOWNLOAD_MIN_SPEED_BYTES: "250000"
           SYNC_DOWNLOAD_SPEED_TIME_SECONDS: "90"
           SYNC_TRANSIENT_FAILURE_COOLDOWN_SECONDS: "21600"
@@ -211,7 +211,7 @@ jobs:
                 -f batch_size="${{ inputs.batch_size || '8' }}" \
                 -f num_shards="${{ inputs.num_shards || '4' }}" \
                 -f allow_subtitles="${{ inputs.allow_subtitles || 'true' }}" \
-                -f download_timeout_seconds="${{ inputs.download_timeout_seconds || '240' }}" \
+                -f download_timeout_seconds="${{ inputs.download_timeout_seconds || '1200' }}" \
                 -f max_episode_attempts="${{ inputs.max_episode_attempts || '16' }}" \
                 -f continue_uploads="true"
             else
