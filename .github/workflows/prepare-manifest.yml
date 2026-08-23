@@ -1,0 +1,351 @@
+name: prepare-manifest
+
+on:
+  workflow_dispatch:
+    inputs:
+      series_limit:
+        description: "Max series to process"
+        required: false
+        default: "200"
+      episode_limit:
+        description: "Episodes to prepare per run"
+        required: false
+        default: "20"
+      source_limit_per_episode:
+        description: "Sources to evaluate per episode"
+        required: false
+        default: "4"
+      use_whisper:
+        description: "Use Whisper language verification"
+        required: false
+        default: "false"
+      skip_export:
+        description: "Skip DB export (always true in CI)"
+        required: false
+        default: "true"
+  schedule:
+    - cron: "*/10 * * * *"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: series-to-prehrajto-prepare
+  cancel-in-progress: false
+
+jobs:
+  claim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      batch_id: ${{ steps.allocate.outputs.batch_id }}
+      claim_count: ${{ steps.allocate.outputs.claim_count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Claim unprocessed episodes
+        id: allocate
+        run: |
+          set -e
+          git fetch origin main
+          git reset --hard origin/main
+          BATCH_ID="${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python src/prepare_episode_sources.py \
+            --queue backlog/enriched-audit-queue.jsonl.gz \
+            --backlog backlog/series-episodes.jsonl.gz \
+            --out plans/prepared-episodes.jsonl \
+            --episode-limit "${{ inputs.episode_limit || '20' }}" \
+            --claim-file plans/preparation-claims.jsonl \
+            --claim-batch-id "$BATCH_ID" \
+            --claim-shard-count 2 \
+            --claim-ttl-minutes 90 \
+            --claim-only
+          CLAIM_COUNT=$(jq -s --arg batch "$BATCH_ID" '[.[] | select(.claim_batch_id == $batch)] | length' plans/preparation-claims.jsonl)
+          echo "batch_id=$BATCH_ID" >> "$GITHUB_OUTPUT"
+          echo "claim_count=$CLAIM_COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Commit claims
+        run: |
+          set -e
+          git add plans/preparation-claims.jsonl
+          if git diff --cached --quiet; then
+            echo "no episodes available to claim"
+            exit 0
+          fi
+          git commit -m "chore: claim episode preparation batch"
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git fetch origin main
+            git rebase origin/main
+            sleep 1
+          done
+          echo "failed to persist preparation claims" >&2
+          exit 1
+
+  prepare:
+    needs: claim
+    if: needs.claim.outputs.claim_count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        selection_shard_index: [0, 1]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Build upload manifest from existing prepared sources
+        if: matrix.selection_shard_index == 0
+        run: |
+          python src/build_upload_manifest.py \
+            --limit 1000 \
+            --out manifests/upload-ready.jsonl.gz \
+            --report reports/upload-manifest.json
+
+      - name: Commit fast manifest
+        if: matrix.selection_shard_index == 0
+        run: |
+          set -e
+          git add manifests/upload-ready.jsonl.gz reports/upload-manifest.json
+          if git diff --cached --quiet; then
+            echo "no fast manifest changes"
+            exit 0
+          fi
+
+          EP_COUNT=$(python -c "import json; d=json.load(open('reports/upload-manifest.json')); print(d.get('new_count',0))")
+          git commit -m "chore: refresh upload manifest (${EP_COUNT} ready episodes)"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main || true
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+
+          echo "failed to push fast manifest after retries"
+          exit 1
+
+      - name: Queue upload from existing manifest
+        if: matrix.selection_shard_index == 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          if python src/upload_queue_status.py --no-require-description; then
+            ACTIVE_SYNC=$(gh run list --workflow sync.yml --limit 20 --json status \
+              --jq '[.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending" or .status == "requested")] | length')
+            if [ "$ACTIVE_SYNC" -eq 0 ]; then
+              gh workflow run sync.yml \
+                -f batch_size="8" \
+                -f num_shards="4" \
+                -f allow_subtitles="true" \
+                -f continue_uploads="true"
+            else
+              echo "sync already active or queued"
+            fi
+          else
+            echo "fast manifest has no upload-ready episodes"
+          fi
+
+      - name: Prepare episode sources
+        env:
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          # Both runners share one proxy key. Twenty seconds per runner keeps
+          # aggregate traffic at one search per ten seconds without 429 bursts.
+          CZ_PROXY_MIN_GAP_SECONDS: "20"
+          PREHRAJTO_SEARCH_MIN_INTERVAL: "20"
+        run: |
+          ARGS=(
+            "--queue" "backlog/enriched-audit-queue.jsonl.gz"
+            "--backlog" "backlog/series-episodes.jsonl.gz"
+            "--out" "plans/prepared-episodes.jsonl"
+            "--episode-limit" "${{ inputs.episode_limit || '20' }}"
+            "--claim-file" "plans/preparation-claims.jsonl"
+            "--claim-batch-id" "${{ needs.claim.outputs.batch_id }}"
+            "--claim-shard-index" "${{ matrix.selection_shard_index }}"
+            "--source-limit-per-episode" "${{ inputs.source_limit_per_episode || '4' }}"
+            "--sample-seconds" "20"
+            "--live-search"
+            "--live-search-limit" "${{ inputs.source_limit_per_episode || '4' }}"
+            "--live-search-query-limit" "1"
+            "--require-resolvable-source"
+          )
+          if [ "${{ inputs.use_whisper }}" = "true" ]; then
+            ARGS+=("--use-whisper")
+          fi
+          python src/prepare_episode_sources.py "${ARGS[@]}"
+
+      - name: Build upload manifest
+        run: |
+          python src/build_upload_manifest.py \
+            --limit 1000 \
+            --out manifests/upload-ready.jsonl.gz \
+            --report reports/upload-manifest.json
+
+      - name: Commit and push changes
+        run: |
+          set -e
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/plans" "$TMP_DIR/audits"
+          cp plans/prepared-episodes.jsonl "$TMP_DIR/plans/prepared-episodes.jsonl"
+          cp plans/subtitle-followup-queue.jsonl "$TMP_DIR/plans/subtitle-followup-queue.jsonl"
+          cp plans/whisper-review-queue.jsonl "$TMP_DIR/plans/whisper-review-queue.jsonl" 2>/dev/null || true
+          cp audits/language-audit-latest.jsonl.gz "$TMP_DIR/audits/language-audit-latest.jsonl.gz" 2>/dev/null || true
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            mkdir -p plans audits manifests reports
+            python src/merge_preparation_results.py --incoming-dir "$TMP_DIR"
+
+            python src/build_upload_manifest.py \
+              --limit 1000 \
+              --out manifests/upload-ready.jsonl.gz \
+              --report reports/upload-manifest.json
+
+            git add plans/prepared-episodes.jsonl
+            git add plans/subtitle-followup-queue.jsonl
+            git add plans/whisper-review-queue.jsonl
+            git add audits/language-audit-latest.jsonl.gz
+            git add manifests/upload-ready.jsonl.gz
+            git add reports/upload-manifest.json
+            if git diff --cached --quiet; then
+              echo "no changes to commit"
+              exit 0
+            fi
+
+            EP_COUNT=$(python -c "import json; d=json.load(open('reports/upload-manifest.json')); print(d.get('new_count',0))")
+            git commit -m "chore: prepare manifest (${EP_COUNT} new episodes)"
+            for push_attempt in 1 2 3 4 5 6 7 8 9 10; do
+              if git push origin HEAD:main; then
+                echo "push successful"
+                exit 0
+              fi
+
+              # Upload shards only change state files. Rebase those commits
+              # quickly instead of rebuilding the manifest on every race.
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort
+                break
+              fi
+              sleep 1
+            done
+            echo "push race on attempt ${attempt}, retrying"
+            sleep $((attempt * 3))
+          done
+
+          echo "failed to push after retries"
+          exit 1
+
+      - name: Queue upload from manifest
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if python src/upload_queue_status.py --no-require-description; then
+            ACTIVE_SYNC=$(gh run list --workflow sync.yml --limit 20 --json status \
+              --jq '[.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending" or .status == "requested")] | length')
+            if [ "$ACTIVE_SYNC" -eq 0 ]; then
+              gh workflow run sync.yml \
+                -f batch_size="8" \
+                -f num_shards="4" \
+                -f allow_subtitles="true" \
+                -f continue_uploads="true"
+            else
+              echo "sync already active or queued"
+            fi
+            if ! python src/upload_queue_status.py --no-require-description --min-ready 1000; then
+              echo "prepared upload queue is still below target; queueing another small manifest preparation"
+              gh workflow run prepare-manifest.yml \
+                -f series_limit="1200" \
+                -f episode_limit="20" \
+                -f source_limit_per_episode="4" \
+                -f use_whisper="false" \
+                -f skip_export="true"
+            fi
+          else
+            echo "manifest has no upload-ready episodes"
+            gh workflow run prepare-manifest.yml \
+              -f series_limit="1200" \
+              -f episode_limit="20" \
+              -f source_limit_per_episode="4" \
+              -f use_whisper="false" \
+              -f skip_export="true"
+          fi
+
+  verify-growth:
+    needs: [claim, prepare]
+    if: always() && needs.claim.outputs.claim_count != '0'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Verify claimed episodes produced upload-ready rows
+        env:
+          BATCH_ID: ${{ needs.claim.outputs.batch_id }}
+          PREPARE_RESULT: ${{ needs.prepare.result }}
+        run: |
+          if [ "$PREPARE_RESULT" != "success" ]; then
+            echo "one or more preparation shards failed" >&2
+            exit 1
+          fi
+          READY_COUNT=$(jq -n \
+            --slurpfile claims plans/preparation-claims.jsonl \
+            --slurpfile prepared plans/prepared-episodes.jsonl \
+            --arg batch "$BATCH_ID" \
+            '([$claims[] | select(.claim_batch_id == $batch) | .episode_id] | unique) as $ids
+             | [$prepared[] | select(.upload_ready == true and (.episode_id as $id | $ids | index($id)))]
+             | length')
+          echo "claimed upload-ready episodes: $READY_COUNT"
+          if [ "$READY_COUNT" -lt 1 ]; then
+            echo "::warning::preparation completed without adding an upload-ready episode; another small preparation batch is queued when the manifest is still empty"
+            exit 0
+          fi

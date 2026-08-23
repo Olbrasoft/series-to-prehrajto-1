@@ -1,0 +1,121 @@
+name: refresh-backlog
+
+on:
+  workflow_dispatch:
+    inputs:
+      series_limit:
+        description: "Number of top series to export"
+        required: false
+        default: "10000"
+      episode_limit:
+        description: "Number of episodes to export"
+        required: false
+        default: "1000000"
+      source_limit_per_episode:
+        description: "Number of sources per episode"
+        required: false
+        default: "12"
+  schedule:
+    - cron: "5 */3 * * *"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    concurrency:
+      group: series-to-prehrajto-refresh-backlog
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openssh-client
+          pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Open production DB tunnel
+        env:
+          HETZNER_SSH_PRIVATE_KEY: ${{ secrets.HETZNER_SSH_PRIVATE_KEY }}
+        run: |
+          if [ -z "$HETZNER_SSH_PRIVATE_KEY" ]; then
+            echo "HETZNER_SSH_PRIVATE_KEY secret is missing"
+            exit 2
+          fi
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$HETZNER_SSH_PRIVATE_KEY" > ~/.ssh/hetzner_cr
+          chmod 600 ~/.ssh/hetzner_cr
+          ssh-keyscan -p 2222 46.225.101.253 >> ~/.ssh/known_hosts
+          ssh -i ~/.ssh/hetzner_cr \
+            -p 2222 \
+            -fN \
+            -L 15432:127.0.0.1:5432 \
+            -o ExitOnForwardFailure=yes \
+            -o ServerAliveInterval=30 \
+            root@46.225.101.253
+
+      - name: Export upload backlog and language queue
+        env:
+          DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "PRODUCTION_DATABASE_URL secret is missing"
+            exit 2
+          fi
+            python src/export_backlog.py \
+            --series-limit "${{ inputs.series_limit || '10000' }}" \
+            --episode-limit "${{ inputs.episode_limit || '1000000' }}" \
+            --source-limit-per-episode "${{ inputs.source_limit_per_episode || '8' }}" \
+            --skip-sources
+
+      - name: Commit backlog
+        run: |
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/backlog"
+          cp backlog/series-episodes.jsonl.gz "$TMP_DIR/backlog/" 2>/dev/null || true
+          cp backlog/language-audit-queue.jsonl.gz "$TMP_DIR/backlog/" 2>/dev/null || true
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p backlog
+            cp "$TMP_DIR"/backlog/* backlog/ 2>/dev/null || true
+
+            git add backlog/series-episodes.jsonl.gz backlog/language-audit-queue.jsonl.gz
+            if git diff --cached --quiet; then
+              echo "no backlog changes"
+              exit 0
+            fi
+
+            git commit -m "chore: refresh series backlog"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            echo "push race on attempt ${attempt}, retrying"
+            sleep $((attempt * 3))
+          done
+
+          echo "failed to push backlog after retries" >&2
+          exit 1

@@ -1,0 +1,148 @@
+name: process-whisper-review
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Number of Whisper review sources to process"
+        required: false
+        default: "20"
+      sample_seconds:
+        description: "Audio sample length for language detection"
+        required: false
+        default: "30"
+  schedule:
+    - cron: "12 * * * *"
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      contents: write
+      actions: write
+    concurrency:
+      group: series-to-prehrajto-whisper-review
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -r requirements.txt
+          pip install faster-whisper
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Process Whisper review queue
+        env:
+          PYTHONUNBUFFERED: "1"
+          WHISPER_MODEL: tiny
+        run: |
+          python -u src/process_whisper_review_queue.py \
+            --limit "${{ inputs.limit || '20' }}" \
+            --sample-seconds "${{ inputs.sample_seconds || '30' }}" \
+            --audit-latest-out audits/language-audit-latest.jsonl.gz
+
+      - name: Rebuild upload manifest
+        run: |
+          python src/build_upload_manifest.py \
+            --limit 1000 \
+            --out manifests/upload-ready.jsonl.gz \
+            --report reports/upload-manifest.json
+
+      - name: Commit Whisper review results
+        if: always()
+        run: |
+          set -e
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/plans" "$TMP_DIR/audits" "$TMP_DIR/manifests" "$TMP_DIR/reports"
+          cp plans/prepared-episodes.jsonl "$TMP_DIR/plans/prepared-episodes.jsonl" 2>/dev/null || true
+          cp plans/subtitle-followup-queue.jsonl "$TMP_DIR/plans/subtitle-followup-queue.jsonl" 2>/dev/null || true
+          cp plans/whisper-review-queue.jsonl "$TMP_DIR/plans/whisper-review-queue.jsonl" 2>/dev/null || true
+          cp audits/language-audit-latest.jsonl.gz "$TMP_DIR/audits/language-audit-latest.jsonl.gz" 2>/dev/null || true
+          cp manifests/upload-ready.jsonl.gz "$TMP_DIR/manifests/upload-ready.jsonl.gz" 2>/dev/null || true
+          cp reports/upload-manifest.json "$TMP_DIR/reports/upload-manifest.json" 2>/dev/null || true
+
+          for attempt in $(seq 1 20); do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p plans audits manifests reports
+            python src/merge_preparation_results.py --incoming-dir "$TMP_DIR"
+            python src/build_upload_manifest.py \
+              --limit 1000 \
+              --out manifests/upload-ready.jsonl.gz \
+              --report reports/upload-manifest.json
+
+            for path in \
+              plans/prepared-episodes.jsonl \
+              plans/subtitle-followup-queue.jsonl \
+              plans/whisper-review-queue.jsonl \
+              audits/language-audit-latest.jsonl.gz \
+              manifests/upload-ready.jsonl.gz \
+              reports/upload-manifest.json
+            do
+              [ ! -e "$path" ] || git add "$path"
+            done
+            if git diff --cached --quiet; then
+              echo "no Whisper review changes"
+              exit 0
+            fi
+
+            READY_COUNT=$(python -c "import json; d=json.load(open('reports/upload-manifest.json')); print(d.get('count',0))")
+            git commit -m "chore: process Whisper review (${READY_COUNT} ready episodes)"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "push race on attempt ${attempt}, retrying"
+            SLEEP_SECONDS=$((attempt * 10))
+            if [ "$SLEEP_SECONDS" -gt 120 ]; then
+              SLEEP_SECONDS=120
+            fi
+            sleep "$SLEEP_SECONDS"
+          done
+
+          echo "failed to push Whisper review results"
+          exit 1
+
+      - name: Queue upload after Whisper review
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          if python src/upload_queue_status.py --no-require-description; then
+            ACTIVE_SYNC=$(gh run list --workflow sync.yml --limit 20 --json status \
+              --jq '[.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending" or .status == "requested")] | length')
+            if [ "$ACTIVE_SYNC" -eq 0 ]; then
+              gh workflow run sync.yml \
+                -f batch_size="20" \
+                -f num_shards="4" \
+                -f allow_subtitles="true" \
+                -f continue_uploads="true"
+            else
+              echo "sync already active or queued"
+            fi
+          else
+            echo "no upload-ready episodes after Whisper review"
+          fi

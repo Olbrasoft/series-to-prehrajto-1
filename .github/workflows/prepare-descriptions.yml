@@ -1,0 +1,152 @@
+name: prepare-descriptions
+
+on:
+  workflow_dispatch:
+    inputs:
+      series_limit:
+        description: "Number of series descriptions to prepare"
+        required: false
+        default: "160"
+      episode_limit:
+        description: "Number of episode descriptions to prepare"
+        required: false
+        default: "800"
+      fallback_on_error:
+        description: "Store temporary fallback descriptions when Gemini fails"
+        required: false
+        default: "false"
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+      actions: write
+    concurrency:
+      group: series-to-prehrajto-prepare-descriptions
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Prepare descriptions
+        env:
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          GEMINI_MODEL: gemma-4-31b-it
+          GEMINI_THINKING_BUDGET: "0"
+          GEMINI_RPM_PER_KEY: "1"
+          GEMINI_RPD_PER_KEY: "1400"
+          GEMINI_DAILY_SAFETY_RESERVE: "50"
+        run: |
+          set +e
+          timeout 50m python src/prepare_descriptions.py \
+            --series-limit "${{ inputs.series_limit || '160' }}" \
+            --episode-limit "${{ inputs.episode_limit || '800' }}" \
+            --workers 4 \
+            --retries 4 \
+            --replace-fallback \
+            --replace-non-gemma \
+            ${{ (inputs.fallback_on_error || 'false') == 'true' && '--fallback-on-error' || '' }}
+          code=$?
+          if [ "$code" = "124" ]; then
+            echo "description generation reached time limit; committing partial results"
+            exit 0
+          fi
+          exit "$code"
+
+      - name: Compact descriptions
+        if: always()
+        run: python src/compact_descriptions.py plans/descriptions.jsonl --max-bytes 95000000 --keep-errors 200
+
+      - name: Verify saved descriptions
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          path = Path("plans/descriptions.jsonl")
+          rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()] if path.exists() else []
+          counts = Counter(row.get("status") for row in rows)
+          models = Counter(row.get("model") for row in rows)
+          episode_ok = {int(row["episode_id"]) for row in rows if row.get("status") == "ok" and row.get("kind") == "episode" and row.get("episode_id") is not None}
+          series_ok = {int(row["series_id"]) for row in rows if row.get("status") == "ok" and row.get("kind") == "series" and row.get("series_id") is not None}
+          print(f"descriptions_total={len(rows)}")
+          print(f"descriptions_ok={counts.get('ok', 0)}")
+          print(f"descriptions_error={counts.get('error', 0)}")
+          print(f"episode_descriptions_ok={len(episode_ok)}")
+          print(f"series_descriptions_ok={len(series_ok)}")
+          print("description_models=" + json.dumps(dict(models.most_common(10)), ensure_ascii=False))
+          PY
+
+      - name: Commit descriptions
+        if: always()
+        run: |
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/plans" "$TMP_DIR/state"
+          cp plans/descriptions.jsonl "$TMP_DIR/plans/" 2>/dev/null || true
+          cp state/gemini-quota-state.json "$TMP_DIR/state/" 2>/dev/null || true
+          git fetch origin main
+          git reset --hard origin/main
+          mkdir -p plans state
+          cp "$TMP_DIR"/plans/* plans/ 2>/dev/null || true
+          cp "$TMP_DIR"/state/* state/ 2>/dev/null || true
+          git add plans/descriptions.jsonl
+          [ ! -f state/gemini-quota-state.json ] || git add state/gemini-quota-state.json
+          if git diff --cached --quiet; then
+            echo "no description changes"
+          else
+            git commit -m "chore: prepare Gemma descriptions"
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              git fetch origin main
+              git reset --hard origin/main
+              mkdir -p plans state
+              cp "$TMP_DIR"/plans/* plans/ 2>/dev/null || true
+              cp "$TMP_DIR"/state/* state/ 2>/dev/null || true
+              git add plans/descriptions.jsonl
+              [ ! -f state/gemini-quota-state.json ] || git add state/gemini-quota-state.json
+              git commit -m "chore: prepare Gemma descriptions" || true
+              sleep $((attempt * 2))
+            done
+            echo "failed to push prepared descriptions after retries"
+            exit 1
+          fi
+
+      - name: Queue manifest preparation
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run prepare-manifest.yml \
+            -f series_limit="1200" \
+            -f episode_limit="10" \
+            -f source_limit_per_episode="8" \
+            -f use_whisper="false" \
+            -f skip_export="true"

@@ -1,0 +1,233 @@
+name: backfill-subtitles
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/backfill-subtitles.yml"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum missing-subtitle uploads to attempt"
+        required: false
+        default: "3"
+      max_rows:
+        description: "Maximum uploaded subtitle-followup rows to inspect"
+        required: false
+        default: "80"
+      dry_run:
+        description: "Only inspect targets and write report rows"
+        required: false
+        default: "false"
+      retry_reported:
+        description: "Retry episodes already recorded in the backfill report"
+        required: false
+        default: "false"
+      continue_backfill:
+        description: "Queue another bounded subtitle backfill run when pending rows remain"
+        required: false
+        default: "false"
+
+concurrency:
+  group: series-to-prehrajto-backfill-subtitles
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    name: Backfill uploaded subtitles
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      actions: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git for report pushes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run primary subtitle backfill
+        env:
+          PREHRAJTO_EMAIL: ${{ secrets.UPLOAD_PREHRAJTO_EMAIL || secrets.PREHRAJTO_EMAIL }}
+          PREHRAJTO_PASSWORD: ${{ secrets.UPLOAD_PREHRAJTO_PASSWORD || secrets.PREHRAJTO_PASSWORD }}
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+        run: |
+          ARGS=(
+            "--limit" "${{ inputs.limit || '3' }}"
+            "--max-rows" "${{ inputs.max_rows || '80' }}"
+            "--search-min-interval" "10"
+            "--verify-timeout" "120"
+            "--allow-partial"
+          )
+          if [ "${{ inputs.dry_run || 'false' }}" = "true" ]; then
+            ARGS+=("--dry-run")
+          fi
+          if [ "${{ inputs.retry_reported || 'false' }}" = "true" ]; then
+            ARGS+=("--retry-reported")
+          fi
+          python src/backfill_uploaded_subtitles.py "${ARGS[@]}" \
+            --state-file state/uploaded-shard-0.json \
+            --state-file state/uploaded-shard-1.json
+
+      - name: Run serialy subtitle backfill
+        env:
+          PREHRAJTO_EMAIL: ${{ secrets.SERIALY_PREHRAJTO_EMAIL }}
+          PREHRAJTO_PASSWORD: ${{ secrets.SERIALY_PREHRAJTO_PASSWORD }}
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+        run: |
+          ARGS=(
+            "--limit" "${{ inputs.limit || '3' }}"
+            "--max-rows" "${{ inputs.max_rows || '80' }}"
+            "--search-min-interval" "10"
+            "--verify-timeout" "120"
+            "--allow-partial"
+          )
+          if [ "${{ inputs.dry_run || 'false' }}" = "true" ]; then
+            ARGS+=("--dry-run")
+          fi
+          if [ "${{ inputs.retry_reported || 'false' }}" = "true" ]; then
+            ARGS+=("--retry-reported")
+          fi
+          python src/backfill_uploaded_subtitles.py "${ARGS[@]}" \
+            --state-file state/uploaded-shard-2.json \
+            --state-file state/uploaded-shard-3.json
+
+      - name: Commit subtitle report
+        if: always()
+        run: |
+          set -e
+          mkdir -p reports
+          touch reports/subtitle-backfill-status.jsonl
+          TMP_DIR="$(mktemp -d)"
+          cp reports/subtitle-backfill-status.jsonl "$TMP_DIR/subtitle-backfill-status.jsonl"
+
+          for attempt in 1 2 3 4 5; do
+            rm -rf .git/rebase-merge .git/rebase-apply
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p reports
+            if [ -f reports/subtitle-backfill-status.jsonl ]; then
+              cat "$TMP_DIR/subtitle-backfill-status.jsonl" >> reports/subtitle-backfill-status.jsonl
+              python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("reports/subtitle-backfill-status.jsonl")
+          latest = {}
+          for line in path.read_text(encoding="utf-8").splitlines():
+              if not line.strip():
+                  continue
+              row = json.loads(line)
+              latest[int(row["episode_id"])] = row
+          with path.open("w", encoding="utf-8") as fh:
+              for row in sorted(latest.values(), key=lambda item: (str(item.get("series_title") or ""), int(item.get("season") or 0), int(item.get("episode") or 0), int(item.get("episode_id") or 0))):
+                  fh.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+          PY
+            else
+              cp "$TMP_DIR/subtitle-backfill-status.jsonl" reports/subtitle-backfill-status.jsonl
+            fi
+
+            git add reports/subtitle-backfill-status.jsonl
+            if git diff --cached --quiet; then
+              echo "no subtitle report changes to commit"
+              exit 0
+            fi
+
+            COUNT=$(python - <<'PY'
+          from pathlib import Path
+          print(sum(1 for line in Path("reports/subtitle-backfill-status.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()))
+          PY
+            )
+            git commit -m "chore: update subtitle backfill report (${COUNT} rows)"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "push race on attempt ${attempt}, retrying"
+            sleep $((attempt * 2))
+          done
+
+          echo "failed to push subtitle report after retries"
+          exit 1
+
+      - name: Queue next subtitle backfill
+        if: always() && (inputs.continue_backfill || 'false') == 'true' && (inputs.dry_run || 'false') != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PENDING=$(python - <<'PY'
+          import json
+          from pathlib import Path
+
+          terminal = {
+              "already_has_tracks",
+              "source_track_not_found",
+              "target_detail_missing",
+              "target_not_found",
+              "target_processing",
+              "target_unresolved",
+              "uploaded",
+              "unsupported_subtitle_format",
+          }
+
+          def load_jsonl(path):
+              p = Path(path)
+              if not p.exists():
+                  return []
+              return [json.loads(line) for line in p.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+          def load_json(path):
+              p = Path(path)
+              return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+          reported = {}
+          for row in load_jsonl("reports/subtitle-backfill-status.jsonl"):
+              reported[int(row["episode_id"])] = row.get("status")
+
+          uploads = set()
+          for path in sorted(Path("state").glob("uploaded-shard-*.json")):
+              for upload in load_json(path).get("uploads", []):
+                  if "Titulky" in str(upload.get("display_name") or ""):
+                      uploads.add(int(upload.get("episode_id") or 0))
+
+          pending = 0
+          for row in load_jsonl("plans/subtitle-followup-queue.jsonl"):
+              episode_id = int(row.get("episode_id") or 0)
+              if episode_id not in uploads:
+                  continue
+              if reported.get(episode_id) in terminal:
+                  continue
+              pending += 1
+          print(pending)
+          PY
+          )
+          echo "pending subtitle rows: ${PENDING}"
+          if [ "${PENDING}" -gt 0 ]; then
+            gh workflow run backfill-subtitles.yml \
+              -f limit="${{ inputs.limit || '3' }}" \
+              -f max_rows="${{ inputs.max_rows || '80' }}" \
+              -f dry_run="false" \
+              -f retry_reported="false" \
+              -f continue_backfill="true"
+          fi

@@ -1,0 +1,237 @@
+name: sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: "Number of episodes to upload in one run"
+        required: false
+        default: "8"
+      num_shards:
+        description: "Total parallel shards"
+        required: false
+        default: "4"
+      allow_subtitles:
+        description: "Allow CZ subtitle-only sources"
+        required: false
+        default: "true"
+      download_timeout_seconds:
+        description: "Maximum seconds spent downloading one source"
+        required: false
+        default: "240"
+      max_episode_attempts:
+        description: "Maximum episodes inspected while filling one shard batch"
+        required: false
+        default: "16"
+      continue_uploads:
+        description: "Queue another upload batch after this one when prepared episodes remain"
+        required: false
+        default: "true"
+  schedule:
+    - cron: "*/10 * * * *"
+
+# Keep one complete multi-shard upload active and one successor queued. GitHub
+# replaces an older pending run when another trigger arrives, but never stops
+# the run that is currently uploading.
+concurrency:
+  group: series-to-prehrajto-sync-v3
+  cancel-in-progress: false
+
+jobs:
+  upload-batch:
+    name: Upload series episodes
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+      actions: write
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON((inputs.num_shards || '4') == '4' && '{"include":[{"shard":0,"upload_account":"primary"},{"shard":1,"upload_account":"primary"},{"shard":2,"upload_account":"serialy"},{"shard":3,"upload_account":"serialy"}]}' || (inputs.num_shards || '4') == '2' && '{"include":[{"shard":0,"upload_account":"primary"},{"shard":1,"upload_account":"primary"}]}' || '{"include":[{"shard":0,"upload_account":"primary"}]}') }}
+    env:
+      SYNC_NUM_SHARDS: ${{ inputs.num_shards || '4' }}
+      SYNC_SHARD_ID: ${{ matrix.shard }}
+      UPLOAD_ACCOUNT: ${{ matrix.upload_account }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          # The repository has gigabytes of historical state blobs. Uploads
+          # only need the current snapshot and rebase their small state commits.
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git for state pushes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Init log entry
+        run: |
+          mkdir -p state
+          LOG="state/sync-shard-${SYNC_SHARD_ID}.log"
+          [ "$SYNC_NUM_SHARDS" = "1" ] && LOG="state/sync.log"
+          touch "$LOG"
+          RUN_TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          {
+            echo ""
+            echo "===== run $RUN_TS account=${UPLOAD_ACCOUNT} shard=${SYNC_SHARD_ID}/${SYNC_NUM_SHARDS} batch_size=${{ inputs.batch_size }} ($RUN_URL) ====="
+          } >> "$LOG"
+
+      - name: Run sync batch
+        env:
+          PRIMARY_PREHRAJTO_EMAIL: ${{ secrets.UPLOAD_PREHRAJTO_EMAIL || secrets.PREHRAJTO_EMAIL }}
+          PRIMARY_PREHRAJTO_PASSWORD: ${{ secrets.UPLOAD_PREHRAJTO_PASSWORD || secrets.PREHRAJTO_PASSWORD }}
+          SERIALY_PREHRAJTO_EMAIL: ${{ secrets.SERIALY_PREHRAJTO_EMAIL }}
+          SERIALY_PREHRAJTO_PASSWORD: ${{ secrets.SERIALY_PREHRAJTO_PASSWORD }}
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          WHISPER_LANGUAGE_CHECK: ${{ vars.WHISPER_LANGUAGE_CHECK || '0' }}
+          REQUIRE_PREPARED_DESCRIPTIONS: "0"
+          REQUIRE_PREPARED_SOURCES: "1"
+          SYNC_DOWNLOAD_TIMEOUT_SECONDS: ${{ inputs.download_timeout_seconds || '240' }}
+          SYNC_DOWNLOAD_MIN_SPEED_BYTES: "250000"
+          SYNC_DOWNLOAD_SPEED_TIME_SECONDS: "90"
+          SYNC_TRANSIENT_FAILURE_COOLDOWN_SECONDS: "21600"
+        run: |
+          case "$UPLOAD_ACCOUNT" in
+            primary)
+              export PREHRAJTO_EMAIL="$PRIMARY_PREHRAJTO_EMAIL"
+              export PREHRAJTO_PASSWORD="$PRIMARY_PREHRAJTO_PASSWORD"
+              ;;
+            serialy)
+              export PREHRAJTO_EMAIL="$SERIALY_PREHRAJTO_EMAIL"
+              export PREHRAJTO_PASSWORD="$SERIALY_PREHRAJTO_PASSWORD"
+              ;;
+            *)
+              echo "unknown upload account: $UPLOAD_ACCOUNT" >&2
+              exit 2
+              ;;
+          esac
+          export PREHRAJTO_ACCOUNT="$UPLOAD_ACCOUNT"
+          ARGS=("--count" "${{ inputs.batch_size || '8' }}")
+          ARGS+=("--max-episode-attempts" "${{ inputs.max_episode_attempts || '16' }}")
+          if [ "${{ inputs.allow_subtitles || 'true' }}" = "true" ]; then
+            ARGS+=("--allow-subtitles")
+          fi
+          python src/sync_batch.py "${ARGS[@]}"
+
+      - name: Commit state
+        if: always()
+        run: |
+          set -e
+          STATE="state/uploaded-shard-${SYNC_SHARD_ID}.json"
+          if [ "$SYNC_NUM_SHARDS" = "1" ]; then
+            STATE="state/uploaded.json"
+          fi
+          mkdir -p state
+          touch "$STATE"
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/state"
+          cp "$STATE" "$TMP_DIR/$STATE"
+
+          for attempt in 1 2 3 4 5 6 7 8; do
+            rm -rf .git/rebase-merge .git/rebase-apply
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p state
+            python src/upload_state_merge.py --target "$STATE" --incoming "$TMP_DIR/$STATE" --upload-account "$UPLOAD_ACCOUNT"
+
+            git add "$STATE"
+            if git diff --cached --quiet; then
+              echo "no state changes to commit"
+              exit 0
+            fi
+
+            UP_COUNT=$(python -c "import json,os; p='$STATE'; d=json.load(open(p)) if os.path.getsize(p)>0 else {}; print(len(d.get('uploads',[])))")
+            git commit -m "chore: sync series state, total uploads ${UP_COUNT}"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "push race on attempt ${attempt}, retrying"
+            sleep $((attempt * 2))
+          done
+
+          echo "::warning::failed to push final state snapshot after retries; per-upload state pushes are best-effort and the next run will merge current main state"
+          exit 0
+
+  queue-next:
+    name: Queue next upload and preparation
+    runs-on: ubuntu-latest
+    needs: upload-batch
+    timeout-minutes: 20
+    if: always() && needs.upload-batch.result == 'success' && (github.event_name == 'schedule' || inputs.continue_uploads != 'false')
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Queue next work
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          active_sync_count="$(gh run list --workflow sync.yml --limit 20 --json status --jq '[.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending" or .status == "requested")] | length')"
+          if python src/upload_queue_status.py --no-require-description; then
+            if [ "$active_sync_count" -le 1 ]; then
+              echo "upload-ready episodes remain and no other sync is waiting; queueing next upload batch"
+              gh workflow run sync.yml \
+                -f batch_size="${{ inputs.batch_size || '8' }}" \
+                -f num_shards="${{ inputs.num_shards || '4' }}" \
+                -f allow_subtitles="${{ inputs.allow_subtitles || 'true' }}" \
+                -f download_timeout_seconds="${{ inputs.download_timeout_seconds || '240' }}" \
+                -f max_episode_attempts="${{ inputs.max_episode_attempts || '16' }}" \
+                -f continue_uploads="true"
+            else
+              echo "upload-ready episodes remain, but another sync is already active or queued"
+            fi
+            if ! python src/upload_queue_status.py --no-require-description --min-ready 1000; then
+              echo "prepared upload queue is below overnight threshold; queueing background manifest preparation"
+              gh workflow run prepare-manifest.yml \
+                -f series_limit="1200" \
+                -f episode_limit="20" \
+                -f source_limit_per_episode="4" \
+                -f use_whisper="false" \
+                -f skip_export="true"
+            fi
+          else
+            echo "no prepared upload-ready episodes remain; queueing manifest preparation"
+            gh workflow run prepare-manifest.yml \
+              -f series_limit="1200" \
+              -f episode_limit="20" \
+              -f source_limit_per_episode="4" \
+              -f use_whisper="false" \
+              -f skip_export="true"
+          fi

@@ -1,0 +1,103 @@
+name: audit-language
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Number of sources to audit in one run"
+        required: false
+        default: "20"
+      series_slug:
+        description: "Optional series slug"
+        required: false
+        default: ""
+      sample_seconds:
+        description: "Audio sample length for Whisper"
+        required: false
+        default: "45"
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      contents: write
+    concurrency:
+      group: series-to-prehrajto-language-audit
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -r requirements.txt
+          pip install faster-whisper
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Audit source languages
+        env:
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          ARGS=(
+            "--use-whisper"
+            "--limit" "${{ inputs.limit || '20' }}"
+            "--sample-seconds" "${{ inputs.sample_seconds || '45' }}"
+          )
+          if [ -n "${{ inputs.series_slug }}" ]; then
+            ARGS+=("--series-slug" "${{ inputs.series_slug }}")
+          fi
+          python -u src/audit_language_sources.py "${ARGS[@]}"
+
+      - name: Commit audit results
+        if: always()
+        run: |
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/audits"
+          cp audits/language-audit-latest.jsonl.gz "$TMP_DIR/audits/" 2>/dev/null || true
+          git fetch origin main
+          git reset --hard origin/main
+          mkdir -p audits
+          cp "$TMP_DIR"/audits/* audits/ 2>/dev/null || true
+          git add audits/language-audit-latest.jsonl.gz
+          if git diff --cached --quiet; then
+            echo "no language audit changes"
+          else
+            git commit -m "chore: audit source languages"
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              git fetch origin main
+              git reset --hard origin/main
+              mkdir -p audits
+              cp "$TMP_DIR"/audits/* audits/ 2>/dev/null || true
+              git add audits/language-audit-latest.jsonl.gz
+              git commit -m "chore: audit source languages" || true
+              sleep $((attempt * 2))
+            done
+            echo "failed to push language audit after retries"
+            exit 1
+          fi

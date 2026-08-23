@@ -1,0 +1,100 @@
+name: update-descriptions
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum uploaded videos to update"
+        required: false
+        default: "50"
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    concurrency:
+      group: series-to-prehrajto-0
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update primary uploaded descriptions
+        env:
+          PREHRAJTO_EMAIL: ${{ secrets.UPLOAD_PREHRAJTO_EMAIL || secrets.PREHRAJTO_EMAIL }}
+          PREHRAJTO_PASSWORD: ${{ secrets.UPLOAD_PREHRAJTO_PASSWORD || secrets.PREHRAJTO_PASSWORD }}
+        run: |
+          python src/update_uploaded_descriptions.py --limit "${{ inputs.limit || '50' }}" --state-glob "state/uploaded.json"
+          python src/update_uploaded_descriptions.py --limit "${{ inputs.limit || '50' }}" --state-glob "state/uploaded-shard-[01].json"
+
+      - name: Update serialy uploaded descriptions
+        env:
+          PREHRAJTO_EMAIL: ${{ secrets.SERIALY_PREHRAJTO_EMAIL }}
+          PREHRAJTO_PASSWORD: ${{ secrets.SERIALY_PREHRAJTO_PASSWORD }}
+        run: python src/update_uploaded_descriptions.py --limit "${{ inputs.limit || '50' }}" --state-glob "state/uploaded-shard-[23].json"
+
+      - name: Commit update state
+        if: always()
+        run: |
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/state"
+          cp state/uploaded*.json "$TMP_DIR/state/" 2>/dev/null || true
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p state
+            for state_file in "$TMP_DIR"/state/uploaded*.json; do
+              [ -e "$state_file" ] || continue
+              python src/upload_state_merge.py --target "state/$(basename "$state_file")" --incoming "$state_file"
+            done
+
+            git add state/uploaded*.json
+            if git diff --cached --quiet; then
+              echo "no description update changes"
+              exit 0
+            fi
+
+            git commit -m "chore: update uploaded descriptions"
+            for push_attempt in 1 2 3 4 5 6 7 8 9 10; do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort
+                break
+              fi
+              sleep 1
+            done
+            echo "push race on attempt ${attempt}, retrying"
+            sleep $((attempt * 2))
+          done
+
+          echo "failed to push description update state"
+          exit 1

@@ -1,0 +1,97 @@
+name: ops-watchdog
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - sync
+      - prepare-manifest
+      - prepare-sources
+    types:
+      - completed
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: write
+    concurrency:
+      group: series-to-prehrajto-watchdog
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Check and queue work
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python src/ops_watchdog.py \
+            --min-upload-ready 1000 \
+            --target-episodes 3000 \
+            --emergency-episodes 20 \
+            --small-ready-target 1200 \
+            --target-series 240 \
+            --target-backlog-series 10000 \
+            --target-backlog-episodes 1000000 \
+            --target-prepared-episodes 10000 \
+            --min-language-queue-sources 1000 \
+            --prepare-sources-batch 1500 \
+            --min-pending-whisper 100 \
+            --min-whisper-review 1 \
+            --min-description-gap 50
+
+      - name: Commit watchdog status
+        if: always()
+        run: |
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/reports"
+          cp reports/ops-status.json "$TMP_DIR/reports/" 2>/dev/null || true
+          git fetch origin main
+          git reset --hard origin/main
+          mkdir -p reports
+          cp "$TMP_DIR"/reports/* reports/ 2>/dev/null || true
+          git add reports/ops-status.json
+          if git diff --cached --quiet; then
+            echo "no watchdog status changes"
+          else
+            git commit -m "chore: update watchdog status"
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              git fetch origin main
+              git reset --hard origin/main
+              mkdir -p reports
+              cp "$TMP_DIR"/reports/* reports/ 2>/dev/null || true
+              git add reports/ops-status.json
+              git commit -m "chore: update watchdog status" || true
+              sleep $((attempt * 2))
+            done
+            echo "failed to push watchdog status after retries"
+            exit 1
+          fi

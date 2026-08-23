@@ -1,0 +1,170 @@
+name: prepare-sources
+
+on:
+  workflow_dispatch:
+    inputs:
+      episode_limit:
+        description: "Number of episodes to prepare"
+        required: false
+        default: "100"
+      source_limit_per_episode:
+        description: "Number of sources to check per episode"
+        required: false
+        default: "8"
+      series_slug:
+        description: "Optional series slug"
+        required: false
+        default: ""
+      use_whisper:
+        description: "Run Whisper on supported sources"
+        required: false
+        default: "true"
+  schedule:
+    - cron: "35 * * * *"
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      contents: write
+      actions: write
+    concurrency:
+      group: series-to-prehrajto-prepare-sources-${{ github.run_id }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Whisper dependencies
+        if: ${{ inputs.use_whisper != 'false' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install faster-whisper
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Prepare episode sources
+        env:
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          CZ_PROXY_MIN_GAP_SECONDS: "20"
+          PREHRAJTO_SEARCH_MIN_INTERVAL: "20"
+          WHISPER_MODEL: tiny
+        run: |
+          ARGS=(
+            "--episode-limit" "${{ inputs.episode_limit || '120' }}"
+            "--source-limit-per-episode" "${{ inputs.source_limit_per_episode || '8' }}"
+            "--sample-seconds" "20"
+            "--live-search"
+            "--live-search-limit" "8"
+            "--live-search-query-limit" "1"
+            "--require-resolvable-source"
+          )
+          if [ -n "${{ inputs.series_slug }}" ]; then
+            ARGS+=("--series-slug" "${{ inputs.series_slug }}")
+          fi
+          if [ "${{ inputs.use_whisper || 'true' }}" = "true" ]; then
+            ARGS+=("--use-whisper")
+          fi
+          python src/prepare_episode_sources.py "${ARGS[@]}"
+
+      - name: Commit preparation results
+        if: always()
+        run: |
+          TMP_DIR="$(mktemp -d)"
+          mkdir -p "$TMP_DIR/plans" "$TMP_DIR/audits"
+          cp plans/prepared-episodes.jsonl "$TMP_DIR/plans/prepared-episodes.jsonl"
+          cp plans/subtitle-followup-queue.jsonl "$TMP_DIR/plans/subtitle-followup-queue.jsonl"
+          cp plans/whisper-review-queue.jsonl "$TMP_DIR/plans/whisper-review-queue.jsonl" 2>/dev/null || true
+          cp audits/language-audit-latest.jsonl.gz "$TMP_DIR/audits/language-audit-latest.jsonl.gz" 2>/dev/null || true
+
+          for attempt in $(seq 1 20); do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p plans audits manifests reports
+            python src/merge_preparation_results.py --incoming-dir "$TMP_DIR"
+            python src/build_upload_manifest.py \
+              --limit 1000 \
+              --out manifests/upload-ready.jsonl.gz \
+              --report reports/upload-manifest.json
+
+            git add plans/prepared-episodes.jsonl
+            git add plans/subtitle-followup-queue.jsonl
+            git add plans/whisper-review-queue.jsonl
+            git add audits/language-audit-latest.jsonl.gz
+            git add manifests/upload-ready.jsonl.gz
+            git add reports/upload-manifest.json
+            if git diff --cached --quiet; then
+              echo "no preparation changes"
+              exit 0
+            fi
+
+            git commit -m "chore: prepare series episode sources"
+            for push_attempt in $(seq 1 10); do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+
+              # Most races are upload/watchdog/description commits. Rebase
+              # quickly first; if that conflicts, rebuild from latest main.
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                break
+              fi
+              sleep 1
+            done
+
+            echo "push race on attempt ${attempt}, retrying"
+            SLEEP_SECONDS=$((attempt * 5))
+            if [ "$SLEEP_SECONDS" -gt 120 ]; then
+              SLEEP_SECONDS=120
+            fi
+            sleep "$SLEEP_SECONDS"
+          done
+
+          echo "failed to push preparation results after retries" >&2
+          exit 1
+
+      - name: Queue upload after source preparation
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          if python src/upload_queue_status.py --no-require-description; then
+            ACTIVE_SYNC=$(gh run list --workflow sync.yml --limit 20 --json status \
+              --jq '[.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending" or .status == "requested")] | length')
+            if [ "$ACTIVE_SYNC" -eq 0 ]; then
+              gh workflow run sync.yml \
+                -f batch_size="20" \
+                -f num_shards="4" \
+                -f allow_subtitles="true" \
+                -f continue_uploads="true"
+            else
+              echo "sync already active or queued"
+            fi
+          else
+            echo "no upload-ready episodes after source preparation"
+          fi

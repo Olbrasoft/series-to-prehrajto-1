@@ -1,0 +1,78 @@
+name: verify-sources
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Number of manifest sources to verify"
+        required: false
+        default: "5"
+      min_mb:
+        description: "Minimum stream size in MiB"
+        required: false
+        default: "300"
+      fail_on_error:
+        description: "Fail the workflow when any checked source is not uploadable"
+        required: false
+        default: "false"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Refresh to latest origin/main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Verify source availability
+        env:
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          CZ_PROXY_URL_2: ${{ secrets.CZ_PROXY_URL_2 }}
+          CZ_PROXY_KEY_2: ${{ secrets.CZ_PROXY_KEY_2 }}
+          CZ_PROXY_URLS: ${{ secrets.CZ_PROXY_URLS }}
+          CZ_PROXY_KEYS: ${{ secrets.CZ_PROXY_KEYS }}
+          CZ_PROXY_MIN_GAP_SECONDS: "8"
+        run: |
+          ARGS=(
+            "--limit" "${{ inputs.limit || '5' }}"
+            "--min-mb" "${{ inputs.min_mb || '300' }}"
+            "--out" "reports/source-availability.jsonl"
+          )
+          if [ "${{ inputs.fail_on_error }}" = "true" ]; then
+            ARGS+=("--fail-on-error")
+          fi
+          python src/verify_source_availability.py "${ARGS[@]}"
+
+      - name: Commit verification report
+        if: always()
+        run: |
+          git add reports/source-availability.jsonl
+          if git diff --cached --quiet; then
+            echo "no verification changes"
+            exit 0
+          fi
+          git commit -m "chore: verify prepared source availability"
+          git push origin HEAD:main
