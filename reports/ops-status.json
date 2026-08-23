@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 155856,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 37761,
-    "prepared_source_episodes": 46007,
+    "uploaded_episodes": 37762,
+    "prepared_source_episodes": 46011,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 23,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 81,
+    "language_audited_sources": 105,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56510,
-    "whisper_review_pending_sources": 48117,
+    "whisper_review_pending_sources": 48118,
     "subtitle_followup_sources": 27582,
     "subtitle_followup_pending_sources": 27582
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-23T23:39:09Z",
+      "databaseId": 32674239526,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-23T23:38:32Z",
+      "databaseId": 32674208442,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-23T23:38:29Z",
+      "databaseId": 32674206384,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-08-23T23:37:41Z",
@@ -31,23 +55,23 @@
       "createdAt": "2026-08-23T23:37:40Z",
       "databaseId": 32674167410,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-23T23:37:38Z",
       "databaseId": 32674166538,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-23T23:37:33Z",
       "databaseId": 32674161291,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,7 +79,7 @@
       "createdAt": "2026-08-23T23:37:29Z",
       "databaseId": 32674158198,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-23T23:26:01Z",
       "databaseId": 32673589786,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-23T23:12:57Z",
-      "databaseId": 32672953438,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-23T23:12:24Z",
-      "databaseId": 32672926456,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-23T23:12:21Z",
-      "databaseId": 32672923733,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -164069,6 +164069,11 @@
         "episode_id": 149527,
         "display_name": "Trosečnice S02E06 - Den čtyřicátý šestý/ Den dvacátý šestý CZ Dabing",
         "video_id": 28754952
+      },
+      {
+        "episode_id": 114519,
+        "display_name": "Caprica S01E04 - Tanec mrtvých CZ Titulky",
+        "video_id": 28755092
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -327856,6 +327861,11 @@
         "episode_id": 149527,
         "display_name": "Trosečnice S02E06 - Den čtyřicátý šestý/ Den dvacátý šestý CZ Dabing",
         "video_id": 28754952
+      },
+      {
+        "episode_id": 114519,
+        "display_name": "Caprica S01E04 - Tanec mrtvých CZ Titulky",
+        "video_id": 28755092
       }
     ],
     "prepared_not_upload_ready": [
@@ -328161,6 +328171,14 @@
       }
     ],
     "whisper_review_pending": [
+      {
+        "episode_id": 104809,
+        "source_id": -19108013946603129,
+        "series_title": "Airwolf",
+        "episode_code": "S01E01",
+        "source_title": "Airwolf S01E01-02 - ENG",
+        "status": "needs_whisper"
+      },
       {
         "episode_id": 175038,
         "source_id": -11151980550350308,
@@ -328551,14 +328569,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S07E22",
         "source_title": "Chirurgové (Grey's Anatomy) – S07E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56257,
-        "source_id": -57235569892845375,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E01",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
         "status": "whisper_failed"
       }
     ],
@@ -329017,15 +329027,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 45,
     "ok": 57,
-    "disabled": 21,
     "resolve_failed": 3
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6201,
+    "whisper_non_cz_needs_subtitles": 6200,
     "whisper_confirmed_cz": 2192,
-    "whisper_failed": 129,
-    "needs_whisper": 47988
+    "needs_whisper": 47989,
+    "whisper_failed": 129
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 27582
