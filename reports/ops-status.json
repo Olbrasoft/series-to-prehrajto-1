@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 155856,
     "manifest_upload_ready_episodes": 1010,
-    "uploaded_episodes": 37556,
-    "prepared_source_episodes": 45853,
+    "uploaded_episodes": 37559,
+    "prepared_source_episodes": 45864,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 24,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 59,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56529,
-    "whisper_review_pending_sources": 48213,
+    "whisper_review_sources": 56533,
+    "whisper_review_pending_sources": 48237,
     "subtitle_followup_sources": 27568,
     "subtitle_followup_pending_sources": 27568
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-23T20:03:02Z",
+      "databaseId": 32663186921,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-23T20:00:13Z",
+      "databaseId": 32663032697,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-23T20:00:11Z",
+      "databaseId": 32663030305,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-08-23T19:59:13Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-23T19:58:24Z",
       "databaseId": 32662935288,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-23T19:46:28Z",
       "databaseId": 32662303449,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-23T19:36:10Z",
-      "databaseId": 32661752845,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-23T19:35:26Z",
-      "databaseId": 32661716305,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "failure",
-      "createdAt": "2026-08-23T19:31:42Z",
-      "databaseId": 32661517236,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -90341,6 +90341,11 @@
         "video_id": 28737834
       },
       {
+        "episode_id": 34116,
+        "display_name": "Kohout S01E09 - Čtvrtá nejhezčí profesorka CZ Dabing",
+        "video_id": 28749245
+      },
+      {
         "episode_id": 17265,
         "display_name": "Kohout S01E03 - Bílá velryba CZ Dabing",
         "video_id": 28749055
@@ -163044,6 +163049,16 @@
         "episode_id": 17263,
         "display_name": "Kohout S01E02 - Kalhoty CZ Dabing",
         "video_id": 28748901
+      },
+      {
+        "episode_id": 34071,
+        "display_name": "Kohout S01E08 - Nikdo ani muk CZ Dabing",
+        "video_id": 28749219
+      },
+      {
+        "episode_id": 84131,
+        "display_name": "Teta Mick S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28749247
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -253103,6 +253118,11 @@
         "video_id": 28737834
       },
       {
+        "episode_id": 34116,
+        "display_name": "Kohout S01E09 - Čtvrtá nejhezčí profesorka CZ Dabing",
+        "video_id": 28749245
+      },
+      {
         "episode_id": 17265,
         "display_name": "Kohout S01E03 - Bílá velryba CZ Dabing",
         "video_id": 28749055
@@ -325806,6 +325826,16 @@
         "episode_id": 17263,
         "display_name": "Kohout S01E02 - Kalhoty CZ Dabing",
         "video_id": 28748901
+      },
+      {
+        "episode_id": 34071,
+        "display_name": "Kohout S01E08 - Nikdo ani muk CZ Dabing",
+        "video_id": 28749219
+      },
+      {
+        "episode_id": 84131,
+        "display_name": "Teta Mick S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28749247
       }
     ],
     "prepared_not_upload_ready": [
@@ -326967,15 +326997,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 58,
-    "disabled": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6135,
-    "whisper_confirmed_cz": 2181,
+    "whisper_non_cz_needs_subtitles": 6119,
+    "whisper_confirmed_cz": 2177,
     "whisper_failed": 126,
-    "needs_whisper": 48087
+    "needs_whisper": 48111
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 27568
