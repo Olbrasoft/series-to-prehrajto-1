@@ -86,8 +86,8 @@ stay in the durable reservoir.
 - `state/uploaded-shard-0.json` through `state/uploaded-shard-3.json`:
   persistent upload/failure state. Shards 0 and 1 use the primary upload
   account; shards 2 and 3 use the serialy upload account.
-- `state/sync-shard-0.log` through `state/sync-shard-3.log`: detailed resolve,
-  download and upload logs.
+- Workflow logs contain detailed resolve, download and upload diagnostics.
+  Runtime `state/*.log` files are intentionally ignored and are not committed.
 - State is committed after each successful upload. A workflow marked
   `in_progress` is insufficient evidence; recent per-episode commits or log
   entries containing `upload done` prove progress.

@@ -19,7 +19,7 @@ profile pages as a delay for this statistic.
 
 Check both production upload accounts separately:
 
-1. `filmy.prehrajto@email.cz`.
+1. `olbrasoft.claudecode@gmail.com`.
 2. `serialy.prehrajto@seznam.cz`.
 
 ## Candidate priority
