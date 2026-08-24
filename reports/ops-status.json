@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 153300,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 38656,
+    "uploaded_episodes": 38658,
     "prepared_source_episodes": 46706,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 50,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 276,
-    "language_whisper_attempted_sources": 63,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56499,
     "whisper_review_pending_sources": 48066,
     "subtitle_followup_sources": 27731,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T11:08:50Z",
+      "databaseId": 32720347082,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T11:08:16Z",
+      "databaseId": 32720296927,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T11:07:16Z",
+      "databaseId": 32720213169,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T11:07:12Z",
+      "databaseId": 32720208480,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T11:06:18Z",
       "databaseId": 32720133000,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T10:51:57Z",
-      "databaseId": 32718918810,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-24T10:51:50Z",
-      "databaseId": 32718909862,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-24T10:49:14Z",
-      "databaseId": 32718695781,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T10:46:18Z",
-      "databaseId": 32718455836,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -168526,6 +168526,11 @@
         "video_id": 28773719
       },
       {
+        "episode_id": 119906,
+        "display_name": "Pomsta s chutí třešní S01E04 - Koktejl z pulců CZ Titulky",
+        "video_id": 28773817
+      },
+      {
         "episode_id": 72763,
         "display_name": "Scooby Doo - Záhady s.r.o. S02E17 - Stádo hrůzy CZ Dabing",
         "video_id": 28773395
@@ -168544,6 +168549,11 @@
         "episode_id": 134891,
         "display_name": "Sedm Sekund S01E05 - 5. epizoda CZ Titulky",
         "video_id": 28773679
+      },
+      {
+        "episode_id": 134887,
+        "display_name": "Sedm Sekund S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28773825
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -336788,6 +336798,11 @@
         "video_id": 28773719
       },
       {
+        "episode_id": 119906,
+        "display_name": "Pomsta s chutí třešní S01E04 - Koktejl z pulců CZ Titulky",
+        "video_id": 28773817
+      },
+      {
         "episode_id": 72763,
         "display_name": "Scooby Doo - Záhady s.r.o. S02E17 - Stádo hrůzy CZ Dabing",
         "video_id": 28773395
@@ -336806,6 +336821,11 @@
         "episode_id": 134891,
         "display_name": "Sedm Sekund S01E05 - 5. epizoda CZ Titulky",
         "video_id": 28773679
+      },
+      {
+        "episode_id": 134887,
+        "display_name": "Sedm Sekund S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28773825
       }
     ],
     "prepared_not_upload_ready": [
@@ -337967,9 +337987,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 213,
-    "ok": 59,
-    "resolve_failed": 4
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6220,
