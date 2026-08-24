@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 152781,
-    "manifest_upload_ready_episodes": 1013,
-    "uploaded_episodes": 39097,
-    "prepared_source_episodes": 47447,
+    "manifest_upload_ready_episodes": 1014,
+    "uploaded_episodes": 39098,
+    "prepared_source_episodes": 47412,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 343,
-    "language_whisper_attempted_sources": 99,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56476,
-    "whisper_review_pending_sources": 47941,
-    "subtitle_followup_sources": 27883,
-    "subtitle_followup_pending_sources": 27883
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 56453,
+    "whisper_review_pending_sources": 47822,
+    "subtitle_followup_sources": 27894,
+    "subtitle_followup_pending_sources": 27894
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T22:50:55Z",
+      "databaseId": 32786605364,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T22:50:52Z",
+      "databaseId": 32786601271,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T22:46:51Z",
+      "databaseId": 32786289794,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T22:45:57Z",
       "databaseId": 32786215892,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T22:42:12Z",
       "databaseId": 32785913119,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T22:40:33Z",
       "databaseId": 32785782463,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-24T22:36:13Z",
       "databaseId": 32785445309,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-24T22:26:59Z",
-      "databaseId": 32784702688,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T22:24:43Z",
-      "databaseId": 32784520540,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T22:23:29Z",
-      "databaseId": 32784420782,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -94184,6 +94184,11 @@
         "episode_id": 167284,
         "display_name": "Foylova válka S01E03 - Lekce vraždění CZ Dabing",
         "video_id": 28794140
+      },
+      {
+        "episode_id": 167288,
+        "display_name": "Foylova válka S02E04 - Zašívárna CZ Titulky",
+        "video_id": 28794206
       },
       {
         "episode_id": 114182,
@@ -264653,6 +264658,11 @@
         "video_id": 28794140
       },
       {
+        "episode_id": 167288,
+        "display_name": "Foylova válka S02E04 - Zašívárna CZ Titulky",
+        "video_id": 28794206
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -342377,17 +342387,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 244,
-    "ok": 98,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6242,
-    "whisper_confirmed_cz": 2293,
-    "whisper_failed": 144,
-    "needs_whisper": 47797
+    "whisper_non_cz_needs_subtitles": 6337,
+    "whisper_confirmed_cz": 2294,
+    "whisper_failed": 147,
+    "needs_whisper": 47675
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 27883
+    "needs_subtitle_setup_after_prehrajto_processing": 27894
   }
 }
