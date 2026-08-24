@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 152843,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39009,
-    "prepared_source_episodes": 47370,
+    "uploaded_episodes": 39010,
+    "prepared_source_episodes": 47369,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 25,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 45,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56497,
-    "whisper_review_pending_sources": 48053,
+    "whisper_review_sources": 56480,
+    "whisper_review_pending_sources": 47964,
     "subtitle_followup_sources": 27766,
     "subtitle_followup_pending_sources": 27766
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T18:37:55Z",
+      "databaseId": 32763507665,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T18:33:58Z",
+      "databaseId": 32763139224,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T18:33:54Z",
+      "databaseId": 32763132849,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T18:32:15Z",
       "databaseId": 32762979034,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +55,7 @@
       "createdAt": "2026-08-24T18:32:10Z",
       "databaseId": 32762971284,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T18:22:46Z",
       "databaseId": 32762074381,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T18:11:39Z",
       "databaseId": 32760998114,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-24T18:08:51Z",
-      "databaseId": 32760726796,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T18:07:45Z",
-      "databaseId": 32760623790,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T18:07:42Z",
-      "databaseId": 32760618508,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -170276,6 +170276,11 @@
         "video_id": 28788424
       },
       {
+        "episode_id": 16186,
+        "display_name": "Nebe s.r.o. S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28788811
+      },
+      {
         "episode_id": 64619,
         "display_name": "Konstelace S01E05 - Osm kilometrů odsud je zvuk nejčistší CZ Dabing",
         "video_id": 28786610
@@ -340303,6 +340308,11 @@
         "video_id": 28788424
       },
       {
+        "episode_id": 16186,
+        "display_name": "Nebe s.r.o. S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28788811
+      },
+      {
         "episode_id": 64619,
         "display_name": "Konstelace S01E05 - Osm kilometrů odsud je zvuk nejčistší CZ Dabing",
         "video_id": 28786610
@@ -341497,15 +341507,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
-    "ok": 19,
-    "resolve_failed": 1
+    "resolve_failed": 3,
+    "ok": 37,
+    "disabled": 5
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6220,
-    "whisper_confirmed_cz": 2224,
-    "whisper_failed": 135,
-    "needs_whisper": 47918
+    "whisper_non_cz_needs_subtitles": 6231,
+    "whisper_confirmed_cz": 2285,
+    "whisper_failed": 143,
+    "needs_whisper": 47821
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 27766
