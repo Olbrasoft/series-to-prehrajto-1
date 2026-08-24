@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 153300,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 38593,
-    "prepared_source_episodes": 46615,
+    "uploaded_episodes": 38606,
+    "prepared_source_episodes": 46618,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 49,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 88,
+    "language_audited_sources": 57,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56504,
     "whisper_review_pending_sources": 48088,
     "subtitle_followup_sources": 27675,
@@ -20,10 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T10:07:32Z",
+      "databaseId": 32715166045,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T10:07:28Z",
+      "databaseId": 32715158713,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T10:07:08Z",
+      "databaseId": 32715128490,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-24T10:07:03Z",
+      "databaseId": 32715121978,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T09:58:36Z",
+      "databaseId": 32714375086,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-24T09:58:15Z",
+      "databaseId": 32714343136,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T09:57:30Z",
+      "databaseId": 32714282190,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T09:57:27Z",
+      "databaseId": 32714277790,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T09:56:36Z",
       "databaseId": 32714203064,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +115,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T09:48:33Z",
       "databaseId": 32713508707,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T09:42:27Z",
-      "databaseId": 32712981740,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T09:42:24Z",
-      "databaseId": 32712978465,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T09:41:27Z",
-      "databaseId": 32712898196,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T09:41:23Z",
-      "databaseId": 32712892081,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-24T09:34:57Z",
-      "databaseId": 32712323659,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T09:33:03Z",
-      "databaseId": 32712153278,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T09:32:06Z",
-      "databaseId": 32712067768,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-24T09:30:05Z",
-      "databaseId": 32711883678,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -92936,6 +92936,11 @@
         "video_id": 28771426
       },
       {
+        "episode_id": 104712,
+        "display_name": "Pan Am S01E12 - Nové obzory CZ Dabing",
+        "video_id": 28771462
+      },
+      {
         "episode_id": 134889,
         "display_name": "Sedm Sekund S01E04 - 4. epizoda CZ Titulky",
         "video_id": 28771117
@@ -92954,6 +92959,26 @@
         "episode_id": 89401,
         "display_name": "Doktor Martin S02E06 - Rodičovská láska CZ Dabing",
         "video_id": 28771413
+      },
+      {
+        "episode_id": 89377,
+        "display_name": "Doktor Martin S02E07 - Cesta z lesa CZ Titulky",
+        "video_id": 28771474
+      },
+      {
+        "episode_id": 89381,
+        "display_name": "Doktor Martin S03E03 - Miluj bližního svého CZ Dabing",
+        "video_id": 28771599
+      },
+      {
+        "episode_id": 89437,
+        "display_name": "Doktor Martin S09E05 - 5. epizoda CZ Dabing",
+        "video_id": 28771775
+      },
+      {
+        "episode_id": 89441,
+        "display_name": "Doktor Martin S10E04 - 4. epizoda CZ Dabing",
+        "video_id": 28771828
       },
       {
         "episode_id": 114182,
@@ -168211,6 +168236,26 @@
         "video_id": 28771301
       },
       {
+        "episode_id": 150170,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S01E16 - Ochránce mého bratra CZ Titulky",
+        "video_id": 28771390
+      },
+      {
+        "episode_id": 150174,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S01E20 - Ztracené dítě CZ Titulky",
+        "video_id": 28771591
+      },
+      {
+        "episode_id": 156726,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S02E11 - Smutné Vánoce CZ Dabing",
+        "video_id": 28771729
+      },
+      {
+        "episode_id": 156730,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S02E15 - Země nikoho CZ Dabing",
+        "video_id": 28771800
+      },
+      {
         "episode_id": 89527,
         "display_name": "Všechny velké a malé bytosti S04E07 - S trochou štěstí CZ Dabing",
         "video_id": 28771114
@@ -168229,6 +168274,26 @@
         "episode_id": 89539,
         "display_name": "Všechny velké a malé bytosti S06E05 - Opravy CZ Dabing",
         "video_id": 28771354
+      },
+      {
+        "episode_id": 137023,
+        "display_name": "Zasvěcený S01E19 - Znovu na svobodě CZ Titulky",
+        "video_id": 28771436
+      },
+      {
+        "episode_id": 152983,
+        "display_name": "Raven S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28771535
+      },
+      {
+        "episode_id": 152987,
+        "display_name": "Raven S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 28771601
+      },
+      {
+        "episode_id": 152991,
+        "display_name": "Raven S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 28771626
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -260883,6 +260948,11 @@
         "video_id": 28771426
       },
       {
+        "episode_id": 104712,
+        "display_name": "Pan Am S01E12 - Nové obzory CZ Dabing",
+        "video_id": 28771462
+      },
+      {
         "episode_id": 134889,
         "display_name": "Sedm Sekund S01E04 - 4. epizoda CZ Titulky",
         "video_id": 28771117
@@ -260901,6 +260971,26 @@
         "episode_id": 89401,
         "display_name": "Doktor Martin S02E06 - Rodičovská láska CZ Dabing",
         "video_id": 28771413
+      },
+      {
+        "episode_id": 89377,
+        "display_name": "Doktor Martin S02E07 - Cesta z lesa CZ Titulky",
+        "video_id": 28771474
+      },
+      {
+        "episode_id": 89381,
+        "display_name": "Doktor Martin S03E03 - Miluj bližního svého CZ Dabing",
+        "video_id": 28771599
+      },
+      {
+        "episode_id": 89437,
+        "display_name": "Doktor Martin S09E05 - 5. epizoda CZ Dabing",
+        "video_id": 28771775
+      },
+      {
+        "episode_id": 89441,
+        "display_name": "Doktor Martin S10E04 - 4. epizoda CZ Dabing",
+        "video_id": 28771828
       },
       {
         "episode_id": 114182,
@@ -336158,6 +336248,26 @@
         "video_id": 28771301
       },
       {
+        "episode_id": 150170,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S01E16 - Ochránce mého bratra CZ Titulky",
+        "video_id": 28771390
+      },
+      {
+        "episode_id": 150174,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S01E20 - Ztracené dítě CZ Titulky",
+        "video_id": 28771591
+      },
+      {
+        "episode_id": 156726,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S02E11 - Smutné Vánoce CZ Dabing",
+        "video_id": 28771729
+      },
+      {
+        "episode_id": 156730,
+        "display_name": "Námořní vyšetřovací služba: New Orleans  S02E15 - Země nikoho CZ Dabing",
+        "video_id": 28771800
+      },
+      {
         "episode_id": 89527,
         "display_name": "Všechny velké a malé bytosti S04E07 - S trochou štěstí CZ Dabing",
         "video_id": 28771114
@@ -336176,6 +336286,26 @@
         "episode_id": 89539,
         "display_name": "Všechny velké a malé bytosti S06E05 - Opravy CZ Dabing",
         "video_id": 28771354
+      },
+      {
+        "episode_id": 137023,
+        "display_name": "Zasvěcený S01E19 - Znovu na svobodě CZ Titulky",
+        "video_id": 28771436
+      },
+      {
+        "episode_id": 152983,
+        "display_name": "Raven S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28771535
+      },
+      {
+        "episode_id": 152987,
+        "display_name": "Raven S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 28771601
+      },
+      {
+        "episode_id": 152991,
+        "display_name": "Raven S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 28771626
       }
     ],
     "prepared_not_upload_ready": [
@@ -337337,9 +337467,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 48,
-    "ok": 39,
-    "resolve_failed": 1
+    "resolve_failed": 4,
+    "disabled": 17,
+    "ok": 36
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6220,
