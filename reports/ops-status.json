@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 155856,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 37773,
+    "uploaded_episodes": 37774,
     "prepared_source_episodes": 45976,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 23,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 83,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56501,
     "whisper_review_pending_sources": 48073,
     "subtitle_followup_sources": 27582,
     "subtitle_followup_pending_sources": 27582
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T00:05:14Z",
+      "databaseId": 32675535621,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T00:05:09Z",
+      "databaseId": 32675530898,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T00:02:24Z",
+      "databaseId": 32675390218,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-08-24T00:01:20Z",
@@ -35,19 +59,19 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T00:00:46Z",
       "databaseId": 32675309067,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-24T00:00:43Z",
       "databaseId": 32675305822,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-23T23:57:01Z",
       "databaseId": 32675118324,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -87,7 +111,7 @@
       "createdAt": "2026-08-23T23:56:05Z",
       "databaseId": 32675076005,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-23T23:41:57Z",
-      "databaseId": 32674381797,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-23T23:41:54Z",
-      "databaseId": 32674378173,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-23T23:40:55Z",
-      "databaseId": 32674329100,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -90854,6 +90854,11 @@
         "episode_id": 107668,
         "display_name": "Velká láska S02E05 - Věc názoru CZ Dabing",
         "video_id": 28755570
+      },
+      {
+        "episode_id": 107672,
+        "display_name": "Velká láska S02E09 - V úzkých CZ Dabing",
+        "video_id": 28755665
       },
       {
         "episode_id": 3745,
@@ -254703,6 +254708,11 @@
         "video_id": 28755570
       },
       {
+        "episode_id": 107672,
+        "display_name": "Velká láska S02E09 - V úzkých CZ Dabing",
+        "video_id": 28755665
+      },
+      {
         "episode_id": 3745,
         "display_name": "Devious Maids S02E01 - 1. epizoda CZ Titulky",
         "video_id": 28754663
@@ -329137,9 +329147,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 43,
-    "ok": 37,
-    "resolve_failed": 3
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6216,
