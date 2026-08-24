@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 153371,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 38540,
+    "uploaded_episodes": 38542,
     "prepared_source_episodes": 46543,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 23,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 319,
-    "language_whisper_attempted_sources": 116,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56508,
     "whisper_review_pending_sources": 48110,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T09:20:19Z",
+      "databaseId": 32710977426,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T09:20:14Z",
+      "databaseId": 32710967278,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T09:17:54Z",
+      "databaseId": 32710747294,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T09:17:28Z",
+      "databaseId": 32710707763,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T09:16:00Z",
       "databaseId": 32710574944,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -71,7 +103,7 @@
       "createdAt": "2026-08-24T09:11:30Z",
       "databaseId": 32710168087,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -91,11 +123,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T09:09:42Z",
       "databaseId": 32710005563,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-08-24T08:54:50Z",
       "databaseId": 32708701158,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T08:54:32Z",
-      "databaseId": 32708676200,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T08:54:29Z",
-      "databaseId": 32708670845,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T08:53:35Z",
-      "databaseId": 32708592150,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-24T08:53:30Z",
-      "databaseId": 32708586900,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -92769,6 +92769,16 @@
         "episode_id": 62464,
         "display_name": "Undercover S01E07 - 7. epizoda CZ Titulky",
         "video_id": 28769819
+      },
+      {
+        "episode_id": 62468,
+        "display_name": "Undercover S02E04 - 4. epizoda CZ Dabing",
+        "video_id": 28770084
+      },
+      {
+        "episode_id": 62472,
+        "display_name": "Undercover S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 28770204
       },
       {
         "episode_id": 152989,
@@ -260453,6 +260463,16 @@
         "video_id": 28769819
       },
       {
+        "episode_id": 62468,
+        "display_name": "Undercover S02E04 - 4. epizoda CZ Dabing",
+        "video_id": 28770084
+      },
+      {
+        "episode_id": 62472,
+        "display_name": "Undercover S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 28770204
+      },
+      {
         "episode_id": 152989,
         "display_name": "Raven S02E04 - 4. epizoda CZ Dabing",
         "video_id": 28769627
@@ -336807,9 +336827,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 203,
-    "ok": 113,
-    "resolve_failed": 3
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6206,
