@@ -2,36 +2,84 @@
   "counts": {
     "backlog_episodes": 153300,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 38716,
-    "prepared_source_episodes": 46774,
+    "uploaded_episodes": 38717,
+    "prepared_source_episodes": 46782,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 47,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 243,
+    "language_audited_sources": 247,
     "language_whisper_attempted_sources": 52,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56490,
-    "whisper_review_pending_sources": 48019,
+    "whisper_review_sources": 56504,
+    "whisper_review_pending_sources": 48135,
     "subtitle_followup_sources": 27740,
     "subtitle_followup_pending_sources": 27740
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-24T12:01:21Z",
-      "databaseId": 32724863283,
+      "createdAt": "2026-08-24T12:03:05Z",
+      "databaseId": 32725012406,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T12:02:37Z",
+      "databaseId": 32724972934,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T12:02:33Z",
+      "databaseId": 32724967135,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T12:02:23Z",
+      "databaseId": 32724952275,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T12:02:19Z",
+      "databaseId": 32724946900,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T12:02:17Z",
+      "databaseId": 32724943761,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T12:01:21Z",
+      "databaseId": 32724863283,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-24T12:00:50Z",
       "databaseId": 32724817752,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-24T11:49:05Z",
-      "databaseId": 32723798701,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T11:46:08Z",
-      "databaseId": 32723547697,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T11:46:05Z",
-      "databaseId": 32723543911,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T11:45:14Z",
-      "databaseId": 32723465616,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-24T11:45:07Z",
-      "databaseId": 32723454506,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T11:42:29Z",
-      "databaseId": 32723227490,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -93229,6 +93229,11 @@
         "episode_id": 118532,
         "display_name": "Uneseni S01E08 - Rozbité nádobí CZ Dabing",
         "video_id": 28775499
+      },
+      {
+        "episode_id": 118528,
+        "display_name": "Uneseni S01E09 - John CZ Dabing",
+        "video_id": 28775578
       },
       {
         "episode_id": 62461,
@@ -261793,6 +261798,11 @@
         "video_id": 28775499
       },
       {
+        "episode_id": 118528,
+        "display_name": "Uneseni S01E09 - John CZ Dabing",
+        "video_id": 28775578
+      },
+      {
         "episode_id": 62461,
         "display_name": "Undercover S01E08 - 8. epizoda CZ Titulky",
         "video_id": 28775397
@@ -337728,6 +337738,38 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 118451,
+        "source_id": -12487956326213696,
+        "series_title": "Baskets",
+        "episode_code": "S01E01",
+        "source_title": "Baskets - S1E1 Renoir EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 118465,
+        "source_id": -44818628858497073,
+        "series_title": "Baskets",
+        "episode_code": "S02E09",
+        "source_title": "Baskets - S2E9 Yard Sale EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 118486,
+        "source_id": -3200873847032889,
+        "series_title": "Baskets",
+        "episode_code": "S03E07",
+        "source_title": "Baskets - S3E7 Women's Conference EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 118478,
+        "source_id": -30436658181726252,
+        "series_title": "Baskets",
+        "episode_code": "S03E09",
+        "source_title": "Baskets - S3E9 Basque-ets EN",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 49910,
         "source_id": -49187278468511205,
         "series_title": "Beze stopy",
@@ -338056,60 +338098,28 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 56254,
-        "source_id": -59514815803122524,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E20",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E20",
-        "status": "whisper_failed"
+        "episode_id": 144997,
+        "source_id": -45387089390369585,
+        "series_title": "CAT: Práskači",
+        "episode_code": "S01E01",
+        "source_title": "CAT: Práskači - S1E1 Dohoda ID",
+        "status": "needs_whisper"
       },
       {
-        "episode_id": 56255,
-        "source_id": -22875583173178308,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E21",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E21",
-        "status": "whisper_failed"
+        "episode_id": 144997,
+        "source_id": -28678908025485100,
+        "series_title": "CAT: Práskači",
+        "episode_code": "S01E01",
+        "source_title": "CAT: Práskači - S1E1 The Deal EN",
+        "status": "needs_whisper"
       },
       {
-        "episode_id": 56256,
-        "source_id": -50323602737151014,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56257,
-        "source_id": -57235569892845375,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E01",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56258,
-        "source_id": -55733822280244712,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E02",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
-        "status": "whisper_failed"
+        "episode_id": 145001,
+        "source_id": -702973817644531,
+        "series_title": "CAT: Práskači",
+        "episode_code": "S01E05",
+        "source_title": "CAT: Práskači - S1E5 Rozcestí ID",
+        "status": "needs_whisper"
       }
     ],
     "subtitle_followup_pending": [
@@ -338567,15 +338577,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 191,
+    "disabled": 195,
     "ok": 51,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6221,
-    "whisper_confirmed_cz": 2250,
-    "whisper_failed": 137,
-    "needs_whisper": 47882
+    "whisper_non_cz_needs_subtitles": 6173,
+    "whisper_confirmed_cz": 2196,
+    "whisper_failed": 131,
+    "needs_whisper": 48004
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 27740
