@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 152923,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 38979,
+    "uploaded_episodes": 38980,
     "prepared_source_episodes": 47200,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 332,
-    "language_whisper_attempted_sources": 81,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56510,
     "whisper_review_pending_sources": 48123,
     "subtitle_followup_sources": 27761,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T17:14:21Z",
+      "databaseId": 32755467681,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T17:13:56Z",
+      "databaseId": 32755425995,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T17:13:34Z",
+      "databaseId": 32755388556,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T17:11:30Z",
+      "databaseId": 32755187151,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:11:14Z",
       "databaseId": 32755160700,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -35,19 +67,19 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:10:31Z",
       "databaseId": 32755093297,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:10:10Z",
       "databaseId": 32755056897,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:00:48Z",
       "databaseId": 32754154940,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-08-24T16:51:49Z",
       "databaseId": 32753281965,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T16:50:46Z",
-      "databaseId": 32753180826,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T16:50:42Z",
-      "databaseId": 32753174049,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-24T16:50:32Z",
-      "databaseId": 32753159598,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T16:48:30Z",
-      "databaseId": 32752962849,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -93859,6 +93859,11 @@
         "episode_id": 55656,
         "display_name": "Osudové cesty S01E04 - Sabotáž CZ Dabing",
         "video_id": 28785539
+      },
+      {
+        "episode_id": 55668,
+        "display_name": "Osudové cesty S03E03 - Černý pasažér CZ Dabing",
+        "video_id": 28786093
       },
       {
         "episode_id": 45953,
@@ -263738,6 +263743,11 @@
         "video_id": 28785539
       },
       {
+        "episode_id": 55668,
+        "display_name": "Osudové cesty S03E03 - Černý pasažér CZ Dabing",
+        "video_id": 28786093
+      },
+      {
         "episode_id": 45953,
         "display_name": "Cesta do neznáma S01E01 - Cesta do neznáma 1 CZ Dabing",
         "video_id": 28785186
@@ -341197,9 +341207,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 251,
-    "ok": 79,
-    "sample_failed": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
