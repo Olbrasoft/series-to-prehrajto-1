@@ -85,20 +85,12 @@ jobs:
           fi
           DATABASE_URL="$(python - <<'PY'
           import os
-          import urllib.parse
+          import psycopg2.extensions
 
-          raw = os.environ["DATABASE_URL"]
-          parsed = urllib.parse.urlsplit(raw)
-          if parsed.scheme and parsed.hostname:
-              netloc = "127.0.0.1:15432"
-              if parsed.username:
-                  auth = urllib.parse.quote(urllib.parse.unquote(parsed.username), safe="")
-                  if parsed.password:
-                      auth += ":" + urllib.parse.quote(urllib.parse.unquote(parsed.password), safe="")
-                  netloc = auth + "@" + netloc
-              print(urllib.parse.urlunsplit((parsed.scheme, netloc, parsed.path, parsed.query, parsed.fragment)))
-          else:
-              print(raw)
+          params = psycopg2.extensions.parse_dsn(os.environ["DATABASE_URL"])
+          params["host"] = "127.0.0.1"
+          params["port"] = "15432"
+          print(psycopg2.extensions.make_dsn(**params))
           PY
           )"
           export DATABASE_URL

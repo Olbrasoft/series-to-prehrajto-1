@@ -61,6 +61,12 @@ def sxe(season: int | None, episode: int | None) -> str:
     return f"S{int(season or 0):02d}E{int(episode or 0):02d}"
 
 
+def episode_key(row: dict[str, Any]) -> str | None:
+    if row.get("series_id") is None or row.get("season") is None or row.get("episode") is None:
+        return None
+    return f"{int(row['series_id'])}:{int(row['season'])}:{int(row['episode'])}"
+
+
 def display_name(row: dict[str, Any]) -> str:
     base = f"{row['series_title']} {sxe(row['season'], row['episode'])}"
     subtitle = (row.get("episode_name") or row.get("episode_title") or "").strip()
@@ -173,21 +179,25 @@ def fetch_rows(
                     s.csfd_rating
                 FROM ranked_series s
                 JOIN episodes e ON e.series_id = s.id
-                WHERE NOT (e.id = ANY(%(uploaded_episode_ids)s))
                 ORDER BY
                     s.series_rank,
                     e.season NULLS LAST,
                     e.episode NULLS LAST,
                     e.id
-                LIMIT %(episode_limit)s
                 """,
                 {
                     "series_limit": series_limit,
-                    "episode_limit": episode_limit,
-                    "uploaded_episode_ids": list(uploaded_episode_ids),
                 },
             )
             episode_rows = list(cur.fetchall())
+        filtered_rows = []
+        for episode_row in episode_rows:
+            key = episode_key(episode_row)
+            if episode_row.get("id") in uploaded_episode_ids or (key is not None and key in uploaded_episode_keys):
+                continue
+            filtered_rows.append(episode_row)
+            if len(filtered_rows) >= episode_limit:
+                break
         return [
             {
                 **episode_row,
@@ -204,7 +214,7 @@ def fetch_rows(
                 "source_url": None,
                 "source_rank": None,
             }
-            for episode_row in episode_rows
+            for episode_row in filtered_rows
         ]
 
     with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
