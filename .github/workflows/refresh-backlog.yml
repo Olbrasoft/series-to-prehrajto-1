@@ -94,6 +94,18 @@ jobs:
           PY
           )"
           export DATABASE_URL
+          export DB_CONNECT_ATTEMPTS=3
+          export DB_CONNECT_DELAY_SECONDS=5
+          export DB_CONNECT_TIMEOUT=10
+          export PYTHONUNBUFFERED=1
+          python - <<'PY'
+          import os
+          import psycopg2
+
+          conn = psycopg2.connect(os.environ["DATABASE_URL"], connect_timeout=10)
+          conn.close()
+          print("DB tunnel check passed")
+          PY
           python src/export_backlog.py \
             --series-limit "${{ inputs.series_limit || '10000' }}" \
             --episode-limit "${{ inputs.episode_limit || '1000000' }}" \

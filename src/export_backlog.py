@@ -29,17 +29,38 @@ UPLOAD_LANG_CLASSES = ("CZ_DUB", "CZ_NATIVE")
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
+def env_int(name: str, default: int) -> int:
+    value = os.environ.get(name)
+    if not value:
+        return default
+    try:
+        return int(value)
+    except ValueError:
+        return default
+
+
+def env_float(name: str, default: float) -> float:
+    value = os.environ.get(name)
+    if not value:
+        return default
+    try:
+        return float(value)
+    except ValueError:
+        return default
+
+
 def connect_with_retries(
     db_url: str,
     *,
     attempts: int = 40,
     delay_seconds: float = 15.0,
     max_delay_seconds: float = 60.0,
+    connect_timeout: int = 10,
 ):
     last_exc: Exception | None = None
     for attempt in range(1, attempts + 1):
         try:
-            return psycopg2.connect(db_url)
+            return psycopg2.connect(db_url, connect_timeout=connect_timeout)
         except psycopg2.OperationalError as exc:
             last_exc = exc
             print(f"DB connect failed on attempt {attempt}/{attempts}: {exc}", file=sys.stderr)
@@ -473,7 +494,13 @@ def main() -> int:
 
     uploaded_episode_ids, uploaded_episode_keys = load_uploaded_exclusions()
     burned_source_ids = load_burned_source_exclusions()
-    conn = connect_with_retries(args.db_url)
+    conn = connect_with_retries(
+        args.db_url,
+        attempts=env_int("DB_CONNECT_ATTEMPTS", 40),
+        delay_seconds=env_float("DB_CONNECT_DELAY_SECONDS", 15.0),
+        max_delay_seconds=env_float("DB_CONNECT_MAX_DELAY_SECONDS", 60.0),
+        connect_timeout=env_int("DB_CONNECT_TIMEOUT", 10),
+    )
     try:
         rows = fetch_rows(
             conn,
