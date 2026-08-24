@@ -83,7 +83,26 @@ jobs:
             echo "PRODUCTION_DATABASE_URL secret is missing"
             exit 2
           fi
-            python src/export_backlog.py \
+          DATABASE_URL="$(python - <<'PY'
+          import os
+          import urllib.parse
+
+          raw = os.environ["DATABASE_URL"]
+          parsed = urllib.parse.urlsplit(raw)
+          if parsed.scheme and parsed.hostname:
+              netloc = "127.0.0.1:15432"
+              if parsed.username:
+                  auth = urllib.parse.quote(urllib.parse.unquote(parsed.username), safe="")
+                  if parsed.password:
+                      auth += ":" + urllib.parse.quote(urllib.parse.unquote(parsed.password), safe="")
+                  netloc = auth + "@" + netloc
+              print(urllib.parse.urlunsplit((parsed.scheme, netloc, parsed.path, parsed.query, parsed.fragment)))
+          else:
+              print(raw)
+          PY
+          )"
+          export DATABASE_URL
+          python src/export_backlog.py \
             --series-limit "${{ inputs.series_limit || '10000' }}" \
             --episode-limit "${{ inputs.episode_limit || '1000000' }}" \
             --source-limit-per-episode "${{ inputs.source_limit_per_episode || '8' }}" \
