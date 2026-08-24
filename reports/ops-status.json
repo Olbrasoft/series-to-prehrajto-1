@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 152781,
-    "manifest_upload_ready_episodes": 1014,
-    "uploaded_episodes": 39115,
-    "prepared_source_episodes": 47528,
+    "manifest_upload_ready_episodes": 1012,
+    "uploaded_episodes": 39116,
+    "prepared_source_episodes": 47541,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 80,
+    "language_whisper_attempted_sources": 80,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56467,
     "whisper_review_pending_sources": 47896,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T23:37:54Z",
+      "databaseId": 32790198645,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T23:37:36Z",
+      "databaseId": 32790179332,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T23:37:29Z",
+      "databaseId": 32790171631,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T23:35:17Z",
+      "databaseId": 32790010608,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T23:35:14Z",
+      "databaseId": 32790006196,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T23:34:23Z",
       "databaseId": 32789938102,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T23:20:47Z",
       "databaseId": 32788914202,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T23:18:06Z",
-      "databaseId": 32788715095,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T23:18:02Z",
-      "databaseId": 32788710133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-24T23:09:29Z",
-      "databaseId": 32788052147,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T23:08:57Z",
-      "databaseId": 32788012600,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T23:08:44Z",
-      "databaseId": 32787995961,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -170821,6 +170821,11 @@
         "video_id": 28795498
       },
       {
+        "episode_id": 57698,
+        "display_name": "Neobyčejná S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 28795831
+      },
+      {
         "episode_id": 169487,
         "display_name": "Námořní vyšetřovací služba: New Orleans  S07E13 - 13. epizoda CZ Dabing",
         "video_id": 28794126
@@ -341378,6 +341383,11 @@
         "video_id": 28795498
       },
       {
+        "episode_id": 57698,
+        "display_name": "Neobyčejná S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 28795831
+      },
+      {
         "episode_id": 169487,
         "display_name": "Námořní vyšetřovací služba: New Orleans  S07E13 - 13. epizoda CZ Dabing",
         "video_id": 28794126
@@ -342557,8 +342567,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "resolve_failed": 1
+    "ok": 76,
+    "resolve_failed": 4
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6277,
