@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 152923,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 38989,
-    "prepared_source_episodes": 47256,
+    "uploaded_episodes": 38990,
+    "prepared_source_episodes": 47289,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 178,
-    "language_whisper_attempted_sources": 57,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 209,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56497,
     "whisper_review_pending_sources": 48053,
     "subtitle_followup_sources": 27766,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T17:48:34Z",
+      "databaseId": 32758754906,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T17:46:34Z",
+      "databaseId": 32758564320,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T17:43:31Z",
+      "databaseId": 32758270559,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T17:42:53Z",
+      "databaseId": 32758212671,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:41:36Z",
       "databaseId": 32758088586,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:41:05Z",
       "databaseId": 32758039817,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -107,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:26:39Z",
       "databaseId": 32756653902,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -131,11 +163,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T17:22:25Z",
       "databaseId": 32756244464,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T17:21:25Z",
-      "databaseId": 32756147866,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T17:21:23Z",
-      "databaseId": 32756144797,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-24T17:21:20Z",
-      "databaseId": 32756139873,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T17:20:31Z",
-      "databaseId": 32756062954,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -93914,6 +93914,11 @@
         "episode_id": 74904,
         "display_name": "Tělo jako důkaz S01E03 - Pomocná ruka (Helping Hand) CZ Titulky",
         "video_id": 28786623
+      },
+      {
+        "episode_id": 74912,
+        "display_name": "Tělo jako důkaz S02E02 - Na lovu (Hunting Party) CZ Dabing",
+        "video_id": 28786943
       },
       {
         "episode_id": 69609,
@@ -263843,6 +263848,11 @@
         "video_id": 28786623
       },
       {
+        "episode_id": 74912,
+        "display_name": "Tělo jako důkaz S02E02 - Na lovu (Hunting Party) CZ Dabing",
+        "video_id": 28786943
+      },
+      {
         "episode_id": 69609,
         "display_name": "H2O: Stačí přidat vodu S02E08 - Opačná strana kolejí CZ Titulky",
         "video_id": 28786770
@@ -341297,9 +341307,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 121,
+    "disabled": 149,
     "resolve_failed": 3,
-    "ok": 54
+    "ok": 57
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6220,
