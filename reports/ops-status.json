@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 155856,
-    "manifest_upload_ready_episodes": 1002,
-    "uploaded_episodes": 38264,
-    "prepared_source_episodes": 46354,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 38286,
+    "prepared_source_episodes": 46362,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 23,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 70,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56511,
     "whisper_review_pending_sources": 48133,
     "subtitle_followup_sources": 27649,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-24T06:24:10Z",
-      "databaseId": 32697176311,
+      "createdAt": "2026-08-24T06:35:57Z",
+      "databaseId": 32697986120,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T06:35:31Z",
+      "databaseId": 32697955178,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-24T06:35:27Z",
+      "databaseId": 32697950529,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-24T06:25:38Z",
+      "databaseId": 32697281145,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T06:25:10Z",
+      "databaseId": 32697247742,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-24T06:24:10Z",
+      "databaseId": 32697176311,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-24T06:24:02Z",
       "databaseId": 32697166881,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "refresh-backlog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T06:20:22Z",
       "databaseId": 32696902214,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -63,7 +103,7 @@
       "createdAt": "2026-08-24T06:18:37Z",
       "databaseId": 32696775787,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -75,11 +115,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T06:18:26Z",
       "databaseId": 32696762670,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-24T06:16:14Z",
       "databaseId": 32696610634,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T06:05:02Z",
-      "databaseId": 32695852843,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T06:04:09Z",
-      "databaseId": 32695794208,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-24T06:02:29Z",
-      "databaseId": 32695691096,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T06:00:55Z",
-      "databaseId": 32695595607,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-24T06:00:00Z",
-      "databaseId": 32695532337,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -92111,6 +92111,36 @@
         "video_id": 28765505
       },
       {
+        "episode_id": 53036,
+        "display_name": "Poslední loď S04E04 - Shledání CZ Dabing",
+        "video_id": 28765697
+      },
+      {
+        "episode_id": 99920,
+        "display_name": "Geniální přítelkyně S04E03 - 3. epizoda CZ Titulky",
+        "video_id": 28765771
+      },
+      {
+        "episode_id": 99924,
+        "display_name": "Geniální přítelkyně S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 28765804
+      },
+      {
+        "episode_id": 148640,
+        "display_name": "Gumy, kam se podíváš S01E04 - Hromada drbů CZ Dabing",
+        "video_id": 28765840
+      },
+      {
+        "episode_id": 6212,
+        "display_name": "Soumrak templářů S01E07 - A rozhodně ne mrzák CZ Dabing",
+        "video_id": 28765870
+      },
+      {
+        "episode_id": 89500,
+        "display_name": "Všechny velké a malé bytosti S01E01 - Musíš snít CZ Dabing",
+        "video_id": 28765946
+      },
+      {
         "episode_id": 124809,
         "display_name": "Kingdom S02E14 - 14. epizoda CZ Titulky",
         "video_id": 28765465
@@ -92124,6 +92154,31 @@
         "episode_id": 53033,
         "display_name": "Poslední loď S03E06 - Den pod psa CZ Dabing",
         "video_id": 28765536
+      },
+      {
+        "episode_id": 45913,
+        "display_name": "Svatyně S02E05 - Pavor Nocturnus CZ Dabing",
+        "video_id": 28765739
+      },
+      {
+        "episode_id": 45917,
+        "display_name": "Svatyně S02E10 - Spáči CZ Dabing",
+        "video_id": 28765764
+      },
+      {
+        "episode_id": 45925,
+        "display_name": "Svatyně S03E05 - Zlomený šíp CZ Dabing",
+        "video_id": 28765788
+      },
+      {
+        "episode_id": 45921,
+        "display_name": "Svatyně S03E07 - Trhlina CZ Dabing",
+        "video_id": 28765812
+      },
+      {
+        "episode_id": 45929,
+        "display_name": "Svatyně S03E09 - Strážce CZ Dabing",
+        "video_id": 28765847
       },
       {
         "episode_id": 114182,
@@ -166576,6 +166631,31 @@
         "video_id": 28765526
       },
       {
+        "episode_id": 137030,
+        "display_name": "Zasvěcený S01E26 - Důležitý úkol CZ Titulky",
+        "video_id": 28765738
+      },
+      {
+        "episode_id": 171410,
+        "display_name": "Breathe S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28765801
+      },
+      {
+        "episode_id": 171414,
+        "display_name": "Breathe S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 28765820
+      },
+      {
+        "episode_id": 72730,
+        "display_name": "Scooby Doo - Záhady s.r.o. S01E02 - Plaziví podezřelí CZ Titulky",
+        "video_id": 28765854
+      },
+      {
+        "episode_id": 72738,
+        "display_name": "Scooby Doo - Záhady s.r.o. S01E12 - Zběsilé šílenství CZ Titulky",
+        "video_id": 28765872
+      },
+      {
         "episode_id": 124807,
         "display_name": "Kingdom S02E13 - 13. epizoda CZ Titulky",
         "video_id": 28765468
@@ -166584,6 +166664,36 @@
         "episode_id": 53031,
         "display_name": "Poslední loď S03E01 - Scottův efekt CZ Dabing",
         "video_id": 28765503
+      },
+      {
+        "episode_id": 53067,
+        "display_name": "Poslední loď S03E05 - Minové pole CZ Dabing",
+        "video_id": 28765729
+      },
+      {
+        "episode_id": 59887,
+        "display_name": "Prozíravost S02E07 - 7. epizoda CZ Dabing",
+        "video_id": 28765783
+      },
+      {
+        "episode_id": 59891,
+        "display_name": "Prozíravost S02E11 - 11. epizoda CZ Dabing",
+        "video_id": 28765823
+      },
+      {
+        "episode_id": 59895,
+        "display_name": "Prozíravost S03E01 - 1. epizoda CZ Dabing",
+        "video_id": 28765882
+      },
+      {
+        "episode_id": 59899,
+        "display_name": "Prozíravost S03E09 - 9. epizoda CZ Dabing",
+        "video_id": 28765922
+      },
+      {
+        "episode_id": 59903,
+        "display_name": "Prozíravost S03E13 - 13. epizoda CZ Dabing",
+        "video_id": 28765942
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -258413,6 +258523,36 @@
         "video_id": 28765505
       },
       {
+        "episode_id": 53036,
+        "display_name": "Poslední loď S04E04 - Shledání CZ Dabing",
+        "video_id": 28765697
+      },
+      {
+        "episode_id": 99920,
+        "display_name": "Geniální přítelkyně S04E03 - 3. epizoda CZ Titulky",
+        "video_id": 28765771
+      },
+      {
+        "episode_id": 99924,
+        "display_name": "Geniální přítelkyně S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 28765804
+      },
+      {
+        "episode_id": 148640,
+        "display_name": "Gumy, kam se podíváš S01E04 - Hromada drbů CZ Dabing",
+        "video_id": 28765840
+      },
+      {
+        "episode_id": 6212,
+        "display_name": "Soumrak templářů S01E07 - A rozhodně ne mrzák CZ Dabing",
+        "video_id": 28765870
+      },
+      {
+        "episode_id": 89500,
+        "display_name": "Všechny velké a malé bytosti S01E01 - Musíš snít CZ Dabing",
+        "video_id": 28765946
+      },
+      {
         "episode_id": 124809,
         "display_name": "Kingdom S02E14 - 14. epizoda CZ Titulky",
         "video_id": 28765465
@@ -258426,6 +258566,31 @@
         "episode_id": 53033,
         "display_name": "Poslední loď S03E06 - Den pod psa CZ Dabing",
         "video_id": 28765536
+      },
+      {
+        "episode_id": 45913,
+        "display_name": "Svatyně S02E05 - Pavor Nocturnus CZ Dabing",
+        "video_id": 28765739
+      },
+      {
+        "episode_id": 45917,
+        "display_name": "Svatyně S02E10 - Spáči CZ Dabing",
+        "video_id": 28765764
+      },
+      {
+        "episode_id": 45925,
+        "display_name": "Svatyně S03E05 - Zlomený šíp CZ Dabing",
+        "video_id": 28765788
+      },
+      {
+        "episode_id": 45921,
+        "display_name": "Svatyně S03E07 - Trhlina CZ Dabing",
+        "video_id": 28765812
+      },
+      {
+        "episode_id": 45929,
+        "display_name": "Svatyně S03E09 - Strážce CZ Dabing",
+        "video_id": 28765847
       },
       {
         "episode_id": 114182,
@@ -332878,6 +333043,31 @@
         "video_id": 28765526
       },
       {
+        "episode_id": 137030,
+        "display_name": "Zasvěcený S01E26 - Důležitý úkol CZ Titulky",
+        "video_id": 28765738
+      },
+      {
+        "episode_id": 171410,
+        "display_name": "Breathe S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28765801
+      },
+      {
+        "episode_id": 171414,
+        "display_name": "Breathe S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 28765820
+      },
+      {
+        "episode_id": 72730,
+        "display_name": "Scooby Doo - Záhady s.r.o. S01E02 - Plaziví podezřelí CZ Titulky",
+        "video_id": 28765854
+      },
+      {
+        "episode_id": 72738,
+        "display_name": "Scooby Doo - Záhady s.r.o. S01E12 - Zběsilé šílenství CZ Titulky",
+        "video_id": 28765872
+      },
+      {
         "episode_id": 124807,
         "display_name": "Kingdom S02E13 - 13. epizoda CZ Titulky",
         "video_id": 28765468
@@ -332886,6 +333076,36 @@
         "episode_id": 53031,
         "display_name": "Poslední loď S03E01 - Scottův efekt CZ Dabing",
         "video_id": 28765503
+      },
+      {
+        "episode_id": 53067,
+        "display_name": "Poslední loď S03E05 - Minové pole CZ Dabing",
+        "video_id": 28765729
+      },
+      {
+        "episode_id": 59887,
+        "display_name": "Prozíravost S02E07 - 7. epizoda CZ Dabing",
+        "video_id": 28765783
+      },
+      {
+        "episode_id": 59891,
+        "display_name": "Prozíravost S02E11 - 11. epizoda CZ Dabing",
+        "video_id": 28765823
+      },
+      {
+        "episode_id": 59895,
+        "display_name": "Prozíravost S03E01 - 1. epizoda CZ Dabing",
+        "video_id": 28765882
+      },
+      {
+        "episode_id": 59899,
+        "display_name": "Prozíravost S03E09 - 9. epizoda CZ Dabing",
+        "video_id": 28765922
+      },
+      {
+        "episode_id": 59903,
+        "display_name": "Prozíravost S03E13 - 13. epizoda CZ Dabing",
+        "video_id": 28765942
       }
     ],
     "prepared_not_upload_ready": [
@@ -334047,6 +334267,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 30,
     "ok": 39,
     "resolve_failed": 1
   },
