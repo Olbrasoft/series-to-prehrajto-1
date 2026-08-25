@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 151825,
-    "manifest_upload_ready_episodes": 1010,
-    "uploaded_episodes": 40036,
-    "prepared_source_episodes": 47930,
+    "manifest_upload_ready_episodes": 1007,
+    "uploaded_episodes": 40037,
+    "prepared_source_episodes": 47928,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,12 +12,36 @@
     "language_audited_sources": 48,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56416,
-    "whisper_review_pending_sources": 47627,
+    "whisper_review_sources": 56411,
+    "whisper_review_pending_sources": 47602,
     "subtitle_followup_sources": 28103,
     "subtitle_followup_pending_sources": 28103
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T20:46:45Z",
+      "databaseId": 32897300899,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T20:45:59Z",
+      "databaseId": 32897225281,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T20:43:35Z",
+      "databaseId": 32896983244,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-08-25T20:43:05Z",
@@ -27,11 +51,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T20:42:35Z",
       "databaseId": 32896885219,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T20:36:45Z",
       "databaseId": 32896315116,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T20:23:32Z",
-      "databaseId": 32895061994,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T20:23:30Z",
-      "databaseId": 32895059195,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T20:21:56Z",
-      "databaseId": 32894909385,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -96519,6 +96519,11 @@
         "episode_id": 203100,
         "display_name": "Widow's Bay S01E09 - Nouzový úkryt CZ Dabing",
         "video_id": 28836001
+      },
+      {
+        "episode_id": 46580,
+        "display_name": "Heuréka – město divů S03E17 - Ledové jádro CZ Dabing",
+        "video_id": 28836319
       },
       {
         "episode_id": 60817,
@@ -271683,6 +271688,11 @@
         "video_id": 28836001
       },
       {
+        "episode_id": 46580,
+        "display_name": "Heuréka – město divů S03E17 - Ledové jádro CZ Dabing",
+        "video_id": 28836319
+      },
+      {
         "episode_id": 60817,
         "display_name": "Kleo S02E02 - Objekt Moni CZ Dabing",
         "video_id": 28835650
@@ -351773,9 +351783,9 @@
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6380,
-    "whisper_confirmed_cz": 2409,
+    "whisper_confirmed_cz": 2429,
     "whisper_failed": 150,
-    "needs_whisper": 47477
+    "needs_whisper": 47452
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28103
