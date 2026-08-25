@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 151903,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39990,
-    "prepared_source_episodes": 48579,
+    "uploaded_episodes": 39998,
+    "prepared_source_episodes": 48592,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56420,
     "whisper_review_pending_sources": 47651,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-25T17:28:38Z",
-      "databaseId": 32878104273,
+      "createdAt": "2026-08-25T17:41:01Z",
+      "databaseId": 32879323885,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T17:40:35Z",
+      "databaseId": 32879279907,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T17:32:39Z",
+      "databaseId": 32878499900,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T17:31:41Z",
+      "databaseId": 32878404775,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T17:29:46Z",
+      "databaseId": 32878214574,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T17:28:38Z",
+      "databaseId": 32878104273,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-25T17:28:33Z",
       "databaseId": 32878096126,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T17:22:51Z",
       "databaseId": 32877537502,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T17:10:13Z",
-      "databaseId": 32876293283,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T17:09:18Z",
-      "databaseId": 32876200434,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T17:07:59Z",
-      "databaseId": 32876073283,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T17:07:56Z",
-      "databaseId": 32876068786,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T17:07:00Z",
-      "databaseId": 32875976871,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -96421,6 +96421,36 @@
         "video_id": 28832496
       },
       {
+        "episode_id": 78708,
+        "display_name": "Vedoucí katedry S01E03 - Debata CZ Dabing",
+        "video_id": 28833009
+      },
+      {
+        "episode_id": 71480,
+        "display_name": "Mayfair Witches S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28833065
+      },
+      {
+        "episode_id": 156160,
+        "display_name": "Od nuly S01E01 - První sousta CZ Dabing",
+        "video_id": 28833170
+      },
+      {
+        "episode_id": 64017,
+        "display_name": "Bitten S01E01 - Summons CZ Titulky",
+        "video_id": 28833017
+      },
+      {
+        "episode_id": 64021,
+        "display_name": "Bitten S01E05 CZ Titulky",
+        "video_id": 28833057
+      },
+      {
+        "episode_id": 64025,
+        "display_name": "Bitten S01E09 - Vengeance CZ Titulky",
+        "video_id": 28833083
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -175214,6 +175244,16 @@
         "episode_id": 132359,
         "display_name": "Equalizer S01E03 - Soudný den CZ Dabing",
         "video_id": 28832197
+      },
+      {
+        "episode_id": 156166,
+        "display_name": "Od nuly S01E08 - Dochutě CZ Titulky",
+        "video_id": 28833032
+      },
+      {
+        "episode_id": 152230,
+        "display_name": "Milenec z vesmíru S01E01 - První záznam CZ Titulky",
+        "video_id": 28833101
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -271353,6 +271393,36 @@
         "video_id": 28832496
       },
       {
+        "episode_id": 78708,
+        "display_name": "Vedoucí katedry S01E03 - Debata CZ Dabing",
+        "video_id": 28833009
+      },
+      {
+        "episode_id": 71480,
+        "display_name": "Mayfair Witches S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28833065
+      },
+      {
+        "episode_id": 156160,
+        "display_name": "Od nuly S01E01 - První sousta CZ Dabing",
+        "video_id": 28833170
+      },
+      {
+        "episode_id": 64017,
+        "display_name": "Bitten S01E01 - Summons CZ Titulky",
+        "video_id": 28833017
+      },
+      {
+        "episode_id": 64021,
+        "display_name": "Bitten S01E05 CZ Titulky",
+        "video_id": 28833057
+      },
+      {
+        "episode_id": 64025,
+        "display_name": "Bitten S01E09 - Vengeance CZ Titulky",
+        "video_id": 28833083
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -350146,6 +350216,16 @@
         "episode_id": 132359,
         "display_name": "Equalizer S01E03 - Soudný den CZ Dabing",
         "video_id": 28832197
+      },
+      {
+        "episode_id": 156166,
+        "display_name": "Od nuly S01E08 - Dochutě CZ Titulky",
+        "video_id": 28833032
+      },
+      {
+        "episode_id": 152230,
+        "display_name": "Milenec z vesmíru S01E01 - První záznam CZ Titulky",
+        "video_id": 28833101
       }
     ],
     "prepared_not_upload_ready": [
@@ -351307,7 +351387,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "disabled": 4,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
