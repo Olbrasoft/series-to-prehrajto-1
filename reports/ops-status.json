@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 152693,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39282,
-    "prepared_source_episodes": 47644,
+    "uploaded_episodes": 39286,
+    "prepared_source_episodes": 47595,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 114,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 205,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56456,
     "whisper_review_pending_sources": 47847,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-25T02:47:40Z",
-      "databaseId": 32802744442,
+      "createdAt": "2026-08-25T02:53:58Z",
+      "databaseId": 32803127162,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T02:53:28Z",
+      "databaseId": 32803096417,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T02:53:23Z",
+      "databaseId": 32803090637,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T02:50:55Z",
+      "databaseId": 32802939721,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T02:49:46Z",
+      "databaseId": 32802869562,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T02:49:46Z",
+      "databaseId": 32802868905,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T02:49:30Z",
+      "databaseId": 32802853738,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-25T02:47:40Z",
+      "databaseId": 32802744442,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T02:47:34Z",
       "databaseId": 32802739179,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -43,11 +99,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T02:36:40Z",
       "databaseId": 32802057794,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -67,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T02:34:30Z",
       "databaseId": 32801922746,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T02:26:05Z",
-      "databaseId": 32801379310,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T02:25:56Z",
-      "databaseId": 32801370124,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T02:25:29Z",
-      "databaseId": 32801341072,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T02:25:21Z",
-      "databaseId": 32801333231,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T02:20:40Z",
-      "databaseId": 32801039442,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T02:20:14Z",
-      "databaseId": 32801011404,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T02:09:20Z",
-      "databaseId": 32800315493,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -94616,6 +94616,11 @@
         "video_id": 28799620
       },
       {
+        "episode_id": 8144,
+        "display_name": "The I-Land S01E02 - Nádherné paláce CZ Titulky",
+        "video_id": 28799699
+      },
+      {
         "episode_id": 52065,
         "display_name": "JAG S03E04 - Slabá stránka CZ Dabing",
         "video_id": 28799308
@@ -171634,6 +171639,21 @@
         "episode_id": 74190,
         "display_name": "Grantchester S07E01 - 1. epizoda CZ Dabing",
         "video_id": 28799648
+      },
+      {
+        "episode_id": 74194,
+        "display_name": "Grantchester S07E05 - 5. epizoda CZ Dabing",
+        "video_id": 28799698
+      },
+      {
+        "episode_id": 74198,
+        "display_name": "Grantchester S08E01 - 1. epizoda CZ Dabing",
+        "video_id": 28799740
+      },
+      {
+        "episode_id": 74202,
+        "display_name": "Grantchester S09E01 - 1. epizoda CZ Dabing",
+        "video_id": 28799797
       },
       {
         "episode_id": 69647,
@@ -266008,6 +266028,11 @@
         "video_id": 28799620
       },
       {
+        "episode_id": 8144,
+        "display_name": "The I-Land S01E02 - Nádherné paláce CZ Titulky",
+        "video_id": 28799699
+      },
+      {
         "episode_id": 52065,
         "display_name": "JAG S03E04 - Slabá stránka CZ Dabing",
         "video_id": 28799308
@@ -343028,6 +343053,21 @@
         "video_id": 28799648
       },
       {
+        "episode_id": 74194,
+        "display_name": "Grantchester S07E05 - 5. epizoda CZ Dabing",
+        "video_id": 28799698
+      },
+      {
+        "episode_id": 74198,
+        "display_name": "Grantchester S08E01 - 1. epizoda CZ Dabing",
+        "video_id": 28799740
+      },
+      {
+        "episode_id": 74202,
+        "display_name": "Grantchester S09E01 - 1. epizoda CZ Dabing",
+        "video_id": 28799797
+      },
+      {
         "episode_id": 69647,
         "display_name": "H2O: Stačí přidat vodu S03E21 - Kdo ukradl přívěsek CZ Titulky",
         "video_id": 28799298
@@ -344227,8 +344267,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "disabled": 74,
+    "ok": 59,
+    "disabled": 145,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
