@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 152338,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39570,
+    "uploaded_episodes": 39571,
     "prepared_source_episodes": 47727,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 160,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56448,
     "whisper_review_pending_sources": 47804,
     "subtitle_followup_sources": 28011,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T07:28:31Z",
+      "databaseId": 32821770313,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T07:28:28Z",
+      "databaseId": 32821765899,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T07:25:42Z",
+      "databaseId": 32821539643,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T07:25:39Z",
+      "databaseId": 32821535439,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T07:24:45Z",
       "databaseId": 32821461981,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T07:21:49Z",
       "databaseId": 32821219822,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -115,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-25T07:01:03Z",
       "databaseId": 32819555508,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T06:59:53Z",
-      "databaseId": 32819455188,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T06:59:24Z",
-      "databaseId": 32819420602,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T06:59:10Z",
-      "databaseId": 32819404225,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T06:59:06Z",
-      "databaseId": 32819398688,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -95329,6 +95329,11 @@
         "episode_id": 63156,
         "display_name": "Případy detektiva Murdocha S13E12 - Hon na lišku CZ Dabing",
         "video_id": 28805554
+      },
+      {
+        "episode_id": 63160,
+        "display_name": "Případy detektiva Murdocha S13E17 - Břímě minulosti CZ Dabing",
+        "video_id": 28805638
       },
       {
         "episode_id": 174341,
@@ -268163,6 +268168,11 @@
         "video_id": 28805554
       },
       {
+        "episode_id": 63160,
+        "display_name": "Případy detektiva Murdocha S13E17 - Břímě minulosti CZ Dabing",
+        "video_id": 28805638
+      },
+      {
         "episode_id": 174341,
         "display_name": "Sto roků samoty S01E08 - Shůry napadlo tolik kvítků CZ Titulky",
         "video_id": 28805073
@@ -347107,8 +347117,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 120,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
