@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 152338,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39637,
-    "prepared_source_episodes": 47819,
+    "uploaded_episodes": 39638,
+    "prepared_source_episodes": 47832,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,66 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56443,
-    "whisper_review_pending_sources": 47779,
+    "whisper_review_sources": 56448,
+    "whisper_review_pending_sources": 47804,
     "subtitle_followup_sources": 28045,
     "subtitle_followup_pending_sources": 28045
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T08:40:27Z",
+      "databaseId": 32827838536,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T08:40:23Z",
+      "databaseId": 32827831853,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T08:38:48Z",
+      "databaseId": 32827695062,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T08:38:45Z",
+      "databaseId": 32827690565,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T08:38:42Z",
+      "databaseId": 32827686527,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-25T08:38:40Z",
+      "databaseId": 32827683423,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T08:37:49Z",
       "databaseId": 32827611590,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +79,7 @@
       "createdAt": "2026-08-25T08:37:46Z",
       "databaseId": 32827606860,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T08:15:21Z",
-      "databaseId": 32825678404,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T08:15:03Z",
-      "databaseId": 32825649616,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T08:13:53Z",
-      "databaseId": 32825548556,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T08:11:44Z",
-      "databaseId": 32825369546,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T08:10:45Z",
-      "databaseId": 32825286285,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T08:08:19Z",
-      "databaseId": 32825080569,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -95534,6 +95534,11 @@
         "episode_id": 40425,
         "display_name": "Versailles S03E04 - Zločin a trest CZ Titulky",
         "video_id": 28807217
+      },
+      {
+        "episode_id": 40429,
+        "display_name": "Versailles S03E09 - Napjatá situace CZ Titulky",
+        "video_id": 28807322
       },
       {
         "episode_id": 114182,
@@ -268703,6 +268708,11 @@
         "video_id": 28807217
       },
       {
+        "episode_id": 40429,
+        "display_name": "Versailles S03E09 - Napjatá situace CZ Titulky",
+        "video_id": 28807322
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -346946,6 +346956,46 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 8403,
+        "source_id": -65665268004166843,
+        "series_title": "Biohackeři",
+        "episode_code": "S01E04",
+        "source_title": "Biohackeři - S1E4 Gewissheit EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 8403,
+        "source_id": -65753475744837292,
+        "series_title": "Biohackeři",
+        "episode_code": "S01E04",
+        "source_title": "Biohackeři - S1E4 Certainty DE",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 8403,
+        "source_id": -38168418219248629,
+        "series_title": "Biohackeři",
+        "episode_code": "S01E04",
+        "source_title": "Biohackeři - S01E04",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 26500,
+        "source_id": -23627056381595761,
+        "series_title": "Biohackeři",
+        "episode_code": "S02E02",
+        "source_title": "Biohackeři - S2E2 Protivnice DE",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 26504,
+        "source_id": -61901897340343400,
+        "series_title": "Biohackeři",
+        "episode_code": "S02E06",
+        "source_title": "Biohackeři - S2E6 Vzpomínky DE",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 102596,
         "source_id": -15929065662195577,
         "series_title": "Bobovy burgery",
@@ -347279,46 +347329,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S07E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S07E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56256,
-        "source_id": -50323602737151014,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56257,
-        "source_id": -57235569892845375,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E01",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56258,
-        "source_id": -55733822280244712,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E02",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -347781,10 +347791,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6370,
+    "whisper_non_cz_needs_subtitles": 6350,
     "whisper_confirmed_cz": 2294,
     "whisper_failed": 147,
-    "needs_whisper": 47632
+    "needs_whisper": 47657
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28045
