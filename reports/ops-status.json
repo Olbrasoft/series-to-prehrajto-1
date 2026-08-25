@@ -2,36 +2,60 @@
   "counts": {
     "backlog_episodes": 151903,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39941,
-    "prepared_source_episodes": 48349,
+    "uploaded_episodes": 39942,
+    "prepared_source_episodes": 48366,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 68,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 116,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56415,
-    "whisper_review_pending_sources": 47620,
+    "whisper_review_sources": 56418,
+    "whisper_review_pending_sources": 47639,
     "subtitle_followup_sources": 28093,
     "subtitle_followup_pending_sources": 28093
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-25T15:31:38Z",
-      "databaseId": 32866342423,
+      "createdAt": "2026-08-25T15:33:43Z",
+      "databaseId": 32866557107,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T15:33:08Z",
+      "databaseId": 32866497982,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T15:32:37Z",
+      "databaseId": 32866444032,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T15:31:38Z",
+      "databaseId": 32866342423,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-25T15:31:31Z",
       "databaseId": 32866329531,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -55,7 +79,7 @@
       "createdAt": "2026-08-25T15:27:48Z",
       "databaseId": 32865938963,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "process-whisper-review"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T15:23:10Z",
       "databaseId": 32865458000,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T15:16:15Z",
-      "databaseId": 32864742339,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T15:10:36Z",
-      "databaseId": 32864149313,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T15:10:03Z",
-      "databaseId": 32864091011,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -96279,6 +96279,11 @@
         "episode_id": 92777,
         "display_name": "Válka světů S03E01 - 1. epizoda CZ Titulky",
         "video_id": 28831108
+      },
+      {
+        "episode_id": 92781,
+        "display_name": "Válka světů S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 28831195
       },
       {
         "episode_id": 114182,
@@ -270968,6 +270973,11 @@
         "video_id": 28831108
       },
       {
+        "episode_id": 92781,
+        "display_name": "Válka světů S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 28831195
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -350817,15 +350827,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 28,
-    "ok": 39,
+    "disabled": 56,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6377,
-    "whisper_confirmed_cz": 2418,
+    "whisper_confirmed_cz": 2402,
     "whisper_failed": 150,
-    "needs_whisper": 47470
+    "needs_whisper": 47489
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28093
