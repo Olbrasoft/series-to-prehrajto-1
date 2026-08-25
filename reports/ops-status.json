@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 151903,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39974,
-    "prepared_source_episodes": 48458,
+    "uploaded_episodes": 39980,
+    "prepared_source_episodes": 48472,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56418,
     "whisper_review_pending_sources": 47639,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T16:36:32Z",
+      "databaseId": 32872980017,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:36:28Z",
+      "databaseId": 32872974137,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:32:10Z",
+      "databaseId": 32872541295,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T16:28:06Z",
+      "databaseId": 32872133641,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:28:02Z",
+      "databaseId": 32872126560,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:26:58Z",
       "databaseId": 32872020962,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +71,7 @@
       "createdAt": "2026-08-25T16:22:51Z",
       "databaseId": 32871610382,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "process-whisper-review"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:19:19Z",
       "databaseId": 32871251361,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -59,19 +99,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:18:03Z",
       "databaseId": 32871127692,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-25T16:17:20Z",
       "databaseId": 32871057145,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:07:09Z",
-      "databaseId": 32870007594,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:06:30Z",
-      "databaseId": 32869942143,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:04:34Z",
-      "databaseId": 32869741519,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:03:10Z",
-      "databaseId": 32869594335,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:03:06Z",
-      "databaseId": 32869588264,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -96361,6 +96361,11 @@
         "video_id": 28832036
       },
       {
+        "episode_id": 66232,
+        "display_name": "Policejní bažanti S05E09 - 9. epizoda CZ Dabing",
+        "video_id": 28832222
+      },
+      {
         "episode_id": 71453,
         "display_name": "Inteligence S01E04 - Tajemství Tajné služby CZ Dabing",
         "video_id": 28831800
@@ -96374,6 +96379,16 @@
         "episode_id": 71449,
         "display_name": "Inteligence S01E13 - Cena za lidskost CZ Titulky",
         "video_id": 28832044
+      },
+      {
+        "episode_id": 32493,
+        "display_name": "Psanci S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 28832094
+      },
+      {
+        "episode_id": 32497,
+        "display_name": "Psanci S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 28832206
       },
       {
         "episode_id": 114182,
@@ -175106,6 +175121,11 @@
         "video_id": 28831924
       },
       {
+        "episode_id": 126690,
+        "display_name": "Odvážný a krásná S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28832117
+      },
+      {
         "episode_id": 56159,
         "display_name": "Vánoce u našich S02E01 - Má ho ráda, nemá ho ráda CZ Titulky",
         "video_id": 28831769
@@ -175134,6 +175154,16 @@
         "episode_id": 145603,
         "display_name": "Sanditon S02E01 - 1. epizoda CZ Titulky",
         "video_id": 28832052
+      },
+      {
+        "episode_id": 145607,
+        "display_name": "Sanditon S03E05 - 5. epizoda CZ Titulky",
+        "video_id": 28832115
+      },
+      {
+        "episode_id": 132359,
+        "display_name": "Equalizer S01E03 - Soudný den CZ Dabing",
+        "video_id": 28832197
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -271213,6 +271243,11 @@
         "video_id": 28832036
       },
       {
+        "episode_id": 66232,
+        "display_name": "Policejní bažanti S05E09 - 9. epizoda CZ Dabing",
+        "video_id": 28832222
+      },
+      {
         "episode_id": 71453,
         "display_name": "Inteligence S01E04 - Tajemství Tajné služby CZ Dabing",
         "video_id": 28831800
@@ -271226,6 +271261,16 @@
         "episode_id": 71449,
         "display_name": "Inteligence S01E13 - Cena za lidskost CZ Titulky",
         "video_id": 28832044
+      },
+      {
+        "episode_id": 32493,
+        "display_name": "Psanci S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 28832094
+      },
+      {
+        "episode_id": 32497,
+        "display_name": "Psanci S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 28832206
       },
       {
         "episode_id": 114182,
@@ -349958,6 +350003,11 @@
         "video_id": 28831924
       },
       {
+        "episode_id": 126690,
+        "display_name": "Odvážný a krásná S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28832117
+      },
+      {
         "episode_id": 56159,
         "display_name": "Vánoce u našich S02E01 - Má ho ráda, nemá ho ráda CZ Titulky",
         "video_id": 28831769
@@ -349986,6 +350036,16 @@
         "episode_id": 145603,
         "display_name": "Sanditon S02E01 - 1. epizoda CZ Titulky",
         "video_id": 28832052
+      },
+      {
+        "episode_id": 145607,
+        "display_name": "Sanditon S03E05 - 5. epizoda CZ Titulky",
+        "video_id": 28832115
+      },
+      {
+        "episode_id": 132359,
+        "display_name": "Equalizer S01E03 - Soudný den CZ Dabing",
+        "video_id": 28832197
       }
     ],
     "prepared_not_upload_ready": [
@@ -351147,7 +351207,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
