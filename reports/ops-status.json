@@ -3,35 +3,43 @@
     "backlog_episodes": 152164,
     "manifest_upload_ready_episodes": 1000,
     "uploaded_episodes": 39766,
-    "prepared_source_episodes": 47985,
+    "prepared_source_episodes": 47982,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56439,
-    "whisper_review_pending_sources": 47755,
+    "whisper_review_sources": 56435,
+    "whisper_review_pending_sources": 47731,
     "subtitle_followup_sources": 28050,
     "subtitle_followup_pending_sources": 28050
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T11:27:46Z",
+      "databaseId": 32842428143,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-08-25T11:26:52Z",
       "databaseId": 32842348163,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T11:26:51Z",
       "databaseId": 32842346538,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -79,7 +87,7 @@
       "createdAt": "2026-08-25T11:21:40Z",
       "databaseId": 32841904627,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "process-whisper-review"
     },
     {
@@ -91,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T11:20:27Z",
       "databaseId": 32841802278,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -169,14 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T11:09:23Z",
-      "databaseId": 32840844570,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -348212,14 +348212,6 @@
     ],
     "whisper_review_pending": [
       {
-        "episode_id": 202924,
-        "source_id": -32266745836196430,
-        "series_title": "24 hodin: Nezastavitelný",
-        "episode_code": "S01E12",
-        "source_title": "24 Hodin: Nezastavitelný - S1E12 11:00 P.M. - 12:00 A.M",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 175038,
         "source_id": -11151980550350308,
         "series_title": "All or Nothing: Tottenham Hotspur",
@@ -348609,6 +348601,14 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56260,
+        "source_id": -43031112546707824,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E04",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -349067,14 +349067,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6374,
-    "whisper_confirmed_cz": 2310,
-    "needs_whisper": 47608,
-    "whisper_failed": 147
+    "whisper_non_cz_needs_subtitles": 6375,
+    "whisper_confirmed_cz": 2329,
+    "whisper_failed": 147,
+    "needs_whisper": 47584
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28050
