@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 151903,
     "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 39981,
-    "prepared_source_episodes": 48487,
+    "uploaded_episodes": 39983,
+    "prepared_source_episodes": 48507,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 48,
+    "language_audited_sources": 56,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56419,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T16:50:18Z",
+      "databaseId": 32874331228,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:50:07Z",
+      "databaseId": 32874312432,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T16:49:38Z",
+      "databaseId": 32874265574,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:49:35Z",
+      "databaseId": 32874259542,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:48:29Z",
       "databaseId": 32874152202,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:32:10Z",
       "databaseId": 32872541295,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:18:03Z",
-      "databaseId": 32871127692,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T16:17:20Z",
-      "databaseId": 32871057145,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:15:34Z",
-      "databaseId": 32870876482,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:13:12Z",
-      "databaseId": 32870633276,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -96366,6 +96366,11 @@
         "video_id": 28832222
       },
       {
+        "episode_id": 126684,
+        "display_name": "Odvážný a krásná S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28832311
+      },
+      {
         "episode_id": 71453,
         "display_name": "Inteligence S01E04 - Tajemství Tajné služby CZ Dabing",
         "video_id": 28831800
@@ -96394,6 +96399,11 @@
         "episode_id": 32501,
         "display_name": "Psanci S02E05 - 5. epizoda CZ Titulky",
         "video_id": 28832352
+      },
+      {
+        "episode_id": 17773,
+        "display_name": "Psanci S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 28832458
       },
       {
         "episode_id": 114182,
@@ -271253,6 +271263,11 @@
         "video_id": 28832222
       },
       {
+        "episode_id": 126684,
+        "display_name": "Odvážný a krásná S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28832311
+      },
+      {
         "episode_id": 71453,
         "display_name": "Inteligence S01E04 - Tajemství Tajné služby CZ Dabing",
         "video_id": 28831800
@@ -271281,6 +271296,11 @@
         "episode_id": 32501,
         "display_name": "Psanci S02E05 - 5. epizoda CZ Titulky",
         "video_id": 28832352
+      },
+      {
+        "episode_id": 17773,
+        "display_name": "Psanci S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 28832458
       },
       {
         "episode_id": 114182,
@@ -350362,51 +350382,35 @@
     ],
     "whisper_review_pending": [
       {
-        "episode_id": 125165,
-        "source_id": -50773038368940597,
+        "episode_id": 125166,
+        "source_id": -48662408922485239,
         "series_title": "A Shop for Killers",
-        "episode_code": "S01E01",
-        "source_title": "A.Shop.for.Killers.S01E01.Murthehelp.2160p.DSNP.WEB-DL.DDP5.1.DV.H.265-APEX",
+        "episode_code": "S01E02",
+        "source_title": "A.Shop.for.Killers.S01E02.Jeong.Jinman.Jeong.Jinman.Jeong.Jinman.2160p.DSNP.WEB-DL.DDP5.1.DV.H.265-APEX",
         "status": "needs_whisper"
       },
       {
-        "episode_id": 125165,
-        "source_id": -1391415356418113,
+        "episode_id": 125166,
+        "source_id": -68617726434976832,
         "series_title": "A Shop for Killers",
-        "episode_code": "S01E01",
-        "source_title": "A.Shop.for.Killers.S01E01.Murthehelp.2160p.DSNP.WEB-DL.DDP5.1.DV.HDR.H.265-APEX",
+        "episode_code": "S01E02",
+        "source_title": "A.Shop.for.Killers.S01E02.Jeong.Jinman.Jeong.Jinman.Jeong.Jinman.2160p.DSNP.WEB-DL.DDP5.1.H.265-APEX",
         "status": "needs_whisper"
       },
       {
-        "episode_id": 125165,
-        "source_id": -22192501830169776,
+        "episode_id": 125166,
+        "source_id": -67701105248635607,
         "series_title": "A Shop for Killers",
-        "episode_code": "S01E01",
-        "source_title": "A.Shop.for.Killers.S01E01.Murthehelp.2160p.DSNP.WEB-DL.DDP5.1.H.265-APEX",
+        "episode_code": "S01E02",
+        "source_title": "A.Shop.for.Killers.S01E02.Jeong.Jinman.Jeong.Jinman.Jeong.Jinman.2160p.DSNP.WEB-DL.DDP5.1.DV.HDR.H.265-APEX",
         "status": "needs_whisper"
       },
       {
-        "episode_id": 125165,
-        "source_id": -34582389820328173,
+        "episode_id": 125166,
+        "source_id": -53518412977188867,
         "series_title": "A Shop for Killers",
-        "episode_code": "S01E01",
-        "source_title": "A.Shop.for.Killers.S01E01.1080p.WEB-DL",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 125167,
-        "source_id": -17448991075059593,
-        "series_title": "A Shop for Killers",
-        "episode_code": "S01E03",
-        "source_title": "A.Shop.for.Killers.S01E03.The.Strong.Dont.Howl.2160p.DSNP.WEB-DL.DDP5.1.DV.HDR.H.265-APEX",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 125167,
-        "source_id": -68777106791457332,
-        "series_title": "A Shop for Killers",
-        "episode_code": "S01E03",
-        "source_title": "A.Shop.for.Killers.S01E03.The.Strong.Dont.Howl.2160p.DSNP.WEB-DL.DDP5.1.H.265-APEX",
+        "episode_code": "S01E02",
+        "source_title": "A.Shop.for.Killers.S01E02.1080p.WEB-DL",
         "status": "needs_whisper"
       },
       {
@@ -350418,11 +350422,35 @@
         "status": "needs_whisper"
       },
       {
-        "episode_id": 125167,
-        "source_id": -558087859004954,
+        "episode_id": 125168,
+        "source_id": -25792304131053060,
         "series_title": "A Shop for Killers",
-        "episode_code": "S01E03",
-        "source_title": "A.Shop.for.Killers.S01E03.1080p.WEB-DL",
+        "episode_code": "S01E04",
+        "source_title": "A.Shop.for.Killers.S01E04.The.Shopping.Mall.2160p.DSNP.WEB-DL.DDP5.1.DV.HDR.H.265-APEX",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 125168,
+        "source_id": -55663875600515491,
+        "series_title": "A Shop for Killers",
+        "episode_code": "S01E04",
+        "source_title": "A.Shop.for.Killers.S01E04.The.Shopping.Mall.2160p.DSNP.WEB-DL.DDP5.1.H.265-APEX",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 125168,
+        "source_id": -27837176004125816,
+        "series_title": "A Shop for Killers",
+        "episode_code": "S01E04",
+        "source_title": "A.Shop.for.Killers.S01E04.1080p",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 125168,
+        "source_id": -11884873470365001,
+        "series_title": "A Shop for Killers",
+        "episode_code": "S01E04",
+        "source_title": "A.Shop.for.Killers.S01E04.1080p.WEB-DL",
         "status": "needs_whisper"
       },
       {
@@ -350751,14 +350779,6 @@
         "series_title": "Bull",
         "episode_code": "S06E01",
         "source_title": "Bull - S6E1 Gone EN",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 127633,
-        "source_id": -56148696178700847,
-        "series_title": "Bull",
-        "episode_code": "S06E07",
-        "source_title": "Bull - S6E7 Confidence Man EN",
         "status": "whisper_failed"
       }
     ],
@@ -351217,7 +351237,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 8,
+    "disabled": 16,
     "ok": 39,
     "resolve_failed": 1
   },
