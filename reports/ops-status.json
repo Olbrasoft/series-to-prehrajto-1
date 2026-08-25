@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 152164,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39754,
+    "uploaded_episodes": 39755,
     "prepared_source_episodes": 47956,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56422,
     "whisper_review_pending_sources": 47661,
     "subtitle_followup_sources": 28050,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T11:06:54Z",
+      "databaseId": 32840632598,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T11:06:11Z",
+      "databaseId": 32840569361,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T11:06:08Z",
+      "databaseId": 32840564134,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T11:05:06Z",
       "databaseId": 32840475362,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T10:56:35Z",
       "databaseId": 32839753090,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-08-25T10:42:23Z",
       "databaseId": 32838548709,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T10:42:20Z",
-      "databaseId": 32838544416,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T10:42:19Z",
-      "databaseId": 32838543085,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T10:42:15Z",
-      "databaseId": 32838537961,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -174034,6 +174034,11 @@
         "episode_id": 63027,
         "display_name": "Případy detektiva Murdocha S10E18 - Bude zle CZ Dabing",
         "video_id": 28826430
+      },
+      {
+        "episode_id": 63031,
+        "display_name": "Případy detektiva Murdocha S11E02 - Záhada Merlotu CZ Dabing",
+        "video_id": 28826471
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -347786,6 +347791,11 @@
         "episode_id": 63027,
         "display_name": "Případy detektiva Murdocha S10E18 - Bude zle CZ Dabing",
         "video_id": 28826430
+      },
+      {
+        "episode_id": 63031,
+        "display_name": "Případy detektiva Murdocha S11E02 - Záhada Merlotu CZ Dabing",
+        "video_id": 28826471
       }
     ],
     "prepared_not_upload_ready": [
@@ -348947,9 +348957,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 20,
-    "ok": 38,
-    "resolve_failed": 2
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6377,
