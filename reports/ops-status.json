@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 151903,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39983,
+    "uploaded_episodes": 39984,
     "prepared_source_episodes": 48525,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 129,
-    "language_whisper_attempted_sources": 42,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56418,
     "whisper_review_pending_sources": 47639,
     "subtitle_followup_sources": 28098,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T16:56:58Z",
+      "databaseId": 32874980378,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:56:54Z",
+      "databaseId": 32874974860,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:54:27Z",
+      "databaseId": 32874737033,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T16:53:56Z",
+      "databaseId": 32874685972,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:53:02Z",
       "databaseId": 32874599902,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:47:10Z",
       "databaseId": 32874026333,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -131,11 +163,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-25T16:36:28Z",
       "databaseId": 32872974137,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:28:06Z",
-      "databaseId": 32872133641,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:28:02Z",
-      "databaseId": 32872126560,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:26:58Z",
-      "databaseId": 32872020962,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T16:22:51Z",
-      "databaseId": 32871610382,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -96404,6 +96404,11 @@
         "episode_id": 17773,
         "display_name": "Psanci S03E01 - 1. epizoda CZ Titulky",
         "video_id": 28832458
+      },
+      {
+        "episode_id": 36257,
+        "display_name": "Zakletý v čase S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28832496
       },
       {
         "episode_id": 114182,
@@ -271303,6 +271308,11 @@
         "video_id": 28832458
       },
       {
+        "episode_id": 36257,
+        "display_name": "Zakletý v čase S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28832496
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -351237,8 +351247,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 87,
-    "ok": 41,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
