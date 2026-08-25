@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 151795,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40074,
-    "prepared_source_episodes": 48021,
+    "uploaded_episodes": 40075,
+    "prepared_source_episodes": 48040,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
+    "language_audited_sources": 29,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56411,
@@ -20,6 +20,38 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T22:09:29Z",
+      "databaseId": 32904763659,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T22:09:26Z",
+      "databaseId": 32904759356,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T22:08:35Z",
+      "databaseId": 32904689205,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T22:08:32Z",
+      "databaseId": 32904685730,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-08-25T22:08:08Z",
       "databaseId": 32904653346,
       "headBranch": "main",
@@ -27,11 +59,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T22:07:39Z",
       "databaseId": 32904611487,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-25T21:57:07Z",
       "databaseId": 32903698603,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -127,7 +159,7 @@
       "createdAt": "2026-08-25T21:51:21Z",
       "databaseId": 32903204057,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "queued",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T21:50:04Z",
-      "databaseId": 32903090368,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T21:47:43Z",
-      "databaseId": 32902883714,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T21:46:43Z",
-      "databaseId": 32902798612,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T21:44:57Z",
-      "databaseId": 32902644058,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -175634,6 +175634,11 @@
         "episode_id": 162251,
         "display_name": "Navrch huj S01E03 - Dohoda o dohodě budoucí CZ Dabing",
         "video_id": 28837944
+      },
+      {
+        "episode_id": 162255,
+        "display_name": "Navrch huj S01E08 - Prodáno CZ Dabing",
+        "video_id": 28838046
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -350986,6 +350991,11 @@
         "episode_id": 162251,
         "display_name": "Navrch huj S01E03 - Dohoda o dohodě budoucí CZ Dabing",
         "video_id": 28837944
+      },
+      {
+        "episode_id": 162255,
+        "display_name": "Navrch huj S01E08 - Prodáno CZ Dabing",
+        "video_id": 28838046
       }
     ],
     "prepared_not_upload_ready": [
@@ -352147,7 +352157,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
+    "disabled": 9,
     "ok": 19,
     "resolve_failed": 1
   },
