@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 152517,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39394,
+    "uploaded_episodes": 39396,
     "prepared_source_episodes": 47686,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 305,
-    "language_whisper_attempted_sources": 112,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56447,
     "whisper_review_pending_sources": 47798,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T04:46:05Z",
+      "databaseId": 32810209979,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T04:45:20Z",
+      "databaseId": 32810162906,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T04:44:52Z",
+      "databaseId": 32810130036,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T04:43:59Z",
       "databaseId": 32810074454,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T04:20:34Z",
-      "databaseId": 32808594021,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T04:20:31Z",
-      "databaseId": 32808589632,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T04:19:40Z",
-      "databaseId": 32808532292,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -94916,6 +94916,11 @@
         "video_id": 28802247
       },
       {
+        "episode_id": 74196,
+        "display_name": "Grantchester S08E04 - 4. epizoda CZ Dabing",
+        "video_id": 28802330
+      },
+      {
         "episode_id": 55881,
         "display_name": "Terminátor: Příběh Sáry Connorové S02E17 - Jen my sami CZ Dabing",
         "video_id": 28802118
@@ -172219,6 +172224,11 @@
         "episode_id": 17334,
         "display_name": "Rezidence S01E03 - Na nože CZ Dabing",
         "video_id": 28802248
+      },
+      {
+        "episode_id": 17338,
+        "display_name": "Rezidence S01E07 - Inženýrův palec CZ Dabing",
+        "video_id": 28802321
       },
       {
         "episode_id": 37655,
@@ -266868,6 +266878,11 @@
         "video_id": 28802247
       },
       {
+        "episode_id": 74196,
+        "display_name": "Grantchester S08E04 - 4. epizoda CZ Dabing",
+        "video_id": 28802330
+      },
+      {
         "episode_id": 55881,
         "display_name": "Terminátor: Příběh Sáry Connorové S02E17 - Jen my sami CZ Dabing",
         "video_id": 28802118
@@ -344173,6 +344188,11 @@
         "video_id": 28802248
       },
       {
+        "episode_id": 17338,
+        "display_name": "Rezidence S01E07 - Inženýrův palec CZ Dabing",
+        "video_id": 28802321
+      },
+      {
         "episode_id": 37655,
         "display_name": "Star Trek: Enterprise S04E14 - Aenarové CZ Dabing",
         "video_id": 28802103
@@ -345347,8 +345367,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 111,
-    "disabled": 193,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
