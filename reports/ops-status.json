@@ -2,28 +2,60 @@
   "counts": {
     "backlog_episodes": 152338,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39625,
-    "prepared_source_episodes": 47795,
+    "uploaded_episodes": 39626,
+    "prepared_source_episodes": 47785,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 311,
+    "language_whisper_attempted_sources": 75,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56443,
-    "whisper_review_pending_sources": 47779,
-    "subtitle_followup_sources": 28029,
-    "subtitle_followup_pending_sources": 28029
+    "whisper_review_sources": 56448,
+    "whisper_review_pending_sources": 47804,
+    "subtitle_followup_sources": 28045,
+    "subtitle_followup_pending_sources": 28045
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T08:25:12Z",
+      "databaseId": 32826510097,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T08:25:05Z",
+      "databaseId": 32826499266,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T08:25:01Z",
+      "databaseId": 32826493044,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T08:24:47Z",
+      "databaseId": 32826472362,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T08:24:14Z",
       "databaseId": 32826426174,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T08:06:23Z",
-      "databaseId": 32824912903,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T08:04:39Z",
-      "databaseId": 32824760408,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T07:51:14Z",
-      "databaseId": 32823627002,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T07:51:07Z",
-      "databaseId": 32823617631,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -95479,6 +95479,11 @@
         "episode_id": 63220,
         "display_name": "Případy detektiva Murdocha S16E19 - Co se stalo Abigail Prescottové? CZ Dabing",
         "video_id": 28806893
+      },
+      {
+        "episode_id": 95120,
+        "display_name": "Případy detektiva Murdocha S17E09 - Vánoční seznam CZ Dabing",
+        "video_id": 28806961
       },
       {
         "episode_id": 14933,
@@ -268588,6 +268593,11 @@
         "video_id": 28806893
       },
       {
+        "episode_id": 95120,
+        "display_name": "Případy detektiva Murdocha S17E09 - Vánoční seznam CZ Dabing",
+        "video_id": 28806961
+      },
+      {
         "episode_id": 14933,
         "display_name": "Goliáš S03E01 - Propad půdy CZ Dabing",
         "video_id": 28806718
@@ -346826,6 +346836,46 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 8403,
+        "source_id": -65665268004166843,
+        "series_title": "Biohackeři",
+        "episode_code": "S01E04",
+        "source_title": "Biohackeři - S1E4 Gewissheit EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 8403,
+        "source_id": -65753475744837292,
+        "series_title": "Biohackeři",
+        "episode_code": "S01E04",
+        "source_title": "Biohackeři - S1E4 Certainty DE",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 8403,
+        "source_id": -38168418219248629,
+        "series_title": "Biohackeři",
+        "episode_code": "S01E04",
+        "source_title": "Biohackeři - S01E04",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 26500,
+        "source_id": -23627056381595761,
+        "series_title": "Biohackeři",
+        "episode_code": "S02E02",
+        "source_title": "Biohackeři - S2E2 Protivnice DE",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 26504,
+        "source_id": -61901897340343400,
+        "series_title": "Biohackeři",
+        "episode_code": "S02E06",
+        "source_title": "Biohackeři - S2E6 Vzpomínky DE",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 102596,
         "source_id": -15929065662195577,
         "series_title": "Bobovy burgery",
@@ -347159,46 +347209,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S07E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S07E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56256,
-        "source_id": -50323602737151014,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56257,
-        "source_id": -57235569892845375,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E01",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56258,
-        "source_id": -55733822280244712,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E02",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -347657,16 +347667,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 74,
+    "disabled": 236,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6370,
+    "whisper_non_cz_needs_subtitles": 6350,
     "whisper_confirmed_cz": 2294,
     "whisper_failed": 147,
-    "needs_whisper": 47632
+    "needs_whisper": 47657
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28029
+    "needs_subtitle_setup_after_prehrajto_processing": 28045
   }
 }
