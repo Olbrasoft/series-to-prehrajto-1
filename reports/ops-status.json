@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 151903,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39965,
-    "prepared_source_episodes": 48430,
+    "uploaded_episodes": 39967,
+    "prepared_source_episodes": 48441,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 124,
-    "language_whisper_attempted_sources": 53,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 62,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56418,
     "whisper_review_pending_sources": 47639,
     "subtitle_followup_sources": 28098,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-25T16:12:54Z",
-      "databaseId": 32870602858,
+      "createdAt": "2026-08-25T16:18:11Z",
+      "databaseId": 32871140403,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T16:18:03Z",
+      "databaseId": 32871127692,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:17:20Z",
+      "databaseId": 32871057145,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:15:34Z",
+      "databaseId": 32870876482,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T16:13:12Z",
+      "databaseId": 32870633276,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-25T16:13:05Z",
+      "databaseId": 32870620866,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T16:12:54Z",
+      "databaseId": 32870602858,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:12:14Z",
       "databaseId": 32870533490,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T16:03:06Z",
       "databaseId": 32869588264,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T15:58:15Z",
-      "databaseId": 32869076651,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T15:57:17Z",
-      "databaseId": 32868977153,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T15:57:13Z",
-      "databaseId": 32868969894,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-25T15:51:38Z",
-      "databaseId": 32868401051,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T15:51:37Z",
-      "databaseId": 32868399667,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T15:51:34Z",
-      "databaseId": 32868393832,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -96346,6 +96346,11 @@
         "video_id": 28831886
       },
       {
+        "episode_id": 66220,
+        "display_name": "Policejní bažanti S04E08 - 8. epizoda CZ Dabing",
+        "video_id": 28831931
+      },
+      {
         "episode_id": 71453,
         "display_name": "Inteligence S01E04 - Tajemství Tajné služby CZ Dabing",
         "video_id": 28831800
@@ -175089,6 +175094,11 @@
         "episode_id": 56163,
         "display_name": "Vánoce u našich S03E05 - Nová známost, nebo bývalý? CZ Titulky",
         "video_id": 28831851
+      },
+      {
+        "episode_id": 56167,
+        "display_name": "Vánoce u našich S03E08 - Novoroční překvapení CZ Titulky",
+        "video_id": 28831937
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -271153,6 +271163,11 @@
         "video_id": 28831886
       },
       {
+        "episode_id": 66220,
+        "display_name": "Policejní bažanti S04E08 - 8. epizoda CZ Dabing",
+        "video_id": 28831931
+      },
+      {
         "episode_id": 71453,
         "display_name": "Inteligence S01E04 - Tajemství Tajné služby CZ Dabing",
         "video_id": 28831800
@@ -349896,6 +349911,11 @@
         "episode_id": 56163,
         "display_name": "Vánoce u našich S03E05 - Nová známost, nebo bývalý? CZ Titulky",
         "video_id": 28831851
+      },
+      {
+        "episode_id": 56167,
+        "display_name": "Vánoce u našich S03E08 - Novoroční překvapení CZ Titulky",
+        "video_id": 28831937
       }
     ],
     "prepared_not_upload_ready": [
@@ -351057,8 +351077,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 71,
-    "ok": 52,
+    "ok": 59,
+    "disabled": 2,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
