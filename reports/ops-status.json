@@ -1,16 +1,16 @@
 {
   "counts": {
-    "backlog_episodes": 152164,
+    "backlog_episodes": 152041,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 39795,
-    "prepared_source_episodes": 48077,
+    "uploaded_episodes": 39797,
+    "prepared_source_episodes": 48031,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 156,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 96,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56443,
     "whisper_review_pending_sources": 47781,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T12:19:40Z",
+      "databaseId": 32846984281,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T12:16:10Z",
+      "databaseId": 32846669666,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T12:16:06Z",
+      "databaseId": 32846663505,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T12:15:11Z",
       "databaseId": 32846576046,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T12:14:52Z",
       "databaseId": 32846547597,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "refresh-backlog"
     },
     {
@@ -55,7 +79,7 @@
       "createdAt": "2026-08-25T12:13:32Z",
       "databaseId": 32846423754,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -91,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-25T12:05:28Z",
       "databaseId": 32845708100,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T11:58:48Z",
-      "databaseId": 32845104613,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-25T11:58:26Z",
-      "databaseId": 32845071217,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T11:54:53Z",
-      "databaseId": 32844765698,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -95891,6 +95891,11 @@
         "video_id": 28827635
       },
       {
+        "episode_id": 17776,
+        "display_name": "Psanci S03E05 - 5. epizoda CZ Dabing",
+        "video_id": 28827766
+      },
+      {
         "episode_id": 33925,
         "display_name": "Teror S01E04 - 4. epizoda CZ Dabing",
         "video_id": 28827162
@@ -95924,6 +95929,11 @@
         "episode_id": 95121,
         "display_name": "Případy detektiva Murdocha S17E10 - Čtvrť paní Crabtreeové CZ Dabing",
         "video_id": 28827709
+      },
+      {
+        "episode_id": 95125,
+        "display_name": "Případy detektiva Murdocha S17E14 - Vražedný roj CZ Dabing",
+        "video_id": 28827796
       },
       {
         "episode_id": 114182,
@@ -269848,6 +269858,11 @@
         "video_id": 28827635
       },
       {
+        "episode_id": 17776,
+        "display_name": "Psanci S03E05 - 5. epizoda CZ Dabing",
+        "video_id": 28827766
+      },
+      {
         "episode_id": 33925,
         "display_name": "Teror S01E04 - 4. epizoda CZ Dabing",
         "video_id": 28827162
@@ -269881,6 +269896,11 @@
         "episode_id": 95121,
         "display_name": "Případy detektiva Murdocha S17E10 - Čtvrť paní Crabtreeové CZ Dabing",
         "video_id": 28827709
+      },
+      {
+        "episode_id": 95125,
+        "display_name": "Případy detektiva Murdocha S17E14 - Vražedný roj CZ Dabing",
+        "video_id": 28827796
       },
       {
         "episode_id": 114182,
@@ -349357,8 +349377,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 96,
-    "ok": 59,
+    "disabled": 56,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
