@@ -2,28 +2,68 @@
   "counts": {
     "backlog_episodes": 151795,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40073,
-    "prepared_source_episodes": 48006,
+    "uploaded_episodes": 40074,
+    "prepared_source_episodes": 48021,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 24,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56407,
-    "whisper_review_pending_sources": 47579,
+    "whisper_review_sources": 56411,
+    "whisper_review_pending_sources": 47602,
     "subtitle_followup_sources": 28114,
     "subtitle_followup_pending_sources": 28114
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-25T22:08:08Z",
+      "databaseId": 32904653346,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T22:07:39Z",
+      "databaseId": 32904611487,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T22:07:36Z",
+      "databaseId": 32904606977,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-25T22:06:09Z",
+      "databaseId": 32904487392,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-25T22:06:02Z",
+      "databaseId": 32904476694,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-25T22:05:19Z",
       "databaseId": 32904417009,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-25T21:50:04Z",
       "databaseId": 32903090368,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T21:42:19Z",
-      "databaseId": 32902408125,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T21:41:49Z",
-      "databaseId": 32902362850,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T21:41:47Z",
-      "databaseId": 32902359078,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T21:40:54Z",
-      "databaseId": 32902283375,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-25T21:40:53Z",
-      "databaseId": 32902282480,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -96599,6 +96599,11 @@
         "episode_id": 2808,
         "display_name": "Power S03E08 - 8. epizoda CZ Titulky",
         "video_id": 28837919
+      },
+      {
+        "episode_id": 59280,
+        "display_name": "Constantine S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28838037
       },
       {
         "episode_id": 77553,
@@ -271948,6 +271953,11 @@
         "video_id": 28837919
       },
       {
+        "episode_id": 59280,
+        "display_name": "Constantine S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28838037
+      },
+      {
         "episode_id": 77553,
         "display_name": "Virgin River S03E02 - Lepivý nožičky CZ Dabing",
         "video_id": 28837426
@@ -352137,14 +352147,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 4,
     "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6381,
-    "whisper_confirmed_cz": 2447,
-    "whisper_failed": 151,
-    "needs_whisper": 47428
+    "whisper_non_cz_needs_subtitles": 6380,
+    "whisper_confirmed_cz": 2429,
+    "whisper_failed": 150,
+    "needs_whisper": 47452
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28114
