@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 151235,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40623,
-    "prepared_source_episodes": 49148,
+    "uploaded_episodes": 40624,
+    "prepared_source_episodes": 49186,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 163,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56326,
-    "whisper_review_pending_sources": 47155,
+    "whisper_review_sources": 56352,
+    "whisper_review_pending_sources": 47293,
     "subtitle_followup_sources": 28209,
     "subtitle_followup_pending_sources": 28209
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-26T09:53:22Z",
+      "databaseId": 32955376463,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T09:51:22Z",
+      "databaseId": 32955198458,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T09:51:01Z",
+      "databaseId": 32955170414,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-26T09:50:03Z",
       "databaseId": 32955084042,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +55,7 @@
       "createdAt": "2026-08-26T09:49:56Z",
       "databaseId": 32955073568,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-26T09:38:54Z",
       "databaseId": 32954109934,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T09:21:23Z",
-      "databaseId": 32952553390,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T09:20:24Z",
-      "databaseId": 32952467283,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T09:20:22Z",
-      "databaseId": 32952464923,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -98004,6 +98004,11 @@
         "episode_id": 77497,
         "display_name": "Vražedné záhady slečny Fisherové S03E01 - Nebezpečný trik CZ Dabing",
         "video_id": 28863875
+      },
+      {
+        "episode_id": 54760,
+        "display_name": "Jistě, pane ministře S03E06 - Kazatel v lihu CZ Titulky",
+        "video_id": 28864050
       },
       {
         "episode_id": 114182,
@@ -276103,6 +276108,11 @@
         "video_id": 28863875
       },
       {
+        "episode_id": 54760,
+        "display_name": "Jistě, pane ministře S03E06 - Kazatel v lihu CZ Titulky",
+        "video_id": 28864050
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -356982,6 +356992,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 123622,
+        "source_id": -5040052293564907,
+        "series_title": "Buck Rogers in the 25th Century",
+        "episode_code": "S01E01",
+        "source_title": "Buck Rogers in the 25th Century - S01E01-02 - Awakening - [DVD][x265 10-bit][AAC 2.0]",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 127639,
         "source_id": -26840048287197829,
         "series_title": "Bull",
@@ -357126,60 +357144,52 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 56254,
-        "source_id": -59514815803122524,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E20",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E20",
-        "status": "whisper_failed"
+        "episode_id": 60192,
+        "source_id": -15112369888631954,
+        "series_title": "Chance",
+        "episode_code": "S01E06",
+        "source_title": "No Second Chance - S1E6 Episode 6 SK",
+        "status": "needs_whisper"
       },
       {
-        "episode_id": 56255,
-        "source_id": -22875583173178308,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E21",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E21",
-        "status": "whisper_failed"
+        "episode_id": 60192,
+        "source_id": -5235005096348789,
+        "series_title": "Chance",
+        "episode_code": "S01E06",
+        "source_title": "Chance - S01E06 - The Unflinching Spark",
+        "status": "needs_whisper"
       },
       {
-        "episode_id": 56256,
-        "source_id": -50323602737151014,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E22",
-        "status": "whisper_failed"
+        "episode_id": 60197,
+        "source_id": -36096004243266494,
+        "series_title": "Chance",
+        "episode_code": "S01E09",
+        "source_title": "Chance - S1E9 Camera Obscura EN",
+        "status": "needs_whisper"
       },
       {
-        "episode_id": 56257,
-        "source_id": -57235569892845375,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E01",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
-        "status": "whisper_failed"
+        "episode_id": 60197,
+        "source_id": -8670023249462235,
+        "series_title": "Chance",
+        "episode_code": "S01E09",
+        "source_title": "Chance - S01E09 - Camera Obscura",
+        "status": "needs_whisper"
       },
       {
-        "episode_id": 56258,
-        "source_id": -55733822280244712,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E02",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
+        "episode_id": 60198,
+        "source_id": -43565496555126044,
+        "series_title": "Chance",
+        "episode_code": "S02E01",
+        "source_title": "Chance - S2E1 Multiaxial System EN",
+        "status": "needs_whisper"
       },
       {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
-        "status": "whisper_failed"
+        "episode_id": 60198,
+        "source_id": -12587923712679504,
+        "series_title": "Chance",
+        "episode_code": "S02E01",
+        "source_title": "Chance - S02E01 - Multiaxial System",
+        "status": "needs_whisper"
       }
     ],
     "subtitle_followup_pending": [
@@ -357637,14 +357647,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 123,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6601,
+    "whisper_non_cz_needs_subtitles": 6489,
     "whisper_confirmed_cz": 2570,
     "whisper_failed": 167,
-    "needs_whisper": 46988
+    "needs_whisper": 47126
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28209
