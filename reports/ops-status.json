@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 151235,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40697,
-    "prepared_source_episodes": 49333,
+    "uploaded_episodes": 40698,
+    "prepared_source_episodes": 49352,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
+    "language_audited_sources": 28,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56352,
@@ -20,26 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-26T11:24:36Z",
-      "databaseId": 32963169160,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-26T11:24:32Z",
-      "databaseId": 32963163025,
+      "createdAt": "2026-08-26T11:25:48Z",
+      "databaseId": 32963268076,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-26T11:25:26Z",
+      "databaseId": 32963238140,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T11:25:22Z",
+      "databaseId": 32963232481,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T11:24:36Z",
+      "databaseId": 32963169160,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-26T11:24:32Z",
+      "databaseId": 32963163025,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-26T11:24:26Z",
       "databaseId": 32963154798,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T11:07:54Z",
-      "databaseId": 32961756102,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T11:04:30Z",
-      "databaseId": 32961465227,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T11:04:26Z",
-      "databaseId": 32961460895,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -98174,6 +98174,11 @@
         "episode_id": 96404,
         "display_name": "Souputníci S01E04 - Hrátky s ohněm CZ Dabing",
         "video_id": 28865210
+      },
+      {
+        "episode_id": 96408,
+        "display_name": "Souputníci S01E07 - Bílé noci CZ Dabing",
+        "video_id": 28865271
       },
       {
         "episode_id": 185325,
@@ -276643,6 +276648,11 @@
         "video_id": 28865210
       },
       {
+        "episode_id": 96408,
+        "display_name": "Souputníci S01E07 - Bílé noci CZ Dabing",
+        "video_id": 28865271
+      },
+      {
         "episode_id": 185325,
         "display_name": "Kačer Kabrňák S01E40 - Korzár Kabrňák CZ Dabing",
         "video_id": 28865181
@@ -358377,7 +358387,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
+    "disabled": 8,
     "ok": 19,
     "resolve_failed": 1
   },
