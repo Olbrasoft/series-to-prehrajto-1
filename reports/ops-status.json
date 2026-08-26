@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 151513,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40358,
+    "uploaded_episodes": 40360,
     "prepared_source_episodes": 48598,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56372,
     "whisper_review_pending_sources": 47395,
     "subtitle_followup_sources": 28150,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-26T04:26:09Z",
+      "databaseId": 32930210807,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T04:25:28Z",
+      "databaseId": 32930166006,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T04:23:43Z",
+      "databaseId": 32930054988,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T04:23:38Z",
+      "databaseId": 32930049946,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-26T04:22:29Z",
       "databaseId": 32929976329,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T04:04:43Z",
-      "databaseId": 32928844726,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-26T03:59:17Z",
-      "databaseId": 32928493956,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T03:59:08Z",
-      "databaseId": 32928484730,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T03:55:06Z",
-      "databaseId": 32928242720,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -97311,6 +97311,11 @@
         "video_id": 28844312
       },
       {
+        "episode_id": 91404,
+        "display_name": "Magnum P.I S03E05 - Den, kdy přišlo nebezpečí CZ Dabing",
+        "video_id": 28844400
+      },
+      {
         "episode_id": 46581,
         "display_name": "Heuréka – město divů S03E16 - Vše zapomenuto CZ Dabing",
         "video_id": 28844045
@@ -177019,6 +177024,11 @@
         "episode_id": 91378,
         "display_name": "Magnum P.I S02E13 - Pondělní vraždy CZ Titulky",
         "video_id": 28844261
+      },
+      {
+        "episode_id": 91438,
+        "display_name": "Magnum P.I S02E16 - Sbohem, lásko CZ Dabing",
+        "video_id": 28844371
       },
       {
         "episode_id": 66179,
@@ -274083,6 +274093,11 @@
         "video_id": 28844312
       },
       {
+        "episode_id": 91404,
+        "display_name": "Magnum P.I S03E05 - Den, kdy přišlo nebezpečí CZ Dabing",
+        "video_id": 28844400
+      },
+      {
         "episode_id": 46581,
         "display_name": "Heuréka – město divů S03E16 - Vše zapomenuto CZ Dabing",
         "video_id": 28844045
@@ -353793,6 +353808,11 @@
         "video_id": 28844261
       },
       {
+        "episode_id": 91438,
+        "display_name": "Magnum P.I S02E16 - Sbohem, lásko CZ Dabing",
+        "video_id": 28844371
+      },
+      {
         "episode_id": 66179,
         "display_name": "Policejní bažanti S03E01 - 1. epizoda CZ Dabing",
         "video_id": 28844036
@@ -354987,7 +355007,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
