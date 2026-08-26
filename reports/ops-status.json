@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 151085,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40847,
-    "prepared_source_episodes": 49601,
+    "uploaded_episodes": 40851,
+    "prepared_source_episodes": 49529,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 83,
+    "language_audited_sources": 127,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56329,
-    "whisper_review_pending_sources": 47170,
+    "whisper_review_sources": 56338,
+    "whisper_review_pending_sources": 47219,
     "subtitle_followup_sources": 28235,
     "subtitle_followup_pending_sources": 28235
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-26T14:14:53Z",
+      "databaseId": 32979093566,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T14:09:40Z",
+      "databaseId": 32978556255,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T14:09:37Z",
+      "databaseId": 32978551424,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-26T14:08:38Z",
       "databaseId": 32978448284,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T13:35:14Z",
-      "databaseId": 32975079948,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-26T13:35:10Z",
-      "databaseId": 32975073227,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T13:34:53Z",
-      "databaseId": 32975045568,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -98566,6 +98566,16 @@
         "video_id": 28868385
       },
       {
+        "episode_id": 135072,
+        "display_name": "A Million Little Things S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 28868486
+      },
+      {
+        "episode_id": 56333,
+        "display_name": "Boss S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 28868483
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -179499,6 +179509,16 @@
         "episode_id": 71215,
         "display_name": "Everwood S03E04 - Včeličky a baterie CZ Dabing",
         "video_id": 28868076
+      },
+      {
+        "episode_id": 152490,
+        "display_name": "High Fidelity S01E01 - Pět milostných pádů CZ Titulky",
+        "video_id": 28868485
+      },
+      {
+        "episode_id": 71227,
+        "display_name": "Everwood S03E14 - Na rozcestí CZ Dabing",
+        "video_id": 28868481
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -277783,6 +277803,16 @@
         "video_id": 28868385
       },
       {
+        "episode_id": 135072,
+        "display_name": "A Million Little Things S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 28868486
+      },
+      {
+        "episode_id": 56333,
+        "display_name": "Boss S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 28868483
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -358716,6 +358746,16 @@
         "episode_id": 71215,
         "display_name": "Everwood S03E04 - Včeličky a baterie CZ Dabing",
         "video_id": 28868076
+      },
+      {
+        "episode_id": 152490,
+        "display_name": "High Fidelity S01E01 - Pět milostných pádů CZ Titulky",
+        "video_id": 28868485
+      },
+      {
+        "episode_id": 71227,
+        "display_name": "Everwood S03E14 - Na rozcestí CZ Dabing",
+        "video_id": 28868481
       }
     ],
     "prepared_not_upload_ready": [
@@ -359877,15 +359917,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 87,
     "ok": 39,
-    "disabled": 43,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6589,
+    "whisper_non_cz_needs_subtitles": 6549,
     "whisper_confirmed_cz": 2570,
     "whisper_failed": 167,
-    "needs_whisper": 47003
+    "needs_whisper": 47052
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28235
