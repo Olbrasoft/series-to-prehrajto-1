@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 151085,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40812,
-    "prepared_source_episodes": 49538,
+    "uploaded_episodes": 40815,
+    "prepared_source_episodes": 49558,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 106,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56338,
     "whisper_review_pending_sources": 47219,
     "subtitle_followup_sources": 28235,
@@ -20,10 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-26T13:31:17Z",
+      "databaseId": 32974689974,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T13:31:11Z",
+      "databaseId": 32974680281,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T13:30:36Z",
+      "databaseId": 32974621560,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T13:24:56Z",
+      "databaseId": 32974058659,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T13:24:38Z",
+      "databaseId": 32974028686,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T13:22:17Z",
+      "databaseId": 32973799254,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T13:22:08Z",
+      "databaseId": 32973783127,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-26T13:21:24Z",
       "databaseId": 32973708367,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -43,11 +99,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-26T13:09:29Z",
       "databaseId": 32972552177,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -103,7 +159,7 @@
       "createdAt": "2026-08-26T13:02:20Z",
       "databaseId": 32971865414,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "sync"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-26T12:53:21Z",
-      "databaseId": 32971020436,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T12:52:46Z",
-      "databaseId": 32970965776,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T12:48:55Z",
-      "databaseId": 32970610159,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T12:46:56Z",
-      "databaseId": 32970427823,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T12:46:54Z",
-      "databaseId": 32970425505,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T12:46:51Z",
-      "databaseId": 32970421062,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-26T12:46:34Z",
-      "databaseId": 32970394028,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -98469,6 +98469,21 @@
         "episode_id": 150761,
         "display_name": "Plodný Erşan Kuneri S02E01 - 1. epizoda CZ Titulky",
         "video_id": 28867348
+      },
+      {
+        "episode_id": 150765,
+        "display_name": "Plodný Erşan Kuneri S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 28867471
+      },
+      {
+        "episode_id": 86585,
+        "display_name": "Slasher S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 28867556
+      },
+      {
+        "episode_id": 86589,
+        "display_name": "Slasher S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 28867613
       },
       {
         "episode_id": 114182,
@@ -277513,6 +277528,21 @@
         "video_id": 28867348
       },
       {
+        "episode_id": 150765,
+        "display_name": "Plodný Erşan Kuneri S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 28867471
+      },
+      {
+        "episode_id": 86585,
+        "display_name": "Slasher S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 28867556
+      },
+      {
+        "episode_id": 86589,
+        "display_name": "Slasher S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 28867613
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -359527,8 +359557,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 46,
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
