@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 151649,
-    "manifest_upload_ready_episodes": 1005,
+    "manifest_upload_ready_episodes": 1006,
     "uploaded_episodes": 40207,
-    "prepared_source_episodes": 48312,
+    "prepared_source_episodes": 48319,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56381,
     "whisper_review_pending_sources": 47443,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-26T01:08:07Z",
+      "databaseId": 32917818160,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T01:07:15Z",
+      "databaseId": 32917762616,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T01:07:12Z",
+      "databaseId": 32917759203,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-26T01:06:18Z",
       "databaseId": 32917702202,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-26T01:01:11Z",
       "databaseId": 32917366240,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T00:41:12Z",
-      "databaseId": 32916069054,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T00:39:05Z",
-      "databaseId": 32915930322,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T00:39:00Z",
-      "databaseId": 32915926068,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -352694,6 +352694,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 15421,
+        "source_id": -16105367955086781,
+        "series_title": "Borgiové",
+        "episode_code": "S01E02",
+        "source_title": "Borgiové S01E02",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -353011,14 +353019,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -353477,8 +353477,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
-    "resolve_failed": 1
+    "resolve_failed": 3,
+    "ok": 37,
+    "disabled": 4
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6388,
