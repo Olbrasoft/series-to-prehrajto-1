@@ -2,36 +2,84 @@
   "counts": {
     "backlog_episodes": 151649,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 40303,
-    "prepared_source_episodes": 48473,
+    "uploaded_episodes": 40315,
+    "prepared_source_episodes": 48483,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 82,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 100,
+    "language_whisper_attempted_sources": 52,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56367,
-    "whisper_review_pending_sources": 47370,
-    "subtitle_followup_sources": 28136,
-    "subtitle_followup_pending_sources": 28136
+    "whisper_review_sources": 56381,
+    "whisper_review_pending_sources": 47442,
+    "subtitle_followup_sources": 28140,
+    "subtitle_followup_pending_sources": 28140
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-26T03:02:04Z",
-      "databaseId": 32924925055,
+      "createdAt": "2026-08-26T03:18:33Z",
+      "databaseId": 32925958810,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-26T03:09:09Z",
+      "databaseId": 32925372273,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-26T03:07:18Z",
+      "databaseId": 32925255585,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T03:04:32Z",
+      "databaseId": 32925078022,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T03:04:30Z",
+      "databaseId": 32925075593,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T03:04:28Z",
+      "databaseId": 32925073656,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-26T03:02:04Z",
+      "databaseId": 32924925055,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-26T03:01:59Z",
       "databaseId": 32924919990,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-26T02:50:51Z",
       "databaseId": 32924234919,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T02:34:39Z",
-      "databaseId": 32923240024,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T02:31:31Z",
-      "databaseId": 32923040540,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T02:31:15Z",
-      "databaseId": 32923022804,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-26T02:31:03Z",
-      "databaseId": 32923010355,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-26T02:30:37Z",
-      "databaseId": 32922982871,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T02:30:36Z",
-      "databaseId": 32922982074,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -97206,6 +97206,41 @@
         "video_id": 28843123
       },
       {
+        "episode_id": 90708,
+        "display_name": "Hvězdná brána - Hluboký vesmír S02E17 - Společný původ CZ Dabing",
+        "video_id": 28843295
+      },
+      {
+        "episode_id": 115536,
+        "display_name": "Chůva k pohledání S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 28843379
+      },
+      {
+        "episode_id": 100600,
+        "display_name": "Přepadení S01E02 - Face Value CZ Dabing",
+        "video_id": 28843419
+      },
+      {
+        "episode_id": 100604,
+        "display_name": "Přepadení S01E06 - Dead Cat Bounce CZ Titulky",
+        "video_id": 28843467
+      },
+      {
+        "episode_id": 35269,
+        "display_name": "Overlord S02E10 - V královském hlavním městě začíná nepokoj CZ Titulky",
+        "video_id": 28843290
+      },
+      {
+        "episode_id": 71485,
+        "display_name": "Mayfair Witches S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 28843327
+      },
+      {
+        "episode_id": 156161,
+        "display_name": "Od nuly S01E03 - Vila. Koště. Koláč. CZ Titulky",
+        "video_id": 28843401
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -176779,6 +176814,31 @@
         "episode_id": 56111,
         "display_name": "Král: Věčný panovník S01E13 - 13. epizoda CZ Titulky",
         "video_id": 28843247
+      },
+      {
+        "episode_id": 46606,
+        "display_name": "Heuréka – město divů S05E10 - Sen o líbánkách CZ Dabing",
+        "video_id": 28843296
+      },
+      {
+        "episode_id": 90698,
+        "display_name": "Hvězdná brána - Hluboký vesmír S02E05 - Cloverdale CZ Dabing",
+        "video_id": 28843381
+      },
+      {
+        "episode_id": 44659,
+        "display_name": "Skladiště 13 S05E04 - Život je telenovela CZ Dabing",
+        "video_id": 28843305
+      },
+      {
+        "episode_id": 98979,
+        "display_name": "Terapeutka S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28843391
+      },
+      {
+        "episode_id": 98983,
+        "display_name": "Terapeutka S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 28843450
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -273703,6 +273763,41 @@
         "video_id": 28843123
       },
       {
+        "episode_id": 90708,
+        "display_name": "Hvězdná brána - Hluboký vesmír S02E17 - Společný původ CZ Dabing",
+        "video_id": 28843295
+      },
+      {
+        "episode_id": 115536,
+        "display_name": "Chůva k pohledání S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 28843379
+      },
+      {
+        "episode_id": 100600,
+        "display_name": "Přepadení S01E02 - Face Value CZ Dabing",
+        "video_id": 28843419
+      },
+      {
+        "episode_id": 100604,
+        "display_name": "Přepadení S01E06 - Dead Cat Bounce CZ Titulky",
+        "video_id": 28843467
+      },
+      {
+        "episode_id": 35269,
+        "display_name": "Overlord S02E10 - V královském hlavním městě začíná nepokoj CZ Titulky",
+        "video_id": 28843290
+      },
+      {
+        "episode_id": 71485,
+        "display_name": "Mayfair Witches S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 28843327
+      },
+      {
+        "episode_id": 156161,
+        "display_name": "Od nuly S01E03 - Vila. Koště. Koláč. CZ Titulky",
+        "video_id": 28843401
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -353276,6 +353371,31 @@
         "episode_id": 56111,
         "display_name": "Král: Věčný panovník S01E13 - 13. epizoda CZ Titulky",
         "video_id": 28843247
+      },
+      {
+        "episode_id": 46606,
+        "display_name": "Heuréka – město divů S05E10 - Sen o líbánkách CZ Dabing",
+        "video_id": 28843296
+      },
+      {
+        "episode_id": 90698,
+        "display_name": "Hvězdná brána - Hluboký vesmír S02E05 - Cloverdale CZ Dabing",
+        "video_id": 28843381
+      },
+      {
+        "episode_id": 44659,
+        "display_name": "Skladiště 13 S05E04 - Život je telenovela CZ Dabing",
+        "video_id": 28843305
+      },
+      {
+        "episode_id": 98979,
+        "display_name": "Terapeutka S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28843391
+      },
+      {
+        "episode_id": 98983,
+        "display_name": "Terapeutka S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 28843450
       }
     ],
     "prepared_not_upload_ready": [
@@ -354437,17 +354557,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 22,
+    "disabled": 48,
+    "ok": 51,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6435,
-    "whisper_confirmed_cz": 2562,
-    "whisper_failed": 163,
-    "needs_whisper": 47207
+    "whisper_non_cz_needs_subtitles": 6389,
+    "whisper_confirmed_cz": 2550,
+    "whisper_failed": 161,
+    "needs_whisper": 47281
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28136
+    "needs_subtitle_setup_after_prehrajto_processing": 28140
   }
 }
