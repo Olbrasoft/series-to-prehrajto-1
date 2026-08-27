@@ -203,7 +203,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -e
-          active_sync_count="$(gh run list --workflow sync.yml --limit 20 --json status --jq '[.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending" or .status == "requested")] | length')"
+          active_sync_cutoff="$(date -u -d '6 hours ago' +'%Y-%m-%dT%H:%M:%SZ')"
+          active_sync_count="$(
+            gh run list --workflow sync.yml --limit 20 --json status,createdAt |
+              jq --arg cutoff "$active_sync_cutoff" \
+                '[.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending" or .status == "requested") | select(.createdAt == null or .createdAt >= $cutoff)] | length'
+          )"
           if python src/upload_queue_status.py --no-require-description; then
             if [ "$active_sync_count" -le 1 ]; then
               echo "upload-ready episodes remain and no other sync is waiting; queueing next upload batch"

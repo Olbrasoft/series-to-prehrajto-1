@@ -21,6 +21,7 @@ REPORT = REPO / "reports" / "ops-status.json"
 
 RUNNING = {"queued", "in_progress", "waiting", "pending", "requested"}
 FAILED_RETRY_AFTER = dt.timedelta(hours=24)
+ACTIVE_RUN_MAX_AGE = dt.timedelta(hours=6)
 
 
 def run_gh(args: list[str], *, dry_run: bool) -> None:
@@ -46,20 +47,38 @@ def workflow_active_run_count(workflow: str) -> int:
                 "--limit",
                 "20",
                 "--json",
-                "status",
+                "status,createdAt",
             ],
             text=True,
         )
         rows = json.loads(out)
     except Exception:
         return 0
-    return sum(1 for row in rows if row.get("status") in RUNNING)
+    now = dt.datetime.now(dt.timezone.utc)
+    return sum(1 for row in rows if is_recent_active_run(row, now=now))
+
+
+def is_recent_active_run(
+    row: dict, *, now: dt.datetime | None = None
+) -> bool:
+    if row.get("status") not in RUNNING:
+        return False
+    created_at = row.get("createdAt")
+    if not created_at:
+        return True
+    try:
+        created = dt.datetime.fromisoformat(str(created_at).replace("Z", "+00:00"))
+    except ValueError:
+        return True
+    current = now or dt.datetime.now(dt.timezone.utc)
+    return current - created <= ACTIVE_RUN_MAX_AGE
 
 
 def active_workflows(report: dict) -> set[str]:
     active: set[str] = set()
+    now = dt.datetime.now(dt.timezone.utc)
     for row in report.get("workflow_runs") or []:
-        if row.get("status") in RUNNING:
+        if is_recent_active_run(row, now=now):
             active.add(str(row.get("workflowName")))
     return active
 
