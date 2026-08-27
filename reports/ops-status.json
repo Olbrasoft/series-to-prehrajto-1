@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 150606,
-    "manifest_upload_ready_episodes": 1024,
-    "uploaded_episodes": 41228,
-    "prepared_source_episodes": 49281,
+    "manifest_upload_ready_episodes": 1031,
+    "uploaded_episodes": 41235,
+    "prepared_source_episodes": 49246,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 146,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56274,
     "whisper_review_pending_sources": 46883,
@@ -20,18 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-27T06:29:30Z",
-      "databaseId": 33046047903,
+      "createdAt": "2026-08-27T07:02:54Z",
+      "databaseId": 33048132781,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-27T07:02:49Z",
+      "databaseId": 33048127436,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-27T06:59:29Z",
+      "databaseId": 33047903112,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-27T06:56:54Z",
+      "databaseId": 33047742004,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-27T06:53:19Z",
+      "databaseId": 33047512880,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T06:30:34Z",
+      "databaseId": 33046115298,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T06:30:29Z",
+      "databaseId": 33046110178,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T06:30:25Z",
+      "databaseId": 33046106548,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T06:29:30Z",
+      "databaseId": 33046047903,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-27T06:21:19Z",
       "databaseId": 33045562214,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T05:17:26Z",
-      "databaseId": 33042031156,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T05:16:36Z",
-      "databaseId": 33041989047,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T05:03:57Z",
-      "databaseId": 33041321441,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T05:03:55Z",
-      "databaseId": 33041319355,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T05:03:53Z",
-      "databaseId": 33041317809,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T05:03:02Z",
-      "databaseId": 33041274386,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T05:02:56Z",
-      "databaseId": 33041269715,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T04:57:03Z",
-      "databaseId": 33040963027,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -99521,6 +99521,26 @@
         "video_id": 28882834
       },
       {
+        "episode_id": 8688,
+        "display_name": "BEASTARS S01E02 - Největší zvířata na akademii CZ Titulky",
+        "video_id": 28884494
+      },
+      {
+        "episode_id": 27980,
+        "display_name": "BEASTARS S01E06 - Rozmazané vidění – sen, nebo realita? CZ Titulky",
+        "video_id": 28884527
+      },
+      {
+        "episode_id": 27981,
+        "display_name": "BEASTARS S01E07 - Pod kožichem CZ Titulky",
+        "video_id": 28884496
+      },
+      {
+        "episode_id": 27985,
+        "display_name": "BEASTARS S01E11 - Do čtvrti neonů CZ Titulky",
+        "video_id": 28884532
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -181404,6 +181424,21 @@
         "episode_id": 4143,
         "display_name": "Superman a Lois S01E04 - Utržený ze řetězu CZ Dabing",
         "video_id": 28882873
+      },
+      {
+        "episode_id": 27982,
+        "display_name": "BEASTARS S01E08 - Jako dentální nit v zubech psovité šelmy CZ Titulky",
+        "video_id": 28884512
+      },
+      {
+        "episode_id": 8687,
+        "display_name": "BEASTARS S01E01 - Měsíc a zvíře CZ Dabing",
+        "video_id": 28884492
+      },
+      {
+        "episode_id": 27979,
+        "display_name": "BEASTARS S01E05 - Dva úhly pohledu CZ Titulky",
+        "video_id": 28884522
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -280643,6 +280678,26 @@
         "video_id": 28882834
       },
       {
+        "episode_id": 8688,
+        "display_name": "BEASTARS S01E02 - Největší zvířata na akademii CZ Titulky",
+        "video_id": 28884494
+      },
+      {
+        "episode_id": 27980,
+        "display_name": "BEASTARS S01E06 - Rozmazané vidění – sen, nebo realita? CZ Titulky",
+        "video_id": 28884527
+      },
+      {
+        "episode_id": 27981,
+        "display_name": "BEASTARS S01E07 - Pod kožichem CZ Titulky",
+        "video_id": 28884496
+      },
+      {
+        "episode_id": 27985,
+        "display_name": "BEASTARS S01E11 - Do čtvrti neonů CZ Titulky",
+        "video_id": 28884532
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -362526,6 +362581,21 @@
         "episode_id": 4143,
         "display_name": "Superman a Lois S01E04 - Utržený ze řetězu CZ Dabing",
         "video_id": 28882873
+      },
+      {
+        "episode_id": 27982,
+        "display_name": "BEASTARS S01E08 - Jako dentální nit v zubech psovité šelmy CZ Titulky",
+        "video_id": 28884512
+      },
+      {
+        "episode_id": 8687,
+        "display_name": "BEASTARS S01E01 - Měsíc a zvíře CZ Dabing",
+        "video_id": 28884492
+      },
+      {
+        "episode_id": 27979,
+        "display_name": "BEASTARS S01E05 - Dva úhly pohledu CZ Titulky",
+        "video_id": 28884522
       }
     ],
     "prepared_not_upload_ready": [
@@ -363687,8 +363757,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 86,
-    "ok": 59,
+    "disabled": 20,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
