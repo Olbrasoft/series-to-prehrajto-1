@@ -13,9 +13,12 @@
 Use `https://prehraj.to/profil/statistiky` as the authoritative upload
 progress check for each logged-in account. Record `Nahráno videí celkem`
 before any fix or monitoring window, wait or apply the fix, then read the same
-counter again for the same account. The counter is expected to increase
-immediately after successful uploads; do not treat processing state on other
-profile pages as a delay for this statistic.
+counter again for the same account. The counter can lag behind a successful
+upload while Přehraj.to processes the video. For immediate evidence, confirm
+that the new `prehrajto_video_id` is present in `Nahraná videa` for the same
+account and that the matching shard state was committed. Recheck the statistics
+counter after processing; do not diagnose a stopped uploader from this counter
+alone.
 
 Check both production upload accounts separately:
 
