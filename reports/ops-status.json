@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 150792,
-    "manifest_upload_ready_episodes": 1016,
-    "uploaded_episodes": 41132,
-    "prepared_source_episodes": 49085,
+    "manifest_upload_ready_episodes": 1011,
+    "uploaded_episodes": 41164,
+    "prepared_source_episodes": 49132,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 126,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 74,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56288,
     "whisper_review_pending_sources": 46951,
@@ -20,10 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-27T01:48:03Z",
+      "databaseId": 33031253754,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-27T01:47:57Z",
+      "databaseId": 33031248844,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T01:15:27Z",
+      "databaseId": 33029516046,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T00:54:18Z",
+      "databaseId": 33028365949,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T00:52:30Z",
+      "databaseId": 33028269758,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T00:52:27Z",
+      "databaseId": 33028267298,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T00:52:25Z",
+      "databaseId": 33028265247,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T00:52:22Z",
+      "databaseId": 33028262867,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-27T00:51:32Z",
       "databaseId": 33028218836,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +103,7 @@
       "createdAt": "2026-08-27T00:41:49Z",
       "databaseId": 33027699571,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-27T00:24:31Z",
-      "databaseId": 33026736357,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T00:24:29Z",
-      "databaseId": 33026734222,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T00:24:27Z",
-      "databaseId": 33026732071,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T00:23:30Z",
-      "databaseId": 33026678857,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T00:23:24Z",
-      "databaseId": 33026674175,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T00:06:31Z",
-      "databaseId": 33025700259,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T23:55:31Z",
-      "databaseId": 33024973763,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-26T23:42:45Z",
-      "databaseId": 33024340187,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -99281,6 +99281,86 @@
         "video_id": 28878616
       },
       {
+        "episode_id": 194420,
+        "display_name": "Big Time Rush S01E01 - Big Time konkurz CZ Dabing",
+        "video_id": 28879462
+      },
+      {
+        "episode_id": 161876,
+        "display_name": "Clark: Hvězdný zločinec S01E02 - Všechno automaticky dělám přesně naopak než ostatní CZ Dabing",
+        "video_id": 28879623
+      },
+      {
+        "episode_id": 149568,
+        "display_name": "Walker S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 28879705
+      },
+      {
+        "episode_id": 57136,
+        "display_name": "Pravěk útočí S04E01 - Návrat CZ Dabing",
+        "video_id": 28879780
+      },
+      {
+        "episode_id": 53104,
+        "display_name": "Pustiny S03E03 - Leopard líčí na Králíčka CZ Dabing",
+        "video_id": 28879808
+      },
+      {
+        "episode_id": 53108,
+        "display_name": "Pustiny S03E06 - Nářek černého větru CZ Dabing",
+        "video_id": 28879888
+      },
+      {
+        "episode_id": 43300,
+        "display_name": "Policie Chicago S01E09 - Klíčový svědek CZ Dabing",
+        "video_id": 28879964
+      },
+      {
+        "episode_id": 43304,
+        "display_name": "Policie Chicago S03E05 - Jak si kdo ustele CZ Titulky",
+        "video_id": 28880040
+      },
+      {
+        "episode_id": 194421,
+        "display_name": "Big Time Rush S01E07 - Big Time fotografování CZ Dabing",
+        "video_id": 28879457
+      },
+      {
+        "episode_id": 161877,
+        "display_name": "Clark: Hvězdný zločinec S01E03 - Jsem pro ně tak trochu Pippi dlouhá punčocha a Al Capone v jednom CZ Dabing",
+        "video_id": 28879555
+      },
+      {
+        "episode_id": 149569,
+        "display_name": "Walker S04E10 - 10. epizoda CZ Titulky",
+        "video_id": 28879737
+      },
+      {
+        "episode_id": 95749,
+        "display_name": "Durrellovi S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28879832
+      },
+      {
+        "episode_id": 67445,
+        "display_name": "Spravedlnost v krvi  S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28879951
+      },
+      {
+        "episode_id": 53089,
+        "display_name": "Pustiny S01E03 - Čáp bílý roztahuje křídla CZ Dabing",
+        "video_id": 28880038
+      },
+      {
+        "episode_id": 53093,
+        "display_name": "Pustiny S02E02 - Síla orlího spáru CZ Dabing",
+        "video_id": 28880102
+      },
+      {
+        "episode_id": 53101,
+        "display_name": "Pustiny S02E10 - Dračí oheň, vlčí dech CZ Dabing",
+        "video_id": 28880180
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -180924,6 +181004,86 @@
         "episode_id": 13631,
         "display_name": "Xena S01E15 - Bojovnice... princezna CZ Titulky",
         "video_id": 28878686
+      },
+      {
+        "episode_id": 161878,
+        "display_name": "Clark: Hvězdný zločinec S01E04 - A párty může začít! CZ Dabing",
+        "video_id": 28879486
+      },
+      {
+        "episode_id": 149570,
+        "display_name": "Walker S04E12 - 12. epizoda CZ Titulky",
+        "video_id": 28879676
+      },
+      {
+        "episode_id": 53106,
+        "display_name": "Pustiny S03E05 - Tygr přichází k hoře CZ Dabing",
+        "video_id": 28879769
+      },
+      {
+        "episode_id": 53110,
+        "display_name": "Pustiny S03E09 - Doupě škorpióna CZ Dabing",
+        "video_id": 28879855
+      },
+      {
+        "episode_id": 43306,
+        "display_name": "Policie Chicago S03E15 - Noční pták CZ Dabing",
+        "video_id": 28879961
+      },
+      {
+        "episode_id": 43298,
+        "display_name": "Policie Chicago S03E18 - Hlavně nezávazně CZ Titulky",
+        "video_id": 28880039
+      },
+      {
+        "episode_id": 43362,
+        "display_name": "Policie Chicago S04E10 - Nečtu noviny CZ Dabing",
+        "video_id": 28880107
+      },
+      {
+        "episode_id": 43386,
+        "display_name": "Policie Chicago S04E13 - Už si na ní vzpomínám CZ Dabing",
+        "video_id": 28880178
+      },
+      {
+        "episode_id": 194419,
+        "display_name": "Big Time Rush S02E01 - Vítejte zpět, Big Time CZ Dabing",
+        "video_id": 28879460
+      },
+      {
+        "episode_id": 161879,
+        "display_name": "Clark: Hvězdný zločinec S01E05 - Proč bych chodil do práce? Na takový kraviny nemám čas a navíc bych kvůli tomu přišel o spoustu zábavy CZ Dabing",
+        "video_id": 28879579
+      },
+      {
+        "episode_id": 57139,
+        "display_name": "Pravěk útočí S04E05 - Červ CZ Dabing",
+        "video_id": 28879786
+      },
+      {
+        "episode_id": 161875,
+        "display_name": "Clark: Hvězdný zločinec S01E01 - Nikdy mi nešlo být nejlepší z nejlepších, a tak jsem se rozhodl být nejlepší z nejhorších CZ Dabing",
+        "video_id": 28879856
+      },
+      {
+        "episode_id": 149571,
+        "display_name": "Walker S04E13 - 13. epizoda CZ Titulky",
+        "video_id": 28880004
+      },
+      {
+        "episode_id": 13731,
+        "display_name": "Xena S05E22 - Mateřství CZ Dabing",
+        "video_id": 28880081
+      },
+      {
+        "episode_id": 16955,
+        "display_name": "Mladý papež S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 28880133
+      },
+      {
+        "episode_id": 150491,
+        "display_name": "Na vejšce S01E07 - Vhazování CZ Dabing",
+        "video_id": 28880202
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -279923,6 +280083,86 @@
         "video_id": 28878616
       },
       {
+        "episode_id": 194420,
+        "display_name": "Big Time Rush S01E01 - Big Time konkurz CZ Dabing",
+        "video_id": 28879462
+      },
+      {
+        "episode_id": 161876,
+        "display_name": "Clark: Hvězdný zločinec S01E02 - Všechno automaticky dělám přesně naopak než ostatní CZ Dabing",
+        "video_id": 28879623
+      },
+      {
+        "episode_id": 149568,
+        "display_name": "Walker S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 28879705
+      },
+      {
+        "episode_id": 57136,
+        "display_name": "Pravěk útočí S04E01 - Návrat CZ Dabing",
+        "video_id": 28879780
+      },
+      {
+        "episode_id": 53104,
+        "display_name": "Pustiny S03E03 - Leopard líčí na Králíčka CZ Dabing",
+        "video_id": 28879808
+      },
+      {
+        "episode_id": 53108,
+        "display_name": "Pustiny S03E06 - Nářek černého větru CZ Dabing",
+        "video_id": 28879888
+      },
+      {
+        "episode_id": 43300,
+        "display_name": "Policie Chicago S01E09 - Klíčový svědek CZ Dabing",
+        "video_id": 28879964
+      },
+      {
+        "episode_id": 43304,
+        "display_name": "Policie Chicago S03E05 - Jak si kdo ustele CZ Titulky",
+        "video_id": 28880040
+      },
+      {
+        "episode_id": 194421,
+        "display_name": "Big Time Rush S01E07 - Big Time fotografování CZ Dabing",
+        "video_id": 28879457
+      },
+      {
+        "episode_id": 161877,
+        "display_name": "Clark: Hvězdný zločinec S01E03 - Jsem pro ně tak trochu Pippi dlouhá punčocha a Al Capone v jednom CZ Dabing",
+        "video_id": 28879555
+      },
+      {
+        "episode_id": 149569,
+        "display_name": "Walker S04E10 - 10. epizoda CZ Titulky",
+        "video_id": 28879737
+      },
+      {
+        "episode_id": 95749,
+        "display_name": "Durrellovi S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28879832
+      },
+      {
+        "episode_id": 67445,
+        "display_name": "Spravedlnost v krvi  S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28879951
+      },
+      {
+        "episode_id": 53089,
+        "display_name": "Pustiny S01E03 - Čáp bílý roztahuje křídla CZ Dabing",
+        "video_id": 28880038
+      },
+      {
+        "episode_id": 53093,
+        "display_name": "Pustiny S02E02 - Síla orlího spáru CZ Dabing",
+        "video_id": 28880102
+      },
+      {
+        "episode_id": 53101,
+        "display_name": "Pustiny S02E10 - Dračí oheň, vlčí dech CZ Dabing",
+        "video_id": 28880180
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -361566,6 +361806,86 @@
         "episode_id": 13631,
         "display_name": "Xena S01E15 - Bojovnice... princezna CZ Titulky",
         "video_id": 28878686
+      },
+      {
+        "episode_id": 161878,
+        "display_name": "Clark: Hvězdný zločinec S01E04 - A párty může začít! CZ Dabing",
+        "video_id": 28879486
+      },
+      {
+        "episode_id": 149570,
+        "display_name": "Walker S04E12 - 12. epizoda CZ Titulky",
+        "video_id": 28879676
+      },
+      {
+        "episode_id": 53106,
+        "display_name": "Pustiny S03E05 - Tygr přichází k hoře CZ Dabing",
+        "video_id": 28879769
+      },
+      {
+        "episode_id": 53110,
+        "display_name": "Pustiny S03E09 - Doupě škorpióna CZ Dabing",
+        "video_id": 28879855
+      },
+      {
+        "episode_id": 43306,
+        "display_name": "Policie Chicago S03E15 - Noční pták CZ Dabing",
+        "video_id": 28879961
+      },
+      {
+        "episode_id": 43298,
+        "display_name": "Policie Chicago S03E18 - Hlavně nezávazně CZ Titulky",
+        "video_id": 28880039
+      },
+      {
+        "episode_id": 43362,
+        "display_name": "Policie Chicago S04E10 - Nečtu noviny CZ Dabing",
+        "video_id": 28880107
+      },
+      {
+        "episode_id": 43386,
+        "display_name": "Policie Chicago S04E13 - Už si na ní vzpomínám CZ Dabing",
+        "video_id": 28880178
+      },
+      {
+        "episode_id": 194419,
+        "display_name": "Big Time Rush S02E01 - Vítejte zpět, Big Time CZ Dabing",
+        "video_id": 28879460
+      },
+      {
+        "episode_id": 161879,
+        "display_name": "Clark: Hvězdný zločinec S01E05 - Proč bych chodil do práce? Na takový kraviny nemám čas a navíc bych kvůli tomu přišel o spoustu zábavy CZ Dabing",
+        "video_id": 28879579
+      },
+      {
+        "episode_id": 57139,
+        "display_name": "Pravěk útočí S04E05 - Červ CZ Dabing",
+        "video_id": 28879786
+      },
+      {
+        "episode_id": 161875,
+        "display_name": "Clark: Hvězdný zločinec S01E01 - Nikdy mi nešlo být nejlepší z nejlepších, a tak jsem se rozhodl být nejlepší z nejhorších CZ Dabing",
+        "video_id": 28879856
+      },
+      {
+        "episode_id": 149571,
+        "display_name": "Walker S04E13 - 13. epizoda CZ Titulky",
+        "video_id": 28880004
+      },
+      {
+        "episode_id": 13731,
+        "display_name": "Xena S05E22 - Mateřství CZ Dabing",
+        "video_id": 28880081
+      },
+      {
+        "episode_id": 16955,
+        "display_name": "Mladý papež S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 28880133
+      },
+      {
+        "episode_id": 150491,
+        "display_name": "Na vejšce S01E07 - Vhazování CZ Dabing",
+        "video_id": 28880202
       }
     ],
     "prepared_not_upload_ready": [
@@ -362727,8 +363047,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 66,
+    "disabled": 34,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
