@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 150481,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 41420,
-    "prepared_source_episodes": 49253,
+    "uploaded_episodes": 41441,
+    "prepared_source_episodes": 49270,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 46,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 100,
-    "language_whisper_attempted_sources": 80,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56274,
     "whisper_review_pending_sources": 46875,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-27T10:57:16Z",
-      "databaseId": 33065241629,
+      "createdAt": "2026-08-27T11:20:20Z",
+      "databaseId": 33066926105,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-27T11:14:16Z",
+      "databaseId": 33066487491,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-27T11:12:57Z",
+      "databaseId": 33066390408,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T10:58:15Z",
+      "databaseId": 33065311298,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-27T10:58:12Z",
+      "databaseId": 33065308035,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T10:58:10Z",
+      "databaseId": 33065304390,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T10:58:07Z",
+      "databaseId": 33065301372,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T10:57:16Z",
+      "databaseId": 33065241629,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-27T10:57:11Z",
       "databaseId": 33065235649,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T09:43:21Z",
-      "databaseId": 33059850799,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T09:42:55Z",
-      "databaseId": 33059817979,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T09:42:52Z",
-      "databaseId": 33059813834,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T09:42:48Z",
-      "databaseId": 33059808796,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T09:41:52Z",
-      "databaseId": 33059736730,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T09:41:46Z",
-      "databaseId": 33059729460,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T09:34:45Z",
-      "databaseId": 33059205713,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -100001,6 +100001,56 @@
         "video_id": 28887730
       },
       {
+        "episode_id": 142000,
+        "display_name": "Dotkni se mých ran S01E12 - Romeo a Julie CZ Titulky",
+        "video_id": 28888013
+      },
+      {
+        "episode_id": 104536,
+        "display_name": "Déšť S01E04 - Nikomu nevěřit CZ Titulky",
+        "video_id": 28888071
+      },
+      {
+        "episode_id": 50844,
+        "display_name": "Lidé S03E03 - Episode #3.3 CZ Dabing",
+        "video_id": 28888122
+      },
+      {
+        "episode_id": 82864,
+        "display_name": "Hanna S02E03 - Do Meadows CZ Dabing",
+        "video_id": 28888172
+      },
+      {
+        "episode_id": 54556,
+        "display_name": "Joey S02E13 - Joey a vánoční večírek CZ Titulky",
+        "video_id": 28888216
+      },
+      {
+        "episode_id": 77808,
+        "display_name": "A-Team S02E21 - 21. epizoda CZ Titulky",
+        "video_id": 28888249
+      },
+      {
+        "episode_id": 183569,
+        "display_name": "Blue S03E08 - Jednoróža CZ Titulky",
+        "video_id": 28888018
+      },
+      {
+        "episode_id": 76421,
+        "display_name": "Zaklínač: Pokrevní pouto S01E02 - O snění, smělosti a skutcích ze zoufalství CZ Dabing",
+        "video_id": 28888094
+      },
+      {
+        "episode_id": 89841,
+        "display_name": "Scream S02E11 - Heavenly Creatures CZ Titulky",
+        "video_id": 28888167
+      },
+      {
+        "episode_id": 59489,
+        "display_name": "4400 S01E04 - Zkouška ohněm CZ Dabing",
+        "video_id": 28888221
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -182364,6 +182414,61 @@
         "episode_id": 67287,
         "display_name": "Ranč S01E15 - Vím, že mě pořád miluje CZ Titulky",
         "video_id": 28887741
+      },
+      {
+        "episode_id": 63538,
+        "display_name": "Za hranicí S01E02 - Země CZ Dabing",
+        "video_id": 28888006
+      },
+      {
+        "episode_id": 73942,
+        "display_name": "Dragon Ball Super S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28888056
+      },
+      {
+        "episode_id": 73926,
+        "display_name": "Dragon Ball Super S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 28888077
+      },
+      {
+        "episode_id": 142002,
+        "display_name": "Dotkni se mých ran S01E14 - Ruka a Mořský ďas CZ Titulky",
+        "video_id": 28888118
+      },
+      {
+        "episode_id": 104542,
+        "display_name": "Déšť S02E04 - Zachraň se CZ Titulky",
+        "video_id": 28888180
+      },
+      {
+        "episode_id": 59578,
+        "display_name": "Kovboj Bebop: Lovec odměn S01E06 - Binární two-step CZ Dabing",
+        "video_id": 28888258
+      },
+      {
+        "episode_id": 67311,
+        "display_name": "Ranč S02E20 - Pokud nikdy nepřijde zítřek CZ Titulky",
+        "video_id": 28888012
+      },
+      {
+        "episode_id": 111451,
+        "display_name": "Odstřelovač S03E02 - Jatka CZ Dabing",
+        "video_id": 28888069
+      },
+      {
+        "episode_id": 111459,
+        "display_name": "Odstřelovač S03E05 - Do zbraně CZ Dabing",
+        "video_id": 28888130
+      },
+      {
+        "episode_id": 35459,
+        "display_name": "MacGyver S02E01 - Lidský faktor CZ Dabing",
+        "video_id": 28888178
+      },
+      {
+        "episode_id": 35463,
+        "display_name": "MacGyver S02E05 - Přistávací manévr CZ Dabing",
+        "video_id": 28888240
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -282083,6 +282188,56 @@
         "video_id": 28887730
       },
       {
+        "episode_id": 142000,
+        "display_name": "Dotkni se mých ran S01E12 - Romeo a Julie CZ Titulky",
+        "video_id": 28888013
+      },
+      {
+        "episode_id": 104536,
+        "display_name": "Déšť S01E04 - Nikomu nevěřit CZ Titulky",
+        "video_id": 28888071
+      },
+      {
+        "episode_id": 50844,
+        "display_name": "Lidé S03E03 - Episode #3.3 CZ Dabing",
+        "video_id": 28888122
+      },
+      {
+        "episode_id": 82864,
+        "display_name": "Hanna S02E03 - Do Meadows CZ Dabing",
+        "video_id": 28888172
+      },
+      {
+        "episode_id": 54556,
+        "display_name": "Joey S02E13 - Joey a vánoční večírek CZ Titulky",
+        "video_id": 28888216
+      },
+      {
+        "episode_id": 77808,
+        "display_name": "A-Team S02E21 - 21. epizoda CZ Titulky",
+        "video_id": 28888249
+      },
+      {
+        "episode_id": 183569,
+        "display_name": "Blue S03E08 - Jednoróža CZ Titulky",
+        "video_id": 28888018
+      },
+      {
+        "episode_id": 76421,
+        "display_name": "Zaklínač: Pokrevní pouto S01E02 - O snění, smělosti a skutcích ze zoufalství CZ Dabing",
+        "video_id": 28888094
+      },
+      {
+        "episode_id": 89841,
+        "display_name": "Scream S02E11 - Heavenly Creatures CZ Titulky",
+        "video_id": 28888167
+      },
+      {
+        "episode_id": 59489,
+        "display_name": "4400 S01E04 - Zkouška ohněm CZ Dabing",
+        "video_id": 28888221
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -364446,6 +364601,61 @@
         "episode_id": 67287,
         "display_name": "Ranč S01E15 - Vím, že mě pořád miluje CZ Titulky",
         "video_id": 28887741
+      },
+      {
+        "episode_id": 63538,
+        "display_name": "Za hranicí S01E02 - Země CZ Dabing",
+        "video_id": 28888006
+      },
+      {
+        "episode_id": 73942,
+        "display_name": "Dragon Ball Super S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28888056
+      },
+      {
+        "episode_id": 73926,
+        "display_name": "Dragon Ball Super S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 28888077
+      },
+      {
+        "episode_id": 142002,
+        "display_name": "Dotkni se mých ran S01E14 - Ruka a Mořský ďas CZ Titulky",
+        "video_id": 28888118
+      },
+      {
+        "episode_id": 104542,
+        "display_name": "Déšť S02E04 - Zachraň se CZ Titulky",
+        "video_id": 28888180
+      },
+      {
+        "episode_id": 59578,
+        "display_name": "Kovboj Bebop: Lovec odměn S01E06 - Binární two-step CZ Dabing",
+        "video_id": 28888258
+      },
+      {
+        "episode_id": 67311,
+        "display_name": "Ranč S02E20 - Pokud nikdy nepřijde zítřek CZ Titulky",
+        "video_id": 28888012
+      },
+      {
+        "episode_id": 111451,
+        "display_name": "Odstřelovač S03E02 - Jatka CZ Dabing",
+        "video_id": 28888069
+      },
+      {
+        "episode_id": 111459,
+        "display_name": "Odstřelovač S03E05 - Do zbraně CZ Dabing",
+        "video_id": 28888130
+      },
+      {
+        "episode_id": 35459,
+        "display_name": "MacGyver S02E01 - Lidský faktor CZ Dabing",
+        "video_id": 28888178
+      },
+      {
+        "episode_id": 35463,
+        "display_name": "MacGyver S02E05 - Přistávací manévr CZ Dabing",
+        "video_id": 28888240
       }
     ],
     "prepared_not_upload_ready": [
@@ -365607,8 +365817,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 79,
-    "disabled": 20,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
