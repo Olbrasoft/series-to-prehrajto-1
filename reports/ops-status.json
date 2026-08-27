@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 150481,
     "manifest_upload_ready_episodes": 1003,
-    "uploaded_episodes": 41451,
-    "prepared_source_episodes": 49335,
+    "uploaded_episodes": 41452,
+    "prepared_source_episodes": 49355,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 46,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 66,
+    "language_audited_sources": 67,
     "language_whisper_attempted_sources": 64,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56274,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-27T11:54:18Z",
-      "databaseId": 33069420249,
+      "createdAt": "2026-08-27T11:58:08Z",
+      "databaseId": 33069699724,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-27T11:57:58Z",
+      "databaseId": 33069687964,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T11:55:21Z",
+      "databaseId": 33069497432,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-27T11:55:18Z",
+      "databaseId": 33069493113,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-27T11:55:15Z",
+      "databaseId": 33069489174,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-27T11:54:18Z",
+      "databaseId": 33069420249,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-27T11:49:05Z",
       "databaseId": 33069049401,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T10:32:55Z",
-      "databaseId": 33063511861,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T10:29:22Z",
-      "databaseId": 33063249484,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-27T10:27:51Z",
-      "databaseId": 33063140118,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-27T10:24:40Z",
-      "databaseId": 33062911026,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-27T10:24:17Z",
-      "databaseId": 33062883054,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -100074,6 +100074,11 @@
         "episode_id": 69057,
         "display_name": "Columbo S02E01 - Etuda v černém CZ Dabing",
         "video_id": 28888443
+      },
+      {
+        "episode_id": 69085,
+        "display_name": "Columbo S03E01 - Sladká, leč smrtící CZ Dabing",
+        "video_id": 28888702
       },
       {
         "episode_id": 114182,
@@ -282313,6 +282318,11 @@
         "video_id": 28888443
       },
       {
+        "episode_id": 69085,
+        "display_name": "Columbo S03E01 - Sladká, leč smrtící CZ Dabing",
+        "video_id": 28888702
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -365917,7 +365927,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 2,
+    "disabled": 3,
     "ok": 63,
     "resolve_failed": 1
   },
