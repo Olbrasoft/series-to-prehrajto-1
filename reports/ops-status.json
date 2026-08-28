@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 149929,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 42141,
-    "prepared_source_episodes": 49456,
+    "uploaded_episodes": 42153,
+    "prepared_source_episodes": 49455,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 270,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 79,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56245,
     "whisper_review_pending_sources": 46726,
@@ -20,26 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-28T07:54:44Z",
-      "databaseId": 33153244937,
+      "createdAt": "2026-08-28T08:06:21Z",
+      "databaseId": 33154016912,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-08-28T07:51:54Z",
-      "databaseId": 33153065288,
+      "createdAt": "2026-08-28T08:06:17Z",
+      "databaseId": 33154012505,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-28T08:02:13Z",
+      "databaseId": 33153733195,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T07:55:43Z",
+      "databaseId": 33153309117,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T07:55:39Z",
+      "databaseId": 33153304753,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T07:54:44Z",
+      "databaseId": 33153244937,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T07:51:54Z",
+      "databaseId": 33153065288,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-28T07:51:44Z",
       "databaseId": 33153055420,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T07:05:22Z",
-      "databaseId": 33150187334,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T07:04:33Z",
-      "databaseId": 33150134008,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T07:04:29Z",
-      "databaseId": 33150129564,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T07:04:23Z",
-      "databaseId": 33150123110,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T06:51:09Z",
-      "databaseId": 33149341830,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -101776,6 +101776,26 @@
         "video_id": 28901569
       },
       {
+        "episode_id": 66024,
+        "display_name": "Malá bubenice S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28901602
+      },
+      {
+        "episode_id": 66028,
+        "display_name": "Malá bubenice S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28901656
+      },
+      {
+        "episode_id": 196080,
+        "display_name": "Gentleman Jack S01E05 - Let's Have Another Look at Your Past Perfect CZ Titulky",
+        "video_id": 28901717
+      },
+      {
+        "episode_id": 136708,
+        "display_name": "Gentleman Jack S01E08 - Are You Still Talking? CZ Dabing",
+        "video_id": 28901745
+      },
+      {
         "episode_id": 146929,
         "display_name": "Halston S01E03 - Jak sladce voní úspěch CZ Titulky",
         "video_id": 28901396
@@ -101799,6 +101819,21 @@
         "episode_id": 60809,
         "display_name": "Kleo S01E02 - Shledání CZ Dabing",
         "video_id": 28901542
+      },
+      {
+        "episode_id": 60813,
+        "display_name": "Kleo S01E06 - Projekt Else CZ Dabing",
+        "video_id": 28901615
+      },
+      {
+        "episode_id": 152857,
+        "display_name": "Ozvěny S01E03 - Oslava CZ Dabing",
+        "video_id": 28901669
+      },
+      {
+        "episode_id": 152861,
+        "display_name": "Ozvěny S01E07 - Vodopád CZ Dabing",
+        "video_id": 28901720
       },
       {
         "episode_id": 114182,
@@ -185936,6 +185971,26 @@
         "video_id": 28901579
       },
       {
+        "episode_id": 59998,
+        "display_name": "Otec Brown S09E02 - Hadí jazyk CZ Dabing",
+        "video_id": 28901614
+      },
+      {
+        "episode_id": 142606,
+        "display_name": "Otec Brown S10E06 - Královská návštěva CZ Dabing",
+        "video_id": 28901652
+      },
+      {
+        "episode_id": 142610,
+        "display_name": "Otec Brown S10E10 - Had uvnitř CZ Dabing",
+        "video_id": 28901689
+      },
+      {
+        "episode_id": 118934,
+        "display_name": "Holky na drátě S01E03 - 3. kapitola: Lži CZ Titulky",
+        "video_id": 28901749
+      },
+      {
         "episode_id": 51099,
         "display_name": "Dallas S03E12 - 12. epizoda CZ Dabing",
         "video_id": 28901398
@@ -185969,6 +186024,11 @@
         "episode_id": 58171,
         "display_name": "Stalker S01E19 - 19. epizoda CZ Titulky",
         "video_id": 28901616
+      },
+      {
+        "episode_id": 16667,
+        "display_name": "Star Wars: Příběhy z Impéria S01E06 - Východisko CZ Dabing",
+        "video_id": 28901642
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -287463,6 +287523,26 @@
         "video_id": 28901569
       },
       {
+        "episode_id": 66024,
+        "display_name": "Malá bubenice S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28901602
+      },
+      {
+        "episode_id": 66028,
+        "display_name": "Malá bubenice S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28901656
+      },
+      {
+        "episode_id": 196080,
+        "display_name": "Gentleman Jack S01E05 - Let's Have Another Look at Your Past Perfect CZ Titulky",
+        "video_id": 28901717
+      },
+      {
+        "episode_id": 136708,
+        "display_name": "Gentleman Jack S01E08 - Are You Still Talking? CZ Dabing",
+        "video_id": 28901745
+      },
+      {
         "episode_id": 146929,
         "display_name": "Halston S01E03 - Jak sladce voní úspěch CZ Titulky",
         "video_id": 28901396
@@ -287486,6 +287566,21 @@
         "episode_id": 60809,
         "display_name": "Kleo S01E02 - Shledání CZ Dabing",
         "video_id": 28901542
+      },
+      {
+        "episode_id": 60813,
+        "display_name": "Kleo S01E06 - Projekt Else CZ Dabing",
+        "video_id": 28901615
+      },
+      {
+        "episode_id": 152857,
+        "display_name": "Ozvěny S01E03 - Oslava CZ Dabing",
+        "video_id": 28901669
+      },
+      {
+        "episode_id": 152861,
+        "display_name": "Ozvěny S01E07 - Vodopád CZ Dabing",
+        "video_id": 28901720
       },
       {
         "episode_id": 114182,
@@ -371623,6 +371718,26 @@
         "video_id": 28901579
       },
       {
+        "episode_id": 59998,
+        "display_name": "Otec Brown S09E02 - Hadí jazyk CZ Dabing",
+        "video_id": 28901614
+      },
+      {
+        "episode_id": 142606,
+        "display_name": "Otec Brown S10E06 - Královská návštěva CZ Dabing",
+        "video_id": 28901652
+      },
+      {
+        "episode_id": 142610,
+        "display_name": "Otec Brown S10E10 - Had uvnitř CZ Dabing",
+        "video_id": 28901689
+      },
+      {
+        "episode_id": 118934,
+        "display_name": "Holky na drátě S01E03 - 3. kapitola: Lži CZ Titulky",
+        "video_id": 28901749
+      },
+      {
         "episode_id": 51099,
         "display_name": "Dallas S03E12 - 12. epizoda CZ Dabing",
         "video_id": 28901398
@@ -371656,6 +371771,11 @@
         "episode_id": 58171,
         "display_name": "Stalker S01E19 - 19. epizoda CZ Titulky",
         "video_id": 28901616
+      },
+      {
+        "episode_id": 16667,
+        "display_name": "Star Wars: Příběhy z Impéria S01E06 - Východisko CZ Dabing",
+        "video_id": 28901642
       }
     ],
     "prepared_not_upload_ready": [
@@ -372817,8 +372937,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 210,
-    "ok": 59,
+    "disabled": 39,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
