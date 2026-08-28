@@ -1,7 +1,7 @@
 {
   "counts": {
     "backlog_episodes": 149224,
-    "manifest_upload_ready_episodes": 1063,
+    "manifest_upload_ready_episodes": 1061,
     "uploaded_episodes": 42629,
     "prepared_source_episodes": 48983,
     "description_series": 60,
@@ -10,20 +10,60 @@
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 306,
-    "language_whisper_attempted_sources": 111,
+    "language_whisper_attempted_sources": 99,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56227,
-    "whisper_review_pending_sources": 46648,
+    "whisper_review_sources": 56217,
+    "whisper_review_pending_sources": 46598,
     "subtitle_followup_sources": 28604,
     "subtitle_followup_pending_sources": 28604
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-28T22:23:22Z",
+      "databaseId": 33216593860,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-28T22:23:02Z",
+      "databaseId": 33216569930,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T22:22:38Z",
+      "databaseId": 33216545433,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-28T22:22:35Z",
+      "databaseId": 33216542066,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-28T22:22:33Z",
+      "databaseId": 33216539262,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-28T22:21:38Z",
       "databaseId": 33216479012,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -134,46 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-08-28T21:39:39Z",
       "databaseId": 33213512034,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T21:26:34Z",
-      "databaseId": 33212568793,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-28T21:18:28Z",
-      "databaseId": 33211976928,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T21:11:33Z",
-      "databaseId": 33211479384,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T20:58:54Z",
-      "databaseId": 33210549457,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T20:48:41Z",
-      "databaseId": 33209821056,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -377697,15 +377697,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 110,
-    "disabled": 195,
+    "ok": 98,
+    "disabled": 207,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6926,
-    "whisper_confirmed_cz": 2653,
+    "whisper_non_cz_needs_subtitles": 6963,
+    "whisper_confirmed_cz": 2656,
     "whisper_failed": 168,
-    "needs_whisper": 46480
+    "needs_whisper": 46430
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28604
