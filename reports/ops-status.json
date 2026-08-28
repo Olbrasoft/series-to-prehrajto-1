@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 149929,
-    "manifest_upload_ready_episodes": 1002,
-    "uploaded_episodes": 41962,
-    "prepared_source_episodes": 49140,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 41981,
+    "prepared_source_episodes": 49167,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 36,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 76,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56247,
     "whisper_review_pending_sources": 46734,
-    "subtitle_followup_sources": 28491,
-    "subtitle_followup_pending_sources": 28491
+    "subtitle_followup_sources": 28492,
+    "subtitle_followup_pending_sources": 28492
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-28T04:51:02Z",
-      "databaseId": 33143001258,
+      "createdAt": "2026-08-28T05:08:56Z",
+      "databaseId": 33143883716,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-28T05:02:57Z",
+      "databaseId": 33143582093,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-28T05:01:12Z",
+      "databaseId": 33143495439,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "failure",
+      "createdAt": "2026-08-28T04:54:30Z",
+      "databaseId": 33143168357,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T04:51:58Z",
+      "databaseId": 33143044811,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T04:51:55Z",
+      "databaseId": 33143042466,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T04:51:52Z",
+      "databaseId": 33143040526,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T04:51:02Z",
+      "databaseId": 33143001258,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-28T04:50:56Z",
       "databaseId": 33142996298,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T03:28:19Z",
-      "databaseId": 33138981391,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-28T03:24:01Z",
-      "databaseId": 33138772381,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T03:20:02Z",
-      "databaseId": 33138575442,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T03:16:28Z",
-      "databaseId": 33138399164,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T03:16:22Z",
-      "databaseId": 33138394147,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T03:07:23Z",
-      "databaseId": 33137967286,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T03:07:19Z",
-      "databaseId": 33137964606,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -101361,6 +101361,56 @@
         "video_id": 28898832
       },
       {
+        "episode_id": 14536,
+        "display_name": "Bosch: Odkaz S02E02 - Zzyzx CZ Dabing",
+        "video_id": 28899181
+      },
+      {
+        "episode_id": 14540,
+        "display_name": "Bosch: Odkaz S02E05 - Vždycky Hollywood CZ Dabing",
+        "video_id": 28899232
+      },
+      {
+        "episode_id": 17904,
+        "display_name": "Vraždy ve Valhalle S01E05 - Všem na očích CZ Dabing",
+        "video_id": 28899274
+      },
+      {
+        "episode_id": 166876,
+        "display_name": "Ve vatě S03E04 - Buona Sera CZ Titulky",
+        "video_id": 28899315
+      },
+      {
+        "episode_id": 166880,
+        "display_name": "Ve vatě S03E08 - Pan Maro Gold CZ Titulky",
+        "video_id": 28899331
+      },
+      {
+        "episode_id": 202909,
+        "display_name": "Trestní rejstřík S02E05 - Povinnost chránit CZ Dabing",
+        "video_id": 28899180
+      },
+      {
+        "episode_id": 14537,
+        "display_name": "Bosch: Odkaz S02E04 - Musso & Frank CZ Dabing",
+        "video_id": 28899223
+      },
+      {
+        "episode_id": 187561,
+        "display_name": "Želvy Ninja S02E20 - Legenda o Kuro Kabuto CZ Dabing",
+        "video_id": 28899269
+      },
+      {
+        "episode_id": 182757,
+        "display_name": "Želvy Ninja S03E21 - Útok Megatrhače CZ Dabing",
+        "video_id": 28899294
+      },
+      {
+        "episode_id": 16825,
+        "display_name": "Nejzazší hranice S01E08 - L’air Perdu CZ Titulky",
+        "video_id": 28899318
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -185074,6 +185124,51 @@
         "episode_id": 114067,
         "display_name": "Zmrzlá planeta  S01E06 - 6. epizoda CZ Dabing",
         "video_id": 28898860
+      },
+      {
+        "episode_id": 73154,
+        "display_name": "Ztracené květiny Alice Hartové S01E05 - Část pátá: Pouštní dub CZ Titulky",
+        "video_id": 28899178
+      },
+      {
+        "episode_id": 68110,
+        "display_name": "Ropná plošina S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 28899205
+      },
+      {
+        "episode_id": 68114,
+        "display_name": "Ropná plošina S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 28899231
+      },
+      {
+        "episode_id": 68118,
+        "display_name": "Ropná plošina S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 28899273
+      },
+      {
+        "episode_id": 17902,
+        "display_name": "Vraždy ve Valhalle S01E03 - Valhalla CZ Titulky",
+        "video_id": 28899312
+      },
+      {
+        "episode_id": 14535,
+        "display_name": "Bosch: Odkaz S01E10 - Vždy/všemi způsoby CZ Dabing",
+        "video_id": 28899183
+      },
+      {
+        "episode_id": 3751,
+        "display_name": "Devious Maids S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 28899244
+      },
+      {
+        "episode_id": 3759,
+        "display_name": "Devious Maids S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 28899268
+      },
+      {
+        "episode_id": 74695,
+        "display_name": "Krypton S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 28899298
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -286153,6 +286248,56 @@
         "video_id": 28898832
       },
       {
+        "episode_id": 14536,
+        "display_name": "Bosch: Odkaz S02E02 - Zzyzx CZ Dabing",
+        "video_id": 28899181
+      },
+      {
+        "episode_id": 14540,
+        "display_name": "Bosch: Odkaz S02E05 - Vždycky Hollywood CZ Dabing",
+        "video_id": 28899232
+      },
+      {
+        "episode_id": 17904,
+        "display_name": "Vraždy ve Valhalle S01E05 - Všem na očích CZ Dabing",
+        "video_id": 28899274
+      },
+      {
+        "episode_id": 166876,
+        "display_name": "Ve vatě S03E04 - Buona Sera CZ Titulky",
+        "video_id": 28899315
+      },
+      {
+        "episode_id": 166880,
+        "display_name": "Ve vatě S03E08 - Pan Maro Gold CZ Titulky",
+        "video_id": 28899331
+      },
+      {
+        "episode_id": 202909,
+        "display_name": "Trestní rejstřík S02E05 - Povinnost chránit CZ Dabing",
+        "video_id": 28899180
+      },
+      {
+        "episode_id": 14537,
+        "display_name": "Bosch: Odkaz S02E04 - Musso & Frank CZ Dabing",
+        "video_id": 28899223
+      },
+      {
+        "episode_id": 187561,
+        "display_name": "Želvy Ninja S02E20 - Legenda o Kuro Kabuto CZ Dabing",
+        "video_id": 28899269
+      },
+      {
+        "episode_id": 182757,
+        "display_name": "Želvy Ninja S03E21 - Útok Megatrhače CZ Dabing",
+        "video_id": 28899294
+      },
+      {
+        "episode_id": 16825,
+        "display_name": "Nejzazší hranice S01E08 - L’air Perdu CZ Titulky",
+        "video_id": 28899318
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -369866,6 +370011,51 @@
         "episode_id": 114067,
         "display_name": "Zmrzlá planeta  S01E06 - 6. epizoda CZ Dabing",
         "video_id": 28898860
+      },
+      {
+        "episode_id": 73154,
+        "display_name": "Ztracené květiny Alice Hartové S01E05 - Část pátá: Pouštní dub CZ Titulky",
+        "video_id": 28899178
+      },
+      {
+        "episode_id": 68110,
+        "display_name": "Ropná plošina S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 28899205
+      },
+      {
+        "episode_id": 68114,
+        "display_name": "Ropná plošina S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 28899231
+      },
+      {
+        "episode_id": 68118,
+        "display_name": "Ropná plošina S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 28899273
+      },
+      {
+        "episode_id": 17902,
+        "display_name": "Vraždy ve Valhalle S01E03 - Valhalla CZ Titulky",
+        "video_id": 28899312
+      },
+      {
+        "episode_id": 14535,
+        "display_name": "Bosch: Odkaz S01E10 - Vždy/všemi způsoby CZ Dabing",
+        "video_id": 28899183
+      },
+      {
+        "episode_id": 3751,
+        "display_name": "Devious Maids S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 28899244
+      },
+      {
+        "episode_id": 3759,
+        "display_name": "Devious Maids S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 28899268
+      },
+      {
+        "episode_id": 74695,
+        "display_name": "Krypton S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 28899298
       }
     ],
     "prepared_not_upload_ready": [
@@ -371028,8 +371218,8 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 16,
-    "ok": 19,
-    "resolve_failed": 1
+    "ok": 58,
+    "resolve_failed": 2
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 6870,
@@ -371038,6 +371228,6 @@
     "needs_whisper": 46567
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28491
+    "needs_subtitle_setup_after_prehrajto_processing": 28492
   }
 }
