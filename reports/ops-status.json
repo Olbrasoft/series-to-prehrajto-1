@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 149224,
-    "manifest_upload_ready_episodes": 1061,
-    "uploaded_episodes": 42629,
-    "prepared_source_episodes": 48983,
+    "manifest_upload_ready_episodes": 1060,
+    "uploaded_episodes": 42630,
+    "prepared_source_episodes": 48988,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 306,
-    "language_whisper_attempted_sources": 99,
+    "language_whisper_attempted_sources": 87,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56217,
-    "whisper_review_pending_sources": 46598,
+    "whisper_review_sources": 56212,
+    "whisper_review_pending_sources": 46573,
     "subtitle_followup_sources": 28604,
     "subtitle_followup_pending_sources": 28604
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-28T22:24:20Z",
-      "databaseId": 33216660472,
+      "createdAt": "2026-08-28T22:28:06Z",
+      "databaseId": 33216910283,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-28T22:28:03Z",
+      "databaseId": 33216907379,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-28T22:25:35Z",
+      "databaseId": 33216745591,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T22:24:20Z",
+      "databaseId": 33216660472,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-28T22:24:10Z",
       "databaseId": 33216648767,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +63,7 @@
       "createdAt": "2026-08-28T22:24:05Z",
       "databaseId": 33216642079,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-28T22:12:39Z",
       "databaseId": 33215864878,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T22:02:10Z",
-      "databaseId": 33215128728,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-28T22:02:06Z",
-      "databaseId": 33215123592,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T22:02:03Z",
-      "databaseId": 33215119533,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -102984,6 +102984,11 @@
         "episode_id": 174876,
         "display_name": "La Mante S01E04 - 4. epizoda CZ Titulky",
         "video_id": 28916919
+      },
+      {
+        "episode_id": 55516,
+        "display_name": "Seal Team 6 S02E07 - 7. epizoda CZ Dabing",
+        "video_id": 28916982
       },
       {
         "episode_id": 125109,
@@ -291113,6 +291118,11 @@
         "video_id": 28916919
       },
       {
+        "episode_id": 55516,
+        "display_name": "Seal Team 6 S02E07 - 7. epizoda CZ Dabing",
+        "video_id": 28916982
+      },
+      {
         "episode_id": 125109,
         "display_name": "Karen Pirie S02E03 - 3. epizoda CZ Titulky",
         "video_id": 28916510
@@ -377697,15 +377707,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 98,
-    "disabled": 207,
+    "ok": 86,
+    "disabled": 219,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 6963,
+    "whisper_non_cz_needs_subtitles": 6983,
     "whisper_confirmed_cz": 2656,
     "whisper_failed": 168,
-    "needs_whisper": 46430
+    "needs_whisper": 46405
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28604
