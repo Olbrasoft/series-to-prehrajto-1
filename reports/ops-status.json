@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 149609,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 42282,
-    "prepared_source_episodes": 49325,
+    "uploaded_episodes": 42293,
+    "prepared_source_episodes": 49375,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56245,
     "whisper_review_pending_sources": 46726,
     "subtitle_followup_sources": 28569,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-28T11:32:26Z",
-      "databaseId": 33167537047,
+      "createdAt": "2026-08-28T11:46:05Z",
+      "databaseId": 33168403405,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-28T11:45:39Z",
+      "databaseId": 33168376212,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T11:33:28Z",
+      "databaseId": 33167602685,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-28T11:33:25Z",
+      "databaseId": 33167599992,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T11:33:23Z",
+      "databaseId": 33167597209,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T11:33:20Z",
+      "databaseId": 33167594705,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-28T11:32:26Z",
+      "databaseId": 33167537047,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-28T11:32:21Z",
       "databaseId": 33167531667,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +91,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-28T11:20:53Z",
       "databaseId": 33166801654,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T10:02:35Z",
-      "databaseId": 33161818578,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T10:02:32Z",
-      "databaseId": 33161815311,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T10:02:29Z",
-      "databaseId": 33161811677,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T10:01:30Z",
-      "databaseId": 33161746537,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T09:32:28Z",
-      "databaseId": 33159791105,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-28T09:23:37Z",
-      "databaseId": 33159176313,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -102161,6 +102161,31 @@
         "video_id": 28904440
       },
       {
+        "episode_id": 142312,
+        "display_name": "Šéfkuchařův stůl S05E01 - Cristina Martínez CZ Titulky",
+        "video_id": 28904650
+      },
+      {
+        "episode_id": 142316,
+        "display_name": "Šéfkuchařův stůl S06E01 - Mashama Bailey CZ Titulky",
+        "video_id": 28904712
+      },
+      {
+        "episode_id": 64448,
+        "display_name": "Closer: Nové případy S03E07 - Dvě možnosti CZ Dabing",
+        "video_id": 28904760
+      },
+      {
+        "episode_id": 7913,
+        "display_name": "Nábřeží S01E02 - Přebírám velení CZ Titulky",
+        "video_id": 28904654
+      },
+      {
+        "episode_id": 14525,
+        "display_name": "Chameleon S04E19 - Projekt Mirage 1/2 CZ Dabing",
+        "video_id": 28904728
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -186674,6 +186699,36 @@
         "episode_id": 24963,
         "display_name": "Robin Hood S03E02 - 2. epizoda CZ Dabing",
         "video_id": 28904449
+      },
+      {
+        "episode_id": 115942,
+        "display_name": "Vraždy v Oxfordu S06E04 - Neodstranitelná skvrna CZ Dabing",
+        "video_id": 28904639
+      },
+      {
+        "episode_id": 115938,
+        "display_name": "Vraždy v Oxfordu S07E01 - Zkouška víry (1) CZ Dabing",
+        "video_id": 28904673
+      },
+      {
+        "episode_id": 142290,
+        "display_name": "Šéfkuchařův stůl S01E01 - Massimo Bottura CZ Titulky",
+        "video_id": 28904708
+      },
+      {
+        "episode_id": 24967,
+        "display_name": "Robin Hood S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 28904655
+      },
+      {
+        "episode_id": 68115,
+        "display_name": "Ropná plošina S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 28904693
+      },
+      {
+        "episode_id": 68119,
+        "display_name": "Ropná plošina S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 28904733
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -288553,6 +288608,31 @@
         "video_id": 28904440
       },
       {
+        "episode_id": 142312,
+        "display_name": "Šéfkuchařův stůl S05E01 - Cristina Martínez CZ Titulky",
+        "video_id": 28904650
+      },
+      {
+        "episode_id": 142316,
+        "display_name": "Šéfkuchařův stůl S06E01 - Mashama Bailey CZ Titulky",
+        "video_id": 28904712
+      },
+      {
+        "episode_id": 64448,
+        "display_name": "Closer: Nové případy S03E07 - Dvě možnosti CZ Dabing",
+        "video_id": 28904760
+      },
+      {
+        "episode_id": 7913,
+        "display_name": "Nábřeží S01E02 - Přebírám velení CZ Titulky",
+        "video_id": 28904654
+      },
+      {
+        "episode_id": 14525,
+        "display_name": "Chameleon S04E19 - Projekt Mirage 1/2 CZ Dabing",
+        "video_id": 28904728
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -373066,6 +373146,36 @@
         "episode_id": 24963,
         "display_name": "Robin Hood S03E02 - 2. epizoda CZ Dabing",
         "video_id": 28904449
+      },
+      {
+        "episode_id": 115942,
+        "display_name": "Vraždy v Oxfordu S06E04 - Neodstranitelná skvrna CZ Dabing",
+        "video_id": 28904639
+      },
+      {
+        "episode_id": 115938,
+        "display_name": "Vraždy v Oxfordu S07E01 - Zkouška víry (1) CZ Dabing",
+        "video_id": 28904673
+      },
+      {
+        "episode_id": 142290,
+        "display_name": "Šéfkuchařův stůl S01E01 - Massimo Bottura CZ Titulky",
+        "video_id": 28904708
+      },
+      {
+        "episode_id": 24967,
+        "display_name": "Robin Hood S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 28904655
+      },
+      {
+        "episode_id": 68115,
+        "display_name": "Ropná plošina S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 28904693
+      },
+      {
+        "episode_id": 68119,
+        "display_name": "Ropná plošina S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 28904733
       }
     ],
     "prepared_not_upload_ready": [
@@ -374227,7 +374337,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "disabled": 4,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
