@@ -2,36 +2,76 @@
   "counts": {
     "backlog_episodes": 149069,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 42830,
-    "prepared_source_episodes": 49418,
+    "uploaded_episodes": 42833,
+    "prepared_source_episodes": 49435,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 67,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56194,
-    "whisper_review_pending_sources": 46475,
+    "whisper_review_sources": 56208,
+    "whisper_review_pending_sources": 46549,
     "subtitle_followup_sources": 28628,
     "subtitle_followup_pending_sources": 28628
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-29T02:34:03Z",
-      "databaseId": 33229276474,
+      "createdAt": "2026-08-29T02:37:09Z",
+      "databaseId": 33229403855,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-status"
+      "status": "pending",
+      "workflowName": "sync"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T02:36:43Z",
+      "databaseId": 33229387282,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T02:36:39Z",
+      "databaseId": 33229385064,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T02:34:57Z",
+      "databaseId": 33229314326,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T02:34:49Z",
+      "databaseId": 33229309062,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T02:34:03Z",
+      "databaseId": 33229276474,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-29T02:30:57Z",
       "databaseId": 33229147753,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T02:17:48Z",
-      "databaseId": 33228592313,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T02:17:46Z",
-      "databaseId": 33228590728,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T02:16:46Z",
-      "databaseId": 33228551013,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-29T02:16:41Z",
-      "databaseId": 33228548267,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-29T02:11:46Z",
-      "databaseId": 33228340789,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -103526,9 +103526,19 @@
         "video_id": 28923186
       },
       {
+        "episode_id": 43936,
+        "display_name": "Nemocnice Chicago Med S02E08 - Svobodná volba CZ Dabing",
+        "video_id": 28923225
+      },
+      {
         "episode_id": 11061,
         "display_name": "Willow S01E01 - Vichry CZ Dabing",
         "video_id": 28923100
+      },
+      {
+        "episode_id": 43913,
+        "display_name": "Nemocnice Chicago Med S05E03 - V údolí stínů CZ Dabing",
+        "video_id": 28923198
       },
       {
         "episode_id": 114182,
@@ -189414,6 +189424,11 @@
         "episode_id": 43855,
         "display_name": "Nemocnice Chicago Med S01E08 - Setkání CZ Dabing",
         "video_id": 28923081
+      },
+      {
+        "episode_id": 43859,
+        "display_name": "Nemocnice Chicago Med S01E17 - Absťák CZ Dabing",
+        "video_id": 28923183
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -292658,9 +292673,19 @@
         "video_id": 28923186
       },
       {
+        "episode_id": 43936,
+        "display_name": "Nemocnice Chicago Med S02E08 - Svobodná volba CZ Dabing",
+        "video_id": 28923225
+      },
+      {
         "episode_id": 11061,
         "display_name": "Willow S01E01 - Vichry CZ Dabing",
         "video_id": 28923100
+      },
+      {
+        "episode_id": 43913,
+        "display_name": "Nemocnice Chicago Med S05E03 - V údolí stínů CZ Dabing",
+        "video_id": 28923198
       },
       {
         "episode_id": 114182,
@@ -378546,6 +378571,11 @@
         "episode_id": 43855,
         "display_name": "Nemocnice Chicago Med S01E08 - Setkání CZ Dabing",
         "video_id": 28923081
+      },
+      {
+        "episode_id": 43859,
+        "display_name": "Nemocnice Chicago Med S01E17 - Absťák CZ Dabing",
+        "video_id": 28923183
       }
     ],
     "prepared_not_upload_ready": [
@@ -378625,6 +378655,60 @@
         "episode_id": 146516,
         "series_title": "A Bit of Fry & Laurie",
         "season": 1,
+        "episode": 6
+      },
+      {
+        "episode_id": 146518,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "episode_id": 146520,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "episode_id": 146522,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "episode_id": 146524,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 3,
+        "episode": 2
+      },
+      {
+        "episode_id": 146526,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 3,
+        "episode": 4
+      },
+      {
+        "episode_id": 146528,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 3,
+        "episode": 6
+      },
+      {
+        "episode_id": 146530,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 4,
+        "episode": 2
+      },
+      {
+        "episode_id": 146532,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 4,
+        "episode": 4
+      },
+      {
+        "episode_id": 146534,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 4,
         "episode": 6
       },
       {
@@ -378792,60 +378876,6 @@
       {
         "episode_id": 129396,
         "series_title": "A.P. Bio",
-        "season": 4,
-        "episode": 3
-      },
-      {
-        "episode_id": 129398,
-        "series_title": "A.P. Bio",
-        "season": 4,
-        "episode": 5
-      },
-      {
-        "episode_id": 129399,
-        "series_title": "A.P. Bio",
-        "season": 4,
-        "episode": 6
-      },
-      {
-        "episode_id": 129400,
-        "series_title": "A.P. Bio",
-        "season": 4,
-        "episode": 7
-      },
-      {
-        "episode_id": 129401,
-        "series_title": "A.P. Bio",
-        "season": 4,
-        "episode": 8
-      },
-      {
-        "episode_id": 125165,
-        "series_title": "A Shop for Killers",
-        "season": 1,
-        "episode": 1
-      },
-      {
-        "episode_id": 125169,
-        "series_title": "A Shop for Killers",
-        "season": 1,
-        "episode": 5
-      },
-      {
-        "episode_id": 77891,
-        "series_title": "A-Team",
-        "season": 4,
-        "episode": 1
-      },
-      {
-        "episode_id": 77840,
-        "series_title": "A-Team",
-        "season": 4,
-        "episode": 2
-      },
-      {
-        "episode_id": 77841,
-        "series_title": "A-Team",
         "season": 4,
         "episode": 3
       }
@@ -379708,13 +379738,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
+    "disabled": 27,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7063,
+    "whisper_non_cz_needs_subtitles": 7003,
     "whisper_confirmed_cz": 2656,
     "whisper_failed": 168,
-    "needs_whisper": 46307
+    "needs_whisper": 46381
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28628
