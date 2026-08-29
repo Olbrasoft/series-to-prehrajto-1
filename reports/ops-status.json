@@ -2,36 +2,84 @@
   "counts": {
     "backlog_episodes": 149069,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 42822,
-    "prepared_source_episodes": 49386,
+    "uploaded_episodes": 42823,
+    "prepared_source_episodes": 49405,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 183,
+    "language_whisper_attempted_sources": 89,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56203,
-    "whisper_review_pending_sources": 46524,
-    "subtitle_followup_sources": 28614,
-    "subtitle_followup_pending_sources": 28614
+    "whisper_review_sources": 56208,
+    "whisper_review_pending_sources": 46549,
+    "subtitle_followup_sources": 28628,
+    "subtitle_followup_pending_sources": 28628
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-29T02:16:46Z",
-      "databaseId": 33228551013,
+      "createdAt": "2026-08-29T02:22:17Z",
+      "databaseId": 33228778443,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T02:20:40Z",
+      "databaseId": 33228711495,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T02:20:06Z",
+      "databaseId": 33228688120,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T02:17:52Z",
+      "databaseId": 33228594503,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T02:17:48Z",
+      "databaseId": 33228592313,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T02:17:46Z",
+      "databaseId": 33228590728,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T02:16:46Z",
+      "databaseId": 33228551013,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-29T02:16:41Z",
       "databaseId": 33228548267,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T01:56:03Z",
-      "databaseId": 33227674195,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T01:56:00Z",
-      "databaseId": 33227672050,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T01:54:27Z",
-      "databaseId": 33227612357,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T01:53:22Z",
-      "databaseId": 33227571152,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T01:52:49Z",
-      "databaseId": 33227548216,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T01:52:31Z",
-      "databaseId": 33227536956,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -189374,6 +189374,11 @@
         "episode_id": 138071,
         "display_name": "Pokoj č. 10 S01E02 - 2. epizoda CZ Dabing",
         "video_id": 28921984
+      },
+      {
+        "episode_id": 185651,
+        "display_name": "V jako Victoria S03E08 - Jak Tori přivést k šílenství CZ Dabing",
+        "video_id": 28922424
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -378466,6 +378471,11 @@
         "episode_id": 138071,
         "display_name": "Pokoj č. 10 S01E02 - 2. epizoda CZ Dabing",
         "video_id": 28921984
+      },
+      {
+        "episode_id": 185651,
+        "display_name": "V jako Victoria S03E08 - Jak Tori přivést k šílenství CZ Dabing",
+        "video_id": 28922424
       }
     ],
     "prepared_not_upload_ready": [
@@ -378508,6 +378518,24 @@
       {
         "episode_id": 180896,
         "series_title": "86: Eighty Six",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "episode_id": 146512,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "episode_id": 146514,
+        "series_title": "A Bit of Fry & Laurie",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "episode_id": 146516,
+        "series_title": "A Bit of Fry & Laurie",
         "season": 1,
         "episode": 6
       },
@@ -378750,24 +378778,6 @@
         "series_title": "A-Team",
         "season": 4,
         "episode": 6
-      },
-      {
-        "episode_id": 77892,
-        "series_title": "A-Team",
-        "season": 4,
-        "episode": 7
-      },
-      {
-        "episode_id": 77893,
-        "series_title": "A-Team",
-        "season": 4,
-        "episode": 8
-      },
-      {
-        "episode_id": 77845,
-        "series_title": "A-Team",
-        "season": 4,
-        "episode": 9
       }
     ],
     "whisper_review_pending": [
@@ -379627,16 +379637,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "disabled": 94,
+    "ok": 88,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7023,
+    "whisper_non_cz_needs_subtitles": 7003,
     "whisper_confirmed_cz": 2656,
     "whisper_failed": 168,
-    "needs_whisper": 46356
+    "needs_whisper": 46381
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28614
+    "needs_subtitle_setup_after_prehrajto_processing": 28628
   }
 }
