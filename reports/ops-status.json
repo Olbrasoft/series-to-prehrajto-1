@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 148673,
     "manifest_upload_ready_episodes": 1004,
-    "uploaded_episodes": 43154,
-    "prepared_source_episodes": 49680,
+    "uploaded_episodes": 43155,
+    "prepared_source_episodes": 49686,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 143,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56182,
-    "whisper_review_pending_sources": 46408,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 56191,
+    "whisper_review_pending_sources": 46457,
     "subtitle_followup_sources": 28788,
     "subtitle_followup_pending_sources": 28788
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T12:48:54Z",
+      "databaseId": 33253448747,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T12:46:11Z",
+      "databaseId": 33253338712,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T12:46:07Z",
+      "databaseId": 33253335882,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T12:45:06Z",
       "databaseId": 33253289798,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -71,7 +95,7 @@
       "createdAt": "2026-08-29T12:39:59Z",
       "databaseId": 33253074811,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -107,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T12:35:22Z",
       "databaseId": 33252883589,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T12:26:29Z",
-      "databaseId": 33252504912,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T12:25:36Z",
-      "databaseId": 33252468078,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T12:25:21Z",
-      "databaseId": 33252456524,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -104334,6 +104334,11 @@
         "episode_id": 142297,
         "display_name": "Šéfkuchařův stůl S02E02 - Alex Atala CZ Titulky",
         "video_id": 28931799
+      },
+      {
+        "episode_id": 142301,
+        "display_name": "Šéfkuchařův stůl S02E06 - Gaggan Anand CZ Titulky",
+        "video_id": 28931862
       },
       {
         "episode_id": 114182,
@@ -295088,6 +295093,11 @@
         "video_id": 28931799
       },
       {
+        "episode_id": 142301,
+        "display_name": "Šéfkuchařův stůl S02E06 - Gaggan Anand CZ Titulky",
+        "video_id": 28931862
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -382947,15 +382957,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 83,
-    "ok": 59,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7117,
-    "whisper_confirmed_cz": 2657,
+    "whisper_non_cz_needs_subtitles": 7078,
+    "whisper_confirmed_cz": 2656,
     "whisper_failed": 168,
-    "needs_whisper": 46240
+    "needs_whisper": 46289
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28788
