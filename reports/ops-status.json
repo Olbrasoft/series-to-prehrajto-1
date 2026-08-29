@@ -1,29 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 148468,
-    "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 43361,
-    "prepared_source_episodes": 49713,
+    "manifest_upload_ready_episodes": 1001,
+    "uploaded_episodes": 43362,
+    "prepared_source_episodes": 49741,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
+    "language_audited_sources": 67,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56124,
-    "whisper_review_pending_sources": 46088,
+    "whisper_review_sources": 56132,
+    "whisper_review_pending_sources": 46136,
     "subtitle_followup_sources": 28951,
     "subtitle_followup_pending_sources": 28951
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T19:13:22Z",
+      "databaseId": 33270305583,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T19:11:15Z",
+      "databaseId": 33270212233,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T19:10:44Z",
+      "databaseId": 33270190955,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T19:10:41Z",
+      "databaseId": 33270188472,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T19:10:39Z",
+      "databaseId": 33270186777,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T19:09:48Z",
       "databaseId": 33270149519,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T18:53:27Z",
-      "databaseId": 33269459229,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-29T18:53:24Z",
-      "databaseId": 33269457241,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T18:48:45Z",
-      "databaseId": 33269259050,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T18:48:42Z",
-      "databaseId": 33269256740,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T18:48:36Z",
-      "databaseId": 33269252416,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -104839,6 +104839,11 @@
         "episode_id": 82540,
         "display_name": "Will Trent S01E09 - Štvanice CZ Titulky",
         "video_id": 28935799
+      },
+      {
+        "episode_id": 64548,
+        "display_name": "Výjimeční S01E04 - Rosettská deska CZ Dabing",
+        "video_id": 28936057
       },
       {
         "episode_id": 147481,
@@ -296628,6 +296633,11 @@
         "video_id": 28935799
       },
       {
+        "episode_id": 64548,
+        "display_name": "Výjimeční S01E04 - Rosettská deska CZ Dabing",
+        "video_id": 28936057
+      },
+      {
         "episode_id": 147481,
         "display_name": "Hledání Aljašky S01E04 - 4. epizoda CZ Dabing",
         "video_id": 28935856
@@ -384170,6 +384180,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 68667,
+        "source_id": -49553712000873750,
+        "series_title": "American Horror Stories",
+        "episode_code": "S01E04",
+        "source_title": "American Horror Stories - S1E4 The Naughty List EN",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 51905,
         "source_id": -50577755831500766,
         "series_title": "American Horror Story",
@@ -384551,14 +384569,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -385017,14 +385027,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 7,
     "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7352,
-    "whisper_confirmed_cz": 2684,
+    "whisper_non_cz_needs_subtitles": 7320,
+    "whisper_confirmed_cz": 2676,
     "whisper_failed": 168,
-    "needs_whisper": 45920
+    "needs_whisper": 45968
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28951
