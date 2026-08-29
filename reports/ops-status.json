@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 148788,
-    "manifest_upload_ready_episodes": 1014,
-    "uploaded_episodes": 43095,
-    "prepared_source_episodes": 49721,
+    "manifest_upload_ready_episodes": 1011,
+    "uploaded_episodes": 43096,
+    "prepared_source_episodes": 49736,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 65,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56191,
     "whisper_review_pending_sources": 46457,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T11:10:10Z",
+      "databaseId": 33249488460,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T11:10:07Z",
+      "databaseId": 33249485966,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T11:06:40Z",
+      "databaseId": 33249348530,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T11:06:30Z",
+      "databaseId": 33249343164,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T11:06:19Z",
+      "databaseId": 33249335532,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T11:04:13Z",
       "databaseId": 33249249832,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -123,57 +163,17 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-29T10:53:38Z",
       "databaseId": 33248854982,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
       "conclusion": "success",
       "createdAt": "2026-08-29T10:53:30Z",
       "databaseId": 33248848883,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-29T10:53:27Z",
-      "databaseId": 33248847085,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T10:51:18Z",
-      "databaseId": 33248770380,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T10:51:15Z",
-      "databaseId": 33248768511,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T10:51:13Z",
-      "databaseId": 33248766732,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T10:50:22Z",
-      "databaseId": 33248735548,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -190739,6 +190739,11 @@
         "episode_id": 30575,
         "display_name": "Pobřežní hlídka S07E03 - Tekutý živel CZ Titulky",
         "video_id": 28930108
+      },
+      {
+        "episode_id": 30579,
+        "display_name": "Pobřežní hlídka S07E07 - Hádej, kdo přijde na večeři CZ Titulky",
+        "video_id": 28930228
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -381196,6 +381201,11 @@
         "episode_id": 30575,
         "display_name": "Pobřežní hlídka S07E03 - Tekutý živel CZ Titulky",
         "video_id": 28930108
+      },
+      {
+        "episode_id": 30579,
+        "display_name": "Pobřežní hlídka S07E07 - Hádej, kdo přijde na večeři CZ Titulky",
+        "video_id": 28930228
       }
     ],
     "prepared_not_upload_ready": [
@@ -382357,7 +382367,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
+    "disabled": 5,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
