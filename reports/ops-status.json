@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 149069,
-    "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 42760,
-    "prepared_source_episodes": 49253,
+    "manifest_upload_ready_episodes": 1002,
+    "uploaded_episodes": 42761,
+    "prepared_source_episodes": 49248,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56208,
-    "whisper_review_pending_sources": 46549,
+    "whisper_review_sources": 56203,
+    "whisper_review_pending_sources": 46524,
     "subtitle_followup_sources": 28614,
     "subtitle_followup_pending_sources": 28614
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T01:03:08Z",
+      "databaseId": 33225331979,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T01:00:28Z",
+      "databaseId": 33225197903,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T00:59:45Z",
+      "databaseId": 33225157060,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T00:59:40Z",
+      "databaseId": 33225153529,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-08-29T00:58:42Z",
@@ -27,11 +59,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T00:58:40Z",
       "databaseId": 33225105869,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +107,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T00:49:56Z",
       "databaseId": 33224687845,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T00:41:26Z",
-      "databaseId": 33224273837,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T00:40:25Z",
-      "databaseId": 33224223443,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T00:35:11Z",
-      "databaseId": 33223969056,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T00:34:54Z",
-      "databaseId": 33223953727,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -103354,6 +103354,11 @@
         "episode_id": 98529,
         "display_name": "Znovu 20 S07E11 - Kolaudační párty CZ Dabing",
         "video_id": 28919372
+      },
+      {
+        "episode_id": 104200,
+        "display_name": "Znovu 20 S06E01 - Den D CZ Dabing",
+        "video_id": 28919865
       },
       {
         "episode_id": 114182,
@@ -292138,6 +292143,11 @@
         "video_id": 28919372
       },
       {
+        "episode_id": 104200,
+        "display_name": "Znovu 20 S06E01 - Den D CZ Dabing",
+        "video_id": 28919865
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -379007,14 +379017,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7003,
+    "whisper_non_cz_needs_subtitles": 7023,
     "whisper_confirmed_cz": 2656,
     "whisper_failed": 168,
-    "needs_whisper": 46381
+    "needs_whisper": 46356
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28614
