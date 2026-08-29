@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 148788,
-    "manifest_upload_ready_episodes": 1016,
-    "uploaded_episodes": 43069,
-    "prepared_source_episodes": 49671,
+    "manifest_upload_ready_episodes": 1009,
+    "uploaded_episodes": 43076,
+    "prepared_source_episodes": 49680,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56196,
     "whisper_review_pending_sources": 46482,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-29T10:33:36Z",
-      "databaseId": 33248104820,
+      "createdAt": "2026-08-29T10:38:25Z",
+      "databaseId": 33248295300,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T10:38:24Z",
+      "databaseId": 33248294726,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T10:38:22Z",
+      "databaseId": 33248293087,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T10:36:37Z",
+      "databaseId": 33248226264,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T10:36:09Z",
+      "databaseId": 33248206016,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T10:33:36Z",
+      "databaseId": 33248104820,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T10:33:36Z",
       "databaseId": 33248104565,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -75,11 +115,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-29T10:28:30Z",
       "databaseId": 33247906321,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T10:19:44Z",
-      "databaseId": 33247565674,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T10:19:42Z",
-      "databaseId": 33247564459,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T10:13:50Z",
-      "databaseId": 33247331841,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T10:13:28Z",
-      "databaseId": 33247317942,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T10:12:49Z",
-      "databaseId": 33247291050,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -104116,6 +104116,16 @@
         "video_id": 28929781
       },
       {
+        "episode_id": 171937,
+        "display_name": "Rana Naidu S01E03 - Koi mar gaya kya? CZ Titulky",
+        "video_id": 28929808
+      },
+      {
+        "episode_id": 145549,
+        "display_name": "Dublin Murders S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 28929850
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -190609,6 +190619,31 @@
         "episode_id": 65746,
         "display_name": "Vláda S02E03 - Poslední dělník CZ Dabing",
         "video_id": 28929782
+      },
+      {
+        "episode_id": 171938,
+        "display_name": "Rana Naidu S01E05 - Strašně žvaníš CZ Titulky",
+        "video_id": 28929807
+      },
+      {
+        "episode_id": 171942,
+        "display_name": "Rana Naidu S01E10 - Hra skončila, kreténe CZ Titulky",
+        "video_id": 28929834
+      },
+      {
+        "episode_id": 126118,
+        "display_name": "Childhood's End S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28929887
+      },
+      {
+        "episode_id": 171935,
+        "display_name": "Rana Naidu S01E01 - Návrat CZ Titulky",
+        "video_id": 28929797
+      },
+      {
+        "episode_id": 171939,
+        "display_name": "Rana Naidu S01E06 - Bheje ku light, gote ku tight CZ Titulky",
+        "video_id": 28929827
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -294443,6 +294478,16 @@
         "video_id": 28929781
       },
       {
+        "episode_id": 171937,
+        "display_name": "Rana Naidu S01E03 - Koi mar gaya kya? CZ Titulky",
+        "video_id": 28929808
+      },
+      {
+        "episode_id": 145549,
+        "display_name": "Dublin Murders S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 28929850
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -380936,6 +380981,31 @@
         "episode_id": 65746,
         "display_name": "Vláda S02E03 - Poslední dělník CZ Dabing",
         "video_id": 28929782
+      },
+      {
+        "episode_id": 171938,
+        "display_name": "Rana Naidu S01E05 - Strašně žvaníš CZ Titulky",
+        "video_id": 28929807
+      },
+      {
+        "episode_id": 171942,
+        "display_name": "Rana Naidu S01E10 - Hra skončila, kreténe CZ Titulky",
+        "video_id": 28929834
+      },
+      {
+        "episode_id": 126118,
+        "display_name": "Childhood's End S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28929887
+      },
+      {
+        "episode_id": 171935,
+        "display_name": "Rana Naidu S01E01 - Návrat CZ Titulky",
+        "video_id": 28929797
+      },
+      {
+        "episode_id": 171939,
+        "display_name": "Rana Naidu S01E06 - Bheje ku light, gote ku tight CZ Titulky",
+        "video_id": 28929827
       }
     ],
     "prepared_not_upload_ready": [
@@ -382097,7 +382167,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
