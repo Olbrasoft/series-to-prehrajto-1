@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 148788,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 43129,
-    "prepared_source_episodes": 49689,
+    "uploaded_episodes": 43130,
+    "prepared_source_episodes": 49684,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 214,
-    "language_whisper_attempted_sources": 57,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56191,
-    "whisper_review_pending_sources": 46457,
-    "subtitle_followup_sources": 28776,
-    "subtitle_followup_pending_sources": 28776
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 56173,
+    "whisper_review_pending_sources": 46363,
+    "subtitle_followup_sources": 28780,
+    "subtitle_followup_pending_sources": 28780
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T12:04:57Z",
+      "databaseId": 33251622811,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T12:04:52Z",
+      "databaseId": 33251619376,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T11:59:42Z",
+      "databaseId": 33251400342,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-08-29T11:58:38Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T11:58:13Z",
       "databaseId": 33251348291,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T11:54:20Z",
       "databaseId": 33251208601,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -103,7 +127,7 @@
       "createdAt": "2026-08-29T11:53:21Z",
       "databaseId": 33251171418,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -139,41 +163,17 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T11:49:01Z",
       "databaseId": 33251003641,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
       "conclusion": "success",
       "createdAt": "2026-08-29T11:48:06Z",
       "databaseId": 33250968100,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T11:45:05Z",
-      "databaseId": 33250848272,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T11:44:08Z",
-      "databaseId": 33250811798,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T11:43:58Z",
-      "databaseId": 33250806136,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -104259,6 +104259,11 @@
         "episode_id": 115933,
         "display_name": "Vraždy v Oxfordu S01E01 - Koho bozi chtějí zničit CZ Dabing",
         "video_id": 28930863
+      },
+      {
+        "episode_id": 115921,
+        "display_name": "Vraždy v Oxfordu S02E04 - Nepřestávej se dívat CZ Dabing",
+        "video_id": 28930979
       },
       {
         "episode_id": 114182,
@@ -294888,6 +294893,11 @@
         "video_id": 28930863
       },
       {
+        "episode_id": 115921,
+        "display_name": "Vraždy v Oxfordu S02E04 - Nepřestávej se dívat CZ Dabing",
+        "video_id": 28930979
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -382697,17 +382707,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 157,
-    "ok": 56,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7078,
-    "whisper_confirmed_cz": 2656,
+    "whisper_non_cz_needs_subtitles": 7152,
+    "whisper_confirmed_cz": 2658,
     "whisper_failed": 168,
-    "needs_whisper": 46289
+    "needs_whisper": 46195
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28776
+    "needs_subtitle_setup_after_prehrajto_processing": 28780
   }
 }
