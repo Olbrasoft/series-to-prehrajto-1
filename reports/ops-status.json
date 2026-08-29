@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 149224,
-    "manifest_upload_ready_episodes": 1009,
-    "uploaded_episodes": 42750,
-    "prepared_source_episodes": 49244,
+    "manifest_upload_ready_episodes": 1007,
+    "uploaded_episodes": 42751,
+    "prepared_source_episodes": 49240,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 146,
+    "language_whisper_attempted_sources": 37,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56212,
     "whisper_review_pending_sources": 46573,
-    "subtitle_followup_sources": 28611,
-    "subtitle_followup_pending_sources": 28611
+    "subtitle_followup_sources": 28614,
+    "subtitle_followup_pending_sources": 28614
   },
   "workflow_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T00:47:58Z",
+      "databaseId": 33224591100,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T00:47:55Z",
+      "databaseId": 33224588691,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T00:47:42Z",
+      "databaseId": 33224579412,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-08-29T00:47:20Z",
@@ -27,11 +51,11 @@
       "workflowName": "refresh-backlog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T00:47:03Z",
       "databaseId": 33224546898,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T00:12:06Z",
-      "databaseId": 33222814440,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T00:12:03Z",
-      "databaseId": 33222811875,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T00:11:59Z",
-      "databaseId": 33222808131,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -103299,6 +103299,11 @@
         "episode_id": 54008,
         "display_name": "Protiúder S01E02 - Irák, část 2 CZ Dabing",
         "video_id": 28919227
+      },
+      {
+        "episode_id": 54060,
+        "display_name": "Protiúder S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 28919439
       },
       {
         "episode_id": 31621,
@@ -292033,6 +292038,11 @@
         "video_id": 28919227
       },
       {
+        "episode_id": 54060,
+        "display_name": "Protiúder S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 28919439
+      },
+      {
         "episode_id": 31621,
         "display_name": "Uklízečka S01E02 - Lví doupě CZ Dabing",
         "video_id": 28918796
@@ -378907,7 +378917,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "disabled": 109,
+    "ok": 36,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -378917,6 +378928,6 @@
     "needs_whisper": 46405
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28611
+    "needs_subtitle_setup_after_prehrajto_processing": 28614
   }
 }
