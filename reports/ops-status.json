@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 148912,
-    "manifest_upload_ready_episodes": 1029,
-    "uploaded_episodes": 42907,
-    "prepared_source_episodes": 49523,
+    "manifest_upload_ready_episodes": 1045,
+    "uploaded_episodes": 42920,
+    "prepared_source_episodes": 49518,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 110,
+    "language_audited_sources": 120,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56209,
     "whisper_review_pending_sources": 46555,
     "subtitle_followup_sources": 28675,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T06:40:28Z",
+      "databaseId": 33239034355,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T06:37:26Z",
+      "databaseId": 33238912453,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T06:32:09Z",
+      "databaseId": 33238696238,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T06:32:05Z",
+      "databaseId": 33238692883,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T06:31:20Z",
       "databaseId": 33238663035,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T06:24:50Z",
       "databaseId": 33238400397,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T06:22:00Z",
       "databaseId": 33238288382,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T06:12:56Z",
-      "databaseId": 33237936560,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T06:08:17Z",
-      "databaseId": 33237753764,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T06:05:16Z",
-      "databaseId": 33237637790,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T06:05:13Z",
-      "databaseId": 33237635828,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -103706,9 +103706,39 @@
         "video_id": 28926384
       },
       {
+        "episode_id": 69112,
+        "display_name": "Peklo S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 28926691
+      },
+      {
+        "episode_id": 42536,
+        "display_name": "Médium S05E08 - Nic než pravda CZ Dabing",
+        "video_id": 28926749
+      },
+      {
+        "episode_id": 42576,
+        "display_name": "Médium S06E15 - Jak dostat ničemu CZ Dabing",
+        "video_id": 28926780
+      },
+      {
         "episode_id": 70709,
         "display_name": "V utajení S05E08 - 8. epizoda CZ Dabing",
         "video_id": 28926675
+      },
+      {
+        "episode_id": 91125,
+        "display_name": "Sestřička Jackie S07E10 - Jackie a vlk CZ Dabing",
+        "video_id": 28926709
+      },
+      {
+        "episode_id": 42569,
+        "display_name": "Médium S04E02 - Nikam nepůjdeš CZ Dabing",
+        "video_id": 28926746
+      },
+      {
+        "episode_id": 42593,
+        "display_name": "Médium S04E03 - Po boku tobě stát CZ Dabing",
+        "video_id": 28926770
       },
       {
         "episode_id": 114182,
@@ -189799,6 +189829,41 @@
         "episode_id": 70671,
         "display_name": "V utajení S03E02 - 2. epizoda CZ Dabing",
         "video_id": 28926504
+      },
+      {
+        "episode_id": 91126,
+        "display_name": "Sestřička Jackie S07E11 - Vigilante Jones CZ Dabing",
+        "video_id": 28926677
+      },
+      {
+        "episode_id": 42594,
+        "display_name": "Médium S04E04 - Slyšíš to, co já? CZ Dabing",
+        "video_id": 28926718
+      },
+      {
+        "episode_id": 42530,
+        "display_name": "Médium S04E09 - Zvrácená hra 1/2 CZ Dabing",
+        "video_id": 28926748
+      },
+      {
+        "episode_id": 42538,
+        "display_name": "Médium S05E18 - Lov na Oswalda CZ Dabing",
+        "video_id": 28926777
+      },
+      {
+        "episode_id": 36279,
+        "display_name": "Peklo S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28926690
+      },
+      {
+        "episode_id": 42611,
+        "display_name": "Médium S04E10 - Zvrácená hra 2/2 CZ Dabing",
+        "video_id": 28926734
+      },
+      {
+        "episode_id": 42535,
+        "display_name": "Médium S05E06 - Apokalypsa? CZ Dabing",
+        "video_id": 28926764
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -293223,9 +293288,39 @@
         "video_id": 28926384
       },
       {
+        "episode_id": 69112,
+        "display_name": "Peklo S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 28926691
+      },
+      {
+        "episode_id": 42536,
+        "display_name": "Médium S05E08 - Nic než pravda CZ Dabing",
+        "video_id": 28926749
+      },
+      {
+        "episode_id": 42576,
+        "display_name": "Médium S06E15 - Jak dostat ničemu CZ Dabing",
+        "video_id": 28926780
+      },
+      {
         "episode_id": 70709,
         "display_name": "V utajení S05E08 - 8. epizoda CZ Dabing",
         "video_id": 28926675
+      },
+      {
+        "episode_id": 91125,
+        "display_name": "Sestřička Jackie S07E10 - Jackie a vlk CZ Dabing",
+        "video_id": 28926709
+      },
+      {
+        "episode_id": 42569,
+        "display_name": "Médium S04E02 - Nikam nepůjdeš CZ Dabing",
+        "video_id": 28926746
+      },
+      {
+        "episode_id": 42593,
+        "display_name": "Médium S04E03 - Po boku tobě stát CZ Dabing",
+        "video_id": 28926770
       },
       {
         "episode_id": 114182,
@@ -379316,6 +379411,41 @@
         "episode_id": 70671,
         "display_name": "V utajení S03E02 - 2. epizoda CZ Dabing",
         "video_id": 28926504
+      },
+      {
+        "episode_id": 91126,
+        "display_name": "Sestřička Jackie S07E11 - Vigilante Jones CZ Dabing",
+        "video_id": 28926677
+      },
+      {
+        "episode_id": 42594,
+        "display_name": "Médium S04E04 - Slyšíš to, co já? CZ Dabing",
+        "video_id": 28926718
+      },
+      {
+        "episode_id": 42530,
+        "display_name": "Médium S04E09 - Zvrácená hra 1/2 CZ Dabing",
+        "video_id": 28926748
+      },
+      {
+        "episode_id": 42538,
+        "display_name": "Médium S05E18 - Lov na Oswalda CZ Dabing",
+        "video_id": 28926777
+      },
+      {
+        "episode_id": 36279,
+        "display_name": "Peklo S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28926690
+      },
+      {
+        "episode_id": 42611,
+        "display_name": "Médium S04E10 - Zvrácená hra 2/2 CZ Dabing",
+        "video_id": 28926734
+      },
+      {
+        "episode_id": 42535,
+        "display_name": "Médium S05E06 - Apokalypsa? CZ Dabing",
+        "video_id": 28926764
       }
     ],
     "prepared_not_upload_ready": [
@@ -380477,8 +380607,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 70,
     "ok": 39,
+    "disabled": 80,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
