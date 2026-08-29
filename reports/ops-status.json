@@ -3,27 +3,43 @@
     "backlog_episodes": 148468,
     "manifest_upload_ready_episodes": 1000,
     "uploaded_episodes": 43369,
-    "prepared_source_episodes": 49643,
+    "prepared_source_episodes": 49634,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56133,
-    "whisper_review_pending_sources": 46137,
-    "subtitle_followup_sources": 28951,
-    "subtitle_followup_pending_sources": 28951
+    "whisper_review_sources": 56116,
+    "whisper_review_pending_sources": 46040,
+    "subtitle_followup_sources": 28952,
+    "subtitle_followup_pending_sources": 28952
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T19:32:30Z",
+      "databaseId": 33271128440,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T19:31:28Z",
+      "databaseId": 33271081992,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T19:30:31Z",
       "databaseId": 33271038903,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -155,28 +171,12 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T19:16:46Z",
       "databaseId": 33270456930,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-29T19:16:28Z",
-      "databaseId": 33270445049,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T19:15:06Z",
-      "databaseId": 33270382059,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -384250,14 +384250,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 68667,
-        "source_id": -49553712000873750,
-        "series_title": "American Horror Stories",
-        "episode_code": "S01E04",
-        "source_title": "American Horror Stories - S1E4 The Naughty List EN",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 51905,
         "source_id": -50577755831500766,
         "series_title": "American Horror Story",
@@ -384639,6 +384631,14 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56260,
+        "source_id": -43031112546707824,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E04",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -385097,16 +385097,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7320,
-    "whisper_confirmed_cz": 2676,
+    "whisper_non_cz_needs_subtitles": 7354,
+    "whisper_confirmed_cz": 2722,
     "whisper_failed": 168,
-    "needs_whisper": 45969
+    "needs_whisper": 45872
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28951
+    "needs_subtitle_setup_after_prehrajto_processing": 28952
   }
 }
