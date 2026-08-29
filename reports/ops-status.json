@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 148788,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 43033,
+    "uploaded_episodes": 43034,
     "prepared_source_episodes": 49446,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 64,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56201,
     "whisper_review_pending_sources": 46507,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-29T09:22:15Z",
-      "databaseId": 33245332049,
+      "createdAt": "2026-08-29T09:24:58Z",
+      "databaseId": 33245436964,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T09:24:52Z",
+      "databaseId": 33245432335,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T09:23:06Z",
+      "databaseId": 33245365298,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T09:22:15Z",
+      "databaseId": 33245332049,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-29T09:22:11Z",
       "databaseId": 33245328735,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -79,7 +103,7 @@
       "createdAt": "2026-08-29T09:14:57Z",
       "databaseId": 33245041236,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -103,7 +127,7 @@
       "createdAt": "2026-08-29T09:13:14Z",
       "databaseId": 33244974260,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -123,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T09:12:00Z",
       "databaseId": 33244925764,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-29T09:08:23Z",
-      "databaseId": 33244782017,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T09:08:20Z",
-      "databaseId": 33244779606,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T09:07:41Z",
-      "databaseId": 33244753472,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -103979,6 +103979,11 @@
         "episode_id": 67820,
         "display_name": "To je vražda, napsala S07E15 - Případ záhadného zaměstnance CZ Dabing",
         "video_id": 28928866
+      },
+      {
+        "episode_id": 67892,
+        "display_name": "To je vražda, napsala S08E01 - Kousnout do velkého jablka CZ Dabing",
+        "video_id": 28928933
       },
       {
         "episode_id": 30589,
@@ -294128,6 +294133,11 @@
         "video_id": 28928866
       },
       {
+        "episode_id": 67892,
+        "display_name": "To je vražda, napsala S08E01 - Kousnout do velkého jablka CZ Dabing",
+        "video_id": 28928933
+      },
+      {
         "episode_id": 30589,
         "display_name": "Pobřežní hlídka S07E17 - Schůzka s přízrakem CZ Dabing",
         "video_id": 28928152
@@ -381737,8 +381747,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
-    "ok": 59,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
