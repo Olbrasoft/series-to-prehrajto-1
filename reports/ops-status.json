@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 148968,
     "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 42880,
+    "uploaded_episodes": 42881,
     "prepared_source_episodes": 49827,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 217,
-    "language_whisper_attempted_sources": 62,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56200,
     "whisper_review_pending_sources": 46506,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T05:34:28Z",
+      "databaseId": 33236481722,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T05:34:00Z",
+      "databaseId": 33236463376,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T05:33:56Z",
+      "databaseId": 33236460878,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T05:33:53Z",
+      "databaseId": 33236458901,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T05:33:24Z",
       "databaseId": 33236439793,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T05:33:07Z",
       "databaseId": 33236429595,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T05:27:00Z",
       "databaseId": 33236192866,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -95,15 +127,15 @@
       "createdAt": "2026-08-29T05:26:04Z",
       "databaseId": 33236157194,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-29T05:21:17Z",
       "databaseId": 33235966353,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T05:17:37Z",
-      "databaseId": 33235822715,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T05:17:15Z",
-      "databaseId": 33235807487,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T05:14:02Z",
-      "databaseId": 33235680718,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T05:13:12Z",
-      "databaseId": 33235649043,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -103649,6 +103649,11 @@
         "episode_id": 184761,
         "display_name": "Devil May Cry S02E01 - Padlý anděl CZ Dabing",
         "video_id": 28925991
+      },
+      {
+        "episode_id": 80537,
+        "display_name": "Herkules S01E06 - Když padá tma CZ Dabing",
+        "video_id": 28926048
       },
       {
         "episode_id": 114182,
@@ -293033,6 +293038,11 @@
         "video_id": 28925991
       },
       {
+        "episode_id": 80537,
+        "display_name": "Herkules S01E06 - Když padá tma CZ Dabing",
+        "video_id": 28926048
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -380207,8 +380217,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 155,
-    "ok": 61,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
