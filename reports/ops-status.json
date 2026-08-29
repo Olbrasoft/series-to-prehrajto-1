@@ -1,29 +1,45 @@
 {
   "counts": {
     "backlog_episodes": 148414,
-    "manifest_upload_ready_episodes": 1021,
-    "uploaded_episodes": 43406,
-    "prepared_source_episodes": 49671,
+    "manifest_upload_ready_episodes": 1025,
+    "uploaded_episodes": 43407,
+    "prepared_source_episodes": 49531,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 102,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56121,
-    "whisper_review_pending_sources": 46070,
+    "whisper_review_sources": 56135,
+    "whisper_review_pending_sources": 46144,
     "subtitle_followup_sources": 28998,
     "subtitle_followup_pending_sources": 28998
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T21:55:30Z",
+      "databaseId": 33277291143,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T21:54:24Z",
+      "databaseId": 33277248159,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T21:53:32Z",
       "databaseId": 33277214350,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +55,7 @@
       "createdAt": "2026-08-29T21:52:33Z",
       "databaseId": 33277174464,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "prepare-manifest"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T21:38:23Z",
-      "databaseId": 33276593345,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-29T21:38:20Z",
-      "databaseId": 33276590802,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -192256,6 +192256,11 @@
         "video_id": 28937908
       },
       {
+        "episode_id": 78938,
+        "display_name": "Zachraň mě S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 28937948
+      },
+      {
         "episode_id": 98843,
         "display_name": "Alfa samci S01E07 - Kdy jste naposledy plakal? CZ Dabing",
         "video_id": 28936906
@@ -384268,6 +384273,11 @@
         "video_id": 28937908
       },
       {
+        "episode_id": 78938,
+        "display_name": "Zachraň mě S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 28937948
+      },
+      {
         "episode_id": 98843,
         "display_name": "Alfa samci S01E07 - Kdy jste naposledy plakal? CZ Dabing",
         "video_id": 28936906
@@ -384618,6 +384628,14 @@
         "episode_code": "S01E04",
         "source_title": "All or Nothing: Tottenham Hotspur - S1E4 EN",
         "status": "whisper_failed"
+      },
+      {
+        "episode_id": 68667,
+        "source_id": -49553712000873750,
+        "series_title": "American Horror Stories",
+        "episode_code": "S01E04",
+        "source_title": "American Horror Stories - S1E4 The Naughty List EN",
+        "status": "needs_whisper"
       },
       {
         "episode_id": 51905,
@@ -385001,14 +385019,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -385467,14 +385477,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 62,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7348,
-    "whisper_confirmed_cz": 2703,
+    "whisper_non_cz_needs_subtitles": 7315,
+    "whisper_confirmed_cz": 2676,
     "whisper_failed": 168,
-    "needs_whisper": 45902
+    "needs_whisper": 45976
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28998
