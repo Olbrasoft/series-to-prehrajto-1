@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 149069,
-    "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 42823,
-    "prepared_source_episodes": 49425,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 42824,
+    "prepared_source_episodes": 49424,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56208,
-    "whisper_review_pending_sources": 46549,
+    "whisper_review_sources": 56199,
+    "whisper_review_pending_sources": 46500,
     "subtitle_followup_sources": 28628,
     "subtitle_followup_pending_sources": 28628
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T02:27:09Z",
+      "databaseId": 33228984962,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-29T02:26:52Z",
+      "databaseId": 33228971310,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T02:26:14Z",
+      "databaseId": 33228947249,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T02:25:20Z",
       "databaseId": 33228910357,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,7 +71,7 @@
       "createdAt": "2026-08-29T02:23:06Z",
       "databaseId": 33228812866,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -91,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T02:17:48Z",
       "databaseId": 33228592313,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T02:08:12Z",
-      "databaseId": 33228185509,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T02:08:08Z",
-      "databaseId": 33228181631,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T02:07:09Z",
-      "databaseId": 33228140388,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -189379,6 +189379,11 @@
         "episode_id": 185651,
         "display_name": "V jako Victoria S03E08 - Jak Tori přivést k šílenství CZ Dabing",
         "video_id": 28922424
+      },
+      {
+        "episode_id": 43851,
+        "display_name": "Nemocnice Chicago Med S01E02 - Bez dechu CZ Dabing",
+        "video_id": 28922804
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -378476,6 +378481,11 @@
         "episode_id": 185651,
         "display_name": "V jako Victoria S03E08 - Jak Tori přivést k šílenství CZ Dabing",
         "video_id": 28922424
+      },
+      {
+        "episode_id": 43851,
+        "display_name": "Nemocnice Chicago Med S01E02 - Bez dechu CZ Dabing",
+        "video_id": 28922804
       }
     ],
     "prepared_not_upload_ready": [
@@ -379637,14 +379647,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7003,
+    "whisper_non_cz_needs_subtitles": 7043,
     "whisper_confirmed_cz": 2656,
     "whisper_failed": 168,
-    "needs_whisper": 46381
+    "needs_whisper": 46332
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 28628
