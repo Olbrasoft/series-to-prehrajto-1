@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 148912,
-    "manifest_upload_ready_episodes": 1005,
-    "uploaded_episodes": 42988,
-    "prepared_source_episodes": 49242,
+    "manifest_upload_ready_episodes": 1011,
+    "uploaded_episodes": 42989,
+    "prepared_source_episodes": 49443,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 221,
+    "language_whisper_attempted_sources": 101,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 56200,
     "whisper_review_pending_sources": 46506,
-    "subtitle_followup_sources": 28702,
-    "subtitle_followup_pending_sources": 28702
+    "subtitle_followup_sources": 28729,
+    "subtitle_followup_pending_sources": 28729
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-29T08:21:45Z",
-      "databaseId": 33242964167,
+      "createdAt": "2026-08-29T08:25:05Z",
+      "databaseId": 33243098937,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-29T08:25:03Z",
+      "databaseId": 33243096572,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T08:22:46Z",
+      "databaseId": 33243004141,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-29T08:21:45Z",
+      "databaseId": 33242964167,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-29T08:18:38Z",
       "databaseId": 33242843890,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T08:13:55Z",
       "databaseId": 33242663448,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-29T08:12:58Z",
       "databaseId": 33242627022,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T07:57:13Z",
-      "databaseId": 33242007053,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T07:57:03Z",
-      "databaseId": 33242001626,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-29T07:56:22Z",
-      "databaseId": 33241978454,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -190204,6 +190204,11 @@
         "episode_id": 197983,
         "display_name": "Melrose Place S05E17 - 17. epizoda CZ Dabing",
         "video_id": 28927813
+      },
+      {
+        "episode_id": 1939,
+        "display_name": "Melrose Place S04E16 - 16. epizoda CZ Dabing",
+        "video_id": 28927879
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -380126,6 +380131,11 @@
         "episode_id": 197983,
         "display_name": "Melrose Place S05E17 - 17. epizoda CZ Dabing",
         "video_id": 28927813
+      },
+      {
+        "episode_id": 1939,
+        "display_name": "Melrose Place S04E16 - 16. epizoda CZ Dabing",
+        "video_id": 28927879
       }
     ],
     "prepared_not_upload_ready": [
@@ -381287,7 +381297,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 120,
+    "ok": 100,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -381297,6 +381308,6 @@
     "needs_whisper": 46338
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 28702
+    "needs_subtitle_setup_after_prehrajto_processing": 28729
   }
 }
