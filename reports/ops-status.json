@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 147447,
-    "manifest_upload_ready_episodes": 1030,
-    "uploaded_episodes": 44398,
-    "prepared_source_episodes": 50127,
+    "manifest_upload_ready_episodes": 1029,
+    "uploaded_episodes": 44399,
+    "prepared_source_episodes": 50126,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 44,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 64,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55995,
-    "whisper_review_pending_sources": 45357,
+    "whisper_review_sources": 55974,
+    "whisper_review_pending_sources": 45235,
     "subtitle_followup_sources": 29369,
     "subtitle_followup_pending_sources": 29369
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-30T21:53:28Z",
+      "databaseId": 33337646009,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T21:53:25Z",
+      "databaseId": 33337643823,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T21:52:33Z",
+      "databaseId": 33337605787,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T21:50:35Z",
+      "databaseId": 33337519975,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-30T21:49:39Z",
       "databaseId": 33337478829,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-30T21:43:54Z",
       "databaseId": 33337223951,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-30T21:36:40Z",
-      "databaseId": 33336901918,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T21:36:20Z",
-      "databaseId": 33336886830,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-30T21:36:17Z",
-      "databaseId": 33336885179,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T21:36:15Z",
-      "databaseId": 33336883920,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -197246,6 +197246,11 @@
         "video_id": 28963194
       },
       {
+        "episode_id": 75566,
+        "display_name": "MacGyver S04E10 - 10. epizoda CZ Dabing",
+        "video_id": 28963397
+      },
+      {
         "episode_id": 128543,
         "display_name": "Flaked S02E06 - 6. epizoda CZ Titulky",
         "video_id": 28963369
@@ -394218,6 +394223,11 @@
         "video_id": 28963194
       },
       {
+        "episode_id": 75566,
+        "display_name": "MacGyver S04E10 - 10. epizoda CZ Dabing",
+        "video_id": 28963397
+      },
+      {
         "episode_id": 128543,
         "display_name": "Flaked S02E06 - 6. epizoda CZ Titulky",
         "video_id": 28963369
@@ -394852,14 +394862,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 127628,
-        "source_id": -43227380200704871,
-        "series_title": "Bull",
-        "episode_code": "S05E12",
-        "source_title": "Bull - S5E12 Evidence to the Contrary EN",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 127629,
         "source_id": -32418560082034659,
         "series_title": "Bull",
@@ -394929,6 +394931,14 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56260,
+        "source_id": -43031112546707824,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E04",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -395387,15 +395397,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 59,
     "disabled": 4,
-    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7650,
-    "whisper_confirmed_cz": 2988,
+    "whisper_non_cz_needs_subtitles": 7697,
+    "whisper_confirmed_cz": 3042,
     "whisper_failed": 168,
-    "needs_whisper": 45189
+    "needs_whisper": 45067
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29369
