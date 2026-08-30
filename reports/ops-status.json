@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 147693,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44154,
-    "prepared_source_episodes": 49876,
+    "uploaded_episodes": 44155,
+    "prepared_source_episodes": 49891,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 46,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 56064,
-    "whisper_review_pending_sources": 45747,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 56069,
+    "whisper_review_pending_sources": 45772,
     "subtitle_followup_sources": 29205,
     "subtitle_followup_pending_sources": 29205
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T12:58:59Z",
+      "databaseId": 33312926023,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T12:58:55Z",
+      "databaseId": 33312923665,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T12:57:51Z",
+      "databaseId": 33312879194,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-08-30T12:56:23Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T12:54:55Z",
       "databaseId": 33312757834,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-30T12:52:32Z",
       "databaseId": 33312656566,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T12:40:53Z",
       "databaseId": 33312131499,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T12:37:49Z",
-      "databaseId": 33311996635,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T12:36:26Z",
-      "databaseId": 33311935478,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T12:36:19Z",
-      "databaseId": 33311930155,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -106859,6 +106859,11 @@
         "episode_id": 78469,
         "display_name": "Super drbna S01E10 - Definitivní zrušení CZ Titulky",
         "video_id": 28954868
+      },
+      {
+        "episode_id": 78473,
+        "display_name": "Super drbna S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 28955083
       },
       {
         "episode_id": 114182,
@@ -302613,6 +302618,11 @@
         "video_id": 28954868
       },
       {
+        "episode_id": 78473,
+        "display_name": "Super drbna S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 28955083
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -392947,14 +392957,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7476,
-    "whisper_confirmed_cz": 2841,
+    "whisper_non_cz_needs_subtitles": 7468,
+    "whisper_confirmed_cz": 2829,
     "whisper_failed": 168,
-    "needs_whisper": 45579
+    "needs_whisper": 45604
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29205
