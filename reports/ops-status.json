@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 148188,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 43758,
-    "prepared_source_episodes": 49834,
+    "uploaded_episodes": 43760,
+    "prepared_source_episodes": 49849,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,50 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56095,
-    "whisper_review_pending_sources": 45918,
+    "whisper_review_sources": 56099,
+    "whisper_review_pending_sources": 45942,
     "subtitle_followup_sources": 29111,
     "subtitle_followup_pending_sources": 29111
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-30T05:49:33Z",
+      "databaseId": 33295535210,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T05:49:22Z",
+      "databaseId": 33295529733,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T05:48:30Z",
+      "databaseId": 33295498656,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T05:48:28Z",
+      "databaseId": 33295497345,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-30T05:47:35Z",
       "databaseId": 33295465254,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +83,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-30T05:42:22Z",
       "databaseId": 33295283812,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-30T05:34:05Z",
-      "databaseId": 33294980189,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-30T05:34:02Z",
-      "databaseId": 33294977685,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T05:33:42Z",
-      "databaseId": 33294965120,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-30T05:33:28Z",
-      "databaseId": 33294958121,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -105856,6 +105856,11 @@
         "video_id": 28946274
       },
       {
+        "episode_id": 120964,
+        "display_name": "Classroom of the Elite S04E03 - 3. epizoda CZ Titulky",
+        "video_id": 28946305
+      },
+      {
         "episode_id": 58909,
         "display_name": "Záměna  S01E13 - 13. epizoda CZ Titulky",
         "video_id": 28946234
@@ -194054,6 +194059,11 @@
         "episode_id": 67231,
         "display_name": "Zákon gangu: Mayové S04E10 - Půlnoční kolaps CZ Titulky",
         "video_id": 28946150
+      },
+      {
+        "episode_id": 96066,
+        "display_name": "Zákon gangu: Mayové S02E10 - Hunahpu CZ Dabing",
+        "video_id": 28946236
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -299628,6 +299638,11 @@
         "video_id": 28946274
       },
       {
+        "episode_id": 120964,
+        "display_name": "Classroom of the Elite S04E03 - 3. epizoda CZ Titulky",
+        "video_id": 28946305
+      },
+      {
         "episode_id": 58909,
         "display_name": "Záměna  S01E13 - 13. epizoda CZ Titulky",
         "video_id": 28946234
@@ -387826,6 +387841,11 @@
         "episode_id": 67231,
         "display_name": "Zákon gangu: Mayové S04E10 - Půlnoční kolaps CZ Titulky",
         "video_id": 28946150
+      },
+      {
+        "episode_id": 96066,
+        "display_name": "Zákon gangu: Mayové S02E10 - Hunahpu CZ Dabing",
+        "video_id": 28946236
       }
     ],
     "prepared_not_upload_ready": [
@@ -388992,9 +389012,9 @@
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 7405,
-    "whisper_confirmed_cz": 2772,
+    "whisper_confirmed_cz": 2752,
     "whisper_failed": 168,
-    "needs_whisper": 45750
+    "needs_whisper": 45774
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29111
