@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 148338,
     "manifest_upload_ready_episodes": 1008,
-    "uploaded_episodes": 43626,
+    "uploaded_episodes": 43627,
     "prepared_source_episodes": 49779,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 56095,
     "whisper_review_pending_sources": 45918,
     "subtitle_followup_sources": 29080,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-30T03:22:06Z",
-      "databaseId": 33290099172,
+      "createdAt": "2026-08-30T03:24:14Z",
+      "databaseId": 33290179622,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-30T03:23:11Z",
+      "databaseId": 33290139404,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T03:23:01Z",
+      "databaseId": 33290132824,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T03:22:56Z",
+      "databaseId": 33290130566,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T03:22:06Z",
+      "databaseId": 33290099172,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-30T03:19:21Z",
       "databaseId": 33289991802,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-08-30T02:56:19Z",
       "databaseId": 33289124288,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T02:55:13Z",
-      "databaseId": 33289088128,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T02:55:13Z",
-      "databaseId": 33289087995,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-30T02:54:46Z",
-      "databaseId": 33289070240,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T02:54:13Z",
-      "databaseId": 33289050273,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -105524,6 +105524,11 @@
         "episode_id": 57253,
         "display_name": "Nashville S01E12 - 12. epizoda CZ Titulky",
         "video_id": 28943660
+      },
+      {
+        "episode_id": 57752,
+        "display_name": "Godfather of Harlem S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28943770
       },
       {
         "episode_id": 114182,
@@ -298638,6 +298643,11 @@
         "video_id": 28943660
       },
       {
+        "episode_id": 57752,
+        "display_name": "Godfather of Harlem S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 28943770
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -387667,7 +387677,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
