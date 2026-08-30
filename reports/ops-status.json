@@ -1,7 +1,7 @@
 {
   "counts": {
     "backlog_episodes": 147502,
-    "manifest_upload_ready_episodes": 1006,
+    "manifest_upload_ready_episodes": 1007,
     "uploaded_episodes": 44328,
     "prepared_source_episodes": 50003,
     "description_series": 60,
@@ -9,21 +9,29 @@
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56020,
-    "whisper_review_pending_sources": 45496,
+    "whisper_review_sources": 56017,
+    "whisper_review_pending_sources": 45476,
     "subtitle_followup_sources": 29278,
     "subtitle_followup_pending_sources": 29278
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-30T18:31:22Z",
+      "databaseId": 33328308351,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-30T18:29:56Z",
       "databaseId": 33328233970,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -35,11 +43,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T18:29:27Z",
       "databaseId": 33328211201,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -71,7 +79,7 @@
       "createdAt": "2026-08-30T18:23:49Z",
       "databaseId": 33327945906,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "process-whisper-review"
     },
     {
@@ -139,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T18:15:52Z",
       "databaseId": 33327562082,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -169,14 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T18:09:53Z",
-      "databaseId": 33327271376,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -393848,14 +393848,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 175652,
-        "source_id": -59345103153358342,
-        "series_title": "Americká štvanice: Útok na Bostonský maraton",
-        "episode_code": "S01E01",
-        "source_title": "Americká štvanice: Útok na Bostonský maraton - S1E1 EN",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 49910,
         "source_id": -49187278468511205,
         "series_title": "Beze stopy",
@@ -394184,14 +394176,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 97858,
-        "source_id": -47653951079935924,
-        "series_title": "Catastrophe",
-        "episode_code": "S04E02",
-        "source_title": "Catastrophe - S4E2 Episode 2 EN",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 56254,
         "source_id": -59514815803122524,
         "series_title": "Chirurgové",
@@ -394229,6 +394213,22 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E02",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56259,
+        "source_id": -62170039906391954,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E03",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56260,
+        "source_id": -43031112546707824,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E04",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -394687,14 +394687,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7565,
-    "whisper_confirmed_cz": 2959,
+    "whisper_non_cz_needs_subtitles": 7568,
+    "whisper_confirmed_cz": 2973,
     "whisper_failed": 168,
-    "needs_whisper": 45328
+    "needs_whisper": 45308
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29278
