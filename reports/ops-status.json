@@ -3,27 +3,43 @@
     "backlog_episodes": 148023,
     "manifest_upload_ready_episodes": 1000,
     "uploaded_episodes": 43943,
-    "prepared_source_episodes": 49873,
+    "prepared_source_episodes": 49862,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 46,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56099,
-    "whisper_review_pending_sources": 45943,
+    "whisper_review_sources": 56095,
+    "whisper_review_pending_sources": 45919,
     "subtitle_followup_sources": 29135,
     "subtitle_followup_pending_sources": 29135
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T08:32:30Z",
+      "databaseId": 33301836156,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T08:32:26Z",
+      "databaseId": 33301833995,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-08-30T08:31:43Z",
       "databaseId": 33301804100,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T08:31:38Z",
       "databaseId": 33301800544,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,7 +71,7 @@
       "createdAt": "2026-08-30T08:26:14Z",
       "databaseId": 33301578985,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "process-whisper-review"
     },
     {
@@ -75,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T08:22:33Z",
       "databaseId": 33301426003,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -158,22 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-08-30T08:11:30Z",
       "databaseId": 33300976745,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T08:11:29Z",
-      "databaseId": 33300975680,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-30T08:11:22Z",
-      "databaseId": 33300970672,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -390326,22 +390326,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 114934,
-        "source_id": -49586791516534441,
-        "series_title": "Cestovatel",
-        "episode_code": "S01E02",
-        "source_title": "Cestovatel S01E02 - Friendly Skies",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 114933,
-        "source_id": -19650093483917851,
-        "series_title": "Cestovatel",
-        "episode_code": "S01E04",
-        "source_title": "Cestovatel S01E04 - The Year of the Rabbit",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 56254,
         "source_id": -59514815803122524,
         "series_title": "Chirurgové",
@@ -390379,6 +390363,22 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E02",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56259,
+        "source_id": -62170039906391954,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E03",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56260,
+        "source_id": -43031112546707824,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E04",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -390837,14 +390837,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 7405,
-    "whisper_confirmed_cz": 2751,
+    "whisper_confirmed_cz": 2771,
     "whisper_failed": 168,
-    "needs_whisper": 45775
+    "needs_whisper": 45751
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29135
