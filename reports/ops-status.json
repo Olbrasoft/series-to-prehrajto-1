@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 147592,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44264,
-    "prepared_source_episodes": 49954,
+    "uploaded_episodes": 44265,
+    "prepared_source_episodes": 49953,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 56052,
-    "whisper_review_pending_sources": 45680,
-    "subtitle_followup_sources": 29254,
-    "subtitle_followup_pending_sources": 29254
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 56030,
+    "whisper_review_pending_sources": 45558,
+    "subtitle_followup_sources": 29255,
+    "subtitle_followup_pending_sources": 29255
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-30T16:02:07Z",
+      "databaseId": 33321300927,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-30T16:02:02Z",
+      "databaseId": 33321296166,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T15:57:31Z",
+      "databaseId": 33321085640,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-30T15:56:35Z",
       "databaseId": 33321043571,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,7 +79,7 @@
       "createdAt": "2026-08-30T15:53:32Z",
       "databaseId": 33320907090,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T15:48:48Z",
       "databaseId": 33320692216,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T15:45:44Z",
       "databaseId": 33320548648,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T15:44:06Z",
-      "databaseId": 33320472162,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T15:43:49Z",
-      "databaseId": 33320458511,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-30T15:43:45Z",
-      "databaseId": 33320456129,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -107119,6 +107119,11 @@
         "episode_id": 57501,
         "display_name": "Believe S01E02 - 2. epizoda CZ Titulky",
         "video_id": 28957863
+      },
+      {
+        "episode_id": 57493,
+        "display_name": "Believe S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 28957994
       },
       {
         "episode_id": 114182,
@@ -303423,6 +303428,11 @@
         "video_id": 28957863
       },
       {
+        "episode_id": 57493,
+        "display_name": "Believe S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 28957994
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -394047,16 +394057,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7499,
-    "whisper_confirmed_cz": 2873,
+    "whisper_non_cz_needs_subtitles": 7564,
+    "whisper_confirmed_cz": 2908,
     "whisper_failed": 168,
-    "needs_whisper": 45512
+    "needs_whisper": 45390
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 29254
+    "needs_subtitle_setup_after_prehrajto_processing": 29255
   }
 }
