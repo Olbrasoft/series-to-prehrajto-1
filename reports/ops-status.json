@@ -1,37 +1,85 @@
 {
   "counts": {
-    "backlog_episodes": 147447,
-    "manifest_upload_ready_episodes": 1008,
-    "uploaded_episodes": 44497,
-    "prepared_source_episodes": 50198,
+    "backlog_episodes": 147324,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 44515,
+    "prepared_source_episodes": 50179,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55974,
-    "whisper_review_pending_sources": 45235,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 55965,
+    "whisper_review_pending_sources": 45200,
     "subtitle_followup_sources": 29408,
     "subtitle_followup_pending_sources": 29408
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-31T00:53:17Z",
-      "databaseId": 33345894125,
+      "createdAt": "2026-08-31T01:09:58Z",
+      "databaseId": 33346743681,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T01:05:46Z",
+      "databaseId": 33346521680,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T01:02:01Z",
+      "databaseId": 33346326427,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T00:58:39Z",
+      "databaseId": 33346155489,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T00:54:21Z",
+      "databaseId": 33345945482,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T00:54:18Z",
+      "databaseId": 33345942572,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T00:53:17Z",
+      "databaseId": 33345894125,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T00:50:05Z",
       "databaseId": 33345738118,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -107,11 +155,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T00:42:32Z",
       "databaseId": 33345367047,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T00:27:44Z",
-      "databaseId": 33344645028,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-31T00:26:03Z",
-      "databaseId": 33344562476,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T00:16:34Z",
-      "databaseId": 33344096650,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T00:15:14Z",
-      "databaseId": 33344024513,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T00:15:11Z",
-      "databaseId": 33344022072,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T00:15:09Z",
-      "databaseId": 33344020090,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -107696,9 +107696,49 @@
         "video_id": 28966839
       },
       {
+        "episode_id": 188100,
+        "display_name": "Gumídci S05E03 - Cesta do Hopsantídy CZ Dabing",
+        "video_id": 28966889
+      },
+      {
+        "episode_id": 129608,
+        "display_name": "American Rust S02E04 - Rozdané karty CZ Titulky",
+        "video_id": 28966922
+      },
+      {
+        "episode_id": 146692,
+        "display_name": "Dororo S01E23 - 23. epizoda CZ Titulky",
+        "video_id": 28966973
+      },
+      {
+        "episode_id": 50584,
+        "display_name": "Tyran S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 28967009
+      },
+      {
+        "episode_id": 50588,
+        "display_name": "Tyran S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 28967048
+      },
+      {
         "episode_id": 143365,
         "display_name": "Maestro v d moll S02E06 - Kontakt pro pozůstalost CZ Titulky",
         "video_id": 28966794
+      },
+      {
+        "episode_id": 129613,
+        "display_name": "American Rust S02E10 - Doznání CZ Dabing",
+        "video_id": 28966875
+      },
+      {
+        "episode_id": 129609,
+        "display_name": "American Rust S02E05 - Jen do mě CZ Titulky",
+        "video_id": 28966925
+      },
+      {
+        "episode_id": 146693,
+        "display_name": "Dororo S01E24 - 24. epizoda CZ Titulky",
+        "video_id": 28966981
       },
       {
         "episode_id": 114182,
@@ -197736,6 +197776,31 @@
         "video_id": 28966838
       },
       {
+        "episode_id": 107782,
+        "display_name": "Pátý S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28966901
+      },
+      {
+        "episode_id": 129610,
+        "display_name": "American Rust S02E06 - Problémy s tátou CZ Dabing",
+        "video_id": 28966938
+      },
+      {
+        "episode_id": 129614,
+        "display_name": "American Rust S02E08 - Ponderosa CZ Dabing",
+        "video_id": 28966996
+      },
+      {
+        "episode_id": 146690,
+        "display_name": "Dororo S01E21 - 21. epizoda CZ Titulky",
+        "video_id": 28967036
+      },
+      {
+        "episode_id": 30078,
+        "display_name": "The Rising of the Shield Hero S02E05 - 5. epizoda CZ Dabing",
+        "video_id": 28967057
+      },
+      {
         "episode_id": 129611,
         "display_name": "American Rust S02E07 - Strom CZ Dabing",
         "video_id": 28966795
@@ -197749,6 +197814,31 @@
         "episode_id": 45931,
         "display_name": "Svatyně S03E12 - Kocovina CZ Dabing",
         "video_id": 28966873
+      },
+      {
+        "episode_id": 50587,
+        "display_name": "Tyran S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28966904
+      },
+      {
+        "episode_id": 87819,
+        "display_name": "Nutné k přežití S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 28966930
+      },
+      {
+        "episode_id": 179443,
+        "display_name": "Bon Appétit, Vaše Výsosti S01E02 - Druhý chod: metoda sous-vide CZ Titulky",
+        "video_id": 28966970
+      },
+      {
+        "episode_id": 179435,
+        "display_name": "Bon Appétit, Vaše Výsosti S01E06 - Šestý chod: makronka z černého sezamu CZ Titulky",
+        "video_id": 28967017
+      },
+      {
+        "episode_id": 35959,
+        "display_name": "Nejsilnější hlas S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 28967053
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -305163,9 +305253,49 @@
         "video_id": 28966839
       },
       {
+        "episode_id": 188100,
+        "display_name": "Gumídci S05E03 - Cesta do Hopsantídy CZ Dabing",
+        "video_id": 28966889
+      },
+      {
+        "episode_id": 129608,
+        "display_name": "American Rust S02E04 - Rozdané karty CZ Titulky",
+        "video_id": 28966922
+      },
+      {
+        "episode_id": 146692,
+        "display_name": "Dororo S01E23 - 23. epizoda CZ Titulky",
+        "video_id": 28966973
+      },
+      {
+        "episode_id": 50584,
+        "display_name": "Tyran S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 28967009
+      },
+      {
+        "episode_id": 50588,
+        "display_name": "Tyran S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 28967048
+      },
+      {
         "episode_id": 143365,
         "display_name": "Maestro v d moll S02E06 - Kontakt pro pozůstalost CZ Titulky",
         "video_id": 28966794
+      },
+      {
+        "episode_id": 129613,
+        "display_name": "American Rust S02E10 - Doznání CZ Dabing",
+        "video_id": 28966875
+      },
+      {
+        "episode_id": 129609,
+        "display_name": "American Rust S02E05 - Jen do mě CZ Titulky",
+        "video_id": 28966925
+      },
+      {
+        "episode_id": 146693,
+        "display_name": "Dororo S01E24 - 24. epizoda CZ Titulky",
+        "video_id": 28966981
       },
       {
         "episode_id": 114182,
@@ -395203,6 +395333,31 @@
         "video_id": 28966838
       },
       {
+        "episode_id": 107782,
+        "display_name": "Pátý S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 28966901
+      },
+      {
+        "episode_id": 129610,
+        "display_name": "American Rust S02E06 - Problémy s tátou CZ Dabing",
+        "video_id": 28966938
+      },
+      {
+        "episode_id": 129614,
+        "display_name": "American Rust S02E08 - Ponderosa CZ Dabing",
+        "video_id": 28966996
+      },
+      {
+        "episode_id": 146690,
+        "display_name": "Dororo S01E21 - 21. epizoda CZ Titulky",
+        "video_id": 28967036
+      },
+      {
+        "episode_id": 30078,
+        "display_name": "The Rising of the Shield Hero S02E05 - 5. epizoda CZ Dabing",
+        "video_id": 28967057
+      },
+      {
         "episode_id": 129611,
         "display_name": "American Rust S02E07 - Strom CZ Dabing",
         "video_id": 28966795
@@ -395216,6 +395371,31 @@
         "episode_id": 45931,
         "display_name": "Svatyně S03E12 - Kocovina CZ Dabing",
         "video_id": 28966873
+      },
+      {
+        "episode_id": 50587,
+        "display_name": "Tyran S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 28966904
+      },
+      {
+        "episode_id": 87819,
+        "display_name": "Nutné k přežití S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 28966930
+      },
+      {
+        "episode_id": 179443,
+        "display_name": "Bon Appétit, Vaše Výsosti S01E02 - Druhý chod: metoda sous-vide CZ Titulky",
+        "video_id": 28966970
+      },
+      {
+        "episode_id": 179435,
+        "display_name": "Bon Appétit, Vaše Výsosti S01E06 - Šestý chod: makronka z černého sezamu CZ Titulky",
+        "video_id": 28967017
+      },
+      {
+        "episode_id": 35959,
+        "display_name": "Nejsilnější hlas S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 28967053
       }
     ],
     "prepared_not_upload_ready": [
@@ -396377,14 +396557,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "resolve_failed": 1
+    "ok": 45,
+    "resolve_failed": 15
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7697,
+    "whisper_non_cz_needs_subtitles": 7723,
     "whisper_confirmed_cz": 3042,
-    "whisper_failed": 168,
-    "needs_whisper": 45067
+    "whisper_failed": 182,
+    "needs_whisper": 45018
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29408
