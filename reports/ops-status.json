@@ -1,17 +1,17 @@
 {
   "counts": {
-    "backlog_episodes": 147061,
+    "backlog_episodes": 146937,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44887,
-    "prepared_source_episodes": 50470,
+    "uploaded_episodes": 44894,
+    "prepared_source_episodes": 50498,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 24,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55955,
     "whisper_review_pending_sources": 45148,
     "subtitle_followup_sources": 29519,
@@ -20,26 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-31T09:23:32Z",
-      "databaseId": 33377431259,
+      "createdAt": "2026-08-31T09:31:10Z",
+      "databaseId": 33378074122,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
+      "status": "pending",
+      "workflowName": "process-whisper-review"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-08-31T09:23:07Z",
-      "databaseId": 33377398777,
+      "createdAt": "2026-08-31T09:30:50Z",
+      "databaseId": 33378043805,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T09:29:26Z",
+      "databaseId": 33377922781,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T09:28:09Z",
+      "databaseId": 33377816380,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T09:27:47Z",
+      "databaseId": 33377782267,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T09:24:00Z",
+      "databaseId": 33377471262,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T09:23:57Z",
+      "databaseId": 33377467030,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T09:23:32Z",
+      "databaseId": 33377431259,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T09:23:07Z",
+      "databaseId": 33377398777,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T09:13:43Z",
       "databaseId": 33376618511,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:01:02Z",
-      "databaseId": 33375600024,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:00:04Z",
-      "databaseId": 33375516334,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:00:00Z",
-      "databaseId": 33375509906,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:58:48Z",
-      "databaseId": 33375422227,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:58:45Z",
-      "databaseId": 33375419056,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:57:53Z",
-      "databaseId": 33375355477,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-31T08:57:50Z",
-      "databaseId": 33375351886,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -108666,6 +108666,16 @@
         "video_id": 28973557
       },
       {
+        "episode_id": 85260,
+        "display_name": "Channel Zero S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 28973582
+      },
+      {
+        "episode_id": 85256,
+        "display_name": "Channel Zero S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 28973614
+      },
+      {
         "episode_id": 193257,
         "display_name": "He-Man and the Masters of the Universe S01E04 - 4. epizoda CZ Dabing",
         "video_id": 28973403
@@ -108684,6 +108694,11 @@
         "episode_id": 75849,
         "display_name": "Code Black S02E07 - 7. epizoda CZ Titulky",
         "video_id": 28973542
+      },
+      {
+        "episode_id": 91765,
+        "display_name": "Smaragdové město S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 28973588
       },
       {
         "episode_id": 114182,
@@ -199691,6 +199706,21 @@
         "video_id": 28973534
       },
       {
+        "episode_id": 123086,
+        "display_name": "Vraždi všímavě S01E01 - Dýchání CZ Dabing",
+        "video_id": 28973579
+      },
+      {
+        "episode_id": 123090,
+        "display_name": "Vraždi všímavě S01E06 - Brainstorming CZ Dabing",
+        "video_id": 28973625
+      },
+      {
+        "episode_id": 51642,
+        "display_name": "Ochrana svědků S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28973662
+      },
+      {
         "episode_id": 193255,
         "display_name": "He-Man and the Masters of the Universe S01E02 - 2. epizoda CZ Dabing",
         "video_id": 28973397
@@ -199699,6 +199729,11 @@
         "episode_id": 162435,
         "display_name": "The Paper S01E07 - Miluji tě CZ Dabing",
         "video_id": 28973435
+      },
+      {
+        "episode_id": 65083,
+        "display_name": "Ze Země na Měsíc S01E01 - Dokážeme to? CZ Titulky",
+        "video_id": 28973479
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -308083,6 +308118,16 @@
         "video_id": 28973557
       },
       {
+        "episode_id": 85260,
+        "display_name": "Channel Zero S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 28973582
+      },
+      {
+        "episode_id": 85256,
+        "display_name": "Channel Zero S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 28973614
+      },
+      {
         "episode_id": 193257,
         "display_name": "He-Man and the Masters of the Universe S01E04 - 4. epizoda CZ Dabing",
         "video_id": 28973403
@@ -308101,6 +308146,11 @@
         "episode_id": 75849,
         "display_name": "Code Black S02E07 - 7. epizoda CZ Titulky",
         "video_id": 28973542
+      },
+      {
+        "episode_id": 91765,
+        "display_name": "Smaragdové město S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 28973588
       },
       {
         "episode_id": 114182,
@@ -399108,6 +399158,21 @@
         "video_id": 28973534
       },
       {
+        "episode_id": 123086,
+        "display_name": "Vraždi všímavě S01E01 - Dýchání CZ Dabing",
+        "video_id": 28973579
+      },
+      {
+        "episode_id": 123090,
+        "display_name": "Vraždi všímavě S01E06 - Brainstorming CZ Dabing",
+        "video_id": 28973625
+      },
+      {
+        "episode_id": 51642,
+        "display_name": "Ochrana svědků S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 28973662
+      },
+      {
         "episode_id": 193255,
         "display_name": "He-Man and the Masters of the Universe S01E02 - 2. epizoda CZ Dabing",
         "video_id": 28973397
@@ -399116,6 +399181,11 @@
         "episode_id": 162435,
         "display_name": "The Paper S01E07 - Miluji tě CZ Dabing",
         "video_id": 28973435
+      },
+      {
+        "episode_id": 65083,
+        "display_name": "Ze Země na Měsíc S01E01 - Dokážeme to? CZ Titulky",
+        "video_id": 28973479
       }
     ],
     "prepared_not_upload_ready": [
@@ -400277,8 +400347,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 9,
-    "ok": 39,
+    "disabled": 4,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
