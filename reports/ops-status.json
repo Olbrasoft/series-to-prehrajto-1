@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 146614,
-    "manifest_upload_ready_episodes": 1054,
-    "uploaded_episodes": 45252,
-    "prepared_source_episodes": 50175,
+    "manifest_upload_ready_episodes": 1051,
+    "uploaded_episodes": 45253,
+    "prepared_source_episodes": 50179,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 44,
+    "language_audited_sources": 48,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55883,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-31T20:57:07Z",
-      "databaseId": 33438773367,
+      "createdAt": "2026-08-31T21:00:10Z",
+      "databaseId": 33439032911,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "ops-watchdog"
+      "status": "queued",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T21:00:06Z",
+      "databaseId": 33439026762,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T21:00:04Z",
+      "databaseId": 33439022145,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T20:57:07Z",
+      "databaseId": 33438773367,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T20:56:13Z",
       "databaseId": 33438699006,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T20:40:05Z",
-      "databaseId": 33437277240,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-31T20:39:20Z",
-      "databaseId": 33437213343,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T20:39:15Z",
-      "databaseId": 33437207631,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -201524,6 +201524,11 @@
         "episode_id": 148071,
         "display_name": "Starodávné apokalypsy S01E05 - Dědictví mudrců CZ Dabing",
         "video_id": 28984330
+      },
+      {
+        "episode_id": 61199,
+        "display_name": "Dragon Ball Z S03E14 - 14. epizoda CZ Titulky",
+        "video_id": 28984389
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -402766,6 +402771,11 @@
         "episode_id": 148071,
         "display_name": "Starodávné apokalypsy S01E05 - Dědictví mudrců CZ Dabing",
         "video_id": 28984330
+      },
+      {
+        "episode_id": 61199,
+        "display_name": "Dragon Ball Z S03E14 - 14. epizoda CZ Titulky",
+        "video_id": 28984389
       }
     ],
     "prepared_not_upload_ready": [
@@ -403928,7 +403938,7 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
-    "disabled": 4,
+    "disabled": 8,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
