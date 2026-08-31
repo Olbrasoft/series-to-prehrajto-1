@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 146937,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44905,
-    "prepared_source_episodes": 50507,
+    "uploaded_episodes": 44906,
+    "prepared_source_episodes": 50503,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 73,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 23,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55955,
     "whisper_review_pending_sources": 45149,
     "subtitle_followup_sources": 29519,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T09:51:19Z",
+      "databaseId": 33379704994,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T09:51:13Z",
+      "databaseId": 33379696954,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T09:49:26Z",
+      "databaseId": 33379559507,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T09:48:34Z",
       "databaseId": 33379494501,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-31T09:46:52Z",
       "databaseId": 33379360927,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +115,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T09:42:19Z",
       "databaseId": 33378987645,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-31T09:36:26Z",
-      "databaseId": 33378512300,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-31T09:36:14Z",
-      "databaseId": 33378495198,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:31:48Z",
-      "databaseId": 33378127107,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -108724,6 +108724,11 @@
         "episode_id": 104765,
         "display_name": "Airwolf S04E03 - 3. epizoda CZ Titulky",
         "video_id": 28973752
+      },
+      {
+        "episode_id": 105684,
+        "display_name": "Drzá Jordan S01E05 - Domů se nevrátíš CZ Dabing",
+        "video_id": 28973924
       },
       {
         "episode_id": 114182,
@@ -308233,6 +308238,11 @@
         "video_id": 28973752
       },
       {
+        "episode_id": 105684,
+        "display_name": "Drzá Jordan S01E05 - Domů se nevrátíš CZ Dabing",
+        "video_id": 28973924
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -400457,8 +400467,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 33,
-    "ok": 39,
+    "disabled": 3,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
