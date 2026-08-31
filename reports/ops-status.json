@@ -2,28 +2,68 @@
   "counts": {
     "backlog_episodes": 147214,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44647,
-    "prepared_source_episodes": 50346,
+    "uploaded_episodes": 44648,
+    "prepared_source_episodes": 50345,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 167,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 187,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55955,
-    "whisper_review_pending_sources": 45146,
+    "whisper_review_sources": 55951,
+    "whisper_review_pending_sources": 45126,
     "subtitle_followup_sources": 29452,
     "subtitle_followup_pending_sources": 29452
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T04:25:35Z",
+      "databaseId": 33357036131,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T04:23:49Z",
+      "databaseId": 33356934190,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T04:21:37Z",
+      "databaseId": 33356806678,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T04:21:34Z",
+      "databaseId": 33356803617,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T04:21:31Z",
+      "databaseId": 33356801040,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T04:20:38Z",
       "databaseId": 33356749966,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T04:19:31Z",
       "databaseId": 33356680880,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:56:57Z",
-      "databaseId": 33355454781,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:54:49Z",
-      "databaseId": 33355345230,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:53:52Z",
-      "databaseId": 33355295832,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-31T03:53:49Z",
-      "databaseId": 33355292990,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:52:19Z",
-      "databaseId": 33355215760,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -108039,6 +108039,11 @@
         "episode_id": 127472,
         "display_name": "Snadný prachy S02E01 - 1. epizoda CZ Titulky",
         "video_id": 28969130
+      },
+      {
+        "episode_id": 157132,
+        "display_name": "Julie and the Phantoms S01E05 - Posmrtný Hollywood CZ Titulky",
+        "video_id": 28969171
       },
       {
         "episode_id": 91881,
@@ -306258,6 +306263,11 @@
         "video_id": 28969130
       },
       {
+        "episode_id": 157132,
+        "display_name": "Julie and the Phantoms S01E05 - Posmrtný Hollywood CZ Titulky",
+        "video_id": 28969171
+      },
+      {
         "episode_id": 91881,
         "display_name": "Dr. Stone S03E04 - 4. epizoda CZ Titulky",
         "video_id": 28968832
@@ -397878,14 +397888,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 127,
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7763,
-    "whisper_confirmed_cz": 3046,
+    "whisper_non_cz_needs_subtitles": 7764,
+    "whisper_confirmed_cz": 3061,
     "whisper_failed": 184,
-    "needs_whisper": 44962
+    "needs_whisper": 44942
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29452
