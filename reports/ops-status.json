@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 147061,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44873,
-    "prepared_source_episodes": 50434,
+    "uploaded_episodes": 44887,
+    "prepared_source_episodes": 50470,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 49,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55955,
@@ -20,10 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T09:23:32Z",
+      "databaseId": 33377431259,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T09:23:07Z",
+      "databaseId": 33377398777,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T09:13:43Z",
+      "databaseId": 33376618511,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-31T09:13:13Z",
+      "databaseId": 33376578100,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T09:13:05Z",
+      "databaseId": 33376567811,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T09:12:29Z",
+      "databaseId": 33376520233,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T09:08:09Z",
       "databaseId": 33376167965,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -43,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T09:06:53Z",
       "databaseId": 33376066501,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-31T09:06:41Z",
       "databaseId": 33376050228,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T09:00:00Z",
       "databaseId": 33375509906,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -107,11 +155,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T08:58:45Z",
       "databaseId": 33375419056,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:56:20Z",
-      "databaseId": 33375240324,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:56:16Z",
-      "databaseId": 33375234584,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:55:24Z",
-      "databaseId": 33375168140,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-08-31T08:51:09Z",
-      "databaseId": 33374837773,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:50:22Z",
-      "databaseId": 33374778075,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T08:49:23Z",
-      "databaseId": 33374701725,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -108646,6 +108646,46 @@
         "video_id": 28973325
       },
       {
+        "episode_id": 178756,
+        "display_name": "Pepsi, tak co bude s tou stíhačkou? S01E04 - Přistání CZ Dabing",
+        "video_id": 28973404
+      },
+      {
+        "episode_id": 85252,
+        "display_name": "Channel Zero S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 28973484
+      },
+      {
+        "episode_id": 85244,
+        "display_name": "Channel Zero S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 28973515
+      },
+      {
+        "episode_id": 85248,
+        "display_name": "Channel Zero S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 28973557
+      },
+      {
+        "episode_id": 193257,
+        "display_name": "He-Man and the Masters of the Universe S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28973403
+      },
+      {
+        "episode_id": 7073,
+        "display_name": "Lovci pokladů: Na hraně historie S01E10 - Ochránci pokladu CZ Dabing",
+        "video_id": 28973447
+      },
+      {
+        "episode_id": 128317,
+        "display_name": "Quantum Leap S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 28973493
+      },
+      {
+        "episode_id": 75849,
+        "display_name": "Code Black S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 28973542
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -199629,6 +199669,36 @@
         "episode_id": 162431,
         "display_name": "The Paper S01E02 - Pět W CZ Dabing",
         "video_id": 28973345
+      },
+      {
+        "episode_id": 132318,
+        "display_name": "Jeeves and Wooster S03E03 - 3. epizoda CZ Titulky",
+        "video_id": 28973402
+      },
+      {
+        "episode_id": 132322,
+        "display_name": "Jeeves and Wooster S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 28973438
+      },
+      {
+        "episode_id": 113522,
+        "display_name": "Terminator Zero S01E04 - Model 104 CZ Titulky",
+        "video_id": 28973481
+      },
+      {
+        "episode_id": 113526,
+        "display_name": "Terminator Zero S01E08 - Model 108 CZ Titulky",
+        "video_id": 28973534
+      },
+      {
+        "episode_id": 193255,
+        "display_name": "He-Man and the Masters of the Universe S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 28973397
+      },
+      {
+        "episode_id": 162435,
+        "display_name": "The Paper S01E07 - Miluji tě CZ Dabing",
+        "video_id": 28973435
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -307993,6 +308063,46 @@
         "video_id": 28973325
       },
       {
+        "episode_id": 178756,
+        "display_name": "Pepsi, tak co bude s tou stíhačkou? S01E04 - Přistání CZ Dabing",
+        "video_id": 28973404
+      },
+      {
+        "episode_id": 85252,
+        "display_name": "Channel Zero S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 28973484
+      },
+      {
+        "episode_id": 85244,
+        "display_name": "Channel Zero S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 28973515
+      },
+      {
+        "episode_id": 85248,
+        "display_name": "Channel Zero S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 28973557
+      },
+      {
+        "episode_id": 193257,
+        "display_name": "He-Man and the Masters of the Universe S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 28973403
+      },
+      {
+        "episode_id": 7073,
+        "display_name": "Lovci pokladů: Na hraně historie S01E10 - Ochránci pokladu CZ Dabing",
+        "video_id": 28973447
+      },
+      {
+        "episode_id": 128317,
+        "display_name": "Quantum Leap S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 28973493
+      },
+      {
+        "episode_id": 75849,
+        "display_name": "Code Black S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 28973542
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -398976,6 +399086,36 @@
         "episode_id": 162431,
         "display_name": "The Paper S01E02 - Pět W CZ Dabing",
         "video_id": 28973345
+      },
+      {
+        "episode_id": 132318,
+        "display_name": "Jeeves and Wooster S03E03 - 3. epizoda CZ Titulky",
+        "video_id": 28973402
+      },
+      {
+        "episode_id": 132322,
+        "display_name": "Jeeves and Wooster S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 28973438
+      },
+      {
+        "episode_id": 113522,
+        "display_name": "Terminator Zero S01E04 - Model 104 CZ Titulky",
+        "video_id": 28973481
+      },
+      {
+        "episode_id": 113526,
+        "display_name": "Terminator Zero S01E08 - Model 108 CZ Titulky",
+        "video_id": 28973534
+      },
+      {
+        "episode_id": 193255,
+        "display_name": "He-Man and the Masters of the Universe S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 28973397
+      },
+      {
+        "episode_id": 162435,
+        "display_name": "The Paper S01E07 - Miluji tě CZ Dabing",
+        "video_id": 28973435
       }
     ],
     "prepared_not_upload_ready": [
@@ -400137,6 +400277,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 9,
     "ok": 39,
     "resolve_failed": 1
   },
