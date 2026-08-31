@@ -1,37 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 147447,
-    "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44455,
-    "prepared_source_episodes": 50231,
+    "manifest_upload_ready_episodes": 1019,
+    "uploaded_episodes": 44457,
+    "prepared_source_episodes": 50221,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55974,
-    "whisper_review_pending_sources": 45235,
-    "subtitle_followup_sources": 29377,
-    "subtitle_followup_pending_sources": 29377
+    "whisper_review_sources": 55957,
+    "whisper_review_pending_sources": 45156,
+    "subtitle_followup_sources": 29395,
+    "subtitle_followup_pending_sources": 29395
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-30T23:59:51Z",
-      "databaseId": 33343249318,
+      "createdAt": "2026-08-31T00:14:25Z",
+      "databaseId": 33343980684,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "status": "pending",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T00:14:20Z",
+      "databaseId": 33343975736,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-30T23:59:51Z",
+      "databaseId": 33343249318,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-30T23:59:23Z",
       "databaseId": 33343231944,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,19 +91,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T23:54:40Z",
       "databaseId": 33343044596,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-30T23:54:38Z",
       "databaseId": 33343043177,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -103,7 +119,7 @@
       "createdAt": "2026-08-30T23:53:43Z",
       "databaseId": 33343004921,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T23:43:50Z",
-      "databaseId": 33342579363,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-30T23:42:58Z",
-      "databaseId": 33342542309,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -107594,6 +107594,16 @@
         "episode_id": 75553,
         "display_name": "MacGyver S02E07 - Srdce a hrdinové (Lepící páska) CZ Titulky",
         "video_id": 28965572
+      },
+      {
+        "episode_id": 75505,
+        "display_name": "MacGyver S02E09 - Pravidla hry (CD-Rom) CZ Titulky",
+        "video_id": 28966029
+      },
+      {
+        "episode_id": 75561,
+        "display_name": "MacGyver S03E15 - 15. epizoda CZ Titulky",
+        "video_id": 28966196
       },
       {
         "episode_id": 114182,
@@ -304853,6 +304863,16 @@
         "video_id": 28965572
       },
       {
+        "episode_id": 75505,
+        "display_name": "MacGyver S02E09 - Pravidla hry (CD-Rom) CZ Titulky",
+        "video_id": 28966029
+      },
+      {
+        "episode_id": 75561,
+        "display_name": "MacGyver S03E15 - 15. epizoda CZ Titulky",
+        "video_id": 28966196
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -395957,17 +395977,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7697,
-    "whisper_confirmed_cz": 3042,
-    "whisper_failed": 168,
-    "needs_whisper": 45067
+    "whisper_non_cz_needs_subtitles": 7756,
+    "whisper_confirmed_cz": 3045,
+    "whisper_failed": 184,
+    "needs_whisper": 44972
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 29377
+    "needs_subtitle_setup_after_prehrajto_processing": 29395
   }
 }
