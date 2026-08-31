@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 147214,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44648,
+    "uploaded_episodes": 44649,
     "prepared_source_episodes": 50345,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 187,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55951,
     "whisper_review_pending_sources": 45126,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-08-31T04:25:35Z",
-      "databaseId": 33357036131,
+      "createdAt": "2026-08-31T04:30:08Z",
+      "databaseId": 33357301328,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T04:29:30Z",
+      "databaseId": 33357264565,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T04:29:30Z",
+      "databaseId": 33357264214,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "cancelled",
+      "createdAt": "2026-08-31T04:29:25Z",
+      "databaseId": 33357259355,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-08-31T04:28:34Z",
+      "databaseId": 33357209943,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T04:26:33Z",
+      "databaseId": 33357091962,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T04:26:30Z",
+      "databaseId": 33357088737,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T04:25:35Z",
+      "databaseId": 33357036131,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-31T04:23:49Z",
       "databaseId": 33356934190,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -47,7 +103,7 @@
       "createdAt": "2026-08-31T04:21:34Z",
       "databaseId": 33356803617,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +139,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T04:19:29Z",
       "databaseId": 33356679351,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -103,7 +159,7 @@
       "createdAt": "2026-08-31T04:18:27Z",
       "databaseId": 33356620586,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T04:07:12Z",
-      "databaseId": 33355989288,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:59:48Z",
-      "databaseId": 33355587220,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:59:44Z",
-      "databaseId": 33355584086,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:58:31Z",
-      "databaseId": 33355531133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:58:28Z",
-      "databaseId": 33355528640,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:57:41Z",
-      "databaseId": 33355491591,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T03:57:34Z",
-      "databaseId": 33355485542,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -198466,6 +198466,11 @@
         "video_id": 28969112
       },
       {
+        "episode_id": 65086,
+        "display_name": "Ze Země na Měsíc S01E03 - Opustili jsme rampu CZ Titulky",
+        "video_id": 28969158
+      },
+      {
         "episode_id": 91875,
         "display_name": "Dr. Stone S02E08 - 8. epizoda CZ Titulky",
         "video_id": 28968831
@@ -396688,6 +396693,11 @@
         "video_id": 28969112
       },
       {
+        "episode_id": 65086,
+        "display_name": "Ze Země na Měsíc S01E03 - Opustili jsme rampu CZ Titulky",
+        "video_id": 28969158
+      },
+      {
         "episode_id": 91875,
         "display_name": "Dr. Stone S02E08 - 8. epizoda CZ Titulky",
         "video_id": 28968831
@@ -397887,8 +397897,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 127,
-    "ok": 59,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
