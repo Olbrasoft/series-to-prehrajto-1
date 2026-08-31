@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 146937,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44969,
-    "prepared_source_episodes": 50373,
+    "uploaded_episodes": 44970,
+    "prepared_source_episodes": 50385,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,42 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55955,
-    "whisper_review_pending_sources": 45150,
+    "whisper_review_sources": 55927,
+    "whisper_review_pending_sources": 45003,
     "subtitle_followup_sources": 29566,
     "subtitle_followup_pending_sources": 29566
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T11:24:43Z",
+      "databaseId": 33386831400,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T11:24:39Z",
+      "databaseId": 33386825635,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T11:22:36Z",
+      "databaseId": 33386664170,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-08-31T11:21:52Z",
       "databaseId": 33386609736,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-08-31T11:21:06Z",
       "databaseId": 33386554192,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T11:09:02Z",
-      "databaseId": 33385617078,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T11:08:15Z",
-      "databaseId": 33385555107,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-31T11:08:12Z",
-      "databaseId": 33385551236,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -200109,6 +200109,11 @@
         "episode_id": 150159,
         "display_name": "Námořní vyšetřovací služba: New Orleans  S01E05 - Stalo se minulé noci CZ Dabing",
         "video_id": 28974949
+      },
+      {
+        "episode_id": 185962,
+        "display_name": "Jessie S04E09 - Řidičský průkaz a bláznivý den CZ Dabing",
+        "video_id": 28975232
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -399936,6 +399941,11 @@
         "episode_id": 150159,
         "display_name": "Námořní vyšetřovací služba: New Orleans  S01E05 - Stalo se minulé noci CZ Dabing",
         "video_id": 28974949
+      },
+      {
+        "episode_id": 185962,
+        "display_name": "Jessie S04E09 - Řidičský průkaz a bláznivý den CZ Dabing",
+        "video_id": 28975232
       }
     ],
     "prepared_not_upload_ready": [
@@ -400241,14 +400251,6 @@
       }
     ],
     "whisper_review_pending": [
-      {
-        "episode_id": 174825,
-        "source_id": -8011613750738633,
-        "series_title": "Afrika",
-        "episode_code": "S01E02",
-        "source_title": "Život ve vedrech Afrika S01E02 Leopard, Sand and Heat byDejv",
-        "status": "needs_whisper"
-      },
       {
         "episode_id": 175038,
         "source_id": -11151980550350308,
@@ -400639,6 +400641,14 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56260,
+        "source_id": -43031112546707824,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E04",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -401101,10 +401111,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7760,
-    "whisper_confirmed_cz": 3045,
-    "needs_whisper": 44966,
-    "whisper_failed": 184
+    "whisper_non_cz_needs_subtitles": 7863,
+    "whisper_confirmed_cz": 3061,
+    "whisper_failed": 184,
+    "needs_whisper": 44819
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29566
