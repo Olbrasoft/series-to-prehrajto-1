@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 147324,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44530,
-    "prepared_source_episodes": 50227,
+    "uploaded_episodes": 44532,
+    "prepared_source_episodes": 50244,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,50 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55957,
-    "whisper_review_pending_sources": 45156,
+    "whisper_review_sources": 55961,
+    "whisper_review_pending_sources": 45178,
     "subtitle_followup_sources": 29408,
     "subtitle_followup_pending_sources": 29408
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T01:47:33Z",
+      "databaseId": 33348659797,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T01:47:29Z",
+      "databaseId": 33348656663,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T01:47:29Z",
+      "databaseId": 33348656605,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T01:47:10Z",
+      "databaseId": 33348641502,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T01:45:37Z",
       "databaseId": 33348562417,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -59,11 +91,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-08-31T01:41:13Z",
       "databaseId": 33348335326,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T01:17:24Z",
-      "databaseId": 33347136486,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T01:17:22Z",
-      "databaseId": 33347134648,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T01:16:32Z",
-      "databaseId": 33347094197,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-08-31T01:16:29Z",
-      "databaseId": 33347091499,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -107771,6 +107771,11 @@
         "video_id": 28967263
       },
       {
+        "episode_id": 108068,
+        "display_name": "Doktorka Fosterová S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 28967343
+      },
+      {
         "episode_id": 82149,
         "display_name": "Troufalky S01E03 - Žena schovaná v šatech CZ Dabing",
         "video_id": 28967260
@@ -197914,6 +197919,11 @@
         "episode_id": 117119,
         "display_name": "Záhadný lovec S01E09 - 9. epizoda CZ Titulky",
         "video_id": 28967344
+      },
+      {
+        "episode_id": 117131,
+        "display_name": "Záhadný lovec S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 28967383
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -305403,6 +305413,11 @@
         "video_id": 28967263
       },
       {
+        "episode_id": 108068,
+        "display_name": "Doktorka Fosterová S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 28967343
+      },
+      {
         "episode_id": 82149,
         "display_name": "Troufalky S01E03 - Žena schovaná v šatech CZ Dabing",
         "video_id": 28967260
@@ -395546,6 +395561,11 @@
         "episode_id": 117119,
         "display_name": "Záhadný lovec S01E09 - 9. epizoda CZ Titulky",
         "video_id": 28967344
+      },
+      {
+        "episode_id": 117131,
+        "display_name": "Záhadný lovec S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 28967383
       }
     ],
     "prepared_not_upload_ready": [
@@ -396711,10 +396731,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7756,
+    "whisper_non_cz_needs_subtitles": 7738,
     "whisper_confirmed_cz": 3045,
     "whisper_failed": 184,
-    "needs_whisper": 44972
+    "needs_whisper": 44994
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29408
