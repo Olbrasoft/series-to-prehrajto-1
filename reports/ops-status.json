@@ -2,28 +2,60 @@
   "counts": {
     "backlog_episodes": 146937,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 44932,
-    "prepared_source_episodes": 50469,
+    "uploaded_episodes": 44933,
+    "prepared_source_episodes": 50313,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 154,
-    "language_whisper_attempted_sources": 80,
+    "language_audited_sources": 292,
+    "language_whisper_attempted_sources": 119,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55946,
-    "whisper_review_pending_sources": 45102,
-    "subtitle_followup_sources": 29519,
-    "subtitle_followup_pending_sources": 29519
+    "whisper_review_sources": 55955,
+    "whisper_review_pending_sources": 45149,
+    "subtitle_followup_sources": 29553,
+    "subtitle_followup_pending_sources": 29553
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-08-31T10:18:07Z",
+      "databaseId": 33381783292,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T10:17:38Z",
+      "databaseId": 33381745942,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-08-31T10:17:02Z",
+      "databaseId": 33381701376,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-08-31T10:16:59Z",
+      "databaseId": 33381697795,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-08-31T10:16:06Z",
       "databaseId": 33381629170,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:51:19Z",
-      "databaseId": 33379704994,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:51:13Z",
-      "databaseId": 33379696954,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:49:26Z",
-      "databaseId": 33379559507,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-08-31T09:48:34Z",
-      "databaseId": 33379494501,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -199924,6 +199924,11 @@
         "episode_id": 199435,
         "display_name": "Melrose Place S06E20 - 20. epizoda CZ Dabing",
         "video_id": 28974107
+      },
+      {
+        "episode_id": 199439,
+        "display_name": "Melrose Place S06E24 - 24. epizoda CZ Dabing",
+        "video_id": 28974213
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -399566,6 +399571,11 @@
         "episode_id": 199435,
         "display_name": "Melrose Place S06E20 - 20. epizoda CZ Dabing",
         "video_id": 28974107
+      },
+      {
+        "episode_id": 199439,
+        "display_name": "Melrose Place S06E24 - 24. epizoda CZ Dabing",
+        "video_id": 28974213
       }
     ],
     "prepared_not_upload_ready": [
@@ -399871,6 +399881,14 @@
       }
     ],
     "whisper_review_pending": [
+      {
+        "episode_id": 174825,
+        "source_id": -8011613750738633,
+        "series_title": "Afrika",
+        "episode_code": "S01E02",
+        "source_title": "Život ve vedrech Afrika S01E02 Leopard, Sand and Heat byDejv",
+        "status": "needs_whisper"
+      },
       {
         "episode_id": 175038,
         "source_id": -11151980550350308,
@@ -400261,14 +400279,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -400727,17 +400737,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 74,
-    "ok": 79,
+    "disabled": 173,
+    "ok": 118,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 7783,
-    "whisper_confirmed_cz": 3061,
-    "whisper_failed": 184,
-    "needs_whisper": 44918
+    "whisper_non_cz_needs_subtitles": 7761,
+    "whisper_confirmed_cz": 3045,
+    "needs_whisper": 44965,
+    "whisper_failed": 184
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 29519
+    "needs_subtitle_setup_after_prehrajto_processing": 29553
   }
 }
