@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 145787,
-    "manifest_upload_ready_episodes": 1013,
-    "uploaded_episodes": 46056,
-    "prepared_source_episodes": 50984,
+    "manifest_upload_ready_episodes": 1019,
+    "uploaded_episodes": 46057,
+    "prepared_source_episodes": 50942,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 44,
+    "language_audited_sources": 71,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55781,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 30037
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T20:19:12Z",
+      "databaseId": 33554610348,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T20:16:15Z",
+      "databaseId": 33554324337,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T20:15:33Z",
+      "databaseId": 33554253502,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-01T20:14:26Z",
@@ -35,11 +59,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-01T20:13:20Z",
       "databaseId": 33554033404,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,7 +79,7 @@
       "createdAt": "2026-09-01T20:09:45Z",
       "databaseId": 33553679224,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-01T20:06:52Z",
       "databaseId": 33553399398,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T19:53:40Z",
-      "databaseId": 33552138168,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-01T19:53:37Z",
-      "databaseId": 33552133408,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-01T19:53:03Z",
-      "databaseId": 33552080518,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -111604,6 +111604,11 @@
         "episode_id": 136705,
         "display_name": "Gentleman Jack S01E01 - I Was Just Passing CZ Dabing",
         "video_id": 29009658
+      },
+      {
+        "episode_id": 131928,
+        "display_name": "Penny Dreadful: Město andělů S01E07 - Maria a zvíře CZ Titulky",
+        "video_id": 29009740
       },
       {
         "episode_id": 114182,
@@ -316868,6 +316873,11 @@
         "video_id": 29009658
       },
       {
+        "episode_id": 131928,
+        "display_name": "Penny Dreadful: Město andělů S01E07 - Maria a zvíře CZ Titulky",
+        "video_id": 29009740
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -411967,7 +411977,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
+    "disabled": 31,
     "ok": 39,
     "resolve_failed": 1
   },
