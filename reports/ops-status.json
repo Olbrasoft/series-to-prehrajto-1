@@ -2,44 +2,92 @@
   "counts": {
     "backlog_episodes": 146203,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 45661,
-    "prepared_source_episodes": 50893,
+    "uploaded_episodes": 45666,
+    "prepared_source_episodes": 50918,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 44,
+    "language_audited_sources": 100,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55834,
-    "whisper_review_pending_sources": 44474,
+    "whisper_review_sources": 55847,
+    "whisper_review_pending_sources": 44548,
     "subtitle_followup_sources": 29853,
     "subtitle_followup_pending_sources": 29853
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-01T07:20:37Z",
-      "databaseId": 33481675313,
+      "createdAt": "2026-09-01T07:32:17Z",
+      "databaseId": 33482612297,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-01T07:19:09Z",
-      "databaseId": 33481555653,
+      "createdAt": "2026-09-01T07:32:13Z",
+      "databaseId": 33482607455,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
+      "status": "pending",
+      "workflowName": "sync"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-01T07:26:43Z",
+      "databaseId": 33482161803,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T07:23:48Z",
+      "databaseId": 33481927680,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T07:21:39Z",
+      "databaseId": 33481760246,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T07:21:35Z",
+      "databaseId": 33481756021,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T07:20:37Z",
+      "databaseId": 33481675313,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T07:19:09Z",
+      "databaseId": 33481555653,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-01T07:16:09Z",
       "databaseId": 33481319445,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-01T07:06:15Z",
       "databaseId": 33480545626,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-01T06:59:45Z",
-      "databaseId": 33480037999,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T06:56:54Z",
-      "databaseId": 33479823865,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T06:55:53Z",
-      "databaseId": 33479748783,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T06:53:13Z",
-      "databaseId": 33479553652,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T06:53:05Z",
-      "databaseId": 33479545441,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T06:53:01Z",
-      "databaseId": 33479540631,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -203546,6 +203546,16 @@
         "video_id": 28994852
       },
       {
+        "episode_id": 63606,
+        "display_name": "Treadstone S01E07 - The Paradox Andropov CZ Titulky",
+        "video_id": 28994902
+      },
+      {
+        "episode_id": 8882,
+        "display_name": "Goblin Slayer S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 28994954
+      },
+      {
         "episode_id": 86763,
         "display_name": "Bez hranic S01E10 - 10. epizoda CZ Dabing",
         "video_id": 28994548
@@ -203569,6 +203579,21 @@
         "episode_id": 157131,
         "display_name": "Julie and the Phantoms S01E04 - Moje muzika CZ Titulky",
         "video_id": 28994783
+      },
+      {
+        "episode_id": 98867,
+        "display_name": "Alfa samci S04E01 - Nakonec dovnitř musí CZ Dabing",
+        "video_id": 28994880
+      },
+      {
+        "episode_id": 98863,
+        "display_name": "Alfa samci S04E06 - Kouzelný Karibik CZ Dabing",
+        "video_id": 28994946
+      },
+      {
+        "episode_id": 138671,
+        "display_name": "Ve službě S01E03 - Jižně od nebe CZ Titulky",
+        "video_id": 28995007
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -406833,6 +406858,16 @@
         "video_id": 28994852
       },
       {
+        "episode_id": 63606,
+        "display_name": "Treadstone S01E07 - The Paradox Andropov CZ Titulky",
+        "video_id": 28994902
+      },
+      {
+        "episode_id": 8882,
+        "display_name": "Goblin Slayer S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 28994954
+      },
+      {
         "episode_id": 86763,
         "display_name": "Bez hranic S01E10 - 10. epizoda CZ Dabing",
         "video_id": 28994548
@@ -406856,6 +406891,21 @@
         "episode_id": 157131,
         "display_name": "Julie and the Phantoms S01E04 - Moje muzika CZ Titulky",
         "video_id": 28994783
+      },
+      {
+        "episode_id": 98867,
+        "display_name": "Alfa samci S04E01 - Nakonec dovnitř musí CZ Dabing",
+        "video_id": 28994880
+      },
+      {
+        "episode_id": 98863,
+        "display_name": "Alfa samci S04E06 - Kouzelný Karibik CZ Dabing",
+        "video_id": 28994946
+      },
+      {
+        "episode_id": 138671,
+        "display_name": "Ve službě S01E03 - Jižně od nebe CZ Titulky",
+        "video_id": 28995007
       }
     ],
     "prepared_not_upload_ready": [
@@ -407176,6 +407226,14 @@
         "episode_code": "S11E10",
         "source_title": "American Horror Story - S11E10 Requiem 1981 1987 (2) EN",
         "status": "whisper_failed"
+      },
+      {
+        "episode_id": 181351,
+        "source_id": -59451382557058932,
+        "series_title": "Benidorm",
+        "episode_code": "S01E02",
+        "source_title": "Benidorm.S01E02.Episode.2.1080p",
+        "status": "needs_whisper"
       },
       {
         "episode_id": 49910,
@@ -407551,14 +407609,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -408017,15 +408067,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 60,
     "ok": 39,
-    "disabled": 4,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8205,
-    "whisper_confirmed_cz": 3155,
+    "whisper_non_cz_needs_subtitles": 8175,
+    "whisper_confirmed_cz": 3124,
     "whisper_failed": 184,
-    "needs_whisper": 44290
+    "needs_whisper": 44364
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29853
