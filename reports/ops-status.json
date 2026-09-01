@@ -1,37 +1,61 @@
 {
   "counts": {
-    "backlog_episodes": 146203,
+    "backlog_episodes": 146073,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 45743,
-    "prepared_source_episodes": 50930,
+    "uploaded_episodes": 45745,
+    "prepared_source_episodes": 50929,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 46,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 224,
+    "language_whisper_attempted_sources": 88,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55830,
-    "whisper_review_pending_sources": 44471,
-    "subtitle_followup_sources": 29867,
-    "subtitle_followup_pending_sources": 29867
+    "whisper_review_sources": 55838,
+    "whisper_review_pending_sources": 44514,
+    "subtitle_followup_sources": 29887,
+    "subtitle_followup_pending_sources": 29887
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-01T09:23:46Z",
-      "databaseId": 33491990516,
+      "createdAt": "2026-09-01T09:25:14Z",
+      "databaseId": 33492120931,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T09:24:32Z",
+      "databaseId": 33492057715,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-01T09:24:28Z",
+      "databaseId": 33492052020,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T09:23:46Z",
+      "databaseId": 33491990516,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-01T09:23:38Z",
       "databaseId": 33491979834,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T08:55:09Z",
-      "databaseId": 33489505169,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T08:55:06Z",
-      "databaseId": 33489500937,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T08:54:09Z",
-      "databaseId": 33489419237,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -110811,6 +110811,11 @@
         "video_id": 28997161
       },
       {
+        "episode_id": 57212,
+        "display_name": "Dům Davidův S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 28997314
+      },
+      {
         "episode_id": 57213,
         "display_name": "Dům Davidův S02E04 - 4. epizoda CZ Titulky",
         "video_id": 28997155
@@ -110819,6 +110824,11 @@
         "episode_id": 151837,
         "display_name": "Zrozeni milovat S01E03 - 3. epizoda CZ Dabing",
         "video_id": 28997233
+      },
+      {
+        "episode_id": 151841,
+        "display_name": "Zrozeni milovat S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 28997308
       },
       {
         "episode_id": 114182,
@@ -314508,6 +314518,11 @@
         "video_id": 28997161
       },
       {
+        "episode_id": 57212,
+        "display_name": "Dům Davidův S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 28997314
+      },
+      {
         "episode_id": 57213,
         "display_name": "Dům Davidův S02E04 - 4. epizoda CZ Titulky",
         "video_id": 28997155
@@ -314516,6 +314531,11 @@
         "episode_id": 151837,
         "display_name": "Zrozeni milovat S01E03 - 3. epizoda CZ Dabing",
         "video_id": 28997233
+      },
+      {
+        "episode_id": 151841,
+        "display_name": "Zrozeni milovat S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 28997308
       },
       {
         "episode_id": 114182,
@@ -408837,16 +408857,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 136,
+    "ok": 87,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8199,
-    "whisper_confirmed_cz": 3160,
+    "whisper_non_cz_needs_subtitles": 8179,
+    "whisper_confirmed_cz": 3145,
     "whisper_failed": 184,
-    "needs_whisper": 44287
+    "needs_whisper": 44330
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 29867
+    "needs_subtitle_setup_after_prehrajto_processing": 29887
   }
 }
