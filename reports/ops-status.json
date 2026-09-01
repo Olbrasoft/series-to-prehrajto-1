@@ -1,29 +1,45 @@
 {
   "counts": {
     "backlog_episodes": 146073,
-    "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 45804,
-    "prepared_source_episodes": 50935,
+    "manifest_upload_ready_episodes": 1003,
+    "uploaded_episodes": 45805,
+    "prepared_source_episodes": 50835,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 272,
+    "language_whisper_attempted_sources": 113,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55833,
     "whisper_review_pending_sources": 44494,
-    "subtitle_followup_sources": 29891,
-    "subtitle_followup_pending_sources": 29891
+    "subtitle_followup_sources": 29908,
+    "subtitle_followup_pending_sources": 29908
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-01T11:18:32Z",
+      "databaseId": 33501810598,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T11:16:01Z",
+      "databaseId": 33501594129,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-01T11:15:04Z",
       "databaseId": 33501508620,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -155,28 +171,12 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-01T11:02:20Z",
       "databaseId": 33500430046,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T11:02:17Z",
-      "databaseId": 33500425341,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T11:01:22Z",
-      "databaseId": 33500349062,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -204281,6 +204281,11 @@
         "video_id": 28999099
       },
       {
+        "episode_id": 106982,
+        "display_name": "Sousedství S02E19 - 19. epizoda CZ Dabing",
+        "video_id": 28999160
+      },
+      {
         "episode_id": 16327,
         "display_name": "Smrt v bílém plášti S01E06 - Occamova břitva CZ Dabing",
         "video_id": 28999115
@@ -408283,6 +408288,11 @@
         "video_id": 28999099
       },
       {
+        "episode_id": 106982,
+        "display_name": "Sousedství S02E19 - 19. epizoda CZ Dabing",
+        "video_id": 28999160
+      },
+      {
         "episode_id": 16327,
         "display_name": "Smrt v bílém plášti S01E06 - Occamova břitva CZ Dabing",
         "video_id": 28999115
@@ -409447,7 +409457,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 159,
+    "ok": 112,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -409457,6 +409468,6 @@
     "needs_whisper": 44310
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 29891
+    "needs_subtitle_setup_after_prehrajto_processing": 29908
   }
 }
