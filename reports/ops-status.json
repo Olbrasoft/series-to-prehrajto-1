@@ -2,36 +2,92 @@
   "counts": {
     "backlog_episodes": 146355,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 45512,
-    "prepared_source_episodes": 50609,
+    "uploaded_episodes": 45520,
+    "prepared_source_episodes": 50623,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55862,
-    "whisper_review_pending_sources": 44641,
+    "language_audited_sources": 21,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 55867,
+    "whisper_review_pending_sources": 44666,
     "subtitle_followup_sources": 29820,
     "subtitle_followup_pending_sources": 29820
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-01T04:24:59Z",
-      "databaseId": 33469755266,
+      "createdAt": "2026-09-01T04:32:57Z",
+      "databaseId": 33470252505,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-01T04:32:53Z",
+      "databaseId": 33470248527,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-01T04:32:26Z",
+      "databaseId": 33470221045,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-01T04:30:33Z",
+      "databaseId": 33470103978,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T04:26:56Z",
+      "databaseId": 33469877854,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T04:26:24Z",
+      "databaseId": 33469844576,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T04:26:21Z",
+      "databaseId": 33469841129,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T04:24:59Z",
+      "databaseId": 33469755266,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-01T04:24:55Z",
       "databaseId": 33469750725,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-01T04:19:32Z",
       "databaseId": 33469414605,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-01T04:12:46Z",
-      "databaseId": 33468988200,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T04:10:43Z",
-      "databaseId": 33468865918,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-01T04:10:10Z",
-      "databaseId": 33468830212,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T04:06:32Z",
-      "databaseId": 33468610064,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T03:59:07Z",
-      "databaseId": 33468160498,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T03:59:04Z",
-      "databaseId": 33468157763,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T03:58:03Z",
-      "databaseId": 33468103572,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -110246,6 +110246,26 @@
         "video_id": 28991397
       },
       {
+        "episode_id": 95436,
+        "display_name": "Případy detektiva Murdocha S18E13 - Nepravý muž CZ Dabing",
+        "video_id": 28991572
+      },
+      {
+        "episode_id": 197616,
+        "display_name": "Kouzelná Beruška a Černý kocour S01E15 - Hráč CZ Dabing",
+        "video_id": 28991627
+      },
+      {
+        "episode_id": 71457,
+        "display_name": "Inteligence S01E08 - Delta Force CZ Dabing",
+        "video_id": 28991568
+      },
+      {
+        "episode_id": 50421,
+        "display_name": "Motherland: Fort Salem S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 28991622
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -202824,6 +202844,26 @@
         "episode_id": 95115,
         "display_name": "Případy detektiva Murdocha S17E04 - Na dně sudu CZ Dabing",
         "video_id": 28991459
+      },
+      {
+        "episode_id": 50434,
+        "display_name": "Motherland: Fort Salem S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 28991566
+      },
+      {
+        "episode_id": 122034,
+        "display_name": "Zachovávat dekorum S03E04 - 4. epizoda CZ Titulky",
+        "video_id": 28991609
+      },
+      {
+        "episode_id": 95131,
+        "display_name": "Případy detektiva Murdocha S17E23 - Kouř ti kalí oči CZ Dabing",
+        "video_id": 28991569
+      },
+      {
+        "episode_id": 202363,
+        "display_name": "Kouzelná Beruška a Černý kocour S06E07 - El Toro De Piedra CZ Dabing",
+        "video_id": 28991629
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -312788,6 +312828,26 @@
         "video_id": 28991397
       },
       {
+        "episode_id": 95436,
+        "display_name": "Případy detektiva Murdocha S18E13 - Nepravý muž CZ Dabing",
+        "video_id": 28991572
+      },
+      {
+        "episode_id": 197616,
+        "display_name": "Kouzelná Beruška a Černý kocour S01E15 - Hráč CZ Dabing",
+        "video_id": 28991627
+      },
+      {
+        "episode_id": 71457,
+        "display_name": "Inteligence S01E08 - Delta Force CZ Dabing",
+        "video_id": 28991568
+      },
+      {
+        "episode_id": 50421,
+        "display_name": "Motherland: Fort Salem S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 28991622
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -405366,6 +405426,26 @@
         "episode_id": 95115,
         "display_name": "Případy detektiva Murdocha S17E04 - Na dně sudu CZ Dabing",
         "video_id": 28991459
+      },
+      {
+        "episode_id": 50434,
+        "display_name": "Motherland: Fort Salem S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 28991566
+      },
+      {
+        "episode_id": 122034,
+        "display_name": "Zachovávat dekorum S03E04 - 4. epizoda CZ Titulky",
+        "video_id": 28991609
+      },
+      {
+        "episode_id": 95131,
+        "display_name": "Případy detektiva Murdocha S17E23 - Kouř ti kalí oči CZ Dabing",
+        "video_id": 28991569
+      },
+      {
+        "episode_id": 202363,
+        "display_name": "Kouzelná Beruška a Černý kocour S06E07 - El Toro De Piedra CZ Dabing",
+        "video_id": 28991629
       }
     ],
     "prepared_not_upload_ready": [
@@ -406527,14 +406607,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "disabled": 1,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8146,
-    "whisper_confirmed_cz": 3075,
+    "whisper_non_cz_needs_subtitles": 8128,
+    "whisper_confirmed_cz": 3073,
     "whisper_failed": 184,
-    "needs_whisper": 44457
+    "needs_whisper": 44482
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 29820
