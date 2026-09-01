@@ -2,28 +2,68 @@
   "counts": {
     "backlog_episodes": 145787,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 46030,
-    "prepared_source_episodes": 50828,
+    "uploaded_episodes": 46031,
+    "prepared_source_episodes": 50868,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55771,
-    "whisper_review_pending_sources": 44175,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 55781,
+    "whisper_review_pending_sources": 44224,
     "subtitle_followup_sources": 30021,
     "subtitle_followup_pending_sources": 30021
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-01T18:38:09Z",
+      "databaseId": 33544791753,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T18:38:03Z",
+      "databaseId": 33544780781,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T18:37:27Z",
+      "databaseId": 33544722876,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T18:36:22Z",
+      "databaseId": 33544617140,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T18:36:17Z",
+      "databaseId": 33544609435,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-01T18:35:17Z",
       "databaseId": 33544509388,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +75,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-01T18:34:11Z",
       "databaseId": 33544396991,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T18:12:16Z",
-      "databaseId": 33542251223,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T18:12:14Z",
-      "databaseId": 33542246814,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T18:11:45Z",
-      "databaseId": 33542200523,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-01T18:11:18Z",
-      "databaseId": 33542155356,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T18:11:10Z",
-      "databaseId": 33542142675,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -111529,6 +111529,11 @@
         "episode_id": 145180,
         "display_name": "Otec Brown S07E09 - Skřivánčí skandál CZ Dabing",
         "video_id": 29008053
+      },
+      {
+        "episode_id": 60004,
+        "display_name": "Otec Brown S08E06 - Ďáblova čísla CZ Dabing",
+        "video_id": 29008314
       },
       {
         "episode_id": 59941,
@@ -316663,6 +316668,11 @@
         "video_id": 29008053
       },
       {
+        "episode_id": 60004,
+        "display_name": "Otec Brown S08E06 - Ďáblova čísla CZ Dabing",
+        "video_id": 29008314
+      },
+      {
         "episode_id": 59941,
         "display_name": "Otec Brown S02E10 - Zákony pohybu CZ Dabing",
         "video_id": 29008055
@@ -411707,14 +411717,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8373,
+    "whisper_non_cz_needs_subtitles": 8334,
     "whisper_confirmed_cz": 3223,
-    "whisper_failed": 186,
-    "needs_whisper": 43989
+    "whisper_failed": 185,
+    "needs_whisper": 44039
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 30021
