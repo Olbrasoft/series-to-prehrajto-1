@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 145736,
-    "manifest_upload_ready_episodes": 1005,
-    "uploaded_episodes": 46116,
-    "prepared_source_episodes": 50868,
+    "manifest_upload_ready_episodes": 1008,
+    "uploaded_episodes": 46117,
+    "prepared_source_episodes": 50861,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 65,
+    "language_audited_sources": 84,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55776,
@@ -19,19 +19,43 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-01T22:48:28Z",
+      "databaseId": 33568064758,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T22:48:26Z",
+      "databaseId": 33568061010,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-01T22:48:23Z",
+      "databaseId": 33568057836,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-09-01T22:47:24Z",
       "databaseId": 33567979527,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-01T22:47:21Z",
       "databaseId": 33567976259,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T22:27:24Z",
-      "databaseId": 33566382271,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-01T22:27:21Z",
-      "databaseId": 33566377759,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-01T22:27:19Z",
-      "databaseId": 33566375476,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -205844,6 +205844,11 @@
         "episode_id": 115919,
         "display_name": "Vraždy v Oxfordu S02E01 - Měsíc líbá moře CZ Dabing",
         "video_id": 29011213
+      },
+      {
+        "episode_id": 115927,
+        "display_name": "Vraždy v Oxfordu S05E03 - Mysl hory přenáší. CZ Dabing",
+        "video_id": 29011403
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -411406,6 +411411,11 @@
         "episode_id": 115919,
         "display_name": "Vraždy v Oxfordu S02E01 - Měsíc líbá moře CZ Dabing",
         "video_id": 29011213
+      },
+      {
+        "episode_id": 115927,
+        "display_name": "Vraždy v Oxfordu S05E03 - Mysl hory přenáší. CZ Dabing",
+        "video_id": 29011403
       }
     ],
     "prepared_not_upload_ready": [
@@ -412567,8 +412577,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 44,
     "ok": 39,
-    "disabled": 25,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
