@@ -1,23 +1,71 @@
 {
   "counts": {
     "backlog_episodes": 145629,
-    "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 46215,
-    "prepared_source_episodes": 50904,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 46222,
+    "prepared_source_episodes": 50939,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55747,
-    "whisper_review_pending_sources": 44061,
-    "subtitle_followup_sources": 30102,
-    "subtitle_followup_pending_sources": 30102
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 55752,
+    "whisper_review_pending_sources": 44081,
+    "subtitle_followup_sources": 30103,
+    "subtitle_followup_pending_sources": 30103
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T01:49:34Z",
+      "databaseId": 33580888502,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T01:49:29Z",
+      "databaseId": 33580883853,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T01:47:32Z",
+      "databaseId": 33580764961,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T01:41:15Z",
+      "databaseId": 33580364666,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T01:37:04Z",
+      "databaseId": 33580103726,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T01:37:01Z",
+      "databaseId": 33580100239,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-02T01:36:00Z",
@@ -27,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T01:35:04Z",
       "databaseId": 33579976373,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,15 +95,15 @@
       "createdAt": "2026-09-02T01:34:58Z",
       "databaseId": 33579970005,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T01:32:12Z",
       "databaseId": 33579783400,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -115,11 +163,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T01:22:04Z",
       "databaseId": 33579095236,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T01:11:20Z",
-      "databaseId": 33578374853,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T01:08:29Z",
-      "databaseId": 33578185396,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T01:07:30Z",
-      "databaseId": 33578119650,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T01:06:28Z",
-      "databaseId": 33578051279,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T01:06:18Z",
-      "databaseId": 33578039406,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T01:05:12Z",
-      "databaseId": 33577965887,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -112006,6 +112006,26 @@
         "video_id": 29013289
       },
       {
+        "episode_id": 166136,
+        "display_name": "Snowdrop S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29013369
+      },
+      {
+        "episode_id": 152736,
+        "display_name": "Klub Istanbul S01E09 - 9. díl CZ Titulky",
+        "video_id": 29013426
+      },
+      {
+        "episode_id": 60001,
+        "display_name": "Otec Brown S09E05 - Poslední oběť CZ Dabing",
+        "video_id": 29013370
+      },
+      {
+        "episode_id": 27977,
+        "display_name": "BEASTARS S01E03 - Zrození vlka CZ Dabing",
+        "video_id": 29013446
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -206339,6 +206359,21 @@
         "episode_id": 27987,
         "display_name": "BEASTARS S02E01 - Nekonečný budíček jednoho mladíka CZ Dabing",
         "video_id": 29013273
+      },
+      {
+        "episode_id": 7918,
+        "display_name": "Nábřeží S01E08 - Ztroskotanci CZ Dabing",
+        "video_id": 29013379
+      },
+      {
+        "episode_id": 166135,
+        "display_name": "Snowdrop S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29013380
+      },
+      {
+        "episode_id": 168823,
+        "display_name": "Y: Poslední z mužů S01E08 - Připravit! Zamířit! Pal! CZ Dabing",
+        "video_id": 29013482
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -318063,6 +318098,26 @@
         "video_id": 29013289
       },
       {
+        "episode_id": 166136,
+        "display_name": "Snowdrop S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29013369
+      },
+      {
+        "episode_id": 152736,
+        "display_name": "Klub Istanbul S01E09 - 9. díl CZ Titulky",
+        "video_id": 29013426
+      },
+      {
+        "episode_id": 60001,
+        "display_name": "Otec Brown S09E05 - Poslední oběť CZ Dabing",
+        "video_id": 29013370
+      },
+      {
+        "episode_id": 27977,
+        "display_name": "BEASTARS S01E03 - Zrození vlka CZ Dabing",
+        "video_id": 29013446
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -412396,6 +412451,21 @@
         "episode_id": 27987,
         "display_name": "BEASTARS S02E01 - Nekonečný budíček jednoho mladíka CZ Dabing",
         "video_id": 29013273
+      },
+      {
+        "episode_id": 7918,
+        "display_name": "Nábřeží S01E08 - Ztroskotanci CZ Dabing",
+        "video_id": 29013379
+      },
+      {
+        "episode_id": 166135,
+        "display_name": "Snowdrop S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29013380
+      },
+      {
+        "episode_id": 168823,
+        "display_name": "Y: Poslední z mužů S01E08 - Připravit! Zamířit! Pal! CZ Dabing",
+        "video_id": 29013482
       }
     ],
     "prepared_not_upload_ready": [
@@ -413557,16 +413627,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8463,
+    "whisper_non_cz_needs_subtitles": 8448,
     "whisper_confirmed_cz": 3223,
-    "whisper_failed": 196,
-    "needs_whisper": 43865
+    "whisper_failed": 191,
+    "needs_whisper": 43890
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 30102
+    "needs_subtitle_setup_after_prehrajto_processing": 30103
   }
 }
