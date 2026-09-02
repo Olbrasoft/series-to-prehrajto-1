@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 145520,
-    "manifest_upload_ready_episodes": 1000,
+    "manifest_upload_ready_episodes": 1003,
     "uploaded_episodes": 46342,
-    "prepared_source_episodes": 51006,
+    "prepared_source_episodes": 50962,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 150,
+    "language_audited_sources": 183,
     "language_whisper_attempted_sources": 71,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55738,
-    "whisper_review_pending_sources": 44033,
+    "whisper_review_sources": 55742,
+    "whisper_review_pending_sources": 44055,
     "subtitle_followup_sources": 30141,
     "subtitle_followup_pending_sources": 30141
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T05:08:52Z",
+      "databaseId": 33593524449,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T05:08:39Z",
+      "databaseId": 33593508146,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T05:08:27Z",
+      "databaseId": 33593495898,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T05:06:41Z",
+      "databaseId": 33593378836,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-02T05:05:33Z",
@@ -51,11 +83,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T05:05:27Z",
       "databaseId": 33593293567,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -103,7 +135,7 @@
       "createdAt": "2026-09-02T04:54:31Z",
       "databaseId": 33592597912,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T04:49:13Z",
-      "databaseId": 33592260071,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T04:48:19Z",
-      "databaseId": 33592202643,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-02T04:48:15Z",
-      "databaseId": 33592198647,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T04:46:59Z",
-      "databaseId": 33592119632,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -414316,6 +414316,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 192060,
+        "source_id": -4639777949481879,
+        "series_title": "Carmen Sandiego",
+        "episode_code": "S01E01",
+        "source_title": "Carmen Sandiego - S1E1 Becoming Carmen Sandiego: Part 1 ES",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 56254,
         "source_id": -59514815803122524,
         "series_title": "Chirurgové",
@@ -414361,14 +414369,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E03",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56260,
-        "source_id": -43031112546707824,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E04",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -414828,14 +414828,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 70,
-    "disabled": 79,
+    "disabled": 112,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8482,
+    "whisper_non_cz_needs_subtitles": 8464,
     "whisper_confirmed_cz": 3223,
-    "whisper_failed": 197,
-    "needs_whisper": 43836
+    "whisper_failed": 195,
+    "needs_whisper": 43860
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 30141
