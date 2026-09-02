@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 144728,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 47076,
+    "uploaded_episodes": 47077,
     "prepared_source_episodes": 51955,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 83,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55688,
     "whisper_review_pending_sources": 43808,
     "subtitle_followup_sources": 30323,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T21:32:43Z",
+      "databaseId": 33685716070,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T21:32:39Z",
+      "databaseId": 33685709407,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T21:32:30Z",
+      "databaseId": 33685696981,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T21:30:06Z",
+      "databaseId": 33685479202,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T21:30:02Z",
+      "databaseId": 33685473294,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-02T21:28:55Z",
       "databaseId": 33685375272,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,15 +87,15 @@
       "createdAt": "2026-09-02T21:25:47Z",
       "databaseId": 33685091002,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-02T21:24:37Z",
       "databaseId": 33684980703,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T21:19:37Z",
-      "databaseId": 33684509978,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T21:16:41Z",
-      "databaseId": 33684230681,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T21:15:45Z",
-      "databaseId": 33684140261,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T21:14:43Z",
-      "databaseId": 33684039894,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T21:14:00Z",
-      "databaseId": 33683971034,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -114114,6 +114114,11 @@
         "episode_id": 107228,
         "display_name": "Vicious S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29036060
+      },
+      {
+        "episode_id": 65592,
+        "display_name": "Moje rodina S01E04 - Poslední pokus CZ Dabing",
+        "video_id": 29036109
       },
       {
         "episode_id": 177465,
@@ -324478,6 +324483,11 @@
         "video_id": 29036060
       },
       {
+        "episode_id": 65592,
+        "display_name": "Moje rodina S01E04 - Poslední pokus CZ Dabing",
+        "video_id": 29036109
+      },
+      {
         "episode_id": 177465,
         "display_name": "McDonaldová a Dodds S03E03 - Smrt na sále CZ Dabing",
         "video_id": 29034874
@@ -422167,8 +422177,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 23,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
