@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 145177,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 46691,
-    "prepared_source_episodes": 51356,
+    "uploaded_episodes": 46693,
+    "prepared_source_episodes": 51390,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55732,
     "whisper_review_pending_sources": 44016,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T10:50:36Z",
+      "databaseId": 33621544932,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T10:45:38Z",
+      "databaseId": 33621121017,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T10:45:34Z",
+      "databaseId": 33621116437,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-02T10:44:41Z",
       "databaseId": 33621037097,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T10:39:37Z",
       "databaseId": 33620598221,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T10:31:13Z",
-      "databaseId": 33619887233,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T10:30:51Z",
-      "databaseId": 33619854595,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-02T10:30:48Z",
-      "databaseId": 33619850077,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -113161,6 +113161,11 @@
         "video_id": 29021210
       },
       {
+        "episode_id": 34660,
+        "display_name": "Herkules S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 29021288
+      },
+      {
         "episode_id": 144889,
         "display_name": "Dívčí škola Al Rawabi S02E04 - 4. epizoda CZ Titulky",
         "video_id": 29020908
@@ -208719,6 +208724,11 @@
         "episode_id": 129255,
         "display_name": "Atlantis S01E01 - 1. epizoda CZ Dabing",
         "video_id": 29021231
+      },
+      {
+        "episode_id": 129259,
+        "display_name": "Atlantis S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29021340
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -321598,6 +321608,11 @@
         "video_id": 29021210
       },
       {
+        "episode_id": 34660,
+        "display_name": "Herkules S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 29021288
+      },
+      {
         "episode_id": 144889,
         "display_name": "Dívčí škola Al Rawabi S02E04 - 4. epizoda CZ Titulky",
         "video_id": 29020908
@@ -417156,6 +417171,11 @@
         "episode_id": 129255,
         "display_name": "Atlantis S01E01 - 1. epizoda CZ Dabing",
         "video_id": 29021231
+      },
+      {
+        "episode_id": 129259,
+        "display_name": "Atlantis S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29021340
       }
     ],
     "prepared_not_upload_ready": [
@@ -418317,7 +418337,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
