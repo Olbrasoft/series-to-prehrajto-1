@@ -1,37 +1,61 @@
 {
   "counts": {
-    "backlog_episodes": 144861,
+    "backlog_episodes": 144785,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 47015,
-    "prepared_source_episodes": 52105,
+    "uploaded_episodes": 47016,
+    "prepared_source_episodes": 52002,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 115,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 81,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55717,
-    "whisper_review_pending_sources": 43957,
+    "whisper_review_sources": 55716,
+    "whisper_review_pending_sources": 43956,
     "subtitle_followup_sources": 30295,
     "subtitle_followup_pending_sources": 30295
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-02T18:25:24Z",
-      "databaseId": 33667099089,
+      "createdAt": "2026-09-02T18:29:37Z",
+      "databaseId": 33667527212,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T18:28:59Z",
+      "databaseId": 33667463304,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T18:26:00Z",
+      "databaseId": 33667160069,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T18:25:24Z",
+      "databaseId": 33667099089,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-02T18:24:52Z",
       "databaseId": 33667043539,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +87,7 @@
       "createdAt": "2026-09-02T18:21:47Z",
       "databaseId": 33666727493,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -71,7 +95,7 @@
       "createdAt": "2026-09-02T18:21:44Z",
       "databaseId": 33666722591,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -91,11 +115,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T18:13:45Z",
       "databaseId": 33665921657,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -107,11 +131,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T18:12:08Z",
       "databaseId": 33665757890,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-02T18:00:54Z",
       "databaseId": 33664607239,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-02T18:00:27Z",
-      "databaseId": 33664556915,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T18:00:13Z",
-      "databaseId": 33664529822,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T17:59:07Z",
-      "databaseId": 33664419809,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -114009,6 +114009,11 @@
         "episode_id": 139597,
         "display_name": "Zelený servis S01E02 - Museebat CZ Dabing",
         "video_id": 29032452
+      },
+      {
+        "episode_id": 149269,
+        "display_name": "Zelený servis S04E04 - 4. epizoda CZ Titulky",
+        "video_id": 29032491
       },
       {
         "episode_id": 114182,
@@ -324068,6 +324073,11 @@
         "video_id": 29032452
       },
       {
+        "episode_id": 149269,
+        "display_name": "Zelený servis S04E04 - 4. epizoda CZ Titulky",
+        "video_id": 29032491
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -421557,14 +421567,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 55,
-    "ok": 59,
+    "disabled": 41,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 8549,
     "whisper_confirmed_cz": 3211,
-    "needs_whisper": 43754,
+    "needs_whisper": 43753,
     "whisper_failed": 203
   },
   "subtitle_followup_statuses": {
