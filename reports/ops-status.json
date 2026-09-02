@@ -2,36 +2,92 @@
   "counts": {
     "backlog_episodes": 145378,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 46471,
-    "prepared_source_episodes": 51047,
+    "uploaded_episodes": 46485,
+    "prepared_source_episodes": 51044,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55724,
-    "whisper_review_pending_sources": 43971,
-    "subtitle_followup_sources": 30169,
-    "subtitle_followup_pending_sources": 30169
+    "whisper_review_sources": 55722,
+    "whisper_review_pending_sources": 43958,
+    "subtitle_followup_sources": 30177,
+    "subtitle_followup_pending_sources": 30177
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-02T07:08:26Z",
-      "databaseId": 33602104515,
+      "createdAt": "2026-09-02T07:16:54Z",
+      "databaseId": 33602786751,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T07:11:40Z",
+      "databaseId": 33602363277,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T07:11:19Z",
+      "databaseId": 33602335354,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T07:10:33Z",
+      "databaseId": 33602274961,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T07:09:25Z",
+      "databaseId": 33602182558,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T07:09:22Z",
+      "databaseId": 33602178646,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T07:09:20Z",
+      "databaseId": 33602175416,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T07:08:26Z",
+      "databaseId": 33602104515,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-02T07:08:19Z",
       "databaseId": 33602096713,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-02T06:52:20Z",
-      "databaseId": 33600821192,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T06:52:16Z",
-      "databaseId": 33600816657,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T06:52:09Z",
-      "databaseId": 33600806554,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T06:51:01Z",
-      "databaseId": 33600718686,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T06:47:34Z",
-      "databaseId": 33600455094,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T06:42:08Z",
-      "databaseId": 33600031473,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T06:40:13Z",
-      "databaseId": 33599883649,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -112646,6 +112646,41 @@
         "video_id": 29017291
       },
       {
+        "episode_id": 203364,
+        "display_name": "Posedlost S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29017457
+      },
+      {
+        "episode_id": 6404,
+        "display_name": "PONIES S01E08 - Cizinec CZ Dabing",
+        "video_id": 29017499
+      },
+      {
+        "episode_id": 140780,
+        "display_name": "Stranger S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29017559
+      },
+      {
+        "episode_id": 140796,
+        "display_name": "Stranger S02E13 - 13. epizoda CZ Titulky",
+        "video_id": 29017597
+      },
+      {
+        "episode_id": 84829,
+        "display_name": "The Catch S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29017458
+      },
+      {
+        "episode_id": 167869,
+        "display_name": "Zlomové okamžiky: 11. září a válka proti terorismu S01E02 - Nebezpečné místo CZ Dabing",
+        "video_id": 29017497
+      },
+      {
+        "episode_id": 16921,
+        "display_name": "Smrtící virus S01E04 - Čí je to krev? CZ Dabing",
+        "video_id": 29017569
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -207619,6 +207654,41 @@
         "episode_id": 84811,
         "display_name": "The Catch S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29017366
+      },
+      {
+        "episode_id": 124862,
+        "display_name": "Agatha Christie: Slečna Marplová S04E04 - Proč nepožádali Evanse? CZ Titulky",
+        "video_id": 29017468
+      },
+      {
+        "episode_id": 77342,
+        "display_name": "Instalatéři z Bílého domu S01E01 - Vloupání v Beverly Hills CZ Titulky",
+        "video_id": 29017520
+      },
+      {
+        "episode_id": 8414,
+        "display_name": "Právo podle Lidie Poët S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29017540
+      },
+      {
+        "episode_id": 26506,
+        "display_name": "Právo podle Lidie Poët S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 29017580
+      },
+      {
+        "episode_id": 84815,
+        "display_name": "The Catch S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 29017459
+      },
+      {
+        "episode_id": 167871,
+        "display_name": "Zlomové okamžiky: 11. září a válka proti terorismu S01E04 - Dobrá válka CZ Dabing",
+        "video_id": 29017515
+      },
+      {
+        "episode_id": 16919,
+        "display_name": "Smrtící virus S01E02 - Mám u tebe jednorožce CZ Dabing",
+        "video_id": 29017568
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -319983,6 +320053,41 @@
         "video_id": 29017291
       },
       {
+        "episode_id": 203364,
+        "display_name": "Posedlost S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29017457
+      },
+      {
+        "episode_id": 6404,
+        "display_name": "PONIES S01E08 - Cizinec CZ Dabing",
+        "video_id": 29017499
+      },
+      {
+        "episode_id": 140780,
+        "display_name": "Stranger S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29017559
+      },
+      {
+        "episode_id": 140796,
+        "display_name": "Stranger S02E13 - 13. epizoda CZ Titulky",
+        "video_id": 29017597
+      },
+      {
+        "episode_id": 84829,
+        "display_name": "The Catch S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29017458
+      },
+      {
+        "episode_id": 167869,
+        "display_name": "Zlomové okamžiky: 11. září a válka proti terorismu S01E02 - Nebezpečné místo CZ Dabing",
+        "video_id": 29017497
+      },
+      {
+        "episode_id": 16921,
+        "display_name": "Smrtící virus S01E04 - Čí je to krev? CZ Dabing",
+        "video_id": 29017569
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -414956,6 +415061,41 @@
         "episode_id": 84811,
         "display_name": "The Catch S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29017366
+      },
+      {
+        "episode_id": 124862,
+        "display_name": "Agatha Christie: Slečna Marplová S04E04 - Proč nepožádali Evanse? CZ Titulky",
+        "video_id": 29017468
+      },
+      {
+        "episode_id": 77342,
+        "display_name": "Instalatéři z Bílého domu S01E01 - Vloupání v Beverly Hills CZ Titulky",
+        "video_id": 29017520
+      },
+      {
+        "episode_id": 8414,
+        "display_name": "Právo podle Lidie Poët S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29017540
+      },
+      {
+        "episode_id": 26506,
+        "display_name": "Právo podle Lidie Poët S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 29017580
+      },
+      {
+        "episode_id": 84815,
+        "display_name": "The Catch S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 29017459
+      },
+      {
+        "episode_id": 167871,
+        "display_name": "Zlomové okamžiky: 11. září a válka proti terorismu S01E04 - Dobrá válka CZ Dabing",
+        "video_id": 29017515
+      },
+      {
+        "episode_id": 16919,
+        "display_name": "Smrtící virus S01E02 - Mám u tebe jednorožce CZ Dabing",
+        "video_id": 29017568
       }
     ],
     "prepared_not_upload_ready": [
@@ -416117,16 +416257,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 58,
-    "resolve_failed": 2
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8527,
-    "whisper_confirmed_cz": 3226,
+    "whisper_non_cz_needs_subtitles": 8539,
+    "whisper_confirmed_cz": 3225,
     "whisper_failed": 203,
-    "needs_whisper": 43768
+    "needs_whisper": 43755
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 30169
+    "needs_subtitle_setup_after_prehrajto_processing": 30177
   }
 }
