@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 144785,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 47017,
+    "uploaded_episodes": 47018,
     "prepared_source_episodes": 52002,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 81,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55716,
     "whisper_review_pending_sources": 43956,
     "subtitle_followup_sources": 30295,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T18:39:36Z",
+      "databaseId": 33668566863,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T18:39:32Z",
+      "databaseId": 33668560523,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T18:39:15Z",
+      "databaseId": 33668532720,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T18:37:50Z",
+      "databaseId": 33668389922,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T18:37:47Z",
+      "databaseId": 33668384692,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-02T18:36:57Z",
       "databaseId": 33668298802,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -83,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-02T18:24:42Z",
       "databaseId": 33667026229,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -115,11 +155,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T18:21:44Z",
       "databaseId": 33666722591,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T18:13:45Z",
-      "databaseId": 33665921657,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T18:12:46Z",
-      "databaseId": 33665822294,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T18:12:08Z",
-      "databaseId": 33665757890,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T18:11:39Z",
-      "databaseId": 33665708792,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T18:11:04Z",
-      "databaseId": 33665651235,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -210349,6 +210349,11 @@
         "episode_id": 149271,
         "display_name": "Zelený servis S04E06 - 6. epizoda CZ Titulky",
         "video_id": 29031303
+      },
+      {
+        "episode_id": 134670,
+        "display_name": "Policajt S02E09 - 9. epizoda CZ Dabing",
+        "video_id": 29032699
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -420416,6 +420421,11 @@
         "episode_id": 149271,
         "display_name": "Zelený servis S04E06 - 6. epizoda CZ Titulky",
         "video_id": 29031303
+      },
+      {
+        "episode_id": 134670,
+        "display_name": "Policajt S02E09 - 9. epizoda CZ Dabing",
+        "video_id": 29032699
       }
     ],
     "prepared_not_upload_ready": [
@@ -421577,8 +421587,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 41,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
