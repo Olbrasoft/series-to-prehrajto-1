@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 145629,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 46279,
-    "prepared_source_episodes": 50819,
+    "uploaded_episodes": 46288,
+    "prepared_source_episodes": 50847,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 86,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55747,
@@ -20,10 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T03:23:17Z",
+      "databaseId": 33586838385,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T03:19:50Z",
+      "databaseId": 33586622777,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T03:13:42Z",
+      "databaseId": 33586231806,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T03:13:13Z",
+      "databaseId": 33586200461,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T03:10:57Z",
+      "databaseId": 33586055594,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T03:10:53Z",
+      "databaseId": 33586052389,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-02T03:10:00Z",
       "databaseId": 33585989859,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +79,7 @@
       "createdAt": "2026-09-02T03:09:56Z",
       "databaseId": 33585985641,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T03:03:13Z",
       "databaseId": 33585541381,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T03:00:25Z",
       "databaseId": 33585352811,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -115,11 +163,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-02T02:55:26Z",
       "databaseId": 33585040857,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T02:54:37Z",
-      "databaseId": 33584987791,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T02:52:11Z",
-      "databaseId": 33584830832,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T02:51:07Z",
-      "databaseId": 33584764508,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T02:51:03Z",
-      "databaseId": 33584760031,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T02:50:23Z",
-      "databaseId": 33584720060,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T02:50:20Z",
-      "databaseId": 33584715923,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -112166,6 +112166,26 @@
         "video_id": 29014121
       },
       {
+        "episode_id": 129256,
+        "display_name": "Atlantis S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 29014376
+      },
+      {
+        "episode_id": 129268,
+        "display_name": "Atlantis S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 29014411
+      },
+      {
+        "episode_id": 32437,
+        "display_name": "Cardinal S03E02 - Roman a Irena CZ Dabing",
+        "video_id": 29014384
+      },
+      {
+        "episode_id": 32445,
+        "display_name": "Cardinal S04E04 - Neil CZ Dabing",
+        "video_id": 29014430
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -206659,6 +206679,31 @@
         "episode_id": 29467,
         "display_name": "Goblin Slayer S02E04 - 4. epizoda CZ Titulky",
         "video_id": 29014297
+      },
+      {
+        "episode_id": 71774,
+        "display_name": "Frankensteinova kronika S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 29014383
+      },
+      {
+        "episode_id": 16402,
+        "display_name": "Projekt Lazarus S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 29014429
+      },
+      {
+        "episode_id": 29471,
+        "display_name": "Goblin Slayer S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29014379
+      },
+      {
+        "episode_id": 156927,
+        "display_name": "Agatha Christie: Zkouška neviny S01E02 - 2. část CZ Titulky",
+        "video_id": 29014409
+      },
+      {
+        "episode_id": 32431,
+        "display_name": "Cardinal S01E02 - Delormeová CZ Dabing",
+        "video_id": 29014434
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -318543,6 +318588,26 @@
         "video_id": 29014121
       },
       {
+        "episode_id": 129256,
+        "display_name": "Atlantis S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 29014376
+      },
+      {
+        "episode_id": 129268,
+        "display_name": "Atlantis S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 29014411
+      },
+      {
+        "episode_id": 32437,
+        "display_name": "Cardinal S03E02 - Roman a Irena CZ Dabing",
+        "video_id": 29014384
+      },
+      {
+        "episode_id": 32445,
+        "display_name": "Cardinal S04E04 - Neil CZ Dabing",
+        "video_id": 29014430
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -413036,6 +413101,31 @@
         "episode_id": 29467,
         "display_name": "Goblin Slayer S02E04 - 4. epizoda CZ Titulky",
         "video_id": 29014297
+      },
+      {
+        "episode_id": 71774,
+        "display_name": "Frankensteinova kronika S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 29014383
+      },
+      {
+        "episode_id": 16402,
+        "display_name": "Projekt Lazarus S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 29014429
+      },
+      {
+        "episode_id": 29471,
+        "display_name": "Goblin Slayer S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29014379
+      },
+      {
+        "episode_id": 156927,
+        "display_name": "Agatha Christie: Zkouška neviny S01E02 - 2. část CZ Titulky",
+        "video_id": 29014409
+      },
+      {
+        "episode_id": 32431,
+        "display_name": "Cardinal S01E02 - Delormeová CZ Dabing",
+        "video_id": 29014434
       }
     ],
     "prepared_not_upload_ready": [
@@ -414198,7 +414288,8 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
-    "resolve_failed": 1
+    "resolve_failed": 1,
+    "disabled": 46
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 8448,
