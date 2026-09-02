@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 144785,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 47069,
-    "prepared_source_episodes": 52060,
+    "uploaded_episodes": 47070,
+    "prepared_source_episodes": 51964,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 175,
+    "language_whisper_attempted_sources": 80,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55693,
-    "whisper_review_pending_sources": 43833,
-    "subtitle_followup_sources": 30306,
-    "subtitle_followup_pending_sources": 30306
+    "whisper_review_sources": 55697,
+    "whisper_review_pending_sources": 43857,
+    "subtitle_followup_sources": 30323,
+    "subtitle_followup_pending_sources": 30323
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T21:14:43Z",
+      "databaseId": 33684039894,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T21:14:00Z",
+      "databaseId": 33683971034,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T21:12:59Z",
+      "databaseId": 33683870499,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-02T21:12:02Z",
       "databaseId": 33683781136,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T20:52:30Z",
-      "databaseId": 33681871146,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T20:49:59Z",
-      "databaseId": 33681622714,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T20:49:55Z",
-      "databaseId": 33681614677,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -210609,6 +210609,11 @@
         "episode_id": 7151,
         "display_name": "Grotesquerie S01E02 - Katolíci a true crime CZ Titulky",
         "video_id": 29035734
+      },
+      {
+        "episode_id": 7155,
+        "display_name": "Grotesquerie S01E06 - Rudý opar CZ Titulky",
+        "video_id": 29035808
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -420936,6 +420941,11 @@
         "episode_id": 7151,
         "display_name": "Grotesquerie S01E02 - Katolíci a true crime CZ Titulky",
         "video_id": 29035734
+      },
+      {
+        "episode_id": 7155,
+        "display_name": "Grotesquerie S01E06 - Rudý opar CZ Titulky",
+        "video_id": 29035808
       }
     ],
     "prepared_not_upload_ready": [
@@ -422097,16 +422107,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 95,
+    "ok": 79,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8635,
-    "whisper_confirmed_cz": 3225,
+    "whisper_non_cz_needs_subtitles": 8617,
+    "whisper_confirmed_cz": 3223,
     "whisper_failed": 203,
-    "needs_whisper": 43630
+    "needs_whisper": 43654
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 30306
+    "needs_subtitle_setup_after_prehrajto_processing": 30323
   }
 }
