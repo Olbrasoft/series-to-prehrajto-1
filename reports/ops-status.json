@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 144861,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 46977,
-    "prepared_source_episodes": 51969,
+    "uploaded_episodes": 46980,
+    "prepared_source_episodes": 51963,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 82,
+    "language_audited_sources": 150,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55717,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-02T16:36:08Z",
-      "databaseId": 33655919549,
+      "createdAt": "2026-09-02T16:41:08Z",
+      "databaseId": 33656431319,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-02T16:40:16Z",
+      "databaseId": 33656343753,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T16:38:23Z",
+      "databaseId": 33656149070,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T16:37:05Z",
+      "databaseId": 33656016622,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T16:37:04Z",
+      "databaseId": 33656015513,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-02T16:36:59Z",
+      "databaseId": 33656006790,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-02T16:36:08Z",
+      "databaseId": 33655919549,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-02T16:36:03Z",
       "databaseId": 33655910951,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -123,57 +171,9 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-02T16:24:33Z",
       "databaseId": 33654726023,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T16:20:28Z",
-      "databaseId": 33654303664,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-02T16:20:24Z",
-      "databaseId": 33654296470,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T16:19:21Z",
-      "databaseId": 33654189898,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-02T16:19:19Z",
-      "databaseId": 33654185762,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-02T16:19:18Z",
-      "databaseId": 33654184344,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-02T16:18:08Z",
-      "databaseId": 33654064725,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -113921,6 +113921,11 @@
         "video_id": 29030444
       },
       {
+        "episode_id": 153741,
+        "display_name": "Prolhaní S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 29030491
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -210126,6 +210131,11 @@
         "video_id": 29030438
       },
       {
+        "episode_id": 12814,
+        "display_name": "Naměkko S02E02 - Čas vítězit CZ Dabing",
+        "video_id": 29030532
+      },
+      {
         "episode_id": 99771,
         "display_name": "Vraždy v Brokenwoodu S09E05 - Rána z lásky CZ Titulky",
         "video_id": 29029807
@@ -210149,6 +210159,11 @@
         "episode_id": 65503,
         "display_name": "Mimoškolní aktivity S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29030482
+      },
+      {
+        "episode_id": 65499,
+        "display_name": "Mimoškolní aktivity S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29030519
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -323788,6 +323803,11 @@
         "video_id": 29030444
       },
       {
+        "episode_id": 153741,
+        "display_name": "Prolhaní S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 29030491
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -419993,6 +420013,11 @@
         "video_id": 29030438
       },
       {
+        "episode_id": 12814,
+        "display_name": "Naměkko S02E02 - Čas vítězit CZ Dabing",
+        "video_id": 29030532
+      },
+      {
         "episode_id": 99771,
         "display_name": "Vraždy v Brokenwoodu S09E05 - Rána z lásky CZ Titulky",
         "video_id": 29029807
@@ -420016,6 +420041,11 @@
         "episode_id": 65503,
         "display_name": "Mimoškolní aktivity S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29030482
+      },
+      {
+        "episode_id": 65499,
+        "display_name": "Mimoškolní aktivity S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29030519
       }
     ],
     "prepared_not_upload_ready": [
@@ -421177,7 +421207,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 62,
+    "disabled": 130,
     "ok": 19,
     "resolve_failed": 1
   },
