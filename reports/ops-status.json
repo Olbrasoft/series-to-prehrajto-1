@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 143797,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48138,
-    "prepared_source_episodes": 53516,
+    "uploaded_episodes": 48156,
+    "prepared_source_episodes": 53538,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 71,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55654,
     "whisper_review_pending_sources": 43650,
     "subtitle_followup_sources": 30613,
@@ -20,10 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T15:19:52Z",
+      "databaseId": 33771974033,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T15:19:47Z",
+      "databaseId": 33771966512,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T15:19:07Z",
+      "databaseId": 33771906310,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T15:16:40Z",
+      "databaseId": 33771684695,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-03T15:09:48Z",
+      "databaseId": 33771040693,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T15:08:59Z",
+      "databaseId": 33770966069,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T15:08:54Z",
+      "databaseId": 33770958818,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T15:05:34Z",
       "databaseId": 33770642074,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -51,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T14:59:18Z",
       "databaseId": 33770035059,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,11 +123,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T14:59:02Z",
       "databaseId": 33770014747,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-03T14:53:38Z",
-      "databaseId": 33769515734,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T14:52:44Z",
-      "databaseId": 33769431822,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T14:52:41Z",
-      "databaseId": 33769427435,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T14:50:20Z",
-      "databaseId": 33769204618,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T14:49:33Z",
-      "databaseId": 33769126338,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T14:48:12Z",
-      "databaseId": 33768998192,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T14:47:28Z",
-      "databaseId": 33768928247,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -116811,9 +116811,59 @@
         "video_id": 29062986
       },
       {
+        "episode_id": 56704,
+        "display_name": "Acapulco S01E08 - Čas po čase CZ Titulky",
+        "video_id": 29063068
+      },
+      {
+        "episode_id": 56688,
+        "display_name": "Acapulco S01E10 - Měl byste slyšet, jak o vás mluví CZ Titulky",
+        "video_id": 29063116
+      },
+      {
+        "episode_id": 134016,
+        "display_name": "Acapulco S04E07 - Jde do tuhého CZ Titulky",
+        "video_id": 29063163
+      },
+      {
+        "episode_id": 132780,
+        "display_name": "Jak tlumočit lásku? S01E04 - 4. díl CZ Dabing",
+        "video_id": 29063195
+      },
+      {
+        "episode_id": 132784,
+        "display_name": "Jak tlumočit lásku? S01E07 - 7. díl CZ Dabing",
+        "video_id": 29063247
+      },
+      {
+        "episode_id": 90868,
+        "display_name": "Poručík Backstrom S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29063283
+      },
+      {
         "episode_id": 106113,
         "display_name": "Domov na pobřeží S04E01 - Něco končí a něco začíná CZ Dabing",
         "video_id": 29062928
+      },
+      {
+        "episode_id": 106117,
+        "display_name": "Domov na pobřeží S04E06 - Barvy, přání a svatby CZ Dabing",
+        "video_id": 29063009
+      },
+      {
+        "episode_id": 6041,
+        "display_name": "Nepohádky S01E07 - Zrada CZ Dabing",
+        "video_id": 29063103
+      },
+      {
+        "episode_id": 12745,
+        "display_name": "Nepohádky S02E02 - Writer's Block CZ Titulky",
+        "video_id": 29063159
+      },
+      {
+        "episode_id": 12749,
+        "display_name": "Nepohádky S02E04 - Number One Fan CZ Titulky",
+        "video_id": 29063256
       },
       {
         "episode_id": 114182,
@@ -215951,9 +216001,49 @@
         "video_id": 29062974
       },
       {
+        "episode_id": 59694,
+        "display_name": "Wisting S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063099
+      },
+      {
+        "episode_id": 59698,
+        "display_name": "Wisting S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063128
+      },
+      {
+        "episode_id": 59706,
+        "display_name": "Wisting S05E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063165
+      },
+      {
+        "episode_id": 147738,
+        "display_name": "Jonathan Creek S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29063267
+      },
+      {
+        "episode_id": 147754,
+        "display_name": "Jonathan Creek S04E05 - 5. epizoda CZ Titulky",
+        "video_id": 29063301
+      },
+      {
         "episode_id": 55631,
         "display_name": "Případy pro Lauru  S02E10 - 10. epizoda CZ Dabing",
         "video_id": 29062987
+      },
+      {
+        "episode_id": 55635,
+        "display_name": "Případy pro Lauru  S02E14 - 14. epizoda CZ Dabing",
+        "video_id": 29063026
+      },
+      {
+        "episode_id": 96759,
+        "display_name": "The Waltons S07E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063107
+      },
+      {
+        "episode_id": 147479,
+        "display_name": "Římská říše S01E06 - 14 dnů zalitých krví CZ Titulky",
+        "video_id": 29063182
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -332483,9 +332573,59 @@
         "video_id": 29062986
       },
       {
+        "episode_id": 56704,
+        "display_name": "Acapulco S01E08 - Čas po čase CZ Titulky",
+        "video_id": 29063068
+      },
+      {
+        "episode_id": 56688,
+        "display_name": "Acapulco S01E10 - Měl byste slyšet, jak o vás mluví CZ Titulky",
+        "video_id": 29063116
+      },
+      {
+        "episode_id": 134016,
+        "display_name": "Acapulco S04E07 - Jde do tuhého CZ Titulky",
+        "video_id": 29063163
+      },
+      {
+        "episode_id": 132780,
+        "display_name": "Jak tlumočit lásku? S01E04 - 4. díl CZ Dabing",
+        "video_id": 29063195
+      },
+      {
+        "episode_id": 132784,
+        "display_name": "Jak tlumočit lásku? S01E07 - 7. díl CZ Dabing",
+        "video_id": 29063247
+      },
+      {
+        "episode_id": 90868,
+        "display_name": "Poručík Backstrom S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29063283
+      },
+      {
         "episode_id": 106113,
         "display_name": "Domov na pobřeží S04E01 - Něco končí a něco začíná CZ Dabing",
         "video_id": 29062928
+      },
+      {
+        "episode_id": 106117,
+        "display_name": "Domov na pobřeží S04E06 - Barvy, přání a svatby CZ Dabing",
+        "video_id": 29063009
+      },
+      {
+        "episode_id": 6041,
+        "display_name": "Nepohádky S01E07 - Zrada CZ Dabing",
+        "video_id": 29063103
+      },
+      {
+        "episode_id": 12745,
+        "display_name": "Nepohádky S02E02 - Writer's Block CZ Titulky",
+        "video_id": 29063159
+      },
+      {
+        "episode_id": 12749,
+        "display_name": "Nepohádky S02E04 - Number One Fan CZ Titulky",
+        "video_id": 29063256
       },
       {
         "episode_id": 114182,
@@ -431623,9 +431763,49 @@
         "video_id": 29062974
       },
       {
+        "episode_id": 59694,
+        "display_name": "Wisting S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063099
+      },
+      {
+        "episode_id": 59698,
+        "display_name": "Wisting S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063128
+      },
+      {
+        "episode_id": 59706,
+        "display_name": "Wisting S05E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063165
+      },
+      {
+        "episode_id": 147738,
+        "display_name": "Jonathan Creek S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29063267
+      },
+      {
+        "episode_id": 147754,
+        "display_name": "Jonathan Creek S04E05 - 5. epizoda CZ Titulky",
+        "video_id": 29063301
+      },
+      {
         "episode_id": 55631,
         "display_name": "Případy pro Lauru  S02E10 - 10. epizoda CZ Dabing",
         "video_id": 29062987
+      },
+      {
+        "episode_id": 55635,
+        "display_name": "Případy pro Lauru  S02E14 - 14. epizoda CZ Dabing",
+        "video_id": 29063026
+      },
+      {
+        "episode_id": 96759,
+        "display_name": "The Waltons S07E01 - 1. epizoda CZ Titulky",
+        "video_id": 29063107
+      },
+      {
+        "episode_id": 147479,
+        "display_name": "Římská říše S01E06 - 14 dnů zalitých krví CZ Titulky",
+        "video_id": 29063182
       }
     ],
     "prepared_not_upload_ready": [
@@ -432787,8 +432967,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
-    "ok": 19,
+    "disabled": 11,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
