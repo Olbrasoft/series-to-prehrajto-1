@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 143563,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48249,
+    "uploaded_episodes": 48250,
     "prepared_source_episodes": 54085,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 298,
-    "language_whisper_attempted_sources": 96,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55644,
     "whisper_review_pending_sources": 43627,
     "subtitle_followup_sources": 30694,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T19:44:25Z",
+      "databaseId": 33798192220,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T19:44:23Z",
+      "databaseId": 33798188487,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T19:44:21Z",
+      "databaseId": 33798186149,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T19:43:45Z",
+      "databaseId": 33798125917,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T19:42:46Z",
       "databaseId": 33798033076,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -79,7 +111,7 @@
       "createdAt": "2026-09-03T19:36:46Z",
       "databaseId": 33797453941,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -107,11 +139,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-03T19:35:40Z",
       "databaseId": 33797344783,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T19:33:44Z",
-      "databaseId": 33797151591,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-03T19:33:29Z",
-      "databaseId": 33797126198,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T19:32:20Z",
-      "databaseId": 33797011848,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T19:27:40Z",
-      "databaseId": 33796558295,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -216509,6 +216509,11 @@
         "episode_id": 187327,
         "display_name": "Pingu S01E01 - Jak žongloval CZ Dabing",
         "video_id": 29066886
+      },
+      {
+        "episode_id": 187415,
+        "display_name": "Pingu S05E01 - Pingu a trampolína CZ Titulky",
+        "video_id": 29066943
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -432736,6 +432741,11 @@
         "episode_id": 187327,
         "display_name": "Pingu S01E01 - Jak žongloval CZ Dabing",
         "video_id": 29066886
+      },
+      {
+        "episode_id": 187415,
+        "display_name": "Pingu S05E01 - Pingu a trampolína CZ Titulky",
+        "video_id": 29066943
       }
     ],
     "prepared_not_upload_ready": [
@@ -433897,9 +433907,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 94,
-    "disabled": 202,
-    "sample_failed": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
