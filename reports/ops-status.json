@@ -1,16 +1,16 @@
 {
   "counts": {
-    "backlog_episodes": 143563,
+    "backlog_episodes": 143502,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48285,
-    "prepared_source_episodes": 54081,
+    "uploaded_episodes": 48286,
+    "prepared_source_episodes": 54088,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 69,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 47,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55644,
     "whisper_review_pending_sources": 43631,
@@ -18,6 +18,38 @@
     "subtitle_followup_pending_sources": 30696
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T21:21:33Z",
+      "databaseId": 33807505645,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T21:21:30Z",
+      "databaseId": 33807501260,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T21:20:51Z",
+      "databaseId": 33807442357,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T21:19:17Z",
+      "databaseId": 33807297564,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-03T21:18:03Z",
@@ -35,19 +67,19 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T21:17:59Z",
       "databaseId": 33807176505,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T21:17:28Z",
       "databaseId": 33807128898,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "refresh-backlog"
     },
     {
@@ -75,11 +107,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-03T21:08:45Z",
       "databaseId": 33806323763,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T20:59:44Z",
-      "databaseId": 33805458843,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T20:58:22Z",
-      "databaseId": 33805332894,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T20:57:43Z",
-      "databaseId": 33805274375,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T20:56:39Z",
-      "databaseId": 33805176074,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -216689,6 +216689,11 @@
         "episode_id": 75483,
         "display_name": "The Hunting Party S02E03 - 3. epizoda CZ Titulky",
         "video_id": 29068224
+      },
+      {
+        "episode_id": 75487,
+        "display_name": "The Hunting Party S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 29068327
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -433096,6 +433101,11 @@
         "episode_id": 75483,
         "display_name": "The Hunting Party S02E03 - 3. epizoda CZ Titulky",
         "video_id": 29068224
+      },
+      {
+        "episode_id": 75487,
+        "display_name": "The Hunting Party S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 29068327
       }
     ],
     "prepared_not_upload_ready": [
@@ -434257,8 +434267,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 9,
+    "disabled": 7,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
