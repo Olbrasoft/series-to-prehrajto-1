@@ -2,44 +2,76 @@
   "counts": {
     "backlog_episodes": 144274,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 47724,
-    "prepared_source_episodes": 52994,
+    "uploaded_episodes": 47728,
+    "prepared_source_episodes": 53008,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 46,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 82,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55688,
-    "whisper_review_pending_sources": 43804,
+    "whisper_review_sources": 55686,
+    "whisper_review_pending_sources": 43802,
     "subtitle_followup_sources": 30486,
     "subtitle_followup_pending_sources": 30486
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-03T08:52:28Z",
-      "databaseId": 33735719816,
-      "headBranch": "main",
-      "status": "queued",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-03T08:51:50Z",
-      "databaseId": 33735663173,
+      "createdAt": "2026-09-03T08:55:38Z",
+      "databaseId": 33736013945,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T08:54:31Z",
+      "databaseId": 33735910124,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T08:52:49Z",
+      "databaseId": 33735752367,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T08:52:45Z",
+      "databaseId": 33735746377,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T08:52:28Z",
+      "databaseId": 33735719816,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T08:51:50Z",
+      "databaseId": 33735663173,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-03T08:51:45Z",
       "databaseId": 33735655482,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -119,7 +151,7 @@
       "createdAt": "2026-09-03T08:41:09Z",
       "databaseId": 33734687127,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "queued",
       "workflowName": "prepare-manifest"
     },
     {
@@ -135,7 +167,7 @@
       "createdAt": "2026-09-03T08:40:53Z",
       "databaseId": 33734664996,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T08:38:35Z",
-      "databaseId": 33734458049,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T08:37:29Z",
-      "databaseId": 33734359479,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T08:37:25Z",
-      "databaseId": 33734352234,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T08:37:00Z",
-      "databaseId": 33734314458,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -115776,6 +115776,11 @@
         "video_id": 29052943
       },
       {
+        "episode_id": 106096,
+        "display_name": "Domov na pobřeží S02E04 - Vždycky je to Nashville CZ Dabing",
+        "video_id": 29052994
+      },
+      {
         "episode_id": 24241,
         "display_name": "Válka skladů S04E05 - Dražby pro hlupáky CZ Dabing",
         "video_id": 29052826
@@ -115789,6 +115794,11 @@
         "episode_id": 24257,
         "display_name": "Válka skladů S04E21 - Absolutní nadvláda vína CZ Dabing",
         "video_id": 29052934
+      },
+      {
+        "episode_id": 108137,
+        "display_name": "Baptiste S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29053024
       },
       {
         "episode_id": 114182,
@@ -213881,9 +213891,19 @@
         "video_id": 29052844
       },
       {
+        "episode_id": 176886,
+        "display_name": "Vraždy v Brokenwoodu S08E05 - Zlatá horečka CZ Dabing",
+        "video_id": 29052965
+      },
+      {
         "episode_id": 63479,
         "display_name": "Tajné město S01E04 - Tvrdý pád CZ Titulky",
         "video_id": 29052861
+      },
+      {
+        "episode_id": 63483,
+        "display_name": "Tajné město S02E01 - Utíkej, králíčku CZ Titulky",
+        "video_id": 29052983
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -329378,6 +329398,11 @@
         "video_id": 29052943
       },
       {
+        "episode_id": 106096,
+        "display_name": "Domov na pobřeží S02E04 - Vždycky je to Nashville CZ Dabing",
+        "video_id": 29052994
+      },
+      {
         "episode_id": 24241,
         "display_name": "Válka skladů S04E05 - Dražby pro hlupáky CZ Dabing",
         "video_id": 29052826
@@ -329391,6 +329416,11 @@
         "episode_id": 24257,
         "display_name": "Válka skladů S04E21 - Absolutní nadvláda vína CZ Dabing",
         "video_id": 29052934
+      },
+      {
+        "episode_id": 108137,
+        "display_name": "Baptiste S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29053024
       },
       {
         "episode_id": 114182,
@@ -427483,9 +427513,19 @@
         "video_id": 29052844
       },
       {
+        "episode_id": 176886,
+        "display_name": "Vraždy v Brokenwoodu S08E05 - Zlatá horečka CZ Dabing",
+        "video_id": 29052965
+      },
+      {
         "episode_id": 63479,
         "display_name": "Tajné město S01E04 - Tvrdý pád CZ Titulky",
         "video_id": 29052861
+      },
+      {
+        "episode_id": 63483,
+        "display_name": "Tajné město S02E01 - Utíkej, králíčku CZ Titulky",
+        "video_id": 29052983
       }
     ],
     "prepared_not_upload_ready": [
@@ -428647,15 +428687,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 20,
-    "ok": 19,
+    "disabled": 42,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_non_cz_needs_subtitles": 8631,
     "whisper_confirmed_cz": 3253,
     "whisper_failed": 204,
-    "needs_whisper": 43600
+    "needs_whisper": 43598
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 30486
