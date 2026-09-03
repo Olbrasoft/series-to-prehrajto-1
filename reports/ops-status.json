@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 144016,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 47975,
-    "prepared_source_episodes": 53300,
+    "uploaded_episodes": 47992,
+    "prepared_source_episodes": 53306,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 72,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55664,
     "whisper_review_pending_sources": 43700,
     "subtitle_followup_sources": 30577,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-03T12:17:24Z",
-      "databaseId": 33754365460,
+      "createdAt": "2026-09-03T12:31:04Z",
+      "databaseId": 33755667602,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T12:30:53Z",
+      "databaseId": 33755651144,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T12:29:21Z",
+      "databaseId": 33755496524,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T12:26:04Z",
+      "databaseId": 33755179433,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-03T12:25:56Z",
+      "databaseId": 33755167703,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T12:17:56Z",
+      "databaseId": 33754412273,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T12:17:24Z",
+      "databaseId": 33754365460,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T12:16:57Z",
       "databaseId": 33754324446,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,19 +123,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T12:13:00Z",
       "databaseId": 33753944746,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T12:12:57Z",
       "databaseId": 33753940562,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -115,11 +163,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T12:03:32Z",
       "databaseId": 33753074622,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T12:01:02Z",
-      "databaseId": 33752842243,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T12:00:57Z",
-      "databaseId": 33752834373,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T11:58:35Z",
-      "databaseId": 33752615545,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T11:57:38Z",
-      "databaseId": 33752530304,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T11:56:33Z",
-      "databaseId": 33752433187,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T11:56:28Z",
-      "databaseId": 33752425767,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -116406,9 +116406,54 @@
         "video_id": 29059289
       },
       {
+        "episode_id": 117236,
+        "display_name": "Máme jasno S03E04 - Psi CZ Titulky",
+        "video_id": 29059389
+      },
+      {
+        "episode_id": 117240,
+        "display_name": "Máme jasno S03E08 - Omluvy CZ Titulky",
+        "video_id": 29059598
+      },
+      {
+        "episode_id": 117244,
+        "display_name": "Máme jasno S03E12 - 12. epizoda CZ Titulky",
+        "video_id": 29059652
+      },
+      {
+        "episode_id": 86748,
+        "display_name": "Žena v jezeře S01E01 - Víte, že mořští koníci jsou ryby? CZ Titulky",
+        "video_id": 29059716
+      },
+      {
+        "episode_id": 53308,
+        "display_name": "Okupace S01E10 - Prosinec - 2. část CZ Dabing",
+        "video_id": 29059738
+      },
+      {
         "episode_id": 35793,
         "display_name": "Jsme, jací jsme S01E06 - 6. epizoda CZ Dabing",
         "video_id": 29059288
+      },
+      {
+        "episode_id": 116521,
+        "display_name": "Creepshow S00E01 - 1. epizoda CZ Titulky",
+        "video_id": 29059607
+      },
+      {
+        "episode_id": 116541,
+        "display_name": "Creepshow S04E04 - 4. epizoda CZ Titulky",
+        "video_id": 29059711
+      },
+      {
+        "episode_id": 120605,
+        "display_name": "Kevin si počká S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29059736
+      },
+      {
+        "episode_id": 120629,
+        "display_name": "Kevin si počká S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 29059762
       },
       {
         "episode_id": 114182,
@@ -215139,6 +215184,46 @@
         "episode_id": 169718,
         "display_name": "Grand Army S01E01 - Brooklyn 2020 CZ Titulky",
         "video_id": 29059291
+      },
+      {
+        "episode_id": 169722,
+        "display_name": "Grand Army S01E05 - Den svatého Valentýna CZ Titulky",
+        "video_id": 29059555
+      },
+      {
+        "episode_id": 169726,
+        "display_name": "Grand Army S01E09 - Svoboda CZ Titulky",
+        "video_id": 29059669
+      },
+      {
+        "episode_id": 10766,
+        "display_name": "Billy the Kid S01E05 - Malý kousek ráje CZ Dabing",
+        "video_id": 29059746
+      },
+      {
+        "episode_id": 142643,
+        "display_name": "Tempest S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29059297
+      },
+      {
+        "episode_id": 99755,
+        "display_name": "Vraždy v Brokenwoodu S03E04 - Šťastné a krvavé CZ Dabing",
+        "video_id": 29059614
+      },
+      {
+        "episode_id": 99763,
+        "display_name": "Vraždy v Brokenwoodu S06E02 - Skutečný spisovatel CZ Titulky",
+        "video_id": 29059664
+      },
+      {
+        "episode_id": 99767,
+        "display_name": "Vraždy v Brokenwoodu S07E02 - Čarodějky z Brokenwoodu CZ Dabing",
+        "video_id": 29059713
+      },
+      {
+        "episode_id": 151215,
+        "display_name": "Vraždy v Brokenwoodu S08E02 - Vražedný festival CZ Titulky",
+        "video_id": 29059750
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -331263,9 +331348,54 @@
         "video_id": 29059289
       },
       {
+        "episode_id": 117236,
+        "display_name": "Máme jasno S03E04 - Psi CZ Titulky",
+        "video_id": 29059389
+      },
+      {
+        "episode_id": 117240,
+        "display_name": "Máme jasno S03E08 - Omluvy CZ Titulky",
+        "video_id": 29059598
+      },
+      {
+        "episode_id": 117244,
+        "display_name": "Máme jasno S03E12 - 12. epizoda CZ Titulky",
+        "video_id": 29059652
+      },
+      {
+        "episode_id": 86748,
+        "display_name": "Žena v jezeře S01E01 - Víte, že mořští koníci jsou ryby? CZ Titulky",
+        "video_id": 29059716
+      },
+      {
+        "episode_id": 53308,
+        "display_name": "Okupace S01E10 - Prosinec - 2. část CZ Dabing",
+        "video_id": 29059738
+      },
+      {
         "episode_id": 35793,
         "display_name": "Jsme, jací jsme S01E06 - 6. epizoda CZ Dabing",
         "video_id": 29059288
+      },
+      {
+        "episode_id": 116521,
+        "display_name": "Creepshow S00E01 - 1. epizoda CZ Titulky",
+        "video_id": 29059607
+      },
+      {
+        "episode_id": 116541,
+        "display_name": "Creepshow S04E04 - 4. epizoda CZ Titulky",
+        "video_id": 29059711
+      },
+      {
+        "episode_id": 120605,
+        "display_name": "Kevin si počká S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29059736
+      },
+      {
+        "episode_id": 120629,
+        "display_name": "Kevin si počká S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 29059762
       },
       {
         "episode_id": 114182,
@@ -429996,6 +430126,46 @@
         "episode_id": 169718,
         "display_name": "Grand Army S01E01 - Brooklyn 2020 CZ Titulky",
         "video_id": 29059291
+      },
+      {
+        "episode_id": 169722,
+        "display_name": "Grand Army S01E05 - Den svatého Valentýna CZ Titulky",
+        "video_id": 29059555
+      },
+      {
+        "episode_id": 169726,
+        "display_name": "Grand Army S01E09 - Svoboda CZ Titulky",
+        "video_id": 29059669
+      },
+      {
+        "episode_id": 10766,
+        "display_name": "Billy the Kid S01E05 - Malý kousek ráje CZ Dabing",
+        "video_id": 29059746
+      },
+      {
+        "episode_id": 142643,
+        "display_name": "Tempest S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29059297
+      },
+      {
+        "episode_id": 99755,
+        "display_name": "Vraždy v Brokenwoodu S03E04 - Šťastné a krvavé CZ Dabing",
+        "video_id": 29059614
+      },
+      {
+        "episode_id": 99763,
+        "display_name": "Vraždy v Brokenwoodu S06E02 - Skutečný spisovatel CZ Titulky",
+        "video_id": 29059664
+      },
+      {
+        "episode_id": 99767,
+        "display_name": "Vraždy v Brokenwoodu S07E02 - Čarodějky z Brokenwoodu CZ Dabing",
+        "video_id": 29059713
+      },
+      {
+        "episode_id": 151215,
+        "display_name": "Vraždy v Brokenwoodu S08E02 - Vražedný festival CZ Titulky",
+        "video_id": 29059750
       }
     ],
     "prepared_not_upload_ready": [
@@ -431157,8 +431327,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 12,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
