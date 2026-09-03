@@ -2,36 +2,84 @@
   "counts": {
     "backlog_episodes": 144596,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 47204,
-    "prepared_source_episodes": 52387,
+    "uploaded_episodes": 47205,
+    "prepared_source_episodes": 52386,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55692,
-    "whisper_review_pending_sources": 43833,
-    "subtitle_followup_sources": 30362,
-    "subtitle_followup_pending_sources": 30362
+    "whisper_review_sources": 55688,
+    "whisper_review_pending_sources": 43809,
+    "subtitle_followup_sources": 30366,
+    "subtitle_followup_pending_sources": 30366
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-03T01:06:19Z",
-      "databaseId": 33702293794,
+      "createdAt": "2026-09-03T01:10:13Z",
+      "databaseId": 33702556194,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T01:10:08Z",
+      "databaseId": 33702549956,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T01:09:37Z",
+      "databaseId": 33702514816,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T01:09:23Z",
+      "databaseId": 33702500987,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T01:08:18Z",
+      "databaseId": 33702427519,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T01:07:40Z",
+      "databaseId": 33702385136,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T01:06:19Z",
+      "databaseId": 33702293794,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T00:58:38Z",
       "databaseId": 33701746491,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -111,7 +159,7 @@
       "createdAt": "2026-09-03T00:41:50Z",
       "databaseId": 33700594984,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T00:32:15Z",
-      "databaseId": 33699919357,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T00:31:22Z",
-      "databaseId": 33699858927,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T00:27:01Z",
-      "databaseId": 33699550532,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T00:26:01Z",
-      "databaseId": 33699482591,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-03T00:24:17Z",
-      "databaseId": 33699361610,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T00:15:27Z",
-      "databaseId": 33698735173,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -114474,6 +114474,11 @@
         "episode_id": 34733,
         "display_name": "Herkules S04E21 CZ Dabing",
         "video_id": 29040114
+      },
+      {
+        "episode_id": 34741,
+        "display_name": "Herkules S05E07 CZ Dabing",
+        "video_id": 29040198
       },
       {
         "episode_id": 114182,
@@ -325478,6 +325483,11 @@
         "video_id": 29040114
       },
       {
+        "episode_id": 34741,
+        "display_name": "Herkules S05E07 CZ Dabing",
+        "video_id": 29040198
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -422592,14 +422602,6 @@
     ],
     "whisper_review_pending": [
       {
-        "episode_id": 180896,
-        "source_id": -68159707716792254,
-        "series_title": "86: Eighty Six",
-        "episode_code": "S01E06",
-        "source_title": "86 Eighty Six - S01E06 - Through to the End [1080p, ENG TITULKY]",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 175038,
         "source_id": -11151980550350308,
         "series_title": "All or Nothing: Tottenham Hotspur",
@@ -422614,38 +422616,6 @@
         "episode_code": "S11E10",
         "source_title": "American Horror Story - S11E10 Requiem 1981 1987 (2) EN",
         "status": "whisper_failed"
-      },
-      {
-        "episode_id": 145682,
-        "source_id": -36863714199651318,
-        "series_title": "Beyond Evil",
-        "episode_code": "S01E02",
-        "source_title": "Beyond.Evil.S01E02.1080p.WEB-DL.H264.AAC-AppleTor",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145683,
-        "source_id": -9595953118744925,
-        "series_title": "Beyond Evil",
-        "episode_code": "S01E03",
-        "source_title": "Beyond.Evil.S01E03.1080p.WEB-DL.H264.AAC-AppleTor",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145684,
-        "source_id": -47812203274465635,
-        "series_title": "Beyond Evil",
-        "episode_code": "S01E04",
-        "source_title": "Beyond.Evil.S01E04.1080p.WEB-DL.H264.AAC-AppleTor",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145686,
-        "source_id": -38660789629007462,
-        "series_title": "Beyond Evil",
-        "episode_code": "S01E06",
-        "source_title": "Beyond.Evil.S01E06.1080p.WEB-DL.H264.AAC-AppleTor",
-        "status": "needs_whisper"
       },
       {
         "episode_id": 49910,
@@ -422989,6 +422959,46 @@
         "series_title": "Chirurgové",
         "episode_code": "S07E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S07E21",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56256,
+        "source_id": -50323602737151014,
+        "series_title": "Chirurgové",
+        "episode_code": "S07E22",
+        "source_title": "Chirurgové (Grey's Anatomy) – S07E22",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56257,
+        "source_id": -57235569892845375,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E01",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56258,
+        "source_id": -55733822280244712,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E02",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56259,
+        "source_id": -62170039906391954,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E03",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56260,
+        "source_id": -43031112546707824,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E04",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E04",
         "status": "whisper_failed"
       }
     ],
@@ -423447,16 +423457,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8634,
-    "whisper_confirmed_cz": 3225,
-    "needs_whisper": 43630,
-    "whisper_failed": 203
+    "whisper_non_cz_needs_subtitles": 8648,
+    "whisper_confirmed_cz": 3231,
+    "whisper_failed": 203,
+    "needs_whisper": 43606
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 30362
+    "needs_subtitle_setup_after_prehrajto_processing": 30366
   }
 }
