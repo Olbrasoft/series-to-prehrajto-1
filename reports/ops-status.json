@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 143630,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48200,
+    "uploaded_episodes": 48201,
     "prepared_source_episodes": 53693,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 55,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55637,
     "whisper_review_pending_sources": 43576,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 30623
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T16:45:07Z",
+      "databaseId": 33780493067,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T16:45:03Z",
+      "databaseId": 33780487741,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T16:45:03Z",
+      "databaseId": 33780486022,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-03T16:43:23Z",
@@ -35,11 +59,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T16:42:20Z",
       "databaseId": 33780216343,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T16:39:18Z",
       "databaseId": 33779912583,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -123,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-03T16:30:47Z",
       "databaseId": 33779067637,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T16:30:37Z",
-      "databaseId": 33779050260,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T16:29:55Z",
-      "databaseId": 33778974429,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T16:25:06Z",
-      "databaseId": 33778490991,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -216264,6 +216264,11 @@
         "episode_id": 35866,
         "display_name": "1670 S01E07 - Lov CZ Dabing",
         "video_id": 29064314
+      },
+      {
+        "episode_id": 99246,
+        "display_name": "1670 S02E01 - Al Inkluziv CZ Dabing",
+        "video_id": 29064414
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -432246,6 +432251,11 @@
         "episode_id": 35866,
         "display_name": "1670 S01E07 - Lov CZ Dabing",
         "video_id": 29064314
+      },
+      {
+        "episode_id": 99246,
+        "display_name": "1670 S02E01 - Al Inkluziv CZ Dabing",
+        "video_id": 29064414
       }
     ],
     "prepared_not_upload_ready": [
@@ -433407,8 +433417,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "disabled": 15,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
