@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 143797,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48035,
-    "prepared_source_episodes": 53320,
+    "uploaded_episodes": 48036,
+    "prepared_source_episodes": 53339,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,26 +12,58 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55658,
-    "whisper_review_pending_sources": 43669,
+    "whisper_review_sources": 55664,
+    "whisper_review_pending_sources": 43700,
     "subtitle_followup_sources": 30612,
     "subtitle_followup_pending_sources": 30612
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-03T13:05:41Z",
-      "databaseId": 33759067849,
+      "createdAt": "2026-09-03T13:08:03Z",
+      "databaseId": 33759306292,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-status"
+      "status": "pending",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T13:08:03Z",
+      "databaseId": 33759306084,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T13:07:59Z",
+      "databaseId": 33759299385,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-03T13:07:58Z",
+      "databaseId": 33759297815,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T13:05:41Z",
+      "databaseId": 33759067849,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T13:05:38Z",
       "databaseId": 33759061904,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -95,15 +127,15 @@
       "createdAt": "2026-09-03T12:57:03Z",
       "databaseId": 33758200550,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-03T12:55:45Z",
       "databaseId": 33758069629,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T12:47:46Z",
-      "databaseId": 33757269474,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T12:47:17Z",
-      "databaseId": 33757223959,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T12:45:11Z",
-      "databaseId": 33757013940,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T12:44:41Z",
-      "databaseId": 33756963757,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -215401,6 +215401,11 @@
         "video_id": 29060461
       },
       {
+        "episode_id": 90258,
+        "display_name": "The Outpost S02E13 - 13. epizoda CZ Titulky",
+        "video_id": 29060533
+      },
+      {
         "episode_id": 90435,
         "display_name": "Elita S04E08 - Než odejdu (2) CZ Titulky",
         "video_id": 29060103
@@ -430558,6 +430563,11 @@
         "video_id": 29060461
       },
       {
+        "episode_id": 90258,
+        "display_name": "The Outpost S02E13 - 13. epizoda CZ Titulky",
+        "video_id": 29060533
+      },
+      {
         "episode_id": 90435,
         "display_name": "Elita S04E08 - Než odejdu (2) CZ Titulky",
         "video_id": 29060103
@@ -430916,6 +430926,22 @@
         "episode_code": "S01E04",
         "source_title": "All or Nothing: Tottenham Hotspur - S1E4 EN",
         "status": "whisper_failed"
+      },
+      {
+        "episode_id": 175040,
+        "source_id": -34473949864209908,
+        "series_title": "All or Nothing: Tottenham Hotspur",
+        "episode_code": "S01E06",
+        "source_title": "All or Nothing: Tottenham Hotspur - S1E6 Running on Empty EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 175040,
+        "source_id": -32522047399672538,
+        "series_title": "All or Nothing: Tottenham Hotspur",
+        "episode_code": "S01E06",
+        "source_title": "All or Nothing: Tottenham Hotspur - S1E6 EN",
+        "status": "needs_whisper"
       },
       {
         "episode_id": 51905,
@@ -431283,22 +431309,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E01",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56258,
-        "source_id": -55733822280244712,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E02",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
         "status": "whisper_failed"
       }
     ],
@@ -431761,10 +431771,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8736,
+    "whisper_non_cz_needs_subtitles": 8711,
     "whisper_confirmed_cz": 3253,
     "whisper_failed": 204,
-    "needs_whisper": 43465
+    "needs_whisper": 43496
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 30612
