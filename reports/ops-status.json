@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 143563,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48235,
+    "uploaded_episodes": 48237,
     "prepared_source_episodes": 54010,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55640,
     "whisper_review_pending_sources": 43606,
     "subtitle_followup_sources": 30670,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T19:15:42Z",
+      "databaseId": 33795386665,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T19:12:34Z",
+      "databaseId": 33795077066,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T19:11:42Z",
+      "databaseId": 33794991151,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T19:11:39Z",
+      "databaseId": 33794986749,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T19:10:42Z",
       "databaseId": 33794894307,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T19:00:29Z",
       "databaseId": 33793873101,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T18:53:37Z",
-      "databaseId": 33793205302,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T18:53:32Z",
-      "databaseId": 33793197871,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T18:52:08Z",
-      "databaseId": 33793058871,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T18:51:05Z",
-      "databaseId": 33792953611,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -216431,6 +216431,16 @@
         "video_id": 29066045
       },
       {
+        "episode_id": 69710,
+        "display_name": "Kojak S03E08 - Z bláta do louže CZ Titulky",
+        "video_id": 29066358
+      },
+      {
+        "episode_id": 69718,
+        "display_name": "Kojak S03E16 - Zapomenutý pokoj CZ Titulky",
+        "video_id": 29066435
+      },
+      {
         "episode_id": 169719,
         "display_name": "Grand Army S01E02 - Bacha na mě CZ Titulky",
         "video_id": 29065956
@@ -432588,6 +432598,16 @@
         "video_id": 29066045
       },
       {
+        "episode_id": 69710,
+        "display_name": "Kojak S03E08 - Z bláta do louže CZ Titulky",
+        "video_id": 29066358
+      },
+      {
+        "episode_id": 69718,
+        "display_name": "Kojak S03E16 - Zapomenutý pokoj CZ Titulky",
+        "video_id": 29066435
+      },
+      {
         "episode_id": 169719,
         "display_name": "Grand Army S01E02 - Bacha na mě CZ Titulky",
         "video_id": 29065956
@@ -433758,7 +433778,6 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
-    "disabled": 5,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
