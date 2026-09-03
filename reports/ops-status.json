@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 143630,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48162,
-    "prepared_source_episodes": 53530,
+    "uploaded_episodes": 48163,
+    "prepared_source_episodes": 53550,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,42 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55649,
-    "whisper_review_pending_sources": 43628,
+    "whisper_review_sources": 55654,
+    "whisper_review_pending_sources": 43650,
     "subtitle_followup_sources": 30613,
     "subtitle_followup_pending_sources": 30613
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T15:34:41Z",
+      "databaseId": 33773437945,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T15:32:24Z",
+      "databaseId": 33773206642,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T15:32:20Z",
+      "databaseId": 33773199463,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T15:31:15Z",
       "databaseId": 33773093745,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T15:04:47Z",
-      "databaseId": 33770566075,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T15:03:42Z",
-      "databaseId": 33770464174,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T15:00:30Z",
-      "databaseId": 33770145720,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -116874,6 +116874,11 @@
         "episode_id": 70213,
         "display_name": "Fatma S01E04 - Matky a synové CZ Titulky",
         "video_id": 29063383
+      },
+      {
+        "episode_id": 81365,
+        "display_name": "Bunkr pro miliardáře S01E02 - Největší podvod na lidi CZ Dabing",
+        "video_id": 29063460
       },
       {
         "episode_id": 114182,
@@ -332668,6 +332673,11 @@
         "video_id": 29063383
       },
       {
+        "episode_id": 81365,
+        "display_name": "Bunkr pro miliardáře S01E02 - Největší podvod na lidi CZ Dabing",
+        "video_id": 29063460
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -433031,10 +433041,10 @@
     "resolve_failed": 4
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8768,
+    "whisper_non_cz_needs_subtitles": 8751,
     "whisper_confirmed_cz": 3253,
-    "whisper_failed": 207,
-    "needs_whisper": 43421
+    "whisper_failed": 204,
+    "needs_whisper": 43446
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 30613
