@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 143797,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48098,
-    "prepared_source_episodes": 53435,
+    "uploaded_episodes": 48100,
+    "prepared_source_episodes": 53434,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,42 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55654,
-    "whisper_review_pending_sources": 43650,
+    "whisper_review_sources": 55649,
+    "whisper_review_pending_sources": 43628,
     "subtitle_followup_sources": 30612,
     "subtitle_followup_pending_sources": 30612
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-03T14:22:44Z",
+      "databaseId": 33766487259,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T14:18:27Z",
+      "databaseId": 33766072138,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T14:16:49Z",
+      "databaseId": 33765912992,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-03T14:15:51Z",
       "databaseId": 33765818232,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,19 +67,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T14:11:57Z",
       "databaseId": 33765440516,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T14:11:55Z",
       "databaseId": 33765436342,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T13:54:47Z",
-      "databaseId": 33763792805,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T13:54:46Z",
-      "databaseId": 33763791547,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-03T13:54:44Z",
-      "databaseId": 33763787991,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -215716,6 +215716,16 @@
         "video_id": 29062086
       },
       {
+        "episode_id": 148210,
+        "display_name": "Berlín a Dáma s hranostajem S01E01 - Sbírka CZ Dabing",
+        "video_id": 29062141
+      },
+      {
+        "episode_id": 148214,
+        "display_name": "Berlín a Dáma s hranostajem S01E05 - Demolition Boys CZ Dabing",
+        "video_id": 29062222
+      },
+      {
         "episode_id": 81363,
         "display_name": "Bunkr pro miliardáře S01E05 - Pravda se přeceňuje CZ Dabing",
         "video_id": 29061368
@@ -431188,6 +431198,16 @@
         "video_id": 29062086
       },
       {
+        "episode_id": 148210,
+        "display_name": "Berlín a Dáma s hranostajem S01E01 - Sbírka CZ Dabing",
+        "video_id": 29062141
+      },
+      {
+        "episode_id": 148214,
+        "display_name": "Berlín a Dáma s hranostajem S01E05 - Demolition Boys CZ Dabing",
+        "video_id": 29062222
+      },
+      {
         "episode_id": 81363,
         "display_name": "Bunkr pro miliardáře S01E05 - Pravda se přeceňuje CZ Dabing",
         "video_id": 29061368
@@ -432391,10 +432411,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8751,
+    "whisper_non_cz_needs_subtitles": 8768,
     "whisper_confirmed_cz": 3253,
-    "whisper_failed": 204,
-    "needs_whisper": 43446
+    "whisper_failed": 207,
+    "needs_whisper": 43421
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 30612
