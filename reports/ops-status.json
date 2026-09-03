@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 143630,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48196,
+    "uploaded_episodes": 48197,
     "prepared_source_episodes": 53657,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55642,
     "whisper_review_pending_sources": 43601,
     "subtitle_followup_sources": 30619,
     "subtitle_followup_pending_sources": 30619
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T16:35:28Z",
+      "databaseId": 33779538829,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-03T16:32:57Z",
+      "databaseId": 33779287321,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-03T16:32:54Z",
+      "databaseId": 33779282184,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-03T16:31:40Z",
@@ -35,11 +59,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T16:30:43Z",
       "databaseId": 33779060497,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-03T16:30:37Z",
       "databaseId": 33779050260,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-03T16:17:50Z",
       "databaseId": 33777772426,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-03T16:09:48Z",
-      "databaseId": 33776962475,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T16:06:52Z",
-      "databaseId": 33776669986,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-03T16:06:48Z",
-      "databaseId": 33776664167,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -216244,6 +216244,11 @@
         "episode_id": 117219,
         "display_name": "Máme jasno S01E15 - Můžeme žít věčně? CZ Titulky",
         "video_id": 29063944
+      },
+      {
+        "episode_id": 35866,
+        "display_name": "1670 S01E07 - Lov CZ Dabing",
+        "video_id": 29064314
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -432206,6 +432211,11 @@
         "episode_id": 117219,
         "display_name": "Máme jasno S01E15 - Můžeme žít věčně? CZ Titulky",
         "video_id": 29063944
+      },
+      {
+        "episode_id": 35866,
+        "display_name": "1670 S01E07 - Lov CZ Dabing",
+        "video_id": 29064314
       }
     ],
     "prepared_not_upload_ready": [
@@ -433367,7 +433377,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
