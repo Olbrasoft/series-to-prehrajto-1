@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 142961,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 48921,
-    "prepared_source_episodes": 54914,
+    "uploaded_episodes": 48922,
+    "prepared_source_episodes": 54910,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 86,
+    "language_whisper_attempted_sources": 69,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55612,
-    "whisper_review_pending_sources": 43445,
-    "subtitle_followup_sources": 30821,
-    "subtitle_followup_pending_sources": 30821
+    "whisper_review_sources": 55614,
+    "whisper_review_pending_sources": 43458,
+    "subtitle_followup_sources": 30834,
+    "subtitle_followup_pending_sources": 30834
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-04T11:56:14Z",
+      "databaseId": 33870285816,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-04T11:56:11Z",
+      "databaseId": 33870280908,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-04T11:56:09Z",
+      "databaseId": 33870279288,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-04T11:55:17Z",
       "databaseId": 33870210904,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-04T11:39:24Z",
-      "databaseId": 33868974222,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T11:39:21Z",
-      "databaseId": 33868970141,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T11:38:39Z",
-      "databaseId": 33868916131,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -118769,6 +118769,11 @@
         "episode_id": 157673,
         "display_name": "Velká huba S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29089550
+      },
+      {
+        "episode_id": 157677,
+        "display_name": "Velká huba S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29089636
       },
       {
         "episode_id": 114182,
@@ -338358,6 +338363,11 @@
         "video_id": 29089550
       },
       {
+        "episode_id": 157677,
+        "display_name": "Velká huba S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29089636
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -440617,16 +440627,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 68,
+    "disabled": 17,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8915,
+    "whisper_non_cz_needs_subtitles": 8904,
     "whisper_confirmed_cz": 3252,
     "whisper_failed": 207,
-    "needs_whisper": 43238
+    "needs_whisper": 43251
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 30821
+    "needs_subtitle_setup_after_prehrajto_processing": 30834
   }
 }
