@@ -12,18 +12,42 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55611,
-    "whisper_review_pending_sources": 43425,
+    "whisper_review_sources": 55607,
+    "whisper_review_pending_sources": 43402,
     "subtitle_followup_sources": 31020,
     "subtitle_followup_pending_sources": 31020
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-04T23:37:51Z",
+      "databaseId": 33930227645,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-04T23:37:17Z",
+      "databaseId": 33930193206,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-04T23:37:10Z",
+      "databaseId": 33930185988,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-04T23:36:11Z",
       "databaseId": 33930123768,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-04T23:35:24Z",
       "databaseId": 33930073417,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T23:24:34Z",
-      "databaseId": 33929387060,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-04T23:24:32Z",
-      "databaseId": 33929383910,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T23:21:03Z",
-      "databaseId": 33929162560,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -444342,6 +444342,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 107113,
+        "source_id": -43036172831505412,
+        "series_title": "Břemeno pravdy",
+        "episode_code": "S01E02",
+        "source_title": "Břemeno pravdy - S1E2 The Ties That Bind EN",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -444651,14 +444659,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E02",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
         "status": "whisper_failed"
       }
     ],
@@ -445121,10 +445121,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8934,
+    "whisper_non_cz_needs_subtitles": 8953,
     "whisper_confirmed_cz": 3252,
     "whisper_failed": 207,
-    "needs_whisper": 43218
+    "needs_whisper": 43195
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31020
