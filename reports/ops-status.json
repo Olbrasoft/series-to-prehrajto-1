@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 142506,
     "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 49341,
-    "prepared_source_episodes": 55940,
+    "uploaded_episodes": 49342,
+    "prepared_source_episodes": 55960,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,50 @@
     "language_audited_sources": 60,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55598,
-    "whisper_review_pending_sources": 43353,
+    "whisper_review_sources": 55607,
+    "whisper_review_pending_sources": 43402,
     "subtitle_followup_sources": 31020,
     "subtitle_followup_pending_sources": 31020
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-04T23:04:30Z",
+      "databaseId": 33928087025,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-04T23:02:45Z",
+      "databaseId": 33927969496,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-04T23:02:42Z",
+      "databaseId": 33927965772,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-04T23:02:39Z",
+      "databaseId": 33927963554,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-04T23:01:39Z",
       "databaseId": 33927896695,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-04T22:44:45Z",
-      "databaseId": 33926783853,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T22:44:43Z",
-      "databaseId": 33926782211,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T22:43:52Z",
-      "databaseId": 33926725520,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-04T22:43:48Z",
-      "databaseId": 33926720870,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -119814,6 +119814,11 @@
         "episode_id": 111181,
         "display_name": "Podzemní železnice S01E05 - 5. epizoda CZ Dabing",
         "video_id": 29111771
+      },
+      {
+        "episode_id": 111185,
+        "display_name": "Podzemní železnice S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29112014
       },
       {
         "episode_id": 114182,
@@ -341503,6 +341508,11 @@
         "video_id": 29111771
       },
       {
+        "episode_id": 111185,
+        "display_name": "Podzemní železnice S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29112014
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -444042,6 +444052,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 107113,
+        "source_id": -43036172831505412,
+        "series_title": "Břemeno pravdy",
+        "episode_code": "S01E02",
+        "source_title": "Břemeno pravdy - S1E2 The Ties That Bind EN",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -444351,14 +444369,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E02",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
         "status": "whisper_failed"
       }
     ],
@@ -444821,10 +444831,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8993,
+    "whisper_non_cz_needs_subtitles": 8953,
     "whisper_confirmed_cz": 3252,
     "whisper_failed": 207,
-    "needs_whisper": 43146
+    "needs_whisper": 43195
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31020
