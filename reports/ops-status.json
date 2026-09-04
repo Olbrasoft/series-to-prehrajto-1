@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 143247,
-    "manifest_upload_ready_episodes": 1005,
-    "uploaded_episodes": 48670,
-    "prepared_source_episodes": 54462,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 48694,
+    "prepared_source_episodes": 54487,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55626,
     "whisper_review_pending_sources": 43534,
     "subtitle_followup_sources": 30797,
@@ -20,26 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-04T06:09:49Z",
-      "databaseId": 33843237017,
+      "createdAt": "2026-09-04T06:33:56Z",
+      "databaseId": 33844887887,
       "headBranch": "main",
-      "status": "queued",
-      "workflowName": "prepare-manifest"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-04T06:33:03Z",
+      "databaseId": 33844826169,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-04T06:28:04Z",
+      "databaseId": 33844473197,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-04T06:09:30Z",
-      "databaseId": 33843216632,
+      "createdAt": "2026-09-04T06:24:25Z",
+      "databaseId": 33844222444,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-04T06:16:01Z",
+      "databaseId": 33843658020,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-04T06:15:22Z",
+      "databaseId": 33843612642,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-04T06:14:25Z",
+      "databaseId": 33843546930,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-04T06:09:49Z",
+      "databaseId": 33843237017,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-04T06:09:30Z",
+      "databaseId": 33843216632,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-04T06:09:13Z",
       "databaseId": 33843198465,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -51,27 +107,27 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-04T06:08:23Z",
       "databaseId": 33843144490,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-04T06:08:21Z",
       "databaseId": 33843143294,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-04T06:08:18Z",
       "databaseId": 33843139932,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T05:53:45Z",
-      "databaseId": 33842195932,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T05:53:40Z",
-      "databaseId": 33842191049,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T05:53:35Z",
-      "databaseId": 33842186088,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-04T05:53:32Z",
-      "databaseId": 33842183162,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T05:52:42Z",
-      "databaseId": 33842129840,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T05:52:37Z",
-      "databaseId": 33842124979,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-04T05:51:14Z",
-      "databaseId": 33842039130,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -118141,6 +118141,61 @@
         "video_id": 29077860
       },
       {
+        "episode_id": 120216,
+        "display_name": "The Bionic Woman S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29078367
+      },
+      {
+        "episode_id": 188520,
+        "display_name": "Na parket! S02E21 - 21. epizoda CZ Dabing",
+        "video_id": 29078408
+      },
+      {
+        "episode_id": 188552,
+        "display_name": "Na parket! S03E17 - 17. epizoda CZ Dabing",
+        "video_id": 29078500
+      },
+      {
+        "episode_id": 188556,
+        "display_name": "Na parket! S03E21 - 21. epizoda CZ Dabing",
+        "video_id": 29078629
+      },
+      {
+        "episode_id": 120213,
+        "display_name": "The Bionic Woman S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29078365
+      },
+      {
+        "episode_id": 120217,
+        "display_name": "The Bionic Woman S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29078412
+      },
+      {
+        "episode_id": 188497,
+        "display_name": "Na parket! S02E18 - 18. epizoda CZ Dabing",
+        "video_id": 29078454
+      },
+      {
+        "episode_id": 188533,
+        "display_name": "Na parket! S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 29078536
+      },
+      {
+        "episode_id": 188537,
+        "display_name": "Na parket! S03E11 - 11. epizoda CZ Dabing",
+        "video_id": 29078657
+      },
+      {
+        "episode_id": 188549,
+        "display_name": "Na parket! S03E14 - 14. epizoda CZ Dabing",
+        "video_id": 29078752
+      },
+      {
+        "episode_id": 69685,
+        "display_name": "Kojak S02E07 - Opatrovník CZ Dabing",
+        "video_id": 29078829
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -218614,6 +218669,71 @@
         "episode_id": 159295,
         "display_name": "Magpie Murders S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29078004
+      },
+      {
+        "episode_id": 120214,
+        "display_name": "The Bionic Woman S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29078366
+      },
+      {
+        "episode_id": 188518,
+        "display_name": "Na parket! S02E16 - 16. epizoda CZ Dabing",
+        "video_id": 29078441
+      },
+      {
+        "episode_id": 188526,
+        "display_name": "Na parket! S02E28 - 28. epizoda CZ Dabing",
+        "video_id": 29078509
+      },
+      {
+        "episode_id": 188530,
+        "display_name": "Na parket! S02E29 - 29. epizoda CZ Dabing",
+        "video_id": 29078622
+      },
+      {
+        "episode_id": 188534,
+        "display_name": "Na parket! S03E02 - 2. epizoda CZ Dabing",
+        "video_id": 29078721
+      },
+      {
+        "episode_id": 188550,
+        "display_name": "Na parket! S03E15 - 15. epizoda CZ Dabing",
+        "video_id": 29078798
+      },
+      {
+        "episode_id": 120215,
+        "display_name": "The Bionic Woman S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29078362
+      },
+      {
+        "episode_id": 188547,
+        "display_name": "Na parket! S02E17 - 17. epizoda CZ Dabing",
+        "video_id": 29078409
+      },
+      {
+        "episode_id": 188523,
+        "display_name": "Na parket! S02E20 - 20. epizoda CZ Dabing",
+        "video_id": 29078463
+      },
+      {
+        "episode_id": 188531,
+        "display_name": "Na parket! S03E01 - 1. epizoda CZ Dabing",
+        "video_id": 29078533
+      },
+      {
+        "episode_id": 188539,
+        "display_name": "Na parket! S03E12 - 12. epizoda CZ Dabing",
+        "video_id": 29078609
+      },
+      {
+        "episode_id": 188551,
+        "display_name": "Na parket! S03E16 - 16. epizoda CZ Dabing",
+        "video_id": 29078697
+      },
+      {
+        "episode_id": 188555,
+        "display_name": "Na parket! S03E20 - 20. epizoda CZ Dabing",
+        "video_id": 29078775
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -336473,6 +336593,61 @@
         "video_id": 29077860
       },
       {
+        "episode_id": 120216,
+        "display_name": "The Bionic Woman S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29078367
+      },
+      {
+        "episode_id": 188520,
+        "display_name": "Na parket! S02E21 - 21. epizoda CZ Dabing",
+        "video_id": 29078408
+      },
+      {
+        "episode_id": 188552,
+        "display_name": "Na parket! S03E17 - 17. epizoda CZ Dabing",
+        "video_id": 29078500
+      },
+      {
+        "episode_id": 188556,
+        "display_name": "Na parket! S03E21 - 21. epizoda CZ Dabing",
+        "video_id": 29078629
+      },
+      {
+        "episode_id": 120213,
+        "display_name": "The Bionic Woman S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29078365
+      },
+      {
+        "episode_id": 120217,
+        "display_name": "The Bionic Woman S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29078412
+      },
+      {
+        "episode_id": 188497,
+        "display_name": "Na parket! S02E18 - 18. epizoda CZ Dabing",
+        "video_id": 29078454
+      },
+      {
+        "episode_id": 188533,
+        "display_name": "Na parket! S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 29078536
+      },
+      {
+        "episode_id": 188537,
+        "display_name": "Na parket! S03E11 - 11. epizoda CZ Dabing",
+        "video_id": 29078657
+      },
+      {
+        "episode_id": 188549,
+        "display_name": "Na parket! S03E14 - 14. epizoda CZ Dabing",
+        "video_id": 29078752
+      },
+      {
+        "episode_id": 69685,
+        "display_name": "Kojak S02E07 - Opatrovník CZ Dabing",
+        "video_id": 29078829
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -436946,6 +437121,71 @@
         "episode_id": 159295,
         "display_name": "Magpie Murders S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29078004
+      },
+      {
+        "episode_id": 120214,
+        "display_name": "The Bionic Woman S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29078366
+      },
+      {
+        "episode_id": 188518,
+        "display_name": "Na parket! S02E16 - 16. epizoda CZ Dabing",
+        "video_id": 29078441
+      },
+      {
+        "episode_id": 188526,
+        "display_name": "Na parket! S02E28 - 28. epizoda CZ Dabing",
+        "video_id": 29078509
+      },
+      {
+        "episode_id": 188530,
+        "display_name": "Na parket! S02E29 - 29. epizoda CZ Dabing",
+        "video_id": 29078622
+      },
+      {
+        "episode_id": 188534,
+        "display_name": "Na parket! S03E02 - 2. epizoda CZ Dabing",
+        "video_id": 29078721
+      },
+      {
+        "episode_id": 188550,
+        "display_name": "Na parket! S03E15 - 15. epizoda CZ Dabing",
+        "video_id": 29078798
+      },
+      {
+        "episode_id": 120215,
+        "display_name": "The Bionic Woman S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29078362
+      },
+      {
+        "episode_id": 188547,
+        "display_name": "Na parket! S02E17 - 17. epizoda CZ Dabing",
+        "video_id": 29078409
+      },
+      {
+        "episode_id": 188523,
+        "display_name": "Na parket! S02E20 - 20. epizoda CZ Dabing",
+        "video_id": 29078463
+      },
+      {
+        "episode_id": 188531,
+        "display_name": "Na parket! S03E01 - 1. epizoda CZ Dabing",
+        "video_id": 29078533
+      },
+      {
+        "episode_id": 188539,
+        "display_name": "Na parket! S03E12 - 12. epizoda CZ Dabing",
+        "video_id": 29078609
+      },
+      {
+        "episode_id": 188551,
+        "display_name": "Na parket! S03E16 - 16. epizoda CZ Dabing",
+        "video_id": 29078697
+      },
+      {
+        "episode_id": 188555,
+        "display_name": "Na parket! S03E20 - 20. epizoda CZ Dabing",
+        "video_id": 29078775
       }
     ],
     "prepared_not_upload_ready": [
@@ -438107,7 +438347,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
