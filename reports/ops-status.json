@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 141659,
     "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 50182,
+    "uploaded_episodes": 50184,
     "prepared_source_episodes": 57619,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 46,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55585,
     "whisper_review_pending_sources": 43301,
     "subtitle_followup_sources": 31336,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T17:32:34Z",
+      "databaseId": 33981284328,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T17:28:03Z",
+      "databaseId": 33981047307,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T17:27:10Z",
       "databaseId": 33981002018,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +131,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T17:12:02Z",
       "databaseId": 33980205860,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T17:07:59Z",
-      "databaseId": 33979990132,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T17:07:57Z",
-      "databaseId": 33979988566,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -121921,6 +121921,11 @@
         "video_id": 29138944
       },
       {
+        "episode_id": 61796,
+        "display_name": "Nemocnice Hope S03E04 - Při mně stůj CZ Titulky",
+        "video_id": 29139145
+      },
+      {
         "episode_id": 46913,
         "display_name": "Strážce moře S01E09 - Špatná voda CZ Dabing",
         "video_id": 29138857
@@ -121929,6 +121934,11 @@
         "episode_id": 46921,
         "display_name": "Strážce moře S01E13 - Lepší než Marťani CZ Dabing",
         "video_id": 29138902
+      },
+      {
+        "episode_id": 46905,
+        "display_name": "Strážce moře S01E21 - Velká trpělovist CZ Dabing",
+        "video_id": 29139146
       },
       {
         "episode_id": 114182,
@@ -347813,6 +347823,11 @@
         "video_id": 29138944
       },
       {
+        "episode_id": 61796,
+        "display_name": "Nemocnice Hope S03E04 - Při mně stůj CZ Titulky",
+        "video_id": 29139145
+      },
+      {
         "episode_id": 46913,
         "display_name": "Strážce moře S01E09 - Špatná voda CZ Dabing",
         "video_id": 29138857
@@ -347821,6 +347836,11 @@
         "episode_id": 46921,
         "display_name": "Strážce moře S01E13 - Lepší než Marťani CZ Dabing",
         "video_id": 29138902
+      },
+      {
+        "episode_id": 46905,
+        "display_name": "Strážce moře S01E21 - Velká trpělovist CZ Dabing",
+        "video_id": 29139146
       },
       {
         "episode_id": 114182,
@@ -453227,8 +453247,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 6,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
