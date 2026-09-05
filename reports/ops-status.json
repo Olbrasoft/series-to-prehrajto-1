@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 142343,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 49472,
-    "prepared_source_episodes": 56214,
+    "uploaded_episodes": 49480,
+    "prepared_source_episodes": 56224,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 68,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 76,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55607,
     "whisper_review_pending_sources": 43403,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-05T01:46:32Z",
-      "databaseId": 33937160298,
+      "createdAt": "2026-09-05T01:53:49Z",
+      "databaseId": 33937519344,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T01:53:44Z",
+      "databaseId": 33937515990,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T01:53:33Z",
+      "databaseId": 33937507272,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-05T01:53:30Z",
+      "databaseId": 33937504933,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-05T01:47:41Z",
+      "databaseId": 33937216183,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T01:47:28Z",
+      "databaseId": 33937205193,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T01:47:25Z",
+      "databaseId": 33937202932,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T01:46:32Z",
+      "databaseId": 33937160298,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-05T01:45:42Z",
       "databaseId": 33937119906,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -63,7 +119,7 @@
       "createdAt": "2026-09-05T01:44:13Z",
       "databaseId": 33937045863,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -91,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T01:42:10Z",
       "databaseId": 33936947398,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-05T01:39:15Z",
-      "databaseId": 33936807491,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T01:37:38Z",
-      "databaseId": 33936729098,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T01:29:24Z",
-      "databaseId": 33936311943,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T01:28:26Z",
-      "databaseId": 33936265550,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-05T01:28:23Z",
-      "databaseId": 33936262863,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T01:28:04Z",
-      "databaseId": 33936246483,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T01:28:01Z",
-      "databaseId": 33936243140,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -120146,6 +120146,21 @@
         "video_id": 29115986
       },
       {
+        "episode_id": 152468,
+        "display_name": "Tuca & Bertie S01E08 - Nový pták CZ Titulky",
+        "video_id": 29116023
+      },
+      {
+        "episode_id": 17716,
+        "display_name": "Motýlek S01E04 - Pchohang CZ Dabing",
+        "video_id": 29116074
+      },
+      {
+        "episode_id": 107753,
+        "display_name": "Na věky věků S01E05 - Pěšáci CZ Dabing",
+        "video_id": 29116005
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -222624,6 +222639,31 @@
         "episode_id": 83814,
         "display_name": "Rozvod S02E04 - 4. epizoda CZ Dabing",
         "video_id": 29115991
+      },
+      {
+        "episode_id": 83818,
+        "display_name": "Rozvod S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 29116024
+      },
+      {
+        "episode_id": 70354,
+        "display_name": "Poražení S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29116071
+      },
+      {
+        "episode_id": 157098,
+        "display_name": "Crashing S01E01 - Artie Lange CZ Dabing",
+        "video_id": 29116116
+      },
+      {
+        "episode_id": 107755,
+        "display_name": "Na věky věků S01E07 - Dáma CZ Dabing",
+        "video_id": 29115994
+      },
+      {
+        "episode_id": 35823,
+        "display_name": "Vladimir S01E04 - Utržená ze řetězu CZ Titulky",
+        "video_id": 29116104
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -342488,6 +342528,21 @@
         "video_id": 29115986
       },
       {
+        "episode_id": 152468,
+        "display_name": "Tuca & Bertie S01E08 - Nový pták CZ Titulky",
+        "video_id": 29116023
+      },
+      {
+        "episode_id": 17716,
+        "display_name": "Motýlek S01E04 - Pchohang CZ Dabing",
+        "video_id": 29116074
+      },
+      {
+        "episode_id": 107753,
+        "display_name": "Na věky věků S01E05 - Pěšáci CZ Dabing",
+        "video_id": 29116005
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -444966,6 +445021,31 @@
         "episode_id": 83814,
         "display_name": "Rozvod S02E04 - 4. epizoda CZ Dabing",
         "video_id": 29115991
+      },
+      {
+        "episode_id": 83818,
+        "display_name": "Rozvod S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 29116024
+      },
+      {
+        "episode_id": 70354,
+        "display_name": "Poražení S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29116071
+      },
+      {
+        "episode_id": 157098,
+        "display_name": "Crashing S01E01 - Artie Lange CZ Dabing",
+        "video_id": 29116116
+      },
+      {
+        "episode_id": 107755,
+        "display_name": "Na věky věků S01E07 - Dáma CZ Dabing",
+        "video_id": 29115994
+      },
+      {
+        "episode_id": 35823,
+        "display_name": "Vladimir S01E04 - Utržená ze řetězu CZ Titulky",
+        "video_id": 29116104
       }
     ],
     "prepared_not_upload_ready": [
@@ -446127,8 +446207,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 8,
+    "disabled": 36,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
