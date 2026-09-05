@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 141917,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 49935,
+    "uploaded_episodes": 49936,
     "prepared_source_episodes": 57034,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 77,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55593,
     "whisper_review_pending_sources": 43338,
     "subtitle_followup_sources": 31223,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T10:45:55Z",
+      "databaseId": 33961527154,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T10:45:32Z",
+      "databaseId": 33961508309,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T10:45:09Z",
+      "databaseId": 33961492006,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T10:45:07Z",
+      "databaseId": 33961490040,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T10:44:14Z",
       "databaseId": 33961450968,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T10:36:26Z",
       "databaseId": 33961116111,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T10:33:24Z",
-      "databaseId": 33960977138,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T10:32:16Z",
-      "databaseId": 33960925547,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T10:28:14Z",
-      "databaseId": 33960743428,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T10:27:38Z",
-      "databaseId": 33960716592,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -224931,6 +224931,11 @@
         "video_id": 29129913
       },
       {
+        "episode_id": 76434,
+        "display_name": "Stav ohrožení S01E10 - 10. Nalezeni CZ Titulky",
+        "video_id": 29129991
+      },
+      {
         "episode_id": 129595,
         "display_name": "Strašidelný Hotel S01E01 - Vítejte! CZ Dabing",
         "video_id": 29129682
@@ -449588,6 +449593,11 @@
         "video_id": 29129913
       },
       {
+        "episode_id": 76434,
+        "display_name": "Stav ohrožení S01E10 - 10. Nalezeni CZ Titulky",
+        "video_id": 29129991
+      },
+      {
         "episode_id": 129595,
         "display_name": "Strašidelný Hotel S01E01 - Vítejte! CZ Dabing",
         "video_id": 29129682
@@ -450757,8 +450767,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 17,
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
