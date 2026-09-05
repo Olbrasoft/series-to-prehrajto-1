@@ -2,36 +2,52 @@
   "counts": {
     "backlog_episodes": 141659,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50164,
-    "prepared_source_episodes": 57650,
+    "uploaded_episodes": 50166,
+    "prepared_source_episodes": 57648,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 89,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 109,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55586,
-    "whisper_review_pending_sources": 43302,
+    "whisper_review_sources": 55581,
+    "whisper_review_pending_sources": 43277,
     "subtitle_followup_sources": 31326,
     "subtitle_followup_pending_sources": 31326
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-05T16:13:13Z",
-      "databaseId": 33977177136,
+      "createdAt": "2026-09-05T16:17:30Z",
+      "databaseId": 33977399891,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T16:14:53Z",
+      "databaseId": 33977263963,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T16:13:13Z",
+      "databaseId": 33977177136,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T16:12:53Z",
       "databaseId": 33977161147,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -123,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T15:57:20Z",
       "databaseId": 33976357570,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T15:53:27Z",
-      "databaseId": 33976167825,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T15:52:39Z",
-      "databaseId": 33976128085,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -226056,6 +226056,11 @@
         "video_id": 29137534
       },
       {
+        "episode_id": 137438,
+        "display_name": "Ninja Kamui S01E01 - Díl 1 CZ Titulky",
+        "video_id": 29137719
+      },
+      {
         "episode_id": 46919,
         "display_name": "Strážce moře S01E01 - Být či nebýt CZ Titulky",
         "video_id": 29137185
@@ -226084,6 +226089,11 @@
         "episode_id": 46935,
         "display_name": "Strážce moře S02E10 - Zvláštní zásylka CZ Dabing",
         "video_id": 29137592
+      },
+      {
+        "episode_id": 46899,
+        "display_name": "Strážce moře S02E11 - V pasti CZ Titulky",
+        "video_id": 29137638
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -451858,6 +451868,11 @@
         "video_id": 29137534
       },
       {
+        "episode_id": 137438,
+        "display_name": "Ninja Kamui S01E01 - Díl 1 CZ Titulky",
+        "video_id": 29137719
+      },
+      {
         "episode_id": 46919,
         "display_name": "Strážce moře S01E01 - Být či nebýt CZ Titulky",
         "video_id": 29137185
@@ -451886,6 +451901,11 @@
         "episode_id": 46935,
         "display_name": "Strážce moře S02E10 - Zvláštní zásylka CZ Dabing",
         "video_id": 29137592
+      },
+      {
+        "episode_id": 46899,
+        "display_name": "Strážce moře S02E11 - V pasti CZ Titulky",
+        "video_id": 29137638
       }
     ],
     "prepared_not_upload_ready": [
@@ -453047,15 +453067,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 59,
     "disabled": 49,
-    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3274,
-    "whisper_non_cz_needs_subtitles": 9010,
+    "whisper_confirmed_cz": 3278,
+    "whisper_non_cz_needs_subtitles": 9026,
     "whisper_failed": 191,
-    "needs_whisper": 43111
+    "needs_whisper": 43086
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31326
