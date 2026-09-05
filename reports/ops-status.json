@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 141762,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50073,
+    "uploaded_episodes": 50075,
     "prepared_source_episodes": 57333,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 54,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55591,
     "whisper_review_pending_sources": 43326,
     "subtitle_followup_sources": 31281,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-05T13:32:21Z",
-      "databaseId": 33969182438,
+      "createdAt": "2026-09-05T13:35:23Z",
+      "databaseId": 33969336158,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T13:35:20Z",
+      "databaseId": 33969333932,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T13:33:14Z",
+      "databaseId": 33969228893,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T13:33:08Z",
+      "databaseId": 33969222806,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T13:33:08Z",
+      "databaseId": 33969222132,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T13:33:05Z",
+      "databaseId": 33969219495,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T13:32:21Z",
+      "databaseId": 33969182438,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T13:32:16Z",
       "databaseId": 33969178097,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-05T13:25:03Z",
       "databaseId": 33968834376,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T13:24:03Z",
       "databaseId": 33968787415,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T13:13:41Z",
-      "databaseId": 33968282659,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T13:13:33Z",
-      "databaseId": 33968276627,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T13:13:31Z",
-      "databaseId": 33968274620,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T13:13:17Z",
-      "databaseId": 33968262624,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T13:12:39Z",
-      "databaseId": 33968233805,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T13:11:34Z",
-      "databaseId": 33968181775,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -121646,6 +121646,11 @@
         "video_id": 29133728
       },
       {
+        "episode_id": 32845,
+        "display_name": "Signál S01E03 - Černá skříňka CZ Dabing",
+        "video_id": 29133857
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -225629,6 +225634,11 @@
         "episode_id": 127515,
         "display_name": "Přízeň krále S01E10 - 10. epizoda CZ Titulky",
         "video_id": 29133829
+      },
+      {
+        "episode_id": 127519,
+        "display_name": "Přízeň krále S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29133952
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -346993,6 +347003,11 @@
         "video_id": 29133728
       },
       {
+        "episode_id": 32845,
+        "display_name": "Signál S01E03 - Černá skříňka CZ Dabing",
+        "video_id": 29133857
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -450976,6 +450991,11 @@
         "episode_id": 127515,
         "display_name": "Přízeň krále S01E10 - 10. epizoda CZ Titulky",
         "video_id": 29133829
+      },
+      {
+        "episode_id": 127519,
+        "display_name": "Přízeň krále S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29133952
       }
     ],
     "prepared_not_upload_ready": [
@@ -452138,7 +452158,6 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
-    "disabled": 14,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
