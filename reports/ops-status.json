@@ -2,28 +2,68 @@
   "counts": {
     "backlog_episodes": 142211,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 49661,
-    "prepared_source_episodes": 56448,
+    "uploaded_episodes": 49662,
+    "prepared_source_episodes": 56446,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 165,
+    "language_whisper_attempted_sources": 94,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55618,
-    "whisper_review_pending_sources": 43465,
-    "subtitle_followup_sources": 31095,
-    "subtitle_followup_pending_sources": 31095
+    "whisper_review_sources": 55611,
+    "whisper_review_pending_sources": 43431,
+    "subtitle_followup_sources": 31111,
+    "subtitle_followup_pending_sources": 31111
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T05:15:41Z",
+      "databaseId": 33946737861,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T05:14:51Z",
+      "databaseId": 33946697693,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T05:13:43Z",
+      "databaseId": 33946647625,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T05:13:39Z",
+      "databaseId": 33946645280,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T05:13:37Z",
+      "databaseId": 33946643494,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T05:12:50Z",
       "databaseId": 33946609092,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T04:53:31Z",
-      "databaseId": 33945764728,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T04:53:28Z",
-      "databaseId": 33945762380,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T04:52:56Z",
-      "databaseId": 33945738853,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T04:52:52Z",
-      "databaseId": 33945736474,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T04:52:43Z",
-      "databaseId": 33945730606,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -120614,6 +120614,11 @@
         "episode_id": 77137,
         "display_name": "FBI: International S02E01 - Úleva CZ Titulky",
         "video_id": 29120933
+      },
+      {
+        "episode_id": 77157,
+        "display_name": "FBI: International S02E07 - Lhář CZ Dabing",
+        "video_id": 29121060
       },
       {
         "episode_id": 114182,
@@ -343903,6 +343908,11 @@
         "video_id": 29120933
       },
       {
+        "episode_id": 77157,
+        "display_name": "FBI: International S02E07 - Lhář CZ Dabing",
+        "video_id": 29121060
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -447386,14 +447396,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 107113,
-        "source_id": -43036172831505412,
-        "series_title": "Břemeno pravdy",
-        "episode_code": "S01E02",
-        "source_title": "Břemeno pravdy - S1E2 The Ties That Bind EN",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -447559,6 +447561,14 @@
         "series_title": "Bull",
         "episode_code": "S02E01",
         "source_title": "Bull - S2E1 School for Scandal EN",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 127655,
+        "source_id": -6739918876335886,
+        "series_title": "Bull",
+        "episode_code": "S02E03",
+        "source_title": "Bull - S2E3 A Business Of Favors EN",
         "status": "whisper_failed"
       }
     ],
@@ -448017,16 +448027,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 93,
+    "disabled": 71,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3239,
-    "whisper_non_cz_needs_subtitles": 8914,
+    "whisper_confirmed_cz": 3235,
+    "whisper_non_cz_needs_subtitles": 8945,
     "whisper_failed": 207,
-    "needs_whisper": 43258
+    "needs_whisper": 43224
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 31095
+    "needs_subtitle_setup_after_prehrajto_processing": 31111
   }
 }
