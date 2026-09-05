@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 141659,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50132,
-    "prepared_source_episodes": 57596,
+    "uploaded_episodes": 50133,
+    "prepared_source_episodes": 57601,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 28,
+    "language_audited_sources": 37,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55586,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-05T15:35:12Z",
-      "databaseId": 33975255663,
+      "createdAt": "2026-09-05T15:36:14Z",
+      "databaseId": 33975309959,
       "headBranch": "main",
-      "status": "queued",
-      "workflowName": "sync"
+      "status": "pending",
+      "workflowName": "audit-language"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T15:35:54Z",
+      "databaseId": 33975290449,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T15:35:31Z",
+      "databaseId": 33975271114,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T15:35:28Z",
+      "databaseId": 33975268483,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T15:35:15Z",
+      "databaseId": 33975258535,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T15:35:12Z",
+      "databaseId": 33975255663,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T15:34:38Z",
       "databaseId": 33975222716,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +79,7 @@
       "createdAt": "2026-09-05T15:34:34Z",
       "databaseId": 33975219740,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-05T15:24:56Z",
       "databaseId": 33974726303,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T15:21:04Z",
-      "databaseId": 33974529303,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-05T15:19:11Z",
-      "databaseId": 33974432887,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-05T15:19:01Z",
-      "databaseId": 33974424064,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T15:18:48Z",
-      "databaseId": 33974413379,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T15:15:53Z",
-      "databaseId": 33974263883,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -225924,6 +225924,11 @@
         "episode_id": 87639,
         "display_name": "Agentka S01E02 - Zpátky z Dubaje CZ Dabing",
         "video_id": 29136636
+      },
+      {
+        "episode_id": 87643,
+        "display_name": "Agentka S01E06 - Jak že se to jmenuješ? CZ Dabing",
+        "video_id": 29136729
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -451566,6 +451571,11 @@
         "episode_id": 87639,
         "display_name": "Agentka S01E02 - Zpátky z Dubaje CZ Dabing",
         "video_id": 29136636
+      },
+      {
+        "episode_id": 87643,
+        "display_name": "Agentka S01E06 - Jak že se to jmenuješ? CZ Dabing",
+        "video_id": 29136729
       }
     ],
     "prepared_not_upload_ready": [
@@ -452727,7 +452737,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 8,
+    "disabled": 17,
     "ok": 19,
     "resolve_failed": 1
   },
