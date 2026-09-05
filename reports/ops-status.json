@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 142211,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 49652,
-    "prepared_source_episodes": 56437,
+    "uploaded_episodes": 49655,
+    "prepared_source_episodes": 56452,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 44,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55621,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 31095
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T05:04:45Z",
+      "databaseId": 33946250633,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T05:01:57Z",
+      "databaseId": 33946123383,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T05:01:53Z",
+      "databaseId": 33946120312,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-05T05:00:50Z",
@@ -35,11 +59,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T05:00:17Z",
       "databaseId": 33946044522,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T04:44:14Z",
-      "databaseId": 33945362184,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T04:44:02Z",
-      "databaseId": 33945353061,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T04:43:46Z",
-      "databaseId": 33945341726,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -120571,6 +120571,11 @@
         "video_id": 29120568
       },
       {
+        "episode_id": 149032,
+        "display_name": "Kořeny  S01E03 - Part 3 CZ Titulky",
+        "video_id": 29120654
+      },
+      {
         "episode_id": 8173,
         "display_name": "Přeživší S01E02 - 2. díl CZ Titulky",
         "video_id": 29120092
@@ -223501,6 +223506,11 @@
         "video_id": 29120616
       },
       {
+        "episode_id": 159258,
+        "display_name": "Her Private Life S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29120757
+      },
+      {
         "episode_id": 77111,
         "display_name": "FBI: International S01E07 - Jako chytit kouř CZ Titulky",
         "video_id": 29120089
@@ -223524,6 +223534,11 @@
         "episode_id": 77179,
         "display_name": "FBI: International S02E03 - Peníze jsou bezvýznamné CZ Titulky",
         "video_id": 29120588
+      },
+      {
+        "episode_id": 77155,
+        "display_name": "FBI: International S02E04 - Měděné hrnce a dýky CZ Dabing",
+        "video_id": 29120732
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -343813,6 +343828,11 @@
         "video_id": 29120568
       },
       {
+        "episode_id": 149032,
+        "display_name": "Kořeny  S01E03 - Part 3 CZ Titulky",
+        "video_id": 29120654
+      },
+      {
         "episode_id": 8173,
         "display_name": "Přeživší S01E02 - 2. díl CZ Titulky",
         "video_id": 29120092
@@ -446743,6 +446763,11 @@
         "video_id": 29120616
       },
       {
+        "episode_id": 159258,
+        "display_name": "Her Private Life S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29120757
+      },
+      {
         "episode_id": 77111,
         "display_name": "FBI: International S01E07 - Jako chytit kouř CZ Titulky",
         "video_id": 29120089
@@ -446766,6 +446791,11 @@
         "episode_id": 77179,
         "display_name": "FBI: International S02E03 - Peníze jsou bezvýznamné CZ Titulky",
         "video_id": 29120588
+      },
+      {
+        "episode_id": 77155,
+        "display_name": "FBI: International S02E04 - Měděné hrnce a dýky CZ Dabing",
+        "video_id": 29120732
       }
     ],
     "prepared_not_upload_ready": [
@@ -447927,6 +447957,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 4,
     "ok": 39,
     "resolve_failed": 1
   },
