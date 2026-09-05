@@ -2,28 +2,60 @@
   "counts": {
     "backlog_episodes": 142343,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 49437,
-    "prepared_source_episodes": 56124,
+    "uploaded_episodes": 49438,
+    "prepared_source_episodes": 56144,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 70,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55603,
-    "whisper_review_pending_sources": 43378,
+    "whisper_review_sources": 55607,
+    "whisper_review_pending_sources": 43402,
     "subtitle_followup_sources": 31033,
     "subtitle_followup_pending_sources": 31033
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T01:04:20Z",
+      "databaseId": 33935022858,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T01:03:48Z",
+      "databaseId": 33934994006,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T01:03:27Z",
+      "databaseId": 33934975358,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T01:03:16Z",
+      "databaseId": 33934964537,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T01:02:20Z",
       "databaseId": 33934912308,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T00:25:21Z",
-      "databaseId": 33932920227,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T00:24:35Z",
-      "databaseId": 33932878246,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T00:24:31Z",
-      "databaseId": 33932874074,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T00:24:30Z",
-      "databaseId": 33932872339,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -120014,6 +120014,11 @@
         "episode_id": 77156,
         "display_name": "FBI: International S02E06 - Říkej tomu anarchie CZ Titulky",
         "video_id": 29114872
+      },
+      {
+        "episode_id": 77124,
+        "display_name": "FBI: International S02E15 - Důvěra CZ Dabing",
+        "video_id": 29114980
       },
       {
         "episode_id": 142577,
@@ -342183,6 +342188,11 @@
         "video_id": 29114872
       },
       {
+        "episode_id": 77124,
+        "display_name": "FBI: International S02E15 - Důvěra CZ Dabing",
+        "video_id": 29114980
+      },
+      {
         "episode_id": 142577,
         "display_name": "Lockerbie S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29114094
@@ -444922,6 +444932,30 @@
     ],
     "whisper_review_pending": [
       {
+        "episode_id": 151768,
+        "source_id": -40270997155046267,
+        "series_title": "11. září: Ten den v Americe",
+        "episode_code": "S01E02",
+        "source_title": "11. září Ten den v Americe-S01E02-Jižní věž",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 151770,
+        "source_id": -6789172195920075,
+        "series_title": "11. září: Ten den v Americe",
+        "episode_code": "S01E04",
+        "source_title": "11. září Ten den v Americe-S01E04-Oblak",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 151772,
+        "source_id": -64061473071974874,
+        "series_title": "11. září: Ten den v Americe",
+        "episode_code": "S01E06",
+        "source_title": "11. září Ten den v Americe-S01E06-Je po všem",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 132181,
         "source_id": -16186527404081437,
         "series_title": "Abysses",
@@ -445000,6 +445034,14 @@
         "episode_code": "S14E06",
         "source_title": "+ Bobovy Burgery S14E06",
         "status": "whisper_failed"
+      },
+      {
+        "episode_id": 107113,
+        "source_id": -43036172831505412,
+        "series_title": "Břemeno pravdy",
+        "episode_code": "S01E02",
+        "source_title": "Břemeno pravdy - S1E2 The Ties That Bind EN",
+        "status": "needs_whisper"
       },
       {
         "episode_id": 24693,
@@ -445287,38 +445329,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S07E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S07E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56256,
-        "source_id": -50323602737151014,
-        "series_title": "Chirurgové",
-        "episode_code": "S07E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S07E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56257,
-        "source_id": -57235569892845375,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E01",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E01",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56258,
-        "source_id": -55733822280244712,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E02",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E02",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56259,
-        "source_id": -62170039906391954,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E03",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E03",
         "status": "whisper_failed"
       }
     ],
@@ -445777,14 +445787,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 30,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_non_cz_needs_subtitles": 8973,
+    "needs_whisper": 43195,
+    "whisper_non_cz_needs_subtitles": 8953,
     "whisper_confirmed_cz": 3252,
-    "whisper_failed": 207,
-    "needs_whisper": 43171
+    "whisper_failed": 207
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31033
