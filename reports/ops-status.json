@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 142058,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 49725,
+    "uploaded_episodes": 49726,
     "prepared_source_episodes": 56602,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 30,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55622,
     "whisper_review_pending_sources": 43488,
     "subtitle_followup_sources": 31116,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-05T06:38:26Z",
+      "databaseId": 33950367791,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T06:38:24Z",
+      "databaseId": 33950366414,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-05T06:38:18Z",
+      "databaseId": 33950362771,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T06:37:34Z",
+      "databaseId": 33950329048,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-05T06:36:40Z",
       "databaseId": 33950289254,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +91,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T06:29:36Z",
       "databaseId": 33949958112,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -95,7 +127,7 @@
       "createdAt": "2026-09-05T06:21:45Z",
       "databaseId": 33949602231,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T05:58:29Z",
-      "databaseId": 33948567931,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T05:57:58Z",
-      "databaseId": 33948547681,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T05:57:46Z",
-      "databaseId": 33948540461,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T05:57:33Z",
-      "databaseId": 33948532577,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -120734,6 +120734,11 @@
         "episode_id": 129596,
         "display_name": "Strašidelný Hotel S01E02 - Nevyřízené účty CZ Dabing",
         "video_id": 29123274
+      },
+      {
+        "episode_id": 129600,
+        "display_name": "Strašidelný Hotel S01E06 - Lovci duchů CZ Dabing",
+        "video_id": 29123350
       },
       {
         "episode_id": 77181,
@@ -344343,6 +344348,11 @@
         "video_id": 29123274
       },
       {
+        "episode_id": 129600,
+        "display_name": "Strašidelný Hotel S01E06 - Lovci duchů CZ Dabing",
+        "video_id": 29123350
+      },
+      {
         "episode_id": 77181,
         "display_name": "FBI: International S04E20 - 20. epizoda CZ Dabing",
         "video_id": 29122360
@@ -448657,8 +448667,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 10,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
