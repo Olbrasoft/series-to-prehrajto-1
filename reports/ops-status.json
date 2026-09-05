@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 142343,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 49482,
+    "uploaded_episodes": 49484,
     "prepared_source_episodes": 56224,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 76,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55607,
     "whisper_review_pending_sources": 43403,
     "subtitle_followup_sources": 31037,
@@ -19,11 +19,35 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-05T01:56:01Z",
+      "databaseId": 33937623852,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-05T01:55:48Z",
+      "databaseId": 33937614481,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-05T01:55:45Z",
+      "databaseId": 33937612091,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-05T01:54:53Z",
       "databaseId": 33937571590,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T01:53:49Z",
       "databaseId": 33937519344,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-05T01:47:28Z",
       "databaseId": 33937205193,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-05T01:44:13Z",
       "databaseId": 33937045863,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-05T01:42:12Z",
-      "databaseId": 33936948960,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T01:42:10Z",
-      "databaseId": 33936947398,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T01:41:18Z",
-      "databaseId": 33936906824,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -120166,6 +120166,11 @@
         "video_id": 29116140
       },
       {
+        "episode_id": 130081,
+        "display_name": "BOCCHI THE ROCK! S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29116187
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -222674,6 +222679,11 @@
         "episode_id": 35823,
         "display_name": "Vladimir S01E04 - Utržená ze řetězu CZ Titulky",
         "video_id": 29116104
+      },
+      {
+        "episode_id": 35827,
+        "display_name": "Vladimir S01E08 - Proti interpretaci CZ Dabing",
+        "video_id": 29116166
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -342558,6 +342568,11 @@
         "video_id": 29116140
       },
       {
+        "episode_id": 130081,
+        "display_name": "BOCCHI THE ROCK! S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29116187
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -445066,6 +445081,11 @@
         "episode_id": 35823,
         "display_name": "Vladimir S01E04 - Utržená ze řetězu CZ Titulky",
         "video_id": 29116104
+      },
+      {
+        "episode_id": 35827,
+        "display_name": "Vladimir S01E08 - Proti interpretaci CZ Dabing",
+        "video_id": 29116166
       }
     ],
     "prepared_not_upload_ready": [
@@ -446227,8 +446247,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 36,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
