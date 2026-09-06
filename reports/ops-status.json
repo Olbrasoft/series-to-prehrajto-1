@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 140677,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51115,
-    "prepared_source_episodes": 59314,
+    "uploaded_episodes": 51116,
+    "prepared_source_episodes": 59330,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,58 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55507,
-    "whisper_review_pending_sources": 42909,
+    "whisper_review_sources": 55511,
+    "whisper_review_pending_sources": 42933,
     "subtitle_followup_sources": 31733,
     "subtitle_followup_pending_sources": 31733
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T16:33:57Z",
+      "databaseId": 34045854636,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T16:33:53Z",
+      "databaseId": 34045851096,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-06T16:33:43Z",
+      "databaseId": 34045842333,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T16:33:25Z",
+      "databaseId": 34045826404,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T16:33:14Z",
+      "databaseId": 34045815928,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T16:32:12Z",
       "databaseId": 34045760872,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -59,11 +99,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T16:28:21Z",
       "databaseId": 34045546565,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -134,46 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-06T16:17:20Z",
       "databaseId": 34044956638,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T16:15:35Z",
-      "databaseId": 34044866048,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:14:29Z",
-      "databaseId": 34044805602,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:14:26Z",
-      "databaseId": 34044802903,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:14:23Z",
-      "databaseId": 34044800482,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:13:29Z",
-      "databaseId": 34044751701,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -230836,6 +230836,11 @@
         "video_id": 29165382
       },
       {
+        "episode_id": 165646,
+        "display_name": "Letecké katastrofy S19E03 - Hraniční řešení CZ Dabing",
+        "video_id": 29166317
+      },
+      {
         "episode_id": 129731,
         "display_name": "Drápy S03E10 - 10. epizoda CZ Titulky",
         "video_id": 29166310
@@ -461393,6 +461398,11 @@
         "video_id": 29165382
       },
       {
+        "episode_id": 165646,
+        "display_name": "Letecké katastrofy S19E03 - Hraniční řešení CZ Dabing",
+        "video_id": 29166317
+      },
+      {
         "episode_id": 129731,
         "display_name": "Drápy S03E10 - 10. epizoda CZ Titulky",
         "video_id": 29166310
@@ -462561,10 +462571,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3395,
-    "whisper_non_cz_needs_subtitles": 9203,
+    "whisper_confirmed_cz": 3378,
+    "whisper_non_cz_needs_subtitles": 9200,
     "whisper_failed": 190,
-    "needs_whisper": 42719
+    "needs_whisper": 42743
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31733
