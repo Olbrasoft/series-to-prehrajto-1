@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 141530,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50410,
-    "prepared_source_episodes": 58051,
+    "uploaded_episodes": 50426,
+    "prepared_source_episodes": 58075,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 72,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 170,
+    "language_whisper_attempted_sources": 82,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55576,
     "whisper_review_pending_sources": 43259,
@@ -20,18 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T00:38:03Z",
-      "databaseId": 34001799986,
+      "createdAt": "2026-09-06T00:52:57Z",
+      "databaseId": 34002441487,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T00:51:58Z",
+      "databaseId": 34002399766,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T00:50:50Z",
+      "databaseId": 34002353091,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T00:43:48Z",
+      "databaseId": 34002049172,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T00:39:04Z",
+      "databaseId": 34001843518,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T00:39:00Z",
+      "databaseId": 34001841031,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T00:38:57Z",
+      "databaseId": 34001839239,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-06T00:38:47Z",
+      "databaseId": 34001831640,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T00:38:03Z",
+      "databaseId": 34001799986,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T00:37:59Z",
       "databaseId": 34001797544,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -79,7 +143,7 @@
       "createdAt": "2026-09-06T00:25:55Z",
       "databaseId": 34001261262,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T00:00:28Z",
-      "databaseId": 34000140890,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T23:59:34Z",
-      "databaseId": 34000098511,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T23:56:20Z",
-      "databaseId": 33999968088,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T23:56:17Z",
-      "databaseId": 33999965992,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T23:55:25Z",
-      "databaseId": 33999931677,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T23:55:11Z",
-      "databaseId": 33999922722,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-05T23:55:09Z",
-      "databaseId": 33999921564,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-05T23:55:05Z",
-      "databaseId": 33999918148,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -122471,6 +122471,26 @@
         "video_id": 29145127
       },
       {
+        "episode_id": 127604,
+        "display_name": "The Worst of Evil S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29145191
+      },
+      {
+        "episode_id": 127608,
+        "display_name": "The Worst of Evil S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29145281
+      },
+      {
+        "episode_id": 127612,
+        "display_name": "The Worst of Evil S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29145351
+      },
+      {
+        "episode_id": 64064,
+        "display_name": "Ty, já a apokalypsa S01E03 - Zbývá 32 dní CZ Titulky",
+        "video_id": 29145415
+      },
+      {
         "episode_id": 46889,
         "display_name": "Strážce moře S03E05 - Pořadí velení CZ Dabing",
         "video_id": 29145043
@@ -122489,6 +122509,21 @@
         "episode_id": 166865,
         "display_name": "Bratrství S01E04 - Matouš 5:6 CZ Titulky",
         "video_id": 29145187
+      },
+      {
+        "episode_id": 166869,
+        "display_name": "Bratrství S01E08 - Jób 31:5-6 CZ Titulky",
+        "video_id": 29145266
+      },
+      {
+        "episode_id": 135517,
+        "display_name": "The Truth About the Harry Quebert Affair S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29145318
+      },
+      {
+        "episode_id": 135509,
+        "display_name": "The Truth About the Harry Quebert Affair S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29145412
       },
       {
         "episode_id": 114182,
@@ -227296,6 +227331,31 @@
         "video_id": 29145175
       },
       {
+        "episode_id": 35390,
+        "display_name": "Alexa a Katie S01E09 - Tropy v létě CZ Dabing",
+        "video_id": 29145233
+      },
+      {
+        "episode_id": 35394,
+        "display_name": "Alexa a Katie S01E12 - Zimní bál, část první CZ Dabing",
+        "video_id": 29145294
+      },
+      {
+        "episode_id": 115194,
+        "display_name": "Alexa a Katie S04E03 - Holka, která divoce křičela CZ Titulky",
+        "video_id": 29145340
+      },
+      {
+        "episode_id": 115198,
+        "display_name": "Alexa a Katie S04E07 - Poslední tanec CZ Titulky",
+        "video_id": 29145376
+      },
+      {
+        "episode_id": 106726,
+        "display_name": "Origin S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29145413
+      },
+      {
         "episode_id": 61771,
         "display_name": "Nemocnice Hope S01E10 - Nový začátek CZ Titulky",
         "video_id": 29145054
@@ -227314,6 +227374,26 @@
         "episode_id": 61807,
         "display_name": "Nemocnice Hope S03E15 - Na konci dne CZ Dabing",
         "video_id": 29145193
+      },
+      {
+        "episode_id": 192079,
+        "display_name": "Carmen Sandiego S03E04 - 4. epizoda CZ Titulky",
+        "video_id": 29145241
+      },
+      {
+        "episode_id": 192083,
+        "display_name": "Carmen Sandiego S04E01 - 1. epizoda CZ Dabing",
+        "video_id": 29145280
+      },
+      {
+        "episode_id": 192087,
+        "display_name": "Carmen Sandiego S04E05 - 5. epizoda CZ Dabing",
+        "video_id": 29145316
+      },
+      {
+        "episode_id": 179931,
+        "display_name": "Dark Tourist S01E04 - Kazachstán a Tirgisttán CZ Titulky",
+        "video_id": 29145354
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -349503,6 +349583,26 @@
         "video_id": 29145127
       },
       {
+        "episode_id": 127604,
+        "display_name": "The Worst of Evil S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29145191
+      },
+      {
+        "episode_id": 127608,
+        "display_name": "The Worst of Evil S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29145281
+      },
+      {
+        "episode_id": 127612,
+        "display_name": "The Worst of Evil S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29145351
+      },
+      {
+        "episode_id": 64064,
+        "display_name": "Ty, já a apokalypsa S01E03 - Zbývá 32 dní CZ Titulky",
+        "video_id": 29145415
+      },
+      {
         "episode_id": 46889,
         "display_name": "Strážce moře S03E05 - Pořadí velení CZ Dabing",
         "video_id": 29145043
@@ -349521,6 +349621,21 @@
         "episode_id": 166865,
         "display_name": "Bratrství S01E04 - Matouš 5:6 CZ Titulky",
         "video_id": 29145187
+      },
+      {
+        "episode_id": 166869,
+        "display_name": "Bratrství S01E08 - Jób 31:5-6 CZ Titulky",
+        "video_id": 29145266
+      },
+      {
+        "episode_id": 135517,
+        "display_name": "The Truth About the Harry Quebert Affair S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29145318
+      },
+      {
+        "episode_id": 135509,
+        "display_name": "The Truth About the Harry Quebert Affair S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29145412
       },
       {
         "episode_id": 114182,
@@ -454328,6 +454443,31 @@
         "video_id": 29145175
       },
       {
+        "episode_id": 35390,
+        "display_name": "Alexa a Katie S01E09 - Tropy v létě CZ Dabing",
+        "video_id": 29145233
+      },
+      {
+        "episode_id": 35394,
+        "display_name": "Alexa a Katie S01E12 - Zimní bál, část první CZ Dabing",
+        "video_id": 29145294
+      },
+      {
+        "episode_id": 115194,
+        "display_name": "Alexa a Katie S04E03 - Holka, která divoce křičela CZ Titulky",
+        "video_id": 29145340
+      },
+      {
+        "episode_id": 115198,
+        "display_name": "Alexa a Katie S04E07 - Poslední tanec CZ Titulky",
+        "video_id": 29145376
+      },
+      {
+        "episode_id": 106726,
+        "display_name": "Origin S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29145413
+      },
+      {
         "episode_id": 61771,
         "display_name": "Nemocnice Hope S01E10 - Nový začátek CZ Titulky",
         "video_id": 29145054
@@ -454346,6 +454486,26 @@
         "episode_id": 61807,
         "display_name": "Nemocnice Hope S03E15 - Na konci dne CZ Dabing",
         "video_id": 29145193
+      },
+      {
+        "episode_id": 192079,
+        "display_name": "Carmen Sandiego S03E04 - 4. epizoda CZ Titulky",
+        "video_id": 29145241
+      },
+      {
+        "episode_id": 192083,
+        "display_name": "Carmen Sandiego S04E01 - 1. epizoda CZ Dabing",
+        "video_id": 29145280
+      },
+      {
+        "episode_id": 192087,
+        "display_name": "Carmen Sandiego S04E05 - 5. epizoda CZ Dabing",
+        "video_id": 29145316
+      },
+      {
+        "episode_id": 179931,
+        "display_name": "Dark Tourist S01E04 - Kazachstán a Tirgisttán CZ Titulky",
+        "video_id": 29145354
       }
     ],
     "prepared_not_upload_ready": [
@@ -455507,8 +455667,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 32,
-    "ok": 39,
+    "ok": 81,
+    "disabled": 88,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
