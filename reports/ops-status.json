@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 140677,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51130,
-    "prepared_source_episodes": 59399,
+    "uploaded_episodes": 51131,
+    "prepared_source_episodes": 59418,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 64,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55525,
     "whisper_review_pending_sources": 43007,
@@ -20,26 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T17:04:05Z",
-      "databaseId": 34047424812,
+      "createdAt": "2026-09-06T17:06:52Z",
+      "databaseId": 34047576350,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T17:04:05Z",
-      "databaseId": 34047424437,
+      "createdAt": "2026-09-06T17:06:48Z",
+      "databaseId": 34047573300,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-06T17:06:33Z",
+      "databaseId": 34047561840,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T17:06:31Z",
+      "databaseId": 34047559333,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T17:06:29Z",
+      "databaseId": 34047557718,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T17:05:02Z",
+      "databaseId": 34047476157,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T17:04:05Z",
+      "databaseId": 34047424812,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T17:04:05Z",
+      "databaseId": 34047424437,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T17:04:01Z",
       "databaseId": 34047421338,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T16:55:35Z",
       "databaseId": 34046987986,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T16:48:27Z",
       "databaseId": 34046622289,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:47:11Z",
-      "databaseId": 34046556070,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:46:59Z",
-      "databaseId": 34046545189,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:46:14Z",
-      "databaseId": 34046505680,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T16:46:11Z",
-      "databaseId": 34046502840,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T16:42:17Z",
-      "databaseId": 34046297734,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T16:39:17Z",
-      "databaseId": 34046140983,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -124259,6 +124259,11 @@
         "episode_id": 61964,
         "display_name": "Skuteční lidé S02E08 - 8. epizoda CZ Titulky",
         "video_id": 29166797
+      },
+      {
+        "episode_id": 120804,
+        "display_name": "Brilliant Minds S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29166866
       },
       {
         "episode_id": 203373,
@@ -354893,6 +354898,11 @@
         "video_id": 29166797
       },
       {
+        "episode_id": 120804,
+        "display_name": "Brilliant Minds S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29166866
+      },
+      {
         "episode_id": 203373,
         "display_name": "Jak Stuart nezachránil vesmír S01E05 - 5. epizoda CZ Dabing",
         "video_id": 29166465
@@ -462707,7 +462717,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
+    "disabled": 4,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
