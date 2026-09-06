@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 140677,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51098,
+    "uploaded_episodes": 51099,
     "prepared_source_episodes": 59414,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55526,
     "whisper_review_pending_sources": 43008,
     "subtitle_followup_sources": 31703,
     "subtitle_followup_pending_sources": 31703
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T15:25:14Z",
+      "databaseId": 34042246731,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T15:25:11Z",
+      "databaseId": 34042243976,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T15:23:17Z",
+      "databaseId": 34042145310,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-06T15:22:13Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T15:21:45Z",
       "databaseId": 34042062844,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,19 +91,19 @@
       "workflowName": "refresh-backlog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T15:13:21Z",
       "databaseId": 34041620824,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T15:11:47Z",
       "databaseId": 34041539757,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T15:04:50Z",
-      "databaseId": 34041173261,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T15:04:42Z",
-      "databaseId": 34041165035,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T14:59:37Z",
-      "databaseId": 34040882745,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -230754,6 +230754,11 @@
         "episode_id": 33899,
         "display_name": "Robin Hood S01E05 - Vrať se k nim CZ Dabing",
         "video_id": 29164447
+      },
+      {
+        "episode_id": 129711,
+        "display_name": "Drápy S01E10 - Lavina CZ Titulky",
+        "video_id": 29164806
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -461226,6 +461231,11 @@
         "episode_id": 33899,
         "display_name": "Robin Hood S01E05 - Vrať se k nim CZ Dabing",
         "video_id": 29164447
+      },
+      {
+        "episode_id": 129711,
+        "display_name": "Drápy S01E10 - Lavina CZ Titulky",
+        "video_id": 29164806
       }
     ],
     "prepared_not_upload_ready": [
@@ -462387,7 +462397,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
