@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 141351,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50482,
-    "prepared_source_episodes": 58171,
+    "uploaded_episodes": 50485,
+    "prepared_source_episodes": 58176,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 61,
+    "language_audited_sources": 83,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55574,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T01:54:26Z",
-      "databaseId": 34005092984,
+      "createdAt": "2026-09-06T01:56:21Z",
+      "databaseId": 34005174444,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "prepare-manifest"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T01:56:18Z",
+      "databaseId": 34005172119,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T01:56:03Z",
+      "databaseId": 34005160737,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T01:55:58Z",
+      "databaseId": 34005157668,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T01:55:19Z",
+      "databaseId": 34005132287,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T01:55:17Z",
+      "databaseId": 34005130668,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-06T01:54:26Z",
+      "databaseId": 34005092984,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T01:52:12Z",
       "databaseId": 34004997994,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,19 +147,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T01:41:19Z",
       "databaseId": 34004538473,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T01:39:32Z",
       "databaseId": 34004462524,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T01:34:09Z",
-      "databaseId": 34004235010,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T01:33:47Z",
-      "databaseId": 34004219712,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T01:33:10Z",
-      "databaseId": 34004192093,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T01:33:07Z",
-      "databaseId": 34004190129,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T01:33:05Z",
-      "databaseId": 34004188659,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T01:32:09Z",
-      "databaseId": 34004147815,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -122646,6 +122646,11 @@
         "video_id": 29146551
       },
       {
+        "episode_id": 104468,
+        "display_name": "Kung Fu S03E17 - 17. epizoda CZ Titulky",
+        "video_id": 29146629
+      },
+      {
         "episode_id": 86649,
         "display_name": "Lovci pokladů S03E02 - Vyvolený CZ Titulky",
         "video_id": 29146284
@@ -122674,6 +122679,11 @@
         "episode_id": 61777,
         "display_name": "Nemocnice Hope S02E03 - Proč ztrácet čas CZ Titulky",
         "video_id": 29146591
+      },
+      {
+        "episode_id": 61785,
+        "display_name": "Nemocnice Hope S02E11 - Všechno najednou CZ Titulky",
+        "video_id": 29146632
       },
       {
         "episode_id": 114182,
@@ -227649,6 +227659,11 @@
         "episode_id": 93966,
         "display_name": "Směr jih S01E22 - 22. epizoda CZ Dabing",
         "video_id": 29146572
+      },
+      {
+        "episode_id": 93950,
+        "display_name": "Směr jih S02E07 - 7. epizoda CZ Dabing",
+        "video_id": 29146626
       },
       {
         "episode_id": 92747,
@@ -350038,6 +350053,11 @@
         "video_id": 29146551
       },
       {
+        "episode_id": 104468,
+        "display_name": "Kung Fu S03E17 - 17. epizoda CZ Titulky",
+        "video_id": 29146629
+      },
+      {
         "episode_id": 86649,
         "display_name": "Lovci pokladů S03E02 - Vyvolený CZ Titulky",
         "video_id": 29146284
@@ -350066,6 +350086,11 @@
         "episode_id": 61777,
         "display_name": "Nemocnice Hope S02E03 - Proč ztrácet čas CZ Titulky",
         "video_id": 29146591
+      },
+      {
+        "episode_id": 61785,
+        "display_name": "Nemocnice Hope S02E11 - Všechno najednou CZ Titulky",
+        "video_id": 29146632
       },
       {
         "episode_id": 114182,
@@ -455043,6 +455068,11 @@
         "video_id": 29146572
       },
       {
+        "episode_id": 93950,
+        "display_name": "Směr jih S02E07 - 7. epizoda CZ Dabing",
+        "video_id": 29146626
+      },
+      {
         "episode_id": 92747,
         "display_name": "Flash S01E14 - 14. epizoda CZ Titulky",
         "video_id": 29146286
@@ -456227,7 +456257,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 21,
+    "disabled": 43,
     "ok": 39,
     "resolve_failed": 1
   },
