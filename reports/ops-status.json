@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 140895,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50940,
-    "prepared_source_episodes": 59004,
+    "uploaded_episodes": 50941,
+    "prepared_source_episodes": 59013,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55525,
     "whisper_review_pending_sources": 42993,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T10:42:29Z",
-      "databaseId": 34028165977,
+      "createdAt": "2026-09-06T10:44:35Z",
+      "databaseId": 34028260485,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T10:44:31Z",
+      "databaseId": 34028258007,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T10:43:26Z",
+      "databaseId": 34028208235,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T10:42:29Z",
+      "databaseId": 34028165977,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T10:42:26Z",
       "databaseId": 34028164095,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T10:34:03Z",
       "databaseId": 34027778467,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-09-06T10:26:54Z",
       "databaseId": 34027444799,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T10:26:50Z",
-      "databaseId": 34027442115,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T10:26:37Z",
-      "databaseId": 34027433397,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T10:25:46Z",
-      "databaseId": 34027393336,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -229964,6 +229964,11 @@
         "episode_id": 186287,
         "display_name": "Tajný život K.C. S02E14 - 14. epizoda CZ Dabing",
         "video_id": 29158246
+      },
+      {
+        "episode_id": 186291,
+        "display_name": "Tajný život K.C. S02E18 - 18. epizoda CZ Dabing",
+        "video_id": 29158430
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -459646,6 +459651,11 @@
         "episode_id": 186287,
         "display_name": "Tajný život K.C. S02E14 - 14. epizoda CZ Dabing",
         "video_id": 29158246
+      },
+      {
+        "episode_id": 186291,
+        "display_name": "Tajný život K.C. S02E18 - 18. epizoda CZ Dabing",
+        "video_id": 29158430
       }
     ],
     "prepared_not_upload_ready": [
@@ -459974,6 +459984,22 @@
         "episode_code": "S11E10",
         "source_title": "American Horror Story - S11E10 Requiem 1981 1987 (2) EN",
         "status": "whisper_failed"
+      },
+      {
+        "episode_id": 146648,
+        "source_id": -59039021105438611,
+        "series_title": "Bancroftová",
+        "episode_code": "S01E03",
+        "source_title": "Bancroftová.01x03",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 166016,
+        "source_id": -6300101188256466,
+        "series_title": "Bancroftová",
+        "episode_code": "S02E02",
+        "source_title": "Bancroftová - S2E2 Episode 2 EN",
+        "status": "needs_whisper"
       },
       {
         "episode_id": 49910,
@@ -460333,22 +460359,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E20",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E20",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56274,
-        "source_id": -36133747524527879,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E21",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56275,
-        "source_id": -23905561721062679,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
         "status": "whisper_failed"
       }
     ],
@@ -460807,7 +460817,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
+    "disabled": 20,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
