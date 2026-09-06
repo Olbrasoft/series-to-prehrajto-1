@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 141213,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50576,
-    "prepared_source_episodes": 58284,
+    "uploaded_episodes": 50577,
+    "prepared_source_episodes": 58300,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
@@ -12,18 +12,50 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55557,
-    "whisper_review_pending_sources": 43160,
+    "whisper_review_sources": 55574,
+    "whisper_review_pending_sources": 43257,
     "subtitle_followup_sources": 31395,
     "subtitle_followup_pending_sources": 31395
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T03:35:11Z",
+      "databaseId": 34009361337,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T03:35:07Z",
+      "databaseId": 34009357909,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T03:34:24Z",
+      "databaseId": 34009327274,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T03:34:20Z",
+      "databaseId": 34009324589,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T03:33:25Z",
       "databaseId": 34009286936,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T03:32:36Z",
       "databaseId": 34009253878,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-09-06T03:16:44Z",
       "databaseId": 34008591361,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T03:12:45Z",
-      "databaseId": 34008423522,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T03:11:50Z",
-      "databaseId": 34008385286,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T03:11:47Z",
-      "databaseId": 34008383110,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T03:11:14Z",
-      "databaseId": 34008359820,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -122884,6 +122884,11 @@
         "episode_id": 114168,
         "display_name": "Three-body S01E16 - 16. epizoda CZ Titulky",
         "video_id": 29150251
+      },
+      {
+        "episode_id": 114172,
+        "display_name": "Three-body S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 29150330
       },
       {
         "episode_id": 140721,
@@ -350748,6 +350753,11 @@
         "video_id": 29150251
       },
       {
+        "episode_id": 114172,
+        "display_name": "Three-body S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 29150330
+      },
+      {
         "episode_id": 140721,
         "display_name": "Na křídlech ctižádosti S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29149996
@@ -456392,6 +456402,22 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 157741,
+        "source_id": -23400671459171412,
+        "series_title": "Bojovnice na druhou",
+        "episode_code": "S01E01",
+        "source_title": "Bojovnice na druhou_S01E01_1. díl",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 157747,
+        "source_id": -11748874192906382,
+        "series_title": "Bojovnice na druhou",
+        "episode_code": "S01E07",
+        "source_title": "Bojovnice na druhou_S01E07_7. díl",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -456693,22 +456719,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E20",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E20",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56274,
-        "source_id": -36133747524527879,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E21",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56275,
-        "source_id": -23905561721062679,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
         "status": "whisper_failed"
       }
     ],
@@ -457171,10 +457181,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3306,
-    "whisper_non_cz_needs_subtitles": 9091,
+    "whisper_confirmed_cz": 3279,
+    "whisper_non_cz_needs_subtitles": 9038,
     "whisper_failed": 191,
-    "needs_whisper": 42969
+    "needs_whisper": 43066
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31395
