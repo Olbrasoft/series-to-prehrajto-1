@@ -2,28 +2,60 @@
   "counts": {
     "backlog_episodes": 140677,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51104,
-    "prepared_source_episodes": 59352,
+    "uploaded_episodes": 51105,
+    "prepared_source_episodes": 59230,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 75,
+    "language_audited_sources": 120,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55526,
-    "whisper_review_pending_sources": 43008,
+    "whisper_review_sources": 55525,
+    "whisper_review_pending_sources": 43007,
     "subtitle_followup_sources": 31703,
     "subtitle_followup_pending_sources": 31703
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T15:37:49Z",
+      "databaseId": 34042911490,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T15:37:15Z",
+      "databaseId": 34042882311,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T15:36:48Z",
+      "databaseId": 34042859149,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T15:36:46Z",
+      "databaseId": 34042857320,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T15:35:59Z",
       "databaseId": 34042817641,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -87,7 +119,7 @@
       "createdAt": "2026-09-06T15:27:31Z",
       "databaseId": 34042366677,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T15:21:14Z",
-      "databaseId": 34042035879,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T15:19:28Z",
-      "databaseId": 34041940578,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T15:19:28Z",
-      "databaseId": 34041939882,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T15:15:57Z",
-      "databaseId": 34041758628,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -124199,6 +124199,11 @@
         "episode_id": 143024,
         "display_name": "Dispatches from Elsewhere S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29164862
+      },
+      {
+        "episode_id": 143028,
+        "display_name": "Dispatches from Elsewhere S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29165089
       },
       {
         "episode_id": 157241,
@@ -354703,6 +354708,11 @@
         "video_id": 29164862
       },
       {
+        "episode_id": 143028,
+        "display_name": "Dispatches from Elsewhere S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29165089
+      },
+      {
         "episode_id": 157241,
         "display_name": "Jak se stát bohem na Floridě S01E08 - Oslava narozenin CZ Titulky",
         "video_id": 29164295
@@ -462447,7 +462457,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 35,
+    "disabled": 80,
     "ok": 39,
     "resolve_failed": 1
   },
@@ -462455,7 +462465,7 @@
     "whisper_confirmed_cz": 3367,
     "whisper_non_cz_needs_subtitles": 9151,
     "whisper_failed": 190,
-    "needs_whisper": 42818
+    "needs_whisper": 42817
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31703
