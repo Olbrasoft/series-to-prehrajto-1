@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 140776,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51023,
-    "prepared_source_episodes": 59182,
+    "uploaded_episodes": 51024,
+    "prepared_source_episodes": 59181,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 26,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55528,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 31674
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T13:03:32Z",
+      "databaseId": 34034936379,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T13:02:34Z",
+      "databaseId": 34034888516,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T13:02:31Z",
+      "databaseId": 34034885530,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-06T13:01:27Z",
@@ -43,11 +67,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T13:00:21Z",
       "databaseId": 34034769840,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,7 +79,7 @@
       "createdAt": "2026-09-06T13:00:17Z",
       "databaseId": 34034766118,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T12:46:34Z",
-      "databaseId": 34034108836,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T12:46:29Z",
-      "databaseId": 34034105114,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T12:46:26Z",
-      "databaseId": 34034102016,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -230379,6 +230379,11 @@
         "episode_id": 127535,
         "display_name": "Spravedlnost pro mladistvé S01E10 - 10. epizoda CZ Titulky",
         "video_id": 29161273
+      },
+      {
+        "episode_id": 71986,
+        "display_name": "Baki S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29161832
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -460476,6 +460481,11 @@
         "episode_id": 127535,
         "display_name": "Spravedlnost pro mladistvé S01E10 - 10. epizoda CZ Titulky",
         "video_id": 29161273
+      },
+      {
+        "episode_id": 71986,
+        "display_name": "Baki S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29161832
       }
     ],
     "prepared_not_upload_ready": [
@@ -461637,6 +461647,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 6,
     "ok": 19,
     "resolve_failed": 1
   },
