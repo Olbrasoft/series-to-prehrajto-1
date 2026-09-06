@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 140584,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51202,
+    "uploaded_episodes": 51203,
     "prepared_source_episodes": 59597,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 74,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55525,
     "whisper_review_pending_sources": 43007,
     "subtitle_followup_sources": 31751,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T21:36:53Z",
-      "databaseId": 34061610380,
+      "createdAt": "2026-09-06T21:38:51Z",
+      "databaseId": 34061708163,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T21:38:26Z",
+      "databaseId": 34061686609,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T21:37:20Z",
+      "databaseId": 34061632536,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T21:36:53Z",
+      "databaseId": 34061610380,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T21:35:47Z",
       "databaseId": 34061554918,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -123,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T21:25:23Z",
       "databaseId": 34061023616,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T21:22:19Z",
-      "databaseId": 34060865258,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T21:18:26Z",
-      "databaseId": 34060659859,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T21:18:12Z",
-      "databaseId": 34060648469,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -231274,6 +231274,11 @@
         "episode_id": 86459,
         "display_name": "Místo zvané domov S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29171311
+      },
+      {
+        "episode_id": 86463,
+        "display_name": "Místo zvané domov S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 29171353
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -462266,6 +462271,11 @@
         "episode_id": 86459,
         "display_name": "Místo zvané domov S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29171311
+      },
+      {
+        "episode_id": 86463,
+        "display_name": "Místo zvané domov S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 29171353
       }
     ],
     "prepared_not_upload_ready": [
@@ -463427,7 +463437,6 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 34,
     "ok": 39,
     "resolve_failed": 1
   },
