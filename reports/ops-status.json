@@ -1,16 +1,16 @@
 {
   "counts": {
-    "backlog_episodes": 140895,
-    "manifest_upload_ready_episodes": 1001,
-    "uploaded_episodes": 50993,
-    "prepared_source_episodes": 59102,
+    "backlog_episodes": 140776,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 51002,
+    "prepared_source_episodes": 59092,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 199,
-    "language_whisper_attempted_sources": 91,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55528,
     "whisper_review_pending_sources": 43010,
@@ -20,6 +20,46 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T12:30:06Z",
+      "databaseId": 34033281208,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T12:29:06Z",
+      "databaseId": 34033231162,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T12:25:45Z",
+      "databaseId": 34033066990,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T12:21:35Z",
+      "databaseId": 34032863003,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T12:19:12Z",
+      "databaseId": 34032744070,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-09-06T12:18:40Z",
       "databaseId": 34032719586,
       "headBranch": "main",
@@ -27,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T12:18:22Z",
       "databaseId": 34032705239,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,19 +99,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T12:14:42Z",
       "databaseId": 34032527902,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T12:14:39Z",
       "databaseId": 34032525802,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T12:12:33Z",
       "databaseId": 34032425245,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T12:01:20Z",
-      "databaseId": 34031881122,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T12:01:16Z",
-      "databaseId": 34031878015,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T11:55:44Z",
-      "databaseId": 34031625582,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T11:54:46Z",
-      "databaseId": 34031579930,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T11:54:25Z",
-      "databaseId": 34031564481,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -123956,9 +123956,24 @@
         "video_id": 29160775
       },
       {
+        "episode_id": 105224,
+        "display_name": "Vražda je můj život S01E02 - Zamčený pokoj CZ Dabing",
+        "video_id": 29160931
+      },
+      {
         "episode_id": 96629,
         "display_name": "Domina S01E01 - Pád CZ Titulky",
         "video_id": 29160764
+      },
+      {
+        "episode_id": 96633,
+        "display_name": "Domina S01E05 - Nákaza CZ Titulky",
+        "video_id": 29160913
+      },
+      {
+        "episode_id": 96637,
+        "display_name": "Domina S02E01 - Spiknutí CZ Titulky",
+        "video_id": 29160995
       },
       {
         "episode_id": 114182,
@@ -230229,6 +230244,36 @@
         "episode_id": 132683,
         "display_name": "Druhá světová válka v barvě S01E01 - 1. epizoda CZ Dabing",
         "video_id": 29160687
+      },
+      {
+        "episode_id": 156650,
+        "display_name": "Exit S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29160926
+      },
+      {
+        "episode_id": 127446,
+        "display_name": "Capitani S01E05 - Cizí lidé to budou muset přijmout CZ Titulky",
+        "video_id": 29160959
+      },
+      {
+        "episode_id": 138182,
+        "display_name": "Tým S01E07 - Babčo, proč se nezakryjete? CZ Titulky",
+        "video_id": 29161019
+      },
+      {
+        "episode_id": 132687,
+        "display_name": "Druhá světová válka v barvě S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29160886
+      },
+      {
+        "episode_id": 132691,
+        "display_name": "Druhá světová válka v barvě S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29160929
+      },
+      {
+        "episode_id": 157243,
+        "display_name": "Jak se stát bohem na Floridě S01E10 - Snaživky vás dostanou CZ Titulky",
+        "video_id": 29161003
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -353903,9 +353948,24 @@
         "video_id": 29160775
       },
       {
+        "episode_id": 105224,
+        "display_name": "Vražda je můj život S01E02 - Zamčený pokoj CZ Dabing",
+        "video_id": 29160931
+      },
+      {
         "episode_id": 96629,
         "display_name": "Domina S01E01 - Pád CZ Titulky",
         "video_id": 29160764
+      },
+      {
+        "episode_id": 96633,
+        "display_name": "Domina S01E05 - Nákaza CZ Titulky",
+        "video_id": 29160913
+      },
+      {
+        "episode_id": 96637,
+        "display_name": "Domina S02E01 - Spiknutí CZ Titulky",
+        "video_id": 29160995
       },
       {
         "episode_id": 114182,
@@ -460176,6 +460236,36 @@
         "episode_id": 132683,
         "display_name": "Druhá světová válka v barvě S01E01 - 1. epizoda CZ Dabing",
         "video_id": 29160687
+      },
+      {
+        "episode_id": 156650,
+        "display_name": "Exit S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29160926
+      },
+      {
+        "episode_id": 127446,
+        "display_name": "Capitani S01E05 - Cizí lidé to budou muset přijmout CZ Titulky",
+        "video_id": 29160959
+      },
+      {
+        "episode_id": 138182,
+        "display_name": "Tým S01E07 - Babčo, proč se nezakryjete? CZ Titulky",
+        "video_id": 29161019
+      },
+      {
+        "episode_id": 132687,
+        "display_name": "Druhá světová válka v barvě S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29160886
+      },
+      {
+        "episode_id": 132691,
+        "display_name": "Druhá světová válka v barvě S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29160929
+      },
+      {
+        "episode_id": 157243,
+        "display_name": "Jak se stát bohem na Floridě S01E10 - Snaživky vás dostanou CZ Titulky",
+        "video_id": 29161003
       }
     ],
     "prepared_not_upload_ready": [
@@ -461337,8 +461427,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 90,
-    "disabled": 108,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
