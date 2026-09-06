@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 141029,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50842,
-    "prepared_source_episodes": 58752,
+    "uploaded_episodes": 50845,
+    "prepared_source_episodes": 58768,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55511,
     "whisper_review_pending_sources": 42934,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T08:25:41Z",
-      "databaseId": 34021819624,
+      "createdAt": "2026-09-06T08:35:20Z",
+      "databaseId": 34022269940,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T08:34:44Z",
+      "databaseId": 34022240628,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T08:33:22Z",
+      "databaseId": 34022176423,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T08:31:34Z",
+      "databaseId": 34022093923,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T08:26:54Z",
+      "databaseId": 34021875516,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T08:26:32Z",
+      "databaseId": 34021859064,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T08:26:29Z",
+      "databaseId": 34021856976,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T08:25:41Z",
+      "databaseId": 34021819624,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T08:25:36Z",
       "databaseId": 34021815332,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -99,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T08:18:11Z",
       "databaseId": 34021471543,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T08:10:16Z",
-      "databaseId": 34021110711,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T08:10:15Z",
-      "databaseId": 34021109944,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T08:10:13Z",
-      "databaseId": 34021107707,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T08:10:11Z",
-      "databaseId": 34021106010,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T08:09:23Z",
-      "databaseId": 34021069482,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T08:08:47Z",
-      "databaseId": 34021041731,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T08:07:57Z",
-      "databaseId": 34021003607,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -123581,6 +123581,11 @@
         "video_id": 29155484
       },
       {
+        "episode_id": 115197,
+        "display_name": "Alexa a Katie S04E06 - Kouřové efekty CZ Titulky",
+        "video_id": 29155862
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -229474,6 +229479,16 @@
         "episode_id": 52751,
         "display_name": "Murder in the First S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29155458
+      },
+      {
+        "episode_id": 105230,
+        "display_name": "Vražda je můj život S01E08 - Zůstat na očích CZ Dabing",
+        "video_id": 29155852
+      },
+      {
+        "episode_id": 52755,
+        "display_name": "Murder in the First S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29155858
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -352773,6 +352788,11 @@
         "video_id": 29155484
       },
       {
+        "episode_id": 115197,
+        "display_name": "Alexa a Katie S04E06 - Kouřové efekty CZ Titulky",
+        "video_id": 29155862
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -458666,6 +458686,16 @@
         "episode_id": 52751,
         "display_name": "Murder in the First S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29155458
+      },
+      {
+        "episode_id": 105230,
+        "display_name": "Vražda je můj život S01E08 - Zůstat na očích CZ Dabing",
+        "video_id": 29155852
+      },
+      {
+        "episode_id": 52755,
+        "display_name": "Murder in the First S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29155858
       }
     ],
     "prepared_not_upload_ready": [
@@ -459827,7 +459857,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
+    "disabled": 4,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
