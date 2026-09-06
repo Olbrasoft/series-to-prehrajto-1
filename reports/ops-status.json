@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 140776,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51081,
-    "prepared_source_episodes": 59359,
+    "uploaded_episodes": 51083,
+    "prepared_source_episodes": 59373,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 43,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55503,
-    "whisper_review_pending_sources": 42885,
+    "whisper_review_sources": 55498,
+    "whisper_review_pending_sources": 42860,
     "subtitle_followup_sources": 31692,
     "subtitle_followup_pending_sources": 31692
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T14:53:00Z",
+      "databaseId": 34040556701,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T14:52:57Z",
+      "databaseId": 34040554436,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T14:46:58Z",
+      "databaseId": 34040243158,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-06T14:45:57Z",
@@ -35,11 +59,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T14:45:48Z",
       "databaseId": 34040182355,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T14:45:23Z",
       "databaseId": 34040159358,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T14:38:18Z",
       "databaseId": 34039792799,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-06T14:33:37Z",
       "databaseId": 34039542635,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T14:33:33Z",
-      "databaseId": 34039539059,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T14:32:17Z",
-      "databaseId": 34039472520,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T14:28:39Z",
-      "databaseId": 34039281673,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -230636,6 +230636,11 @@
         "video_id": 29164051
       },
       {
+        "episode_id": 72046,
+        "display_name": "Letecké katastrofy S03E01 - Na vlásku CZ Dabing",
+        "video_id": 29164081
+      },
+      {
         "episode_id": 203355,
         "display_name": "Jak Stuart nezachránil vesmír S01E04 - 4. epizoda CZ Dabing",
         "video_id": 29163299
@@ -230669,6 +230674,11 @@
         "episode_id": 133243,
         "display_name": "Na straně zákona S01E08 - 8. epizoda CZ Dabing",
         "video_id": 29163958
+      },
+      {
+        "episode_id": 79927,
+        "display_name": "Z onoho světa S01E05 - Vítej u nás CZ Dabing",
+        "video_id": 29164086
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -461023,6 +461033,11 @@
         "video_id": 29164051
       },
       {
+        "episode_id": 72046,
+        "display_name": "Letecké katastrofy S03E01 - Na vlásku CZ Dabing",
+        "video_id": 29164081
+      },
+      {
         "episode_id": 203355,
         "display_name": "Jak Stuart nezachránil vesmír S01E04 - 4. epizoda CZ Dabing",
         "video_id": 29163299
@@ -461056,6 +461071,11 @@
         "episode_id": 133243,
         "display_name": "Na straně zákona S01E08 - 8. epizoda CZ Dabing",
         "video_id": 29163958
+      },
+      {
+        "episode_id": 79927,
+        "display_name": "Z onoho světa S01E05 - Vítej u nás CZ Dabing",
+        "video_id": 29164086
       }
     ],
     "prepared_not_upload_ready": [
@@ -462217,14 +462237,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
+    "disabled": 3,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3411,
-    "whisper_non_cz_needs_subtitles": 9207,
+    "whisper_confirmed_cz": 3423,
+    "whisper_non_cz_needs_subtitles": 9215,
     "whisper_failed": 190,
-    "needs_whisper": 42695
+    "needs_whisper": 42670
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31692
