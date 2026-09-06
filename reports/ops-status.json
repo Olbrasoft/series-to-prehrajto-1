@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 140584,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51192,
+    "uploaded_episodes": 51193,
     "prepared_source_episodes": 59572,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55525,
     "whisper_review_pending_sources": 43007,
     "subtitle_followup_sources": 31751,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T21:24:31Z",
+      "databaseId": 34060979710,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T21:24:28Z",
+      "databaseId": 34060976652,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T21:23:15Z",
+      "databaseId": 34060913042,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T21:22:19Z",
       "databaseId": 34060865258,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -91,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T21:12:51Z",
       "databaseId": 34060367854,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -147,36 +171,12 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T21:11:00Z",
       "databaseId": 34060272377,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T21:07:28Z",
-      "databaseId": 34060089868,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T21:07:15Z",
-      "databaseId": 34060077643,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T21:06:29Z",
-      "databaseId": 34060037994,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -124419,6 +124419,11 @@
         "episode_id": 60172,
         "display_name": "Kačeří příběhy S02E14 - Magie přátelství nesvědčí CZ Dabing",
         "video_id": 29171095
+      },
+      {
+        "episode_id": 60160,
+        "display_name": "Kačeří příběhy S03E11 - 11. epizoda CZ Titulky",
+        "video_id": 29171151
       },
       {
         "episode_id": 116173,
@@ -355363,6 +355368,11 @@
         "video_id": 29171095
       },
       {
+        "episode_id": 60160,
+        "display_name": "Kačeří příběhy S03E11 - 11. epizoda CZ Titulky",
+        "video_id": 29171151
+      },
+      {
         "episode_id": 116173,
         "display_name": "Holky z Derry S02E03 - 3. epizoda CZ Titulky",
         "video_id": 29170251
@@ -463327,7 +463337,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
