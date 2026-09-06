@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 141213,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50653,
+    "uploaded_episodes": 50654,
     "prepared_source_episodes": 58408,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55553,
     "whisper_review_pending_sources": 43136,
     "subtitle_followup_sources": 31406,
     "subtitle_followup_pending_sources": 31406
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T04:52:23Z",
+      "databaseId": 34012589915,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T04:52:13Z",
+      "databaseId": 34012582774,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T04:51:28Z",
+      "databaseId": 34012552539,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-06T04:50:19Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T04:49:26Z",
       "databaseId": 34012469684,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T04:49:20Z",
       "databaseId": 34012466341,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T04:44:42Z",
       "databaseId": 34012275847,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T04:39:31Z",
-      "databaseId": 34012052251,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T04:36:49Z",
-      "databaseId": 34011942346,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T04:36:39Z",
-      "databaseId": 34011934642,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -123099,6 +123099,11 @@
         "episode_id": 136225,
         "display_name": "Great Pretender S01E03 - Případ 1_3: Kontakt v Los Angeles CZ Titulky",
         "video_id": 29151950
+      },
+      {
+        "episode_id": 136233,
+        "display_name": "Great Pretender S01E11 - Případ 3_1: Londýnský sníh CZ Titulky",
+        "video_id": 29152092
       },
       {
         "episode_id": 114182,
@@ -351348,6 +351353,11 @@
         "video_id": 29151950
       },
       {
+        "episode_id": 136233,
+        "display_name": "Great Pretender S01E11 - Případ 3_1: Londýnský sníh CZ Titulky",
+        "video_id": 29152092
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -457937,7 +457947,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
