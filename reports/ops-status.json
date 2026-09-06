@@ -2,36 +2,52 @@
   "counts": {
     "backlog_episodes": 141213,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50585,
-    "prepared_source_episodes": 58312,
+    "uploaded_episodes": 50587,
+    "prepared_source_episodes": 58310,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 52,
-    "language_whisper_attempted_sources": 51,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55561,
-    "whisper_review_pending_sources": 43184,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 55548,
+    "whisper_review_pending_sources": 43111,
     "subtitle_followup_sources": 31403,
     "subtitle_followup_pending_sources": 31403
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-06T03:46:40Z",
-      "databaseId": 34009843037,
+      "createdAt": "2026-09-06T03:49:35Z",
+      "databaseId": 34009960605,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T03:47:30Z",
+      "databaseId": 34009876086,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T03:46:40Z",
+      "databaseId": 34009843037,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T03:46:00Z",
       "databaseId": 34009815065,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T03:42:10Z",
       "databaseId": 34009658806,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T03:34:20Z",
-      "databaseId": 34009324589,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T03:33:25Z",
-      "databaseId": 34009286936,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -122924,6 +122924,16 @@
         "episode_id": 136701,
         "display_name": "Gaslit S01E06 - Tuffy CZ Dabing",
         "video_id": 29150406
+      },
+      {
+        "episode_id": 124657,
+        "display_name": "Žena ve zdi S01E04 - Krutý muž CZ Dabing",
+        "video_id": 29150644
+      },
+      {
+        "episode_id": 137441,
+        "display_name": "Ninja Kamui S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29150791
       },
       {
         "episode_id": 114182,
@@ -350833,6 +350843,16 @@
         "video_id": 29150406
       },
       {
+        "episode_id": 124657,
+        "display_name": "Žena ve zdi S01E04 - Krutý muž CZ Dabing",
+        "video_id": 29150644
+      },
+      {
+        "episode_id": 137441,
+        "display_name": "Ninja Kamui S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29150791
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -457257,15 +457277,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 50,
-    "disabled": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3290,
-    "whisper_non_cz_needs_subtitles": 9087,
+    "whisper_confirmed_cz": 3346,
+    "whisper_non_cz_needs_subtitles": 9091,
     "whisper_failed": 191,
-    "needs_whisper": 42993
+    "needs_whisper": 42920
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31403
