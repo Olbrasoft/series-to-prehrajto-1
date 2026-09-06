@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 140677,
-    "manifest_upload_ready_episodes": 1007,
-    "uploaded_episodes": 51139,
+    "manifest_upload_ready_episodes": 1006,
+    "uploaded_episodes": 51140,
     "prepared_source_episodes": 59459,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 63,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55525,
     "whisper_review_pending_sources": 43007,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T17:53:31Z",
+      "databaseId": 34049999964,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T17:53:28Z",
+      "databaseId": 34049997853,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T17:52:24Z",
+      "databaseId": 34049946612,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T17:51:14Z",
+      "databaseId": 34049885582,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T17:50:21Z",
       "databaseId": 34049841546,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T17:43:56Z",
       "databaseId": 34049514992,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T17:36:45Z",
-      "databaseId": 34049144868,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T17:36:39Z",
-      "databaseId": 34049139102,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T17:35:48Z",
-      "databaseId": 34049094214,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T17:35:45Z",
-      "databaseId": 34049091968,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -124299,6 +124299,11 @@
         "episode_id": 64733,
         "display_name": "Klikař Hank S01E02 - 2. epizoda CZ Dabing",
         "video_id": 29167089
+      },
+      {
+        "episode_id": 115125,
+        "display_name": "Bookmaker S01E06 - Protekční bookmakeři CZ Dabing",
+        "video_id": 29167360
       },
       {
         "episode_id": 114182,
@@ -354978,6 +354983,11 @@
         "video_id": 29167089
       },
       {
+        "episode_id": 115125,
+        "display_name": "Bookmaker S01E06 - Protekční bookmakeři CZ Dabing",
+        "video_id": 29167360
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -462797,8 +462807,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 23,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
