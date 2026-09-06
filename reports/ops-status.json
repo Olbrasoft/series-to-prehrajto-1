@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 141029,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 50760,
+    "uploaded_episodes": 50768,
     "prepared_source_episodes": 58594,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 86,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55529,
     "whisper_review_pending_sources": 43032,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T06:54:36Z",
+      "databaseId": 34017733641,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T06:54:33Z",
+      "databaseId": 34017731755,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T06:51:35Z",
+      "databaseId": 34017600417,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T06:48:40Z",
+      "databaseId": 34017468573,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T06:48:37Z",
+      "databaseId": 34017466260,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T06:47:46Z",
       "databaseId": 34017429980,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,19 +99,19 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T06:45:54Z",
       "databaseId": 34017350818,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T06:44:51Z",
       "databaseId": 34017301174,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -134,46 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-06T06:32:09Z",
       "databaseId": 34016741567,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T06:32:03Z",
-      "databaseId": 34016736984,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T06:30:23Z",
-      "databaseId": 34016661325,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T06:30:21Z",
-      "databaseId": 34016659144,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T06:29:56Z",
-      "databaseId": 34016636584,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T06:29:35Z",
-      "databaseId": 34016622793,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -123356,6 +123356,16 @@
         "video_id": 29153947
       },
       {
+        "episode_id": 203108,
+        "display_name": "Every Year After S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29153981
+      },
+      {
+        "episode_id": 167500,
+        "display_name": "Pine Gap S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29154025
+      },
+      {
         "episode_id": 104465,
         "display_name": "Kung Fu S03E14 - 14. epizoda CZ Titulky",
         "video_id": 29153785
@@ -123374,6 +123384,11 @@
         "episode_id": 171661,
         "display_name": "Idiot od pánaboha S01E01 - Horší dvojka CZ Titulky",
         "video_id": 29153933
+      },
+      {
+        "episode_id": 171665,
+        "display_name": "Idiot od pánaboha S01E05 - Když se řekne láska CZ Dabing",
+        "video_id": 29153982
       },
       {
         "episode_id": 114182,
@@ -229046,6 +229061,16 @@
         "video_id": 29153888
       },
       {
+        "episode_id": 129718,
+        "display_name": "Drápy S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29153972
+      },
+      {
+        "episode_id": 129730,
+        "display_name": "Drápy S03E09 - 9. epizoda CZ Titulky",
+        "video_id": 29154022
+      },
+      {
         "episode_id": 115199,
         "display_name": "Alexa a Katie S04E08 - Takhle je to správně CZ Titulky",
         "video_id": 29153787
@@ -229064,6 +229089,21 @@
         "episode_id": 114163,
         "display_name": "Three-body S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29153930
+      },
+      {
+        "episode_id": 114167,
+        "display_name": "Three-body S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 29153970
+      },
+      {
+        "episode_id": 114171,
+        "display_name": "Three-body S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 29154021
+      },
+      {
+        "episode_id": 114175,
+        "display_name": "Three-body S01E23 - 23. epizoda CZ Titulky",
+        "video_id": 29154045
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -352138,6 +352178,16 @@
         "video_id": 29153947
       },
       {
+        "episode_id": 203108,
+        "display_name": "Every Year After S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29153981
+      },
+      {
+        "episode_id": 167500,
+        "display_name": "Pine Gap S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29154025
+      },
+      {
         "episode_id": 104465,
         "display_name": "Kung Fu S03E14 - 14. epizoda CZ Titulky",
         "video_id": 29153785
@@ -352156,6 +352206,11 @@
         "episode_id": 171661,
         "display_name": "Idiot od pánaboha S01E01 - Horší dvojka CZ Titulky",
         "video_id": 29153933
+      },
+      {
+        "episode_id": 171665,
+        "display_name": "Idiot od pánaboha S01E05 - Když se řekne láska CZ Dabing",
+        "video_id": 29153982
       },
       {
         "episode_id": 114182,
@@ -457828,6 +457883,16 @@
         "video_id": 29153888
       },
       {
+        "episode_id": 129718,
+        "display_name": "Drápy S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29153972
+      },
+      {
+        "episode_id": 129730,
+        "display_name": "Drápy S03E09 - 9. epizoda CZ Titulky",
+        "video_id": 29154022
+      },
+      {
         "episode_id": 115199,
         "display_name": "Alexa a Katie S04E08 - Takhle je to správně CZ Titulky",
         "video_id": 29153787
@@ -457846,6 +457911,21 @@
         "episode_id": 114163,
         "display_name": "Three-body S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29153930
+      },
+      {
+        "episode_id": 114167,
+        "display_name": "Three-body S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 29153970
+      },
+      {
+        "episode_id": 114171,
+        "display_name": "Three-body S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 29154021
+      },
+      {
+        "episode_id": 114175,
+        "display_name": "Three-body S01E23 - 23. epizoda CZ Titulky",
+        "video_id": 29154045
       }
     ],
     "prepared_not_upload_ready": [
@@ -459007,8 +459087,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 26,
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
