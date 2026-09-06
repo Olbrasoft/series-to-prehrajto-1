@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 140677,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51108,
+    "uploaded_episodes": 51109,
     "prepared_source_episodes": 59237,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55516,
     "whisper_review_pending_sources": 42958,
     "subtitle_followup_sources": 31703,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-06T15:52:34Z",
+      "databaseId": 34043671296,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-06T15:52:31Z",
+      "databaseId": 34043669062,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-06T15:48:53Z",
+      "databaseId": 34043481539,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-06T15:47:57Z",
       "databaseId": 34043431673,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-06T15:45:10Z",
       "databaseId": 34043285875,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -139,11 +163,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-06T15:36:46Z",
       "databaseId": 34042857320,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-06T15:35:56Z",
-      "databaseId": 34042814742,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-06T15:33:53Z",
-      "databaseId": 34042706461,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-06T15:33:42Z",
-      "databaseId": 34042695208,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -230804,6 +230804,11 @@
         "episode_id": 129723,
         "display_name": "Drápy S03E03 - 3. epizoda CZ Titulky",
         "video_id": 29165325
+      },
+      {
+        "episode_id": 129727,
+        "display_name": "Drápy S03E05 - 5. epizoda CZ Titulky",
+        "video_id": 29165382
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -461326,6 +461331,11 @@
         "episode_id": 129723,
         "display_name": "Drápy S03E03 - 3. epizoda CZ Titulky",
         "video_id": 29165325
+      },
+      {
+        "episode_id": 129727,
+        "display_name": "Drápy S03E05 - 5. epizoda CZ Titulky",
+        "video_id": 29165382
       }
     ],
     "prepared_not_upload_ready": [
@@ -462487,7 +462497,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
