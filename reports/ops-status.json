@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 140401,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51443,
+    "uploaded_episodes": 51444,
     "prepared_source_episodes": 59951,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 43,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55498,
     "whisper_review_pending_sources": 42861,
     "subtitle_followup_sources": 31810,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T05:38:25Z",
+      "databaseId": 34087576210,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T05:38:23Z",
+      "databaseId": 34087573102,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T05:38:15Z",
+      "databaseId": 34087564152,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T05:38:11Z",
+      "databaseId": 34087560395,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T05:38:09Z",
+      "databaseId": 34087558115,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T05:37:10Z",
       "databaseId": 34087494552,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-07T05:20:23Z",
-      "databaseId": 34086430398,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T05:17:10Z",
-      "databaseId": 34086218981,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T05:13:30Z",
-      "databaseId": 34085972565,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T05:13:28Z",
-      "databaseId": 34085970005,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T05:13:26Z",
-      "databaseId": 34085967916,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -125064,6 +125064,11 @@
         "episode_id": 171840,
         "display_name": "Drb S01E02 - Vivek se ujímá případu CZ Titulky",
         "video_id": 29178664
+      },
+      {
+        "episode_id": 171844,
+        "display_name": "Drb S01E06 - Od desíti k pěti CZ Titulky",
+        "video_id": 29178689
       },
       {
         "episode_id": 203309,
@@ -357263,6 +357268,11 @@
         "video_id": 29178664
       },
       {
+        "episode_id": 171844,
+        "display_name": "Drb S01E06 - Od desíti k pěti CZ Titulky",
+        "video_id": 29178689
+      },
+      {
         "episode_id": 203309,
         "display_name": "Jízda o život S01E03 - Cizinky ve vlaku CZ Dabing",
         "video_id": 29178377
@@ -465838,7 +465848,6 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
-    "disabled": 3,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
