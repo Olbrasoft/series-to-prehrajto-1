@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 140257,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51587,
-    "prepared_source_episodes": 60220,
+    "uploaded_episodes": 51589,
+    "prepared_source_episodes": 60239,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
@@ -12,18 +12,50 @@
     "language_audited_sources": 78,
     "language_whisper_attempted_sources": 66,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55514,
-    "whisper_review_pending_sources": 42954,
+    "whisper_review_sources": 55515,
+    "whisper_review_pending_sources": 42958,
     "subtitle_followup_sources": 31824,
     "subtitle_followup_pending_sources": 31824
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T08:23:19Z",
+      "databaseId": 34100320900,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T08:22:47Z",
+      "databaseId": 34100273430,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T08:22:33Z",
+      "databaseId": 34100252116,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T08:22:30Z",
+      "databaseId": 34100248031,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T08:21:35Z",
       "databaseId": 34100172628,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +83,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-07T08:19:32Z",
       "databaseId": 34099996039,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T08:03:29Z",
-      "databaseId": 34098562751,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-07T08:03:25Z",
-      "databaseId": 34098556759,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T07:59:12Z",
-      "databaseId": 34098195402,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T07:58:04Z",
-      "databaseId": 34098103432,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -125421,6 +125421,11 @@
         "video_id": 29181372
       },
       {
+        "episode_id": 167844,
+        "display_name": "Detective Van der Valk S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29181444
+      },
+      {
         "episode_id": 16613,
         "display_name": "Kingdom S02E06 - 6. epizoda CZ Dabing",
         "video_id": 29181328
@@ -233184,6 +233189,11 @@
         "episode_id": 175050,
         "display_name": "Vhodný nápadník S01E04 - 4. díl CZ Titulky",
         "video_id": 29181420
+      },
+      {
+        "episode_id": 120678,
+        "display_name": "Into the Dark S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 29181449
       },
       {
         "episode_id": 132007,
@@ -358338,6 +358348,11 @@
         "video_id": 29181372
       },
       {
+        "episode_id": 167844,
+        "display_name": "Detective Van der Valk S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29181444
+      },
+      {
         "episode_id": 16613,
         "display_name": "Kingdom S02E06 - 6. epizoda CZ Dabing",
         "video_id": 29181328
@@ -466103,6 +466118,11 @@
         "video_id": 29181420
       },
       {
+        "episode_id": 120678,
+        "display_name": "Into the Dark S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 29181449
+      },
+      {
         "episode_id": 132007,
         "display_name": "For the People S01E07 - 7. epizoda CZ Titulky",
         "video_id": 29181315
@@ -467282,10 +467302,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3375,
-    "whisper_non_cz_needs_subtitles": 9185,
+    "whisper_confirmed_cz": 3373,
+    "whisper_non_cz_needs_subtitles": 9184,
     "whisper_failed": 190,
-    "needs_whisper": 42764
+    "needs_whisper": 42768
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31824
