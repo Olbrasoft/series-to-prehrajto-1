@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 139834,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51927,
+    "uploaded_episodes": 51928,
     "prepared_source_episodes": 60514,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 46,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55521,
     "whisper_review_pending_sources": 42987,
     "subtitle_followup_sources": 32017,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T19:57:01Z",
+      "databaseId": 34157517149,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T19:54:07Z",
+      "databaseId": 34157335558,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T19:54:04Z",
+      "databaseId": 34157331996,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T19:53:23Z",
       "databaseId": 34157290286,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T19:40:56Z",
-      "databaseId": 34156508865,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T19:39:57Z",
-      "databaseId": 34156444780,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-07T19:39:20Z",
-      "databaseId": 34156406728,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -126289,6 +126289,11 @@
         "episode_id": 27909,
         "display_name": "Wallander S01E09 - 9. epizoda CZ Titulky",
         "video_id": 29196057
+      },
+      {
+        "episode_id": 27913,
+        "display_name": "Wallander S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29196115
       },
       {
         "episode_id": 114182,
@@ -360908,6 +360913,11 @@
         "video_id": 29196057
       },
       {
+        "episode_id": 27913,
+        "display_name": "Wallander S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29196115
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -470677,8 +470687,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 6,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
