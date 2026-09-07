@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 139924,
-    "manifest_upload_ready_episodes": 1004,
-    "uploaded_episodes": 51860,
-    "prepared_source_episodes": 60587,
+    "manifest_upload_ready_episodes": 1001,
+    "uploaded_episodes": 51861,
+    "prepared_source_episodes": 60561,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 56,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55518,
-    "whisper_review_pending_sources": 42968,
-    "subtitle_followup_sources": 31948,
-    "subtitle_followup_pending_sources": 31948
+    "whisper_review_sources": 55520,
+    "whisper_review_pending_sources": 42981,
+    "subtitle_followup_sources": 31950,
+    "subtitle_followup_pending_sources": 31950
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T15:58:32Z",
+      "databaseId": 34140989550,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T15:58:19Z",
+      "databaseId": 34140973635,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T15:58:15Z",
+      "databaseId": 34140968310,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T15:56:39Z",
       "databaseId": 34140839688,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-07T15:40:58Z",
       "databaseId": 34139547364,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T15:40:18Z",
-      "databaseId": 34139490239,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-07T15:39:36Z",
-      "databaseId": 34139431743,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T15:39:21Z",
-      "databaseId": 34139411585,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -126119,6 +126119,11 @@
         "episode_id": 77381,
         "display_name": "Milénium S02E14 - 14. epizoda CZ Dabing",
         "video_id": 29190746
+      },
+      {
+        "episode_id": 105013,
+        "display_name": "Sousedství S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 29190992
       },
       {
         "episode_id": 114182,
@@ -360403,6 +360408,11 @@
         "video_id": 29190746
       },
       {
+        "episode_id": 105013,
+        "display_name": "Sousedství S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 29190992
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -470007,16 +470017,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 36,
     "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3360,
-    "whisper_non_cz_needs_subtitles": 9190,
+    "whisper_confirmed_cz": 3351,
+    "whisper_non_cz_needs_subtitles": 9188,
     "whisper_failed": 190,
-    "needs_whisper": 42778
+    "needs_whisper": 42791
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 31948
+    "needs_subtitle_setup_after_prehrajto_processing": 31950
   }
 }
