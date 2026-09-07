@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 139834,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51920,
+    "uploaded_episodes": 51921,
     "prepared_source_episodes": 60463,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 41,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55521,
     "whisper_review_pending_sources": 42987,
     "subtitle_followup_sources": 32017,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T19:25:07Z",
+      "databaseId": 34155497386,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T19:25:04Z",
+      "databaseId": 34155493242,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T19:23:08Z",
+      "databaseId": 34155371312,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T19:22:07Z",
       "databaseId": 34155306847,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-07T19:12:41Z",
       "databaseId": 34154695353,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-07T19:10:52Z",
       "databaseId": 34154579153,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T19:06:55Z",
-      "databaseId": 34154325342,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-07T19:06:30Z",
-      "databaseId": 34154298144,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T19:04:13Z",
-      "databaseId": 34154143428,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -234864,6 +234864,11 @@
         "episode_id": 5562,
         "display_name": "M*A*S*H S01E16 - Rekordman CZ Dabing",
         "video_id": 29195612
+      },
+      {
+        "episode_id": 5566,
+        "display_name": "M*A*S*H S01E20 - Armáda versus Námořnictvo CZ Dabing",
+        "video_id": 29195684
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -469446,6 +469451,11 @@
         "episode_id": 5562,
         "display_name": "M*A*S*H S01E16 - Rekordman CZ Dabing",
         "video_id": 29195612
+      },
+      {
+        "episode_id": 5566,
+        "display_name": "M*A*S*H S01E20 - Armáda versus Námořnictvo CZ Dabing",
+        "video_id": 29195684
       }
     ],
     "prepared_not_upload_ready": [
@@ -470607,8 +470617,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 1,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
