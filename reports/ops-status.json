@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 140039,
     "manifest_upload_ready_episodes": 1005,
-    "uploaded_episodes": 51792,
-    "prepared_source_episodes": 60471,
+    "uploaded_episodes": 51797,
+    "prepared_source_episodes": 60487,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 53,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55517,
     "whisper_review_pending_sources": 42966,
     "subtitle_followup_sources": 31930,
@@ -20,26 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-07T14:22:21Z",
-      "databaseId": 34132587375,
+      "createdAt": "2026-09-07T14:30:22Z",
+      "databaseId": 34133314864,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-07T14:17:39Z",
-      "databaseId": 34132164757,
+      "createdAt": "2026-09-07T14:30:19Z",
+      "databaseId": 34133310055,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
+      "status": "pending",
+      "workflowName": "sync"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T14:29:44Z",
+      "databaseId": 34133253843,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T14:24:38Z",
+      "databaseId": 34132790178,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T14:23:18Z",
+      "databaseId": 34132669934,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T14:22:21Z",
+      "databaseId": 34132587375,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T14:17:39Z",
+      "databaseId": 34132164757,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-07T14:15:19Z",
       "databaseId": 34131951470,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -51,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-07T14:13:34Z",
       "databaseId": 34131784391,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -134,46 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-07T14:01:55Z",
       "databaseId": 34130688714,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T14:01:50Z",
-      "databaseId": 34130682111,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T14:01:19Z",
-      "databaseId": 34130632491,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T14:00:19Z",
-      "databaseId": 34130535330,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T13:57:43Z",
-      "databaseId": 34130304283,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T13:56:45Z",
-      "databaseId": 34130218593,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -125921,6 +125921,11 @@
         "video_id": 29189113
       },
       {
+        "episode_id": 32880,
+        "display_name": "FBI: Ti nejhledanější S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29189191
+      },
+      {
         "episode_id": 72841,
         "display_name": "Heartbeat S06E09 - 9. epizoda CZ Titulky",
         "video_id": 29188866
@@ -125954,6 +125959,11 @@
         "episode_id": 120149,
         "display_name": "Wonderfalls S01E07 - 7. epizoda CZ Titulky",
         "video_id": 29189141
+      },
+      {
+        "episode_id": 32433,
+        "display_name": "Cardinal S01E04 - Woody CZ Dabing",
+        "video_id": 29189181
       },
       {
         "episode_id": 114182,
@@ -234191,6 +234201,16 @@
         "video_id": 29189007
       },
       {
+        "episode_id": 16026,
+        "display_name": "Spartakus: Ashurův dům S01E10 - Ave Caesar! CZ Dabing",
+        "video_id": 29189040
+      },
+      {
+        "episode_id": 32874,
+        "display_name": "FBI: Ti nejhledanější S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29189247
+      },
+      {
         "episode_id": 72863,
         "display_name": "Heartbeat S07E16 - 16. epizoda CZ Titulky",
         "video_id": 29188871
@@ -234224,6 +234244,11 @@
         "episode_id": 32439,
         "display_name": "Cardinal S03E04 - Lemur CZ Dabing",
         "video_id": 29189130
+      },
+      {
+        "episode_id": 32879,
+        "display_name": "FBI: Ti nejhledanější S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 29189214
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -359863,6 +359888,11 @@
         "video_id": 29189113
       },
       {
+        "episode_id": 32880,
+        "display_name": "FBI: Ti nejhledanější S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29189191
+      },
+      {
         "episode_id": 72841,
         "display_name": "Heartbeat S06E09 - 9. epizoda CZ Titulky",
         "video_id": 29188866
@@ -359896,6 +359926,11 @@
         "episode_id": 120149,
         "display_name": "Wonderfalls S01E07 - 7. epizoda CZ Titulky",
         "video_id": 29189141
+      },
+      {
+        "episode_id": 32433,
+        "display_name": "Cardinal S01E04 - Woody CZ Dabing",
+        "video_id": 29189181
       },
       {
         "episode_id": 114182,
@@ -468133,6 +468168,16 @@
         "video_id": 29189007
       },
       {
+        "episode_id": 16026,
+        "display_name": "Spartakus: Ashurův dům S01E10 - Ave Caesar! CZ Dabing",
+        "video_id": 29189040
+      },
+      {
+        "episode_id": 32874,
+        "display_name": "FBI: Ti nejhledanější S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29189247
+      },
+      {
         "episode_id": 72863,
         "display_name": "Heartbeat S07E16 - 16. epizoda CZ Titulky",
         "video_id": 29188871
@@ -468166,6 +468211,11 @@
         "episode_id": 32439,
         "display_name": "Cardinal S03E04 - Lemur CZ Dabing",
         "video_id": 29189130
+      },
+      {
+        "episode_id": 32879,
+        "display_name": "FBI: Ti nejhledanější S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 29189214
       }
     ],
     "prepared_not_upload_ready": [
@@ -469327,7 +469377,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 33,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
