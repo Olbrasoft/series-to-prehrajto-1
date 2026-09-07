@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 140129,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51671,
-    "prepared_source_episodes": 60496,
+    "uploaded_episodes": 51672,
+    "prepared_source_episodes": 60534,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55499,
-    "whisper_review_pending_sources": 42858,
+    "language_audited_sources": 43,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 55508,
+    "whisper_review_pending_sources": 42907,
     "subtitle_followup_sources": 31855,
     "subtitle_followup_pending_sources": 31855
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T10:51:04Z",
+      "databaseId": 34113578634,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T10:45:03Z",
+      "databaseId": 34113061477,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T10:44:59Z",
+      "databaseId": 34113055977,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T10:44:07Z",
       "databaseId": 34112985666,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-07T10:43:50Z",
       "databaseId": 34112961082,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T10:32:31Z",
-      "databaseId": 34111976195,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T10:31:24Z",
-      "databaseId": 34111881518,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T10:31:21Z",
-      "databaseId": 34111876694,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -125634,6 +125634,11 @@
         "episode_id": 174565,
         "display_name": "Night Gallery S03E12 - 12. epizoda CZ Titulky",
         "video_id": 29183393
+      },
+      {
+        "episode_id": 72081,
+        "display_name": "Letecké katastrofy S03E02 - Útok na poštovní letadlo CZ Dabing",
+        "video_id": 29183445
       },
       {
         "episode_id": 114182,
@@ -358973,6 +358978,11 @@
         "video_id": 29183393
       },
       {
+        "episode_id": 72081,
+        "display_name": "Letecké katastrofy S03E02 - Útok na poštovní letadlo CZ Dabing",
+        "video_id": 29183445
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -468117,14 +468127,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "resolve_failed": 1
+    "ok": 37,
+    "disabled": 3,
+    "resolve_failed": 3
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3416,
-    "whisper_non_cz_needs_subtitles": 9225,
+    "whisper_confirmed_cz": 3403,
+    "whisper_non_cz_needs_subtitles": 9198,
     "whisper_failed": 190,
-    "needs_whisper": 42668
+    "needs_whisper": 42717
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 31855
