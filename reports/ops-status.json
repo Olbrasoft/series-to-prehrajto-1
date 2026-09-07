@@ -2,28 +2,68 @@
   "counts": {
     "backlog_episodes": 139834,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51937,
-    "prepared_source_episodes": 60551,
+    "uploaded_episodes": 51938,
+    "prepared_source_episodes": 60567,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 45,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55521,
-    "whisper_review_pending_sources": 42987,
+    "whisper_review_sources": 55522,
+    "whisper_review_pending_sources": 42992,
     "subtitle_followup_sources": 32017,
     "subtitle_followup_pending_sources": 32017
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T20:18:02Z",
+      "databaseId": 34158878182,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T20:15:30Z",
+      "databaseId": 34158714901,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T20:14:16Z",
+      "databaseId": 34158627383,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T20:14:13Z",
+      "databaseId": 34158624087,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T20:14:11Z",
+      "databaseId": 34158621817,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T20:13:17Z",
       "databaseId": 34158562628,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -134,46 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-07T19:53:23Z",
       "databaseId": 34157290286,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-07T19:53:20Z",
-      "databaseId": 34157287595,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-07T19:53:01Z",
-      "databaseId": 34157267799,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T19:50:13Z",
-      "databaseId": 34157093265,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T19:49:10Z",
-      "databaseId": 34157027871,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T19:48:50Z",
-      "databaseId": 34157008503,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -126289,6 +126289,11 @@
         "episode_id": 3888,
         "display_name": "Věřte nevěřte S02E13 - Varování/Autobusová zastávka/První pomoc/Ochránce/Dárek CZ Dabing",
         "video_id": 29196198
+      },
+      {
+        "episode_id": 3904,
+        "display_name": "Věřte nevěřte S04E03 - Mimo provoz/Když jsem byl velký/Chamtivec/Sedm hodin smůly/Tajemství mincí CZ Dabing",
+        "video_id": 29196336
       },
       {
         "episode_id": 5553,
@@ -360958,6 +360963,11 @@
         "video_id": 29196198
       },
       {
+        "episode_id": 3904,
+        "display_name": "Věřte nevěřte S04E03 - Mimo provoz/Když jsem byl velký/Chamtivec/Sedm hodin smůly/Tajemství mincí CZ Dabing",
+        "video_id": 29196336
+      },
+      {
         "episode_id": 5553,
         "display_name": "M*A*S*H S01E07 - Banány, krekry a oříšky CZ Dabing",
         "video_id": 29195606
@@ -470777,14 +470787,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 5,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3346,
+    "whisper_confirmed_cz": 3342,
     "whisper_non_cz_needs_subtitles": 9188,
     "whisper_failed": 190,
-    "needs_whisper": 42797
+    "needs_whisper": 42802
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 32017
