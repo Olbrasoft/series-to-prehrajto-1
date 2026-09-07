@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 139924,
-    "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 51853,
-    "prepared_source_episodes": 60551,
+    "manifest_upload_ready_episodes": 1009,
+    "uploaded_episodes": 51855,
+    "prepared_source_episodes": 60588,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 54,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55511,
-    "whisper_review_pending_sources": 42926,
-    "subtitle_followup_sources": 31935,
-    "subtitle_followup_pending_sources": 31935
+    "whisper_review_pending_sources": 42928,
+    "subtitle_followup_sources": 31948,
+    "subtitle_followup_pending_sources": 31948
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-07T15:50:07Z",
+      "databaseId": 34140307534,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T15:50:00Z",
+      "databaseId": 34140298514,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-07T15:48:57Z",
+      "databaseId": 34140211185,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-07T15:48:53Z",
+      "databaseId": 34140206341,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-07T15:48:00Z",
       "databaseId": 34140133237,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -127,7 +159,7 @@
       "createdAt": "2026-09-07T15:36:57Z",
       "databaseId": 34139213509,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -144,38 +176,6 @@
       "databaseId": 34139177407,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T15:35:52Z",
-      "databaseId": 34139122469,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-07T15:35:48Z",
-      "databaseId": 34139117058,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-07T15:34:50Z",
-      "databaseId": 34139031907,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-07T15:34:47Z",
-      "databaseId": 34139027403,
-      "headBranch": "main",
-      "status": "completed",
       "workflowName": "prepare-manifest"
     }
   ],
@@ -126081,6 +126081,11 @@
         "video_id": 29190533
       },
       {
+        "episode_id": 120776,
+        "display_name": "Penthouse S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29190601
+      },
+      {
         "episode_id": 32901,
         "display_name": "FBI: Ti nejhledanější S03E01 - 1. epizoda CZ Dabing",
         "video_id": 29190278
@@ -126104,6 +126109,11 @@
         "episode_id": 7229,
         "display_name": "October Faction S01E10 CZ Dabing",
         "video_id": 29190597
+      },
+      {
+        "episode_id": 77373,
+        "display_name": "Milénium S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29190665
       },
       {
         "episode_id": 114182,
@@ -360328,6 +360338,11 @@
         "video_id": 29190533
       },
       {
+        "episode_id": 120776,
+        "display_name": "Penthouse S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29190601
+      },
+      {
         "episode_id": 32901,
         "display_name": "FBI: Ti nejhledanější S03E01 - 1. epizoda CZ Dabing",
         "video_id": 29190278
@@ -360351,6 +360366,11 @@
         "episode_id": 7229,
         "display_name": "October Faction S01E10 CZ Dabing",
         "video_id": 29190597
+      },
+      {
+        "episode_id": 77373,
+        "display_name": "Milénium S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29190665
       },
       {
         "episode_id": 114182,
@@ -469937,17 +469957,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 14,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3396,
+    "whisper_confirmed_cz": 3394,
     "whisper_non_cz_needs_subtitles": 9189,
     "whisper_failed": 190,
-    "needs_whisper": 42736
+    "needs_whisper": 42738
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 31935
+    "needs_subtitle_setup_after_prehrajto_processing": 31948
   }
 }
