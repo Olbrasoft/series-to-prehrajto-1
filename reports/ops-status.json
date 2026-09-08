@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 138716,
     "manifest_upload_ready_episodes": 1002,
-    "uploaded_episodes": 53044,
-    "prepared_source_episodes": 60933,
+    "uploaded_episodes": 53045,
+    "prepared_source_episodes": 60932,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 23,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 43,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55513,
     "whisper_review_pending_sources": 43031,
@@ -19,11 +19,27 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-08T21:26:15Z",
+      "databaseId": 34280591827,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T21:26:10Z",
+      "databaseId": 34280583713,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-09-08T21:25:24Z",
       "databaseId": 34280513407,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T21:25:06Z",
       "databaseId": 34280482537,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T21:04:27Z",
-      "databaseId": 34278475899,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T21:03:32Z",
-      "databaseId": 34278385585,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -240484,6 +240484,11 @@
         "episode_id": 17379,
         "display_name": "Jméno růže S01E07 - 7. epizoda CZ Titulky",
         "video_id": 29223868
+      },
+      {
+        "episode_id": 145351,
+        "display_name": "Difficult People S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29224045
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -480686,6 +480691,11 @@
         "episode_id": 17379,
         "display_name": "Jméno růže S01E07 - 7. epizoda CZ Titulky",
         "video_id": 29223868
+      },
+      {
+        "episode_id": 145351,
+        "display_name": "Difficult People S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29224045
       }
     ],
     "prepared_not_upload_ready": [
@@ -481847,8 +481857,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 39,
     "disabled": 3,
-    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
