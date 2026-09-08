@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 139239,
-    "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 52603,
-    "prepared_source_episodes": 60849,
+    "manifest_upload_ready_episodes": 1002,
+    "uploaded_episodes": 52605,
+    "prepared_source_episodes": 60835,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 174,
-    "language_whisper_attempted_sources": 76,
+    "language_audited_sources": 47,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55542,
     "whisper_review_pending_sources": 43120,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-08T11:10:54Z",
+      "databaseId": 34219330952,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T11:09:34Z",
+      "databaseId": 34219213433,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-08T11:08:42Z",
       "databaseId": 34219137518,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,15 +47,15 @@
       "createdAt": "2026-09-08T11:08:40Z",
       "databaseId": 34219134654,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T11:08:39Z",
       "databaseId": 34219134191,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -139,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T10:52:23Z",
       "databaseId": 34217715050,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T10:51:06Z",
-      "databaseId": 34217605932,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T10:51:02Z",
-      "databaseId": 34217600951,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -127946,6 +127946,11 @@
         "video_id": 29211951
       },
       {
+        "episode_id": 7356,
+        "display_name": "Heweliusz S01E04 - 4. díl CZ Titulky",
+        "video_id": 29212017
+      },
+      {
         "episode_id": 101969,
         "display_name": "Robin Hood S03E11 - Rutterkin CZ Titulky",
         "video_id": 29211614
@@ -238279,6 +238284,11 @@
         "episode_id": 55267,
         "display_name": "Vražedná konstelace S02E02 - 2. epizoda CZ Dabing",
         "video_id": 29211973
+      },
+      {
+        "episode_id": 119119,
+        "display_name": "Šéfkuchař nadivoko S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29212020
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -365943,6 +365953,11 @@
         "video_id": 29211951
       },
       {
+        "episode_id": 7356,
+        "display_name": "Heweliusz S01E04 - 4. díl CZ Titulky",
+        "video_id": 29212017
+      },
+      {
         "episode_id": 101969,
         "display_name": "Robin Hood S03E11 - Rutterkin CZ Titulky",
         "video_id": 29211614
@@ -476276,6 +476291,11 @@
         "episode_id": 55267,
         "display_name": "Vražedná konstelace S02E02 - 2. epizoda CZ Dabing",
         "video_id": 29211973
+      },
+      {
+        "episode_id": 119119,
+        "display_name": "Šéfkuchař nadivoko S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29212020
       }
     ],
     "prepared_not_upload_ready": [
@@ -477437,8 +477457,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 75,
-    "disabled": 98,
+    "disabled": 7,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
