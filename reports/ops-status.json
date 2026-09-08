@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 138716,
-    "manifest_upload_ready_episodes": 980,
+    "manifest_upload_ready_episodes": 976,
     "uploaded_episodes": 53086,
-    "prepared_source_episodes": 60932,
+    "prepared_source_episodes": 60948,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
@@ -12,26 +12,50 @@
     "language_audited_sources": 20,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55508,
-    "whisper_review_pending_sources": 42998,
+    "whisper_review_sources": 55515,
+    "whisper_review_pending_sources": 43038,
     "subtitle_followup_sources": 32603,
     "subtitle_followup_pending_sources": 32603
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-08T22:23:33Z",
-      "databaseId": 34285664298,
+      "createdAt": "2026-09-08T22:24:04Z",
+      "databaseId": 34285708504,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "ops-watchdog"
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-08T22:23:55Z",
+      "databaseId": 34285694856,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-08T22:23:51Z",
+      "databaseId": 34285689668,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T22:23:33Z",
+      "databaseId": 34285664298,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-08T22:23:29Z",
       "databaseId": 34285657873,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T22:22:01Z",
       "databaseId": 34285531627,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -119,7 +143,7 @@
       "createdAt": "2026-09-08T22:12:40Z",
       "databaseId": 34284704349,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T22:09:26Z",
-      "databaseId": 34284423278,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-08T22:08:45Z",
-      "databaseId": 34284369341,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T22:08:39Z",
-      "databaseId": 34284360556,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -481428,6 +481428,54 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 134040,
+        "source_id": -25927165458733247,
+        "series_title": "American Auto",
+        "episode_code": "S02E11",
+        "source_title": "American.Auto.S02E11.1080p.WEB.h264-ELEANOR",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 134040,
+        "source_id": -54684111463999184,
+        "series_title": "American Auto",
+        "episode_code": "S02E11",
+        "source_title": "American.Auto.S02E11.720p.WEB.h264-ELEANOR",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 134041,
+        "source_id": -34416582409942840,
+        "series_title": "American Auto",
+        "episode_code": "S02E12",
+        "source_title": "american.auto.s02e12.1080p.web.h264-cakes",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 134041,
+        "source_id": -52352892146711054,
+        "series_title": "American Auto",
+        "episode_code": "S02E12",
+        "source_title": "American.Auto.S02E12.720p.WEB.h264-ETHEL",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 134042,
+        "source_id": -40192883018782550,
+        "series_title": "American Auto",
+        "episode_code": "S02E13",
+        "source_title": "American.Auto.S02E13.1080p.WEB.h264-ELEANOR",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 134042,
+        "source_id": -26324613997074081,
+        "series_title": "American Auto",
+        "episode_code": "S02E13",
+        "source_title": "American.Auto.S02E13.720p.WEB.h264-ELEANOR",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 51905,
         "source_id": -50577755831500766,
         "series_title": "American Horror Story",
@@ -481761,54 +481809,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E17",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E17",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56271,
-        "source_id": -59428534235181697,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E18",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E18",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56272,
-        "source_id": -49453531940355101,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E19",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E19",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56273,
-        "source_id": -41828913359773583,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E20",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E20",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56274,
-        "source_id": -36133747524527879,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E21",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56275,
-        "source_id": -23905561721062679,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56276,
-        "source_id": -18797228031498409,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E23",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -482272,9 +482272,9 @@
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3065,
-    "whisper_non_cz_needs_subtitles": 9445,
+    "whisper_non_cz_needs_subtitles": 9412,
     "whisper_failed": 231,
-    "needs_whisper": 42767
+    "needs_whisper": 42807
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 32603
