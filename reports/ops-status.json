@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 138775,
-    "manifest_upload_ready_episodes": 1010,
-    "uploaded_episodes": 52987,
+    "manifest_upload_ready_episodes": 1009,
+    "uploaded_episodes": 52988,
     "prepared_source_episodes": 60828,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 71,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55515,
     "whisper_review_pending_sources": 43046,
     "subtitle_followup_sources": 32524,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-08T19:15:27Z",
+      "databaseId": 34267894874,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T19:15:22Z",
+      "databaseId": 34267886862,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T19:13:12Z",
+      "databaseId": 34267670772,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-08T19:10:08Z",
+      "databaseId": 34267371784,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-08T19:09:03Z",
       "databaseId": 34267265984,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T18:57:34Z",
       "databaseId": 34266123410,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -131,11 +163,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-08T18:56:26Z",
       "databaseId": 34266018450,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T18:54:04Z",
-      "databaseId": 34265784452,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T18:53:12Z",
-      "databaseId": 34265697359,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T18:49:24Z",
-      "databaseId": 34265319988,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T18:49:20Z",
-      "databaseId": 34265315199,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -240199,6 +240199,11 @@
         "episode_id": 35835,
         "display_name": "Fight Night: The Million Dollar Heist S01E08 - Kolo osmé: Výpověď CZ Dabing",
         "video_id": 29221333
+      },
+      {
+        "episode_id": 101547,
+        "display_name": "Komisař Montalbano S02E02 - Hliněný pes CZ Titulky",
+        "video_id": 29221464
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -480116,6 +480121,11 @@
         "episode_id": 35835,
         "display_name": "Fight Night: The Million Dollar Heist S01E08 - Kolo osmé: Výpověď CZ Dabing",
         "video_id": 29221333
+      },
+      {
+        "episode_id": 101547,
+        "display_name": "Komisař Montalbano S02E02 - Hliněný pes CZ Titulky",
+        "video_id": 29221464
       }
     ],
     "prepared_not_upload_ready": [
@@ -481278,7 +481288,6 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
-    "disabled": 31,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
