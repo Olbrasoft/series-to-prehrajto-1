@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 139070,
-    "manifest_upload_ready_episodes": 1029,
-    "uploaded_episodes": 52847,
+    "manifest_upload_ready_episodes": 1026,
+    "uploaded_episodes": 52849,
     "prepared_source_episodes": 60738,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 118,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55503,
     "whisper_review_pending_sources": 42978,
     "subtitle_followup_sources": 32469,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-08T15:05:47Z",
+      "databaseId": 34242538884,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-08T15:04:54Z",
+      "databaseId": 34242442060,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T15:04:50Z",
+      "databaseId": 34242434650,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-08T15:03:47Z",
       "databaseId": 34242319066,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T14:55:17Z",
       "databaseId": 34241393888,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T14:43:17Z",
-      "databaseId": 34240080876,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-08T14:43:11Z",
-      "databaseId": 34240069254,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "failure",
-      "createdAt": "2026-09-08T14:41:42Z",
-      "databaseId": 34239909007,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -128586,6 +128586,11 @@
         "video_id": 29216049
       },
       {
+        "episode_id": 180812,
+        "display_name": "Hercule Poirot S06E02 - Případ v ulici Hickory CZ Titulky",
+        "video_id": 29216163
+      },
+      {
         "episode_id": 154725,
         "display_name": "Zadostiučinění S01E02 - Ponoř se do toho CZ Titulky",
         "video_id": 29215841
@@ -239474,6 +239479,11 @@
         "episode_id": 104410,
         "display_name": "Hercule Poirot S05E01 - Záhada egyptské hrobky CZ Dabing",
         "video_id": 29216034
+      },
+      {
+        "episode_id": 180814,
+        "display_name": "Hercule Poirot S09E01 - Pět malých prasátek CZ Titulky",
+        "video_id": 29216147
       },
       {
         "episode_id": 154727,
@@ -367803,6 +367813,11 @@
         "video_id": 29216049
       },
       {
+        "episode_id": 180812,
+        "display_name": "Hercule Poirot S06E02 - Případ v ulici Hickory CZ Titulky",
+        "video_id": 29216163
+      },
+      {
         "episode_id": 154725,
         "display_name": "Zadostiučinění S01E02 - Ponoř se do toho CZ Titulky",
         "video_id": 29215841
@@ -478693,6 +478708,11 @@
         "video_id": 29216034
       },
       {
+        "episode_id": 180814,
+        "display_name": "Hercule Poirot S09E01 - Pět malých prasátek CZ Titulky",
+        "video_id": 29216147
+      },
+      {
         "episode_id": 154727,
         "display_name": "Zadostiučinění S01E04 - Hoď to za hlavu CZ Titulky",
         "video_id": 29215824
@@ -479877,10 +479897,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 78,
-    "ok": 36,
-    "resolve_failed": 3,
-    "sample_failed": 1
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3116,
