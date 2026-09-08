@@ -1,37 +1,77 @@
 {
   "counts": {
-    "backlog_episodes": 139635,
-    "manifest_upload_ready_episodes": 1004,
-    "uploaded_episodes": 52220,
-    "prepared_source_episodes": 60573,
+    "backlog_episodes": 139527,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 52232,
+    "prepared_source_episodes": 60564,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 133,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55531,
-    "whisper_review_pending_sources": 43044,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 55528,
+    "whisper_review_pending_sources": 43024,
     "subtitle_followup_sources": 32187,
     "subtitle_followup_pending_sources": 32187
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-08T03:23:36Z",
-      "databaseId": 34183347790,
+      "createdAt": "2026-09-08T03:33:42Z",
+      "databaseId": 34183938731,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-08T03:33:39Z",
+      "databaseId": 34183935969,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T03:32:52Z",
+      "databaseId": 34183890424,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T03:26:40Z",
+      "databaseId": 34183527659,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-08T03:24:10Z",
+      "databaseId": 34183380427,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-08T03:23:36Z",
+      "databaseId": 34183347790,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-08T03:23:11Z",
       "databaseId": 34183323257,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T03:22:59Z",
       "databaseId": 34183310924,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -67,19 +107,19 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T03:19:36Z",
       "databaseId": 34183116942,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-08T03:16:43Z",
       "databaseId": 34182954541,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T03:05:39Z",
-      "databaseId": 34182315316,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T03:05:36Z",
-      "databaseId": 34182312155,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-08T03:05:35Z",
-      "databaseId": 34182311678,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T03:04:34Z",
-      "databaseId": 34182245371,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T03:04:31Z",
-      "databaseId": 34182242474,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -127006,6 +127006,16 @@
         "video_id": 29203113
       },
       {
+        "episode_id": 131832,
+        "display_name": "Na život a na smrt S01E07 - Neblahé následky CZ Dabing",
+        "video_id": 29203157
+      },
+      {
+        "episode_id": 186140,
+        "display_name": "Nová dobrodružství Medvídka Pú S01E13 - Kolik stojí ten králík ve výloze CZ Titulky",
+        "video_id": 29203242
+      },
+      {
         "episode_id": 57593,
         "display_name": "Odpadlík S02E10 - Blues větrného města CZ Dabing",
         "video_id": 29202939
@@ -127024,6 +127034,21 @@
         "episode_id": 57617,
         "display_name": "Odpadlík S03E18 - Živá legenda CZ Dabing",
         "video_id": 29203141
+      },
+      {
+        "episode_id": 57625,
+        "display_name": "Odpadlík S04E01 - Svatba před hlavněmi CZ Dabing",
+        "video_id": 29203169
+      },
+      {
+        "episode_id": 57629,
+        "display_name": "Odpadlík S04E08 - Mořská bouře CZ Dabing",
+        "video_id": 29203225
+      },
+      {
+        "episode_id": 57641,
+        "display_name": "Odpadlík S04E19 - Jasný důkaz CZ Dabing",
+        "video_id": 29203252
       },
       {
         "episode_id": 114182,
@@ -236346,6 +236371,21 @@
         "video_id": 29203122
       },
       {
+        "episode_id": 136994,
+        "display_name": "Historie pro začátečníky S02E09 - Umělé oplodnění CZ Dabing",
+        "video_id": 29203152
+      },
+      {
+        "episode_id": 26266,
+        "display_name": "Ztracený svět S02E05 - 5. epizoda CZ Dabing",
+        "video_id": 29203196
+      },
+      {
+        "episode_id": 26274,
+        "display_name": "Ztracený svět S02E13 - 13. epizoda CZ Dabing",
+        "video_id": 29203261
+      },
+      {
         "episode_id": 3887,
         "display_name": "Věřte nevěřte S02E12 - Kolotoč/Rudooký přízrak/Autobazar/Kamera/Grafiti CZ Dabing",
         "video_id": 29202928
@@ -236364,6 +236404,26 @@
         "episode_id": 130711,
         "display_name": "Tour de France: Bez příkras S01E03 - Tíha národa CZ Dabing",
         "video_id": 29203066
+      },
+      {
+        "episode_id": 112607,
+        "display_name": "Into the Dark S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29203142
+      },
+      {
+        "episode_id": 112603,
+        "display_name": "Into the Dark S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 29203185
+      },
+      {
+        "episode_id": 154723,
+        "display_name": "Nenávist: Počátky S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29203232
+      },
+      {
+        "episode_id": 175387,
+        "display_name": "Mai: Matčin hněv S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29203260
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -363088,6 +363148,16 @@
         "video_id": 29203113
       },
       {
+        "episode_id": 131832,
+        "display_name": "Na život a na smrt S01E07 - Neblahé následky CZ Dabing",
+        "video_id": 29203157
+      },
+      {
+        "episode_id": 186140,
+        "display_name": "Nová dobrodružství Medvídka Pú S01E13 - Kolik stojí ten králík ve výloze CZ Titulky",
+        "video_id": 29203242
+      },
+      {
         "episode_id": 57593,
         "display_name": "Odpadlík S02E10 - Blues větrného města CZ Dabing",
         "video_id": 29202939
@@ -363106,6 +363176,21 @@
         "episode_id": 57617,
         "display_name": "Odpadlík S03E18 - Živá legenda CZ Dabing",
         "video_id": 29203141
+      },
+      {
+        "episode_id": 57625,
+        "display_name": "Odpadlík S04E01 - Svatba před hlavněmi CZ Dabing",
+        "video_id": 29203169
+      },
+      {
+        "episode_id": 57629,
+        "display_name": "Odpadlík S04E08 - Mořská bouře CZ Dabing",
+        "video_id": 29203225
+      },
+      {
+        "episode_id": 57641,
+        "display_name": "Odpadlík S04E19 - Jasný důkaz CZ Dabing",
+        "video_id": 29203252
       },
       {
         "episode_id": 114182,
@@ -472428,6 +472513,21 @@
         "video_id": 29203122
       },
       {
+        "episode_id": 136994,
+        "display_name": "Historie pro začátečníky S02E09 - Umělé oplodnění CZ Dabing",
+        "video_id": 29203152
+      },
+      {
+        "episode_id": 26266,
+        "display_name": "Ztracený svět S02E05 - 5. epizoda CZ Dabing",
+        "video_id": 29203196
+      },
+      {
+        "episode_id": 26274,
+        "display_name": "Ztracený svět S02E13 - 13. epizoda CZ Dabing",
+        "video_id": 29203261
+      },
+      {
         "episode_id": 3887,
         "display_name": "Věřte nevěřte S02E12 - Kolotoč/Rudooký přízrak/Autobazar/Kamera/Grafiti CZ Dabing",
         "video_id": 29202928
@@ -472446,6 +472546,26 @@
         "episode_id": 130711,
         "display_name": "Tour de France: Bez příkras S01E03 - Tíha národa CZ Dabing",
         "video_id": 29203066
+      },
+      {
+        "episode_id": 112607,
+        "display_name": "Into the Dark S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29203142
+      },
+      {
+        "episode_id": 112603,
+        "display_name": "Into the Dark S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 29203185
+      },
+      {
+        "episode_id": 154723,
+        "display_name": "Nenávist: Počátky S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29203232
+      },
+      {
+        "episode_id": 175387,
+        "display_name": "Mai: Matčin hněv S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29203260
       }
     ],
     "prepared_not_upload_ready": [
@@ -473607,15 +473727,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 73,
-    "ok": 59,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3316,
-    "whisper_non_cz_needs_subtitles": 9171,
+    "whisper_confirmed_cz": 3320,
+    "whisper_non_cz_needs_subtitles": 9184,
     "whisper_failed": 189,
-    "needs_whisper": 42855
+    "needs_whisper": 42835
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 32187
