@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 139527,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 52354,
+    "uploaded_episodes": 52355,
     "prepared_source_episodes": 60514,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 82,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55541,
     "whisper_review_pending_sources": 43099,
     "subtitle_followup_sources": 32224,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-08T06:33:22Z",
+      "databaseId": 34195177052,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T06:33:16Z",
+      "databaseId": 34195167933,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-08T06:29:51Z",
+      "databaseId": 34194908930,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-08T06:29:49Z",
+      "databaseId": 34194905641,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-08T06:28:56Z",
       "databaseId": 34194843429,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-08T06:28:26Z",
       "databaseId": 34194808431,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-08T06:07:13Z",
       "databaseId": 34193301413,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-08T06:07:08Z",
-      "databaseId": 34193295945,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T05:59:27Z",
-      "databaseId": 34192761769,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T05:58:25Z",
-      "databaseId": 34192693759,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-08T05:57:57Z",
-      "databaseId": 34192666065,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -127309,6 +127309,11 @@
         "episode_id": 124344,
         "display_name": "Do neznáma S01E10 - 10. epizoda CZ Dabing",
         "video_id": 29205831
+      },
+      {
+        "episode_id": 124336,
+        "display_name": "Do neznáma S03E16 - 16. epizoda CZ Dabing",
+        "video_id": 29206067
       },
       {
         "episode_id": 133853,
@@ -364063,6 +364068,11 @@
         "video_id": 29205831
       },
       {
+        "episode_id": 124336,
+        "display_name": "Do neznáma S03E16 - 16. epizoda CZ Dabing",
+        "video_id": 29206067
+      },
+      {
         "episode_id": 133853,
         "display_name": "Ministerstvo času S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29205626
@@ -474947,9 +474957,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 57,
-    "disabled": 22,
-    "resolve_failed": 3
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3281,
