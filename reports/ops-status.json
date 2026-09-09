@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 138541,
     "manifest_upload_ready_episodes": 929,
-    "uploaded_episodes": 53240,
+    "uploaded_episodes": 53241,
     "prepared_source_episodes": 61084,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 125,
-    "language_whisper_attempted_sources": 50,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55520,
     "whisper_review_pending_sources": 43078,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-09T02:18:08Z",
-      "databaseId": 34302667784,
+      "createdAt": "2026-09-09T02:24:26Z",
+      "databaseId": 34303081135,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T02:24:23Z",
+      "databaseId": 34303077857,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T02:22:40Z",
+      "databaseId": 34302965369,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T02:18:08Z",
+      "databaseId": 34302667784,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-09T02:18:05Z",
       "databaseId": 34302663265,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T02:15:38Z",
       "databaseId": 34302500574,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-09T01:56:42Z",
       "databaseId": 34301210471,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T01:55:47Z",
-      "databaseId": 34301151620,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T01:55:44Z",
-      "databaseId": 34301148051,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T01:55:39Z",
-      "databaseId": 34301142261,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -129589,6 +129589,11 @@
         "episode_id": 101561,
         "display_name": "Komisař Montalbano S11E02 - Podle úředního postupu CZ Titulky",
         "video_id": 29229419
+      },
+      {
+        "episode_id": 101565,
+        "display_name": "Komisař Montalbano S14E01 - Milovaný Salvo, Livie moje CZ Titulky",
+        "video_id": 29229709
       },
       {
         "episode_id": 114182,
@@ -370773,6 +370778,11 @@
         "video_id": 29229419
       },
       {
+        "episode_id": 101565,
+        "display_name": "Komisař Montalbano S14E01 - Milovaný Salvo, Livie moje CZ Titulky",
+        "video_id": 29229709
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -483807,8 +483817,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 75,
-    "ok": 49,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
