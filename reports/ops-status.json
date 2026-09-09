@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 138480,
     "manifest_upload_ready_episodes": 934,
-    "uploaded_episodes": 53273,
-    "prepared_source_episodes": 61058,
+    "uploaded_episodes": 53274,
+    "prepared_source_episodes": 61071,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 27,
+    "language_audited_sources": 32,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55518,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-09T03:35:42Z",
-      "databaseId": 34307727958,
+      "createdAt": "2026-09-09T03:37:25Z",
+      "databaseId": 34307836853,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T03:37:08Z",
+      "databaseId": 34307819687,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T03:36:38Z",
+      "databaseId": 34307788183,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T03:35:42Z",
+      "databaseId": 34307727958,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-09T03:35:38Z",
       "databaseId": 34307724020,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T03:23:18Z",
       "databaseId": 34306922132,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-09T03:19:54Z",
       "databaseId": 34306702522,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T03:18:04Z",
-      "databaseId": 34306585348,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T03:18:01Z",
-      "databaseId": 34306582317,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T03:17:59Z",
-      "databaseId": 34306579627,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
@@ -241596,6 +241596,11 @@
         "video_id": 29231188
       },
       {
+        "episode_id": 116470,
+        "display_name": "Rodinný sraz S01E07 - Pamatujete na první školní den? CZ Titulky",
+        "video_id": 29231301
+      },
+      {
         "episode_id": 101567,
         "display_name": "Komisař Montalbano S07E02 - Motýlí křídla CZ Titulky",
         "video_id": 29230273
@@ -482943,6 +482948,11 @@
         "video_id": 29231188
       },
       {
+        "episode_id": 116470,
+        "display_name": "Rodinný sraz S01E07 - Pamatujete na první školní den? CZ Titulky",
+        "video_id": 29231301
+      },
+      {
         "episode_id": 101567,
         "display_name": "Komisař Montalbano S07E02 - Motýlí křídla CZ Titulky",
         "video_id": 29230273
@@ -484137,7 +484147,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 7,
+    "disabled": 12,
     "ok": 19,
     "resolve_failed": 1
   },
