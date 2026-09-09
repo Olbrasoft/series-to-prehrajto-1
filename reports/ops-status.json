@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 138297,
-    "manifest_upload_ready_episodes": 723,
-    "uploaded_episodes": 53554,
-    "prepared_source_episodes": 61330,
+    "manifest_upload_ready_episodes": 722,
+    "uploaded_episodes": 53555,
+    "prepared_source_episodes": 61329,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 102,
-    "language_whisper_attempted_sources": 55,
+    "language_audited_sources": 122,
+    "language_whisper_attempted_sources": 75,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55480,
-    "whisper_review_pending_sources": 42858,
-    "subtitle_followup_sources": 32830,
-    "subtitle_followup_pending_sources": 32830
+    "whisper_review_sources": 55453,
+    "whisper_review_pending_sources": 42711,
+    "subtitle_followup_sources": 32839,
+    "subtitle_followup_pending_sources": 32839
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T08:07:30Z",
+      "databaseId": 34327407353,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T08:05:57Z",
+      "databaseId": 34327267758,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T08:05:53Z",
+      "databaseId": 34327261901,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-09T08:04:48Z",
       "databaseId": 34327164154,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T07:53:11Z",
-      "databaseId": 34326149905,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T07:53:06Z",
-      "databaseId": 34326142794,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T07:52:09Z",
-      "databaseId": 34326059387,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -130364,6 +130364,11 @@
         "episode_id": 114445,
         "display_name": "Brainiac: Šílená věda S04E06 - 6. epizoda CZ Dabing",
         "video_id": 29236364
+      },
+      {
+        "episode_id": 201800,
+        "display_name": "Šťastná to zem S01E05 - Údolí Dirdal CZ Dabing",
+        "video_id": 29236503
       },
       {
         "episode_id": 114182,
@@ -373118,6 +373123,11 @@
         "video_id": 29236364
       },
       {
+        "episode_id": 201800,
+        "display_name": "Šťastná to zem S01E05 - Údolí Dirdal CZ Dabing",
+        "video_id": 29236503
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -486947,17 +486957,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 74,
     "disabled": 47,
-    "ok": 54,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3073,
-    "whisper_non_cz_needs_subtitles": 9549,
+    "whisper_confirmed_cz": 3108,
+    "whisper_non_cz_needs_subtitles": 9634,
     "whisper_failed": 231,
-    "needs_whisper": 42627
+    "needs_whisper": 42480
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 32830
+    "needs_subtitle_setup_after_prehrajto_processing": 32839
   }
 }
