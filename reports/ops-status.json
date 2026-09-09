@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 137944,
-    "manifest_upload_ready_episodes": 615,
-    "uploaded_episodes": 53970,
-    "prepared_source_episodes": 61508,
+    "manifest_upload_ready_episodes": 614,
+    "uploaded_episodes": 53978,
+    "prepared_source_episodes": 61492,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 59,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 70,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55459,
     "whisper_review_pending_sources": 42710,
     "subtitle_followup_sources": 33081,
@@ -20,34 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-09T15:05:56Z",
-      "databaseId": 34367990389,
+      "createdAt": "2026-09-09T15:10:46Z",
+      "databaseId": 34368521379,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-09T15:05:49Z",
-      "databaseId": 34367977592,
+      "createdAt": "2026-09-09T15:10:41Z",
+      "databaseId": 34368513003,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-09T15:08:53Z",
+      "databaseId": 34368313034,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T15:08:34Z",
+      "databaseId": 34368280332,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T15:07:57Z",
+      "databaseId": 34368212651,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-09T15:05:56Z",
+      "databaseId": 34367990389,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T15:05:49Z",
+      "databaseId": 34367977592,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-09T15:05:14Z",
       "databaseId": 34367913832,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T15:04:48Z",
       "databaseId": 34367864587,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T14:56:01Z",
       "databaseId": 34366885041,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T14:53:03Z",
-      "databaseId": 34366555717,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T14:50:33Z",
-      "databaseId": 34366277617,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T14:49:33Z",
-      "databaseId": 34366166690,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T14:49:30Z",
-      "databaseId": 34366161172,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T14:48:28Z",
-      "databaseId": 34366049795,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -131391,9 +131391,29 @@
         "video_id": 29244525
       },
       {
+        "episode_id": 186036,
+        "display_name": "Čarodějnice školou povinné S02E10 - Nový úsvit CZ Titulky",
+        "video_id": 29244555
+      },
+      {
+        "episode_id": 186064,
+        "display_name": "Čarodějnice školou povinné S02E12 - Všech Svatoušků svátek CZ Titulky",
+        "video_id": 29244583
+      },
+      {
         "episode_id": 146293,
         "display_name": "Kosmos S01E07 - Páteř noci CZ Dabing",
         "video_id": 29244514
+      },
+      {
+        "episode_id": 146297,
+        "display_name": "Kosmos S01E12 - Galaktická encyklopedie CZ Dabing",
+        "video_id": 29244556
+      },
+      {
+        "episode_id": 116477,
+        "display_name": "Rodinný sraz S02E04 - Pamatujete, jak M’Dear změnila dějiny? CZ Titulky",
+        "video_id": 29244610
       },
       {
         "episode_id": 114182,
@@ -245106,6 +245126,21 @@
         "video_id": 29244512
       },
       {
+        "episode_id": 146298,
+        "display_name": "Kosmos S01E11 - Vytrvalost paměti CZ Dabing",
+        "video_id": 29244566
+      },
+      {
+        "episode_id": 146258,
+        "display_name": "Clevatess S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29244594
+      },
+      {
+        "episode_id": 146262,
+        "display_name": "Clevatess S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29244641
+      },
+      {
         "episode_id": 146291,
         "display_name": "Kosmos S01E05 - Blues pro rudou planetu CZ Dabing",
         "video_id": 29244505
@@ -245114,6 +245149,11 @@
         "episode_id": 146295,
         "display_name": "Kosmos S01E09 - Život hvězd CZ Dabing",
         "video_id": 29244537
+      },
+      {
+        "episode_id": 130455,
+        "display_name": "Dicte – kriminální reportérka S02E04 - Vášeň a pouta - část 2. CZ Dabing",
+        "video_id": 29244606
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -376223,9 +376263,29 @@
         "video_id": 29244525
       },
       {
+        "episode_id": 186036,
+        "display_name": "Čarodějnice školou povinné S02E10 - Nový úsvit CZ Titulky",
+        "video_id": 29244555
+      },
+      {
+        "episode_id": 186064,
+        "display_name": "Čarodějnice školou povinné S02E12 - Všech Svatoušků svátek CZ Titulky",
+        "video_id": 29244583
+      },
+      {
         "episode_id": 146293,
         "display_name": "Kosmos S01E07 - Páteř noci CZ Dabing",
         "video_id": 29244514
+      },
+      {
+        "episode_id": 146297,
+        "display_name": "Kosmos S01E12 - Galaktická encyklopedie CZ Dabing",
+        "video_id": 29244556
+      },
+      {
+        "episode_id": 116477,
+        "display_name": "Rodinný sraz S02E04 - Pamatujete, jak M’Dear změnila dějiny? CZ Titulky",
+        "video_id": 29244610
       },
       {
         "episode_id": 114182,
@@ -489938,6 +489998,21 @@
         "video_id": 29244512
       },
       {
+        "episode_id": 146298,
+        "display_name": "Kosmos S01E11 - Vytrvalost paměti CZ Dabing",
+        "video_id": 29244566
+      },
+      {
+        "episode_id": 146258,
+        "display_name": "Clevatess S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29244594
+      },
+      {
+        "episode_id": 146262,
+        "display_name": "Clevatess S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29244641
+      },
+      {
         "episode_id": 146291,
         "display_name": "Kosmos S01E05 - Blues pro rudou planetu CZ Dabing",
         "video_id": 29244505
@@ -489946,6 +490021,11 @@
         "episode_id": 146295,
         "display_name": "Kosmos S01E09 - Život hvězd CZ Dabing",
         "video_id": 29244537
+      },
+      {
+        "episode_id": 130455,
+        "display_name": "Dicte – kriminální reportérka S02E04 - Vášeň a pouta - část 2. CZ Dabing",
+        "video_id": 29244606
       }
     ],
     "prepared_not_upload_ready": [
@@ -491107,8 +491187,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 39,
-    "ok": 19,
+    "disabled": 30,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
