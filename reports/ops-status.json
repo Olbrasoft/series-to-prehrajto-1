@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 138480,
-    "manifest_upload_ready_episodes": 799,
-    "uploaded_episodes": 53404,
-    "prepared_source_episodes": 61163,
+    "manifest_upload_ready_episodes": 808,
+    "uploaded_episodes": 53406,
+    "prepared_source_episodes": 61180,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 53,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55505,
@@ -19,19 +19,51 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T05:45:30Z",
+      "databaseId": 34316175032,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
-      "createdAt": "2026-09-09T05:44:32Z",
-      "databaseId": 34316106000,
+      "createdAt": "2026-09-09T05:45:26Z",
+      "databaseId": 34316170377,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T05:45:18Z",
+      "databaseId": 34316159406,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T05:45:14Z",
+      "databaseId": 34316152804,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T05:44:32Z",
+      "databaseId": 34316106000,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-09T05:44:29Z",
       "databaseId": 34316102540,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-09T05:34:12Z",
-      "databaseId": 34315406273,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T05:32:46Z",
-      "databaseId": 34315308535,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T05:31:39Z",
-      "databaseId": 34315234252,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T05:31:23Z",
-      "databaseId": 34315215877,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -129996,9 +129996,19 @@
         "video_id": 29234313
       },
       {
+        "episode_id": 136204,
+        "display_name": "Vida S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29234350
+      },
+      {
         "episode_id": 134673,
         "display_name": "Policajt S02E12 - 12. epizoda CZ Dabing",
         "video_id": 29234159
+      },
+      {
+        "episode_id": 16433,
+        "display_name": "Země nikoho S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29234203
       },
       {
         "episode_id": 114182,
@@ -371998,9 +372008,19 @@
         "video_id": 29234313
       },
       {
+        "episode_id": 136204,
+        "display_name": "Vida S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29234350
+      },
+      {
         "episode_id": 134673,
         "display_name": "Policajt S02E12 - 12. epizoda CZ Dabing",
         "video_id": 29234159
+      },
+      {
+        "episode_id": 16433,
+        "display_name": "Země nikoho S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29234203
       },
       {
         "episode_id": 114182,
@@ -485447,6 +485467,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 33,
     "ok": 19,
     "resolve_failed": 1
   },
