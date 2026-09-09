@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 138541,
     "manifest_upload_ready_episodes": 918,
-    "uploaded_episodes": 53254,
+    "uploaded_episodes": 53255,
     "prepared_source_episodes": 61122,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55520,
     "whisper_review_pending_sources": 43078,
     "subtitle_followup_sources": 32726,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T02:56:53Z",
+      "databaseId": 34305206308,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T02:56:48Z",
+      "databaseId": 34305201188,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T02:56:44Z",
+      "databaseId": 34305196699,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-09T02:55:45Z",
       "databaseId": 34305134283,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T02:39:07Z",
-      "databaseId": 34304058916,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T02:39:01Z",
-      "databaseId": 34304052384,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T02:38:02Z",
-      "databaseId": 34303989772,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -129624,6 +129624,11 @@
         "episode_id": 161256,
         "display_name": "CIA S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29230441
+      },
+      {
+        "episode_id": 114208,
+        "display_name": "Živí a mrtví S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 29230601
       },
       {
         "episode_id": 117861,
@@ -370878,6 +370883,11 @@
         "video_id": 29230441
       },
       {
+        "episode_id": 114208,
+        "display_name": "Živí a mrtví S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 29230601
+      },
+      {
         "episode_id": 117861,
         "display_name": "Město stínů S01E06 - 6. epizoda CZ Dabing",
         "video_id": 29230266
@@ -483947,7 +483957,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
