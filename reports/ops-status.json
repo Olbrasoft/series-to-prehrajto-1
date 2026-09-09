@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 138102,
-    "manifest_upload_ready_episodes": 672,
-    "uploaded_episodes": 53733,
+    "manifest_upload_ready_episodes": 665,
+    "uploaded_episodes": 53734,
     "prepared_source_episodes": 61371,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 83,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55451,
     "whisper_review_pending_sources": 42709,
     "subtitle_followup_sources": 32973,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T10:53:25Z",
+      "databaseId": 34342624706,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T10:53:22Z",
+      "databaseId": 34342620543,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T10:52:22Z",
+      "databaseId": 34342532992,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T10:52:22Z",
+      "databaseId": 34342532262,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-09T10:51:23Z",
       "databaseId": 34342447696,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T10:45:37Z",
       "databaseId": 34341945243,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -91,11 +123,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-09T10:44:17Z",
       "databaseId": 34341818614,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-09-09T10:37:29Z",
       "databaseId": 34341211133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T10:36:24Z",
-      "databaseId": 34341111960,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T10:36:17Z",
-      "databaseId": 34341101404,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T10:36:13Z",
-      "databaseId": 34341096012,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-09T10:36:07Z",
-      "databaseId": 34341086374,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -243929,6 +243929,11 @@
         "episode_id": 96551,
         "display_name": "Změna hry S01E09 - 9. epizoda CZ Titulky",
         "video_id": 29239852
+      },
+      {
+        "episode_id": 96599,
+        "display_name": "Změna hry S01E11 - 11. epizoda CZ Dabing",
+        "video_id": 29239883
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -487576,6 +487581,11 @@
         "episode_id": 96551,
         "display_name": "Změna hry S01E09 - 9. epizoda CZ Titulky",
         "video_id": 29239852
+      },
+      {
+        "episode_id": 96599,
+        "display_name": "Změna hry S01E11 - 11. epizoda CZ Dabing",
+        "video_id": 29239883
       }
     ],
     "prepared_not_upload_ready": [
@@ -488737,8 +488747,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 63,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
