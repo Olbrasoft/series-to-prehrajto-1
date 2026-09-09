@@ -1,8 +1,8 @@
 {
   "counts": {
     "backlog_episodes": 137589,
-    "manifest_upload_ready_episodes": 533,
-    "uploaded_episodes": 54178,
+    "manifest_upload_ready_episodes": 534,
+    "uploaded_episodes": 54179,
     "prepared_source_episodes": 61679,
     "description_series": 60,
     "description_episodes": 753,
@@ -11,13 +11,45 @@
     "language_queue_sources": 2644,
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55447,
-    "whisper_review_pending_sources": 42625,
-    "subtitle_followup_sources": 33223,
-    "subtitle_followup_pending_sources": 33223
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 55446,
+    "whisper_review_pending_sources": 42618,
+    "subtitle_followup_sources": 33225,
+    "subtitle_followup_pending_sources": 33225
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T21:39:37Z",
+      "databaseId": 34408135861,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T21:39:35Z",
+      "databaseId": 34408132674,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T21:39:06Z",
+      "databaseId": 34408091383,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T21:39:03Z",
+      "databaseId": 34408085978,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-09T21:38:43Z",
@@ -31,15 +63,15 @@
       "createdAt": "2026-09-09T21:38:28Z",
       "databaseId": 34408036502,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T21:37:58Z",
       "databaseId": 34407990729,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,7 +87,7 @@
       "createdAt": "2026-09-09T21:36:51Z",
       "databaseId": 34407888888,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -139,44 +171,12 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T21:26:55Z",
       "databaseId": 34406973161,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T21:26:49Z",
-      "databaseId": 34406963217,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T21:26:08Z",
-      "databaseId": 34406900671,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-09T21:26:05Z",
-      "databaseId": 34406895346,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T21:22:58Z",
-      "databaseId": 34406602797,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -131904,6 +131904,11 @@
         "episode_id": 130473,
         "display_name": "Dicte – kriminální reportérka S01E06 - Skryté vady - část 2. CZ Dabing",
         "video_id": 29254622
+      },
+      {
+        "episode_id": 130477,
+        "display_name": "Dicte – kriminální reportérka S01E10 - Násilí a moc - část 2. CZ Dabing",
+        "video_id": 29254784
       },
       {
         "episode_id": 114182,
@@ -377778,6 +377783,11 @@
         "video_id": 29254622
       },
       {
+        "episode_id": 130477,
+        "display_name": "Dicte – kriminální reportérka S01E10 - Násilí a moc - část 2. CZ Dabing",
+        "video_id": 29254784
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -493191,12 +493201,12 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3089,
-    "whisper_non_cz_needs_subtitles": 9733,
+    "whisper_confirmed_cz": 3088,
+    "whisper_non_cz_needs_subtitles": 9740,
     "whisper_failed": 231,
-    "needs_whisper": 42394
+    "needs_whisper": 42387
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 33223
+    "needs_subtitle_setup_after_prehrajto_processing": 33225
   }
 }
