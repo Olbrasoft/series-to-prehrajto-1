@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 138480,
-    "manifest_upload_ready_episodes": 890,
-    "uploaded_episodes": 53329,
-    "prepared_source_episodes": 61160,
+    "manifest_upload_ready_episodes": 877,
+    "uploaded_episodes": 53330,
+    "prepared_source_episodes": 61156,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 64,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 84,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55509,
-    "whisper_review_pending_sources": 43027,
+    "whisper_review_sources": 55505,
+    "whisper_review_pending_sources": 43003,
     "subtitle_followup_sources": 32762,
     "subtitle_followup_pending_sources": 32762
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T04:36:32Z",
+      "databaseId": 34311630842,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T04:36:30Z",
+      "databaseId": 34311628926,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T04:35:11Z",
+      "databaseId": 34311540472,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T04:35:07Z",
+      "databaseId": 34311535539,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-09T04:34:04Z",
       "databaseId": 34311466907,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +75,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T04:26:58Z",
       "databaseId": 34311009563,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T04:11:00Z",
-      "databaseId": 34309963560,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-09T04:10:56Z",
-      "databaseId": 34309959203,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T04:10:38Z",
-      "databaseId": 34309939473,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T04:10:00Z",
-      "databaseId": 34309895765,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -241909,6 +241909,11 @@
         "episode_id": 188279,
         "display_name": "Na vlásku: Seriál S03E13 - Závod na věž CZ Titulky",
         "video_id": 29232635
+      },
+      {
+        "episode_id": 17323,
+        "display_name": "Byl jednou jeden zabiják S01E07 - Arcibiskup CZ Dabing",
+        "video_id": 29232733
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -483536,6 +483541,11 @@
         "episode_id": 188279,
         "display_name": "Na vlásku: Seriál S03E13 - Závod na věž CZ Titulky",
         "video_id": 29232635
+      },
+      {
+        "episode_id": 17323,
+        "display_name": "Byl jednou jeden zabiják S01E07 - Arcibiskup CZ Dabing",
+        "video_id": 29232733
       }
     ],
     "prepared_not_upload_ready": [
@@ -484698,14 +484708,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 24,
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3061,
-    "whisper_non_cz_needs_subtitles": 9421,
+    "whisper_non_cz_needs_subtitles": 9441,
     "whisper_failed": 231,
-    "needs_whisper": 42796
+    "needs_whisper": 42772
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 32762
