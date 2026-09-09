@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 138102,
-    "manifest_upload_ready_episodes": 665,
-    "uploaded_episodes": 53734,
-    "prepared_source_episodes": 61371,
+    "manifest_upload_ready_episodes": 663,
+    "uploaded_episodes": 53737,
+    "prepared_source_episodes": 61401,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 141,
+    "language_whisper_attempted_sources": 57,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55451,
-    "whisper_review_pending_sources": 42709,
-    "subtitle_followup_sources": 32973,
-    "subtitle_followup_pending_sources": 32973
+    "whisper_review_sources": 55440,
+    "whisper_review_pending_sources": 42648,
+    "subtitle_followup_sources": 32984,
+    "subtitle_followup_pending_sources": 32984
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-09T10:55:17Z",
+      "databaseId": 34342787123,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T10:54:18Z",
+      "databaseId": 34342702581,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T10:54:14Z",
+      "databaseId": 34342696302,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-09T10:53:25Z",
       "databaseId": 34342624706,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T10:40:38Z",
-      "databaseId": 34341492426,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T10:38:33Z",
-      "databaseId": 34341304455,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-09T10:37:29Z",
-      "databaseId": 34341211133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -130791,6 +130791,11 @@
         "video_id": 29239862
       },
       {
+        "episode_id": 170200,
+        "display_name": "Onimusha S01E08 - Duše jang CZ Dabing",
+        "video_id": 29239902
+      },
+      {
         "episode_id": 156025,
         "display_name": "Letní seznam S01E03 - Stát se královnou CZ Titulky",
         "video_id": 29239644
@@ -243906,6 +243911,11 @@
         "video_id": 29239861
       },
       {
+        "episode_id": 134934,
+        "display_name": "Endgame S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29239914
+      },
+      {
         "episode_id": 135715,
         "display_name": "Doktorka Doogie Kamealoha S01E10 - Aloha – rozloučení CZ Dabing",
         "video_id": 29239627
@@ -243934,6 +243944,11 @@
         "episode_id": 96599,
         "display_name": "Změna hry S01E11 - 11. epizoda CZ Dabing",
         "video_id": 29239883
+      },
+      {
+        "episode_id": 96555,
+        "display_name": "Změna hry S01E14 - Cena mocných dívek CZ Dabing",
+        "video_id": 29239949
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -374443,6 +374458,11 @@
         "video_id": 29239862
       },
       {
+        "episode_id": 170200,
+        "display_name": "Onimusha S01E08 - Duše jang CZ Dabing",
+        "video_id": 29239902
+      },
+      {
         "episode_id": 156025,
         "display_name": "Letní seznam S01E03 - Stát se královnou CZ Titulky",
         "video_id": 29239644
@@ -487558,6 +487578,11 @@
         "video_id": 29239861
       },
       {
+        "episode_id": 134934,
+        "display_name": "Endgame S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29239914
+      },
+      {
         "episode_id": 135715,
         "display_name": "Doktorka Doogie Kamealoha S01E10 - Aloha – rozloučení CZ Dabing",
         "video_id": 29239627
@@ -487586,6 +487611,11 @@
         "episode_id": 96599,
         "display_name": "Změna hry S01E11 - 11. epizoda CZ Dabing",
         "video_id": 29239883
+      },
+      {
+        "episode_id": 96555,
+        "display_name": "Změna hry S01E14 - Cena mocných dívek CZ Dabing",
+        "video_id": 29239949
       }
     ],
     "prepared_not_upload_ready": [
@@ -487916,126 +487946,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 80745,
-        "source_id": -39238134065601296,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E01",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E1 Episode 1 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80745,
-        "source_id": -7904235143598587,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E01",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E1 Episode #1",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80746,
-        "source_id": -58521982445097775,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E02",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E2 Episode 2 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80746,
-        "source_id": -46774719808907463,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E02",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E2 Episode #1",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80747,
-        "source_id": -38164248373777263,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E03",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E3 Episode 3 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80747,
-        "source_id": -24843352841435550,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E03",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E3 Episode #1",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80748,
-        "source_id": -4408525555879340,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E04",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E4 Episode 4 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80749,
-        "source_id": -52052950165102781,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E05",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E5 Episode 5 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80749,
-        "source_id": -55840576535343020,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E05",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E5 Episode #1",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80750,
-        "source_id": -60643275728501592,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E06",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E6 Episode 6 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80750,
-        "source_id": -57789535993190878,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E06",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E6 Episode #1",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80751,
-        "source_id": -11470020433674990,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E07",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E7 Episode 7 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80751,
-        "source_id": -49989667219831898,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E07",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E7 Episode #1",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80752,
-        "source_id": -24643143252378657,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E08",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E8 Episode 8 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 80752,
-        "source_id": -66487547057877380,
-        "series_title": "Beowulf: Návrat do Shieldlandu",
-        "episode_code": "S01E08",
-        "source_title": "Beowulf: Návrat do Shieldlandu - S1E8 Episode #1",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 80753,
         "source_id": -50922938877536753,
         "series_title": "Beowulf: Návrat do Shieldlandu",
@@ -488289,6 +488199,126 @@
         "series_title": "Bulgasal: Nesmrtelní",
         "episode_code": "S01E02",
         "source_title": "Bulgasal Nesmrtelní S01E02",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110459,
+        "source_id": -2025498852750319,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E02",
+        "source_title": "Bulgasal: Nesmrtelní - S1E2 Epizoda 2 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110459,
+        "source_id": -11626801732278621,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E02",
+        "source_title": "Bulgasal: Nesmrtelní - S1E2 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110460,
+        "source_id": -36604088554442533,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E04",
+        "source_title": "Bulgasal Nesmrtelní S01E04",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110460,
+        "source_id": -16856249666091665,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E04",
+        "source_title": "Bulgasal: Nesmrtelní - S1E4 Epizoda 4 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110461,
+        "source_id": -37333576680292739,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E05",
+        "source_title": "Bulgasal Nesmrtelní S01E05",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110461,
+        "source_id": -10694124391001584,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E05",
+        "source_title": "Bulgasal: Nesmrtelní - S1E5 Epizoda 5 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110461,
+        "source_id": -34217524586624098,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E05",
+        "source_title": "Bulgasal: Nesmrtelní - S1E5 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110462,
+        "source_id": -30578391737148744,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E06",
+        "source_title": "Bulgasal Nesmrtelní S01E06",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110462,
+        "source_id": -25348759406067886,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E06",
+        "source_title": "Bulgasal: Nesmrtelní - S1E6 Epizoda 6 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110462,
+        "source_id": -4602484117961174,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E06",
+        "source_title": "Bulgasal: Nesmrtelní - S1E6 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110457,
+        "source_id": -50042994713419967,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E07",
+        "source_title": "Bulgasal Nesmrtelní S01E07",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110457,
+        "source_id": -62161984253051814,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E07",
+        "source_title": "Bulgasal: Nesmrtelní - S1E7 Epizoda 7 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110457,
+        "source_id": -54413898628235446,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E07",
+        "source_title": "Bulgasal: Nesmrtelní - S1E7 KO",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110458,
+        "source_id": -11756004488718875,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E08",
+        "source_title": "Bulgasal Nesmrtelní S01E08",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 110458,
+        "source_id": -59120166426289486,
+        "series_title": "Bulgasal: Nesmrtelní",
+        "episode_code": "S01E08",
+        "source_title": "Bulgasal: Nesmrtelní - S1E8 Epizoda 8 KO",
         "status": "needs_whisper"
       }
     ],
@@ -488747,16 +488777,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 84,
+    "ok": 56,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3109,
-    "whisper_non_cz_needs_subtitles": 9633,
+    "whisper_confirmed_cz": 3115,
+    "whisper_non_cz_needs_subtitles": 9677,
     "whisper_failed": 231,
-    "needs_whisper": 42478
+    "needs_whisper": 42417
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 32973
+    "needs_subtitle_setup_after_prehrajto_processing": 32984
   }
 }
