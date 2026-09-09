@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 137944,
-    "manifest_upload_ready_episodes": 635,
-    "uploaded_episodes": 53901,
-    "prepared_source_episodes": 61505,
+    "manifest_upload_ready_episodes": 647,
+    "uploaded_episodes": 53910,
+    "prepared_source_episodes": 61392,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 143,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55461,
     "whisper_review_pending_sources": 42732,
@@ -18,6 +18,54 @@
     "subtitle_followup_pending_sources": 33067
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T14:20:27Z",
+      "databaseId": 34362959848,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T14:19:14Z",
+      "databaseId": 34362826284,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-09T14:17:33Z",
+      "databaseId": 34362643327,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T14:16:18Z",
+      "databaseId": 34362507929,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-09T14:13:59Z",
+      "databaseId": 34362249391,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-09T14:13:17Z",
+      "databaseId": 34362169775,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-09T14:12:08Z",
@@ -35,11 +83,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T14:11:06Z",
       "databaseId": 34361933817,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +99,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-09T14:11:00Z",
       "databaseId": 34361922490,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T14:02:53Z",
       "databaseId": 34361028842,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -115,11 +163,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-09T14:00:25Z",
       "databaseId": 34360754232,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-09T13:59:57Z",
-      "databaseId": 34360697641,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T13:59:33Z",
-      "databaseId": 34360658199,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-09T13:53:19Z",
-      "databaseId": 34359987800,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-09T13:52:17Z",
-      "databaseId": 34359877248,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T13:52:17Z",
-      "databaseId": 34359876861,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-09T13:52:14Z",
-      "databaseId": 34359870466,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -131226,6 +131226,31 @@
         "video_id": 29243254
       },
       {
+        "episode_id": 6152,
+        "display_name": "Válka skladů S01E18 - Podvádění CZ Dabing",
+        "video_id": 29243491
+      },
+      {
+        "episode_id": 24180,
+        "display_name": "Válka skladů S02E03 - Zaplaťte dámě CZ Dabing",
+        "video_id": 29243521
+      },
+      {
+        "episode_id": 108132,
+        "display_name": "Baptiste S01E04 - Důvěra CZ Dabing",
+        "video_id": 29243569
+      },
+      {
+        "episode_id": 108136,
+        "display_name": "Baptiste S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 29243610
+      },
+      {
+        "episode_id": 17549,
+        "display_name": "Černá voda S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29243520
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -244769,6 +244794,26 @@
         "episode_id": 145627,
         "display_name": "Molo S02E07 - 7. epizoda CZ Dabing",
         "video_id": 29243193
+      },
+      {
+        "episode_id": 108134,
+        "display_name": "Baptiste S01E06 - Znovu žít CZ Dabing",
+        "video_id": 29243513
+      },
+      {
+        "episode_id": 130126,
+        "display_name": "Závistivá S02E06 - Zamilovaný ninja CZ Titulky",
+        "video_id": 29243619
+      },
+      {
+        "episode_id": 104591,
+        "display_name": "Those Who Kill S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29243492
+      },
+      {
+        "episode_id": 104595,
+        "display_name": "Those Who Kill S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29243532
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -375713,6 +375758,31 @@
         "video_id": 29243254
       },
       {
+        "episode_id": 6152,
+        "display_name": "Válka skladů S01E18 - Podvádění CZ Dabing",
+        "video_id": 29243491
+      },
+      {
+        "episode_id": 24180,
+        "display_name": "Válka skladů S02E03 - Zaplaťte dámě CZ Dabing",
+        "video_id": 29243521
+      },
+      {
+        "episode_id": 108132,
+        "display_name": "Baptiste S01E04 - Důvěra CZ Dabing",
+        "video_id": 29243569
+      },
+      {
+        "episode_id": 108136,
+        "display_name": "Baptiste S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 29243610
+      },
+      {
+        "episode_id": 17549,
+        "display_name": "Černá voda S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29243520
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -489256,6 +489326,26 @@
         "episode_id": 145627,
         "display_name": "Molo S02E07 - 7. epizoda CZ Dabing",
         "video_id": 29243193
+      },
+      {
+        "episode_id": 108134,
+        "display_name": "Baptiste S01E06 - Znovu žít CZ Dabing",
+        "video_id": 29243513
+      },
+      {
+        "episode_id": 130126,
+        "display_name": "Závistivá S02E06 - Zamilovaný ninja CZ Titulky",
+        "video_id": 29243619
+      },
+      {
+        "episode_id": 104591,
+        "display_name": "Those Who Kill S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29243492
+      },
+      {
+        "episode_id": 104595,
+        "display_name": "Those Who Kill S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29243532
       }
     ],
     "prepared_not_upload_ready": [
@@ -490417,7 +490507,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 83,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
