@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 137028,
-    "manifest_upload_ready_episodes": 268,
-    "uploaded_episodes": 54799,
+    "manifest_upload_ready_episodes": 265,
+    "uploaded_episodes": 54800,
     "prepared_source_episodes": 62016,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 109,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55460,
     "whisper_review_pending_sources": 42687,
     "subtitle_followup_sources": 33455,
     "subtitle_followup_pending_sources": 33455
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T10:46:32Z",
+      "databaseId": 34467813596,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T10:46:27Z",
+      "databaseId": 34467807100,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T10:45:49Z",
+      "databaseId": 34467750640,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-10T10:44:47Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T10:44:28Z",
       "databaseId": 34467634670,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +87,7 @@
       "createdAt": "2026-09-10T10:44:03Z",
       "databaseId": 34467598544,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T10:38:11Z",
       "databaseId": 34467091355,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T10:33:28Z",
-      "databaseId": 34466678311,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T10:32:21Z",
-      "databaseId": 34466582054,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T10:32:18Z",
-      "databaseId": 34466576822,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -133604,6 +133604,11 @@
         "episode_id": 102117,
         "display_name": "Dlouhá cesta domů S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29270623
+      },
+      {
+        "episode_id": 36017,
+        "display_name": "Mír v Marseille S01E03 - Smyčka se utahuje CZ Dabing",
+        "video_id": 29270669
       },
       {
         "episode_id": 114182,
@@ -382583,6 +382588,11 @@
         "video_id": 29270623
       },
       {
+        "episode_id": 36017,
+        "display_name": "Mír v Marseille S01E03 - Smyčka se utahuje CZ Dabing",
+        "video_id": 29270669
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -499397,8 +499407,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 69,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
