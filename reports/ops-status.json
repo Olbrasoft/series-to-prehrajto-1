@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 137438,
     "manifest_upload_ready_episodes": 418,
-    "uploaded_episodes": 54398,
+    "uploaded_episodes": 54399,
     "prepared_source_episodes": 61810,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 62,
-    "language_whisper_attempted_sources": 62,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55452,
     "whisper_review_pending_sources": 42654,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-10T02:50:26Z",
+      "databaseId": 34431003601,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T02:50:25Z",
+      "databaseId": 34431002690,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T02:50:22Z",
+      "databaseId": 34430998280,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T02:49:35Z",
+      "databaseId": 34430946922,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-10T02:48:37Z",
       "databaseId": 34430887566,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +91,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-10T02:44:02Z",
       "databaseId": 34430593059,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -71,7 +103,7 @@
       "createdAt": "2026-09-10T02:43:21Z",
       "databaseId": 34430549459,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T02:43:12Z",
       "databaseId": 34430540118,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -103,7 +135,7 @@
       "createdAt": "2026-09-10T02:42:16Z",
       "databaseId": 34430480439,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T02:31:22Z",
-      "databaseId": 34429776128,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T02:30:43Z",
-      "databaseId": 34429733053,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T02:30:39Z",
-      "databaseId": 34429728093,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T02:29:36Z",
-      "databaseId": 34429653726,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -132484,6 +132484,11 @@
         "episode_id": 157637,
         "display_name": "Jak se mění vědomí S01E01 - 1. kapitola: LSD CZ Dabing",
         "video_id": 29260281
+      },
+      {
+        "episode_id": 91989,
+        "display_name": "La Reina del Sur S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29260394
       },
       {
         "episode_id": 114182,
@@ -379458,6 +379463,11 @@
         "video_id": 29260281
       },
       {
+        "episode_id": 91989,
+        "display_name": "La Reina del Sur S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29260394
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -495387,7 +495397,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 61,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
