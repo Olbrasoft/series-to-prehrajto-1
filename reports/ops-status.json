@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 136587,
-    "manifest_upload_ready_episodes": 44,
-    "uploaded_episodes": 55231,
-    "prepared_source_episodes": 62377,
+    "manifest_upload_ready_episodes": 42,
+    "uploaded_episodes": 55233,
+    "prepared_source_episodes": 62391,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55389,
-    "whisper_review_pending_sources": 42325,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 55403,
+    "whisper_review_pending_sources": 42392,
     "subtitle_followup_sources": 33698,
     "subtitle_followup_pending_sources": 33698
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-10T22:46:01Z",
-      "databaseId": 34539035902,
+      "createdAt": "2026-09-10T22:49:57Z",
+      "databaseId": 34539338588,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T22:49:53Z",
+      "databaseId": 34539333488,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
+      "createdAt": "2026-09-10T22:46:51Z",
+      "databaseId": 34539101346,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-10T22:46:01Z",
+      "databaseId": 34539035902,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-10T22:45:28Z",
       "databaseId": 34538995431,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T22:36:34Z",
       "databaseId": 34538285692,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-10T22:35:51Z",
-      "databaseId": 34538227138,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T22:35:11Z",
-      "databaseId": 34538170812,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T22:35:07Z",
-      "databaseId": 34538165567,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -134691,6 +134691,11 @@
         "video_id": 29283678
       },
       {
+        "episode_id": 103621,
+        "display_name": "Záhady Frankie Drakeové S03E08 - 8. epizoda CZ Dabing",
+        "video_id": 29283735
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -251394,6 +251399,11 @@
         "episode_id": 138679,
         "display_name": "My Dearest Nemesis S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29283554
+      },
+      {
+        "episode_id": 128139,
+        "display_name": "NTSF:SD:SUV:: S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29283747
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -385803,6 +385813,11 @@
         "video_id": 29283678
       },
       {
+        "episode_id": 103621,
+        "display_name": "Záhady Frankie Drakeové S03E08 - 8. epizoda CZ Dabing",
+        "video_id": 29283735
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -502506,6 +502521,11 @@
         "episode_id": 138679,
         "display_name": "My Dearest Nemesis S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29283554
+      },
+      {
+        "episode_id": 128139,
+        "display_name": "NTSF:SD:SUV:: S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29283747
       }
     ],
     "prepared_not_upload_ready": [
@@ -503667,14 +503687,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 21,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3043,
-    "whisper_non_cz_needs_subtitles": 10021,
-    "whisper_failed": 240,
-    "needs_whisper": 42085
+    "whisper_confirmed_cz": 3039,
+    "whisper_non_cz_needs_subtitles": 9972,
+    "whisper_failed": 233,
+    "needs_whisper": 42159
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 33698
