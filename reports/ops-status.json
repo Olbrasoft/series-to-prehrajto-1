@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 137028,
     "manifest_upload_ready_episodes": 250,
-    "uploaded_episodes": 54741,
+    "uploaded_episodes": 54742,
     "prepared_source_episodes": 62067,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 61,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55442,
     "whisper_review_pending_sources": 42589,
     "subtitle_followup_sources": 33433,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-10T09:44:30Z",
+      "databaseId": 34462310805,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T09:44:24Z",
+      "databaseId": 34462300968,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-10T09:44:20Z",
+      "databaseId": 34462293631,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T09:43:00Z",
+      "databaseId": 34462168606,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T09:42:57Z",
+      "databaseId": 34462164299,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-10T09:41:52Z",
       "databaseId": 34462062070,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T09:40:07Z",
       "databaseId": 34461901241,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -63,7 +103,7 @@
       "createdAt": "2026-09-10T09:39:09Z",
       "databaseId": 34461811979,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T09:29:24Z",
-      "databaseId": 34460909150,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T09:28:32Z",
-      "databaseId": 34460833778,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T09:25:19Z",
-      "databaseId": 34460542648,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-10T09:22:01Z",
-      "databaseId": 34460233804,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T09:21:59Z",
-      "databaseId": 34460230720,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -248969,6 +248969,11 @@
         "episode_id": 136455,
         "display_name": "Neštěstí S01E05 - Konfrontace CZ Dabing",
         "video_id": 29269396
+      },
+      {
+        "episode_id": 136459,
+        "display_name": "Neštěstí S01E09 - Pokání CZ Titulky",
+        "video_id": 29269425
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -497656,6 +497661,11 @@
         "episode_id": 136455,
         "display_name": "Neštěstí S01E05 - Konfrontace CZ Dabing",
         "video_id": 29269396
+      },
+      {
+        "episode_id": 136459,
+        "display_name": "Neštěstí S01E09 - Pokání CZ Titulky",
+        "video_id": 29269425
       }
     ],
     "prepared_not_upload_ready": [
@@ -498817,8 +498827,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 1,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
