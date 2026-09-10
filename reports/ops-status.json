@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 136587,
-    "manifest_upload_ready_episodes": 85,
-    "uploaded_episodes": 55173,
-    "prepared_source_episodes": 62312,
+    "manifest_upload_ready_episodes": 84,
+    "uploaded_episodes": 55177,
+    "prepared_source_episodes": 62241,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 62,
+    "language_audited_sources": 104,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55404,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-10T21:29:20Z",
-      "databaseId": 34532450884,
+      "createdAt": "2026-09-10T21:32:47Z",
+      "databaseId": 34532771829,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-10T21:30:28Z",
+      "databaseId": 34532557757,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T21:30:23Z",
+      "databaseId": 34532549805,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T21:30:19Z",
+      "databaseId": 34532542869,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T21:29:20Z",
+      "databaseId": 34532450884,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-10T21:29:15Z",
       "databaseId": 34532443458,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -139,44 +171,12 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T21:17:26Z",
       "databaseId": 34531349724,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-10T21:16:02Z",
-      "databaseId": 34531218002,
-      "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T21:14:58Z",
-      "databaseId": 34531112040,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T21:13:39Z",
-      "databaseId": 34530982145,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T21:13:35Z",
-      "databaseId": 34530976253,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -134546,6 +134546,11 @@
         "video_id": 29282418
       },
       {
+        "episode_id": 96848,
+        "display_name": "Feed the Beast S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29282530
+      },
+      {
         "episode_id": 129921,
         "display_name": "Hříšná touha S01E02 - Poslední noc vášně CZ Titulky",
         "video_id": 29282412
@@ -134559,6 +134564,11 @@
         "episode_id": 136833,
         "display_name": "Mise Odysseus S01E07 - Fault CZ Dabing",
         "video_id": 29282480
+      },
+      {
+        "episode_id": 134069,
+        "display_name": "Mise Odysseus S02E06 - Alice CZ Titulky",
+        "video_id": 29282514
       },
       {
         "episode_id": 114182,
@@ -251121,6 +251131,11 @@
         "video_id": 29282477
       },
       {
+        "episode_id": 128146,
+        "display_name": "NTSF:SD:SUV:: S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29282517
+      },
+      {
         "episode_id": 96843,
         "display_name": "Feed the Beast S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29282421
@@ -251129,6 +251144,11 @@
         "episode_id": 103615,
         "display_name": "Záhady Frankie Drakeové S02E07 - Něco nekalého CZ Dabing",
         "video_id": 29282466
+      },
+      {
+        "episode_id": 103623,
+        "display_name": "Záhady Frankie Drakeové S03E05 - 5. epizoda CZ Dabing",
+        "video_id": 29282532
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -385393,6 +385413,11 @@
         "video_id": 29282418
       },
       {
+        "episode_id": 96848,
+        "display_name": "Feed the Beast S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29282530
+      },
+      {
         "episode_id": 129921,
         "display_name": "Hříšná touha S01E02 - Poslední noc vášně CZ Titulky",
         "video_id": 29282412
@@ -385406,6 +385431,11 @@
         "episode_id": 136833,
         "display_name": "Mise Odysseus S01E07 - Fault CZ Dabing",
         "video_id": 29282480
+      },
+      {
+        "episode_id": 134069,
+        "display_name": "Mise Odysseus S02E06 - Alice CZ Titulky",
+        "video_id": 29282514
       },
       {
         "episode_id": 114182,
@@ -501968,6 +501998,11 @@
         "video_id": 29282477
       },
       {
+        "episode_id": 128146,
+        "display_name": "NTSF:SD:SUV:: S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29282517
+      },
+      {
         "episode_id": 96843,
         "display_name": "Feed the Beast S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29282421
@@ -501976,6 +502011,11 @@
         "episode_id": 103615,
         "display_name": "Záhady Frankie Drakeové S02E07 - Něco nekalého CZ Dabing",
         "video_id": 29282466
+      },
+      {
+        "episode_id": 103623,
+        "display_name": "Záhady Frankie Drakeové S03E05 - 5. epizoda CZ Dabing",
+        "video_id": 29282532
       }
     ],
     "prepared_not_upload_ready": [
@@ -503137,7 +503177,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 42,
+    "disabled": 84,
     "ok": 19,
     "resolve_failed": 1
   },
