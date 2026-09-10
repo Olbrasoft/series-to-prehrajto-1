@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 137438,
-    "manifest_upload_ready_episodes": 442,
-    "uploaded_episodes": 54380,
+    "manifest_upload_ready_episodes": 441,
+    "uploaded_episodes": 54381,
     "prepared_source_episodes": 61806,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55445,
     "whisper_review_pending_sources": 42614,
     "subtitle_followup_sources": 33289,
     "subtitle_followup_pending_sources": 33289
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T02:29:36Z",
+      "databaseId": 34429653726,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T02:29:03Z",
+      "databaseId": 34429616519,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T02:28:59Z",
+      "databaseId": 34429612844,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-10T02:28:08Z",
@@ -27,11 +51,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T02:28:01Z",
       "databaseId": 34429549552,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T02:23:46Z",
       "databaseId": 34429276874,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T02:07:51Z",
-      "databaseId": 34428218730,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T02:06:22Z",
-      "databaseId": 34428125170,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T02:05:23Z",
-      "databaseId": 34428058473,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -132434,6 +132434,11 @@
         "episode_id": 25268,
         "display_name": "Modrý Pacifik S04E21 - Šťastná 13 CZ Dabing",
         "video_id": 29260000
+      },
+      {
+        "episode_id": 25284,
+        "display_name": "Modrý Pacifik S05E15 - Soudní fraška CZ Dabing",
+        "video_id": 29260029
       },
       {
         "episode_id": 186033,
@@ -379318,6 +379323,11 @@
         "video_id": 29260000
       },
       {
+        "episode_id": 25284,
+        "display_name": "Modrý Pacifik S05E15 - Soudní fraška CZ Dabing",
+        "video_id": 29260029
+      },
+      {
         "episode_id": 186033,
         "display_name": "Čarodějnice školou povinné S02E07 - Zapovězený les CZ Titulky",
         "video_id": 29259838
@@ -495207,7 +495217,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
