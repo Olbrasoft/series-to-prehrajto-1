@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 137438,
-    "manifest_upload_ready_episodes": 493,
-    "uploaded_episodes": 54341,
-    "prepared_source_episodes": 61604,
+    "manifest_upload_ready_episodes": 485,
+    "uploaded_episodes": 54351,
+    "prepared_source_episodes": 61616,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
@@ -12,26 +12,82 @@
     "language_audited_sources": 60,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55449,
-    "whisper_review_pending_sources": 42634,
+    "whisper_review_sources": 55452,
+    "whisper_review_pending_sources": 42654,
     "subtitle_followup_sources": 33287,
     "subtitle_followup_pending_sources": 33287
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-10T01:40:17Z",
-      "databaseId": 34426400738,
+      "createdAt": "2026-09-10T01:49:33Z",
+      "databaseId": 34427001867,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "prepare-sources"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-10T01:49:24Z",
+      "databaseId": 34426991654,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T01:49:20Z",
+      "databaseId": 34426987669,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-10T01:49:15Z",
+      "databaseId": 34426983024,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T01:46:35Z",
+      "databaseId": 34426813448,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T01:42:11Z",
+      "databaseId": 34426522472,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T01:41:59Z",
+      "databaseId": 34426508479,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T01:40:17Z",
+      "databaseId": 34426400738,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-10T01:36:57Z",
       "databaseId": 34426185223,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T01:29:54Z",
-      "databaseId": 34425707613,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-10T01:29:50Z",
-      "databaseId": 34425703386,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-10T01:29:13Z",
-      "databaseId": 34425664953,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T01:24:22Z",
-      "databaseId": 34425338046,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T01:16:57Z",
-      "databaseId": 34424838851,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T01:16:45Z",
-      "databaseId": 34424825747,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T01:15:47Z",
-      "databaseId": 34424760863,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -132331,9 +132331,29 @@
         "video_id": 29258590
       },
       {
+        "episode_id": 88812,
+        "display_name": "Škola zlomených srdcí S01E11 - 11. epizoda CZ Dabing",
+        "video_id": 29258941
+      },
+      {
         "episode_id": 50845,
         "display_name": "Lidé S03E05 - Episode #3.5 CZ Dabing",
         "video_id": 29258922
+      },
+      {
+        "episode_id": 50841,
+        "display_name": "Lidé S03E06 - Episode #3.6 CZ Dabing",
+        "video_id": 29259006
+      },
+      {
+        "episode_id": 128213,
+        "display_name": "Práva S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29259075
+      },
+      {
+        "episode_id": 128205,
+        "display_name": "Práva S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 29259121
       },
       {
         "episode_id": 114182,
@@ -246966,9 +246986,39 @@
         "video_id": 29258983
       },
       {
+        "episode_id": 21142,
+        "display_name": "Doktorka Plyšáková S04E11 - Nejnetrpělivější pacient CZ Dabing",
+        "video_id": 29259028
+      },
+      {
+        "episode_id": 21146,
+        "display_name": "Doktorka Plyšáková S04E15 - Kačka zpívá špitálku CZ Dabing",
+        "video_id": 29259062
+      },
+      {
+        "episode_id": 21150,
+        "display_name": "Doktorka Plyšáková S04E19 - Drobek terapeutem CZ Dabing",
+        "video_id": 29259108
+      },
+      {
         "episode_id": 50843,
         "display_name": "Lidé S03E08 - Episode #3.8 CZ Dabing",
         "video_id": 29258929
+      },
+      {
+        "episode_id": 88855,
+        "display_name": "Škola zlomených srdcí S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 29258998
+      },
+      {
+        "episode_id": 201799,
+        "display_name": "Šťastná to zem S01E04 - 69 metrů pod hladinou CZ Dabing",
+        "video_id": 29259050
+      },
+      {
+        "episode_id": 120227,
+        "display_name": "Neprůstřelní S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29259129
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -379018,9 +379068,29 @@
         "video_id": 29258590
       },
       {
+        "episode_id": 88812,
+        "display_name": "Škola zlomených srdcí S01E11 - 11. epizoda CZ Dabing",
+        "video_id": 29258941
+      },
+      {
         "episode_id": 50845,
         "display_name": "Lidé S03E05 - Episode #3.5 CZ Dabing",
         "video_id": 29258922
+      },
+      {
+        "episode_id": 50841,
+        "display_name": "Lidé S03E06 - Episode #3.6 CZ Dabing",
+        "video_id": 29259006
+      },
+      {
+        "episode_id": 128213,
+        "display_name": "Práva S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29259075
+      },
+      {
+        "episode_id": 128205,
+        "display_name": "Práva S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 29259121
       },
       {
         "episode_id": 114182,
@@ -493653,9 +493723,39 @@
         "video_id": 29258983
       },
       {
+        "episode_id": 21142,
+        "display_name": "Doktorka Plyšáková S04E11 - Nejnetrpělivější pacient CZ Dabing",
+        "video_id": 29259028
+      },
+      {
+        "episode_id": 21146,
+        "display_name": "Doktorka Plyšáková S04E15 - Kačka zpívá špitálku CZ Dabing",
+        "video_id": 29259062
+      },
+      {
+        "episode_id": 21150,
+        "display_name": "Doktorka Plyšáková S04E19 - Drobek terapeutem CZ Dabing",
+        "video_id": 29259108
+      },
+      {
         "episode_id": 50843,
         "display_name": "Lidé S03E08 - Episode #3.8 CZ Dabing",
         "video_id": 29258929
+      },
+      {
+        "episode_id": 88855,
+        "display_name": "Škola zlomených srdcí S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 29258998
+      },
+      {
+        "episode_id": 201799,
+        "display_name": "Šťastná to zem S01E04 - 69 metrů pod hladinou CZ Dabing",
+        "video_id": 29259050
+      },
+      {
+        "episode_id": 120227,
+        "display_name": "Neprůstřelní S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29259129
       }
     ],
     "prepared_not_upload_ready": [
@@ -494821,10 +494921,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3086,
-    "whisper_non_cz_needs_subtitles": 9729,
+    "whisper_confirmed_cz": 3075,
+    "whisper_non_cz_needs_subtitles": 9723,
     "whisper_failed": 231,
-    "needs_whisper": 42403
+    "needs_whisper": 42423
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 33287
