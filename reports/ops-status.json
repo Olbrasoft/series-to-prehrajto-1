@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 136753,
-    "manifest_upload_ready_episodes": 140,
-    "uploaded_episodes": 54999,
-    "prepared_source_episodes": 62283,
+    "manifest_upload_ready_episodes": 138,
+    "uploaded_episodes": 55001,
+    "prepared_source_episodes": 62282,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 117,
+    "language_audited_sources": 128,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55445,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-10T15:26:38Z",
+      "databaseId": 34495664974,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T15:26:35Z",
+      "databaseId": 34495657641,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-10T15:24:50Z",
+      "databaseId": 34495471029,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T15:23:23Z",
+      "databaseId": 34495311547,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T15:21:39Z",
+      "databaseId": 34495124265,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-10T15:20:21Z",
       "databaseId": 34494984425,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T15:00:52Z",
-      "databaseId": 34492843245,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T14:59:43Z",
-      "databaseId": 34492708526,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T14:59:21Z",
-      "databaseId": 34492669506,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T14:57:33Z",
-      "databaseId": 34492476789,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T14:57:29Z",
-      "databaseId": 34492469813,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -134114,6 +134114,16 @@
         "episode_id": 8193,
         "display_name": "Olověné děti S01E04 - 4. díl CZ Dabing",
         "video_id": 29275650
+      },
+      {
+        "episode_id": 127537,
+        "display_name": "Makanai: Jak se vaří pro Maiko S01E02 - Dobrá duše CZ Titulky",
+        "video_id": 29275724
+      },
+      {
+        "episode_id": 127541,
+        "display_name": "Makanai: Jak se vaří pro Maiko S01E06 - Jednostranně CZ Titulky",
+        "video_id": 29275778
       },
       {
         "episode_id": 114182,
@@ -384093,6 +384103,16 @@
         "video_id": 29275650
       },
       {
+        "episode_id": 127537,
+        "display_name": "Makanai: Jak se vaří pro Maiko S01E02 - Dobrá duše CZ Titulky",
+        "video_id": 29275724
+      },
+      {
+        "episode_id": 127541,
+        "display_name": "Makanai: Jak se vaří pro Maiko S01E06 - Jednostranně CZ Titulky",
+        "video_id": 29275778
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -501397,7 +501417,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 57,
+    "disabled": 68,
     "ok": 59,
     "resolve_failed": 1
   },
