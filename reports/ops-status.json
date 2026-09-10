@@ -2,8 +2,8 @@
   "counts": {
     "backlog_episodes": 137318,
     "manifest_upload_ready_episodes": 397,
-    "uploaded_episodes": 54430,
-    "prepared_source_episodes": 61753,
+    "uploaded_episodes": 54431,
+    "prepared_source_episodes": 61773,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
@@ -11,13 +11,45 @@
     "language_queue_sources": 2644,
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55451,
-    "whisper_review_pending_sources": 42640,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 55455,
+    "whisper_review_pending_sources": 42663,
     "subtitle_followup_sources": 33302,
     "subtitle_followup_pending_sources": 33302
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T03:35:40Z",
+      "databaseId": 34433924532,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T03:35:37Z",
+      "databaseId": 34433920646,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T03:34:40Z",
+      "databaseId": 34433861483,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T03:34:38Z",
+      "databaseId": 34433858690,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-10T03:34:18Z",
@@ -27,19 +59,19 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T03:33:36Z",
       "databaseId": 34433793571,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-10T03:33:16Z",
       "databaseId": 34433769483,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T03:27:26Z",
       "databaseId": 34433397492,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T03:17:28Z",
-      "databaseId": 34432760899,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-10T03:17:25Z",
-      "databaseId": 34432757635,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T03:15:37Z",
-      "databaseId": 34432642140,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T03:15:34Z",
-      "databaseId": 34432639410,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -247414,6 +247414,11 @@
         "episode_id": 126543,
         "display_name": "Závistivá S01E01 - Vše o Vicky CZ Titulky",
         "video_id": 29261166
+      },
+      {
+        "episode_id": 126551,
+        "display_name": "Závistivá S02E02 - Když se nedaří... CZ Titulky",
+        "video_id": 29261233
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -494546,6 +494551,11 @@
         "episode_id": 126543,
         "display_name": "Závistivá S01E01 - Vše o Vicky CZ Titulky",
         "video_id": 29261166
+      },
+      {
+        "episode_id": 126551,
+        "display_name": "Závistivá S02E02 - Když se nedaří... CZ Titulky",
+        "video_id": 29261233
       }
     ],
     "prepared_not_upload_ready": [
@@ -495052,6 +495062,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 73448,
+        "source_id": -56109037292564302,
+        "series_title": "Bukanýrky",
+        "episode_code": "S01E05",
+        "source_title": "Bukanýrky - S1E5 Neúspěšná zrada EN",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 127621,
         "source_id": -16650705822300185,
         "series_title": "Bull",
@@ -495241,14 +495259,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E22",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56276,
-        "source_id": -18797228031498409,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E23",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -495711,10 +495721,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3102,
-    "whisper_non_cz_needs_subtitles": 9709,
+    "whisper_confirmed_cz": 3098,
+    "whisper_non_cz_needs_subtitles": 9694,
     "whisper_failed": 231,
-    "needs_whisper": 42409
+    "needs_whisper": 42432
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 33302
