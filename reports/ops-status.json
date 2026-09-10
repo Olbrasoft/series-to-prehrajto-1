@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 137438,
-    "manifest_upload_ready_episodes": 507,
-    "uploaded_episodes": 54325,
-    "prepared_source_episodes": 61556,
+    "manifest_upload_ready_episodes": 506,
+    "uploaded_episodes": 54327,
+    "prepared_source_episodes": 61547,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 194,
+    "language_audited_sources": 200,
     "language_whisper_attempted_sources": 117,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55450,
-    "whisper_review_pending_sources": 42642,
+    "whisper_review_sources": 55452,
+    "whisper_review_pending_sources": 42654,
     "subtitle_followup_sources": 33287,
     "subtitle_followup_pending_sources": 33287
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-10T01:15:47Z",
+      "databaseId": 34424760863,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T01:15:43Z",
+      "databaseId": 34424757099,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T01:15:01Z",
+      "databaseId": 34424706506,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-10T01:14:02Z",
       "databaseId": 34424638644,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-10T01:04:56Z",
       "databaseId": 34424008054,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T00:52:08Z",
-      "databaseId": 34423103472,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T00:52:05Z",
-      "databaseId": 34423099635,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T00:52:03Z",
-      "databaseId": 34423096978,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -246871,6 +246871,11 @@
         "video_id": 29258534
       },
       {
+        "episode_id": 21038,
+        "display_name": "Doktorka Plyšáková S02E35 - Správná helma CZ Dabing",
+        "video_id": 29258565
+      },
+      {
         "episode_id": 3559,
         "display_name": "Doktorka Plyšáková S02E05 - Diagnóza nediagnóza CZ Dabing",
         "video_id": 29258276
@@ -246889,6 +246894,11 @@
         "episode_id": 88835,
         "display_name": "Škola zlomených srdcí S01E35 - 35. epizoda CZ Dabing",
         "video_id": 29258395
+      },
+      {
+        "episode_id": 88839,
+        "display_name": "Škola zlomených srdcí S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 29258530
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -493478,6 +493488,11 @@
         "video_id": 29258534
       },
       {
+        "episode_id": 21038,
+        "display_name": "Doktorka Plyšáková S02E35 - Správná helma CZ Dabing",
+        "video_id": 29258565
+      },
+      {
         "episode_id": 3559,
         "display_name": "Doktorka Plyšáková S02E05 - Diagnóza nediagnóza CZ Dabing",
         "video_id": 29258276
@@ -493496,6 +493511,11 @@
         "episode_id": 88835,
         "display_name": "Škola zlomených srdcí S01E35 - 35. epizoda CZ Dabing",
         "video_id": 29258395
+      },
+      {
+        "episode_id": 88839,
+        "display_name": "Škola zlomených srdcí S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 29258530
       }
     ],
     "prepared_not_upload_ready": [
@@ -494658,14 +494678,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 116,
-    "disabled": 77,
+    "disabled": 83,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3101,
-    "whisper_non_cz_needs_subtitles": 9707,
+    "whisper_confirmed_cz": 3075,
+    "whisper_non_cz_needs_subtitles": 9723,
     "whisper_failed": 231,
-    "needs_whisper": 42411
+    "needs_whisper": 42423
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 33287
