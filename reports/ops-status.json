@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 136753,
-    "manifest_upload_ready_episodes": 92,
-    "uploaded_episodes": 55093,
-    "prepared_source_episodes": 62271,
+    "manifest_upload_ready_episodes": 131,
+    "uploaded_episodes": 55094,
+    "prepared_source_episodes": 62129,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 428,
+    "language_whisper_attempted_sources": 143,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55438,
-    "whisper_review_pending_sources": 42565,
-    "subtitle_followup_sources": 33605,
-    "subtitle_followup_pending_sources": 33605
+    "whisper_review_sources": 55433,
+    "whisper_review_pending_sources": 42537,
+    "subtitle_followup_sources": 33627,
+    "subtitle_followup_pending_sources": 33627
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T17:42:37Z",
+      "databaseId": 34509867965,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T17:42:18Z",
+      "databaseId": 34509836759,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T17:42:14Z",
+      "databaseId": 34509830920,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T17:40:13Z",
+      "databaseId": 34509627578,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-10T17:39:26Z",
@@ -27,11 +59,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-10T17:39:06Z",
       "databaseId": 34509514440,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-10T17:34:23Z",
       "databaseId": 34509028289,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T17:23:34Z",
-      "databaseId": 34507927758,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T17:23:29Z",
-      "databaseId": 34507920923,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T17:22:31Z",
-      "databaseId": 34507816750,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T17:22:30Z",
-      "databaseId": 34507814912,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -134339,6 +134339,11 @@
         "episode_id": 103620,
         "display_name": "Záhady Frankie Drakeové S03E03 - 3. epizoda CZ Dabing",
         "video_id": 29278527
+      },
+      {
+        "episode_id": 103624,
+        "display_name": "Záhady Frankie Drakeové S03E06 - 6. epizoda CZ Dabing",
+        "video_id": 29278571
       },
       {
         "episode_id": 4769,
@@ -384788,6 +384793,11 @@
         "video_id": 29278527
       },
       {
+        "episode_id": 103624,
+        "display_name": "Záhady Frankie Drakeové S03E06 - 6. epizoda CZ Dabing",
+        "video_id": 29278571
+      },
+      {
         "episode_id": 4769,
         "display_name": "Lví hlídka S01E16 - Potíže s kombami CZ Dabing",
         "video_id": 29278240
@@ -502337,16 +502347,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 285,
+    "ok": 142,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3026,
-    "whisper_non_cz_needs_subtitles": 9847,
+    "whisper_non_cz_needs_subtitles": 9870,
     "whisper_failed": 231,
-    "needs_whisper": 42334
+    "needs_whisper": 42306
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 33605
+    "needs_subtitle_setup_after_prehrajto_processing": 33627
   }
 }
