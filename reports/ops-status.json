@@ -1,37 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 136646,
-    "manifest_upload_ready_episodes": 116,
-    "uploaded_episodes": 55143,
-    "prepared_source_episodes": 62304,
+    "manifest_upload_ready_episodes": 115,
+    "uploaded_episodes": 55144,
+    "prepared_source_episodes": 62308,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 58,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55438,
-    "whisper_review_pending_sources": 42565,
+    "whisper_review_sources": 55424,
+    "whisper_review_pending_sources": 42491,
     "subtitle_followup_sources": 33675,
     "subtitle_followup_pending_sources": 33675
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-10T20:42:35Z",
-      "databaseId": 34527988232,
+      "createdAt": "2026-09-10T20:44:23Z",
+      "databaseId": 34528157161,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T20:43:39Z",
+      "databaseId": 34528089625,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-10T20:43:29Z",
+      "databaseId": 34528071614,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-10T20:43:25Z",
+      "databaseId": 34528064996,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-10T20:42:35Z",
+      "databaseId": 34527988232,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-10T20:42:33Z",
       "databaseId": 34527983492,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-10T20:30:25Z",
       "databaseId": 34526783784,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T20:29:17Z",
-      "databaseId": 34526668764,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-10T20:29:09Z",
-      "databaseId": 34526654933,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-10T20:28:52Z",
-      "databaseId": 34526627126,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-10T20:28:02Z",
-      "databaseId": 34526541319,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -250979,6 +250979,11 @@
         "episode_id": 85863,
         "display_name": "X Company S03E05 - Hranice CZ Dabing",
         "video_id": 29281559
+      },
+      {
+        "episode_id": 181011,
+        "display_name": "Co se stalo, Brittany Murphyová? S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29281687
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -501676,6 +501681,11 @@
         "episode_id": 85863,
         "display_name": "X Company S03E05 - Hranice CZ Dabing",
         "video_id": 29281559
+      },
+      {
+        "episode_id": 181011,
+        "display_name": "Co se stalo, Brittany Murphyová? S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29281687
       }
     ],
     "prepared_not_upload_ready": [
@@ -502837,14 +502847,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 18,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3026,
-    "whisper_non_cz_needs_subtitles": 9847,
+    "whisper_confirmed_cz": 3039,
+    "whisper_non_cz_needs_subtitles": 9894,
     "whisper_failed": 231,
-    "needs_whisper": 42334
+    "needs_whisper": 42260
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 33675
