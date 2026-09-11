@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 135988,
-    "manifest_upload_ready_episodes": 48,
-    "uploaded_episodes": 55803,
-    "prepared_source_episodes": 62426,
+    "manifest_upload_ready_episodes": 47,
+    "uploaded_episodes": 55805,
+    "prepared_source_episodes": 62425,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55307,
-    "whisper_review_pending_sources": 42098,
+    "whisper_review_sources": 55279,
+    "whisper_review_pending_sources": 41980,
     "subtitle_followup_sources": 34177,
     "subtitle_followup_pending_sources": 34177
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-11T22:26:33Z",
+      "databaseId": 34654016684,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-11T22:26:21Z",
+      "databaseId": 34654002317,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-11T22:26:17Z",
+      "databaseId": 34653996776,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-09-11T22:25:33Z",
       "databaseId": 34653946002,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T22:25:07Z",
       "databaseId": 34653911144,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T22:20:47Z",
       "databaseId": 34653586461,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T22:08:53Z",
-      "databaseId": 34652686233,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-11T22:08:50Z",
-      "databaseId": 34652681706,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-11T22:08:26Z",
-      "databaseId": 34652652617,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -136131,6 +136131,11 @@
         "video_id": 29311282
       },
       {
+        "episode_id": 64900,
+        "display_name": "Dom S01E01 - K DĚTEM NEDOSTANEŠ NÁVOD CZ Titulky",
+        "video_id": 29311346
+      },
+      {
         "episode_id": 69721,
         "display_name": "Kojak S03E21 - Bouda CZ Dabing",
         "video_id": 29311284
@@ -254219,6 +254224,11 @@
         "episode_id": 69722,
         "display_name": "Kojak S03E23 - Opožděná spravedlnost CZ Titulky",
         "video_id": 29311322
+      },
+      {
+        "episode_id": 32210,
+        "display_name": "Tři metry nad nebem S03E08 - 8. epizoda CZ Titulky",
+        "video_id": 29311365
       },
       {
         "episode_id": 17367,
@@ -390078,6 +390088,11 @@
         "video_id": 29311282
       },
       {
+        "episode_id": 64900,
+        "display_name": "Dom S01E01 - K DĚTEM NEDOSTANEŠ NÁVOD CZ Titulky",
+        "video_id": 29311346
+      },
+      {
         "episode_id": 69721,
         "display_name": "Kojak S03E21 - Bouda CZ Dabing",
         "video_id": 29311284
@@ -508168,6 +508183,11 @@
         "video_id": 29311322
       },
       {
+        "episode_id": 32210,
+        "display_name": "Tři metry nad nebem S03E08 - 8. epizoda CZ Titulky",
+        "video_id": 29311365
+      },
+      {
         "episode_id": 17367,
         "display_name": "Tři metry nad nebem S01E05 - Bez tebe CZ Titulky",
         "video_id": 29311285
@@ -509337,14 +509357,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
-    "resolve_failed": 1
+    "ok": 33,
+    "resolve_failed": 7
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3038,
-    "whisper_non_cz_needs_subtitles": 10171,
-    "whisper_failed": 441,
-    "needs_whisper": 41657
+    "whisper_confirmed_cz": 3042,
+    "whisper_non_cz_needs_subtitles": 10257,
+    "whisper_failed": 471,
+    "needs_whisper": 41509
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 34177
