@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 136587,
-    "manifest_upload_ready_episodes": 69,
+    "manifest_upload_ready_episodes": 68,
     "uploaded_episodes": 55290,
-    "prepared_source_episodes": 62210,
+    "prepared_source_episodes": 62209,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55400,
-    "whisper_review_pending_sources": 42391,
-    "subtitle_followup_sources": 33745,
-    "subtitle_followup_pending_sources": 33745
+    "whisper_review_sources": 55395,
+    "whisper_review_pending_sources": 42366,
+    "subtitle_followup_sources": 33749,
+    "subtitle_followup_pending_sources": 33749
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-11T00:43:58Z",
+      "databaseId": 34547741778,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-11T00:43:50Z",
+      "databaseId": 34547731902,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-11T00:42:32Z",
+      "databaseId": 34547636029,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-11T00:41:28Z",
       "databaseId": 34547562157,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,19 +83,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T00:35:54Z",
       "databaseId": 34547161600,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T00:35:51Z",
       "databaseId": 34547157650,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T00:21:26Z",
-      "databaseId": 34546145984,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T00:20:29Z",
-      "databaseId": 34546076957,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T00:15:01Z",
-      "databaseId": 34545677373,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -503402,14 +503402,6 @@
     ],
     "whisper_review_pending": [
       {
-        "episode_id": 161695,
-        "source_id": -47940365297436127,
-        "series_title": "13 přikázání",
-        "episode_code": "S01E01",
-        "source_title": "13 přikázání - S1E1 epizoda 1 NL",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 132181,
         "source_id": -16186527404081437,
         "series_title": "Abysses",
@@ -503800,6 +503792,14 @@
         "episode_code": "S08E22",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
         "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56276,
+        "source_id": -18797228031498409,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E23",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
+        "status": "whisper_failed"
       }
     ],
     "subtitle_followup_pending": [
@@ -503823,12 +503823,12 @@
       },
       {
         "episode_id": 161695,
-        "source_id": -9776708867456486,
+        "source_id": -47940365297436127,
         "series_title": "13 přikázání",
         "episode_code": "S01E01",
-        "source_title": "13 přikázání S01E01 CZtitulky",
+        "source_title": "13 přikázání - S1E1 epizoda 1 NL",
         "subtitle_status": "needs_subtitle_setup_after_prehrajto_processing",
-        "reason": "selected source has Czech subtitles but no Czech audio source was found"
+        "reason": "selected source needs Czech subtitles after Whisper detected non-Czech audio"
       },
       {
         "episode_id": 161698,
@@ -504257,17 +504257,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3039,
-    "whisper_non_cz_needs_subtitles": 9970,
-    "needs_whisper": 42158,
-    "whisper_failed": 233
+    "whisper_confirmed_cz": 3041,
+    "whisper_non_cz_needs_subtitles": 9988,
+    "whisper_failed": 233,
+    "needs_whisper": 42133
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 33745
+    "needs_subtitle_setup_after_prehrajto_processing": 33749
   }
 }
