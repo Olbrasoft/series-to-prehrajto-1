@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 136004,
     "manifest_upload_ready_episodes": 9,
-    "uploaded_episodes": 55753,
-    "prepared_source_episodes": 62517,
+    "uploaded_episodes": 55754,
+    "prepared_source_episodes": 62518,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 25,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55307,
-    "whisper_review_pending_sources": 42098,
-    "subtitle_followup_sources": 34087,
-    "subtitle_followup_pending_sources": 34087
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 55288,
+    "whisper_review_pending_sources": 42022,
+    "subtitle_followup_sources": 34088,
+    "subtitle_followup_pending_sources": 34088
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-11T19:10:52Z",
+      "databaseId": 34637426998,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-11T19:10:49Z",
+      "databaseId": 34637422569,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-11T19:09:43Z",
+      "databaseId": 34637319938,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-11T19:08:46Z",
       "databaseId": 34637236196,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,19 +123,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T18:55:26Z",
       "databaseId": 34635999457,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T18:55:23Z",
       "databaseId": 34635995433,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -123,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-11T18:53:38Z",
       "databaseId": 34635835423,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-11T18:48:11Z",
       "databaseId": 34635332717,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T18:46:38Z",
-      "databaseId": 34635190384,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T18:46:34Z",
-      "databaseId": 34635184514,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T18:46:04Z",
-      "databaseId": 34635137902,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -253979,6 +253979,11 @@
         "episode_id": 57030,
         "display_name": "The Fosters S01E21 - 21. epizoda CZ Titulky",
         "video_id": 29307065
+      },
+      {
+        "episode_id": 57031,
+        "display_name": "The Fosters S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29307093
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -507676,6 +507681,11 @@
         "episode_id": 57030,
         "display_name": "The Fosters S01E21 - 21. epizoda CZ Titulky",
         "video_id": 29307065
+      },
+      {
+        "episode_id": 57031,
+        "display_name": "The Fosters S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29307093
       }
     ],
     "prepared_not_upload_ready": [
@@ -508837,17 +508847,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3038,
-    "whisper_non_cz_needs_subtitles": 10171,
-    "whisper_failed": 441,
-    "needs_whisper": 41657
+    "whisper_non_cz_needs_subtitles": 10228,
+    "whisper_failed": 464,
+    "needs_whisper": 41558
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 34087
+    "needs_subtitle_setup_after_prehrajto_processing": 34088
   }
 }
