@@ -1,45 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 136138,
-    "manifest_upload_ready_episodes": 4,
+    "manifest_upload_ready_episodes": 1,
     "uploaded_episodes": 55620,
-    "prepared_source_episodes": 62578,
+    "prepared_source_episodes": 62611,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55380,
-    "whisper_review_pending_sources": 42314,
+    "whisper_review_sources": 55375,
+    "whisper_review_pending_sources": 42299,
     "subtitle_followup_sources": 33961,
     "subtitle_followup_pending_sources": 33961
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-11T09:57:49Z",
-      "databaseId": 34586829841,
+      "createdAt": "2026-09-11T09:58:51Z",
+      "databaseId": 34586913281,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "ops-watchdog"
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-11T09:57:15Z",
-      "databaseId": 34586785590,
+      "createdAt": "2026-09-11T09:58:13Z",
+      "databaseId": 34586862736,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-11T09:58:09Z",
+      "databaseId": 34586856855,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-11T09:57:49Z",
+      "databaseId": 34586829841,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
+      "createdAt": "2026-09-11T09:57:15Z",
+      "databaseId": 34586785590,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-11T09:57:09Z",
       "databaseId": 34586778456,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -147,36 +171,12 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T09:47:51Z",
       "databaseId": 34586011928,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-11T09:47:50Z",
-      "databaseId": 34586010812,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T09:47:49Z",
-      "databaseId": 34586008917,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T09:47:45Z",
-      "databaseId": 34586004037,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -507507,14 +507507,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "resolve_failed": 1
+    "ok": 49,
+    "resolve_failed": 11
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3038,
-    "whisper_non_cz_needs_subtitles": 10028,
-    "whisper_failed": 284,
-    "needs_whisper": 42030
+    "whisper_non_cz_needs_subtitles": 10038,
+    "whisper_failed": 294,
+    "needs_whisper": 42005
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 33961
