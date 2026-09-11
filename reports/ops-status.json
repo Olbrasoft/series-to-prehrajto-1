@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 136086,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 55695,
-    "prepared_source_episodes": 62604,
+    "manifest_upload_ready_episodes": 1,
+    "uploaded_episodes": 55696,
+    "prepared_source_episodes": 62596,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 54,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55327,
     "whisper_review_pending_sources": 42166,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-11T14:43:36Z",
-      "databaseId": 34611844224,
+      "createdAt": "2026-09-11T14:50:24Z",
+      "databaseId": 34612528846,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-11T14:50:20Z",
+      "databaseId": 34612519742,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-11T14:45:34Z",
+      "databaseId": 34612047665,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-11T14:44:33Z",
+      "databaseId": 34611939567,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-11T14:43:36Z",
+      "databaseId": 34611844224,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-11T14:43:32Z",
       "databaseId": 34611837998,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T14:38:57Z",
       "databaseId": 34611378607,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -91,11 +123,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-11T14:38:50Z",
       "databaseId": 34611366046,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T14:35:20Z",
-      "databaseId": 34611021218,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T14:33:51Z",
-      "databaseId": 34610869497,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T14:32:47Z",
-      "databaseId": 34610762895,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T14:32:39Z",
-      "databaseId": 34610748887,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -253689,6 +253689,11 @@
         "episode_id": 90263,
         "display_name": "The Outpost S02E07 - 7. epizoda CZ Titulky",
         "video_id": 29301699
+      },
+      {
+        "episode_id": 90246,
+        "display_name": "The Outpost S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29301860
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -507096,6 +507101,11 @@
         "episode_id": 90263,
         "display_name": "The Outpost S02E07 - 7. epizoda CZ Titulky",
         "video_id": 29301699
+      },
+      {
+        "episode_id": 90246,
+        "display_name": "The Outpost S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29301860
       }
     ],
     "prepared_not_upload_ready": [
@@ -508257,8 +508267,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
-    "resolve_failed": 1
+    "ok": 31,
+    "disabled": 14,
+    "resolve_failed": 9
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3038,
