@@ -1,45 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 136004,
-    "manifest_upload_ready_episodes": 9,
-    "uploaded_episodes": 55754,
-    "prepared_source_episodes": 62518,
+    "manifest_upload_ready_episodes": 8,
+    "uploaded_episodes": 55756,
+    "prepared_source_episodes": 62542,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 45,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55288,
-    "whisper_review_pending_sources": 42022,
+    "whisper_review_sources": 55307,
+    "whisper_review_pending_sources": 42098,
     "subtitle_followup_sources": 34088,
     "subtitle_followup_pending_sources": 34088
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-11T19:20:43Z",
-      "databaseId": 34638323943,
+      "createdAt": "2026-09-11T19:23:14Z",
+      "databaseId": 34638550787,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "ops-watchdog"
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-11T19:22:11Z",
+      "databaseId": 34638453923,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-11T19:21:31Z",
+      "databaseId": 34638393431,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-11T19:20:34Z",
-      "databaseId": 34638309641,
+      "createdAt": "2026-09-11T19:20:43Z",
+      "databaseId": 34638323943,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
+      "createdAt": "2026-09-11T19:20:34Z",
+      "databaseId": 34638309641,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-11T19:20:30Z",
       "databaseId": 34638303322,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-11T19:06:47Z",
-      "databaseId": 34637057800,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-11T19:06:18Z",
-      "databaseId": 34637011318,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-11T19:04:19Z",
-      "databaseId": 34636827488,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -136014,6 +136014,16 @@
         "episode_id": 57068,
         "display_name": "The Fosters S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29307045
+      },
+      {
+        "episode_id": 57024,
+        "display_name": "The Fosters S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 29307468
+      },
+      {
+        "episode_id": 57036,
+        "display_name": "The Fosters S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29307516
       },
       {
         "episode_id": 57057,
@@ -389718,6 +389728,16 @@
         "video_id": 29307045
       },
       {
+        "episode_id": 57024,
+        "display_name": "The Fosters S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 29307468
+      },
+      {
+        "episode_id": 57036,
+        "display_name": "The Fosters S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29307516
+      },
+      {
         "episode_id": 57057,
         "display_name": "The Fosters S03E11 - 11. epizoda CZ Titulky",
         "video_id": 29306964
@@ -508847,14 +508867,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 5,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3038,
-    "whisper_non_cz_needs_subtitles": 10228,
-    "whisper_failed": 464,
-    "needs_whisper": 41558
+    "whisper_non_cz_needs_subtitles": 10171,
+    "whisper_failed": 441,
+    "needs_whisper": 41657
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 34088
