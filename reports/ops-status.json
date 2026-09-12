@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 135627,
     "manifest_upload_ready_episodes": 31,
-    "uploaded_episodes": 56145,
+    "uploaded_episodes": 56146,
     "prepared_source_episodes": 62342,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 61,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55182,
     "whisper_review_pending_sources": 41449,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-12T19:23:27Z",
-      "databaseId": 34714027981,
+      "createdAt": "2026-09-12T19:27:19Z",
+      "databaseId": 34714218838,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-12T19:27:16Z",
+      "databaseId": 34714216801,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-12T19:24:33Z",
+      "databaseId": 34714083311,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-12T19:24:23Z",
+      "databaseId": 34714074333,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-12T19:23:27Z",
+      "databaseId": 34714027981,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-12T19:18:58Z",
       "databaseId": 34713811073,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -119,7 +151,7 @@
       "createdAt": "2026-09-12T19:11:00Z",
       "databaseId": 34713409300,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T19:08:25Z",
-      "databaseId": 34713277040,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-12T19:08:21Z",
-      "databaseId": 34713273748,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T19:07:19Z",
-      "databaseId": 34713221084,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-12T19:07:16Z",
-      "databaseId": 34713217971,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -137009,6 +137009,11 @@
         "episode_id": 7189,
         "display_name": "Nedokonalí S01E10 - Zničte všechny nestvůry CZ Titulky",
         "video_id": 29329689
+      },
+      {
+        "episode_id": 89205,
+        "display_name": "Lexx S04E05 - 5. epizoda CZ Dabing",
+        "video_id": 29329727
       },
       {
         "episode_id": 114182,
@@ -392668,6 +392673,11 @@
         "video_id": 29329689
       },
       {
+        "episode_id": 89205,
+        "display_name": "Lexx S04E05 - 5. epizoda CZ Dabing",
+        "video_id": 29329727
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -512757,8 +512767,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
