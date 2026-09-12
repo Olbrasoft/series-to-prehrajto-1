@@ -1,29 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 135740,
-    "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 56065,
-    "prepared_source_episodes": 62391,
+    "manifest_upload_ready_episodes": 3,
+    "uploaded_episodes": 56071,
+    "prepared_source_episodes": 62384,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55237,
-    "whisper_review_pending_sources": 41746,
+    "whisper_review_sources": 55233,
+    "whisper_review_pending_sources": 41722,
     "subtitle_followup_sources": 34442,
     "subtitle_followup_pending_sources": 34442
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-12T12:25:08Z",
+      "databaseId": 34693615608,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-12T12:25:03Z",
+      "databaseId": 34693611325,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-12T12:21:23Z",
+      "databaseId": 34693444752,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-12T12:19:57Z",
+      "databaseId": 34693377437,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-12T12:18:23Z",
+      "databaseId": 34693312019,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-12T12:15:45Z",
+      "databaseId": 34693193484,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-12T12:15:42Z",
+      "databaseId": 34693190813,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-12T12:15:39Z",
+      "databaseId": 34693188801,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-12T12:14:46Z",
       "databaseId": 34693145561,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +127,7 @@
       "createdAt": "2026-09-12T12:11:14Z",
       "databaseId": 34692988475,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-12T12:02:14Z",
-      "databaseId": 34692583960,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T12:01:24Z",
-      "databaseId": 34692545158,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T12:00:49Z",
-      "databaseId": 34692517235,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T11:58:38Z",
-      "databaseId": 34692420474,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T11:57:32Z",
-      "databaseId": 34692375662,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T11:56:42Z",
-      "databaseId": 34692343153,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T11:55:52Z",
-      "databaseId": 34692310436,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T11:54:52Z",
-      "databaseId": 34692269586,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -136776,6 +136776,21 @@
         "video_id": 29323695
       },
       {
+        "episode_id": 1428,
+        "display_name": "Winx Club S04E03 - Poslední víla na Zemi CZ Dabing",
+        "video_id": 29323733
+      },
+      {
+        "episode_id": 1444,
+        "display_name": "Winx Club S04E19 - V Dianině království CZ Dabing",
+        "video_id": 29323779
+      },
+      {
+        "episode_id": 1500,
+        "display_name": "Winx Club S06E23 - Hymna CZ Dabing",
+        "video_id": 29323823
+      },
+      {
         "episode_id": 1413,
         "display_name": "Winx Club S03E14 - Zuřivost CZ Titulky",
         "video_id": 29323585
@@ -136794,6 +136809,16 @@
         "episode_id": 1445,
         "display_name": "Winx Club S04E20 - Dary osudu CZ Dabing",
         "video_id": 29323708
+      },
+      {
+        "episode_id": 1449,
+        "display_name": "Winx Club S04E24 - Osudný den CZ Dabing",
+        "video_id": 29323771
+      },
+      {
+        "episode_id": 1473,
+        "display_name": "Winx Club S05E22 - Naslouchej svému srdci CZ Dabing",
+        "video_id": 29323804
       },
       {
         "episode_id": 114182,
@@ -255529,6 +255554,11 @@
         "episode_id": 1426,
         "display_name": "Winx Club S04E01 - Nový školní rok CZ Dabing",
         "video_id": 29323673
+      },
+      {
+        "episode_id": 1486,
+        "display_name": "Winx Club S06E10 - Tajný skleník CZ Dabing",
+        "video_id": 29323717
       },
       {
         "episode_id": 1423,
@@ -392033,6 +392063,21 @@
         "video_id": 29323695
       },
       {
+        "episode_id": 1428,
+        "display_name": "Winx Club S04E03 - Poslední víla na Zemi CZ Dabing",
+        "video_id": 29323733
+      },
+      {
+        "episode_id": 1444,
+        "display_name": "Winx Club S04E19 - V Dianině království CZ Dabing",
+        "video_id": 29323779
+      },
+      {
+        "episode_id": 1500,
+        "display_name": "Winx Club S06E23 - Hymna CZ Dabing",
+        "video_id": 29323823
+      },
+      {
         "episode_id": 1413,
         "display_name": "Winx Club S03E14 - Zuřivost CZ Titulky",
         "video_id": 29323585
@@ -392051,6 +392096,16 @@
         "episode_id": 1445,
         "display_name": "Winx Club S04E20 - Dary osudu CZ Dabing",
         "video_id": 29323708
+      },
+      {
+        "episode_id": 1449,
+        "display_name": "Winx Club S04E24 - Osudný den CZ Dabing",
+        "video_id": 29323771
+      },
+      {
+        "episode_id": 1473,
+        "display_name": "Winx Club S05E22 - Naslouchej svému srdci CZ Dabing",
+        "video_id": 29323804
       },
       {
         "episode_id": 114182,
@@ -510788,6 +510843,11 @@
         "video_id": 29323673
       },
       {
+        "episode_id": 1486,
+        "display_name": "Winx Club S06E10 - Tajný skleník CZ Dabing",
+        "video_id": 29323717
+      },
+      {
         "episode_id": 1423,
         "display_name": "Winx Club S03E24 - Odhalení CZ Titulky",
         "video_id": 29323644
@@ -511957,14 +512017,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3050,
-    "whisper_non_cz_needs_subtitles": 10441,
+    "whisper_non_cz_needs_subtitles": 10461,
     "whisper_failed": 477,
-    "needs_whisper": 41269
+    "needs_whisper": 41245
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 34442
