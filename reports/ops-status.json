@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 135627,
-    "manifest_upload_ready_episodes": 23,
-    "uploaded_episodes": 56137,
-    "prepared_source_episodes": 62403,
+    "manifest_upload_ready_episodes": 24,
+    "uploaded_episodes": 56138,
+    "prepared_source_episodes": 62374,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 47,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55182,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-12T18:30:18Z",
+      "databaseId": 34711391253,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-12T18:29:51Z",
+      "databaseId": 34711366220,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-09-12T18:29:26Z",
       "databaseId": 34711344368,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,19 +51,19 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-12T18:28:53Z",
       "databaseId": 34711318121,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-12T18:28:50Z",
       "databaseId": 34711315052,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-12T18:12:56Z",
-      "databaseId": 34710511573,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-12T18:12:53Z",
-      "databaseId": 34710508922,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -255896,6 +255896,11 @@
         "video_id": 29328803
       },
       {
+        "episode_id": 180862,
+        "display_name": "Lékárník S01E02 - Mise od Boha CZ Titulky",
+        "video_id": 29328846
+      },
+      {
         "episode_id": 180863,
         "display_name": "Lékárník S01E03 - Obyčejní dealeři v bílých pláštích CZ Titulky",
         "video_id": 29328573
@@ -511513,6 +511518,11 @@
         "video_id": 29328803
       },
       {
+        "episode_id": 180862,
+        "display_name": "Lékárník S01E02 - Mise od Boha CZ Titulky",
+        "video_id": 29328846
+      },
+      {
         "episode_id": 180863,
         "display_name": "Lékárník S01E03 - Obyčejní dealeři v bílých pláštích CZ Titulky",
         "video_id": 29328573
@@ -512677,6 +512687,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 7,
     "ok": 39,
     "resolve_failed": 1
   },
