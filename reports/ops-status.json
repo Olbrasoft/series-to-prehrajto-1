@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 135373,
-    "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 56363,
+    "manifest_upload_ready_episodes": 0,
+    "uploaded_episodes": 56364,
     "prepared_source_episodes": 62363,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55130,
     "whisper_review_pending_sources": 41101,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-13T16:23:26Z",
-      "databaseId": 34768428779,
+      "createdAt": "2026-09-13T16:27:49Z",
+      "databaseId": 34768648434,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-13T16:27:43Z",
+      "databaseId": 34768643998,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-13T16:27:43Z",
+      "databaseId": 34768643555,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-13T16:26:42Z",
+      "databaseId": 34768592344,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-13T16:25:27Z",
+      "databaseId": 34768529266,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-13T16:24:23Z",
+      "databaseId": 34768475920,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-13T16:23:26Z",
+      "databaseId": 34768428779,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-13T16:23:22Z",
       "databaseId": 34768425330,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -87,15 +135,15 @@
       "createdAt": "2026-09-13T16:15:44Z",
       "databaseId": 34768046245,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-13T16:13:41Z",
       "databaseId": 34767942007,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -107,11 +155,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-13T16:10:35Z",
       "databaseId": 34767787790,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-13T16:09:36Z",
-      "databaseId": 34767736686,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-13T16:08:48Z",
-      "databaseId": 34767698601,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-13T16:08:43Z",
-      "databaseId": 34767693852,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-13T16:08:26Z",
-      "databaseId": 34767678346,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-13T16:08:20Z",
-      "databaseId": 34767673769,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-13T16:08:01Z",
-      "databaseId": 34767660179,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -257029,6 +257029,11 @@
         "episode_id": 114471,
         "display_name": "Přítelkyně smrti S01E03 - Strach z živých CZ Dabing",
         "video_id": 29352196
+      },
+      {
+        "episode_id": 123790,
+        "display_name": "Flashpoint S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 29352903
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -513776,6 +513781,11 @@
         "episode_id": 114471,
         "display_name": "Přítelkyně smrti S01E03 - Strach z živých CZ Dabing",
         "video_id": 29352196
+      },
+      {
+        "episode_id": 123790,
+        "display_name": "Flashpoint S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 29352903
       }
     ],
     "prepared_not_upload_ready": [
@@ -514937,7 +514947,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
