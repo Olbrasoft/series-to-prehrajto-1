@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 135573,
-    "manifest_upload_ready_episodes": 14,
-    "uploaded_episodes": 56210,
-    "prepared_source_episodes": 62398,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 56213,
+    "prepared_source_episodes": 62379,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 168,
+    "language_audited_sources": 184,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55147,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-13T03:10:38Z",
-      "databaseId": 34734836800,
+      "createdAt": "2026-09-13T03:15:06Z",
+      "databaseId": 34735014873,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "status": "pending",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-13T03:15:00Z",
+      "databaseId": 34735010297,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-13T03:14:42Z",
+      "databaseId": 34734999842,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-13T03:14:39Z",
+      "databaseId": 34734998099,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-13T03:11:36Z",
+      "databaseId": 34734875599,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-13T03:11:34Z",
+      "databaseId": 34734874008,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-13T03:11:26Z",
+      "databaseId": 34734868350,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-13T03:10:38Z",
+      "databaseId": 34734836800,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-13T03:10:36Z",
       "databaseId": 34734835529,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +123,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-13T03:03:01Z",
       "databaseId": 34734519767,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-13T02:54:15Z",
-      "databaseId": 34734178050,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-13T02:53:59Z",
-      "databaseId": 34734167583,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-13T02:53:51Z",
-      "databaseId": 34734161809,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-13T02:53:23Z",
-      "databaseId": 34734143339,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-13T02:53:17Z",
-      "databaseId": 34734140349,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-13T02:53:12Z",
-      "databaseId": 34734137593,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-13T02:52:56Z",
-      "databaseId": 34734127078,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -256261,9 +256261,24 @@
         "video_id": 29337123
       },
       {
+        "episode_id": 132654,
+        "display_name": "Rodina nindžů S01E01 - Nabídka CZ Dabing",
+        "video_id": 29337260
+      },
+      {
+        "episode_id": 155810,
+        "display_name": "Soudruh detektiv S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29337341
+      },
+      {
         "episode_id": 132659,
         "display_name": "Rodina nindžů S01E06 - Cizinec CZ Dabing",
         "video_id": 29337136
+      },
+      {
+        "episode_id": 77119,
+        "display_name": "FBI: International S02E10 - BHITW CZ Dabing",
+        "video_id": 29337256
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -512243,9 +512258,24 @@
         "video_id": 29337123
       },
       {
+        "episode_id": 132654,
+        "display_name": "Rodina nindžů S01E01 - Nabídka CZ Dabing",
+        "video_id": 29337260
+      },
+      {
+        "episode_id": 155810,
+        "display_name": "Soudruh detektiv S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29337341
+      },
+      {
         "episode_id": 132659,
         "display_name": "Rodina nindžů S01E06 - Cizinec CZ Dabing",
         "video_id": 29337136
+      },
+      {
+        "episode_id": 77119,
+        "display_name": "FBI: International S02E10 - BHITW CZ Dabing",
+        "video_id": 29337256
       }
     ],
     "prepared_not_upload_ready": [
@@ -513407,13 +513437,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 108,
+    "disabled": 124,
     "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3272,
-    "whisper_non_cz_needs_subtitles": 10657,
+    "whisper_confirmed_cz": 3274,
+    "whisper_non_cz_needs_subtitles": 10655,
     "whisper_failed": 478,
     "needs_whisper": 40740
   },
