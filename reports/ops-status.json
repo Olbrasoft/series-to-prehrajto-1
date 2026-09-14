@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 135175,
     "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 56568,
+    "uploaded_episodes": 56569,
     "prepared_source_episodes": 62263,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55075,
     "whisper_review_pending_sources": 40787,
     "subtitle_followup_sources": 34838,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T16:37:56Z",
+      "databaseId": 34869811621,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T16:37:29Z",
+      "databaseId": 34869766990,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T16:36:56Z",
+      "databaseId": 34869710638,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T16:36:44Z",
+      "databaseId": 34869690595,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-14T16:35:27Z",
       "databaseId": 34869552293,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -123,11 +155,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T16:16:57Z",
       "databaseId": 34867612091,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T16:12:38Z",
-      "databaseId": 34867167316,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T16:12:26Z",
-      "databaseId": 34867147639,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T16:11:40Z",
-      "databaseId": 34867066028,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-14T16:11:36Z",
-      "databaseId": 34867059069,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -258001,6 +258001,11 @@
         "video_id": 29383827
       },
       {
+        "episode_id": 144514,
+        "display_name": "Ángela S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29384018
+      },
+      {
         "episode_id": 117015,
         "display_name": "Za branou S01E06 - 6. epizoda CZ Dabing",
         "video_id": 29383995
@@ -515723,6 +515728,11 @@
         "video_id": 29383827
       },
       {
+        "episode_id": 144514,
+        "display_name": "Ángela S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29384018
+      },
+      {
         "episode_id": 117015,
         "display_name": "Za branou S01E06 - 6. epizoda CZ Dabing",
         "video_id": 29383995
@@ -516887,8 +516897,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 56,
-    "resolve_failed": 4
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3515,
