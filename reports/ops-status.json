@@ -1,29 +1,77 @@
 {
   "counts": {
     "backlog_episodes": 135149,
-    "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 56608,
-    "prepared_source_episodes": 62352,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 56609,
+    "prepared_source_episodes": 62328,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 69,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55066,
     "whisper_review_pending_sources": 40777,
-    "subtitle_followup_sources": 34890,
-    "subtitle_followup_pending_sources": 34890
+    "subtitle_followup_sources": 34895,
+    "subtitle_followup_pending_sources": 34895
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T20:24:42Z",
+      "databaseId": 34892745762,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T20:24:38Z",
+      "databaseId": 34892739599,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-14T20:23:23Z",
+      "databaseId": 34892611848,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-14T20:22:23Z",
+      "databaseId": 34892511624,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T20:21:55Z",
+      "databaseId": 34892465462,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T20:19:36Z",
+      "databaseId": 34892229274,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-14T20:18:29Z",
       "databaseId": 34892116690,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -71,7 +119,7 @@
       "createdAt": "2026-09-14T20:08:26Z",
       "databaseId": 34891103659,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T20:05:14Z",
       "databaseId": 34890775933,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T19:57:58Z",
-      "databaseId": 34890047351,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T19:56:57Z",
-      "databaseId": 34889951636,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T19:56:16Z",
-      "databaseId": 34889887780,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T19:55:09Z",
-      "databaseId": 34889777321,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-14T19:55:05Z",
-      "databaseId": 34889770966,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T19:54:54Z",
-      "databaseId": 34889753062,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -516126,6 +516126,11 @@
         "episode_id": 135311,
         "display_name": "Lost You Forever S01E18 - 18. epizoda CZ Titulky",
         "video_id": 29388755
+      },
+      {
+        "episode_id": 12847,
+        "display_name": "Gangy z Birminghamu S04E04 - Nebezpečný CZ Titulky",
+        "video_id": 29389473
       }
     ],
     "prepared_not_upload_ready": [
@@ -517287,7 +517292,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
+    "disabled": 9,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -517297,6 +517303,6 @@
     "needs_whisper": 40239
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 34890
+    "needs_subtitle_setup_after_prehrajto_processing": 34895
   }
 }
