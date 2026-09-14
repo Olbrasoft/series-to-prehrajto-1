@@ -1,15 +1,15 @@
 {
   "counts": {
-    "backlog_episodes": 135312,
+    "backlog_episodes": 135276,
     "manifest_upload_ready_episodes": 0,
     "uploaded_episodes": 56457,
-    "prepared_source_episodes": 62441,
+    "prepared_source_episodes": 62442,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 200,
+    "language_audited_sources": 112,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55087,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-14T12:23:28Z",
-      "databaseId": 34843156837,
+      "createdAt": "2026-09-14T12:31:46Z",
+      "databaseId": 34843915465,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T12:31:39Z",
+      "databaseId": 34843904661,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T12:30:40Z",
+      "databaseId": 34843814934,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T12:26:05Z",
+      "databaseId": 34843398739,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T12:24:15Z",
+      "databaseId": 34843229007,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T12:23:28Z",
+      "databaseId": 34843156837,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-14T12:23:23Z",
       "databaseId": 34843150314,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,19 +99,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T12:16:39Z",
       "databaseId": 34842549695,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T12:16:37Z",
       "databaseId": 34842546002,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T12:03:29Z",
-      "databaseId": 34841346297,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T12:00:33Z",
-      "databaseId": 34841085699,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T12:00:29Z",
-      "databaseId": 34841078264,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-14T11:59:40Z",
-      "databaseId": 34841006133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T11:59:30Z",
-      "databaseId": 34840991472,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -515869,7 +515869,7 @@
   "language_whisper_statuses": {
     "ok": 39,
     "resolve_failed": 1,
-    "disabled": 160
+    "disabled": 72
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3513,
