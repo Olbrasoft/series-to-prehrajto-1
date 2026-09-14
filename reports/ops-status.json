@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 135149,
     "manifest_upload_ready_episodes": 11,
-    "uploaded_episodes": 56609,
+    "uploaded_episodes": 56610,
     "prepared_source_episodes": 62328,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 69,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55066,
     "whisper_review_pending_sources": 40777,
     "subtitle_followup_sources": 34895,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T20:27:37Z",
+      "databaseId": 34893044919,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T20:27:34Z",
+      "databaseId": 34893040443,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T20:25:44Z",
+      "databaseId": 34892854414,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-14T20:24:42Z",
       "databaseId": 34892745762,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,19 +99,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T20:15:48Z",
       "databaseId": 34891845269,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-14T20:14:15Z",
       "databaseId": 34891680848,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T20:05:11Z",
-      "databaseId": 34890771750,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T20:04:05Z",
-      "databaseId": 34890658960,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-14T20:04:00Z",
-      "databaseId": 34890650166,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -258204,6 +258204,11 @@
         "episode_id": 135311,
         "display_name": "Lost You Forever S01E18 - 18. epizoda CZ Titulky",
         "video_id": 29388755
+      },
+      {
+        "episode_id": 135315,
+        "display_name": "Lost You Forever S01E22 - 22. epizoda CZ Titulky",
+        "video_id": 29389500
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -516128,9 +516133,9 @@
         "video_id": 29388755
       },
       {
-        "episode_id": 12847,
-        "display_name": "Gangy z Birminghamu S04E04 - Nebezpečný CZ Titulky",
-        "video_id": 29389473
+        "episode_id": 135315,
+        "display_name": "Lost You Forever S01E22 - 22. epizoda CZ Titulky",
+        "video_id": 29389500
       }
     ],
     "prepared_not_upload_ready": [
@@ -517292,8 +517297,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 9,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
