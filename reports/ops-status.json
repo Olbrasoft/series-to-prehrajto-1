@@ -1,37 +1,61 @@
 {
   "counts": {
-    "backlog_episodes": 135175,
-    "manifest_upload_ready_episodes": 44,
-    "uploaded_episodes": 56584,
-    "prepared_source_episodes": 62206,
+    "backlog_episodes": 135149,
+    "manifest_upload_ready_episodes": 43,
+    "uploaded_episodes": 56585,
+    "prepared_source_episodes": 62205,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 64,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55066,
-    "whisper_review_pending_sources": 40777,
+    "whisper_review_sources": 55062,
+    "whisper_review_pending_sources": 40767,
     "subtitle_followup_sources": 34875,
     "subtitle_followup_pending_sources": 34875
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-14T18:19:09Z",
-      "databaseId": 34880066196,
+      "createdAt": "2026-09-14T18:26:43Z",
+      "databaseId": 34880837266,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "process-whisper-review"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T18:26:33Z",
+      "databaseId": 34880820636,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T18:22:52Z",
+      "databaseId": 34880438339,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T18:19:09Z",
+      "databaseId": 34880066196,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-14T18:19:06Z",
       "databaseId": 34880060011,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -39,15 +63,15 @@
       "createdAt": "2026-09-14T18:19:04Z",
       "databaseId": 34880055820,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T18:18:54Z",
       "databaseId": 34880040049,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-14T18:07:11Z",
-      "databaseId": 34878854459,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T18:06:10Z",
-      "databaseId": 34878751549,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T18:06:06Z",
-      "databaseId": 34878744087,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -258084,6 +258084,11 @@
         "episode_id": 136703,
         "display_name": "Gaslit S01E08 - Poslední dny CZ Dabing",
         "video_id": 29385693
+      },
+      {
+        "episode_id": 54603,
+        "display_name": "Prvních 100 S01E11 - The Calm CZ Titulky",
+        "video_id": 29386889
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -515886,6 +515891,11 @@
         "episode_id": 136703,
         "display_name": "Gaslit S01E08 - Poslední dny CZ Dabing",
         "video_id": 29385693
+      },
+      {
+        "episode_id": 54603,
+        "display_name": "Prvních 100 S01E11 - The Calm CZ Titulky",
+        "video_id": 29386889
       }
     ],
     "prepared_not_upload_ready": [
@@ -517047,15 +517057,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "resolve_failed": 21,
-    "disabled": 4,
-    "ok": 39
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3515,
-    "whisper_non_cz_needs_subtitles": 10774,
-    "whisper_failed": 538,
-    "needs_whisper": 40239
+    "whisper_non_cz_needs_subtitles": 10780,
+    "whisper_failed": 552,
+    "needs_whisper": 40215
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 34875
