@@ -1,37 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 135276,
-    "manifest_upload_ready_episodes": 4,
+    "manifest_upload_ready_episodes": 6,
     "uploaded_episodes": 56505,
-    "prepared_source_episodes": 62396,
+    "prepared_source_episodes": 62382,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 61,
+    "language_audited_sources": 85,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55083,
-    "whisper_review_pending_sources": 40815,
+    "whisper_review_sources": 55084,
+    "whisper_review_pending_sources": 40816,
     "subtitle_followup_sources": 34805,
     "subtitle_followup_pending_sources": 34805
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-14T13:45:31Z",
-      "databaseId": 34851231818,
+      "createdAt": "2026-09-14T13:46:08Z",
+      "databaseId": 34851295191,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T13:46:04Z",
+      "databaseId": 34851288009,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-14T13:45:31Z",
+      "databaseId": 34851231818,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-14T13:45:29Z",
       "databaseId": 34851228321,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T13:45:14Z",
       "databaseId": 34851199044,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +83,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T13:44:36Z",
       "databaseId": 34851130251,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T13:35:55Z",
-      "databaseId": 34850228881,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-14T13:35:53Z",
-      "databaseId": 34850224684,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -515116,21 +515116,6 @@
         "episode_id": 56726,
         "display_name": "Šingeki no kjodžin S03E21 - Útočný titán CZ Titulky",
         "video_id": 29379901
-      },
-      {
-        "episode_id": 16803,
-        "display_name": "Městečko South Park S23E06 - Poslední tráva CZ Dabing",
-        "video_id": 29380281
-      },
-      {
-        "episode_id": 16739,
-        "display_name": "Odloučení S02E02 - Sbohem, paní Selvigová CZ Titulky",
-        "video_id": 29380324
-      },
-      {
-        "episode_id": 16743,
-        "display_name": "Odloučení S02E06 - Attila CZ Titulky",
-        "video_id": 29380347
       }
     ],
     "prepared_not_upload_ready": [
@@ -516292,7 +516277,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 21,
+    "disabled": 45,
     "ok": 39,
     "resolve_failed": 1
   },
@@ -516300,7 +516285,7 @@
     "whisper_confirmed_cz": 3515,
     "whisper_non_cz_needs_subtitles": 10753,
     "whisper_failed": 479,
-    "needs_whisper": 40336
+    "needs_whisper": 40337
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 34805
