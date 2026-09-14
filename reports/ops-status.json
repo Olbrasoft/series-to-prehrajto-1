@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 135149,
     "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 56601,
+    "uploaded_episodes": 56602,
     "prepared_source_episodes": 62325,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 55049,
     "whisper_review_pending_sources": 40694,
     "subtitle_followup_sources": 34884,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T19:48:16Z",
+      "databaseId": 34889105226,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T19:47:41Z",
+      "databaseId": 34889044449,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T19:47:38Z",
+      "databaseId": 34889039660,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-14T19:46:38Z",
       "databaseId": 34888938680,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T19:36:25Z",
       "databaseId": 34887923184,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T19:33:19Z",
-      "databaseId": 34887599093,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-14T19:33:13Z",
-      "databaseId": 34887587009,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T19:32:09Z",
-      "databaseId": 34887480240,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -258169,6 +258169,11 @@
         "episode_id": 135299,
         "display_name": "Lost You Forever S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29388553
+      },
+      {
+        "episode_id": 135307,
+        "display_name": "Lost You Forever S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29388686
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -516056,6 +516061,11 @@
         "episode_id": 135299,
         "display_name": "Lost You Forever S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29388553
+      },
+      {
+        "episode_id": 135307,
+        "display_name": "Lost You Forever S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29388686
       }
     ],
     "prepared_not_upload_ready": [
@@ -517217,7 +517227,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
