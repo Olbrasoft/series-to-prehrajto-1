@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 135312,
-    "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 56440,
+    "manifest_upload_ready_episodes": 0,
+    "uploaded_episodes": 56441,
     "prepared_source_episodes": 62351,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 43,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 55086,
     "whisper_review_pending_sources": 40838,
     "subtitle_followup_sources": 34753,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-14T10:30:06Z",
+      "databaseId": 34833481186,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T10:30:01Z",
+      "databaseId": 34833472712,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-14T10:30:00Z",
+      "databaseId": 34833471447,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-14T10:27:57Z",
+      "databaseId": 34833306371,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-14T10:26:55Z",
       "databaseId": 34833222967,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T10:26:45Z",
       "databaseId": 34833208077,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-14T10:21:55Z",
       "databaseId": 34832798845,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T10:11:51Z",
-      "databaseId": 34831949720,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T10:10:47Z",
-      "databaseId": 34831854244,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-14T10:10:43Z",
-      "databaseId": 34831848245,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-14T10:09:39Z",
-      "databaseId": 34831749216,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -257409,6 +257409,11 @@
         "episode_id": 95047,
         "display_name": "Tosh.0 S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29375748
+      },
+      {
+        "episode_id": 63674,
+        "display_name": "Silicon Valley S02E01 - Změna strategie CZ Dabing",
+        "video_id": 29376007
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -514536,6 +514541,11 @@
         "episode_id": 95047,
         "display_name": "Tosh.0 S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29375748
+      },
+      {
+        "episode_id": 63674,
+        "display_name": "Silicon Valley S02E01 - Změna strategie CZ Dabing",
+        "video_id": 29376007
       }
     ],
     "prepared_not_upload_ready": [
@@ -515697,9 +515707,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "resolve_failed": 18,
-    "ok": 22,
-    "disabled": 3
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3513,
