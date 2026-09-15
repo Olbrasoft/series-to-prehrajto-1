@@ -3,7 +3,7 @@
     "backlog_episodes": 134929,
     "manifest_upload_ready_episodes": 5,
     "uploaded_episodes": 56845,
-    "prepared_source_episodes": 62468,
+    "prepared_source_episodes": 62478,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
@@ -12,18 +12,42 @@
     "language_audited_sources": 91,
     "language_whisper_attempted_sources": 56,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55036,
-    "whisper_review_pending_sources": 40603,
+    "whisper_review_sources": 55027,
+    "whisper_review_pending_sources": 40554,
     "subtitle_followup_sources": 35040,
     "subtitle_followup_pending_sources": 35040
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-15T10:04:02Z",
+      "databaseId": 34955927410,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-15T10:03:34Z",
+      "databaseId": 34955885479,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-15T10:03:27Z",
+      "databaseId": 34955874366,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-15T10:02:36Z",
       "databaseId": 34955793366,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-15T10:00:23Z",
       "databaseId": 34955580852,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-15T09:49:53Z",
-      "databaseId": 34954674877,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-15T09:48:55Z",
-      "databaseId": 34954587701,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-15T09:47:12Z",
-      "databaseId": 34954430826,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -518816,14 +518816,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 116810,
-        "source_id": -67691229331047081,
-        "series_title": "Anthony Bourdain: Neznámé končiny",
-        "episode_code": "S03E03",
-        "source_title": "Anthony Bourdain - Neznámé končiny 03x03 - Lyon",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 102596,
         "source_id": -15929065662195577,
         "series_title": "Bobovy burgery",
@@ -519189,6 +519181,14 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E22",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56276,
+        "source_id": -18797228031498409,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E23",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -519652,10 +519652,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3519,
-    "whisper_non_cz_needs_subtitles": 10914,
+    "whisper_confirmed_cz": 3532,
+    "whisper_non_cz_needs_subtitles": 10941,
     "whisper_failed": 552,
-    "needs_whisper": 40051
+    "needs_whisper": 40002
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 35040
