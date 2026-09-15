@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 135004,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 56771,
-    "prepared_source_episodes": 62325,
+    "manifest_upload_ready_episodes": 0,
+    "uploaded_episodes": 56772,
+    "prepared_source_episodes": 62319,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 55043,
-    "whisper_review_pending_sources": 40650,
+    "whisper_review_sources": 55038,
+    "whisper_review_pending_sources": 40625,
     "subtitle_followup_sources": 34984,
     "subtitle_followup_pending_sources": 34984
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-15T04:36:24Z",
+      "databaseId": 34929479858,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-15T04:36:20Z",
+      "databaseId": 34929475627,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-15T04:35:13Z",
+      "databaseId": 34929404183,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-15T04:35:10Z",
+      "databaseId": 34929400019,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-15T04:34:12Z",
       "databaseId": 34929338512,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,15 +63,15 @@
       "createdAt": "2026-09-15T04:34:10Z",
       "databaseId": 34929335422,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-15T04:32:56Z",
       "databaseId": 34929254579,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -55,7 +87,7 @@
       "createdAt": "2026-09-15T04:27:07Z",
       "databaseId": 34928876950,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "process-whisper-review"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-15T04:26:42Z",
       "databaseId": 34928849371,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-15T04:11:46Z",
-      "databaseId": 34927882994,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-15T04:11:42Z",
-      "databaseId": 34927878801,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-15T04:11:10Z",
-      "databaseId": 34927843066,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-15T04:10:37Z",
-      "databaseId": 34927805173,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -259014,6 +259014,11 @@
         "episode_id": 106927,
         "display_name": "The Cool Kids S01E07 - 7. epizoda CZ Dabing",
         "video_id": 29398443
+      },
+      {
+        "episode_id": 106931,
+        "display_name": "The Cool Kids S01E14 - 14. epizoda CZ Dabing",
+        "video_id": 29398480
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -517746,6 +517751,11 @@
         "episode_id": 106927,
         "display_name": "The Cool Kids S01E07 - 7. epizoda CZ Dabing",
         "video_id": 29398443
+      },
+      {
+        "episode_id": 106931,
+        "display_name": "The Cool Kids S01E14 - 14. epizoda CZ Dabing",
+        "video_id": 29398480
       }
     ],
     "prepared_not_upload_ready": [
@@ -518907,14 +518917,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3515,
-    "whisper_non_cz_needs_subtitles": 10878,
+    "whisper_confirmed_cz": 3516,
+    "whisper_non_cz_needs_subtitles": 10897,
     "whisper_failed": 552,
-    "needs_whisper": 40098
+    "needs_whisper": 40073
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 34984
