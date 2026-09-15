@@ -2,36 +2,44 @@
   "counts": {
     "backlog_episodes": 134799,
     "manifest_upload_ready_episodes": 12,
-    "uploaded_episodes": 56998,
-    "prepared_source_episodes": 62279,
+    "uploaded_episodes": 56999,
+    "prepared_source_episodes": 62267,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 58,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54952,
-    "whisper_review_pending_sources": 40119,
-    "subtitle_followup_sources": 35182,
-    "subtitle_followup_pending_sources": 35182
+    "whisper_review_sources": 54960,
+    "whisper_review_pending_sources": 40167,
+    "subtitle_followup_sources": 35183,
+    "subtitle_followup_pending_sources": 35183
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-15T23:54:39Z",
+      "databaseId": 35037725078,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-15T23:54:35Z",
       "databaseId": 35037721282,
       "headBranch": "main",
-      "status": "queued",
+      "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-15T23:54:29Z",
       "databaseId": 35037714587,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +51,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-15T23:53:51Z",
       "databaseId": 35037671450,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -67,11 +75,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-15T23:53:32Z",
       "databaseId": 35037649986,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +91,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-15T23:52:45Z",
       "databaseId": 35037595005,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -169,14 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-15T23:39:10Z",
-      "databaseId": 35036618773,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -139089,6 +139089,11 @@
         "episode_id": 52485,
         "display_name": "Komisař Rex S04E08 - Zhoubná vášeň CZ Titulky",
         "video_id": 29412840
+      },
+      {
+        "episode_id": 52489,
+        "display_name": "Komisař Rex S05E01 - Černá listina CZ Titulky",
+        "video_id": 29412903
       },
       {
         "episode_id": 114182,
@@ -398958,6 +398963,11 @@
         "video_id": 29412840
       },
       {
+        "episode_id": 52489,
+        "display_name": "Komisař Rex S05E01 - Černá listina CZ Titulky",
+        "video_id": 29412903
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -521177,16 +521187,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 18,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3553,
-    "whisper_non_cz_needs_subtitles": 11280,
+    "whisper_non_cz_needs_subtitles": 11240,
     "whisper_failed": 552,
-    "needs_whisper": 39567
+    "needs_whisper": 39615
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 35182
+    "needs_subtitle_setup_after_prehrajto_processing": 35183
   }
 }
