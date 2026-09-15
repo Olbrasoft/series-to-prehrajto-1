@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 135004,
-    "manifest_upload_ready_episodes": 0,
+    "manifest_upload_ready_episodes": 38,
     "uploaded_episodes": 56735,
-    "prepared_source_episodes": 62427,
+    "prepared_source_episodes": 62267,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 123,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 55047,
-    "whisper_review_pending_sources": 40675,
-    "subtitle_followup_sources": 34960,
-    "subtitle_followup_pending_sources": 34960
+    "whisper_review_sources": 55043,
+    "whisper_review_pending_sources": 40650,
+    "subtitle_followup_sources": 34984,
+    "subtitle_followup_pending_sources": 34984
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-15T03:56:26Z",
-      "databaseId": 34926889051,
+      "createdAt": "2026-09-15T03:59:09Z",
+      "databaseId": 34927048114,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-15T03:59:04Z",
+      "databaseId": 34927043372,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-15T03:57:20Z",
+      "databaseId": 34926942153,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-15T03:56:26Z",
+      "databaseId": 34926889051,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-15T03:55:50Z",
       "databaseId": 34926852303,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-15T03:55:26Z",
       "databaseId": 34926829168,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-15T03:44:48Z",
       "databaseId": 34926156083,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-15T03:44:42Z",
-      "databaseId": 34926150499,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-15T03:43:42Z",
-      "databaseId": 34926087496,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-15T03:43:10Z",
-      "databaseId": 34926054358,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -517692,14 +517692,6 @@
     ],
     "whisper_review_pending": [
       {
-        "episode_id": 180896,
-        "source_id": -68159707716792254,
-        "series_title": "86: Eighty Six",
-        "episode_code": "S01E06",
-        "source_title": "86 Eighty Six - S01E06 - Through to the End [1080p, ENG TITULKY]",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 132181,
         "source_id": -16186527404081437,
         "series_title": "Abysses",
@@ -517722,22 +517714,6 @@
         "episode_code": "S11E10",
         "source_title": "American Horror Story - S11E10 Requiem 1981 1987 (2) EN",
         "status": "whisper_failed"
-      },
-      {
-        "episode_id": 127150,
-        "source_id": -45779421980327506,
-        "series_title": "Animal Control",
-        "episode_code": "S01E10",
-        "source_title": "animal.control.s01e10.1080p.web.h264-cakes",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 127150,
-        "source_id": -58489703277890523,
-        "series_title": "Animal Control",
-        "episode_code": "S01E10",
-        "source_title": "Animal Control - S1E10 Pigs And Minks EN",
-        "status": "needs_whisper"
       },
       {
         "episode_id": 102596,
@@ -518089,6 +518065,30 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E20",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E20",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56274,
+        "source_id": -36133747524527879,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E21",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56275,
+        "source_id": -23905561721062679,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E22",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56276,
+        "source_id": -18797228031498409,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E23",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -518547,17 +518547,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 1,
-    "ok": 19,
+    "ok": 39,
+    "disabled": 83,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3515,
-    "whisper_non_cz_needs_subtitles": 10857,
-    "needs_whisper": 40123,
-    "whisper_failed": 552
+    "whisper_non_cz_needs_subtitles": 10878,
+    "whisper_failed": 552,
+    "needs_whisper": 40098
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 34960
+    "needs_subtitle_setup_after_prehrajto_processing": 34984
   }
 }
