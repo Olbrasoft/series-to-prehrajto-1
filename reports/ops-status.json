@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 134709,
-    "manifest_upload_ready_episodes": 20,
-    "uploaded_episodes": 57072,
-    "prepared_source_episodes": 62146,
+    "manifest_upload_ready_episodes": 18,
+    "uploaded_episodes": 57074,
+    "prepared_source_episodes": 62160,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54949,
-    "whisper_review_pending_sources": 40097,
+    "whisper_review_sources": 54940,
+    "whisper_review_pending_sources": 40051,
     "subtitle_followup_sources": 35220,
     "subtitle_followup_pending_sources": 35220
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T12:08:33Z",
+      "databaseId": 35094131850,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T12:01:13Z",
+      "databaseId": 35093453816,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T12:01:09Z",
+      "databaseId": 35093447150,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T12:00:10Z",
       "databaseId": 35093349340,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T11:52:24Z",
       "databaseId": 35092658608,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T11:43:55Z",
-      "databaseId": 35091895300,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T11:43:01Z",
-      "databaseId": 35091812124,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T11:42:59Z",
-      "databaseId": 35091808406,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -139266,6 +139266,11 @@
         "video_id": 29427256
       },
       {
+        "episode_id": 57656,
+        "display_name": "Odpadlík S05E15 - ONA hledá JEHO CZ Dabing",
+        "video_id": 29427498
+      },
+      {
         "episode_id": 144837,
         "display_name": "Genera+ion S01E01 - Pilot CZ Dabing",
         "video_id": 29427241
@@ -139274,6 +139279,11 @@
         "episode_id": 57621,
         "display_name": "Odpadlík S03E12 - Zlodějské doupě CZ Dabing",
         "video_id": 29427417
+      },
+      {
+        "episode_id": 57637,
+        "display_name": "Odpadlík S04E20 - Dům pro panenky CZ Dabing",
+        "video_id": 29427578
       },
       {
         "episode_id": 114182,
@@ -399503,6 +399513,11 @@
         "video_id": 29427256
       },
       {
+        "episode_id": 57656,
+        "display_name": "Odpadlík S05E15 - ONA hledá JEHO CZ Dabing",
+        "video_id": 29427498
+      },
+      {
         "episode_id": 144837,
         "display_name": "Genera+ion S01E01 - Pilot CZ Dabing",
         "video_id": 29427241
@@ -399511,6 +399526,11 @@
         "episode_id": 57621,
         "display_name": "Odpadlík S03E12 - Zlodějské doupě CZ Dabing",
         "video_id": 29427417
+      },
+      {
+        "episode_id": 57637,
+        "display_name": "Odpadlík S04E20 - Dům pro panenky CZ Dabing",
+        "video_id": 29427578
       },
       {
         "episode_id": 114182,
@@ -521917,14 +521937,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "resolve_failed": 1
+    "ok": 56,
+    "resolve_failed": 4
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3553,
-    "whisper_non_cz_needs_subtitles": 11299,
-    "whisper_failed": 553,
-    "needs_whisper": 39544
+    "whisper_confirmed_cz": 3554,
+    "whisper_non_cz_needs_subtitles": 11335,
+    "whisper_failed": 556,
+    "needs_whisper": 39495
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 35220
