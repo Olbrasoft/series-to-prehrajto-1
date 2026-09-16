@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 134689,
-    "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 57086,
-    "prepared_source_episodes": 62076,
+    "manifest_upload_ready_episodes": 23,
+    "uploaded_episodes": 57087,
+    "prepared_source_episodes": 62168,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 82,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 112,
+    "language_whisper_attempted_sources": 62,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54936,
     "whisper_review_pending_sources": 40027,
-    "subtitle_followup_sources": 35220,
-    "subtitle_followup_pending_sources": 35220
+    "subtitle_followup_sources": 35233,
+    "subtitle_followup_pending_sources": 35233
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T12:56:15Z",
+      "databaseId": 35098760254,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T12:52:27Z",
+      "databaseId": 35098376026,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T12:52:24Z",
+      "databaseId": 35098370761,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T12:51:19Z",
       "databaseId": 35098263070,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +63,7 @@
       "createdAt": "2026-09-16T12:48:18Z",
       "databaseId": 35097964157,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T12:44:08Z",
       "databaseId": 35097558702,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T12:32:22Z",
-      "databaseId": 35096414416,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T12:31:27Z",
-      "databaseId": 35096326868,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T12:30:14Z",
-      "databaseId": 35096201174,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -139319,6 +139319,11 @@
         "episode_id": 148141,
         "display_name": "Ticho po pěšině S01E06 - Táta to co nevidět vyřídí a přijede pro tebe CZ Dabing",
         "video_id": 29428132
+      },
+      {
+        "episode_id": 159581,
+        "display_name": "Trochu slunce každý den S01E08 - I smutek jednou skončí CZ Titulky",
+        "video_id": 29428299
       },
       {
         "episode_id": 114182,
@@ -399628,6 +399633,11 @@
         "video_id": 29428132
       },
       {
+        "episode_id": 159581,
+        "display_name": "Trochu slunce každý den S01E08 - I smutek jednou skončí CZ Titulky",
+        "video_id": 29428299
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -522057,9 +522067,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 56,
-    "disabled": 22,
-    "resolve_failed": 4
+    "disabled": 50,
+    "ok": 61,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3554,
@@ -522068,6 +522078,6 @@
     "needs_whisper": 39471
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 35220
+    "needs_subtitle_setup_after_prehrajto_processing": 35233
   }
 }
