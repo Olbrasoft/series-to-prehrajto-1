@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 134620,
-    "manifest_upload_ready_episodes": 34,
-    "uploaded_episodes": 57161,
-    "prepared_source_episodes": 62242,
+    "manifest_upload_ready_episodes": 31,
+    "uploaded_episodes": 57163,
+    "prepared_source_episodes": 62257,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 25,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54945,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T19:03:02Z",
+      "databaseId": 35138184854,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T19:02:57Z",
+      "databaseId": 35138175771,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T18:58:34Z",
+      "databaseId": 35137728054,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T18:57:31Z",
       "databaseId": 35137623394,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-16T18:54:06Z",
       "databaseId": 35137277876,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-16T18:45:49Z",
       "databaseId": 35136419159,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-16T18:44:42Z",
-      "databaseId": 35136300268,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T18:44:34Z",
-      "databaseId": 35136286656,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T18:43:57Z",
-      "databaseId": 35136222351,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -139464,6 +139464,16 @@
         "episode_id": 63896,
         "display_name": "Family by Choice S01E14 - 14. epizoda CZ Titulky",
         "video_id": 29434059
+      },
+      {
+        "episode_id": 172300,
+        "display_name": "Černý dort S01E04 - Paní Bennettová CZ Titulky",
+        "video_id": 29434180
+      },
+      {
+        "episode_id": 172304,
+        "display_name": "Černý dort S01E08 - Devatero nocí CZ Titulky",
+        "video_id": 29434215
       },
       {
         "episode_id": 119137,
@@ -400148,6 +400158,16 @@
         "video_id": 29434059
       },
       {
+        "episode_id": 172300,
+        "display_name": "Černý dort S01E04 - Paní Bennettová CZ Titulky",
+        "video_id": 29434180
+      },
+      {
+        "episode_id": 172304,
+        "display_name": "Černý dort S01E08 - Devatero nocí CZ Titulky",
+        "video_id": 29434215
+      },
+      {
         "episode_id": 119137,
         "display_name": "NieR:Automata Ver1.1a S01E10 - 10. epizoda CZ Titulky",
         "video_id": 29433148
@@ -522807,6 +522827,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 5,
     "ok": 19,
     "resolve_failed": 1
   },
