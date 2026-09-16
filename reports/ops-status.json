@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 134718,
     "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 57047,
+    "uploaded_episodes": 57049,
     "prepared_source_episodes": 62168,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 119,
-    "language_whisper_attempted_sources": 89,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54965,
     "whisper_review_pending_sources": 40192,
@@ -20,6 +20,30 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T04:48:44Z",
+      "databaseId": 35057046495,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T04:48:41Z",
+      "databaseId": 35057043021,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T04:45:18Z",
+      "databaseId": 35056825526,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-09-16T04:44:34Z",
       "databaseId": 35056775213,
       "headBranch": "main",
@@ -27,11 +51,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T04:44:17Z",
       "databaseId": 35056756952,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-16T04:42:27Z",
       "databaseId": 35056637359,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -87,7 +111,7 @@
       "createdAt": "2026-09-16T04:42:07Z",
       "databaseId": 35056613227,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -139,11 +163,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T04:38:31Z",
       "databaseId": 35056383376,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-16T04:38:22Z",
-      "databaseId": 35056373653,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T04:37:30Z",
-      "databaseId": 35056320623,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T04:37:21Z",
-      "databaseId": 35056310967,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -139196,6 +139196,11 @@
         "video_id": 29415042
       },
       {
+        "episode_id": 141400,
+        "display_name": "Greenleaf S05E05 - Den pátý CZ Titulky",
+        "video_id": 29417050
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -260394,6 +260399,11 @@
         "episode_id": 151139,
         "display_name": "Nightsleeper S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29415804
+      },
+      {
+        "episode_id": 141399,
+        "display_name": "Greenleaf S05E04 - Den čtvrtý CZ Titulky",
+        "video_id": 29417048
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -399308,6 +399318,11 @@
         "video_id": 29415042
       },
       {
+        "episode_id": 141400,
+        "display_name": "Greenleaf S05E05 - Den pátý CZ Titulky",
+        "video_id": 29417050
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -520506,6 +520521,11 @@
         "episode_id": 151139,
         "display_name": "Nightsleeper S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29415804
+      },
+      {
+        "episode_id": 141399,
+        "display_name": "Greenleaf S05E04 - Den čtvrtý CZ Titulky",
+        "video_id": 29417048
       }
     ],
     "prepared_not_upload_ready": [
@@ -521667,8 +521687,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 88,
-    "disabled": 30,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
