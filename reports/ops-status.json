@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 134647,
-    "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 57134,
-    "prepared_source_episodes": 62323,
+    "manifest_upload_ready_episodes": 13,
+    "uploaded_episodes": 57135,
+    "prepared_source_episodes": 62339,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54915,
-    "whisper_review_pending_sources": 39908,
-    "subtitle_followup_sources": 35251,
-    "subtitle_followup_pending_sources": 35251
+    "language_audited_sources": 61,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54945,
+    "whisper_review_pending_sources": 40073,
+    "subtitle_followup_sources": 35252,
+    "subtitle_followup_pending_sources": 35252
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-16T16:01:46Z",
-      "databaseId": 35119235853,
+      "createdAt": "2026-09-16T16:06:36Z",
+      "databaseId": 35119769510,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T16:05:31Z",
+      "databaseId": 35119651214,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T16:02:56Z",
+      "databaseId": 35119364218,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T16:01:46Z",
+      "databaseId": 35119235853,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-16T16:01:40Z",
       "databaseId": 35119226458,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T15:58:02Z",
       "databaseId": 35118832490,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T15:49:29Z",
       "databaseId": 35117912293,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T15:45:14Z",
-      "databaseId": 35117452821,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-16T15:45:10Z",
-      "databaseId": 35117444130,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-16T15:43:31Z",
-      "databaseId": 35117267123,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -139429,6 +139429,11 @@
         "episode_id": 119613,
         "display_name": "Good Trouble S05E15 - Klidně na svojí párty umřu CZ Titulky",
         "video_id": 29430896
+      },
+      {
+        "episode_id": 119617,
+        "display_name": "Good Trouble S05E19 - Teď se mi to všechno vrací CZ Titulky",
+        "video_id": 29431044
       },
       {
         "episode_id": 114182,
@@ -399978,6 +399983,11 @@
         "video_id": 29430896
       },
       {
+        "episode_id": 119617,
+        "display_name": "Good Trouble S05E19 - Teď se mi to všechno vrací CZ Titulky",
+        "video_id": 29431044
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -522537,16 +522547,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "resolve_failed": 3,
-    "ok": 37
+    "resolve_failed": 12,
+    "ok": 48,
+    "disabled": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3555,
-    "whisper_non_cz_needs_subtitles": 11452,
-    "whisper_failed": 558,
-    "needs_whisper": 39350
+    "whisper_confirmed_cz": 3553,
+    "whisper_non_cz_needs_subtitles": 11319,
+    "whisper_failed": 553,
+    "needs_whisper": 39520
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 35251
+    "needs_subtitle_setup_after_prehrajto_processing": 35252
   }
 }
