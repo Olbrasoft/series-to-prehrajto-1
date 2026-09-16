@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 134592,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 57206,
+    "uploaded_episodes": 57207,
     "prepared_source_episodes": 62283,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 42,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54932,
     "whisper_review_pending_sources": 40003,
     "subtitle_followup_sources": 35351,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T22:52:30Z",
+      "databaseId": 35159743548,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T22:52:15Z",
+      "databaseId": 35159724156,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-16T22:52:10Z",
+      "databaseId": 35159717370,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T22:49:10Z",
+      "databaseId": 35159488347,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T22:49:07Z",
+      "databaseId": 35159484991,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T22:48:14Z",
       "databaseId": 35159417955,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +71,7 @@
       "createdAt": "2026-09-16T22:48:01Z",
       "databaseId": 35159398602,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -83,11 +123,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T22:41:35Z",
       "databaseId": 35158899173,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-16T22:39:18Z",
-      "databaseId": 35158716341,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T22:36:36Z",
-      "databaseId": 35158506430,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T22:35:23Z",
-      "databaseId": 35158412880,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T22:34:29Z",
-      "databaseId": 35158341742,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-16T22:34:25Z",
-      "databaseId": 35158336408,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -139609,6 +139609,11 @@
         "episode_id": 171645,
         "display_name": "Life After Life S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29438400
+      },
+      {
+        "episode_id": 29776,
+        "display_name": "Ranč mimozemšťanů S02E10 - 10. epizoda CZ Dabing",
+        "video_id": 29438659
       },
       {
         "episode_id": 29801,
@@ -400518,6 +400523,11 @@
         "video_id": 29438400
       },
       {
+        "episode_id": 29776,
+        "display_name": "Ranč mimozemšťanů S02E10 - 10. epizoda CZ Dabing",
+        "video_id": 29438659
+      },
+      {
         "episode_id": 29801,
         "display_name": "Ranč mimozemšťanů S04E14 - 14. epizoda CZ Dabing",
         "video_id": 29438654
@@ -523258,7 +523268,6 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
-    "disabled": 2,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
