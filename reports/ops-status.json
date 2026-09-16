@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 134647,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 57143,
-    "prepared_source_episodes": 62368,
+    "uploaded_episodes": 57144,
+    "prepared_source_episodes": 62339,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 67,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54945,
     "whisper_review_pending_sources": 40073,
     "subtitle_followup_sources": 35252,
@@ -20,26 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-16T16:54:19Z",
-      "databaseId": 35124838188,
+      "createdAt": "2026-09-16T16:58:14Z",
+      "databaseId": 35125237193,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-16T16:54:14Z",
-      "databaseId": 35124830266,
+      "createdAt": "2026-09-16T16:58:09Z",
+      "databaseId": 35125229011,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T16:58:03Z",
+      "databaseId": 35125217401,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T16:55:57Z",
+      "databaseId": 35125006787,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T16:55:24Z",
+      "databaseId": 35124950615,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T16:54:19Z",
+      "databaseId": 35124838188,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-16T16:54:14Z",
+      "databaseId": 35124830266,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T16:54:01Z",
       "databaseId": 35124807703,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-16T16:41:44Z",
-      "databaseId": 35123516056,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-16T16:41:38Z",
-      "databaseId": 35123506413,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-16T16:40:42Z",
-      "databaseId": 35123408096,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T16:40:30Z",
-      "databaseId": 35123386008,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-16T16:39:35Z",
-      "databaseId": 35123291416,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -260874,6 +260874,11 @@
         "episode_id": 35559,
         "display_name": "Gotham Knights S01E05 - 5. epizoda CZ Dabing",
         "video_id": 29431386
+      },
+      {
+        "episode_id": 160799,
+        "display_name": "Kapitán Fall S01E02 - Křest krví CZ Dabing",
+        "video_id": 29431993
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -521466,6 +521471,11 @@
         "episode_id": 35559,
         "display_name": "Gotham Knights S01E05 - 5. epizoda CZ Dabing",
         "video_id": 29431386
+      },
+      {
+        "episode_id": 160799,
+        "display_name": "Kapitán Fall S01E02 - Křest krví CZ Dabing",
+        "video_id": 29431993
       }
     ],
     "prepared_not_upload_ready": [
@@ -522627,8 +522637,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 7,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
