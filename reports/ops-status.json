@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 134592,
-    "manifest_upload_ready_episodes": 27,
+    "manifest_upload_ready_episodes": 22,
     "uploaded_episodes": 57184,
-    "prepared_source_episodes": 62293,
+    "prepared_source_episodes": 62309,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
@@ -11,19 +11,43 @@
     "language_queue_sources": 2644,
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54936,
-    "whisper_review_pending_sources": 40027,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54945,
+    "whisper_review_pending_sources": 40073,
     "subtitle_followup_sources": 35351,
     "subtitle_followup_pending_sources": 35351
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T22:00:45Z",
+      "databaseId": 35155457152,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T22:00:41Z",
+      "databaseId": 35155449516,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T21:59:12Z",
+      "databaseId": 35155315074,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T21:58:16Z",
       "databaseId": 35155237439,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-16T21:52:27Z",
       "databaseId": 35154739231,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,19 +91,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T21:50:55Z",
       "databaseId": 35154607765,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T21:50:52Z",
       "databaseId": 35154603818,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-16T21:43:02Z",
-      "databaseId": 35153901695,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T21:42:51Z",
-      "databaseId": 35153886479,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-16T21:42:36Z",
-      "databaseId": 35153864927,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -522254,6 +522254,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 107117,
+        "source_id": -68167777816476705,
+        "series_title": "Břemeno pravdy",
+        "episode_code": "S01E06",
+        "source_title": "Břemeno pravdy - S1E6 Devil in the Dessert EN",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -522571,14 +522579,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E22",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56276,
-        "source_id": -18797228031498409,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E23",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -523041,10 +523041,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3554,
-    "whisper_non_cz_needs_subtitles": 11355,
-    "whisper_failed": 556,
-    "needs_whisper": 39471
+    "whisper_confirmed_cz": 3553,
+    "whisper_non_cz_needs_subtitles": 11319,
+    "whisper_failed": 553,
+    "needs_whisper": 39520
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 35351
