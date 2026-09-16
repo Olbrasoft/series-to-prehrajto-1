@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 134717,
-    "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 57058,
+    "manifest_upload_ready_episodes": 5,
+    "uploaded_episodes": 57059,
     "prepared_source_episodes": 62165,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 23,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54957,
     "whisper_review_pending_sources": 40144,
     "subtitle_followup_sources": 35215,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T07:33:55Z",
+      "databaseId": 35069170879,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T07:33:52Z",
+      "databaseId": 35069165542,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T07:31:16Z",
+      "databaseId": 35068944271,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T07:30:21Z",
       "databaseId": 35068862235,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T07:24:47Z",
       "databaseId": 35068392797,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-16T07:17:07Z",
       "databaseId": 35067745053,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T07:11:11Z",
-      "databaseId": 35067253012,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-16T07:11:07Z",
-      "databaseId": 35067247009,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T07:10:56Z",
-      "databaseId": 35067231763,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -260449,6 +260449,11 @@
         "episode_id": 203494,
         "display_name": "Fauda S05E09 - 9. epizoda CZ Titulky",
         "video_id": 29420671
+      },
+      {
+        "episode_id": 203491,
+        "display_name": "Fauda S05E06 - 6. epizoda CZ Titulky",
+        "video_id": 29420679
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -520616,6 +520621,11 @@
         "episode_id": 203494,
         "display_name": "Fauda S05E09 - 9. epizoda CZ Titulky",
         "video_id": 29420671
+      },
+      {
+        "episode_id": 203491,
+        "display_name": "Fauda S05E06 - 6. epizoda CZ Titulky",
+        "video_id": 29420679
       }
     ],
     "prepared_not_upload_ready": [
@@ -521777,8 +521787,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 3,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
