@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 134620,
-    "manifest_upload_ready_episodes": 37,
-    "uploaded_episodes": 57157,
-    "prepared_source_episodes": 62233,
+    "manifest_upload_ready_episodes": 35,
+    "uploaded_episodes": 57158,
+    "prepared_source_episodes": 62238,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54945,
     "whisper_review_pending_sources": 40073,
     "subtitle_followup_sources": 35304,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-16T18:42:45Z",
+      "databaseId": 35136097463,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T18:42:41Z",
+      "databaseId": 35136090701,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T18:42:16Z",
+      "databaseId": 35136049078,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T18:38:54Z",
+      "databaseId": 35135700725,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T18:38:47Z",
+      "databaseId": 35135688597,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-16T18:38:01Z",
       "databaseId": 35135611200,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +99,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-16T18:33:09Z",
       "databaseId": 35135110839,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -115,11 +155,11 @@
       "workflowName": "refresh-backlog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T18:19:20Z",
       "databaseId": 35133665692,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T18:16:49Z",
-      "databaseId": 35133403074,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T18:15:13Z",
-      "databaseId": 35133233646,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T18:15:10Z",
-      "databaseId": 35133228025,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T18:15:07Z",
-      "databaseId": 35133223797,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T18:14:08Z",
-      "databaseId": 35133119790,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -260931,6 +260931,11 @@
         "video_id": 29433643
       },
       {
+        "episode_id": 63890,
+        "display_name": "Family by Choice S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29433874
+      },
+      {
         "episode_id": 119135,
         "display_name": "NieR:Automata Ver1.1a S01E08 - 8. epizoda CZ Titulky",
         "video_id": 29433153
@@ -521593,6 +521598,11 @@
         "video_id": 29433643
       },
       {
+        "episode_id": 63890,
+        "display_name": "Family by Choice S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29433874
+      },
+      {
         "episode_id": 119135,
         "display_name": "NieR:Automata Ver1.1a S01E08 - 8. epizoda CZ Titulky",
         "video_id": 29433153
@@ -522767,8 +522777,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 56,
-    "resolve_failed": 4
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3553,
