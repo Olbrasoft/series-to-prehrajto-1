@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 134689,
-    "manifest_upload_ready_episodes": 18,
-    "uploaded_episodes": 57110,
-    "prepared_source_episodes": 62141,
+    "manifest_upload_ready_episodes": 17,
+    "uploaded_episodes": 57111,
+    "prepared_source_episodes": 62153,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 53,
+    "language_whisper_attempted_sources": 50,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54945,
-    "whisper_review_pending_sources": 40073,
-    "subtitle_followup_sources": 35236,
-    "subtitle_followup_pending_sources": 35236
+    "whisper_review_sources": 54936,
+    "whisper_review_pending_sources": 40027,
+    "subtitle_followup_sources": 35240,
+    "subtitle_followup_pending_sources": 35240
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T13:45:38Z",
+      "databaseId": 35103992860,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-16T13:45:23Z",
+      "databaseId": 35103964164,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-16T13:45:03Z",
+      "databaseId": 35103925628,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-16T13:44:41Z",
       "databaseId": 35103886196,
       "headBranch": "main",
-      "status": "queued",
+      "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-16T13:43:55Z",
       "databaseId": 35103805258,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-16T13:41:48Z",
       "databaseId": 35103574193,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T13:32:11Z",
-      "databaseId": 35102542577,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-16T13:32:07Z",
-      "databaseId": 35102535430,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-16T13:31:50Z",
-      "databaseId": 35102504917,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -139374,6 +139374,11 @@
         "episode_id": 104900,
         "display_name": "Top Gear S02E05 - 5. epizoda CZ Titulky",
         "video_id": 29428869
+      },
+      {
+        "episode_id": 86044,
+        "display_name": "Motiv S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 29429016
       },
       {
         "episode_id": 114182,
@@ -399803,6 +399808,11 @@
         "video_id": 29428869
       },
       {
+        "episode_id": 86044,
+        "display_name": "Motiv S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 29429016
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -522297,16 +522307,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 3,
+    "ok": 49,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3553,
-    "whisper_non_cz_needs_subtitles": 11319,
-    "whisper_failed": 553,
-    "needs_whisper": 39520
+    "whisper_confirmed_cz": 3554,
+    "whisper_non_cz_needs_subtitles": 11355,
+    "whisper_failed": 556,
+    "needs_whisper": 39471
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 35236
+    "needs_subtitle_setup_after_prehrajto_processing": 35240
   }
 }
