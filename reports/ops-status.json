@@ -2,28 +2,60 @@
   "counts": {
     "backlog_episodes": 134443,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 57356,
+    "uploaded_episodes": 57357,
     "prepared_source_episodes": 62327,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 27,
-    "language_whisper_attempted_sources": 22,
+    "language_audited_sources": 47,
+    "language_whisper_attempted_sources": 42,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54928,
-    "whisper_review_pending_sources": 39979,
+    "whisper_review_sources": 54919,
+    "whisper_review_pending_sources": 39930,
     "subtitle_followup_sources": 35468,
     "subtitle_followup_pending_sources": 35468
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-17T07:53:18Z",
+      "databaseId": 35196791335,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T07:53:14Z",
+      "databaseId": 35196785821,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T07:52:55Z",
+      "databaseId": 35196759429,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T07:52:00Z",
+      "databaseId": 35196683998,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-17T07:50:57Z",
       "databaseId": 35196596156,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +75,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T07:49:50Z",
       "databaseId": 35196498998,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -75,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-17T07:48:14Z",
       "databaseId": 35196367021,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -139,44 +171,12 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T07:42:40Z",
       "databaseId": 35195896117,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T07:41:43Z",
-      "databaseId": 35195816910,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T07:41:36Z",
-      "databaseId": 35195807577,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T07:41:33Z",
-      "databaseId": 35195803177,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T07:40:25Z",
-      "databaseId": 35195706592,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -261939,6 +261939,11 @@
         "episode_id": 130619,
         "display_name": "Land of the Giants S01E21 - 21. epizoda CZ Titulky",
         "video_id": 29446005
+      },
+      {
+        "episode_id": 166406,
+        "display_name": "Payback S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29446523
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -523596,6 +523601,11 @@
         "episode_id": 130619,
         "display_name": "Land of the Giants S01E21 - 21. epizoda CZ Titulky",
         "video_id": 29446005
+      },
+      {
+        "episode_id": 166406,
+        "display_name": "Payback S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29446523
       }
     ],
     "prepared_not_upload_ready": [
@@ -524757,15 +524767,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 21,
+    "ok": 41,
     "disabled": 5,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3554,
-    "whisper_non_cz_needs_subtitles": 11395,
+    "whisper_non_cz_needs_subtitles": 11435,
     "whisper_failed": 556,
-    "needs_whisper": 39423
+    "needs_whisper": 39374
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 35468
