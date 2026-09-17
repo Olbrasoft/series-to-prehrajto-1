@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 134506,
     "manifest_upload_ready_episodes": 28,
-    "uploaded_episodes": 57296,
+    "uploaded_episodes": 57298,
     "prepared_source_episodes": 62282,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 54,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54945,
     "whisper_review_pending_sources": 40073,
     "subtitle_followup_sources": 35410,
@@ -20,18 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-17T04:23:23Z",
-      "databaseId": 35181739639,
+      "createdAt": "2026-09-17T04:23:58Z",
+      "databaseId": 35181775933,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "ops-watchdog"
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-17T04:23:55Z",
+      "databaseId": 35181773172,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T04:23:23Z",
+      "databaseId": 35181739639,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-17T04:23:00Z",
       "databaseId": 35181716571,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +67,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T04:19:45Z",
       "databaseId": 35181510850,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T04:00:23Z",
-      "databaseId": 35180274714,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T04:00:19Z",
-      "databaseId": 35180269977,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -139851,6 +139851,11 @@
         "video_id": 29442925
       },
       {
+        "episode_id": 152625,
+        "display_name": "The Twelve S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29442957
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -261639,6 +261644,11 @@
         "episode_id": 167951,
         "display_name": "With Love S02E01 - 1. epizoda CZ Titulky",
         "video_id": 29442959
+      },
+      {
+        "episode_id": 167955,
+        "display_name": "With Love S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29442976
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -401208,6 +401218,11 @@
         "video_id": 29442925
       },
       {
+        "episode_id": 152625,
+        "display_name": "The Twelve S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29442957
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -522996,6 +523011,11 @@
         "episode_id": 167951,
         "display_name": "With Love S02E01 - 1. epizoda CZ Titulky",
         "video_id": 29442959
+      },
+      {
+        "episode_id": 167955,
+        "display_name": "With Love S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29442976
       }
     ],
     "prepared_not_upload_ready": [
@@ -524157,8 +524177,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 14,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
