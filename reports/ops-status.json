@@ -1,45 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 134296,
-    "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 57504,
-    "prepared_source_episodes": 62419,
+    "manifest_upload_ready_episodes": 0,
+    "uploaded_episodes": 57509,
+    "prepared_source_episodes": 62434,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 64,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54851,
-    "whisper_review_pending_sources": 39541,
+    "whisper_review_pending_sources": 39546,
     "subtitle_followup_sources": 35612,
     "subtitle_followup_pending_sources": 35612
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-17T22:14:48Z",
-      "databaseId": 35281034219,
+      "createdAt": "2026-09-17T22:20:10Z",
+      "databaseId": 35281493011,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-17T22:14:44Z",
-      "databaseId": 35281028572,
+      "createdAt": "2026-09-17T22:20:05Z",
+      "databaseId": 35281484370,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T22:18:35Z",
+      "databaseId": 35281361284,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-17T22:17:21Z",
+      "databaseId": 35281256124,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T22:15:27Z",
+      "databaseId": 35281092491,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T22:14:48Z",
+      "databaseId": 35281034219,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T22:14:44Z",
+      "databaseId": 35281028572,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-17T22:14:27Z",
       "databaseId": 35281005566,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +99,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T22:13:06Z",
       "databaseId": 35280890462,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -75,19 +115,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T22:11:52Z",
       "databaseId": 35280786912,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T22:11:31Z",
       "databaseId": 35280758351,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T22:05:03Z",
-      "databaseId": 35280193659,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T22:04:48Z",
-      "databaseId": 35280168900,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T22:04:45Z",
-      "databaseId": 35280163321,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T22:03:42Z",
-      "databaseId": 35280067462,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T22:03:37Z",
-      "databaseId": 35280059366,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -140361,6 +140361,21 @@
         "video_id": 29462781
       },
       {
+        "episode_id": 188092,
+        "display_name": "Gumídci S06E05 - Brepta v zemi snů CZ Titulky",
+        "video_id": 29462866
+      },
+      {
+        "episode_id": 188124,
+        "display_name": "Gumídci S06E06 - Z babiččina receptáře CZ Titulky",
+        "video_id": 29462899
+      },
+      {
+        "episode_id": 188121,
+        "display_name": "Gumídci S06E07 - Kouzelná deka CZ Titulky",
+        "video_id": 29462870
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -262676,9 +262691,19 @@
         "video_id": 29462861
       },
       {
+        "episode_id": 188110,
+        "display_name": "Gumídci S06E08 - Bod pro lorda Bodyčeka CZ Titulky",
+        "video_id": 29462885
+      },
+      {
         "episode_id": 188119,
         "display_name": "Gumídci S06E10 - Královna Zobanů CZ Titulky",
         "video_id": 29462865
+      },
+      {
+        "episode_id": 188099,
+        "display_name": "Gumídci S06E12 - Král Ignor (1) CZ Dabing",
+        "video_id": 29462890
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -402758,6 +402783,21 @@
         "video_id": 29462781
       },
       {
+        "episode_id": 188092,
+        "display_name": "Gumídci S06E05 - Brepta v zemi snů CZ Titulky",
+        "video_id": 29462866
+      },
+      {
+        "episode_id": 188124,
+        "display_name": "Gumídci S06E06 - Z babiččina receptáře CZ Titulky",
+        "video_id": 29462899
+      },
+      {
+        "episode_id": 188121,
+        "display_name": "Gumídci S06E07 - Kouzelná deka CZ Titulky",
+        "video_id": 29462870
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -525073,9 +525113,19 @@
         "video_id": 29462861
       },
       {
+        "episode_id": 188110,
+        "display_name": "Gumídci S06E08 - Bod pro lorda Bodyčeka CZ Titulky",
+        "video_id": 29462885
+      },
+      {
         "episode_id": 188119,
         "display_name": "Gumídci S06E10 - Královna Zobanů CZ Titulky",
         "video_id": 29462865
+      },
+      {
+        "episode_id": 188099,
+        "display_name": "Gumídci S06E12 - Král Ignor (1) CZ Dabing",
+        "video_id": 29462890
       }
     ],
     "prepared_not_upload_ready": [
@@ -525454,35 +525504,75 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 145476,
-        "source_id": -53442064251954046,
+        "episode_id": 145474,
+        "source_id": -52754052609095850,
         "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E08",
-        "source_title": "Bouřlivé léto v Britské Indii - S1E8 Episode 8 EN",
+        "episode_code": "S01E04",
+        "source_title": "Bouřlivé léto v Britské Indii - S01E04 - Episode 4",
         "status": "needs_whisper"
       },
       {
-        "episode_id": 145476,
-        "source_id": -22921521517643322,
+        "episode_id": 145474,
+        "source_id": -27208986984449050,
         "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E08",
-        "source_title": "Bouřlivé léto v Britské Indii - S01E08 - Episode 8",
+        "episode_code": "S01E04",
+        "source_title": "Bouřlivé léto v Britské Indii - S1E4 Episode 4 EN",
         "status": "needs_whisper"
       },
       {
-        "episode_id": 145479,
-        "source_id": -47752981615005461,
+        "episode_id": 145477,
+        "source_id": -21037024185696908,
         "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E10",
-        "source_title": "Bouřlivé léto v Britské Indii - S01E10 - Episode 10",
+        "episode_code": "S01E09",
+        "source_title": "Bouřlivé léto v Britské Indii - S1E9 Episode 9 SK",
         "status": "needs_whisper"
       },
       {
-        "episode_id": 145479,
-        "source_id": -23476843875699840,
+        "episode_id": 145477,
+        "source_id": -38280965999942834,
         "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E10",
-        "source_title": "Bouřlivé léto v Britské Indii - S1E10 Episode 10 EN",
+        "episode_code": "S01E09",
+        "source_title": "Bouřlivé léto v Britské Indii S1E9 Episode 9",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 145477,
+        "source_id": -31701150134718198,
+        "series_title": "Bouřlivé léto v Britské Indii",
+        "episode_code": "S01E09",
+        "source_title": "Bouřlivé léto v Britské Indii - S01E09 - Episode 9",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 145477,
+        "source_id": -27397010001561180,
+        "series_title": "Bouřlivé léto v Britské Indii",
+        "episode_code": "S01E09",
+        "source_title": "Bouřlivé léto v Britské Indii - S1E9 Episode 9 EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 145471,
+        "source_id": -58448165423233697,
+        "series_title": "Bouřlivé léto v Britské Indii",
+        "episode_code": "S02E01",
+        "source_title": "Bouřlivé léto v Britské Indii - S2E1 Indian Man, British Suit SK",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 145471,
+        "source_id": -51049742340322592,
+        "series_title": "Bouřlivé léto v Britské Indii",
+        "episode_code": "S02E01",
+        "source_title": "Bouřlivé léto v Britské Indii - S2E1 Episode 1 EN",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 145471,
+        "source_id": -968660603328802,
+        "series_title": "Bouřlivé léto v Britské Indii",
+        "episode_code": "S02E01",
+        "source_title": "Bouřlivé léto v Britské Indii - S02E01 - Episode 1",
         "status": "needs_whisper"
       },
       {
@@ -525739,46 +525829,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E13",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E13",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56268,
-        "source_id": -57982074103361477,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E14",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E14",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56269,
-        "source_id": -14133191414710776,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E15",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E15",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56270,
-        "source_id": -60367723265289405,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E17",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E17",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56271,
-        "source_id": -59428534235181697,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E18",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E18",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56272,
-        "source_id": -49453531940355101,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E19",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E19",
         "status": "whisper_failed"
       }
     ],
@@ -526237,15 +526287,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 4,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3607,
-    "whisper_non_cz_needs_subtitles": 11703,
+    "whisper_confirmed_cz": 3606,
+    "whisper_non_cz_needs_subtitles": 11699,
     "whisper_failed": 571,
-    "needs_whisper": 38970
+    "needs_whisper": 38975
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 35612
