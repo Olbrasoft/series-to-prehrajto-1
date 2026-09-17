@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 134296,
-    "manifest_upload_ready_episodes": 0,
+    "manifest_upload_ready_episodes": 4,
     "uploaded_episodes": 57509,
-    "prepared_source_episodes": 62434,
+    "prepared_source_episodes": 62432,
     "description_series": 60,
     "description_episodes": 753,
-    "description_errors": 38,
+    "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54851,
-    "whisper_review_pending_sources": 39546,
-    "subtitle_followup_sources": 35612,
-    "subtitle_followup_pending_sources": 35612
+    "whisper_review_sources": 54826,
+    "whisper_review_pending_sources": 39392,
+    "subtitle_followup_sources": 35618,
+    "subtitle_followup_pending_sources": 35618
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-17T22:20:10Z",
-      "databaseId": 35281493011,
+      "createdAt": "2026-09-17T22:23:28Z",
+      "databaseId": 35281781236,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-17T22:23:22Z",
+      "databaseId": 35281773182,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T22:22:14Z",
+      "databaseId": 35281671410,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T22:21:23Z",
+      "databaseId": 35281597868,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T22:21:15Z",
+      "databaseId": 35281587191,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T22:21:00Z",
+      "databaseId": 35281563009,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T22:20:10Z",
+      "databaseId": 35281493011,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-17T22:20:05Z",
       "databaseId": 35281484370,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T22:13:07Z",
       "databaseId": 35280891467,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T22:10:42Z",
-      "databaseId": 35280688772,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T22:10:40Z",
-      "databaseId": 35280686732,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T22:10:36Z",
-      "databaseId": 35280681294,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T22:08:47Z",
-      "databaseId": 35280525171,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T22:08:09Z",
-      "databaseId": 35280473958,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-17T22:07:53Z",
-      "databaseId": 35280449518,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -525504,78 +525504,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 145474,
-        "source_id": -52754052609095850,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E04",
-        "source_title": "Bouřlivé léto v Britské Indii - S01E04 - Episode 4",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145474,
-        "source_id": -27208986984449050,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E04",
-        "source_title": "Bouřlivé léto v Britské Indii - S1E4 Episode 4 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145477,
-        "source_id": -21037024185696908,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E09",
-        "source_title": "Bouřlivé léto v Britské Indii - S1E9 Episode 9 SK",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145477,
-        "source_id": -38280965999942834,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E09",
-        "source_title": "Bouřlivé léto v Britské Indii S1E9 Episode 9",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145477,
-        "source_id": -31701150134718198,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E09",
-        "source_title": "Bouřlivé léto v Britské Indii - S01E09 - Episode 9",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145477,
-        "source_id": -27397010001561180,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S01E09",
-        "source_title": "Bouřlivé léto v Britské Indii - S1E9 Episode 9 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145471,
-        "source_id": -58448165423233697,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S02E01",
-        "source_title": "Bouřlivé léto v Britské Indii - S2E1 Indian Man, British Suit SK",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145471,
-        "source_id": -51049742340322592,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S02E01",
-        "source_title": "Bouřlivé léto v Britské Indii - S2E1 Episode 1 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 145471,
-        "source_id": -968660603328802,
-        "series_title": "Bouřlivé léto v Britské Indii",
-        "episode_code": "S02E01",
-        "source_title": "Bouřlivé léto v Britské Indii - S02E01 - Episode 1",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -525829,6 +525757,78 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E13",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E13",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56268,
+        "source_id": -57982074103361477,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E14",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E14",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56269,
+        "source_id": -14133191414710776,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E15",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E15",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56270,
+        "source_id": -60367723265289405,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E17",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E17",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56271,
+        "source_id": -59428534235181697,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E18",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E18",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56272,
+        "source_id": -49453531940355101,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E19",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E19",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56273,
+        "source_id": -41828913359773583,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E20",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E20",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56274,
+        "source_id": -36133747524527879,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E21",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56275,
+        "source_id": -23905561721062679,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E22",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56276,
+        "source_id": -18797228031498409,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E23",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -526287,16 +526287,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3606,
-    "whisper_non_cz_needs_subtitles": 11699,
+    "whisper_confirmed_cz": 3610,
+    "whisper_non_cz_needs_subtitles": 11824,
     "whisper_failed": 571,
-    "needs_whisper": 38975
+    "needs_whisper": 38821
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 35612
+    "needs_subtitle_setup_after_prehrajto_processing": 35618
   }
 }
