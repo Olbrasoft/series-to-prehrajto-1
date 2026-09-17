@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 134506,
     "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 57331,
+    "uploaded_episodes": 57332,
     "prepared_source_episodes": 62373,
     "description_series": 60,
     "description_episodes": 753,
-    "description_errors": 37,
+    "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54932,
     "whisper_review_pending_sources": 40003,
     "subtitle_followup_sources": 35419,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-17T05:22:15Z",
+      "databaseId": 35185466857,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T05:22:11Z",
+      "databaseId": 35185462852,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T05:21:20Z",
+      "databaseId": 35185406807,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T05:21:17Z",
+      "databaseId": 35185403375,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-17T05:20:24Z",
       "databaseId": 35185345840,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,19 +67,19 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-17T05:17:15Z",
       "databaseId": 35185143602,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-17T05:15:03Z",
       "databaseId": 35184996429,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -79,7 +111,7 @@
       "createdAt": "2026-09-17T05:09:12Z",
       "databaseId": 35184617285,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T04:58:17Z",
-      "databaseId": 35183915433,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T04:58:14Z",
-      "databaseId": 35183913031,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T04:57:57Z",
-      "databaseId": 35183896186,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T04:57:50Z",
-      "databaseId": 35183889946,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -261814,6 +261814,11 @@
         "episode_id": 167431,
         "display_name": "Northern Rescue S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29443580
+      },
+      {
+        "episode_id": 167427,
+        "display_name": "Northern Rescue S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29443700
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -523346,6 +523351,11 @@
         "episode_id": 167431,
         "display_name": "Northern Rescue S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29443580
+      },
+      {
+        "episode_id": 167427,
+        "display_name": "Northern Rescue S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29443700
       }
     ],
     "prepared_not_upload_ready": [
@@ -524507,7 +524517,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
