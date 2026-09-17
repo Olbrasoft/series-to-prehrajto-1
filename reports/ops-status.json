@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 134443,
-    "manifest_upload_ready_episodes": 0,
-    "uploaded_episodes": 57357,
-    "prepared_source_episodes": 62350,
+    "manifest_upload_ready_episodes": 1,
+    "uploaded_episodes": 57358,
+    "prepared_source_episodes": 62362,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 48,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54915,
@@ -20,10 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-17T08:16:57Z",
+      "databaseId": 35198839119,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T08:16:53Z",
+      "databaseId": 35198833037,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T08:13:56Z",
+      "databaseId": 35198573812,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T08:13:26Z",
+      "databaseId": 35198528765,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T08:13:14Z",
+      "databaseId": 35198512144,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T08:13:08Z",
+      "databaseId": 35198502873,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T08:12:37Z",
+      "databaseId": 35198457637,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-17T08:08:13Z",
       "databaseId": 35198070617,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T07:53:18Z",
-      "databaseId": 35196791335,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T07:53:14Z",
-      "databaseId": 35196785821,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T07:52:55Z",
-      "databaseId": 35196759429,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T07:52:00Z",
-      "databaseId": 35196683998,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T07:50:57Z",
-      "databaseId": 35196596156,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T07:50:52Z",
-      "databaseId": 35196587598,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T07:49:56Z",
-      "databaseId": 35196507486,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -139974,6 +139974,11 @@
         "episode_id": 130593,
         "display_name": "Land of the Giants S02E18 - 18. epizoda CZ Titulky",
         "video_id": 29446160
+      },
+      {
+        "episode_id": 26149,
+        "display_name": "Temple S02E06 - Epizoda 6 CZ Dabing",
+        "video_id": 29446747
       },
       {
         "episode_id": 114182,
@@ -401638,6 +401643,11 @@
         "video_id": 29446160
       },
       {
+        "episode_id": 26149,
+        "display_name": "Temple S02E06 - Epizoda 6 CZ Dabing",
+        "video_id": 29446747
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -524767,6 +524777,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 8,
     "ok": 39,
     "resolve_failed": 1
   },
