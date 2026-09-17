@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 134389,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 57428,
+    "uploaded_episodes": 57429,
     "prepared_source_episodes": 62423,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54859,
     "whisper_review_pending_sources": 39585,
     "subtitle_followup_sources": 35534,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-17T15:05:42Z",
-      "databaseId": 35237962686,
+      "createdAt": "2026-09-17T15:13:25Z",
+      "databaseId": 35238805688,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-17T15:09:51Z",
+      "databaseId": 35238413065,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T15:09:42Z",
+      "databaseId": 35238396843,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T15:08:45Z",
+      "databaseId": 35238294360,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T15:08:15Z",
+      "databaseId": 35238240275,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T15:05:42Z",
+      "databaseId": 35237962686,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-17T15:03:46Z",
       "databaseId": 35237748959,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T14:46:47Z",
-      "databaseId": 35235866358,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T14:46:46Z",
-      "databaseId": 35235864531,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T14:46:43Z",
-      "databaseId": 35235859521,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-17T14:46:41Z",
-      "databaseId": 35235855299,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T14:46:18Z",
-      "databaseId": 35235811579,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -140159,6 +140159,11 @@
         "episode_id": 74209,
         "display_name": "Grantchester S10E02 - 2. epizoda CZ Titulky",
         "video_id": 29457413
+      },
+      {
+        "episode_id": 155540,
+        "display_name": "Grosse Pointe Garden Society S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29458190
       },
       {
         "episode_id": 114182,
@@ -402178,6 +402183,11 @@
         "video_id": 29457413
       },
       {
+        "episode_id": 155540,
+        "display_name": "Grosse Pointe Garden Society S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29458190
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -525477,7 +525487,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
