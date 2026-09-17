@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 134296,
     "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 57489,
-    "prepared_source_episodes": 62347,
+    "uploaded_episodes": 57490,
+    "prepared_source_episodes": 62353,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54851,
     "whisper_review_pending_sources": 39537,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-17T21:41:31Z",
-      "databaseId": 35278076015,
+      "createdAt": "2026-09-17T21:44:39Z",
+      "databaseId": 35278353473,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-17T21:44:32Z",
+      "databaseId": 35278343563,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T21:42:32Z",
+      "databaseId": 35278168375,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-17T21:42:29Z",
+      "databaseId": 35278163163,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-17T21:42:22Z",
+      "databaseId": 35278153239,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-17T21:41:31Z",
+      "databaseId": 35278076015,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-17T21:41:27Z",
       "databaseId": 35278070835,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-17T21:28:53Z",
-      "databaseId": 35276900688,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T21:28:51Z",
-      "databaseId": 35276897150,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T21:27:55Z",
-      "databaseId": 35276810144,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-17T21:26:54Z",
-      "databaseId": 35276714677,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-17T21:26:51Z",
-      "databaseId": 35276710226,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -140319,6 +140319,11 @@
         "episode_id": 26297,
         "display_name": "Ztracený svět S03E14 - 14. epizoda CZ Dabing",
         "video_id": 29462415
+      },
+      {
+        "episode_id": 101569,
+        "display_name": "Komisař Montalbano S09E01 - Úsměv Angeliky CZ Dabing",
+        "video_id": 29462492
       },
       {
         "episode_id": 114182,
@@ -402643,6 +402648,11 @@
         "video_id": 29462415
       },
       {
+        "episode_id": 101569,
+        "display_name": "Komisař Montalbano S09E01 - Úsměv Angeliky CZ Dabing",
+        "video_id": 29462492
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -526087,7 +526097,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
