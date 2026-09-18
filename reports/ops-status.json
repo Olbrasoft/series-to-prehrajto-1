@@ -1,45 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 133973,
-    "manifest_upload_ready_episodes": 2,
+    "manifest_upload_ready_episodes": 0,
     "uploaded_episodes": 57819,
-    "prepared_source_episodes": 62938,
+    "prepared_source_episodes": 62923,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 53,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54776,
-    "whisper_review_pending_sources": 39097,
+    "whisper_review_sources": 54780,
+    "whisper_review_pending_sources": 39117,
     "subtitle_followup_sources": 35915,
     "subtitle_followup_pending_sources": 35915
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-18T22:46:33Z",
-      "databaseId": 35403011078,
+      "createdAt": "2026-09-18T22:48:32Z",
+      "databaseId": 35403144123,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
+      "status": "pending",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-18T22:46:30Z",
-      "databaseId": 35403007493,
+      "createdAt": "2026-09-18T22:48:21Z",
+      "databaseId": 35403130379,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-18T22:48:16Z",
+      "databaseId": 35403124131,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-18T22:47:34Z",
+      "databaseId": 35403078444,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-18T22:47:31Z",
+      "databaseId": 35403075687,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-18T22:46:33Z",
+      "databaseId": 35403011078,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-18T22:46:30Z",
+      "databaseId": 35403007493,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-18T22:46:23Z",
       "databaseId": 35402999574,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-18T22:37:30Z",
-      "databaseId": 35402368910,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-18T22:37:13Z",
-      "databaseId": 35402348917,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-18T22:36:17Z",
-      "databaseId": 35402281733,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-18T22:36:14Z",
-      "databaseId": 35402278522,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-18T22:36:14Z",
-      "databaseId": 35402278276,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -528604,6 +528604,30 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 162534,
+        "source_id": -71838861985362461,
+        "series_title": "Boston Blue",
+        "episode_code": "S01E05",
+        "source_title": "Boston.Blue.S01E05.720p.x264-FENiX",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 162534,
+        "source_id": -64435914723359010,
+        "series_title": "Boston Blue",
+        "episode_code": "S01E05",
+        "source_title": "Boston Blue - S1E5 JA",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 162535,
+        "source_id": -58502454805362946,
+        "series_title": "Boston Blue",
+        "episode_code": "S01E06",
+        "source_title": "Boston.Blue.S01E06.720p.x264-FENiX",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 24693,
         "source_id": -47697067608167193,
         "series_title": "Brickleberry",
@@ -528905,30 +528929,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E20",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E20",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56274,
-        "source_id": -36133747524527879,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E21",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56275,
-        "source_id": -23905561721062679,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56276,
-        "source_id": -18797228031498409,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E23",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -529388,13 +529388,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
+    "disabled": 13,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3730,
-    "whisper_non_cz_needs_subtitles": 11949,
+    "whisper_confirmed_cz": 3726,
+    "whisper_non_cz_needs_subtitles": 11937,
     "whisper_failed": 571,
-    "needs_whisper": 38526
+    "needs_whisper": 38546
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 35915
