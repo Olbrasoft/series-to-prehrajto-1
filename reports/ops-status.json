@@ -1,29 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 134227,
-    "manifest_upload_ready_episodes": 0,
-    "uploaded_episodes": 57572,
-    "prepared_source_episodes": 62641,
+    "manifest_upload_ready_episodes": 1,
+    "uploaded_episodes": 57573,
+    "prepared_source_episodes": 62633,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 42,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54825,
-    "whisper_review_pending_sources": 39380,
+    "whisper_review_sources": 54809,
+    "whisper_review_pending_sources": 39284,
     "subtitle_followup_sources": 35679,
     "subtitle_followup_pending_sources": 35679
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-18T08:07:09Z",
+      "databaseId": 35322754541,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-18T08:05:23Z",
+      "databaseId": 35322602503,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-18T08:05:17Z",
+      "databaseId": 35322593937,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-18T08:03:09Z",
+      "databaseId": 35322411767,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-18T08:03:07Z",
+      "databaseId": 35322407701,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-18T08:02:08Z",
       "databaseId": 35322327237,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-18T07:57:26Z",
       "databaseId": 35321939922,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -51,11 +91,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-18T07:56:45Z",
       "databaseId": 35321886334,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-18T07:52:22Z",
-      "databaseId": 35321536992,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-18T07:52:22Z",
-      "databaseId": 35321535928,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-18T07:51:06Z",
-      "databaseId": 35321435395,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-18T07:51:00Z",
-      "databaseId": 35321428133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-18T07:49:22Z",
-      "databaseId": 35321290650,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -263019,6 +263019,11 @@
         "episode_id": 178267,
         "display_name": "Nejhledanější zločinci světa S01E05 - Matteo Messina Denaro: Poslední kmotr sicilské Cosa Nostry CZ Titulky",
         "video_id": 29470807
+      },
+      {
+        "episode_id": 109943,
+        "display_name": "Viceprezident(ka) S03E08 - Debata CZ Dabing",
+        "video_id": 29472099
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -525756,6 +525761,11 @@
         "episode_id": 178267,
         "display_name": "Nejhledanější zločinci světa S01E05 - Matteo Messina Denaro: Poslední kmotr sicilské Cosa Nostry CZ Titulky",
         "video_id": 29470807
+      },
+      {
+        "episode_id": 109943,
+        "display_name": "Viceprezident(ka) S03E08 - Debata CZ Dabing",
+        "video_id": 29472099
       }
     ],
     "prepared_not_upload_ready": [
@@ -526917,14 +526927,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "disabled": 2,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3612,
-    "whisper_non_cz_needs_subtitles": 11833,
+    "whisper_confirmed_cz": 3683,
+    "whisper_non_cz_needs_subtitles": 11842,
     "whisper_failed": 571,
-    "needs_whisper": 38809
+    "needs_whisper": 38713
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 35679
