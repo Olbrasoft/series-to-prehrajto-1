@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 133782,
-    "manifest_upload_ready_episodes": 28,
-    "uploaded_episodes": 58004,
-    "prepared_source_episodes": 62769,
+    "manifest_upload_ready_episodes": 26,
+    "uploaded_episodes": 58006,
+    "prepared_source_episodes": 62782,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
@@ -12,26 +12,90 @@
     "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54714,
-    "whisper_review_pending_sources": 38778,
+    "whisper_review_sources": 54732,
+    "whisper_review_pending_sources": 38876,
     "subtitle_followup_sources": 36084,
     "subtitle_followup_pending_sources": 36084
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-19T16:05:11Z",
-      "databaseId": 35453820383,
+      "createdAt": "2026-09-19T16:09:11Z",
+      "databaseId": 35454033879,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-19T16:09:07Z",
+      "databaseId": 35454029582,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-19T16:08:22Z",
+      "databaseId": 35453992349,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T16:08:12Z",
+      "databaseId": 35453983354,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T16:07:37Z",
+      "databaseId": 35453950640,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T16:06:15Z",
+      "databaseId": 35453877417,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T16:06:12Z",
+      "databaseId": 35453874641,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T16:06:09Z",
+      "databaseId": 35453871662,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T16:05:11Z",
+      "databaseId": 35453820383,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-19T16:05:06Z",
       "databaseId": 35453813771,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T15:56:00Z",
-      "databaseId": 35453340087,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-19T15:55:55Z",
-      "databaseId": 35453336915,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T15:55:44Z",
-      "databaseId": 35453328653,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T15:54:19Z",
-      "databaseId": 35453254950,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T15:54:17Z",
-      "databaseId": 35453253449,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T15:54:08Z",
-      "databaseId": 35453246818,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-19T15:54:04Z",
-      "databaseId": 35453244004,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T15:53:19Z",
-      "databaseId": 35453205652,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -141574,6 +141574,16 @@
         "episode_id": 8585,
         "display_name": "Šimpanzí říše S01E04 - Zúčtování CZ Dabing",
         "video_id": 29532505
+      },
+      {
+        "episode_id": 72969,
+        "display_name": "Heartbeat S14E03 - 3. epizoda CZ Titulky",
+        "video_id": 29532897
+      },
+      {
+        "episode_id": 72953,
+        "display_name": "Heartbeat S14E05 - 5. epizoda CZ Titulky",
+        "video_id": 29532934
       },
       {
         "episode_id": 114182,
@@ -406473,6 +406483,16 @@
         "video_id": 29532505
       },
       {
+        "episode_id": 72969,
+        "display_name": "Heartbeat S14E03 - 3. epizoda CZ Titulky",
+        "video_id": 29532897
+      },
+      {
+        "episode_id": 72953,
+        "display_name": "Heartbeat S14E05 - 5. epizoda CZ Titulky",
+        "video_id": 29532934
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -531241,10 +531261,10 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3736,
-    "whisper_non_cz_needs_subtitles": 12200,
+    "whisper_confirmed_cz": 3733,
+    "whisper_non_cz_needs_subtitles": 12123,
     "whisper_failed": 571,
-    "needs_whisper": 38207
+    "needs_whisper": 38305
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36084
