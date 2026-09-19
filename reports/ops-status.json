@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 133850,
-    "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 57945,
-    "prepared_source_episodes": 62676,
+    "manifest_upload_ready_episodes": 10,
+    "uploaded_episodes": 57946,
+    "prepared_source_episodes": 62699,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 53,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 82,
+    "language_whisper_attempted_sources": 51,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54759,
-    "whisper_review_pending_sources": 39008,
-    "subtitle_followup_sources": 36027,
-    "subtitle_followup_pending_sources": 36027
+    "whisper_review_sources": 54742,
+    "whisper_review_pending_sources": 38923,
+    "subtitle_followup_sources": 36031,
+    "subtitle_followup_pending_sources": 36031
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-19T06:45:02Z",
+      "databaseId": 35427446383,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T06:44:51Z",
+      "databaseId": 35427438016,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T06:44:40Z",
+      "databaseId": 35427429124,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-19T06:43:54Z",
       "databaseId": 35427397476,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T06:29:53Z",
-      "databaseId": 35426750462,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T06:25:50Z",
-      "databaseId": 35426574987,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T06:25:35Z",
-      "databaseId": 35426564429,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -141449,6 +141449,11 @@
         "episode_id": 22497,
         "display_name": "M*A*S*H S03E03 - Dozorčí dne CZ Dabing",
         "video_id": 29517216
+      },
+      {
+        "episode_id": 22501,
+        "display_name": "M*A*S*H S03E07 - Kontrola CZ Dabing",
+        "video_id": 29517296
       },
       {
         "episode_id": 114182,
@@ -406053,6 +406058,11 @@
         "video_id": 29517216
       },
       {
+        "episode_id": 22501,
+        "display_name": "M*A*S*H S03E07 - Kontrola CZ Dabing",
+        "video_id": 29517296
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -530647,17 +530657,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 13,
-    "ok": 39,
+    "disabled": 31,
+    "ok": 50,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3732,
-    "whisper_non_cz_needs_subtitles": 12019,
+    "whisper_confirmed_cz": 3733,
+    "whisper_non_cz_needs_subtitles": 12086,
     "whisper_failed": 571,
-    "needs_whisper": 38437
+    "needs_whisper": 38352
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 36027
+    "needs_subtitle_setup_after_prehrajto_processing": 36031
   }
 }
