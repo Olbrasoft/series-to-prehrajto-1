@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 133823,
-    "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 57972,
-    "prepared_source_episodes": 62819,
+    "manifest_upload_ready_episodes": 15,
+    "uploaded_episodes": 57973,
+    "prepared_source_episodes": 62799,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 115,
-    "language_whisper_attempted_sources": 63,
+    "language_audited_sources": 120,
+    "language_whisper_attempted_sources": 57,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54728,
-    "whisper_review_pending_sources": 38851,
+    "whisper_review_sources": 54732,
+    "whisper_review_pending_sources": 38877,
     "subtitle_followup_sources": 36051,
     "subtitle_followup_pending_sources": 36051
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-19T11:58:43Z",
+      "databaseId": 35441557291,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T11:58:39Z",
+      "databaseId": 35441555186,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T11:57:29Z",
+      "databaseId": 35441509343,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T11:57:26Z",
+      "databaseId": 35441506920,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-19T11:56:37Z",
       "databaseId": 35441473821,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-19T11:52:33Z",
       "databaseId": 35441298099,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-19T11:45:59Z",
-      "databaseId": 35441001612,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T11:45:08Z",
-      "databaseId": 35440960340,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-19T11:45:05Z",
-      "databaseId": 35440957780,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T11:44:44Z",
-      "databaseId": 35440942424,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -141519,6 +141519,11 @@
         "episode_id": 36009,
         "display_name": "Forst S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29526523
+      },
+      {
+        "episode_id": 120048,
+        "display_name": "K2 S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29527789
       },
       {
         "episode_id": 120049,
@@ -406258,6 +406263,11 @@
         "video_id": 29526523
       },
       {
+        "episode_id": 120048,
+        "display_name": "K2 S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29527789
+      },
+      {
         "episode_id": 120049,
         "display_name": "K2 S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29527805
@@ -530917,15 +530927,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 52,
-    "ok": 62,
+    "disabled": 63,
+    "ok": 56,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3736,
-    "whisper_non_cz_needs_subtitles": 12141,
+    "whisper_confirmed_cz": 3733,
+    "whisper_non_cz_needs_subtitles": 12122,
     "whisper_failed": 571,
-    "needs_whisper": 38280
+    "needs_whisper": 38306
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36051
