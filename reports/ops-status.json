@@ -9,21 +9,69 @@
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54759,
-    "whisper_review_pending_sources": 39008,
+    "whisper_review_sources": 54754,
+    "whisper_review_pending_sources": 38985,
     "subtitle_followup_sources": 36031,
     "subtitle_followup_pending_sources": 36031
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-19T07:19:49Z",
+      "databaseId": 35429021013,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T07:19:46Z",
+      "databaseId": 35429018034,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-19T07:16:16Z",
+      "databaseId": 35428863555,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T07:12:37Z",
+      "databaseId": 35428697920,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T07:12:35Z",
+      "databaseId": 35428696065,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-19T07:12:33Z",
+      "databaseId": 35428694818,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-19T07:11:33Z",
       "databaseId": 35428648413,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T06:58:16Z",
-      "databaseId": 35428046168,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-19T06:58:12Z",
-      "databaseId": 35428043439,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "failure",
-      "createdAt": "2026-09-19T06:58:12Z",
-      "databaseId": 35428043252,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-19T06:55:29Z",
-      "databaseId": 35427926435,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T06:53:51Z",
-      "databaseId": 35427851165,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-19T06:53:38Z",
-      "databaseId": 35427842493,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -530118,14 +530118,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 38377,
-        "source_id": -65653896773782491,
-        "series_title": "Chicago Fire",
-        "episode_code": "S14E15",
-        "source_title": "Chicago Fire - S14E15 EN",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 56254,
         "source_id": -59514815803122524,
         "series_title": "Chirurgové",
@@ -530299,6 +530291,14 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E22",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56276,
+        "source_id": -18797228031498409,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E23",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -530757,14 +530757,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3732,
-    "whisper_non_cz_needs_subtitles": 12019,
+    "whisper_non_cz_needs_subtitles": 12037,
     "whisper_failed": 571,
-    "needs_whisper": 38437
+    "needs_whisper": 38414
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36031
