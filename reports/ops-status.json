@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 133460,
     "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 58334,
-    "prepared_source_episodes": 62846,
+    "uploaded_episodes": 58335,
+    "prepared_source_episodes": 62853,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 44,
+    "language_audited_sources": 46,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54658,
     "whisper_review_pending_sources": 38502,
     "subtitle_followup_sources": 36336,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-20T13:41:01Z",
-      "databaseId": 35514224491,
+      "createdAt": "2026-09-20T13:43:47Z",
+      "databaseId": 35514352543,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-20T13:43:43Z",
+      "databaseId": 35514349741,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-20T13:42:24Z",
+      "databaseId": 35514287966,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-20T13:42:01Z",
+      "databaseId": 35514269637,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-20T13:41:01Z",
+      "databaseId": 35514224491,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-20T13:40:57Z",
       "databaseId": 35514221802,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -87,7 +119,7 @@
       "createdAt": "2026-09-20T13:36:12Z",
       "databaseId": 35513989728,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -139,44 +171,12 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-20T13:29:46Z",
       "databaseId": 35513666890,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-20T13:29:43Z",
-      "databaseId": 35513664777,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T13:29:31Z",
-      "databaseId": 35513655777,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T13:28:16Z",
-      "databaseId": 35513595199,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-20T13:28:13Z",
-      "databaseId": 35513592739,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -142384,6 +142384,11 @@
         "episode_id": 198817,
         "display_name": "Ošklivé lahůdky S01E05 - Grilování CZ Titulky",
         "video_id": 29558155
+      },
+      {
+        "episode_id": 115352,
+        "display_name": "Dlouhý stín S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29559593
       },
       {
         "episode_id": 114182,
@@ -408933,6 +408938,11 @@
         "video_id": 29558155
       },
       {
+        "episode_id": 115352,
+        "display_name": "Dlouhý stín S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29559593
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -534537,9 +534547,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 37,
-    "disabled": 4,
-    "resolve_failed": 3
+    "disabled": 6,
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3736,
