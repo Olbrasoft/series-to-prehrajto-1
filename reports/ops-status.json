@@ -1,45 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 133441,
-    "manifest_upload_ready_episodes": 4,
+    "manifest_upload_ready_episodes": 1,
     "uploaded_episodes": 58350,
-    "prepared_source_episodes": 62815,
+    "prepared_source_episodes": 62813,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 34,
+    "language_audited_sources": 36,
     "language_whisper_attempted_sources": 28,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54657,
-    "whisper_review_pending_sources": 38501,
+    "whisper_review_sources": 54644,
+    "whisper_review_pending_sources": 38431,
     "subtitle_followup_sources": 36344,
     "subtitle_followup_pending_sources": 36344
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-20T16:38:44Z",
-      "databaseId": 35523359721,
+      "createdAt": "2026-09-20T16:41:40Z",
+      "databaseId": 35523513087,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "status": "queued",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-20T16:38:40Z",
-      "databaseId": 35523356199,
+      "createdAt": "2026-09-20T16:40:56Z",
+      "databaseId": 35523475509,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-20T16:40:56Z",
+      "databaseId": 35523475380,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-20T16:40:27Z",
+      "databaseId": 35523450297,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T16:39:30Z",
+      "databaseId": 35523397906,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T16:39:29Z",
+      "databaseId": 35523396324,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-20T16:38:44Z",
+      "databaseId": 35523359721,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-20T16:38:40Z",
+      "databaseId": 35523356199,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-20T16:38:30Z",
       "databaseId": 35523348663,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -79,7 +127,7 @@
       "createdAt": "2026-09-20T16:34:36Z",
       "databaseId": 35523147620,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -119,7 +167,7 @@
       "createdAt": "2026-09-20T16:28:29Z",
       "databaseId": 35522822638,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T16:27:02Z",
-      "databaseId": 35522746425,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-20T16:26:58Z",
-      "databaseId": 35522742743,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T16:26:52Z",
-      "databaseId": 35522737491,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-20T16:23:36Z",
-      "databaseId": 35522569410,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-20T16:23:34Z",
-      "databaseId": 35522567350,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-20T16:22:31Z",
-      "databaseId": 35522512151,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -534042,54 +534042,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 110468,
-        "source_id": -70597939422150196,
-        "series_title": "Bulgasal: Nesmrtelní",
-        "episode_code": "S01E03",
-        "source_title": "Bulgasal Nesmrtelní S01E03",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 110468,
-        "source_id": -28734122116621625,
-        "series_title": "Bulgasal: Nesmrtelní",
-        "episode_code": "S01E03",
-        "source_title": "Bulgasal: Nesmrtelní - S1E3 Epizoda 3 KO",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 110468,
-        "source_id": -65470621708234970,
-        "series_title": "Bulgasal: Nesmrtelní",
-        "episode_code": "S01E03",
-        "source_title": "Bulgasal: Nesmrtelní - S1E3 KO",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 110467,
-        "source_id": -12019347043974748,
-        "series_title": "Bulgasal: Nesmrtelní",
-        "episode_code": "S01E13",
-        "source_title": "Bulgasal Nesmrtelní S01E13",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 110467,
-        "source_id": -59766201703544639,
-        "series_title": "Bulgasal: Nesmrtelní",
-        "episode_code": "S01E13",
-        "source_title": "Bulgasal: Nesmrtelní - S1E13 Epizoda 13 KO",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 110467,
-        "source_id": -31216057604030922,
-        "series_title": "Bulgasal: Nesmrtelní",
-        "episode_code": "S01E13",
-        "source_title": "Bulgasal: Nesmrtelní - S1E13 KO",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 127621,
         "source_id": -16650705822300185,
         "series_title": "Bull",
@@ -534239,6 +534191,54 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E17",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E17",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56271,
+        "source_id": -59428534235181697,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E18",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E18",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56272,
+        "source_id": -49453531940355101,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E19",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E19",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56273,
+        "source_id": -41828913359773583,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E20",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E20",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56274,
+        "source_id": -36133747524527879,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E21",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56275,
+        "source_id": -23905561721062679,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E22",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56276,
+        "source_id": -18797228031498409,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E23",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -534698,14 +534698,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 27,
-    "disabled": 6,
+    "disabled": 8,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3736,
-    "whisper_non_cz_needs_subtitles": 12420,
-    "whisper_failed": 571,
-    "needs_whisper": 37930
+    "whisper_confirmed_cz": 3776,
+    "whisper_non_cz_needs_subtitles": 12437,
+    "whisper_failed": 574,
+    "needs_whisper": 37857
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36344
