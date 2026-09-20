@@ -3,35 +3,67 @@
     "backlog_episodes": 133591,
     "manifest_upload_ready_episodes": 0,
     "uploaded_episodes": 58210,
-    "prepared_source_episodes": 62788,
+    "prepared_source_episodes": 62808,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54682,
-    "whisper_review_pending_sources": 38626,
+    "whisper_review_sources": 54687,
+    "whisper_review_pending_sources": 38651,
     "subtitle_followup_sources": 36211,
     "subtitle_followup_pending_sources": 36211
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-20T03:58:04Z",
-      "databaseId": 35487925528,
+      "createdAt": "2026-09-20T04:06:37Z",
+      "databaseId": 35488303398,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "status": "pending",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-20T04:06:05Z",
+      "databaseId": 35488279870,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-20T03:59:10Z",
+      "databaseId": 35487966604,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T03:59:07Z",
+      "databaseId": 35487965033,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-20T03:58:04Z",
+      "databaseId": 35487925528,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-20T03:57:32Z",
       "databaseId": 35487904130,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -43,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-20T03:56:39Z",
       "databaseId": 35487870593,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T03:49:33Z",
-      "databaseId": 35487572282,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T03:49:30Z",
-      "databaseId": 35487570033,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T03:48:33Z",
-      "databaseId": 35487530130,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-20T03:48:29Z",
-      "databaseId": 35487527555,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -532658,6 +532658,22 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 155834,
+        "source_id": -55617715476737398,
+        "series_title": "Charité",
+        "episode_code": "S01E01",
+        "source_title": "Klinika Charité 1x1",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 155833,
+        "source_id": -49852627326726968,
+        "series_title": "Charité",
+        "episode_code": "S01E02",
+        "source_title": "Klinika Charité 1x2",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 56254,
         "source_id": -59514815803122524,
         "series_title": "Chirurgové",
@@ -532823,22 +532839,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56275,
-        "source_id": -23905561721062679,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56276,
-        "source_id": -18797228031498409,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E23",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -533297,14 +533297,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "disabled": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 3736,
-    "whisper_non_cz_needs_subtitles": 12320,
+    "whisper_non_cz_needs_subtitles": 12300,
     "whisper_failed": 571,
-    "needs_whisper": 38055
+    "needs_whisper": 38080
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36211
