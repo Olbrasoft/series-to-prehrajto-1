@@ -3,13 +3,13 @@
     "backlog_episodes": 133557,
     "manifest_upload_ready_episodes": 0,
     "uploaded_episodes": 58273,
-    "prepared_source_episodes": 62926,
+    "prepared_source_episodes": 62925,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 21,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54682,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 36252
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T08:37:19Z",
+      "databaseId": 35500057440,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T08:37:18Z",
+      "databaseId": 35500056790,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T08:37:16Z",
+      "databaseId": 35500054730,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-20T08:36:46Z",
@@ -111,7 +135,7 @@
       "createdAt": "2026-09-20T08:21:45Z",
       "databaseId": 35499345079,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "queued",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T08:17:54Z",
-      "databaseId": 35499171185,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T08:16:51Z",
-      "databaseId": 35499125193,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T08:16:47Z",
-      "databaseId": 35499122596,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -533296,6 +533296,14 @@
         "status": "needs_whisper"
       },
       {
+        "episode_id": 186016,
+        "source_id": -30223393995407946,
+        "series_title": "Čarodějnice školou povinné",
+        "episode_code": "S01E03",
+        "source_title": "Čarodějnice školou povinné - S1E3 Tabby EN",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 56254,
         "source_id": -59514815803122524,
         "series_title": "Chirurgové",
@@ -533461,14 +533469,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56275,
-        "source_id": -23905561721062679,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
         "status": "whisper_failed"
       }
     ],
@@ -533927,6 +533927,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 1,
     "ok": 19,
     "resolve_failed": 1
   },
