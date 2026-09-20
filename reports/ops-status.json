@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 133460,
     "manifest_upload_ready_episodes": 2,
-    "uploaded_episodes": 58332,
+    "uploaded_episodes": 58333,
     "prepared_source_episodes": 62857,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54653,
     "whisper_review_pending_sources": 38477,
     "subtitle_followup_sources": 36334,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-20T13:07:43Z",
+      "databaseId": 35512595111,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T13:07:42Z",
+      "databaseId": 35512594487,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T13:07:16Z",
+      "databaseId": 35512572435,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-20T13:06:55Z",
+      "databaseId": 35512556516,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-20T13:04:43Z",
       "databaseId": 35512446211,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-20T12:47:09Z",
-      "databaseId": 35511614251,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T12:46:20Z",
-      "databaseId": 35511576373,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-20T12:46:01Z",
-      "databaseId": 35511559711,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-20T12:45:57Z",
-      "databaseId": 35511556270,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -142374,6 +142374,11 @@
         "episode_id": 198816,
         "display_name": "Ošklivé lahůdky S01E04 - Krevety a langusty CZ Titulky",
         "video_id": 29558618
+      },
+      {
+        "episode_id": 198820,
+        "display_name": "Ošklivé lahůdky S01E08 - Plněné dobroty CZ Titulky",
+        "video_id": 29558711
       },
       {
         "episode_id": 198817,
@@ -408913,6 +408918,11 @@
         "video_id": 29558618
       },
       {
+        "episode_id": 198820,
+        "display_name": "Ošklivé lahůdky S01E08 - Plněné dobroty CZ Titulky",
+        "video_id": 29558711
+      },
+      {
         "episode_id": 198817,
         "display_name": "Ošklivé lahůdky S01E05 - Grilování CZ Titulky",
         "video_id": 29558155
@@ -534517,7 +534527,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
