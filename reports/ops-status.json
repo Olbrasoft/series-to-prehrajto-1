@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 133323,
-    "manifest_upload_ready_episodes": 28,
-    "uploaded_episodes": 58468,
-    "prepared_source_episodes": 62821,
+    "manifest_upload_ready_episodes": 25,
+    "uploaded_episodes": 58469,
+    "prepared_source_episodes": 62815,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 54,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54535,
-    "whisper_review_pending_sources": 37822,
+    "whisper_review_sources": 54526,
+    "whisper_review_pending_sources": 37773,
     "subtitle_followup_sources": 36512,
     "subtitle_followup_pending_sources": 36512
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-21T18:40:50Z",
+      "databaseId": 35639945287,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T18:40:18Z",
+      "databaseId": 35639887769,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-21T18:39:42Z",
+      "databaseId": 35639823141,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T18:39:32Z",
+      "databaseId": 35639805891,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-21T18:38:32Z",
       "databaseId": 35639698184,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-21T18:34:33Z",
       "databaseId": 35639261283,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:11:34Z",
-      "databaseId": 35636793008,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:11:24Z",
-      "databaseId": 35636776141,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:10:52Z",
-      "databaseId": 35636721271,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-21T18:10:46Z",
-      "databaseId": 35636709246,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -267496,6 +267496,11 @@
         "video_id": 29596629
       },
       {
+        "episode_id": 128158,
+        "display_name": "NTSF:SD:SUV:: S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29596809
+      },
+      {
         "episode_id": 99751,
         "display_name": "Vraždy v Brokenwoodu S02E04 - Krvavá růž CZ Dabing",
         "video_id": 29596620
@@ -534713,6 +534718,11 @@
         "video_id": 29596629
       },
       {
+        "episode_id": 128158,
+        "display_name": "NTSF:SD:SUV:: S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29596809
+      },
+      {
         "episode_id": 99751,
         "display_name": "Vraždy v Brokenwoodu S02E04 - Krvavá růž CZ Dabing",
         "video_id": 29596620
@@ -535878,13 +535888,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 39,
+    "disabled": 14,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4083,
-    "whisper_non_cz_needs_subtitles": 12630,
+    "whisper_non_cz_needs_subtitles": 12670,
     "whisper_failed": 592,
-    "needs_whisper": 37230
+    "needs_whisper": 37181
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36512
