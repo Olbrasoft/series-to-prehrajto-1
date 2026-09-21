@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 133323,
-    "manifest_upload_ready_episodes": 24,
-    "uploaded_episodes": 58470,
-    "prepared_source_episodes": 62813,
+    "manifest_upload_ready_episodes": 21,
+    "uploaded_episodes": 58472,
+    "prepared_source_episodes": 62815,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
@@ -12,12 +12,36 @@
     "language_audited_sources": 64,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54526,
-    "whisper_review_pending_sources": 37773,
+    "whisper_review_sources": 54539,
+    "whisper_review_pending_sources": 37846,
     "subtitle_followup_sources": 36512,
     "subtitle_followup_pending_sources": 36512
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T18:46:57Z",
+      "databaseId": 35640612447,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T18:46:43Z",
+      "databaseId": 35640588528,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-21T18:44:32Z",
+      "databaseId": 35640344928,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-21T18:43:41Z",
@@ -27,11 +51,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-21T18:43:22Z",
       "databaseId": 35640216165,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:25:23Z",
-      "databaseId": 35638275748,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-21T18:24:28Z",
-      "databaseId": 35638178940,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:23:53Z",
-      "databaseId": 35638113854,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -142719,6 +142719,16 @@
         "episode_id": 124437,
         "display_name": "Hightown S02E02 - 2. epizoda CZ Titulky",
         "video_id": 29596445
+      },
+      {
+        "episode_id": 128160,
+        "display_name": "NTSF:SD:SUV:: S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29596994
+      },
+      {
+        "episode_id": 128168,
+        "display_name": "NTSF:SD:SUV:: S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29597069
       },
       {
         "episode_id": 114182,
@@ -409948,6 +409958,16 @@
         "video_id": 29596445
       },
       {
+        "episode_id": 128160,
+        "display_name": "NTSF:SD:SUV:: S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29596994
+      },
+      {
+        "episode_id": 128168,
+        "display_name": "NTSF:SD:SUV:: S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29597069
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -535903,9 +535923,9 @@
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4083,
-    "whisper_non_cz_needs_subtitles": 12670,
+    "whisper_non_cz_needs_subtitles": 12610,
     "whisper_failed": 592,
-    "needs_whisper": 37181
+    "needs_whisper": 37254
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36512
