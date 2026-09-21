@@ -1,29 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 133365,
-    "manifest_upload_ready_episodes": 9,
-    "uploaded_episodes": 58428,
+    "manifest_upload_ready_episodes": 4,
+    "uploaded_episodes": 58429,
     "prepared_source_episodes": 62795,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 37,
-    "language_whisper_attempted_sources": 31,
+    "language_audited_sources": 57,
+    "language_whisper_attempted_sources": 51,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54587,
-    "whisper_review_pending_sources": 38113,
+    "whisper_review_sources": 54575,
+    "whisper_review_pending_sources": 38041,
     "subtitle_followup_sources": 36462,
     "subtitle_followup_pending_sources": 36462
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-21T08:57:50Z",
+      "databaseId": 35580642787,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T08:56:54Z",
+      "databaseId": 35580561070,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T08:55:52Z",
+      "databaseId": 35580468386,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-21T08:55:49Z",
+      "databaseId": 35580463172,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T08:55:45Z",
+      "databaseId": 35580458160,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-21T08:54:48Z",
       "databaseId": 35580373287,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-21T08:49:00Z",
       "databaseId": 35579875397,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T08:44:38Z",
-      "databaseId": 35579494396,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-21T08:44:29Z",
-      "databaseId": 35579481856,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T08:43:41Z",
-      "databaseId": 35579411121,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-21T08:40:04Z",
-      "databaseId": 35579093969,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T08:37:17Z",
-      "databaseId": 35578853168,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -142629,6 +142629,11 @@
         "episode_id": 140017,
         "display_name": "Královny Barakudy S01E05 - Nebojím se tě! CZ Dabing",
         "video_id": 29578175
+      },
+      {
+        "episode_id": 110613,
+        "display_name": "Pat a Mat S01E18 - Velké prádlo CZ Titulky",
+        "video_id": 29579215
       },
       {
         "episode_id": 114182,
@@ -409648,6 +409653,11 @@
         "video_id": 29578175
       },
       {
+        "episode_id": 110613,
+        "display_name": "Pat a Mat S01E18 - Velké prádlo CZ Titulky",
+        "video_id": 29579215
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -535477,15 +535487,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 30,
+    "ok": 50,
     "disabled": 6,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 3960,
+    "whisper_confirmed_cz": 4020,
     "whisper_non_cz_needs_subtitles": 12514,
     "whisper_failed": 591,
-    "needs_whisper": 37522
+    "needs_whisper": 37450
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36462
