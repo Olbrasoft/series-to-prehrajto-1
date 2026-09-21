@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 133323,
     "manifest_upload_ready_episodes": 16,
-    "uploaded_episodes": 58492,
+    "uploaded_episodes": 58493,
     "prepared_source_episodes": 62811,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 63,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54526,
     "whisper_review_pending_sources": 37773,
     "subtitle_followup_sources": 36525,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-21T20:28:27Z",
+      "databaseId": 35651279529,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T20:28:23Z",
+      "databaseId": 35651273479,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T20:23:52Z",
+      "databaseId": 35650798123,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T20:22:57Z",
+      "databaseId": 35650703999,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-21T20:21:09Z",
+      "databaseId": 35650516045,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-21T20:19:58Z",
       "databaseId": 35650392786,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,19 +107,19 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-21T20:16:02Z",
       "databaseId": 35649992230,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-21T20:14:02Z",
       "databaseId": 35649776363,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-21T20:02:35Z",
-      "databaseId": 35648585472,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-21T20:01:28Z",
-      "databaseId": 35648471129,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T20:00:00Z",
-      "databaseId": 35648304813,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T19:58:55Z",
-      "databaseId": 35648190485,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T19:56:16Z",
-      "databaseId": 35647921092,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -142774,6 +142774,11 @@
         "episode_id": 163413,
         "display_name": "Tremors S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29599186
+      },
+      {
+        "episode_id": 143589,
+        "display_name": "NOVA S51E04 - 4. epizoda CZ Titulky",
+        "video_id": 29599955
       },
       {
         "episode_id": 114182,
@@ -410113,6 +410118,11 @@
         "video_id": 29599186
       },
       {
+        "episode_id": 143589,
+        "display_name": "NOVA S51E04 - 4. epizoda CZ Titulky",
+        "video_id": 29599955
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -536117,8 +536127,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 3,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
