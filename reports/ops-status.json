@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 133345,
-    "manifest_upload_ready_episodes": 5,
-    "uploaded_episodes": 58457,
+    "manifest_upload_ready_episodes": 3,
+    "uploaded_episodes": 58458,
     "prepared_source_episodes": 62714,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 127,
-    "language_whisper_attempted_sources": 102,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54539,
     "whisper_review_pending_sources": 37846,
@@ -18,6 +18,38 @@
     "subtitle_followup_pending_sources": 36498
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T17:32:24Z",
+      "databaseId": 35632654747,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T17:29:01Z",
+      "databaseId": 35632288526,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T17:26:05Z",
+      "databaseId": 35631978463,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-21T17:26:00Z",
+      "databaseId": 35631969477,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-21T17:24:42Z",
@@ -35,11 +67,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-21T17:23:43Z",
       "databaseId": 35631726791,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -135,7 +167,7 @@
       "createdAt": "2026-09-21T17:13:07Z",
       "databaseId": 35630588927,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T17:13:01Z",
-      "databaseId": 35630577974,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-21T17:12:58Z",
-      "databaseId": 35630573224,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T17:11:54Z",
-      "databaseId": 35630457490,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T17:11:30Z",
-      "databaseId": 35630414839,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -142684,6 +142684,11 @@
         "episode_id": 138125,
         "display_name": "High School of the Dead S01E05 - 5. epizoda CZ Titulky",
         "video_id": 29591780
+      },
+      {
+        "episode_id": 128152,
+        "display_name": "NTSF:SD:SUV:: S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29594050
       },
       {
         "episode_id": 128137,
@@ -409848,6 +409853,11 @@
         "video_id": 29591780
       },
       {
+        "episode_id": 128152,
+        "display_name": "NTSF:SD:SUV:: S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29594050
+      },
+      {
         "episode_id": 128137,
         "display_name": "NTSF:SD:SUV:: S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29593573
@@ -535767,8 +535777,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 101,
-    "disabled": 25,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
