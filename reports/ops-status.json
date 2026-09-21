@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 133323,
     "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 58474,
-    "prepared_source_episodes": 62818,
+    "uploaded_episodes": 58475,
+    "prepared_source_episodes": 62819,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 95,
+    "language_audited_sources": 111,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54526,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-21T18:59:16Z",
+      "databaseId": 35641933342,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T18:58:46Z",
+      "databaseId": 35641881044,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-09-21T18:58:25Z",
       "databaseId": 35641846142,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,19 +51,19 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-21T18:57:27Z",
       "databaseId": 35641745080,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-21T18:57:23Z",
       "databaseId": 35641737583,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-21T18:43:41Z",
-      "databaseId": 35640249632,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:43:22Z",
-      "databaseId": 35640216165,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -267529,6 +267529,11 @@
         "episode_id": 99751,
         "display_name": "Vraždy v Brokenwoodu S02E04 - Krvavá růž CZ Dabing",
         "video_id": 29596620
+      },
+      {
+        "episode_id": 179887,
+        "display_name": "Crank Yankers S05E18 - 18. epizoda CZ Titulky",
+        "video_id": 29597638
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -534776,6 +534781,11 @@
         "episode_id": 99751,
         "display_name": "Vraždy v Brokenwoodu S02E04 - Krvavá růž CZ Dabing",
         "video_id": 29596620
+      },
+      {
+        "episode_id": 179887,
+        "display_name": "Crank Yankers S05E18 - 18. epizoda CZ Titulky",
+        "video_id": 29597638
       }
     ],
     "prepared_not_upload_ready": [
@@ -535938,7 +535948,7 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 59,
-    "disabled": 35,
+    "disabled": 51,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
