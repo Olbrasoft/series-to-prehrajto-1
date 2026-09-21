@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 133323,
-    "manifest_upload_ready_episodes": 5,
-    "uploaded_episodes": 58486,
-    "prepared_source_episodes": 62840,
+    "manifest_upload_ready_episodes": 3,
+    "uploaded_episodes": 58487,
+    "prepared_source_episodes": 62841,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 42,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 62,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54526,
     "whisper_review_pending_sources": 37773,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-21T19:20:50Z",
+      "databaseId": 35644233340,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-21T19:20:36Z",
+      "databaseId": 35644209208,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-21T19:18:03Z",
+      "databaseId": 35643949389,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-21T19:16:57Z",
       "databaseId": 35643832724,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:58:25Z",
-      "databaseId": 35641846142,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-21T18:58:22Z",
-      "databaseId": 35641840430,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-21T18:57:27Z",
-      "databaseId": 35641745080,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -142764,6 +142764,11 @@
         "episode_id": 128173,
         "display_name": "NTSF:SD:SUV:: S03E11 - 11. epizoda CZ Titulky",
         "video_id": 29598333
+      },
+      {
+        "episode_id": 163405,
+        "display_name": "Tremors S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29598402
       },
       {
         "episode_id": 114182,
@@ -410073,6 +410078,11 @@
         "video_id": 29598333
       },
       {
+        "episode_id": 163405,
+        "display_name": "Tremors S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29598402
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -536058,7 +536068,7 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 22,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
