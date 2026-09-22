@@ -135,3 +135,26 @@ def test_bounded_backfill_prioritizes_unseen_uploads_and_rotates_retries(
             fh.write(json.dumps({"episode_id": expected, "status": "target_not_found",
                                  "checked_at": "2026-09-23T10:00:00Z"}) + "\n")
     assert inspected == [3, 2, 1, 4]
+
+
+def test_only_requested_accounts_cz_subtitle_uploads_are_selected(tmp_path):
+    from backfill_uploaded_subtitles import load_uploads
+    state = tmp_path / "state.json"
+    state.write_text(json.dumps({"uploads": [
+        {"episode_id": 1, "upload_account": "primary", "display_name": "One CZ titulky"},
+        {"episode_id": 2, "upload_account": "serialy", "display_name": "Two CZ Titulky"},
+        {"episode_id": 3, "upload_account": "primary", "display_name": "Three CZ Dabing"},
+        {"episode_id": 4, "upload_account": "primary", "display_name": "Four SK Titulky"},
+    ]}))
+    assert set(load_uploads([state], "primary")) == {1}
+    assert set(load_uploads([state], "serialy")) == {2}
+
+
+def test_stale_report_snapshot_does_not_overwrite_new_result(tmp_path):
+    from backfill_uploaded_subtitles import load_latest_status
+    report = tmp_path / "report.jsonl"
+    report.write_text("".join(json.dumps(row) + "\n" for row in [
+        {"episode_id": 1, "checked_at": "2026-09-22T15:00:00Z", "status": "uploaded"},
+        {"episode_id": 1, "checked_at": "2026-09-22T14:00:00Z", "status": "verify_failed"},
+    ]))
+    assert load_latest_status(report)[1]["status"] == "uploaded"

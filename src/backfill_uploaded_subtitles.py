@@ -76,7 +76,10 @@ def load_latest_status(path: Path) -> dict[int, dict]:
     latest: dict[int, dict] = {}
     for row in load_jsonl(path):
         try:
-            latest[int(row["episode_id"])] = row
+            episode_id = int(row["episode_id"])
+            previous = latest.get(episode_id)
+            if previous is None or str(row.get("checked_at") or "") >= str(previous.get("checked_at") or ""):
+                latest[episode_id] = row
         except (KeyError, TypeError, ValueError):
             continue
     return latest
@@ -120,17 +123,19 @@ def candidate_matches_series(row: dict, title: str) -> bool:
     return False
 
 
-def load_uploads(paths: list[Path]) -> dict[int, dict]:
+def load_uploads(paths: list[Path], upload_account: str | None = None) -> dict[int, dict]:
     by_episode: dict[int, dict] = {}
     for path in paths:
         state = load_json(path)
         for upload in state.get("uploads", []):
+            if upload_account and upload.get("upload_account") != upload_account:
+                continue
             try:
                 episode_id = int(upload["episode_id"])
             except (KeyError, TypeError, ValueError):
                 continue
             name = str(upload.get("display_name") or "")
-            if "Titulky" not in name:
+            if not re.search(r"\bCZ\s+titulky\b", name, re.IGNORECASE):
                 continue
             by_episode[episode_id] = upload
     return by_episode
@@ -456,6 +461,7 @@ def status_row(row: dict, upload: dict, status: str, **extra) -> dict:
         "episode": row.get("episode"),
         "episode_code": row.get("episode_code"),
         "display_name": upload.get("display_name"),
+        "upload_account": upload.get("upload_account"),
         "prehrajto_video_id": upload.get("prehrajto_video_id"),
     }
     out.update(extra)
@@ -472,7 +478,7 @@ def newest_upload_first(item: tuple[dict, dict]) -> tuple[str, int]:
 
 def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> list[tuple[dict, dict, dict]]:
     followups = [row for row in load_jsonl(args.followup_file) if row_pending(row)]
-    uploads = load_uploads(args.state_file)
+    uploads = load_uploads(args.state_file, getattr(args, "upload_account", None))
     latest_status = load_latest_status(args.report_file)
     matched: list[tuple[dict, dict]] = []
     for row in followups:
@@ -545,6 +551,7 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--upload-account", choices=["primary", "serialy"])
     ap.add_argument("--limit", type=int, default=3)
     ap.add_argument("--max-rows", type=int, default=0)
     ap.add_argument("--max-profile-pages", type=int, default=40)
