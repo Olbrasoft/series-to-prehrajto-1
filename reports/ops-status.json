@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 133040,
     "manifest_upload_ready_episodes": 39,
-    "uploaded_episodes": 58792,
+    "uploaded_episodes": 58793,
     "prepared_source_episodes": 62651,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54463,
     "whisper_review_pending_sources": 37444,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-22T17:52:23Z",
+      "databaseId": 35763425142,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T17:52:20Z",
+      "databaseId": 35763419202,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T17:51:39Z",
+      "databaseId": 35763338328,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-09-22T17:49:18Z",
       "databaseId": 35763104944,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,19 +59,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-22T17:48:28Z",
       "databaseId": 35763028144,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-22T17:48:24Z",
       "databaseId": 35763021538,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -123,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-22T17:39:47Z",
       "databaseId": 35762161550,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -147,36 +171,12 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-22T17:39:19Z",
       "databaseId": 35762115349,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-22T17:39:09Z",
-      "databaseId": 35762097056,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T17:38:13Z",
-      "databaseId": 35761998217,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-22T17:38:10Z",
-      "databaseId": 35761992459,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -269119,6 +269119,11 @@
         "episode_id": 144371,
         "display_name": "Paní den a slečna noc S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29622406
+      },
+      {
+        "episode_id": 78966,
+        "display_name": "Zachraň mě S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 29622521
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -537956,6 +537961,11 @@
         "episode_id": 144371,
         "display_name": "Paní den a slečna noc S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29622406
+      },
+      {
+        "episode_id": 78966,
+        "display_name": "Zachraň mě S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 29622521
       }
     ],
     "prepared_not_upload_ready": [
@@ -539117,7 +539127,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
