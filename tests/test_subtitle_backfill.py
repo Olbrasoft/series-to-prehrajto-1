@@ -67,6 +67,15 @@ def test_generated_czech_upload_filename_is_recognized_from_label():
     assert pick_czech_track(resolved) == "https://cdn.example/generated.vtt?token=1"
 
 
+@pytest.mark.parametrize('suffix', ['cs-1790093256…', 'cs-1790093256...', 'cs-093256-30'])
+def test_truncated_and_short_generated_czech_names_are_recognized(suffix):
+    html = '''<script>
+      videos.push({ src: "https://cdn.example/video.mp4", res: '720' });
+      var tracks = [{ file: "https://cdn.example/cs.vtt", label: "CS - 12839167 - SUFFIX" }];
+    </script>'''.replace('SUFFIX', suffix)
+    assert pick_czech_track(parse_html(html, 'https://example.test/video')) == 'https://cdn.example/cs.vtt'
+
+
 def test_vtt_is_converted_to_strict_crlf_srt():
     converted = vtt_to_srt(
         b"WEBVTT\n\n00:00:01.000 --> 00:00:02.500 align:start\nAhoj\n\n"

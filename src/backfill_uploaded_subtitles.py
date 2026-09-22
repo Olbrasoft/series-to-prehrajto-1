@@ -687,7 +687,9 @@ def main() -> int:
 
     ok = fail = 0
     alternate_searches = 0
-    suffix_base = str(int(time.time()))
+    # Keep names below the portal's label truncation threshold, including
+    # two-digit batch indices. Pending submissions are never sent twice.
+    suffix_base = str(int(time.time()))[-6:]
     for index, (row, upload, info) in enumerate(tasks, 1):
         video_id = int(upload["prehrajto_video_id"])
         detail_url = str(info["detail_url"])
