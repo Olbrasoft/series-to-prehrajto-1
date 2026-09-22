@@ -1,53 +1,101 @@
 {
   "counts": {
     "backlog_episodes": 132986,
-    "manifest_upload_ready_episodes": 47,
-    "uploaded_episodes": 58813,
-    "prepared_source_episodes": 62564,
+    "manifest_upload_ready_episodes": 44,
+    "uploaded_episodes": 58815,
+    "prepared_source_episodes": 62562,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 100,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54458,
-    "whisper_review_pending_sources": 37425,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54455,
+    "whisper_review_pending_sources": 37405,
     "subtitle_followup_sources": 36767,
     "subtitle_followup_pending_sources": 36767
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-22T19:07:15Z",
-      "databaseId": 35771706743,
+      "createdAt": "2026-09-22T19:16:06Z",
+      "databaseId": 35772679812,
       "headBranch": "main",
-      "status": "queued",
-      "workflowName": "prepare-descriptions"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-22T19:06:23Z",
-      "databaseId": 35771612771,
+      "createdAt": "2026-09-22T19:16:02Z",
+      "databaseId": 35772673550,
       "headBranch": "main",
-      "status": "queued",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T19:13:44Z",
+      "databaseId": 35772419526,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T19:09:45Z",
+      "databaseId": 35771977284,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T19:08:03Z",
+      "databaseId": 35771791655,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-22T19:07:47Z",
+      "databaseId": 35771762021,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-22T19:07:15Z",
+      "databaseId": 35771706743,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-22T19:06:23Z",
+      "databaseId": 35771612771,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-22T19:06:19Z",
       "databaseId": 35771605638,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-22T19:04:56Z",
       "databaseId": 35771446513,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-22T18:57:37Z",
       "databaseId": 35770635623,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -115,11 +163,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-22T18:56:37Z",
       "databaseId": 35770529684,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T18:54:54Z",
-      "databaseId": 35770342160,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-22T18:54:51Z",
-      "databaseId": 35770335071,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-22T18:54:49Z",
-      "databaseId": 35770332704,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T18:52:42Z",
-      "databaseId": 35770097498,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T18:52:38Z",
-      "databaseId": 35770090690,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T18:52:25Z",
-      "databaseId": 35770066370,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -143521,6 +143521,11 @@
         "video_id": 29623404
       },
       {
+        "episode_id": 196112,
+        "display_name": "Goofyho tlupa S01E51 - Sportem ku zdraví CZ Dabing",
+        "video_id": 29623640
+      },
+      {
         "episode_id": 110489,
         "display_name": "Křehký hrdina S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29622553
@@ -269224,6 +269229,11 @@
         "episode_id": 16871,
         "display_name": "AJ a královna S01E04 - Louisville CZ Dabing",
         "video_id": 29623315
+      },
+      {
+        "episode_id": 189027,
+        "display_name": "Sláva králi Jelimánovi S02E12 - Pravdivá bráchoromance CZ Dabing",
+        "video_id": 29623642
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -412463,6 +412473,11 @@
         "video_id": 29623404
       },
       {
+        "episode_id": 196112,
+        "display_name": "Goofyho tlupa S01E51 - Sportem ku zdraví CZ Dabing",
+        "video_id": 29623640
+      },
+      {
         "episode_id": 110489,
         "display_name": "Křehký hrdina S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29622553
@@ -538166,6 +538181,11 @@
         "episode_id": 16871,
         "display_name": "AJ a královna S01E04 - Louisville CZ Dabing",
         "video_id": 29623315
+      },
+      {
+        "episode_id": 189027,
+        "display_name": "Sláva králi Jelimánovi S02E12 - Pravdivá bráchoromance CZ Dabing",
+        "video_id": 29623642
       }
     ],
     "prepared_not_upload_ready": [
@@ -539327,15 +539347,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 40,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4189,
-    "whisper_non_cz_needs_subtitles": 12844,
+    "whisper_non_cz_needs_subtitles": 12861,
     "whisper_failed": 592,
-    "needs_whisper": 36833
+    "needs_whisper": 36813
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36767
