@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 133040,
-    "manifest_upload_ready_episodes": 31,
-    "uploaded_episodes": 58780,
-    "prepared_source_episodes": 62725,
+    "manifest_upload_ready_episodes": 39,
+    "uploaded_episodes": 58781,
+    "prepared_source_episodes": 62671,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
+    "language_audited_sources": 88,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54463,
-    "whisper_review_pending_sources": 37443,
-    "subtitle_followup_sources": 36745,
-    "subtitle_followup_pending_sources": 36745
+    "whisper_review_sources": 54484,
+    "whisper_review_pending_sources": 37559,
+    "subtitle_followup_sources": 36749,
+    "subtitle_followup_pending_sources": 36749
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-22T16:46:57Z",
+      "databaseId": 35756379809,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-22T16:46:52Z",
+      "databaseId": 35756371942,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T16:46:51Z",
+      "databaseId": 35756370625,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T16:46:49Z",
+      "databaseId": 35756365110,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-22T16:45:52Z",
       "databaseId": 35756263984,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-22T16:45:37Z",
       "databaseId": 35756237500,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-22T16:41:38Z",
       "databaseId": 35755798718,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T16:34:42Z",
-      "databaseId": 35755034920,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-22T16:32:06Z",
-      "databaseId": 35754744882,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T16:28:48Z",
-      "databaseId": 35754380270,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T16:28:43Z",
-      "databaseId": 35754371273,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -269059,6 +269059,11 @@
         "episode_id": 86423,
         "display_name": "Hodný holky S03E01 - Najdi svoji pláž CZ Titulky",
         "video_id": 29621226
+      },
+      {
+        "episode_id": 69731,
+        "display_name": "Kojak S04E08 - Podveden smrtí CZ Titulky",
+        "video_id": 29621450
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -537836,6 +537841,11 @@
         "episode_id": 86423,
         "display_name": "Hodný holky S03E01 - Najdi svoji pláž CZ Titulky",
         "video_id": 29621226
+      },
+      {
+        "episode_id": 69731,
+        "display_name": "Kojak S04E08 - Podveden smrtí CZ Titulky",
+        "video_id": 29621450
       }
     ],
     "prepared_not_upload_ready": [
@@ -538997,16 +539007,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 28,
     "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4185,
-    "whisper_non_cz_needs_subtitles": 12835,
+    "whisper_confirmed_cz": 4180,
+    "whisper_non_cz_needs_subtitles": 12745,
     "whisper_failed": 592,
-    "needs_whisper": 36851
+    "needs_whisper": 36967
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 36745
+    "needs_subtitle_setup_after_prehrajto_processing": 36749
   }
 }
