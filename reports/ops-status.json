@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 133040,
     "manifest_upload_ready_episodes": 36,
-    "uploaded_episodes": 58790,
+    "uploaded_episodes": 58791,
     "prepared_source_episodes": 62659,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 81,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54467,
     "whisper_review_pending_sources": 37468,
     "subtitle_followup_sources": 36752,
@@ -20,10 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-22T17:40:21Z",
+      "databaseId": 35762228120,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T17:39:47Z",
+      "databaseId": 35762161550,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-22T17:39:27Z",
+      "databaseId": 35762128410,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T17:39:24Z",
+      "databaseId": 35762123698,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T17:39:19Z",
+      "databaseId": 35762115349,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-22T17:39:09Z",
+      "databaseId": 35762097056,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-22T17:38:13Z",
       "databaseId": 35761998217,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +87,7 @@
       "createdAt": "2026-09-22T17:36:25Z",
       "databaseId": 35761803387,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -126,54 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-22T17:28:28Z",
       "databaseId": 35760922785,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T17:27:16Z",
-      "databaseId": 35760789213,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-22T17:27:13Z",
-      "databaseId": 35760783292,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T17:22:47Z",
-      "databaseId": 35760292693,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T17:22:01Z",
-      "databaseId": 35760208849,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-22T17:21:19Z",
-      "databaseId": 35760134256,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-22T17:21:03Z",
-      "databaseId": 35760103024,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
@@ -269086,6 +269086,11 @@
         "video_id": 29622034
       },
       {
+        "episode_id": 164046,
+        "display_name": "Právník za dolar S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29622347
+      },
+      {
         "episode_id": 86423,
         "display_name": "Hodný holky S03E01 - Najdi svoji pláž CZ Titulky",
         "video_id": 29621226
@@ -537913,6 +537918,11 @@
         "video_id": 29622034
       },
       {
+        "episode_id": 164046,
+        "display_name": "Právník za dolar S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29622347
+      },
+      {
         "episode_id": 86423,
         "display_name": "Hodný holky S03E01 - Najdi svoji pláž CZ Titulky",
         "video_id": 29621226
@@ -539097,8 +539107,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 21,
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
