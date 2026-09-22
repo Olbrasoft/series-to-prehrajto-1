@@ -194,20 +194,10 @@ jobs:
           import json
           from pathlib import Path
 
-          terminal = {
-              "already_has_tracks",
-              "invalid_subtitle_format",
-              "subtitle_fetch_failed",
-              "source_track_not_found",
-              "target_detail_missing",
-              "target_not_found",
-              "target_processing",
-              "target_unresolved",
-              "upload_failed",
-              "uploaded",
-              "unsupported_subtitle_format",
-              "verify_failed",
-          }
+          import sys
+
+          sys.path.insert(0, "src")
+          from backfill_uploaded_subtitles import TERMINAL_STATUSES, row_pending
 
           def load_jsonl(path):
               p = Path(path)
@@ -232,9 +222,9 @@ jobs:
           pending = 0
           for row in load_jsonl("plans/subtitle-followup-queue.jsonl"):
               episode_id = int(row.get("episode_id") or 0)
-              if episode_id not in uploads:
+              if not row_pending(row) or episode_id not in uploads:
                   continue
-              if reported.get(episode_id) in terminal:
+              if reported.get(episode_id) in TERMINAL_STATUSES:
                   continue
               pending += 1
           print(pending)

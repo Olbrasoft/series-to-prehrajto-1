@@ -462,6 +462,14 @@ def status_row(row: dict, upload: dict, status: str, **extra) -> dict:
     return out
 
 
+def newest_upload_first(item: tuple[dict, dict]) -> tuple[str, int]:
+    row, upload = item
+    return (
+        str(upload.get("uploaded_at") or ""),
+        int(row.get("episode_id") or 0),
+    )
+
+
 def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> list[tuple[dict, dict, dict]]:
     followups = [row for row in load_jsonl(args.followup_file) if row_pending(row)]
     uploads = load_uploads(args.state_file)
@@ -476,6 +484,14 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
         upload = uploads.get(int(row.get("episode_id") or 0))
         if upload:
             matched.append((row, upload))
+    matched.sort(key=newest_upload_first, reverse=True)
+    # Inspect unseen uploads first, newest first. Rotate retries by their last
+    # check so unavailable targets cannot consume every bounded batch forever.
+    matched.sort(
+        key=lambda item: str(
+            latest_status.get(int(item[0]["episode_id"]), {}).get("checked_at") or ""
+        )
+    )
     tasks: list[tuple[dict, dict, dict]] = []
     for inspected, (row, upload) in enumerate(matched, 1):
         if args.max_rows and inspected > args.max_rows:
