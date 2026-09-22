@@ -2,8 +2,9 @@
 """Attach Czech subtitles to already uploaded subtitle-only episodes.
 
 Prehraj.to accepts SRT uploads, then serves processed subtitles as VTT tracks.
-WEBVTT uploads can stay stuck in "Zpracovává se" forever, so every provider
-VTT is converted to strict CRLF SRT with a unique short filename.
+A controlled WEBVTT upload stayed in "Zpracovává se" for over ten minutes;
+the same content worked after conversion to SRT. Provider VTT is therefore
+converted to strict CRLF SRT with a unique short filename.
 """
 
 from __future__ import annotations

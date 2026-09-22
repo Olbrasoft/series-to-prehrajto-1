@@ -370,3 +370,20 @@ Czech track is present. `submission_pending`, `submission_unknown`, and
 requested. They must not trigger duplicate attachments or removal of existing
 tracks. Long-lived processing states need investigation rather than blind
 re-uploading. The `always()` report step preserves partial batches on failure.
+
+The portal truncates long subtitle filenames, for example
+`cs-1790093256-10` becomes `cs-1790093256…` in the player label. The resolver
+recognizes these explicit Czech prefixes; new filenames are shorter. A
+previous ten-minute verification failure on Mighty Med S01E24 was caused by
+this truncation, although its Czech track was already available.
+
+A controlled format check on 2026-09-22 used Diablero S02E03 (video 29611261):
+original provider VTT submitted at 16:36 UTC remained processing after ten
+minutes. Only that experimental attachment was removed and the same content
+was converted to SRT. The replacement was playable by 16:47 UTC, with 461
+Czech cues. S02E02 independently verified an SRT upload with 552 cues. The
+28,099-byte VTT-to-SRT conversion took about 1.9 ms locally. Public source
+pages exposed VTT tracks, but no original SRT download link was found. The
+upload form accepts arbitrary extensions; HTTP 200 alone does not demonstrate
+successful processing. Retain the tested SRT path unless a later controlled
+check proves an equally reliable direct format.
