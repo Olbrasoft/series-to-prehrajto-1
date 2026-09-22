@@ -351,3 +351,22 @@ replacement starts.
 - `src/build_upload_manifest.py`: exact active-window filters.
 - `src/prepare_episode_sources.py`: claims, retries and source selection.
 - `src/sync_batch.py`: resolve/download/upload behavior.
+
+## Subtitle throughput (September 2026)
+
+`backfill-subtitles` runs one worker per account. Each worker searches the
+signed-in uploaded-video listing by title and confirms the exact numeric video
+ID. It streams work immediately instead of resolving an entire batch first.
+The default batch allows 30 attempts and stops selecting work after ten minutes;
+then the workflow merges and commits the report before queuing its successor.
+Only one slow alternate-source search is allowed per batch. Other missing
+sources remain `source_search_pending`, with one reserved retry slot per batch.
+
+Subtitle submission and verification are separate. `submitted` is not success.
+The next batch checks up to 100 previous submissions without polling sleeps,
+with a two-minute verification budget, and records `uploaded` only after the
+Czech track is present. `submission_pending`, `submission_unknown`, and
+`subtitle_processing` are verification-only states, including when a retry is
+requested. They must not trigger duplicate attachments or removal of existing
+tracks. Long-lived processing states need investigation rather than blind
+re-uploading. The `always()` report step preserves partial batches on failure.

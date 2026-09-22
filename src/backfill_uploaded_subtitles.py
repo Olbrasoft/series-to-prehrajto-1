@@ -19,6 +19,7 @@ import time
 import unicodedata
 from pathlib import Path
 from urllib.parse import urljoin
+from collections.abc import Iterator
 
 import requests
 
@@ -39,6 +40,7 @@ TERMINAL_STATUSES = {
     "uploaded",
     "unsupported_subtitle_format",
 }
+SUBMITTED_STATUSES = {"submission_pending", "submitted", "submission_unknown", "subtitle_processing"}
 VIDEO_MARKER_RE = re.compile(r'id="snippet-uploadedVideoListing-video-(\d+)"')
 REMOVE_RE = re.compile(
     r"uploadedVideoListing-videoId=(\d+)[^\"']*?"
@@ -356,6 +358,16 @@ def find_uploaded_detail(upload: dict, *, min_interval: float) -> dict | None:
     return None
 
 
+def find_profile_detail(session: requests.Session, upload: dict) -> dict | None:
+    """Search this account's listing once, then match the immutable video ID."""
+    response = session.get(
+        PROFILE_URL, params={"searchPhrase": upload["display_name"]},
+        headers={"Referer": PROFILE_URL}, timeout=30,
+    )
+    response.raise_for_status()
+    return extract_blocks(response.text, 1).get(int(upload["prehrajto_video_id"]))
+
+
 def find_alternate_track(row: dict, target_duration: int | None, *, min_interval: float) -> tuple[str | None, str | None]:
     for query in query_variants(row):
         log(f"search subtitles episode_id={row.get('episode_id')} query={query!r}")
@@ -505,7 +517,7 @@ def pending_uploads(
     return matched
 
 
-def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> list[tuple[dict, dict, dict]]:
+def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> Iterator[tuple[dict, dict, dict]]:
     latest_status = load_latest_status(args.report_file)
     matched = pending_uploads(
         args.followup_file, args.state_file, args.report_file,
@@ -520,13 +532,39 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
             latest_status.get(int(item[0]["episode_id"]), {}).get("checked_at") or ""
         )
     )
-    tasks: list[tuple[dict, dict, dict]] = []
+    matched = [item for item in matched if latest_status.get(int(item[0]["episode_id"]), {}).get("status") not in SUBMITTED_STATUSES]
+    # Reserve one slot for deferred discovery, while keeping the remaining
+    # batch available to uploads whose original source already has subtitles.
+    deferred = next((item for item in matched if latest_status.get(int(item[0]["episode_id"]), {}).get("status") == "source_search_pending"), None)
+    if deferred is not None:
+        matched.remove(deferred)
+        matched.insert(0, deferred)
+    started = time.monotonic()
+    selected = 0
     for inspected, (row, upload) in enumerate(matched, 1):
+        if time.monotonic() >= getattr(args, "deadline", float("inf")) or (getattr(args, "max_runtime", 0) and time.monotonic() - started >= args.max_runtime):
+            log("stop batch runtime budget; checkpoint before continuing")
+            break
         if args.max_rows and inspected > args.max_rows:
             log(f"stop max_rows={args.max_rows} inspected={inspected - 1}")
             break
         video_id = int(upload["prehrajto_video_id"])
-        if args.lookup == "profile":
+        previous = latest_status.get(int(row["episode_id"]), {})
+        # Submission retries are verification-only. A lost HTTP response must
+        # never cause another POST while the server may still be processing it.
+        if previous.get("status") in SUBMITTED_STATUSES:
+            continue
+        if previous.get("detail_url") and str(previous.get("prehrajto_video_id")) == str(video_id):
+            info = {"page": 1, "processing": False, "detail_url": previous["detail_url"]}
+        elif args.lookup == "profile-search":
+            if session is None:
+                raise RuntimeError("profile search requires a logged-in session")
+            try:
+                info = find_profile_detail(session, upload)
+            except requests.RequestException as exc:
+                log(f"profile search failed video_id={video_id}: {exc}")
+                info = None
+        elif args.lookup == "profile":
             if session is None:
                 raise RuntimeError("profile lookup requires a logged-in session")
             profile = scan_profile(session, {video_id}, args.max_profile_pages)
@@ -565,10 +603,36 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
             )
             log(f"skip already has Czech tracks video_id={video_id} tracks={len(current.tracks)}")
             continue
-        tasks.append((row, upload, info))
-        if args.limit and len(tasks) >= args.limit:
+        info["resolved"] = current
+        yield row, upload, info
+        selected += 1
+        if args.limit and selected >= args.limit:
             break
-    return tasks
+
+
+def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> list[tuple[dict, dict, dict]]:
+    return list(iter_tasks(args, session))
+
+
+def verify_submissions(args: argparse.Namespace) -> None:
+    """Check a bounded set once, without sleeping or re-uploading."""
+    previous_rows = load_latest_status(args.report_file).values()
+    pending = [row for row in previous_rows if row.get("status") in SUBMITTED_STATUSES
+               and (not args.upload_account or row.get("upload_account") == args.upload_account)
+               and (not args.episode_id or row.get("episode_id") in args.episode_id)]
+    pending.sort(key=lambda row: str(row.get("checked_at") or ""))
+    deadline = min(time.monotonic() + 120, getattr(args, "deadline", float("inf")))
+    for row in pending[:args.verification_limit]:
+        if time.monotonic() >= deadline:
+            break
+        try:
+            verified = verify_tracks(row["detail_url"], 0)
+        except Exception as exc:
+            log(f"verification deferred episode_id={row['episode_id']}: {exc}")
+            continue
+        status = "uploaded" if verified else "subtitle_processing"
+        append_jsonl(args.report_file, {**row, "status": status, "checked_at": now_iso()})
+        log(f"verify episode_id={row['episode_id']} status={status}")
 
 
 def main() -> int:
@@ -576,10 +640,14 @@ def main() -> int:
     ap.add_argument("--upload-account", choices=["primary", "serialy"])
     ap.add_argument("--limit", type=int, default=3)
     ap.add_argument("--max-rows", type=int, default=0)
+    ap.add_argument("--max-runtime", type=int, default=0, help="Stop selecting work after this many seconds")
+    ap.add_argument("--defer-verification", action="store_true")
+    ap.add_argument("--verification-limit", type=int, default=100)
+    ap.add_argument("--alternate-limit", type=int, default=0, help="Maximum slow alternate searches per batch; zero is unlimited")
     ap.add_argument("--max-profile-pages", type=int, default=40)
     ap.add_argument("--verify-timeout", type=int, default=70)
     ap.add_argument("--search-min-interval", type=float, default=10.0)
-    ap.add_argument("--lookup", choices=["public", "profile"], default="public")
+    ap.add_argument("--lookup", choices=["public", "profile", "profile-search"], default="public")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--allow-partial", action="store_true")
     ap.add_argument("--retry-reported", action="store_true")
@@ -599,14 +667,16 @@ def main() -> int:
 
     email = os.environ.get("PREHRAJTO_EMAIL")
     password = os.environ.get("PREHRAJTO_PASSWORD")
-    needs_login = not args.dry_run or args.lookup == "profile"
+    needs_login = not args.dry_run or args.lookup in {"profile", "profile-search"}
     if needs_login and (not email or not password):
         print("ERROR: PREHRAJTO_EMAIL / PREHRAJTO_PASSWORD required", file=sys.stderr)
         return 2
 
     session = login(email, password) if needs_login else None
-    tasks = build_tasks(args, session)
-    log(f"tasks={len(tasks)} dry_run={args.dry_run}")
+    args.deadline = time.monotonic() + args.max_runtime if args.max_runtime else float("inf")
+    if not args.dry_run:
+        verify_submissions(args)
+    tasks = iter_tasks(args, session)
     if args.dry_run:
         for row, upload, info in tasks:
             log(
@@ -616,21 +686,22 @@ def main() -> int:
         return 0
 
     ok = fail = 0
+    alternate_searches = 0
     suffix_base = str(int(time.time()))
     for index, (row, upload, info) in enumerate(tasks, 1):
         video_id = int(upload["prehrajto_video_id"])
         detail_url = str(info["detail_url"])
-        for subtitle_id in info.get("remove_subtitle_ids") or []:
-            response = remove_subtitle(session, video_id, int(subtitle_id), int(info["page"]))
-            log(f"remove stuck subtitle video_id={video_id} subtitle_id={subtitle_id} http={response.status_code}")
-            time.sleep(0.3)
+        # Preserve existing tracks, including attachments still being processed.
+        if info.get("subtitle_count", 0) and not info["resolved"].tracks:
+            append_jsonl(args.report_file, status_row(row, upload, "target_processing", detail_url=detail_url))
+            continue
         source_url, track_url = source_with_subtitles(row)
         if not track_url:
-            target_duration = None
-            try:
-                target_duration = resolve(detail_url, max_retries=1).duration_sec
-            except Exception:
-                pass
+            if args.alternate_limit and alternate_searches >= args.alternate_limit:
+                append_jsonl(args.report_file, status_row(row, upload, "source_search_pending", detail_url=detail_url))
+                continue
+            alternate_searches += 1
+            target_duration = info["resolved"].duration_sec
             source_url, track_url = find_alternate_track(row, target_duration, min_interval=args.search_min_interval)
         if not track_url:
             fail += 1
@@ -691,9 +762,18 @@ def main() -> int:
             log(f"FAIL invalid subtitle episode_id={row.get('episode_id')} {exc}")
             continue
         suffix = f"{suffix_base}-{index}"
-        response = upload_subtitle(session, video_id, int(info["page"]), content, suffix)
+        submitted = status_row(row, upload, "submission_pending", detail_url=detail_url,
+                               source_url=source_url, source_format=ext, uploaded_format="srt",
+                               subtitle_language="cs", submitted_at=now_iso())
+        append_jsonl(args.report_file, submitted)
+        try:
+            response = upload_subtitle(session, video_id, int(info["page"]), content, suffix)
+        except requests.RequestException as exc:
+            append_jsonl(args.report_file, {**submitted, "status": "submission_unknown", "reason": str(exc)})
+            log(f"submission outcome unknown episode_id={row.get('episode_id')}: {exc}")
+            continue
         log(
-            f"POST {index}/{len(tasks)} episode_id={row.get('episode_id')} video_id={video_id} "
+            f"POST {index} episode_id={row.get('episode_id')} video_id={video_id} "
             f"http={response.status_code} source={source_url}"
         )
         if response.status_code != 200:
@@ -703,13 +783,17 @@ def main() -> int:
                 status_row(
                     row,
                     upload,
-                    "upload_failed",
+                    "submission_unknown" if response.status_code >= 500 else "upload_failed",
                     detail_url=detail_url,
                     source_url=source_url,
                     http_status=response.status_code,
                     response=response.text[:500],
                 ),
             )
+            continue
+        append_jsonl(args.report_file, {**submitted, "status": "submitted", "checked_at": now_iso()})
+        if args.defer_verification:
+            log(f"submitted; verify next batch episode_id={row.get('episode_id')}")
             continue
         if verify_tracks(detail_url, args.verify_timeout):
             ok += 1
@@ -729,8 +813,8 @@ def main() -> int:
             log(f"OK tracks verified episode_id={row.get('episode_id')} video_id={video_id}")
         else:
             fail += 1
-            append_jsonl(args.report_file, status_row(row, upload, "verify_failed", detail_url=detail_url, source_url=source_url))
-            log(f"FAIL tracks not verified episode_id={row.get('episode_id')} video_id={video_id}")
+            append_jsonl(args.report_file, {**submitted, "status": "subtitle_processing", "checked_at": now_iso()})
+            log(f"PENDING tracks not yet ready episode_id={row.get('episode_id')} video_id={video_id}")
     log(f"done ok={ok} fail={fail}")
     return 0 if fail == 0 or args.allow_partial else 1
 

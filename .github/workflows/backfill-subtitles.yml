@@ -23,7 +23,7 @@ on:
       limit:
         description: "Maximum missing-subtitle uploads to attempt"
         required: false
-        default: "10"
+        default: "30"
       max_rows:
         description: "Maximum uploaded subtitle-followup rows to inspect"
         required: false
@@ -111,10 +111,14 @@ jobs:
           esac
           ARGS=(
             "--upload-account" "$UPLOAD_ACCOUNT"
-            "--limit" "${{ inputs.limit || '10' }}"
+            "--limit" "${{ inputs.limit || '30' }}"
             "--max-rows" "${{ inputs.max_rows || '400' }}"
             "--search-min-interval" "20"
             "--verify-timeout" "600"
+            "--lookup" "profile-search"
+            "--defer-verification"
+            "--max-runtime" "600"
+            "--alternate-limit" "1"
             "--allow-partial"
           )
           for state_file in "${STATE_FILES[@]}"; do
@@ -235,7 +239,7 @@ jobs:
           if [ "$PENDING" -gt 0 ]; then
             gh workflow run backfill-subtitles.yml \
               -f account="$SUBTITLE_ACCOUNT" \
-              -f limit="${{ inputs.limit || '10' }}" \
+              -f limit="${{ inputs.limit || '30' }}" \
               -f max_rows="${{ inputs.max_rows || '400' }}" \
               -f dry_run="false" \
               -f retry_reported="false" \
