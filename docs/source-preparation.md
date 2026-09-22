@@ -1,60 +1,52 @@
-# Source Preparation
+# Source preparation
 
-Before uploading an episode, prepare its source choices:
+The backlog supplies episode identity and canonical/localized series titles.
+Live Prehraj.to search supplies current sources; database candidates are hints.
 
-1. Load episode metadata from backlog — series title, season, episode number.
-   No DB source candidates are required; the episode title alone is enough.
-2. Search Prehraj.to for the episode by title + episode code
-   (e.g. `Dexter S07E04`, `Dexter 7x4`).
-3. From the HTML search results, filter candidates that:
-   - match the episode title and code (`SxxExx` or `x` format),
-   - look Czech (title contains `CZ Dabing`, `CZ`, `český dabing`, etc.),
-   - have filesize ≥ 300 MB (visible in search HTML).
-4. Send browser-like headers for search requests (`User-Agent`, `Accept`,
-   `Accept-Language`, `Accept-Encoding`, `Referer`, `Upgrade-Insecure-Requests`,
-   and `Sec-Fetch-*`). Sparse script headers can be rate-limited even when the
-   same URL works in a browser.
-5. Only fetch the second search result page when the first page has no suitable
-   candidate. This keeps request volume low because the first HTML response
-   already contains the candidate names and file sizes needed for the first
-   filter.
-6. If no Czech audio source is found, allow a Czech-subtitle source as fallback.
-   Mark the upload name as `CZ Titulky` and write a follow-up row to
-   `plans/subtitle-followup-queue.jsonl`, because subtitles can be attached only
-   after Přehraj.to finishes processing the uploaded video.
-7. Audit language signals (title, metadata) and probe the stream of the first
-   qualifying candidate.
-8. If the stream is resolvable and Czech audio is confirmed, mark the episode
-   as `upload_ready`. The first working candidate is selected — no need to probe
-   all options.
-9. Store both the selected source and rejected alternatives in the repository.
+## Discovery and selection
 
-The source queue files (`language-audit-queue.jsonl.gz`,
-`enriched-audit-queue.jsonl.gz`) are ancillary. They can provide extra known
-candidates from a previous DB export, but the primary source discovery is the
-live search on Prehraj.to. Without any queue file, the pipeline takes episode
-metadata from the backlog, searches Prehraj.to, and produces prepared plans.
+1. Search the localized title and `SxxExx` first. If no usable Czech-audio
+   candidate is found, try alternate/original titles and `NxM` notation, up to
+   four queries. A multiword subtitle after a franchise colon is also an alias.
+2. Match the exact season and episode. Normalize punctuation, accents and the
+   conjunctions `a`/`and`, while retaining the other words to reject spin-offs.
+   For example, `Zákon pořádek - Zločinné úmysly S04E12` matches the canonical
+   `Zákon a pořádek: Zločinné úmysly`, but a different Law & Order spin-off does not.
+3. Keep the existing quality gate (350 MiB planning margin or a 1080p hint).
+   The uploader independently requires the actual stream to reach 300 MiB.
+   Exclude permanently burned source IDs from live results before ranking.
+4. Prefer explicit Czech audio hints, including compact `czdabing` labels.
+   Finding only subtitle/unknown-language candidates does not end discovery.
+   Fetch page two only when page one has no usable Czech-audio candidate.
+5. Probe up to three candidates per language category, stopping at the first
+   working Czech source. One dead high-ranked source must not discard an episode.
+   Explicit Czech hints do not require Whisper in the preparation step.
+6. If enabled, Whisper checks ambiguous audio before subtitle fallback. A single
+   audit resolves/samples a source once. Without Whisper, ambiguous sources are
+   recorded in `plans/whisper-review-queue.jsonl` for later verification.
+7. Subtitle fallback produces `CZ Titulky` and a record in
+   `plans/subtitle-followup-queue.jsonl`. The subtitle backfill runs after the
+   uploaded video is processed and records missing Czech tracks separately.
+8. Save results to `plans/prepared-episodes.jsonl`. Build the upload manifest from
+   usable plans, excluding uploaded episodes and burned sources.
 
-Output:
+## Bounded, diverse preparation
 
-```text
-plans/prepared-episodes.jsonl
-```
+A batch takes two episodes per series per round, preserving episode order and
+existing retry priorities within the series. A long series with no suitable
+sources therefore cannot monopolize the whole batch. Failed episodes retain
+24-hour retry eligibility; permanently failed source IDs are excluded.
 
-Each line is one episode plan with:
+A missing search result or non-Czech sample is not evidence that Czech dubbing
+never existed for an entire series. Do not permanently suppress Czech discovery
+based on such an inference. A future series-level language catalog should store
+provenance, season coverage and expiry for any explicit dubbing information.
+Current decisions use episode/source evidence and bounded search instead.
 
-- `selected_source`: best source and evidence,
-- `tested_sources`: every checked source,
-- `upload_ready`: true only when the selected source has Czech audio evidence.
+## Verification
 
-Run locally or from GitHub Actions:
-
-```bash
-python src/prepare_episode_sources.py --episode-limit 10
-```
-
-For stricter language confirmation:
-
-```bash
-WHISPER_LANGUAGE_CHECK=1 python src/prepare_episode_sources.py --use-whisper --episode-limit 3
-```
+Search logs expose result counts, usable candidates and Czech-audio hints.
+`upload_ready` means a source was selected, not that an upload succeeded. Check
+all upload shard timestamps and the logged-in account's statistics counter to
+verify actual progress. Plans may still be rejected by the actual stream-size
+check, and a green preparation run can produce zero usable episodes.

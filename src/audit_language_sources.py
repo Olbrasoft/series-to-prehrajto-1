@@ -295,22 +295,23 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
 
 
 def audit_one(item: dict, *, use_whisper: bool, sample_seconds: int, probe_stream: bool = False) -> dict:
-    provider_probe = audit_provider(item, sample_seconds=sample_seconds, probe_stream=probe_stream)
+    old = os.environ.get("WHISPER_LANGUAGE_CHECK")
+    try:
+        os.environ["WHISPER_LANGUAGE_CHECK"] = "1" if use_whisper else "0"
+        provider_probe = audit_provider(
+            item, sample_seconds=sample_seconds, probe_stream=probe_stream or use_whisper
+        )
+    finally:
+        if old is None:
+            os.environ.pop("WHISPER_LANGUAGE_CHECK", None)
+        else:
+            os.environ["WHISPER_LANGUAGE_CHECK"] = old
     provider_title = provider_probe.get("title")
     source_title = item.get("source_title") or provider_title or ""
     title_class = title_lang_class(source_title)
     title_hint = title_language_hint(source_title)
     audio_lang, audio_conf, audio_by = metadata_audio_lang(item)
     whisper = provider_probe.get("whisper") or {"status": "disabled"}
-    old = os.environ.get("WHISPER_LANGUAGE_CHECK")
-    if use_whisper:
-        os.environ["WHISPER_LANGUAGE_CHECK"] = "1"
-        provider_probe = audit_provider(item, sample_seconds=sample_seconds, probe_stream=True)
-        whisper = provider_probe.get("whisper") or {"status": "disabled"}
-    if old is None:
-        os.environ.pop("WHISPER_LANGUAGE_CHECK", None)
-    else:
-        os.environ["WHISPER_LANGUAGE_CHECK"] = old
 
     whisper_lang = whisper.get("language") if whisper.get("status") == "ok" else None
     verdict, detected_by, confidence = verdict_from_signals(title_class, audio_lang, whisper_lang)

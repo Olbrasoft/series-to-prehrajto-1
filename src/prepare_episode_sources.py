@@ -32,7 +32,7 @@ MIN_UPLOAD_FILE_SIZE = 300 * 1024 * 1024
 # sync_batch still verifies the real stream against MIN_UPLOAD_FILE_SIZE.
 MIN_PLANNED_FILE_SIZE = 350 * 1024 * 1024
 FAILED_RETRY_AFTER = dt.timedelta(hours=24)
-MAX_RESOLVABLE_CANDIDATE_PROBES = 1
+MAX_RESOLVABLE_CANDIDATE_PROBES = 3
 
 
 def source_has_cz_audio_hint(source: dict) -> bool:
@@ -344,6 +344,17 @@ def uploaded_episode_exclusions() -> tuple[set[int], set[tuple[int, int, int]]]:
     return uploaded_ids, uploaded_keys
 
 
+def diversify_series(episodes: list[dict]) -> list[dict]:
+    """Try two episodes per series per round instead of one entire catalog."""
+    seen: dict[int, int] = defaultdict(int)
+    ranked = []
+    for index, episode in enumerate(episodes):
+        series_id = int(episode["series_id"])
+        ranked.append((seen[series_id] // 2, index, episode))
+        seen[series_id] += 1
+    return [episode for _, _, episode in sorted(ranked, key=lambda row: row[:2])]
+
+
 def select_todo_shard(
     episodes: list[dict],
     *,
@@ -509,33 +520,34 @@ def compact_title(value: str) -> str:
     return re.sub(r"[^a-z0-9]", "", normalized.encode("ascii", "ignore").decode().lower())
 
 
+def series_search_titles(episode: dict) -> list[str]:
+    titles = []
+    for value in (episode.get("series_title"), episode.get("series_original_title")):
+        value = " ".join(str(value or "").split())
+        if value:
+            titles.append(value)
+            # Localized franchise names are often uploaded under the subtitle.
+            suffix = value.rsplit(":", 1)[-1].strip()
+            if suffix != value and len(re.findall(r"\w+", suffix)) >= 2:
+                titles.append(suffix)
+    return list(dict.fromkeys(titles))
+
+
+def matching_title(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode().lower()
+    # Ignore conjunctions, but keep all meaningful words to reject spin-offs.
+    return "".join(word for word in re.findall(r"[a-z0-9]+", normalized) if word not in {"a", "and"})
+
+
 def title_matches_episode(title: str, episode: dict) -> bool:
-    compact = compact_title(title)
-    season = int(episode["season"] or 0)
-    number = int(episode["episode"] or 0)
-    markers = [
-        f"s{season:02d}e{number:02d}",
-        f"s{season}e{number}",
-        f"{season}x{number}",
-        f"{season:02d}x{number:02d}",
-    ]
-    series_titles = [
-        compact_title(value)
-        for value in (episode.get("series_title"), episode.get("series_original_title"))
-        if value
-    ]
-    for marker in markers:
-        marker_at = compact.find(marker)
-        if marker_at < 0:
-            continue
-        for series_title in series_titles:
-            series_at = compact.find(series_title)
-            if series_at < 0 or series_at > marker_at:
-                continue
-            between = compact[series_at + len(series_title) : marker_at]
-            if not between:
-                return True
-    return False
+    marker = re.search(r"(?i)(?:s(\d{1,2})[ ._-]*e(\d{1,3})|(\d{1,2})x(\d{1,3}))(?!\d)", title)
+    if not marker:
+        return False
+    season, number = (marker.group(1), marker.group(2)) if marker.group(1) else (marker.group(3), marker.group(4))
+    if (int(season), int(number)) != (int(episode["season"] or 0), int(episode["episode"] or 0)):
+        return False
+    prefix = matching_title(title[:marker.start()])
+    return any(prefix == matching_title(name) for name in series_search_titles(episode))
 
 
 def search_result_to_queue_item(result: SearchResult, episode: dict) -> dict:
@@ -590,35 +602,40 @@ def usable_search_sources(results: list[SearchResult], episode: dict) -> list[di
     ]
 
 
-def live_search_candidates(episode: dict, *, limit: int, query_limit: int) -> list[dict]:
-    titles = [
-        title
-        for title in dict.fromkeys(
-            [episode.get("series_title"), episode.get("series_original_title")]
-        )
-        if title
-    ]
-    queries = [
+def live_search_candidates(episode: dict, *, limit: int, query_limit: int, burned: set[int] | None = None) -> list[dict]:
+    titles = series_search_titles(episode)
+    queries = list(dict.fromkeys([
         *(f"{title} {episode_code(episode)}" for title in titles),
         *(f"{title} {int(episode['season'])}x{int(episode['episode'])}" for title in titles),
-    ]
+    ]))
+    burned = burned or set()
     found: dict[str, dict] = {}
+
+    def usable(results):
+        return [source for source in usable_search_sources(results, episode)
+                if int(source["source_id"]) not in burned]
+
+    def has_czech_audio(sources):
+        return any(source_has_cz_audio_hint(source) for source in sources)
+
     for query in queries[: max(query_limit, 1)]:
         try:
             pages = search_prehrajto_pages(
                 query,
                 max_pages=2,
-                should_fetch_next=lambda results: not usable_search_sources(results, episode),
+                should_fetch_next=lambda results: not has_czech_audio(usable(results)),
             )
         except Exception as exc:
             print(f"Live search failed for {query!r}: {type(exc).__name__}: {exc}", file=sys.stderr)
             continue
         for page in pages:
-            for source in usable_search_sources(page, episode):
+            for source in usable(page):
                 found[source["external_id"]] = source
-            if found:
+            if has_czech_audio(found.values()):
                 break
-        if found:
+        print(f"Search {query!r}: results={sum(map(len, pages))} usable={len(found)} "
+              f"czech_audio={has_czech_audio(found.values())}", flush=True)
+        if has_czech_audio(found.values()):
             break
     return sorted(found.values(), key=source_precheck_score, reverse=True)[:limit]
 
@@ -734,6 +751,7 @@ def prepare_episode(
                 episode,
                 limit=live_search_limit,
                 query_limit=live_search_query_limit,
+                burned=burned,
             )
             if source.get("external_id") not in known_external_ids
         ]
@@ -803,6 +821,7 @@ def prepare_episode(
     subtitle_acceptable.sort(key=lambda result: tuple(result["score"]), reverse=True)
 
     selected = None
+    whisper_subtitle_fallback = []
     if require_resolvable_source or use_whisper:
         audited_by_id = {int(result["source_id"]): index for index, result in enumerate(audited)}
         verified_acceptable = []
@@ -810,7 +829,7 @@ def prepare_episode(
             source = sources_by_id[int(preliminary["source_id"])]
             verified = audit_one(
                 source,
-                use_whisper=use_whisper,
+                use_whisper=False,
                 sample_seconds=sample_seconds,
                 probe_stream=True,
             )
@@ -826,36 +845,10 @@ def prepare_episode(
             if verified["verdict"] not in {"CZ_AUDIO", "PROBABLE_CZ_AUDIO"}:
                 continue
             verified_acceptable.append(verified)
-            if len(verified_acceptable) >= 2:
-                break
+            break
         if verified_acceptable:
             verified_acceptable.sort(key=lambda result: tuple(result["score"]), reverse=True)
             selected = verified_acceptable[0]
-        if selected is None and subtitle_acceptable:
-            verified_subtitles = []
-            for preliminary in subtitle_acceptable[:MAX_RESOLVABLE_CANDIDATE_PROBES]:
-                source = sources_by_id[int(preliminary["source_id"])]
-                verified = audit_one(
-                    source,
-                    use_whisper=False,
-                    sample_seconds=sample_seconds,
-                    probe_stream=True,
-                )
-                verified["score"] = source_score(verified, source)
-                verified["resolution_score"] = probe_resolution(verified, source)
-                verified["quality_tier"] = source_quality_tier(
-                    source,
-                    resolved_resolution=verified["resolution_score"],
-                )
-                audited[audited_by_id[int(verified["source_id"])]] = verified
-                if not is_resolvable(verified):
-                    continue
-                if verified["verdict"] != "CZ_SUBTITLES_ONLY":
-                    continue
-                verified_subtitles.append(verified)
-                break
-            if verified_subtitles:
-                selected = verified_subtitles[0]
         if selected is None and use_whisper:
             whisper_acceptable = []
             whisper_subtitle_fallback = []
@@ -898,9 +891,34 @@ def prepare_episode(
                     whisper_subtitle_fallback.append(subtitle_verified)
             if whisper_acceptable:
                 selected = whisper_acceptable[0]
-            elif whisper_subtitle_fallback:
-                whisper_subtitle_fallback.sort(key=lambda result: tuple(result["score"]), reverse=True)
-                selected = whisper_subtitle_fallback[0]
+        if selected is None and subtitle_acceptable:
+            verified_subtitles = []
+            for preliminary in subtitle_acceptable[:MAX_RESOLVABLE_CANDIDATE_PROBES]:
+                source = sources_by_id[int(preliminary["source_id"])]
+                verified = audit_one(
+                    source,
+                    use_whisper=False,
+                    sample_seconds=sample_seconds,
+                    probe_stream=True,
+                )
+                verified["score"] = source_score(verified, source)
+                verified["resolution_score"] = probe_resolution(verified, source)
+                verified["quality_tier"] = source_quality_tier(
+                    source,
+                    resolved_resolution=verified["resolution_score"],
+                )
+                audited[audited_by_id[int(verified["source_id"])]] = verified
+                if not is_resolvable(verified):
+                    continue
+                if verified["verdict"] != "CZ_SUBTITLES_ONLY":
+                    continue
+                verified_subtitles.append(verified)
+                break
+            if verified_subtitles:
+                selected = verified_subtitles[0]
+        if selected is None and whisper_subtitle_fallback:
+            whisper_subtitle_fallback.sort(key=lambda result: tuple(result["score"]), reverse=True)
+            selected = whisper_subtitle_fallback[0]
     elif acceptable:
         selected = acceptable[0]
     elif subtitle_acceptable:
@@ -978,7 +996,7 @@ def main() -> int:
     ap.add_argument("--require-resolvable-source", action="store_true")
     ap.add_argument("--live-search", action="store_true")
     ap.add_argument("--live-search-limit", type=int, default=8)
-    ap.add_argument("--live-search-query-limit", type=int, default=1)
+    ap.add_argument("--live-search-query-limit", type=int, default=4)
     ap.add_argument("--upload-manifest", default="manifests/upload-ready.jsonl.gz")
     ap.add_argument("--include-upload-manifest", action="store_true")
     ap.add_argument("--refresh", action="store_true")
@@ -1048,6 +1066,7 @@ def main() -> int:
             int(episode["episode_id"]),
         )
     )
+    todo = diversify_series(todo)
     if args.claim_only:
         if not args.claim_batch_id:
             ap.error("--claim-only requires --claim-batch-id")

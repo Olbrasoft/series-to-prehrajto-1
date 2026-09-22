@@ -11,11 +11,11 @@ from pathlib import Path
 
 CZECH_AUDIO_LANGS = {"cs", "cz", "cze", "ces", "cs-cz", "cz-cz", "czech"}
 CZECH_AUDIO_RE = re.compile(
-    r"(^|[\W_])(cz|cs|cesky|česky|czech|dabing|czdab|cz-dab|cz dab|czech audio)([\W_]|$)",
+    r"(^|[\W_])(cz|cs|cesky|česky|czech|dabing|cz[ _-]*dab(?:ing|bing)?|czech audio)([\W_]|$)",
     re.IGNORECASE,
 )
 CZECH_SUB_RE = re.compile(
-    r"(^|[\W_])(cz\s*tit|cz titulky|cztit|tit[-_\s]*cz|ceske titulky|české titulky|cz sub|czech sub)([\W_]|$)",
+    r"(^|[\W_])(cz[ _-]*tit(?:ulky)?|tit[-_\s]*cz|ceske titulky|české titulky|cz sub|czech sub)([\W_]|$)",
     re.IGNORECASE,
 )
 _WHISPER_MODEL = None
