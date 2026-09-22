@@ -46,6 +46,21 @@ def test_backfill_never_falls_back_to_an_explicitly_foreign_track():
     assert pick_czech_track(resolved) is None
 
 
+def test_generated_czech_upload_filename_is_recognized_from_label():
+    html = """
+    <script>
+      videos.push({ src: "https://cdn.example/video.mp4", type: 'video/mp4', res: '720', label: '720p' });
+      var tracks = [
+        { file: "https://cdn.example/generated.vtt?token=1", label: "CS - 12838243 - cs-1790089830-1" }
+      ];
+    </script>
+    """
+    resolved = parse_html(html, "https://prehraj.to/example/token")
+
+    assert resolved.tracks[0].lang == "cs"
+    assert pick_czech_track(resolved) == "https://cdn.example/generated.vtt?token=1"
+
+
 def test_vtt_is_converted_to_strict_crlf_srt():
     converted = vtt_to_srt(
         b"WEBVTT\n\n00:00:01.000 --> 00:00:02.500 align:start\nAhoj\n\n"

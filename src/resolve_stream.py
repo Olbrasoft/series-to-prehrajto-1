@@ -163,6 +163,8 @@ def _track_language(srclang: str, label: str) -> str:
         tail = re.split(r"\s+-\s+", normalized_label)[-1].strip()
         if re.fullmatch(r"[a-z]{2,3}\d?", tail):
             return tail
+        if re.fullmatch(r"(?:cs|cz|cze|ces)-\d+(?:-\d+)*", tail):
+            return "cs"
         if tail in {"czech", "cesky", "česky", "cestina", "čeština"}:
             return "cs"
     return srclang.strip().lower()
