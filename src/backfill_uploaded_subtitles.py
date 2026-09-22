@@ -32,6 +32,13 @@ REPO = Path(__file__).resolve().parent.parent
 PROFILE_URL = "https://prehraj.to/profil/nahrana-videa"
 DETAIL_BASE = "https://prehraj.to"
 SAFE_LANGS = {"cs", "cz", "cze", "ces", "česky", "cesky"}
+TERMINAL_STATUSES = {
+    "already_has_tracks",
+    "invalid_subtitle_format",
+    "source_track_not_found",
+    "uploaded",
+    "unsupported_subtitle_format",
+}
 VIDEO_MARKER_RE = re.compile(r'id="snippet-uploadedVideoListing-video-(\d+)"')
 REMOVE_RE = re.compile(
     r"uploadedVideoListing-videoId=(\d+)[^\"']*?"
@@ -221,6 +228,32 @@ def vtt_to_srt(vtt_bytes: bytes) -> bytes:
             lines[0] = match.group(1)
         out.append(f"{number}\r\n" + "\r\n".join(lines))
         number += 1
+    if not out:
+        raise ValueError("subtitle contains no timed cues")
+    return ("\r\n\r\n".join(out) + "\r\n").encode("utf-8")
+
+
+def normalize_srt(srt_bytes: bytes) -> bytes:
+    text = srt_bytes.lstrip(b"\xef\xbb\xbf").decode("utf-8", errors="replace")
+    text = text.replace("\r\n", "\n").replace("\r", "\n").replace("\ufeff", "")
+    text = re.sub(r"(\d{2}:\d{2}:\d{2})\.(\d{3})", r"\1,\2", text)
+    timestamp_re = re.compile(r"^(\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}).*$")
+    out: list[str] = []
+    number = 1
+    for block in re.split(r"\n\s*\n", text):
+        lines = [line.rstrip() for line in block.strip().split("\n") if line.strip()]
+        if lines and lines[0].isdigit():
+            lines = lines[1:]
+        if not lines:
+            continue
+        match = timestamp_re.match(lines[0])
+        if not match:
+            continue
+        lines[0] = match.group(1)
+        out.append(f"{number}\r\n" + "\r\n".join(lines))
+        number += 1
+    if not out:
+        raise ValueError("subtitle contains no valid SRT cues")
     return ("\r\n\r\n".join(out) + "\r\n").encode("utf-8")
 
 
@@ -228,7 +261,7 @@ def pick_czech_track(resolved: ResolvedUpload) -> str | None:
     for track in resolved.tracks:
         if (track.lang or "").strip().lower() in SAFE_LANGS:
             return track.url
-    return resolved.tracks[0].url if resolved.tracks else None
+    return None
 
 
 def source_with_subtitles(row: dict) -> tuple[str | None, str | None]:
@@ -404,7 +437,7 @@ def verify_tracks(detail_url: str, timeout_sec: int) -> bool:
     while True:
         try:
             resolved = resolve(detail_url, max_retries=1)
-            if resolved.tracks:
+            if pick_czech_track(resolved):
                 return True
         except ResolveError:
             pass
@@ -433,22 +466,12 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
     followups = [row for row in load_jsonl(args.followup_file) if row_pending(row)]
     uploads = load_uploads(args.state_file)
     latest_status = load_latest_status(args.report_file)
-    terminal_statuses = {
-        "already_has_tracks",
-        "source_track_not_found",
-        "target_detail_missing",
-        "target_not_found",
-        "target_processing",
-        "target_unresolved",
-        "uploaded",
-        "unsupported_subtitle_format",
-    }
     matched: list[tuple[dict, dict]] = []
     for row in followups:
         if args.episode_id and int(row.get("episode_id") or 0) not in args.episode_id:
             continue
         previous = latest_status.get(int(row.get("episode_id") or 0))
-        if previous and previous.get("status") in terminal_statuses and not args.retry_reported:
+        if previous and previous.get("status") in TERMINAL_STATUSES and not args.retry_reported:
             continue
         upload = uploads.get(int(row.get("episode_id") or 0))
         if upload:
@@ -484,12 +507,19 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
             append_jsonl(args.report_file, status_row(row, upload, "target_unresolved", detail_url=detail_url, reason=str(exc)))
             log(f"skip unresolved target video_id={video_id} {exc}")
             continue
-        if current.tracks:
+        if pick_czech_track(current):
             append_jsonl(
                 args.report_file,
-                status_row(row, upload, "already_has_tracks", detail_url=detail_url, track_count=len(current.tracks)),
+                status_row(
+                    row,
+                    upload,
+                    "already_has_tracks",
+                    detail_url=detail_url,
+                    track_count=len(current.tracks),
+                    subtitle_language="cs",
+                ),
             )
-            log(f"skip already has tracks video_id={video_id} tracks={len(current.tracks)}")
+            log(f"skip already has Czech tracks video_id={video_id} tracks={len(current.tracks)}")
             continue
         tasks.append((row, upload, info))
         if args.limit and len(tasks) >= args.limit:
@@ -559,20 +589,61 @@ def main() -> int:
             source_url, track_url = find_alternate_track(row, target_duration, min_interval=args.search_min_interval)
         if not track_url:
             fail += 1
-            append_jsonl(args.report_file, status_row(row, upload, "source_track_not_found", detail_url=detail_url))
+            append_jsonl(
+                args.report_file,
+                status_row(
+                    row,
+                    upload,
+                    "source_track_not_found",
+                    detail_url=detail_url,
+                    source_url=row.get("source_url"),
+                ),
+            )
             log(f"FAIL no subtitle track episode_id={row.get('episode_id')} video_id={video_id}")
             continue
-        content = fetch_subtitle(track_url)
+        try:
+            content = fetch_subtitle(track_url)
+        except Exception as exc:
+            fail += 1
+            append_jsonl(
+                args.report_file,
+                status_row(
+                    row,
+                    upload,
+                    "subtitle_fetch_failed",
+                    detail_url=detail_url,
+                    source_url=source_url,
+                    reason=str(exc),
+                ),
+            )
+            log(f"FAIL subtitle fetch episode_id={row.get('episode_id')} {exc}")
+            continue
         ext, _mime = detect_subtitle_format(content)
-        if ext == ".vtt":
-            content = vtt_to_srt(content)
-        elif ext != ".srt":
+        if ext not in {".vtt", ".srt"}:
             fail += 1
             append_jsonl(
                 args.report_file,
                 status_row(row, upload, "unsupported_subtitle_format", detail_url=detail_url, source_url=source_url, format=ext),
             )
             log(f"FAIL unsupported subtitle format ext={ext} episode_id={row.get('episode_id')}")
+            continue
+        try:
+            content = vtt_to_srt(content) if ext == ".vtt" else normalize_srt(content)
+        except ValueError as exc:
+            fail += 1
+            append_jsonl(
+                args.report_file,
+                status_row(
+                    row,
+                    upload,
+                    "invalid_subtitle_format",
+                    detail_url=detail_url,
+                    source_url=source_url,
+                    source_format=ext,
+                    reason=str(exc),
+                ),
+            )
+            log(f"FAIL invalid subtitle episode_id={row.get('episode_id')} {exc}")
             continue
         suffix = f"{suffix_base}-{index}"
         response = upload_subtitle(session, video_id, int(info["page"]), content, suffix)
@@ -597,7 +668,19 @@ def main() -> int:
             continue
         if verify_tracks(detail_url, args.verify_timeout):
             ok += 1
-            append_jsonl(args.report_file, status_row(row, upload, "uploaded", detail_url=detail_url, source_url=source_url))
+            append_jsonl(
+                args.report_file,
+                status_row(
+                    row,
+                    upload,
+                    "uploaded",
+                    detail_url=detail_url,
+                    source_url=source_url,
+                    source_format=ext,
+                    uploaded_format="srt",
+                    subtitle_language="cs",
+                ),
+            )
             log(f"OK tracks verified episode_id={row.get('episode_id')} video_id={video_id}")
         else:
             fail += 1

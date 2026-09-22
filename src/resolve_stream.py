@@ -69,10 +69,12 @@ _PROP_RE = re.compile(
         (?:"(?P<dq>[^"]*)"|'(?P<sq>[^']*)'|(?P<bare>true|false))""",
     re.VERBOSE,
 )
-_TRACK_RE = re.compile(
-    r"src\s*:\s*\"(?P<src>https?://[^\"]+\.vtt[^\"]*)\"\s*,\s*"
-    r"srclang\s*:\s*\"(?P<lang>[^\"]+)\"",
+_TRACK_OBJECT_RE = re.compile(
+    r"\{(?P<body>[^{}]*(?:src|file)\s*:\s*[\"'][^\"']+\.vtt[^\"']*[\"'][^{}]*)\}",
     re.DOTALL,
+)
+_TRACK_PROP_RE = re.compile(
+    r"(?P<key>src|file|srclang|label)\s*:\s*(?:\"(?P<dq>[^\"]*)\"|'(?P<sq>[^']*)')",
 )
 _VIDEO_ID_RE = re.compile(r"'videoId'\s*:\s*(\d+)")
 _VIDEO_LENGTH_RE = re.compile(r"'videoLength'\s*:\s*(\d+)")
@@ -91,6 +93,7 @@ class StreamVariant:
 class SubtitleTrack:
     url: str
     lang: str  # ISO-ish, e.g. "cs"
+    label: str | None = None
 
 
 @dataclass
@@ -147,6 +150,46 @@ def _parse_video_block(body: str) -> Optional[StreamVariant]:
     )
 
 
+def _track_language(srclang: str, label: str) -> str:
+    """Prefer the provider's language suffix over its generic srclang.
+
+    Prehraj.to can expose imported multilingual tracks with ``srclang: "cs"``
+    for every track while the label carries the real language, for example
+    ``CS - 2301063 - eng`` and ``CS - 2301064 - cze``. Treating srclang as
+    authoritative in that case can attach English subtitles as Czech.
+    """
+    normalized_label = label.strip().lower()
+    if normalized_label:
+        tail = re.split(r"\s+-\s+", normalized_label)[-1].strip()
+        if re.fullmatch(r"[a-z]{2,3}\d?", tail):
+            return tail
+        if tail in {"czech", "cesky", "česky", "cestina", "čeština"}:
+            return "cs"
+    return srclang.strip().lower()
+
+
+def _parse_subtitle_tracks(html: str) -> list[SubtitleTrack]:
+    tracks: list[SubtitleTrack] = []
+    seen_urls: set[str] = set()
+    for match in _TRACK_OBJECT_RE.finditer(html):
+        props: dict[str, str] = {}
+        for prop in _TRACK_PROP_RE.finditer(match.group("body")):
+            props[prop.group("key")] = prop.group("dq") if prop.group("dq") is not None else prop.group("sq")
+        url = props.get("src") or props.get("file") or ""
+        if not url or url in seen_urls:
+            continue
+        seen_urls.add(url)
+        label = props.get("label") or ""
+        tracks.append(
+            SubtitleTrack(
+                url=url,
+                lang=_track_language(props.get("srclang") or "", label),
+                label=label or None,
+            )
+        )
+    return tracks
+
+
 def parse_html(html: str, upload_url: str, *, fetch_via: str = "direct") -> ResolvedUpload:
     videos: list[StreamVariant] = []
     for m in _VIDEOS_PUSH_RE.finditer(html):
@@ -157,7 +200,7 @@ def parse_html(html: str, upload_url: str, *, fetch_via: str = "direct") -> Reso
     if not videos:
         raise ResolveError(f"no videos.push() blocks found at {upload_url}")
 
-    tracks = [SubtitleTrack(url=m.group("src"), lang=m.group("lang")) for m in _TRACK_RE.finditer(html)]
+    tracks = _parse_subtitle_tracks(html)
 
     vid_id = int(_VIDEO_ID_RE.search(html).group(1)) if _VIDEO_ID_RE.search(html) else None
     name_m = _VIDEO_NAME_RE.search(html)

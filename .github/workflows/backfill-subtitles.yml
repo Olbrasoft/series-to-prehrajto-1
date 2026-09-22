@@ -6,16 +6,24 @@ on:
       - main
     paths:
       - ".github/workflows/backfill-subtitles.yml"
+      - "src/backfill_uploaded_subtitles.py"
+      - "src/resolve_stream.py"
+  schedule:
+    - cron: "7,37 * * * *"
   workflow_dispatch:
     inputs:
       limit:
         description: "Maximum missing-subtitle uploads to attempt"
         required: false
-        default: "3"
+        default: "10"
       max_rows:
         description: "Maximum uploaded subtitle-followup rows to inspect"
         required: false
-        default: "80"
+        default: "400"
+      episode_id:
+        description: "Process only this episode ID"
+        required: false
+        default: ""
       dry_run:
         description: "Only inspect targets and write report rows"
         required: false
@@ -74,8 +82,8 @@ jobs:
           CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
         run: |
           ARGS=(
-            "--limit" "${{ inputs.limit || '3' }}"
-            "--max-rows" "${{ inputs.max_rows || '80' }}"
+            "--limit" "${{ inputs.limit || '10' }}"
+            "--max-rows" "${{ inputs.max_rows || '400' }}"
             "--search-min-interval" "10"
             "--verify-timeout" "120"
             "--allow-partial"
@@ -85,6 +93,9 @@ jobs:
           fi
           if [ "${{ inputs.retry_reported || 'false' }}" = "true" ]; then
             ARGS+=("--retry-reported")
+          fi
+          if [ -n "${{ inputs.episode_id || '' }}" ]; then
+            ARGS+=("--episode-id" "${{ inputs.episode_id }}")
           fi
           python src/backfill_uploaded_subtitles.py "${ARGS[@]}" \
             --state-file state/uploaded-shard-0.json \
@@ -98,8 +109,8 @@ jobs:
           CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
         run: |
           ARGS=(
-            "--limit" "${{ inputs.limit || '3' }}"
-            "--max-rows" "${{ inputs.max_rows || '80' }}"
+            "--limit" "${{ inputs.limit || '10' }}"
+            "--max-rows" "${{ inputs.max_rows || '400' }}"
             "--search-min-interval" "10"
             "--verify-timeout" "120"
             "--allow-partial"
@@ -109,6 +120,9 @@ jobs:
           fi
           if [ "${{ inputs.retry_reported || 'false' }}" = "true" ]; then
             ARGS+=("--retry-reported")
+          fi
+          if [ -n "${{ inputs.episode_id || '' }}" ]; then
+            ARGS+=("--episode-id" "${{ inputs.episode_id }}")
           fi
           python src/backfill_uploaded_subtitles.py "${ARGS[@]}" \
             --state-file state/uploaded-shard-2.json \
@@ -172,7 +186,7 @@ jobs:
           exit 1
 
       - name: Queue next subtitle backfill
-        if: always() && (inputs.continue_backfill || 'false') == 'true' && (inputs.dry_run || 'false') != 'true'
+        if: always() && (inputs.continue_backfill || 'false') == 'true' && (inputs.dry_run || 'false') != 'true' && (inputs.episode_id || '') == ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -182,13 +196,17 @@ jobs:
 
           terminal = {
               "already_has_tracks",
+              "invalid_subtitle_format",
+              "subtitle_fetch_failed",
               "source_track_not_found",
               "target_detail_missing",
               "target_not_found",
               "target_processing",
               "target_unresolved",
+              "upload_failed",
               "uploaded",
               "unsupported_subtitle_format",
+              "verify_failed",
           }
 
           def load_jsonl(path):
@@ -225,8 +243,8 @@ jobs:
           echo "pending subtitle rows: ${PENDING}"
           if [ "${PENDING}" -gt 0 ]; then
             gh workflow run backfill-subtitles.yml \
-              -f limit="${{ inputs.limit || '3' }}" \
-              -f max_rows="${{ inputs.max_rows || '80' }}" \
+              -f limit="${{ inputs.limit || '10' }}" \
+              -f max_rows="${{ inputs.max_rows || '400' }}" \
               -f dry_run="false" \
               -f retry_reported="false" \
               -f continue_backfill="true"
