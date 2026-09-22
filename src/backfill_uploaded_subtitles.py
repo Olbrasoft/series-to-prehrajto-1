@@ -476,20 +476,42 @@ def newest_upload_first(item: tuple[dict, dict]) -> tuple[str, int]:
     )
 
 
+def pending_uploads(
+    followup_file: Path,
+    state_files: list[Path],
+    report_file: Path,
+    *,
+    upload_account: str | None = None,
+    retry_reported: bool = False,
+    episode_ids: list[int] | None = None,
+) -> list[tuple[dict, dict]]:
+    followups = {int(row["episode_id"]): row for row in load_jsonl(followup_file)}
+    uploads = load_uploads(state_files, upload_account)
+    latest_status = load_latest_status(report_file)
+    matched = []
+    for episode_id, upload in uploads.items():
+        if episode_ids and episode_id not in episode_ids:
+            continue
+        followup = followups.get(episode_id, {})
+        if not row_pending(followup):
+            continue
+        previous = latest_status.get(episode_id)
+        if previous and previous.get("status") in TERMINAL_STATUSES and not retry_reported:
+            continue
+        # Uploaded video metadata is authoritative, even if its follow-up row
+        # is missing or still references a previously considered source.
+        row = {**followup, **{key: value for key, value in upload.items() if value is not None}}
+        matched.append((row, upload))
+    return matched
+
+
 def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> list[tuple[dict, dict, dict]]:
-    followups = [row for row in load_jsonl(args.followup_file) if row_pending(row)]
-    uploads = load_uploads(args.state_file, getattr(args, "upload_account", None))
     latest_status = load_latest_status(args.report_file)
-    matched: list[tuple[dict, dict]] = []
-    for row in followups:
-        if args.episode_id and int(row.get("episode_id") or 0) not in args.episode_id:
-            continue
-        previous = latest_status.get(int(row.get("episode_id") or 0))
-        if previous and previous.get("status") in TERMINAL_STATUSES and not args.retry_reported:
-            continue
-        upload = uploads.get(int(row.get("episode_id") or 0))
-        if upload:
-            matched.append((row, upload))
+    matched = pending_uploads(
+        args.followup_file, args.state_file, args.report_file,
+        upload_account=getattr(args, "upload_account", None),
+        retry_reported=args.retry_reported, episode_ids=args.episode_id,
+    )
     matched.sort(key=newest_upload_first, reverse=True)
     # Inspect unseen uploads first, newest first. Rotate retries by their last
     # check so unavailable targets cannot consume every bounded batch forever.

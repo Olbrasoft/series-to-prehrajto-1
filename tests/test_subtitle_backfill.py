@@ -158,3 +158,26 @@ def test_stale_report_snapshot_does_not_overwrite_new_result(tmp_path):
         {"episode_id": 1, "checked_at": "2026-09-22T14:00:00Z", "status": "verify_failed"},
     ]))
     assert load_latest_status(report)[1]["status"] == "uploaded"
+
+
+def test_both_account_backlogs_include_uploads_missing_followups(tmp_path):
+    from backfill_uploaded_subtitles import pending_uploads
+    state = tmp_path / "state.json"
+    followups = tmp_path / "followups.jsonl"
+    report = tmp_path / "report.jsonl"
+    state.write_text(json.dumps({"uploads": [
+        {"episode_id": 1, "upload_account": "primary", "display_name": "One CZ Titulky",
+         "source_url": "https://example.test/actual-source"},
+        {"episode_id": 2, "upload_account": "serialy", "display_name": "Two CZ Titulky"},
+        {"episode_id": 3, "upload_account": "serialy", "display_name": "Three CZ Titulky"},
+    ]}))
+    followups.write_text(json.dumps({"episode_id": 1, "source_url": "https://example.test/stale-source"}) + "\n")
+    report.write_text(json.dumps({"episode_id": 3, "checked_at": "2026-09-22T14:00:00Z", "status": "uploaded"}) + "\n")
+
+    primary = pending_uploads(followups, [state], report, upload_account="primary")
+    serialy = pending_uploads(followups, [state], report, upload_account="serialy")
+    both = pending_uploads(followups, [state], report)
+    assert [row[0]["episode_id"] for row in primary] == [1]
+    assert [row[0]["episode_id"] for row in serialy] == [2]
+    assert {row[0]["episode_id"] for row in both} == {1, 2}
+    assert primary[0][0]["source_url"] == "https://example.test/actual-source"

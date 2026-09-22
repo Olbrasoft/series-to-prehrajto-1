@@ -16,9 +16,10 @@ on:
         description: "Upload account whose CZ Titulky videos should be repaired"
         type: choice
         options:
+          - both
           - primary
           - serialy
-        default: primary
+        default: both
       limit:
         description: "Maximum missing-subtitle uploads to attempt"
         required: false
@@ -50,7 +51,11 @@ concurrency:
 
 jobs:
   backfill:
-    name: Backfill uploaded subtitles
+    name: Backfill subtitles (${{ matrix.account }})
+    strategy:
+      fail-fast: false
+      matrix:
+        account: ${{ fromJSON((inputs.account || 'both') == 'primary' && '["primary"]' || inputs.account == 'serialy' && '["serialy"]' || '["primary","serialy"]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 350
     permissions:
@@ -81,21 +86,40 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Run primary subtitle backfill
-        if: (inputs.account || 'primary') == 'primary'
+      - name: Run account subtitle backfill
         env:
-          PREHRAJTO_EMAIL: ${{ secrets.UPLOAD_PREHRAJTO_EMAIL || secrets.PREHRAJTO_EMAIL }}
-          PREHRAJTO_PASSWORD: ${{ secrets.UPLOAD_PREHRAJTO_PASSWORD || secrets.PREHRAJTO_PASSWORD }}
+          UPLOAD_ACCOUNT: ${{ matrix.account }}
+          PRIMARY_PREHRAJTO_EMAIL: ${{ secrets.UPLOAD_PREHRAJTO_EMAIL || secrets.PREHRAJTO_EMAIL }}
+          PRIMARY_PREHRAJTO_PASSWORD: ${{ secrets.UPLOAD_PREHRAJTO_PASSWORD || secrets.PREHRAJTO_PASSWORD }}
+          SERIALY_PREHRAJTO_EMAIL: ${{ secrets.SERIALY_PREHRAJTO_EMAIL }}
+          SERIALY_PREHRAJTO_PASSWORD: ${{ secrets.SERIALY_PREHRAJTO_PASSWORD }}
           CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
           CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
         run: |
+          case "$UPLOAD_ACCOUNT" in
+            primary)
+              export PREHRAJTO_EMAIL="$PRIMARY_PREHRAJTO_EMAIL"
+              export PREHRAJTO_PASSWORD="$PRIMARY_PREHRAJTO_PASSWORD"
+              STATE_FILES=(state/uploaded-shard-0.json state/uploaded-shard-1.json)
+              ;;
+            serialy)
+              export PREHRAJTO_EMAIL="$SERIALY_PREHRAJTO_EMAIL"
+              export PREHRAJTO_PASSWORD="$SERIALY_PREHRAJTO_PASSWORD"
+              STATE_FILES=(state/uploaded-shard-2.json state/uploaded-shard-3.json)
+              ;;
+            *) exit 2 ;;
+          esac
           ARGS=(
+            "--upload-account" "$UPLOAD_ACCOUNT"
             "--limit" "${{ inputs.limit || '10' }}"
             "--max-rows" "${{ inputs.max_rows || '400' }}"
-            "--search-min-interval" "10"
+            "--search-min-interval" "20"
             "--verify-timeout" "600"
             "--allow-partial"
           )
+          for state_file in "${STATE_FILES[@]}"; do
+            ARGS+=("--state-file" "$state_file")
+          done
           if [ "${{ inputs.dry_run || 'false' }}" = "true" ]; then
             ARGS+=("--dry-run")
           fi
@@ -105,39 +129,7 @@ jobs:
           if [ -n "${{ inputs.episode_id || '' }}" ]; then
             ARGS+=("--episode-id" "${{ inputs.episode_id }}")
           fi
-          python src/backfill_uploaded_subtitles.py "${ARGS[@]}" \
-            --upload-account primary \
-            --state-file state/uploaded-shard-0.json \
-            --state-file state/uploaded-shard-1.json
-
-      - name: Run serialy subtitle backfill
-        if: inputs.account == 'serialy'
-        env:
-          PREHRAJTO_EMAIL: ${{ secrets.SERIALY_PREHRAJTO_EMAIL }}
-          PREHRAJTO_PASSWORD: ${{ secrets.SERIALY_PREHRAJTO_PASSWORD }}
-          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
-          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
-        run: |
-          ARGS=(
-            "--limit" "${{ inputs.limit || '10' }}"
-            "--max-rows" "${{ inputs.max_rows || '400' }}"
-            "--search-min-interval" "10"
-            "--verify-timeout" "600"
-            "--allow-partial"
-          )
-          if [ "${{ inputs.dry_run || 'false' }}" = "true" ]; then
-            ARGS+=("--dry-run")
-          fi
-          if [ "${{ inputs.retry_reported || 'false' }}" = "true" ]; then
-            ARGS+=("--retry-reported")
-          fi
-          if [ -n "${{ inputs.episode_id || '' }}" ]; then
-            ARGS+=("--episode-id" "${{ inputs.episode_id }}")
-          fi
-          python src/backfill_uploaded_subtitles.py "${ARGS[@]}" \
-            --upload-account serialy \
-            --state-file state/uploaded-shard-2.json \
-            --state-file state/uploaded-shard-3.json
+          python src/backfill_uploaded_subtitles.py "${ARGS[@]}"
 
       - name: Commit subtitle report
         if: always()
@@ -148,7 +140,7 @@ jobs:
           TMP_DIR="$(mktemp -d)"
           cp reports/subtitle-backfill-status.jsonl "$TMP_DIR/subtitle-backfill-status.jsonl"
 
-          for attempt in 1 2 3 4 5; do
+          for attempt in $(seq 1 20); do
             rm -rf .git/rebase-merge .git/rebase-apply
             git fetch origin main
             git reset --hard origin/main
@@ -195,54 +187,52 @@ jobs:
           echo "failed to push subtitle report after retries"
           exit 1
 
+  queue-next:
+    name: Queue next subtitle batch
+    needs: backfill
+    if: success() && (inputs.continue_backfill || 'true') == 'true' && (inputs.dry_run || 'false') != 'true' && (inputs.episode_id || '') == ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Queue next subtitle backfill
-        if: success() && (inputs.continue_backfill || 'true') == 'true' && (inputs.dry_run || 'false') != 'true' && (inputs.episode_id || '') == ''
         env:
           GH_TOKEN: ${{ github.token }}
-          SUBTITLE_ACCOUNT: ${{ inputs.account || 'primary' }}
+          SUBTITLE_ACCOUNT: ${{ inputs.account || 'both' }}
         run: |
-          PENDING=$(python - <<'PY'
-          import json
+          PENDING=$(python - <<'PYCODE'
+          import os
+          import sys
           from pathlib import Path
 
-          import sys
-
           sys.path.insert(0, "src")
-          import os
-          from backfill_uploaded_subtitles import TERMINAL_STATUSES, row_pending, load_uploads
+          from backfill_uploaded_subtitles import pending_uploads
 
-          def load_jsonl(path):
-              p = Path(path)
-              if not p.exists():
-                  return []
-              return [json.loads(line) for line in p.read_text(encoding="utf-8").splitlines() if line.strip()]
-
-          def load_json(path):
-              p = Path(path)
-              return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
-
-          reported = {}
-          for row in load_jsonl("reports/subtitle-backfill-status.jsonl"):
-              reported[int(row["episode_id"])] = row.get("status")
-
-          uploads = set(load_uploads(
+          account = os.environ["SUBTITLE_ACCOUNT"]
+          print(len(pending_uploads(
+              Path("plans/subtitle-followup-queue.jsonl"),
               sorted(Path("state").glob("uploaded-shard-*.json")),
-              os.environ["SUBTITLE_ACCOUNT"],
-          ))
-
-          pending = 0
-          for row in load_jsonl("plans/subtitle-followup-queue.jsonl"):
-              episode_id = int(row.get("episode_id") or 0)
-              if not row_pending(row) or episode_id not in uploads:
-                  continue
-              if reported.get(episode_id) in TERMINAL_STATUSES:
-                  continue
-              pending += 1
-          print(pending)
-          PY
+              Path("reports/subtitle-backfill-status.jsonl"),
+              upload_account=None if account == "both" else account,
+          )))
+          PYCODE
           )
           echo "pending subtitle rows: ${PENDING}"
-          if [ "${PENDING}" -gt 0 ]; then
+          if [ "$PENDING" -gt 0 ]; then
             gh workflow run backfill-subtitles.yml \
               -f account="$SUBTITLE_ACCOUNT" \
               -f limit="${{ inputs.limit || '10' }}" \
