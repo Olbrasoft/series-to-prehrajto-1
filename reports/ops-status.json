@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 132728,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 59069,
+    "manifest_upload_ready_episodes": 3,
+    "uploaded_episodes": 59070,
     "prepared_source_episodes": 62609,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 50,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 70,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54461,
-    "whisper_review_pending_sources": 37437,
+    "whisper_review_sources": 54443,
+    "whisper_review_pending_sources": 37337,
     "subtitle_followup_sources": 36953,
     "subtitle_followup_pending_sources": 36953
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T10:02:32Z",
+      "databaseId": 35846468587,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T09:58:33Z",
+      "databaseId": 35846064177,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T09:58:28Z",
+      "databaseId": 35846056057,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-23T09:57:53Z",
@@ -31,7 +55,7 @@
       "createdAt": "2026-09-23T09:57:47Z",
       "databaseId": 35845992158,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -39,15 +63,15 @@
       "createdAt": "2026-09-23T09:57:28Z",
       "databaseId": 35845963715,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T09:57:27Z",
       "databaseId": 35845961131,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T09:55:38Z",
       "databaseId": 35845792959,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T09:47:27Z",
-      "databaseId": 35845004314,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T09:47:26Z",
-      "databaseId": 35845002723,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T09:47:22Z",
-      "databaseId": 35844997809,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -270504,6 +270504,11 @@
         "episode_id": 88647,
         "display_name": "Námořní hlídka S02E10 - 10. epizoda CZ Dabing",
         "video_id": 29638179
+      },
+      {
+        "episode_id": 88646,
+        "display_name": "Námořní hlídka S02E12 - 12. epizoda CZ Dabing",
+        "video_id": 29638854
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -540726,6 +540731,11 @@
         "episode_id": 88647,
         "display_name": "Námořní hlídka S02E10 - 10. epizoda CZ Dabing",
         "video_id": 29638179
+      },
+      {
+        "episode_id": 88646,
+        "display_name": "Námořní hlídka S02E12 - 12. epizoda CZ Dabing",
+        "video_id": 29638854
       }
     ],
     "prepared_not_upload_ready": [
@@ -541887,15 +541897,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 59,
     "disabled": 10,
-    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4165,
-    "whisper_non_cz_needs_subtitles": 12859,
+    "whisper_confirmed_cz": 4195,
+    "whisper_non_cz_needs_subtitles": 12911,
     "whisper_failed": 592,
-    "needs_whisper": 36845
+    "needs_whisper": 36745
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36953
