@@ -1,7 +1,7 @@
 {
   "counts": {
     "backlog_episodes": 132728,
-    "manifest_upload_ready_episodes": 4,
+    "manifest_upload_ready_episodes": 3,
     "uploaded_episodes": 59071,
     "prepared_source_episodes": 62561,
     "description_series": 60,
@@ -9,15 +9,39 @@
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54462,
-    "whisper_review_pending_sources": 37440,
+    "whisper_review_sources": 54439,
+    "whisper_review_pending_sources": 37320,
     "subtitle_followup_sources": 36955,
     "subtitle_followup_pending_sources": 36955
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T10:55:36Z",
+      "databaseId": 35851565805,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T10:55:31Z",
+      "databaseId": 35851558534,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T10:55:19Z",
+      "databaseId": 35851539145,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-23T10:54:10Z",
@@ -31,31 +55,31 @@
       "createdAt": "2026-09-23T10:53:43Z",
       "databaseId": 35851388697,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-23T10:53:39Z",
       "databaseId": 35851381664,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T10:52:40Z",
       "databaseId": 35851288240,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T10:51:27Z",
       "databaseId": 35851175706,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T10:45:09Z",
       "databaseId": 35850585371,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -103,7 +127,7 @@
       "createdAt": "2026-09-23T10:42:27Z",
       "databaseId": 35850330881,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-23T10:39:47Z",
-      "databaseId": 35850078536,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-23T10:39:23Z",
-      "databaseId": 35850041472,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T10:38:22Z",
-      "databaseId": 35849947006,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -541068,22 +541068,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 180924,
-        "source_id": -29462637898743395,
-        "series_title": "All the Queen's Men",
-        "episode_code": "S01E06",
-        "source_title": "All The Queens Men S01E06 ENGtitulky",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 180924,
-        "source_id": -27118998245256997,
-        "series_title": "All the Queen's Men",
-        "episode_code": "S01E06",
-        "source_title": "All.The.Queens.Men.S01E06.WEBRip.x264-ION10",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 51905,
         "source_id": -50577755831500766,
         "series_title": "American Horror Story",
@@ -541449,6 +541433,22 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56275,
+        "source_id": -23905561721062679,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E22",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
+        "status": "whisper_failed"
+      },
+      {
+        "episode_id": 56276,
+        "source_id": -18797228031498409,
+        "series_title": "Chirurgové",
+        "episode_code": "S08E23",
+        "source_title": "Chirurgové (Grey's Anatomy) – S08E23",
         "status": "whisper_failed"
       }
     ],
@@ -541907,14 +541907,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4163,
-    "whisper_non_cz_needs_subtitles": 12859,
+    "whisper_confirmed_cz": 4188,
+    "whisper_non_cz_needs_subtitles": 12931,
     "whisper_failed": 592,
-    "needs_whisper": 36848
+    "needs_whisper": 36728
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 36955
