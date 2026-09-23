@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 132641,
-    "manifest_upload_ready_episodes": 43,
-    "uploaded_episodes": 59177,
+    "manifest_upload_ready_episodes": 40,
+    "uploaded_episodes": 59178,
     "prepared_source_episodes": 62472,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 209,
-    "language_whisper_attempted_sources": 73,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54466,
     "whisper_review_pending_sources": 37462,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 37056
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T17:05:21Z",
+      "databaseId": 35893225162,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T17:05:11Z",
+      "databaseId": 35893204901,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T17:04:30Z",
+      "databaseId": 35893127871,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-09-23T17:02:37Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T17:00:45Z",
       "databaseId": 35892694750,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,7 +71,7 @@
       "createdAt": "2026-09-23T16:57:24Z",
       "databaseId": 35892314933,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T16:55:35Z",
       "databaseId": 35892109921,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-23T16:46:04Z",
-      "databaseId": 35891020673,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-23T16:46:01Z",
-      "databaseId": 35891014051,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-23T16:44:08Z",
-      "databaseId": 35890798681,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -271044,6 +271044,11 @@
         "episode_id": 178479,
         "display_name": "Globální pandemie S01E01 - Strašák CZ Titulky",
         "video_id": 29649828
+      },
+      {
+        "episode_id": 164403,
+        "display_name": "The Burning Girls S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29649891
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -541806,6 +541811,11 @@
         "episode_id": 178479,
         "display_name": "Globální pandemie S01E01 - Strašák CZ Titulky",
         "video_id": 29649828
+      },
+      {
+        "episode_id": 164403,
+        "display_name": "The Burning Girls S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29649891
       }
     ],
     "prepared_not_upload_ready": [
@@ -542967,8 +542977,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 72,
-    "disabled": 136,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
