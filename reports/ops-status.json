@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 132691,
-    "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 59135,
-    "prepared_source_episodes": 62507,
+    "manifest_upload_ready_episodes": 7,
+    "uploaded_episodes": 59136,
+    "prepared_source_episodes": 62502,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 208,
+    "language_audited_sources": 218,
     "language_whisper_attempted_sources": 73,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54431,
-    "whisper_review_pending_sources": 37273,
-    "subtitle_followup_sources": 36994,
-    "subtitle_followup_pending_sources": 36994
+    "whisper_review_sources": 54461,
+    "whisper_review_pending_sources": 37437,
+    "subtitle_followup_sources": 36995,
+    "subtitle_followup_pending_sources": 36995
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-23T14:06:39Z",
+      "databaseId": 35871782930,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T14:06:02Z",
+      "databaseId": 35871706705,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T14:05:49Z",
+      "databaseId": 35871680146,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-23T14:04:40Z",
       "databaseId": 35871536983,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-23T13:54:47Z",
       "databaseId": 35870395227,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T13:50:17Z",
-      "databaseId": 35869868027,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T13:49:32Z",
-      "databaseId": 35869780935,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T13:45:42Z",
-      "databaseId": 35869331679,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -144364,6 +144364,11 @@
         "episode_id": 138652,
         "display_name": "The Fiery Priest S01E13 - 13. epizoda CZ Titulky",
         "video_id": 29646745
+      },
+      {
+        "episode_id": 140056,
+        "display_name": "Píseň banditů S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29646868
       },
       {
         "episode_id": 114182,
@@ -414918,6 +414923,11 @@
         "video_id": 29646745
       },
       {
+        "episode_id": 140056,
+        "display_name": "Píseň banditů S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29646868
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -542548,16 +542558,16 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 72,
-    "disabled": 135,
+    "disabled": 145,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4165,
-    "whisper_non_cz_needs_subtitles": 12993,
+    "whisper_confirmed_cz": 4142,
+    "whisper_non_cz_needs_subtitles": 12882,
     "whisper_failed": 592,
-    "needs_whisper": 36681
+    "needs_whisper": 36845
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 36994
+    "needs_subtitle_setup_after_prehrajto_processing": 36995
   }
 }
