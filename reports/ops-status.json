@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 132861,
-    "manifest_upload_ready_episodes": 14,
-    "uploaded_episodes": 58976,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 58984,
     "prepared_source_episodes": 62616,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54462,
     "whisper_review_pending_sources": 37445,
     "subtitle_followup_sources": 36878,
@@ -20,18 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-23T02:41:25Z",
-      "databaseId": 35811354051,
+      "createdAt": "2026-09-23T02:49:34Z",
+      "databaseId": 35811899990,
       "headBranch": "main",
-      "status": "queued",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T02:47:49Z",
+      "databaseId": 35811785921,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T02:47:13Z",
+      "databaseId": 35811745944,
+      "headBranch": "main",
+      "status": "pending",
       "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-23T02:46:38Z",
+      "databaseId": 35811709268,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T02:44:33Z",
+      "databaseId": 35811564541,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T02:43:50Z",
+      "databaseId": 35811515986,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T02:41:51Z",
+      "databaseId": 35811384368,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T02:41:50Z",
+      "databaseId": 35811382885,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T02:41:25Z",
+      "databaseId": 35811354051,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-23T02:40:48Z",
       "databaseId": 35811314696,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-23T02:31:39Z",
-      "databaseId": 35810706788,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T02:31:07Z",
-      "databaseId": 35810672797,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-23T02:29:41Z",
-      "databaseId": 35810567937,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T02:29:37Z",
-      "databaseId": 35810564072,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T02:24:00Z",
-      "databaseId": 35810193325,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-23T02:20:55Z",
-      "databaseId": 35809988262,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T02:17:05Z",
-      "databaseId": 35809734841,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-23T02:13:48Z",
-      "databaseId": 35809514968,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -143951,6 +143951,16 @@
         "video_id": 29631513
       },
       {
+        "episode_id": 144380,
+        "display_name": "Paní den a slečna noc S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29631932
+      },
+      {
+        "episode_id": 145336,
+        "display_name": "Zákon a pořádek: Los Angeles S01E16 - 16. epizoda CZ Dabing",
+        "video_id": 29631985
+      },
+      {
         "episode_id": 144941,
         "display_name": "Hon na vrahy S01E04 - Pravdivé lži, část druhá CZ Dabing",
         "video_id": 29631895
@@ -270036,9 +270046,39 @@
         "video_id": 29631803
       },
       {
+        "episode_id": 110494,
+        "display_name": "Křehký hrdina S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29631925
+      },
+      {
+        "episode_id": 189042,
+        "display_name": "Sláva králi Jelimánovi S03E11 - Pomsta za školní ples CZ Dabing",
+        "video_id": 29631977
+      },
+      {
+        "episode_id": 125522,
+        "display_name": "Mladí jezdci S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 29632032
+      },
+      {
         "episode_id": 189043,
         "display_name": "Sláva králi Jelimánovi S03E12 - Pomsta Clover CZ Dabing",
         "video_id": 29631893
+      },
+      {
+        "episode_id": 144379,
+        "display_name": "Paní den a slečna noc S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29631950
+      },
+      {
+        "episode_id": 145335,
+        "display_name": "Zákon a pořádek: Los Angeles S01E15 - 15. epizoda CZ Dabing",
+        "video_id": 29632008
+      },
+      {
+        "episode_id": 125523,
+        "display_name": "Mladí jezdci S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29632049
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -413708,6 +413748,16 @@
         "video_id": 29631513
       },
       {
+        "episode_id": 144380,
+        "display_name": "Paní den a slečna noc S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29631932
+      },
+      {
+        "episode_id": 145336,
+        "display_name": "Zákon a pořádek: Los Angeles S01E16 - 16. epizoda CZ Dabing",
+        "video_id": 29631985
+      },
+      {
         "episode_id": 144941,
         "display_name": "Hon na vrahy S01E04 - Pravdivé lži, část druhá CZ Dabing",
         "video_id": 29631895
@@ -539793,9 +539843,39 @@
         "video_id": 29631803
       },
       {
+        "episode_id": 110494,
+        "display_name": "Křehký hrdina S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29631925
+      },
+      {
+        "episode_id": 189042,
+        "display_name": "Sláva králi Jelimánovi S03E11 - Pomsta za školní ples CZ Dabing",
+        "video_id": 29631977
+      },
+      {
+        "episode_id": 125522,
+        "display_name": "Mladí jezdci S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 29632032
+      },
+      {
         "episode_id": 189043,
         "display_name": "Sláva králi Jelimánovi S03E12 - Pomsta Clover CZ Dabing",
         "video_id": 29631893
+      },
+      {
+        "episode_id": 144379,
+        "display_name": "Paní den a slečna noc S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29631950
+      },
+      {
+        "episode_id": 145335,
+        "display_name": "Zákon a pořádek: Los Angeles S01E15 - 15. epizoda CZ Dabing",
+        "video_id": 29632008
+      },
+      {
+        "episode_id": 125523,
+        "display_name": "Mladí jezdci S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29632049
       }
     ],
     "prepared_not_upload_ready": [
@@ -540957,7 +541037,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
