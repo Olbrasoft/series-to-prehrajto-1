@@ -1,37 +1,101 @@
 {
   "counts": {
-    "backlog_episodes": 132803,
-    "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 59013,
-    "prepared_source_episodes": 62703,
+    "backlog_episodes": 132780,
+    "manifest_upload_ready_episodes": 36,
+    "uploaded_episodes": 59019,
+    "prepared_source_episodes": 62570,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 292,
-    "language_whisper_attempted_sources": 125,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54457,
-    "whisper_review_pending_sources": 37417,
-    "subtitle_followup_sources": 36909,
-    "subtitle_followup_pending_sources": 36909
+    "language_audited_sources": 200,
+    "language_whisper_attempted_sources": 61,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54466,
+    "whisper_review_pending_sources": 37461,
+    "subtitle_followup_sources": 36928,
+    "subtitle_followup_pending_sources": 36928
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-23T06:27:12Z",
-      "databaseId": 35826811865,
+      "createdAt": "2026-09-23T06:37:08Z",
+      "databaseId": 35827596016,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-23T06:36:02Z",
+      "databaseId": 35827509344,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T06:35:00Z",
+      "databaseId": 35827426788,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T06:32:25Z",
+      "databaseId": 35827222297,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-23T06:30:32Z",
+      "databaseId": 35827073023,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T06:29:47Z",
+      "databaseId": 35827009840,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T06:28:03Z",
+      "databaseId": 35826877495,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T06:28:00Z",
+      "databaseId": 35826873556,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-23T06:27:12Z",
+      "databaseId": 35826811865,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-23T06:26:19Z",
       "databaseId": 35826742685,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +107,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T06:19:59Z",
       "databaseId": 35826257486,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -67,11 +131,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T06:18:26Z",
       "databaseId": 35826141449,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:11:59Z",
-      "databaseId": 35825658983,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:11:55Z",
-      "databaseId": 35825654736,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:10:17Z",
-      "databaseId": 35825536114,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:09:19Z",
-      "databaseId": 35825460637,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:08:15Z",
-      "databaseId": 35825382610,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:07:05Z",
-      "databaseId": 35825297314,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:06:59Z",
-      "databaseId": 35825289999,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T06:06:28Z",
-      "databaseId": 35825248741,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -144051,6 +144051,31 @@
         "video_id": 29634908
       },
       {
+        "episode_id": 145332,
+        "display_name": "Zákon a pořádek: Los Angeles S01E17 - 17. epizoda CZ Dabing",
+        "video_id": 29635387
+      },
+      {
+        "episode_id": 125524,
+        "display_name": "Mladí jezdci S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 29635415
+      },
+      {
+        "episode_id": 138648,
+        "display_name": "The Fiery Priest S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29635463
+      },
+      {
+        "episode_id": 144381,
+        "display_name": "Paní den a slečna noc S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 29635395
+      },
+      {
+        "episode_id": 145333,
+        "display_name": "Zákon a pořádek: Los Angeles S01E18 - 18. epizoda CZ Dabing",
+        "video_id": 29635494
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -270224,6 +270249,11 @@
         "episode_id": 60867,
         "display_name": "Zdání vraha S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29634901
+      },
+      {
+        "episode_id": 193562,
+        "display_name": "ULTRAMAN S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29635386
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -413993,6 +414023,31 @@
         "video_id": 29634908
       },
       {
+        "episode_id": 145332,
+        "display_name": "Zákon a pořádek: Los Angeles S01E17 - 17. epizoda CZ Dabing",
+        "video_id": 29635387
+      },
+      {
+        "episode_id": 125524,
+        "display_name": "Mladí jezdci S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 29635415
+      },
+      {
+        "episode_id": 138648,
+        "display_name": "The Fiery Priest S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29635463
+      },
+      {
+        "episode_id": 144381,
+        "display_name": "Paní den a slečna noc S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 29635395
+      },
+      {
+        "episode_id": 145333,
+        "display_name": "Zákon a pořádek: Los Angeles S01E18 - 18. epizoda CZ Dabing",
+        "video_id": 29635494
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -540166,6 +540221,11 @@
         "episode_id": 60867,
         "display_name": "Zdání vraha S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29634901
+      },
+      {
+        "episode_id": 193562,
+        "display_name": "ULTRAMAN S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29635386
       }
     ],
     "prepared_not_upload_ready": [
@@ -541327,17 +541387,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 167,
-    "ok": 124,
+    "disabled": 139,
+    "ok": 60,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4181,
-    "whisper_non_cz_needs_subtitles": 12859,
+    "whisper_confirmed_cz": 4186,
+    "whisper_non_cz_needs_subtitles": 12819,
     "whisper_failed": 592,
-    "needs_whisper": 36825
+    "needs_whisper": 36869
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 36909
+    "needs_subtitle_setup_after_prehrajto_processing": 36928
   }
 }
