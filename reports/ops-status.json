@@ -1,29 +1,45 @@
 {
   "counts": {
     "backlog_episodes": 132548,
-    "manifest_upload_ready_episodes": 9,
-    "uploaded_episodes": 59302,
-    "prepared_source_episodes": 62375,
+    "manifest_upload_ready_episodes": 8,
+    "uploaded_episodes": 59303,
+    "prepared_source_episodes": 62374,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 75,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 95,
+    "language_whisper_attempted_sources": 80,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54438,
-    "whisper_review_pending_sources": 37288,
+    "whisper_review_sources": 54434,
+    "whisper_review_pending_sources": 37264,
     "subtitle_followup_sources": 37138,
     "subtitle_followup_pending_sources": 37138
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-23T22:42:27Z",
+      "databaseId": 35929812313,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-23T22:41:27Z",
+      "databaseId": 35929723611,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-09-23T22:40:26Z",
       "databaseId": 35929628489,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +59,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T22:39:15Z",
       "databaseId": 35929517339,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +91,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-23T22:38:01Z",
       "databaseId": 35929404804,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T22:32:33Z",
-      "databaseId": 35928910040,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-23T22:28:28Z",
-      "databaseId": 35928532698,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -271661,6 +271661,11 @@
         "video_id": 29655047
       },
       {
+        "episode_id": 170614,
+        "display_name": "Katrina: Projít si vodou i peklem S01E03 - BŮH SE STARÁ O HLUPÁKY A DĚTI CZ Titulky",
+        "video_id": 29655120
+      },
+      {
         "episode_id": 119883,
         "display_name": "Ahoj, mami, zatím! S01E05 - Každá chvíle, kdy se příležitost změní v osud CZ Dabing",
         "video_id": 29654810
@@ -543048,6 +543053,11 @@
         "video_id": 29655047
       },
       {
+        "episode_id": 170614,
+        "display_name": "Katrina: Projít si vodou i peklem S01E03 - BŮH SE STARÁ O HLUPÁKY A DĚTI CZ Titulky",
+        "video_id": 29655120
+      },
+      {
         "episode_id": 119883,
         "display_name": "Ahoj, mami, zatím! S01E05 - Každá chvíle, kdy se příležitost změní v osud CZ Dabing",
         "video_id": 29654810
@@ -544217,15 +544227,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
+    "ok": 79,
     "disabled": 15,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4146,
-    "whisper_non_cz_needs_subtitles": 13004,
+    "whisper_non_cz_needs_subtitles": 13024,
     "whisper_failed": 577,
-    "needs_whisper": 36711
+    "needs_whisper": 36687
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 37138
