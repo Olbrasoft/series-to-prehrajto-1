@@ -110,9 +110,20 @@ jobs:
 
             READY_COUNT=$(python -c "import json; d=json.load(open('reports/upload-manifest.json')); print(d.get('count',0))")
             git commit -m "chore: process Whisper review (${READY_COUNT} ready episodes)"
-            if git push origin HEAD:main; then
-              exit 0
-            fi
+            for push_attempt in $(seq 1 10); do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+
+              # Upload and status commits do not need another expensive merge.
+              # Rebuild from current main only when prepared artifacts conflict.
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort
+                break
+              fi
+              sleep 1
+            done
             echo "push race on attempt ${attempt}, retrying"
             SLEEP_SECONDS=$((attempt * 10))
             if [ "$SLEEP_SECONDS" -gt 120 ]; then

@@ -407,3 +407,8 @@ every three results and on interruption, then merged and pushed by the workflow.
 An exhausted HTTP 429 retry stops the batch without recording the interrupted
 episode as having no usable source; completed work is preserved. Known
 undersized prepared sources no longer prevent discovery from repairing them.
+
+Whisper review also rebases unrelated upload/status commits before repeating
+the expensive artifact merge. Previously, results could spend over ten minutes
+in the commit step while continuous uploads kept winning the push race. An
+artifact conflict still aborts that rebase and retries the existing keyed merge.
