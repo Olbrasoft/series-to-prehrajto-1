@@ -1,53 +1,133 @@
 {
   "counts": {
-    "backlog_episodes": 132413,
-    "manifest_upload_ready_episodes": 24,
-    "uploaded_episodes": 59416,
-    "prepared_source_episodes": 62158,
+    "backlog_episodes": 132368,
+    "manifest_upload_ready_episodes": 20,
+    "uploaded_episodes": 59431,
+    "prepared_source_episodes": 62155,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 258,
-    "language_whisper_attempted_sources": 86,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54455,
-    "whisper_review_pending_sources": 37379,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54450,
+    "whisper_review_pending_sources": 37355,
     "subtitle_followup_sources": 37231,
     "subtitle_followup_pending_sources": 37231
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T06:19:43Z",
-      "databaseId": 35963953761,
+      "createdAt": "2026-09-24T06:38:29Z",
+      "databaseId": 35965470555,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T06:18:13Z",
-      "databaseId": 35963840259,
+      "createdAt": "2026-09-24T06:38:29Z",
+      "databaseId": 35965470230,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "process-whisper-review"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T06:17:12Z",
-      "databaseId": 35963762333,
+      "createdAt": "2026-09-24T06:38:24Z",
+      "databaseId": 35965464076,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T06:35:45Z",
+      "databaseId": 35965250484,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T06:34:48Z",
+      "databaseId": 35965172324,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T06:29:16Z",
+      "databaseId": 35964717543,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T06:25:33Z",
+      "databaseId": 35964420297,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-24T06:22:47Z",
+      "databaseId": 35964198042,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T06:22:07Z",
+      "databaseId": 35964145508,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T06:22:03Z",
+      "databaseId": 35964139270,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T06:19:43Z",
+      "databaseId": 35963953761,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T06:18:13Z",
+      "databaseId": 35963840259,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T06:17:12Z",
+      "databaseId": 35963762333,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-24T06:16:48Z",
       "databaseId": 35963730905,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -97,86 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T06:11:59Z",
-      "databaseId": 35963352635,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T06:11:04Z",
-      "databaseId": 35963283780,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T06:09:50Z",
-      "databaseId": 35963184382,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-24T06:09:34Z",
-      "databaseId": 35963162224,
-      "headBranch": "main",
-      "status": "queued",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-24T06:04:36Z",
-      "databaseId": 35962781118,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-24T06:00:04Z",
-      "databaseId": 35962420983,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T05:57:42Z",
-      "databaseId": 35962254731,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T05:55:59Z",
-      "databaseId": 35962132494,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T05:55:09Z",
-      "databaseId": 35962072027,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T05:54:28Z",
-      "databaseId": 35962023628,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -145066,6 +145066,56 @@
         "video_id": 29661179
       },
       {
+        "episode_id": 159556,
+        "display_name": "Bernard Tapie je třída S01E06 - Dnes večer vás rozpálíme CZ Dabing",
+        "video_id": 29661405
+      },
+      {
+        "episode_id": 164228,
+        "display_name": "Doktorka Čcha S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29661451
+      },
+      {
+        "episode_id": 116032,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S01E04 - Pomsta příšery z močálu! CZ Dabing",
+        "video_id": 29661537
+      },
+      {
+        "episode_id": 1397,
+        "display_name": "Winx Club S02E24 - V zajetí temného pána CZ Titulky",
+        "video_id": 29661406
+      },
+      {
+        "episode_id": 63505,
+        "display_name": "Sløborn S03E03 - The big chance CZ Titulky",
+        "video_id": 29661469
+      },
+      {
+        "episode_id": 167417,
+        "display_name": "Hasmukh S01E05 - Případ uzavřen CZ Titulky",
+        "video_id": 29661551
+      },
+      {
+        "episode_id": 158925,
+        "display_name": "Odvážný Crusoe S01E06 - Dlouhé prase CZ Dabing",
+        "video_id": 29661630
+      },
+      {
+        "episode_id": 164229,
+        "display_name": "Doktorka Čcha S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29661682
+      },
+      {
+        "episode_id": 116033,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S01E03 - Tým řešitelů záhad rozdělen! CZ Dabing",
+        "video_id": 29661745
+      },
+      {
+        "episode_id": 172105,
+        "display_name": "ஸ்வீட் காரம் காபி S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29661786
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -272239,6 +272289,31 @@
         "episode_id": 190707,
         "display_name": "Teletubbies S01E12 - 12. epizoda CZ Dabing",
         "video_id": 29661084
+      },
+      {
+        "episode_id": 63507,
+        "display_name": "Sløborn S03E04 - The quiet night CZ Titulky",
+        "video_id": 29661424
+      },
+      {
+        "episode_id": 141943,
+        "display_name": "Vteřiny života S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 29661508
+      },
+      {
+        "episode_id": 106675,
+        "display_name": "Život v sázce S01E06 - 6. díl CZ Dabing",
+        "video_id": 29661573
+      },
+      {
+        "episode_id": 159555,
+        "display_name": "Bernard Tapie je třída S01E05 - Tohle nebude stačit CZ Dabing",
+        "video_id": 29661646
+      },
+      {
+        "episode_id": 72715,
+        "display_name": "Weird City S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29661692
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -417023,6 +417098,56 @@
         "video_id": 29661179
       },
       {
+        "episode_id": 159556,
+        "display_name": "Bernard Tapie je třída S01E06 - Dnes večer vás rozpálíme CZ Dabing",
+        "video_id": 29661405
+      },
+      {
+        "episode_id": 164228,
+        "display_name": "Doktorka Čcha S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29661451
+      },
+      {
+        "episode_id": 116032,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S01E04 - Pomsta příšery z močálu! CZ Dabing",
+        "video_id": 29661537
+      },
+      {
+        "episode_id": 1397,
+        "display_name": "Winx Club S02E24 - V zajetí temného pána CZ Titulky",
+        "video_id": 29661406
+      },
+      {
+        "episode_id": 63505,
+        "display_name": "Sløborn S03E03 - The big chance CZ Titulky",
+        "video_id": 29661469
+      },
+      {
+        "episode_id": 167417,
+        "display_name": "Hasmukh S01E05 - Případ uzavřen CZ Titulky",
+        "video_id": 29661551
+      },
+      {
+        "episode_id": 158925,
+        "display_name": "Odvážný Crusoe S01E06 - Dlouhé prase CZ Dabing",
+        "video_id": 29661630
+      },
+      {
+        "episode_id": 164229,
+        "display_name": "Doktorka Čcha S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29661682
+      },
+      {
+        "episode_id": 116033,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S01E03 - Tým řešitelů záhad rozdělen! CZ Dabing",
+        "video_id": 29661745
+      },
+      {
+        "episode_id": 172105,
+        "display_name": "ஸ்வீட் காரம் காபி S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29661786
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -544196,6 +544321,31 @@
         "episode_id": 190707,
         "display_name": "Teletubbies S01E12 - 12. epizoda CZ Dabing",
         "video_id": 29661084
+      },
+      {
+        "episode_id": 63507,
+        "display_name": "Sløborn S03E04 - The quiet night CZ Titulky",
+        "video_id": 29661424
+      },
+      {
+        "episode_id": 141943,
+        "display_name": "Vteřiny života S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 29661508
+      },
+      {
+        "episode_id": 106675,
+        "display_name": "Život v sázce S01E06 - 6. díl CZ Dabing",
+        "video_id": 29661573
+      },
+      {
+        "episode_id": 159555,
+        "display_name": "Bernard Tapie je třída S01E05 - Tohle nebude stačit CZ Dabing",
+        "video_id": 29661646
+      },
+      {
+        "episode_id": 72715,
+        "display_name": "Weird City S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29661692
       }
     ],
     "prepared_not_upload_ready": [
@@ -545357,15 +545507,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 172,
-    "ok": 85,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4142,
-    "whisper_non_cz_needs_subtitles": 12934,
+    "whisper_confirmed_cz": 4145,
+    "whisper_non_cz_needs_subtitles": 12950,
     "whisper_failed": 577,
-    "needs_whisper": 36802
+    "needs_whisper": 36778
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 37231
