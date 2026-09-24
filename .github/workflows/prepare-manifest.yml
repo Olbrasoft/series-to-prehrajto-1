@@ -203,6 +203,7 @@ jobs:
             "--backlog" "backlog/series-episodes.jsonl.gz"
             "--out" "plans/prepared-episodes.jsonl"
             "--episode-limit" "${{ inputs.episode_limit || '20' }}"
+            "--max-runtime" "600"
             "--claim-file" "plans/preparation-claims.jsonl"
             "--claim-batch-id" "${{ needs.claim.outputs.batch_id }}"
             "--claim-shard-index" "${{ matrix.selection_shard_index }}"
@@ -226,6 +227,7 @@ jobs:
             --report reports/upload-manifest.json
 
       - name: Commit and push changes
+        if: always()
         run: |
           set -e
           TMP_DIR="$(mktemp -d)"

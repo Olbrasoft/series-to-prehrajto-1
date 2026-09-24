@@ -15,9 +15,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audit_language_sources import audit_one, append_jsonl, write_latest_index  # noqa: E402
 from prepare_episode_sources import (  # noqa: E402
     MIN_PLANNED_FILE_SIZE,
+    burned_source_ids,
+    latest_usable_prepared_episode_ids,
     load_jsonl,
     source_quality_tier,
     update_subtitle_followup_queue,
+    uploaded_episode_exclusions,
     write_compacted_prepared,
     write_jsonl,
 )
@@ -90,6 +93,31 @@ def queue_key(row: dict) -> tuple[int, int]:
     return int(row["episode_id"]), int(row["source_id"])
 
 
+def eligible_review_sources(rows, *, uploaded_ids, uploaded_keys, burned, prepared_ids):
+    """Spend language checks only on sources that can replenish uploads."""
+    return [row for row in rows
+            if int(row["episode_id"]) not in uploaded_ids
+            and (int(row["series_id"]), int(row["season"]), int(row["episode"])) not in uploaded_keys
+            and int(row["source_id"]) not in burned
+            and int(row["episode_id"]) not in prepared_ids
+            and row.get("provider") == "prehrajto"
+            and int(row.get("filesize_bytes") or 0) >= MIN_PLANNED_FILE_SIZE]
+
+
+def best_promotions(rows: list[dict]) -> list[dict]:
+    """Do not overwrite Czech audio with a later foreign candidate."""
+    best = {}
+    for row in rows:
+        episode_id = int(row["episode_id"])
+        def score(item):
+            source = item["selected_source"]
+            return (item["upload_kind"] == "audio", source.get("resolution_score") or 0,
+                    source.get("filesize_bytes") or 0)
+        if episode_id not in best or score(row) > score(best[episode_id]):
+            best[episode_id] = row
+    return list(best.values())
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--queue", default="plans/whisper-review-queue.jsonl")
@@ -118,7 +146,13 @@ def main() -> int:
         if args.episode is not None and int(row.get("episode") or 0) != args.episode:
             continue
         wanted.append(row)
-    wanted = wanted[: args.limit]
+    uploaded_ids, uploaded_keys = uploaded_episode_exclusions()
+    burned = burned_source_ids()
+    prepared_ids = latest_usable_prepared_episode_ids(REPO_ROOT / args.prepared, burned)
+    eligible = eligible_review_sources(wanted, uploaded_ids=uploaded_ids,
+        uploaded_keys=uploaded_keys, burned=burned, prepared_ids=prepared_ids)
+    print(f"Review selection: pending={len(wanted)} eligible={len(eligible)} skipped={len(wanted) - len(eligible)}", flush=True)
+    wanted = eligible[: args.limit]
 
     old_whisper = os.environ.get("WHISPER_LANGUAGE_CHECK")
     os.environ["WHISPER_LANGUAGE_CHECK"] = "1"
@@ -172,6 +206,8 @@ def main() -> int:
             promoted.append(prepared_row_from_audit(audit, upload_kind="subtitles"))
             promoted_keys.add(queue_key(audit))
 
+    promoted = best_promotions(promoted)
+    promoted_keys = {queue_key(row["selected_source"]) for row in promoted}
     write_jsonl(queue_path, updated_queue)
     if promoted:
         write_compacted_prepared(REPO_ROOT / args.prepared, promoted)

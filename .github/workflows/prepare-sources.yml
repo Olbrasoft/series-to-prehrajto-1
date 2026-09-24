@@ -6,7 +6,7 @@ on:
       episode_limit:
         description: "Number of episodes to prepare"
         required: false
-        default: "100"
+        default: "20"
       source_limit_per_episode:
         description: "Number of sources to check per episode"
         required: false
@@ -20,7 +20,11 @@ on:
         required: false
         default: "true"
   schedule:
-    - cron: "35 * * * *"
+    - cron: "5,20,35,50 * * * *"
+
+concurrency:
+  group: series-to-prehrajto-1-prepare-sources
+  cancel-in-progress: false
 
 jobs:
   prepare:
@@ -29,13 +33,11 @@ jobs:
     permissions:
       contents: write
       actions: write
-    concurrency:
-      group: series-to-prehrajto-1-prepare-sources-${{ github.run_id }}
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 1
           persist-credentials: true
 
       - name: Refresh to latest origin/main
@@ -72,7 +74,8 @@ jobs:
           WHISPER_MODEL: tiny
         run: |
           ARGS=(
-            "--episode-limit" "${{ inputs.episode_limit || '120' }}"
+            "--episode-limit" "${{ inputs.episode_limit || '20' }}"
+            "--max-runtime" "600"
             "--source-limit-per-episode" "${{ inputs.source_limit_per_episode || '8' }}"
             "--sample-seconds" "20"
             "--live-search"

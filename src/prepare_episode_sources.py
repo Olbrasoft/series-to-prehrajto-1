@@ -15,6 +15,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 from collections import defaultdict
 from pathlib import Path
@@ -33,6 +34,10 @@ MIN_UPLOAD_FILE_SIZE = 300 * 1024 * 1024
 MIN_PLANNED_FILE_SIZE = 350 * 1024 * 1024
 FAILED_RETRY_AFTER = dt.timedelta(hours=24)
 MAX_RESOLVABLE_CANDIDATE_PROBES = 3
+
+
+class PreparationRateLimited(RuntimeError):
+    """Discovery must retry later without caching a missing-source verdict."""
 
 
 def source_has_cz_audio_hint(source: dict) -> bool:
@@ -298,6 +303,9 @@ def latest_usable_prepared_episode_ids(path: Path, burned: set[int]) -> set[int]
         selected = row.get("selected_source") or {}
         source_id = selected.get("source_id")
         if source_id is None or int(source_id) in burned:
+            continue
+        filesize = selected.get("filesize_bytes")
+        if filesize is not None and int(filesize) < MIN_PLANNED_FILE_SIZE:
             continue
         if not is_resolvable(selected):
             continue
@@ -626,6 +634,8 @@ def live_search_candidates(episode: dict, *, limit: int, query_limit: int, burne
                 should_fetch_next=lambda results: not has_czech_audio(usable(results)),
             )
         except Exception as exc:
+            if getattr(getattr(exc, "response", None), "status_code", None) == 429:
+                raise PreparationRateLimited(f"Search rate limited for {query!r}") from exc
             print(f"Live search failed for {query!r}: {type(exc).__name__}: {exc}", file=sys.stderr)
             continue
         for page in pages:
@@ -969,6 +979,32 @@ def prepare_episode(
     }
 
 
+def prepare_bounded_batch(episodes, prepare, persist, *, max_runtime=0, checkpoint_every=3):
+    """Checkpoint completed episodes even when a later lookup is interrupted."""
+    started = time.monotonic()
+    prepared, pending = [], []
+    try:
+        for episode in episodes:
+            if max_runtime and time.monotonic() - started >= max_runtime:
+                print(f"Preparation runtime budget reached; completed={len(prepared)}", flush=True)
+                break
+            try:
+                row = prepare(episode)
+            except PreparationRateLimited as exc:
+                print(f"{exc}; checkpointing completed work and deferring this batch", flush=True)
+                break
+            prepared.append(row)
+            pending.append(row)
+            print(f"Prepared episode_id={row['episode_id']} ready={row['upload_ready']}", flush=True)
+            if len(pending) >= checkpoint_every:
+                persist(pending)
+                pending = []
+    finally:
+        if pending:
+            persist(pending)
+    return prepared
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--queue", default="backlog/language-audit-queue.jsonl.gz")
@@ -979,6 +1015,7 @@ def main() -> int:
     ap.add_argument("--subtitle-followup-out", default="plans/subtitle-followup-queue.jsonl")
     ap.add_argument("--whisper-review-out", default="plans/whisper-review-queue.jsonl")
     ap.add_argument("--episode-limit", type=int, default=10)
+    ap.add_argument("--max-runtime", type=int, default=0)
     ap.add_argument("--selection-shard-index", type=int, default=0)
     ap.add_argument("--selection-shard-count", type=int, default=1)
     ap.add_argument("--claim-file", default="plans/preparation-claims.jsonl")
@@ -1100,8 +1137,17 @@ def main() -> int:
             limit=args.episode_limit,
         )
 
-    prepared = [
-        prepare_episode(
+    def persist(rows):
+        audit_rows = [source for row in rows for source in row["tested_sources"]]
+        write_compacted_prepared(Path(args.out), rows)
+        update_subtitle_followup_queue(Path(args.subtitle_followup_out), rows)
+        update_whisper_review_queue(Path(args.whisper_review_out), rows)
+        append_jsonl(Path(args.audit_out), audit_rows)
+        write_latest_index(Path(args.audit_out), Path(args.audit_latest_out))
+
+    prepared = prepare_bounded_batch(
+        todo,
+        lambda episode: prepare_episode(
             episode,
             use_whisper=args.use_whisper,
             sample_seconds=args.sample_seconds,
@@ -1111,15 +1157,10 @@ def main() -> int:
             live_search=args.live_search,
             live_search_limit=args.live_search_limit,
             live_search_query_limit=args.live_search_query_limit,
-        )
-        for episode in todo
-    ]
-    audit_rows = [source for episode in prepared for source in episode["tested_sources"]]
-    write_compacted_prepared(Path(args.out), prepared)
-    update_subtitle_followup_queue(Path(args.subtitle_followup_out), prepared)
-    update_whisper_review_queue(Path(args.whisper_review_out), prepared)
-    append_jsonl(Path(args.audit_out), audit_rows)
-    write_latest_index(Path(args.audit_out), Path(args.audit_latest_out))
+        ),
+        persist,
+        max_runtime=args.max_runtime,
+    )
 
     for episode in prepared:
         selected = episode.get("selected_source")

@@ -387,3 +387,23 @@ pages exposed VTT tracks, but no original SRT download link was found. The
 upload form accepts arbitrary extensions; HTTP 200 alone does not demonstrate
 successful processing. Retain the tested SRT path unless a later controlled
 check proves an equally reliable direct format.
+
+## Upload starvation recovery (September 24, 2026)
+
+A green sync can upload nothing when the prepared window is empty. During this
+incident, language review repeatedly promoted already uploaded episodes, and
+several overlapping discovery runs exhausted the shared search proxy's rate
+limit. The review queue had over 26,000 pending sources belonging to uploaded
+episodes. Review now excludes uploaded episode IDs and aliases, burned sources,
+undersized sources, and already usable prepared episodes before applying its
+batch limit. Multiple promotions for an episode prefer Czech audio regardless
+of audit completion order.
+
+Background discovery has one stable workflow concurrency group, with a
+15-minute schedule and a ten-minute preparation budget. Foreground preparation
+also stops selecting more episodes after ten minutes. Individual in-flight
+requests can extend that budget. Completed episodes are checkpointed locally
+every three results and on interruption, then merged and pushed by the workflow.
+An exhausted HTTP 429 retry stops the batch without recording the interrupted
+episode as having no usable source; completed work is preserved. Known
+undersized prepared sources no longer prevent discovery from repairing them.
