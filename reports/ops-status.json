@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 132021,
     "manifest_upload_ready_episodes": 138,
-    "uploaded_episodes": 59908,
+    "uploaded_episodes": 59909,
     "prepared_source_episodes": 62712,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 58,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54342,
     "whisper_review_pending_sources": 36821,
     "subtitle_followup_sources": 37537,
@@ -19,11 +19,27 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T23:57:36Z",
+      "databaseId": 36075274907,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T23:57:32Z",
+      "databaseId": 36075269105,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-09-24T23:56:52Z",
       "databaseId": 36075220128,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T23:56:49Z",
       "databaseId": 36075215400,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -158,22 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-24T23:46:32Z",
       "databaseId": 36074400958,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T23:46:29Z",
-      "databaseId": 36074396984,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T23:45:19Z",
-      "databaseId": 36074294761,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -146299,6 +146299,11 @@
         "episode_id": 186620,
         "display_name": "LEGO Ninjago: Dračí povstání S03E20 - Vláda chaosu CZ Dabing",
         "video_id": 29684137
+      },
+      {
+        "episode_id": 164232,
+        "display_name": "Doktorka Čcha S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29684277
       },
       {
         "episode_id": 103765,
@@ -420673,6 +420678,11 @@
         "video_id": 29684137
       },
       {
+        "episode_id": 164232,
+        "display_name": "Doktorka Čcha S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29684277
+      },
+      {
         "episode_id": 103765,
         "display_name": "Svědci paranormálních jevů S05E09 - 9. epizoda CZ Titulky",
         "video_id": 29684032
@@ -550187,9 +550197,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 18,
-    "ok": 33,
-    "resolve_failed": 7
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4281,
