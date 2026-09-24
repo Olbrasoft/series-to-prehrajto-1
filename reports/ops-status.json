@@ -1,37 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 132096,
-    "manifest_upload_ready_episodes": 168,
-    "uploaded_episodes": 59728,
+    "manifest_upload_ready_episodes": 185,
+    "uploaded_episodes": 59729,
     "prepared_source_episodes": 62544,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 65,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54355,
-    "whisper_review_pending_sources": 36890,
-    "subtitle_followup_sources": 37466,
-    "subtitle_followup_pending_sources": 37466
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54351,
+    "whisper_review_pending_sources": 36871,
+    "subtitle_followup_sources": 37473,
+    "subtitle_followup_pending_sources": 37473
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T19:49:29Z",
-      "databaseId": 36050739583,
+      "createdAt": "2026-09-24T19:52:30Z",
+      "databaseId": 36051079615,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T19:52:15Z",
+      "databaseId": 36051051415,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-24T19:52:09Z",
+      "databaseId": 36051040016,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T19:50:37Z",
+      "databaseId": 36050868002,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T19:49:29Z",
+      "databaseId": 36050739583,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-24T19:49:14Z",
       "databaseId": 36050712500,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T19:46:40Z",
       "databaseId": 36050427587,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -71,7 +103,7 @@
       "createdAt": "2026-09-24T19:46:25Z",
       "databaseId": 36050399604,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T19:39:46Z",
-      "databaseId": 36049654768,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T19:38:57Z",
-      "databaseId": 36049568354,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T19:37:46Z",
-      "databaseId": 36049439679,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-24T19:37:43Z",
-      "databaseId": 36049433645,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -145819,6 +145819,11 @@
         "episode_id": 60124,
         "display_name": "Kačeří příběhy S03E02 - 2. epizoda CZ Titulky",
         "video_id": 29677662
+      },
+      {
+        "episode_id": 60144,
+        "display_name": "Kačeří příběhy S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29677996
       },
       {
         "episode_id": 60141,
@@ -419338,6 +419343,11 @@
         "video_id": 29677662
       },
       {
+        "episode_id": 60144,
+        "display_name": "Kačeří příběhy S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29677996
+      },
+      {
         "episode_id": 60141,
         "display_name": "Kačeří příběhy S01E08 - Toth-Raovy živé mumie! CZ Dabing",
         "video_id": 29676035
@@ -548477,17 +548487,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
-    "ok": 59,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4230,
-    "whisper_non_cz_needs_subtitles": 13235,
-    "whisper_failed": 606,
-    "needs_whisper": 36284
+    "whisper_confirmed_cz": 4234,
+    "whisper_non_cz_needs_subtitles": 13246,
+    "whisper_failed": 608,
+    "needs_whisper": 36263
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 37466
+    "needs_subtitle_setup_after_prehrajto_processing": 37473
   }
 }
