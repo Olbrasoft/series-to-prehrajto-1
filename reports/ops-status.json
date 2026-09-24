@@ -1,37 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 132313,
-    "manifest_upload_ready_episodes": 14,
-    "uploaded_episodes": 59519,
-    "prepared_source_episodes": 62143,
+    "manifest_upload_ready_episodes": 7,
+    "uploaded_episodes": 59521,
+    "prepared_source_episodes": 62139,
     "description_series": 60,
     "description_episodes": 753,
-    "description_errors": 42,
+    "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54409,
-    "whisper_review_pending_sources": 37146,
+    "whisper_review_sources": 54404,
+    "whisper_review_pending_sources": 37121,
     "subtitle_followup_sources": 37302,
     "subtitle_followup_pending_sources": 37302
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T12:03:16Z",
-      "databaseId": 35996655936,
+      "createdAt": "2026-09-24T12:05:02Z",
+      "databaseId": 35996841907,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "ops-watchdog"
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-24T12:03:35Z",
+      "databaseId": 35996688253,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T12:03:16Z",
+      "databaseId": 35996655936,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-24T12:03:11Z",
       "databaseId": 35996648334,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -39,23 +55,23 @@
       "createdAt": "2026-09-24T12:03:05Z",
       "databaseId": 35996637479,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T12:02:27Z",
       "databaseId": 35996569662,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T12:01:04Z",
       "databaseId": 35996430868,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T12:00:22Z",
       "databaseId": 35996349895,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T11:51:33Z",
-      "databaseId": 35995492309,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T11:45:09Z",
-      "databaseId": 35994850624,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -145329,6 +145329,16 @@
         "episode_id": 158917,
         "display_name": "Odvážný Crusoe S01E09 - Název hry CZ Dabing",
         "video_id": 29667080
+      },
+      {
+        "episode_id": 96008,
+        "display_name": "Psycho-Pass S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29667402
+      },
+      {
+        "episode_id": 163961,
+        "display_name": "Bylo jednou jedno městečko S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29667390
       },
       {
         "episode_id": 114182,
@@ -417803,6 +417813,16 @@
         "video_id": 29667080
       },
       {
+        "episode_id": 96008,
+        "display_name": "Psycho-Pass S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29667402
+      },
+      {
+        "episode_id": 163961,
+        "display_name": "Bylo jednou jedno městečko S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29667390
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -546387,14 +546407,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 59,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4161,
-    "whisper_non_cz_needs_subtitles": 13102,
+    "whisper_confirmed_cz": 4162,
+    "whisper_non_cz_needs_subtitles": 13121,
     "whisper_failed": 577,
-    "needs_whisper": 36569
+    "needs_whisper": 36544
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 37302
