@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 132263,
     "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 59565,
+    "uploaded_episodes": 59566,
     "prepared_source_episodes": 62301,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 273,
-    "language_whisper_attempted_sources": 129,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54405,
     "whisper_review_pending_sources": 37126,
@@ -20,26 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T13:20:37Z",
-      "databaseId": 36005000312,
+      "createdAt": "2026-09-24T13:22:41Z",
+      "databaseId": 36005236129,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "sync"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T13:20:23Z",
-      "databaseId": 36004971824,
+      "createdAt": "2026-09-24T13:22:37Z",
+      "databaseId": 36005228356,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T13:22:05Z",
+      "databaseId": 36005167195,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T13:22:00Z",
+      "databaseId": 36005157502,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T13:21:30Z",
+      "databaseId": 36005100970,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-24T13:21:26Z",
+      "databaseId": 36005093578,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T13:21:22Z",
+      "databaseId": 36005086115,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T13:20:37Z",
+      "databaseId": 36005000312,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T13:20:23Z",
+      "databaseId": 36004971824,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-24T13:19:03Z",
       "databaseId": 36004818969,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -47,7 +103,7 @@
       "createdAt": "2026-09-24T13:15:58Z",
       "databaseId": 36004474076,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -75,19 +131,19 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T13:12:38Z",
       "databaseId": 36004096731,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T13:08:53Z",
       "databaseId": 36003680199,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T13:05:26Z",
-      "databaseId": 36003300423,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T13:03:18Z",
-      "databaseId": 36003061000,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T13:03:14Z",
-      "databaseId": 36003053940,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T13:01:59Z",
-      "databaseId": 36002914951,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T13:01:34Z",
-      "databaseId": 36002866988,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T13:01:21Z",
-      "databaseId": 36002843017,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T13:01:14Z",
-      "databaseId": 36002831046,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -272981,6 +272981,11 @@
         "video_id": 29669081
       },
       {
+        "episode_id": 100482,
+        "display_name": "Impulse S02E07 - The End of the World CZ Titulky",
+        "video_id": 29669114
+      },
+      {
         "episode_id": 102431,
         "display_name": "In the Flesh S02E01 - 1. epizoda CZ Titulky",
         "video_id": 29669039
@@ -545683,6 +545688,11 @@
         "video_id": 29669081
       },
       {
+        "episode_id": 100482,
+        "display_name": "Impulse S02E07 - The End of the World CZ Titulky",
+        "video_id": 29669114
+      },
+      {
         "episode_id": 102431,
         "display_name": "In the Flesh S02E01 - 1. epizoda CZ Titulky",
         "video_id": 29669039
@@ -546847,8 +546857,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 144,
-    "ok": 128,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
