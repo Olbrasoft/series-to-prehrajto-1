@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 132368,
     "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 59445,
+    "uploaded_episodes": 59447,
     "prepared_source_episodes": 62194,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 239,
-    "language_whisper_attempted_sources": 83,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54450,
     "whisper_review_pending_sources": 37355,
     "subtitle_followup_sources": 37245,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-24T07:21:46Z",
-      "databaseId": 35969198277,
+      "createdAt": "2026-09-24T07:27:50Z",
+      "databaseId": 35969742801,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T07:26:41Z",
+      "databaseId": 35969641909,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-24T07:25:41Z",
+      "databaseId": 35969552526,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-24T07:22:12Z",
+      "databaseId": 35969236636,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T07:22:09Z",
+      "databaseId": 35969231555,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-24T07:21:46Z",
+      "databaseId": 35969198277,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-24T07:21:41Z",
       "databaseId": 35969191102,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -39,23 +79,23 @@
       "createdAt": "2026-09-24T07:21:35Z",
       "databaseId": 35969182037,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T07:21:06Z",
       "databaseId": 35969139260,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-24T07:20:50Z",
       "databaseId": 35969115577,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -79,7 +119,7 @@
       "createdAt": "2026-09-24T07:16:22Z",
       "databaseId": 35968725309,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "queued",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-24T07:10:34Z",
-      "databaseId": 35968206420,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T07:10:28Z",
-      "databaseId": 35968197947,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T07:08:18Z",
-      "databaseId": 35968005158,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T07:04:19Z",
-      "databaseId": 35967649211,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-24T07:03:04Z",
-      "databaseId": 35967539825,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -145141,6 +145141,11 @@
         "video_id": 29662370
       },
       {
+        "episode_id": 63508,
+        "display_name": "Sløborn S03E06 - Sins of the fathers CZ Titulky",
+        "video_id": 29662752
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -272384,6 +272389,11 @@
         "episode_id": 125090,
         "display_name": "Zbouchnutá ze střední S02E04 - 4. epizoda CZ Titulky",
         "video_id": 29662418
+      },
+      {
+        "episode_id": 9547,
+        "display_name": "The Drowning S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29662793
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -417243,6 +417253,11 @@
         "video_id": 29662370
       },
       {
+        "episode_id": 63508,
+        "display_name": "Sløborn S03E06 - Sins of the fathers CZ Titulky",
+        "video_id": 29662752
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -544486,6 +544501,11 @@
         "episode_id": 125090,
         "display_name": "Zbouchnutá ze střední S02E04 - 4. epizoda CZ Titulky",
         "video_id": 29662418
+      },
+      {
+        "episode_id": 9547,
+        "display_name": "The Drowning S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29662793
       }
     ],
     "prepared_not_upload_ready": [
@@ -545647,8 +545667,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 156,
-    "ok": 82,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
