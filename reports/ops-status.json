@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 131261,
-    "manifest_upload_ready_episodes": 264,
-    "uploaded_episodes": 60543,
-    "prepared_source_episodes": 62862,
+    "manifest_upload_ready_episodes": 267,
+    "uploaded_episodes": 60546,
+    "prepared_source_episodes": 62875,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 71,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54257,
-    "whisper_review_pending_sources": 36476,
-    "subtitle_followup_sources": 37914,
-    "subtitle_followup_pending_sources": 37914
+    "whisper_review_sources": 54260,
+    "whisper_review_pending_sources": 36493,
+    "subtitle_followup_sources": 37921,
+    "subtitle_followup_pending_sources": 37921
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-25T09:25:26Z",
-      "databaseId": 36118346824,
+      "createdAt": "2026-09-25T09:30:09Z",
+      "databaseId": 36118785200,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-25T09:29:57Z",
+      "databaseId": 36118764785,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T09:29:07Z",
+      "databaseId": 36118687917,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-25T09:28:13Z",
+      "databaseId": 36118605432,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T09:26:41Z",
+      "databaseId": 36118463093,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T09:26:35Z",
+      "databaseId": 36118454912,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T09:25:26Z",
+      "databaseId": 36118346824,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-25T09:24:51Z",
       "databaseId": 36118290124,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-25T09:23:53Z",
       "databaseId": 36118199907,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -107,11 +155,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-25T09:13:24Z",
       "databaseId": 36117225498,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T09:12:04Z",
-      "databaseId": 36117100624,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T09:11:59Z",
-      "databaseId": 36117093937,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T09:11:54Z",
-      "databaseId": 36117085548,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-25T09:11:50Z",
-      "databaseId": 36117079199,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T09:10:57Z",
-      "databaseId": 36116999135,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-25T09:10:37Z",
-      "databaseId": 36116968265,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -147921,6 +147921,16 @@
         "video_id": 29698459
       },
       {
+        "episode_id": 48621,
+        "display_name": "Měsíční svit S02E16 - Spánek mluvícího muže CZ Dabing",
+        "video_id": 29698660
+      },
+      {
+        "episode_id": 1829,
+        "display_name": "Melrose Place S01E04 - Pro lásku či pro peníze CZ Titulky",
+        "video_id": 29698846
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -277829,6 +277839,11 @@
         "episode_id": 48639,
         "display_name": "Měsíční svit S01E04 - Vražda na rozhlasových vlnách CZ Dabing",
         "video_id": 29698525
+      },
+      {
+        "episode_id": 48643,
+        "display_name": "Měsíční svit S02E13 - Podezřelá kouzla CZ Dabing",
+        "video_id": 29698716
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -425468,6 +425483,16 @@
         "video_id": 29698459
       },
       {
+        "episode_id": 48621,
+        "display_name": "Měsíční svit S02E16 - Spánek mluvícího muže CZ Dabing",
+        "video_id": 29698660
+      },
+      {
+        "episode_id": 1829,
+        "display_name": "Melrose Place S01E04 - Pro lásku či pro peníze CZ Titulky",
+        "video_id": 29698846
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -555376,6 +555401,11 @@
         "episode_id": 48639,
         "display_name": "Měsíční svit S01E04 - Vražda na rozhlasových vlnách CZ Dabing",
         "video_id": 29698525
+      },
+      {
+        "episode_id": 48643,
+        "display_name": "Měsíční svit S02E13 - Podezřelá kouzla CZ Dabing",
+        "video_id": 29698716
       }
     ],
     "prepared_not_upload_ready": [
@@ -556537,16 +556567,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
-    "resolve_failed": 1
+    "disabled": 31,
+    "resolve_failed": 14,
+    "ok": 26
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4313,
-    "whisper_non_cz_needs_subtitles": 13468,
-    "needs_whisper": 35790,
+    "whisper_confirmed_cz": 4302,
+    "whisper_non_cz_needs_subtitles": 13465,
+    "needs_whisper": 35807,
     "whisper_failed": 686
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 37914
+    "needs_subtitle_setup_after_prehrajto_processing": 37921
   }
 }
