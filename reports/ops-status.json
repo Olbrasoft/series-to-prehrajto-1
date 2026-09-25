@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 131424,
     "manifest_upload_ready_episodes": 224,
-    "uploaded_episodes": 60447,
+    "uploaded_episodes": 60448,
     "prepared_source_episodes": 62824,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 76,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54290,
     "whisper_review_pending_sources": 36603,
     "subtitle_followup_sources": 37848,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-25T07:48:15Z",
+      "databaseId": 36109519711,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T07:48:12Z",
+      "databaseId": 36109515652,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T07:48:08Z",
+      "databaseId": 36109509193,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T07:48:03Z",
+      "databaseId": 36109502782,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-25T07:47:15Z",
       "databaseId": 36109433048,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T07:37:21Z",
-      "databaseId": 36108575214,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T07:37:19Z",
-      "databaseId": 36108573166,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T07:36:13Z",
-      "databaseId": 36108478838,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T07:36:10Z",
-      "databaseId": 36108474684,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -147684,6 +147684,11 @@
         "episode_id": 8185,
         "display_name": "Alice a Jack S01E02 - 2. epizoda CZ Dabing",
         "video_id": 29696006
+      },
+      {
+        "episode_id": 8189,
+        "display_name": "Alice a Jack S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29696080
       },
       {
         "episode_id": 114182,
@@ -424753,6 +424758,11 @@
         "video_id": 29696006
       },
       {
+        "episode_id": 8189,
+        "display_name": "Alice a Jack S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29696080
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -555577,9 +555587,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 16,
-    "resolve_failed": 21,
-    "ok": 39
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4277,
