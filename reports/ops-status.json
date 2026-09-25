@@ -1,23 +1,63 @@
 {
   "counts": {
     "backlog_episodes": 131135,
-    "manifest_upload_ready_episodes": 382,
-    "uploaded_episodes": 60737,
-    "prepared_source_episodes": 62991,
+    "manifest_upload_ready_episodes": 386,
+    "uploaded_episodes": 60738,
+    "prepared_source_episodes": 62999,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 60,
+    "language_audited_sources": 71,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54244,
-    "whisper_review_pending_sources": 36510,
-    "subtitle_followup_sources": 38087,
-    "subtitle_followup_pending_sources": 38087
+    "whisper_review_sources": 54252,
+    "whisper_review_pending_sources": 36555,
+    "subtitle_followup_sources": 38089,
+    "subtitle_followup_pending_sources": 38089
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T13:37:04Z",
+      "databaseId": 36142092283,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T13:36:59Z",
+      "databaseId": 36142083835,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T13:36:56Z",
+      "databaseId": 36142077789,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T13:36:49Z",
+      "databaseId": 36142065515,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T13:36:48Z",
+      "databaseId": 36142064177,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-25T13:36:01Z",
@@ -27,11 +67,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-25T13:35:46Z",
       "databaseId": 36141950767,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-25T13:31:29Z",
       "databaseId": 36141499685,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-25T13:21:17Z",
-      "databaseId": 36140419269,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-25T13:21:08Z",
-      "databaseId": 36140403831,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T13:20:40Z",
-      "databaseId": 36140353837,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T13:20:36Z",
-      "databaseId": 36140348170,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T13:20:27Z",
-      "databaseId": 36140332849,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -278786,6 +278786,11 @@
         "video_id": 29705384
       },
       {
+        "episode_id": 28546,
+        "display_name": "Můj přítel Monk S04E02 - Pan Monk jde opět domů CZ Dabing",
+        "video_id": 29705513
+      },
+      {
         "episode_id": 10931,
         "display_name": "Můj přítel Monk S02E15 - Pan Monk se ožení CZ Titulky",
         "video_id": 29705257
@@ -557303,6 +557308,11 @@
         "video_id": 29705384
       },
       {
+        "episode_id": 28546,
+        "display_name": "Můj přítel Monk S04E02 - Pan Monk jde opět domů CZ Dabing",
+        "video_id": 29705513
+      },
+      {
         "episode_id": 10931,
         "display_name": "Můj přítel Monk S02E15 - Pan Monk se ožení CZ Titulky",
         "video_id": 29705257
@@ -558478,15 +558488,16 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 59,
+    "disabled": 11,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4209,
-    "whisper_non_cz_needs_subtitles": 13525,
-    "needs_whisper": 35776,
+    "whisper_non_cz_needs_subtitles": 13488,
+    "needs_whisper": 35821,
     "whisper_failed": 734
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38087
+    "needs_subtitle_setup_after_prehrajto_processing": 38089
   }
 }
