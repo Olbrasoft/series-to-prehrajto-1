@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 131637,
     "manifest_upload_ready_episodes": 218,
-    "uploaded_episodes": 60324,
+    "uploaded_episodes": 60328,
     "prepared_source_episodes": 62783,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 75,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54299,
     "whisper_review_pending_sources": 36581,
@@ -20,18 +20,90 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-25T05:36:32Z",
-      "databaseId": 36099276226,
+      "createdAt": "2026-09-25T05:46:49Z",
+      "databaseId": 36099995406,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-status"
+      "status": "pending",
+      "workflowName": "sync"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-25T05:46:09Z",
+      "databaseId": 36099948321,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T05:45:58Z",
+      "databaseId": 36099935173,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T05:43:54Z",
+      "databaseId": 36099783452,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T05:43:24Z",
+      "databaseId": 36099748874,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T05:40:48Z",
+      "databaseId": 36099566804,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T05:38:36Z",
+      "databaseId": 36099413773,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T05:38:02Z",
+      "databaseId": 36099376310,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T05:37:51Z",
+      "databaseId": 36099365269,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T05:36:32Z",
+      "databaseId": 36099276226,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-25T05:36:11Z",
       "databaseId": 36099250864,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -105,78 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T05:31:47Z",
-      "databaseId": 36098941928,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T05:30:50Z",
-      "databaseId": 36098876919,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T05:30:47Z",
-      "databaseId": 36098873123,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-25T05:30:24Z",
-      "databaseId": 36098844025,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T05:27:00Z",
-      "databaseId": 36098605944,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T05:24:14Z",
-      "databaseId": 36098413756,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T05:23:08Z",
-      "databaseId": 36098337178,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T05:23:04Z",
-      "databaseId": 36098332121,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T05:22:14Z",
-      "databaseId": 36098274375,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -147376,6 +147376,16 @@
         "video_id": 29692919
       },
       {
+        "episode_id": 119456,
+        "display_name": "Machři a šprti S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 29693044
+      },
+      {
+        "episode_id": 119457,
+        "display_name": "Machři a šprti S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29693056
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -276734,6 +276744,16 @@
         "episode_id": 145931,
         "display_name": "Jak se stát vůdcem sekty S01E03 - Přeměňte jejich mysl CZ Dabing",
         "video_id": 29692862
+      },
+      {
+        "episode_id": 135022,
+        "display_name": "Machři a šprti S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29693043
+      },
+      {
+        "episode_id": 119459,
+        "display_name": "Machři a šprti S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29693055
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -423828,6 +423848,16 @@
         "video_id": 29692919
       },
       {
+        "episode_id": 119456,
+        "display_name": "Machři a šprti S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 29693044
+      },
+      {
+        "episode_id": 119457,
+        "display_name": "Machři a šprti S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29693056
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -553186,6 +553216,16 @@
         "episode_id": 145931,
         "display_name": "Jak se stát vůdcem sekty S01E03 - Přeměňte jejich mysl CZ Dabing",
         "video_id": 29692862
+      },
+      {
+        "episode_id": 135022,
+        "display_name": "Machři a šprti S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29693043
+      },
+      {
+        "episode_id": 119459,
+        "display_name": "Machři a šprti S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29693055
       }
     ],
     "prepared_not_upload_ready": [
@@ -554347,9 +554387,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 56,
-    "resolve_failed": 4,
-    "disabled": 15
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4286,
