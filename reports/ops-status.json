@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 131826,
-    "manifest_upload_ready_episodes": 182,
-    "uploaded_episodes": 60132,
-    "prepared_source_episodes": 62774,
+    "manifest_upload_ready_episodes": 180,
+    "uploaded_episodes": 60135,
+    "prepared_source_episodes": 62770,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 66,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54315,
     "whisper_review_pending_sources": 36664,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-25T03:03:34Z",
-      "databaseId": 36088797875,
+      "createdAt": "2026-09-25T03:06:35Z",
+      "databaseId": 36089013652,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-25T03:04:55Z",
+      "databaseId": 36088892668,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T03:04:38Z",
+      "databaseId": 36088872721,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T03:04:35Z",
+      "databaseId": 36088869895,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T03:04:33Z",
+      "databaseId": 36088866752,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T03:03:34Z",
+      "databaseId": 36088797875,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-25T03:03:29Z",
       "databaseId": 36088792162,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-25T02:59:40Z",
       "databaseId": 36088522059,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T02:54:48Z",
-      "databaseId": 36088201542,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T02:54:45Z",
-      "databaseId": 36088198469,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T02:52:13Z",
-      "databaseId": 36088028517,
-      "headBranch": "main",
-      "status": "queued",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T02:52:01Z",
-      "databaseId": 36088015093,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T02:51:57Z",
-      "databaseId": 36088010265,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -146896,6 +146896,16 @@
         "video_id": 29689217
       },
       {
+        "episode_id": 64252,
+        "display_name": "Legendy zítřka S07E08 - 8. epizoda CZ Titulky",
+        "video_id": 29689350
+      },
+      {
+        "episode_id": 64189,
+        "display_name": "Legendy zítřka S03E08 - Crisis on Earth-X, Part 4 CZ Titulky",
+        "video_id": 29689364
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -275774,6 +275784,11 @@
         "episode_id": 64183,
         "display_name": "Legendy zítřka S03E02 - Freakshow CZ Titulky",
         "video_id": 29689244
+      },
+      {
+        "episode_id": 64187,
+        "display_name": "Legendy zítřka S03E06 - Helen Hunt CZ Titulky",
+        "video_id": 29689348
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -422388,6 +422403,16 @@
         "video_id": 29689217
       },
       {
+        "episode_id": 64252,
+        "display_name": "Legendy zítřka S07E08 - 8. epizoda CZ Titulky",
+        "video_id": 29689350
+      },
+      {
+        "episode_id": 64189,
+        "display_name": "Legendy zítřka S03E08 - Crisis on Earth-X, Part 4 CZ Titulky",
+        "video_id": 29689364
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -551266,6 +551291,11 @@
         "episode_id": 64183,
         "display_name": "Legendy zítřka S03E02 - Freakshow CZ Titulky",
         "video_id": 29689244
+      },
+      {
+        "episode_id": 64187,
+        "display_name": "Legendy zítřka S03E06 - Helen Hunt CZ Titulky",
+        "video_id": 29689348
       }
     ],
     "prepared_not_upload_ready": [
@@ -552427,8 +552457,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 59,
-    "disabled": 6,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
