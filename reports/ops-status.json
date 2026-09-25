@@ -1,23 +1,79 @@
 {
   "counts": {
     "backlog_episodes": 131135,
-    "manifest_upload_ready_episodes": 354,
-    "uploaded_episodes": 60694,
-    "prepared_source_episodes": 62976,
+    "manifest_upload_ready_episodes": 357,
+    "uploaded_episodes": 60698,
+    "prepared_source_episodes": 62984,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 71,
+    "language_audited_sources": 87,
     "language_whisper_attempted_sources": 62,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54242,
-    "whisper_review_pending_sources": 36492,
-    "subtitle_followup_sources": 38060,
-    "subtitle_followup_pending_sources": 38060
+    "whisper_review_sources": 54250,
+    "whisper_review_pending_sources": 36540,
+    "subtitle_followup_sources": 38063,
+    "subtitle_followup_pending_sources": 38063
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T12:53:06Z",
+      "databaseId": 36137534607,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T12:52:36Z",
+      "databaseId": 36137486386,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T12:50:33Z",
+      "databaseId": 36137281982,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T12:48:56Z",
+      "databaseId": 36137121094,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T12:48:53Z",
+      "databaseId": 36137115661,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T12:48:52Z",
+      "databaseId": 36137115544,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T12:48:46Z",
+      "databaseId": 36137105444,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-09-25T12:47:53Z",
@@ -43,19 +99,19 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-25T12:46:42Z",
       "databaseId": 36136902113,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-25T12:46:39Z",
       "databaseId": 36136897923,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-25T12:41:04Z",
-      "databaseId": 36136344172,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T12:36:03Z",
-      "databaseId": 36135857197,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T12:34:24Z",
-      "databaseId": 36135697017,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T12:34:23Z",
-      "databaseId": 36135694385,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T12:34:20Z",
-      "databaseId": 36135689916,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T12:34:18Z",
-      "databaseId": 36135686030,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T12:33:16Z",
-      "databaseId": 36135585721,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -148306,6 +148306,16 @@
         "video_id": 29704087
       },
       {
+        "episode_id": 10940,
+        "display_name": "Můj přítel Monk S02E10 - Pan Monk a kluk s novinami CZ Dabing",
+        "video_id": 29704300
+      },
+      {
+        "episode_id": 10945,
+        "display_name": "Můj přítel Monk S02E05 - Pan Monk a velmi, velmi starý muž CZ Titulky",
+        "video_id": 29704298
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -278584,6 +278594,16 @@
         "episode_id": 90931,
         "display_name": "Modus smrti S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29704152
+      },
+      {
+        "episode_id": 10946,
+        "display_name": "Můj přítel Monk S02E04 - Pan Monk jde do cirkusu CZ Dabing",
+        "video_id": 29704303
+      },
+      {
+        "episode_id": 10943,
+        "display_name": "Můj přítel Monk S02E07 - Pan Monk a spící podezřelý CZ Dabing",
+        "video_id": 29704284
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -426608,6 +426628,16 @@
         "video_id": 29704087
       },
       {
+        "episode_id": 10940,
+        "display_name": "Můj přítel Monk S02E10 - Pan Monk a kluk s novinami CZ Dabing",
+        "video_id": 29704300
+      },
+      {
+        "episode_id": 10945,
+        "display_name": "Můj přítel Monk S02E05 - Pan Monk a velmi, velmi starý muž CZ Titulky",
+        "video_id": 29704298
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -556886,6 +556916,16 @@
         "episode_id": 90931,
         "display_name": "Modus smrti S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29704152
+      },
+      {
+        "episode_id": 10946,
+        "display_name": "Můj přítel Monk S02E04 - Pan Monk jde do cirkusu CZ Dabing",
+        "video_id": 29704303
+      },
+      {
+        "episode_id": 10943,
+        "display_name": "Můj přítel Monk S02E07 - Pan Monk a spící podezřelý CZ Dabing",
+        "video_id": 29704284
       }
     ],
     "prepared_not_upload_ready": [
@@ -558047,17 +558087,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 25,
     "ok": 61,
-    "disabled": 9,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4250,
-    "whisper_non_cz_needs_subtitles": 13500,
-    "needs_whisper": 35758,
+    "whisper_confirmed_cz": 4222,
+    "whisper_non_cz_needs_subtitles": 13488,
+    "needs_whisper": 35806,
     "whisper_failed": 734
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38060
+    "needs_subtitle_setup_after_prehrajto_processing": 38063
   }
 }
