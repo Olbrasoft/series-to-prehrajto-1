@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 131424,
-    "manifest_upload_ready_episodes": 224,
-    "uploaded_episodes": 60448,
-    "prepared_source_episodes": 62824,
+    "manifest_upload_ready_episodes": 218,
+    "uploaded_episodes": 60450,
+    "prepared_source_episodes": 62817,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 76,
+    "language_whisper_attempted_sources": 60,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54290,
     "whisper_review_pending_sources": 36603,
     "subtitle_followup_sources": 37848,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-25T07:49:26Z",
+      "databaseId": 36109621313,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T07:48:59Z",
+      "databaseId": 36109583833,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T07:48:58Z",
+      "databaseId": 36109582663,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-25T07:48:15Z",
       "databaseId": 36109519711,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,19 +107,19 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-25T07:45:52Z",
       "databaseId": 36109312765,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-25T07:45:38Z",
       "databaseId": 36109293375,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-25T07:39:14Z",
-      "databaseId": 36108736263,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T07:38:43Z",
-      "databaseId": 36108691727,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T07:37:23Z",
-      "databaseId": 36108578590,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -147651,6 +147651,11 @@
         "video_id": 29696092
       },
       {
+        "episode_id": 11132,
+        "display_name": "Veselá tetka S01E07 - Masitá výhra CZ Dabing",
+        "video_id": 29696141
+      },
+      {
         "episode_id": 6161,
         "display_name": "Marvel's The Punisher S01E09 - Čelem k nepříteli CZ Titulky",
         "video_id": 29695431
@@ -277354,6 +277359,11 @@
         "episode_id": 104663,
         "display_name": "Balthazar S03E07 - Šíleně CZ Dabing",
         "video_id": 29695961
+      },
+      {
+        "episode_id": 104667,
+        "display_name": "Balthazar S04E03 - Zdání klame CZ Dabing",
+        "video_id": 29696064
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -424723,6 +424733,11 @@
         "video_id": 29696092
       },
       {
+        "episode_id": 11132,
+        "display_name": "Veselá tetka S01E07 - Masitá výhra CZ Dabing",
+        "video_id": 29696141
+      },
+      {
         "episode_id": 6161,
         "display_name": "Marvel's The Punisher S01E09 - Čelem k nepříteli CZ Titulky",
         "video_id": 29695431
@@ -554426,6 +554441,11 @@
         "episode_id": 104663,
         "display_name": "Balthazar S03E07 - Šíleně CZ Dabing",
         "video_id": 29695961
+      },
+      {
+        "episode_id": 104667,
+        "display_name": "Balthazar S04E03 - Zdání klame CZ Dabing",
+        "video_id": 29696064
       }
     ],
     "prepared_not_upload_ready": [
@@ -555587,8 +555607,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
-    "resolve_failed": 1
+    "disabled": 16,
+    "resolve_failed": 21,
+    "ok": 39
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4277,
