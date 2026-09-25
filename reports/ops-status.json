@@ -2,36 +2,84 @@
   "counts": {
     "backlog_episodes": 131826,
     "manifest_upload_ready_episodes": 112,
-    "uploaded_episodes": 59986,
-    "prepared_source_episodes": 62738,
+    "uploaded_episodes": 59988,
+    "prepared_source_episodes": 62743,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
+    "language_audited_sources": 60,
     "language_whisper_attempted_sources": 41,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54343,
-    "whisper_review_pending_sources": 36818,
+    "whisper_review_sources": 54339,
+    "whisper_review_pending_sources": 36805,
     "subtitle_followup_sources": 37581,
     "subtitle_followup_pending_sources": 37581
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-25T01:07:45Z",
-      "databaseId": 36080652125,
+      "createdAt": "2026-09-25T01:10:55Z",
+      "databaseId": 36080883316,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "status": "queued",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-25T01:10:11Z",
+      "databaseId": 36080829238,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T01:10:06Z",
+      "databaseId": 36080821436,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T01:08:35Z",
+      "databaseId": 36080712660,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-25T01:08:32Z",
+      "databaseId": 36080709608,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-25T01:08:30Z",
+      "databaseId": 36080707626,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-25T01:07:45Z",
+      "databaseId": 36080652125,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-25T01:07:31Z",
       "databaseId": 36080633115,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-25T00:57:28Z",
       "databaseId": 36079878013,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T00:53:14Z",
-      "databaseId": 36079574765,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T00:53:11Z",
-      "databaseId": 36079570900,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T00:52:54Z",
-      "databaseId": 36079548739,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-25T00:52:18Z",
-      "databaseId": 36079505538,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T00:52:11Z",
-      "databaseId": 36079497136,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-25T00:44:43Z",
-      "databaseId": 36078939135,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -146526,6 +146526,11 @@
         "video_id": 29686148
       },
       {
+        "episode_id": 116029,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S01E07 - Ollie z pytle ven! CZ Dabing",
+        "video_id": 29686276
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -275044,6 +275049,11 @@
         "episode_id": 163963,
         "display_name": "Bylo jednou jedno městečko S01E08 - 8. epizoda CZ Titulky",
         "video_id": 29686224
+      },
+      {
+        "episode_id": 130167,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S02E03 - Hotdogový pes! CZ Dabing",
+        "video_id": 29686284
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -421288,6 +421298,11 @@
         "video_id": 29686148
       },
       {
+        "episode_id": 116029,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S01E07 - Ollie z pytle ven! CZ Dabing",
+        "video_id": 29686276
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -549806,6 +549821,11 @@
         "episode_id": 163963,
         "display_name": "Bylo jednou jedno městečko S01E08 - 8. epizoda CZ Titulky",
         "video_id": 29686224
+      },
+      {
+        "episode_id": 130167,
+        "display_name": "Scooby-Doo, hádej kdo je tu? S02E03 - Hotdogový pes! CZ Dabing",
+        "video_id": 29686284
       }
     ],
     "prepared_not_upload_ready": [
@@ -550296,6 +550316,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 161558,
+        "source_id": -21992639762212535,
+        "series_title": "Briarpatch",
+        "episode_code": "S01E07",
+        "source_title": "Briarpatch S01E07 - ENG",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 161559,
         "source_id": -66483579280904580,
         "series_title": "Briarpatch",
@@ -550501,14 +550529,6 @@
         "series_title": "Chirurgové",
         "episode_code": "S08E21",
         "source_title": "Chirurgové (Grey's Anatomy) – S08E21",
-        "status": "whisper_failed"
-      },
-      {
-        "episode_id": 56275,
-        "source_id": -23905561721062679,
-        "series_title": "Chirurgové",
-        "episode_code": "S08E22",
-        "source_title": "Chirurgové (Grey's Anatomy) – S08E22",
         "status": "whisper_failed"
       }
     ],
@@ -550967,15 +550987,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
+    "disabled": 19,
     "ok": 40,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4281,
-    "whisper_non_cz_needs_subtitles": 13244,
-    "needs_whisper": 36212,
-    "whisper_failed": 606
+    "whisper_confirmed_cz": 4283,
+    "whisper_non_cz_needs_subtitles": 13251,
+    "needs_whisper": 36192,
+    "whisper_failed": 613
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 37581
