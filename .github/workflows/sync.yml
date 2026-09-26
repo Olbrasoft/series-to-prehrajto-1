@@ -40,6 +40,7 @@ concurrency:
 jobs:
   upload-batch:
     name: Upload series episodes
+    if: vars.VIDEO_UPLOADS_PAUSED != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:
@@ -175,7 +176,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: upload-batch
     timeout-minutes: 20
-    if: always() && !cancelled() && (needs.upload-batch.result == 'success' || needs.upload-batch.result == 'failure') && (github.event_name == 'schedule' || inputs.continue_uploads != 'false')
+    if: always() && !cancelled() && vars.VIDEO_UPLOADS_PAUSED != 'true' && (needs.upload-batch.result == 'success' || needs.upload-batch.result == 'failure') && (github.event_name == 'schedule' || inputs.continue_uploads != 'false')
     permissions:
       contents: read
       actions: write

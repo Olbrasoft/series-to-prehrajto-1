@@ -49,6 +49,7 @@ jobs:
       - name: Check and queue work
         env:
           GH_TOKEN: ${{ github.token }}
+          VIDEO_UPLOADS_PAUSED: ${{ vars.VIDEO_UPLOADS_PAUSED }}
         run: |
           python src/ops_watchdog.py \
             --min-upload-ready 1000 \

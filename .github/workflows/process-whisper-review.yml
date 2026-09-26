@@ -136,7 +136,7 @@ jobs:
           exit 1
 
       - name: Queue upload after Whisper review
-        if: success()
+        if: success() && vars.VIDEO_UPLOADS_PAUSED != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

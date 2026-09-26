@@ -167,7 +167,7 @@ jobs:
           exit 1
 
       - name: Queue upload from existing manifest
-        if: matrix.selection_shard_index == 0
+        if: matrix.selection_shard_index == 0 && vars.VIDEO_UPLOADS_PAUSED != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -285,7 +285,7 @@ jobs:
           exit 1
 
       - name: Queue upload from manifest
-        if: success()
+        if: success() && vars.VIDEO_UPLOADS_PAUSED != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

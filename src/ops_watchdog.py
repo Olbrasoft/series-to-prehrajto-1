@@ -7,6 +7,7 @@ import argparse
 import datetime as dt
 import gzip
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -154,6 +155,9 @@ def queue_workflow(
     allow_active: bool = False,
     max_active: int | None = None,
 ) -> bool:
+    if workflow == "sync" and os.environ.get("VIDEO_UPLOADS_PAUSED", "").lower() == "true":
+        print("sync: video uploads are paused by the operator")
+        return False
     active_count = workflow_active_run_count(workflow)
     if max_active is not None and active_count >= max_active:
         print(f"{workflow}: active count {active_count} >= {max_active}")

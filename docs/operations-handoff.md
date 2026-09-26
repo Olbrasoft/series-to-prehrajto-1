@@ -1,5 +1,29 @@
 # Operations handoff
 
+## Operator pause: video uploads (September 26, 2026)
+
+The user requested a pause because both accounts have many videos still being
+processed by Prehraj.to. Video uploads must remain stopped until the user
+explicitly requests resumption. There is no automatic 24-hour expiry. This
+overrides the continuous-upload health targets below; do not recover this
+intentional pause as an outage.
+
+In `Olbrasoft/series-to-prehrajto-1`, `sync.yml` is `disabled_manually`, and its
+running and pending batches were cancelled. The repository Actions variable
+`VIDEO_UPLOADS_PAUSED` is `true`. Upload jobs, successor dispatches, preparation
+dispatches, and the watchdog respect that variable. The disabled workflow also
+blocks dispatches from jobs using an older workflow revision. Subtitle backfill
+remains enabled for both accounts and continues independently.
+
+Before reporting the pause complete, verify that no sync run is active or
+pending, that the workflow is disabled, and that the pause variable is true.
+Verify subtitle progress from fresh report timestamps and playable Czech tracks.
+
+Only after a new explicit user request to resume, set `VIDEO_UPLOADS_PAUSED` to
+`false`, enable `sync.yml`, and dispatch/verify a four-shard sync. Keep these
+two controls in agreement. Setting the variable alone does not interrupt
+already-running upload jobs; cancel active and pending sync runs when pausing.
+
 This is the first document a new operator or Codex session should read. It
 describes the production workflow as it currently runs, the state persisted in
 the repository, the invariants that must not be broken, and the commands used
