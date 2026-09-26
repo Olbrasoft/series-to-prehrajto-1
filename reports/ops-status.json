@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 129616,
-    "manifest_upload_ready_episodes": 420,
+    "manifest_upload_ready_episodes": 421,
     "uploaded_episodes": 62188,
-    "prepared_source_episodes": 63351,
+    "prepared_source_episodes": 63354,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 78,
+    "language_audited_sources": 79,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54155,
-    "whisper_review_pending_sources": 36360,
-    "subtitle_followup_sources": 38906,
-    "subtitle_followup_pending_sources": 38906
+    "whisper_review_sources": 54168,
+    "whisper_review_pending_sources": 36417,
+    "subtitle_followup_sources": 38907,
+    "subtitle_followup_pending_sources": 38907
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T13:04:30Z",
+      "databaseId": 36243945827,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T13:03:50Z",
+      "databaseId": 36243910268,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T13:03:47Z",
+      "databaseId": 36243907588,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T13:02:55Z",
       "databaseId": 36243859738,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-26T12:46:43Z",
-      "databaseId": 36242995171,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T12:46:29Z",
-      "databaseId": 36242983669,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T12:45:28Z",
-      "databaseId": 36242929352,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -572250,6 +572250,22 @@
         "status": "needs_whisper"
       },
       {
+        "episode_id": 164915,
+        "source_id": -48186504415946641,
+        "series_title": "Aesthetica of a Rogue Hero",
+        "episode_code": "S01E05",
+        "source_title": "Aesthetica Of A Rogue Hero S01E05",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 164916,
+        "source_id": -2286282081953703,
+        "series_title": "Aesthetica of a Rogue Hero",
+        "episode_code": "S01E06",
+        "source_title": "Aesthetica Of A Rogue Hero S01E06",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 164918,
         "source_id": -18785115743153370,
         "series_title": "Aesthetica of a Rogue Hero",
@@ -572503,22 +572519,6 @@
         "series_title": "Alba",
         "episode_code": "S01E07",
         "source_title": "Alba - S1E7 Episode 7 ES",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160698,
-        "source_id": -38035082171886634,
-        "series_title": "Alba",
-        "episode_code": "S01E07",
-        "source_title": "Alba_S01E07_7. kapitola",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160698,
-        "source_id": -29952661604725993,
-        "series_title": "Alba",
-        "episode_code": "S01E07",
-        "source_title": "Alba - S1E7 Episode 7 EN",
         "status": "needs_whisper"
       }
     ],
@@ -572978,16 +572978,16 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 59,
-    "disabled": 18,
+    "disabled": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4146,
-    "whisper_non_cz_needs_subtitles": 13649,
-    "needs_whisper": 35383,
-    "whisper_failed": 977
+    "whisper_non_cz_needs_subtitles": 13605,
+    "needs_whisper": 35455,
+    "whisper_failed": 962
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38906
+    "needs_subtitle_setup_after_prehrajto_processing": 38907
   }
 }
