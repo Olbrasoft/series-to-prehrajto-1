@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 129616,
-    "manifest_upload_ready_episodes": 573,
+    "manifest_upload_ready_episodes": 584,
     "uploaded_episodes": 62188,
-    "prepared_source_episodes": 63495,
+    "prepared_source_episodes": 63504,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 48,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54134,
-    "whisper_review_pending_sources": 36290,
-    "subtitle_followup_sources": 38966,
-    "subtitle_followup_pending_sources": 38966
+    "language_audited_sources": 43,
+    "language_whisper_attempted_sources": 43,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54150,
+    "whisper_review_pending_sources": 36378,
+    "subtitle_followup_sources": 38970,
+    "subtitle_followup_pending_sources": 38970
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T15:07:48Z",
+      "databaseId": 36250853748,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T15:07:21Z",
+      "databaseId": 36250828840,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T15:07:14Z",
+      "databaseId": 36250819817,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:05:05Z",
       "databaseId": 36250697441,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T14:59:07Z",
       "databaseId": 36250347768,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T14:56:02Z",
       "databaseId": 36250182723,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T14:54:01Z",
       "databaseId": 36250072407,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T14:45:15Z",
-      "databaseId": 36249573184,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T14:43:39Z",
-      "databaseId": 36249484693,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-26T14:43:31Z",
-      "databaseId": 36249476945,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -572242,6 +572242,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 176390,
+        "source_id": -56937774685130343,
+        "series_title": "Ackley Bridge",
+        "episode_code": "S01E05",
+        "source_title": "Ackley Bridge - S01E05",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 176391,
         "source_id": -3073174856818649,
         "series_title": "Ackley Bridge",
@@ -572279,6 +572287,14 @@
         "series_title": "Aesthetica of a Rogue Hero",
         "episode_code": "S01E08",
         "source_title": "Aesthetica Of A Rogue Hero S01E08",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 164919,
+        "source_id": -33904120455783274,
+        "series_title": "Aesthetica of a Rogue Hero",
+        "episode_code": "S01E09",
+        "source_title": "Aesthetica Of A Rogue Hero S01E09",
         "status": "needs_whisper"
       },
       {
@@ -572503,22 +572519,6 @@
         "series_title": "Alba",
         "episode_code": "S01E06",
         "source_title": "Alba - S1E6 Episode 6 ES",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160697,
-        "source_id": -10209276228088937,
-        "series_title": "Alba",
-        "episode_code": "S01E06",
-        "source_title": "Alba - S1E6 Episode 6 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160697,
-        "source_id": -44414244273776030,
-        "series_title": "Alba",
-        "episode_code": "S01E06",
-        "source_title": "Alba_S01E06_6. kapitola",
         "status": "needs_whisper"
       }
     ],
@@ -572977,17 +572977,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "disabled": 8,
+    "ok": 42,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4151,
-    "whisper_non_cz_needs_subtitles": 13693,
-    "needs_whisper": 35277,
+    "whisper_confirmed_cz": 4148,
+    "whisper_non_cz_needs_subtitles": 13624,
+    "needs_whisper": 35365,
     "whisper_failed": 1013
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38966
+    "needs_subtitle_setup_after_prehrajto_processing": 38970
   }
 }
