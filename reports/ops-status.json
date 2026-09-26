@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 130374,
-    "manifest_upload_ready_episodes": 558,
-    "uploaded_episodes": 61555,
-    "prepared_source_episodes": 63353,
+    "manifest_upload_ready_episodes": 541,
+    "uploaded_episodes": 61557,
+    "prepared_source_episodes": 63343,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 26,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54192,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T04:48:16Z",
+      "databaseId": 36218912450,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T04:48:11Z",
+      "databaseId": 36218908586,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T04:48:09Z",
+      "databaseId": 36218906398,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T04:48:05Z",
+      "databaseId": 36218903077,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T04:47:08Z",
       "databaseId": 36218856340,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-26T04:46:07Z",
       "databaseId": 36218808642,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:37:26Z",
-      "databaseId": 36218381263,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:36:31Z",
-      "databaseId": 36218337523,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:36:28Z",
-      "databaseId": 36218335421,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:35:28Z",
-      "databaseId": 36218285311,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -150451,6 +150451,11 @@
         "video_id": 29720725
       },
       {
+        "episode_id": 181364,
+        "display_name": "Frank of Ireland S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29720742
+      },
+      {
         "episode_id": 39369,
         "display_name": "Pokémon S18E40 - Vzpomínka na dávné vlakové setkání! CZ Titulky",
         "video_id": 29720684
@@ -150464,6 +150469,11 @@
         "episode_id": 65697,
         "display_name": "Posedlý pomstou S01E01 - Pilot CZ Titulky",
         "video_id": 29720714
+      },
+      {
+        "episode_id": 65713,
+        "display_name": "Posedlý pomstou S02E09 - Verum Nocet CZ Titulky",
+        "video_id": 29720729
       },
       {
         "episode_id": 114182,
@@ -433053,6 +433063,11 @@
         "video_id": 29720725
       },
       {
+        "episode_id": 181364,
+        "display_name": "Frank of Ireland S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29720742
+      },
+      {
         "episode_id": 39369,
         "display_name": "Pokémon S18E40 - Vzpomínka na dávné vlakové setkání! CZ Titulky",
         "video_id": 29720684
@@ -433066,6 +433081,11 @@
         "episode_id": 65697,
         "display_name": "Posedlý pomstou S01E01 - Pilot CZ Titulky",
         "video_id": 29720714
+      },
+      {
+        "episode_id": 65713,
+        "display_name": "Posedlý pomstou S02E09 - Verum Nocet CZ Titulky",
+        "video_id": 29720729
       },
       {
         "episode_id": 114182,
@@ -566647,6 +566667,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 6,
     "ok": 19,
     "resolve_failed": 1
   },
