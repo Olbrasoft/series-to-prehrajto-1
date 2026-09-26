@@ -121,6 +121,13 @@ class ResolveError(Exception):
         self.permanent = permanent
 
 
+class ProxyUnavailableError(ResolveError):
+    """No configured proxy returned an HTTP response after all retries."""
+
+    def __init__(self, message: str):
+        super().__init__(message, permanent=False)
+
+
 def _parse_video_block(body: str) -> Optional[StreamVariant]:
     props: dict[str, str | bool] = {}
     for m in _PROP_RE.finditer(body):
@@ -326,6 +333,7 @@ def resolve(
         fetch_urls = _cz_proxy_fetch_urls(upload_url) or [("direct", upload_url)]
 
     last_err: str = "no attempts"
+    proxy_transport_outage = all(label.startswith("cz_proxy") for label, _ in fetch_urls)
     for attempt in range(max_retries + 1):
         for fetch_label, fetch_url in fetch_urls:
             via_proxy = fetch_label.startswith("cz_proxy")
@@ -339,6 +347,7 @@ def resolve(
                     time.sleep(wait)
             try:
                 resp = sess.get(fetch_url, timeout=timeout, allow_redirects=True)
+                proxy_transport_outage = False
                 if via_proxy:
                     _last_resolve_at = time.monotonic()
             except requests.RequestException as e:
@@ -380,8 +389,10 @@ def resolve(
             print(f"[resolve] {last_err} on {upload_url[:80]}…, retry {attempt + 1}/{max_retries} in {sleep_s:.0f}s", flush=True)
             time.sleep(sleep_s)
 
-    raise ResolveError(f"{last_err} after {max_retries + 1} attempts: {upload_url}",
-                       permanent=False)
+    message = f"{last_err} after {max_retries + 1} attempts: {upload_url}"
+    if proxy_transport_outage:
+        raise ProxyUnavailableError(message)
+    raise ResolveError(message, permanent=False)
 
 
 def pick_best(videos: list[StreamVariant], *, prefer: tuple[int, ...] = (1080, 720)) -> StreamVariant:

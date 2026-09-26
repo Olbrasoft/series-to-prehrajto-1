@@ -20,7 +20,7 @@ from description_quality import is_valid_generated_description  # noqa: E402
 from language_checks import has_probable_czech, whisper_language  # noqa: E402
 from pick_next_episode import BACKLOG, NUM_SHARDS, SHARD_ID, STATE, load_backlog, load_state, pick_next  # noqa: E402
 from prehrajto_upload import login, upload_video  # noqa: E402
-from resolve_stream import ResolveError, pick_best, resolve as resolve_stream  # noqa: E402
+from resolve_stream import ProxyUnavailableError, ResolveError, pick_best, resolve as resolve_stream  # noqa: E402
 from upload_state_merge import merge_state  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -218,6 +218,10 @@ def try_candidate(episode: dict, candidate: dict, session, state: dict, *, allow
     try:
         resolved = resolve_stream(candidate["url"])
         best = pick_best(resolved.videos, prefer=(1080, 720))
+    except ProxyUnavailableError:
+        # This runner cannot reach the shared dependency. Trying every episode
+        # repeats the same outage and incorrectly cools down valid sources.
+        raise
     except ResolveError as exc:
         log(f"  resolve FAILED: {exc} permanent={exc.permanent}")
         record_failure(state, episode, candidate, f"resolve_failed: {exc}", permanent=exc.permanent)
@@ -404,7 +408,13 @@ def main() -> int:
         if episode is None:
             bad += 1
             continue
-        if process_episode(episode, session, state, allow_subtitles=args.allow_subtitles, description_plans=description_plans, require_description=args.require_description):
+        try:
+            uploaded = process_episode(episode, session, state, allow_subtitles=args.allow_subtitles, description_plans=description_plans, require_description=args.require_description)
+        except ProxyUnavailableError as exc:
+            log(f"batch stopped: resolver proxy unavailable; retry on a fresh runner: {exc}")
+            log(f"batch-end ok={ok} failed={bad} infrastructure_failure=proxy_unavailable")
+            return 1
+        if uploaded:
             ok += 1
         else:
             bad += 1

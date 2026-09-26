@@ -412,3 +412,19 @@ Whisper review also rebases unrelated upload/status commits before repeating
 the expensive artifact merge. Previously, results could spend over ten minutes
 in the commit step while continuous uploads kept winning the push race. An
 artifact conflict still aborts that rebase and retries the existing keyed merge.
+
+## Proxy outage recovery (September 26, 2026)
+
+A runner repeatedly timed out connecting to the Czech proxy while all other
+upload shards completed. It spent over four minutes retrying each unrelated
+episode and held the workflow concurrency slot without uploading anything.
+When every configured proxy fails at the transport layer throughout a resolve's
+retry budget, the resolver now raises `ProxyUnavailableError`. The upload shard
+exits unsuccessfully after that one retry budget, without rejecting the source
+or placing it into the source cooldown. A responding proxy, direct requests,
+permanent source failures, and working alternate proxies keep their existing
+behavior. The final state step still preserves any earlier completed work.
+
+`queue-next` also runs after failed upload shards, but not after cancellation,
+so another runner can continue automatically. Upload HTTP diagnostics are
+unbuffered to make future stalls visible in the live job log.

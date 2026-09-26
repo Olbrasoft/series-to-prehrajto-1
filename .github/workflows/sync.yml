@@ -107,6 +107,7 @@ jobs:
           SYNC_DOWNLOAD_MIN_SPEED_BYTES: "250000"
           SYNC_DOWNLOAD_SPEED_TIME_SECONDS: "90"
           SYNC_TRANSIENT_FAILURE_COOLDOWN_SECONDS: "21600"
+          PYTHONUNBUFFERED: "1"
         run: |
           case "$UPLOAD_ACCOUNT" in
             primary)
@@ -174,7 +175,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: upload-batch
     timeout-minutes: 20
-    if: always() && needs.upload-batch.result == 'success' && (github.event_name == 'schedule' || inputs.continue_uploads != 'false')
+    if: always() && !cancelled() && (needs.upload-batch.result == 'success' || needs.upload-batch.result == 'failure') && (github.event_name == 'schedule' || inputs.continue_uploads != 'false')
     permissions:
       contents: read
       actions: write
