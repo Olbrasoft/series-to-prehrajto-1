@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 130556,
-    "manifest_upload_ready_episodes": 546,
-    "uploaded_episodes": 61418,
-    "prepared_source_episodes": 63355,
+    "manifest_upload_ready_episodes": 531,
+    "uploaded_episodes": 61430,
+    "prepared_source_episodes": 63342,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 83,
+    "language_audited_sources": 60,
     "language_whisper_attempted_sources": 60,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54203,
-    "whisper_review_pending_sources": 36579,
+    "whisper_review_sources": 54199,
+    "whisper_review_pending_sources": 36559,
     "subtitle_followup_sources": 38571,
     "subtitle_followup_pending_sources": 38571
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-26T03:14:04Z",
-      "databaseId": 36214166698,
+      "createdAt": "2026-09-26T03:22:17Z",
+      "databaseId": 36214596036,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T03:18:47Z",
+      "databaseId": 36214414619,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-26T03:18:14Z",
+      "databaseId": 36214385010,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T03:17:40Z",
+      "databaseId": 36214357567,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T03:15:00Z",
+      "databaseId": 36214214818,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T03:14:57Z",
+      "databaseId": 36214212704,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T03:14:04Z",
+      "databaseId": 36214166698,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-09-26T03:13:59Z",
       "databaseId": 36214161958,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,11 +115,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T03:08:49Z",
       "databaseId": 36213892407,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T03:06:16Z",
       "databaseId": 36213758939,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T03:01:08Z",
-      "databaseId": 36213491717,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T03:00:15Z",
-      "databaseId": 36213437839,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-26T02:57:58Z",
-      "databaseId": 36213327303,
-      "headBranch": "main",
-      "status": "queued",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T02:57:52Z",
-      "databaseId": 36213322206,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T02:57:49Z",
-      "databaseId": 36213319606,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T02:57:46Z",
-      "databaseId": 36213317519,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -150121,6 +150121,36 @@
         "video_id": 29719603
       },
       {
+        "episode_id": 78280,
+        "display_name": "Plastická chirurgie s. r. o. S04E05 - Dawn Budgeová CZ Dabing",
+        "video_id": 29719694
+      },
+      {
+        "episode_id": 88032,
+        "display_name": "Plastická chirurgie s. r. o. S07E04 - Sheila Carlton CZ Titulky",
+        "video_id": 29719735
+      },
+      {
+        "episode_id": 78277,
+        "display_name": "Plastická chirurgie s. r. o. S04E06 - Faith Wolperová, PhD. CZ Dabing",
+        "video_id": 29719656
+      },
+      {
+        "episode_id": 88029,
+        "display_name": "Plastická chirurgie s. r. o. S07E01 - Dan Daly CZ Titulky",
+        "video_id": 29719684
+      },
+      {
+        "episode_id": 88033,
+        "display_name": "Plastická chirurgie s. r. o. S07E05 - Virginia Hayesová CZ Titulky",
+        "video_id": 29719732
+      },
+      {
+        "episode_id": 13933,
+        "display_name": "Pobřežní hlídka S03E02 - Řeka, odkud není návratu (2. část) CZ Dabing",
+        "video_id": 29719787
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -282199,6 +282229,36 @@
         "episode_id": 170775,
         "display_name": "Plaha S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29719467
+      },
+      {
+        "episode_id": 6082,
+        "display_name": "Po životě S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29719645
+      },
+      {
+        "episode_id": 78274,
+        "display_name": "Plastická chirurgie s. r. o. S04E02 - Blue Mondae CZ Dabing",
+        "video_id": 29719678
+      },
+      {
+        "episode_id": 50506,
+        "display_name": "Plastická chirurgie s. r. o. S06E09 - Benny Nilsson CZ Dabing",
+        "video_id": 29719716
+      },
+      {
+        "episode_id": 88030,
+        "display_name": "Plastická chirurgie s. r. o. S07E02 - Willow Banks CZ Titulky",
+        "video_id": 29719764
+      },
+      {
+        "episode_id": 50503,
+        "display_name": "Plastická chirurgie s. r. o. S06E07 - Alexis Stoneová II. CZ Dabing",
+        "video_id": 29719658
+      },
+      {
+        "episode_id": 88031,
+        "display_name": "Plastická chirurgie s. r. o. S07E03 - Joel Seabrook CZ Titulky",
+        "video_id": 29719690
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -432038,6 +432098,36 @@
         "video_id": 29719603
       },
       {
+        "episode_id": 78280,
+        "display_name": "Plastická chirurgie s. r. o. S04E05 - Dawn Budgeová CZ Dabing",
+        "video_id": 29719694
+      },
+      {
+        "episode_id": 88032,
+        "display_name": "Plastická chirurgie s. r. o. S07E04 - Sheila Carlton CZ Titulky",
+        "video_id": 29719735
+      },
+      {
+        "episode_id": 78277,
+        "display_name": "Plastická chirurgie s. r. o. S04E06 - Faith Wolperová, PhD. CZ Dabing",
+        "video_id": 29719656
+      },
+      {
+        "episode_id": 88029,
+        "display_name": "Plastická chirurgie s. r. o. S07E01 - Dan Daly CZ Titulky",
+        "video_id": 29719684
+      },
+      {
+        "episode_id": 88033,
+        "display_name": "Plastická chirurgie s. r. o. S07E05 - Virginia Hayesová CZ Titulky",
+        "video_id": 29719732
+      },
+      {
+        "episode_id": 13933,
+        "display_name": "Pobřežní hlídka S03E02 - Řeka, odkud není návratu (2. část) CZ Dabing",
+        "video_id": 29719787
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -564116,6 +564206,36 @@
         "episode_id": 170775,
         "display_name": "Plaha S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29719467
+      },
+      {
+        "episode_id": 6082,
+        "display_name": "Po životě S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29719645
+      },
+      {
+        "episode_id": 78274,
+        "display_name": "Plastická chirurgie s. r. o. S04E02 - Blue Mondae CZ Dabing",
+        "video_id": 29719678
+      },
+      {
+        "episode_id": 50506,
+        "display_name": "Plastická chirurgie s. r. o. S06E09 - Benny Nilsson CZ Dabing",
+        "video_id": 29719716
+      },
+      {
+        "episode_id": 88030,
+        "display_name": "Plastická chirurgie s. r. o. S07E02 - Willow Banks CZ Titulky",
+        "video_id": 29719764
+      },
+      {
+        "episode_id": 50503,
+        "display_name": "Plastická chirurgie s. r. o. S06E07 - Alexis Stoneová II. CZ Dabing",
+        "video_id": 29719658
+      },
+      {
+        "episode_id": 88031,
+        "display_name": "Plastická chirurgie s. r. o. S07E03 - Joel Seabrook CZ Titulky",
+        "video_id": 29719690
       }
     ],
     "prepared_not_upload_ready": [
@@ -565278,13 +565398,12 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 59,
-    "disabled": 23,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4151,
+    "whisper_confirmed_cz": 4167,
     "whisper_non_cz_needs_subtitles": 13473,
-    "needs_whisper": 35623,
+    "needs_whisper": 35603,
     "whisper_failed": 956
   },
   "subtitle_followup_statuses": {
