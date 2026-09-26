@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 129598,
-    "manifest_upload_ready_episodes": 801,
+    "manifest_upload_ready_episodes": 805,
     "uploaded_episodes": 62188,
-    "prepared_source_episodes": 63691,
+    "prepared_source_episodes": 63706,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 32,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54127,
-    "whisper_review_pending_sources": 36310,
-    "subtitle_followup_sources": 39083,
-    "subtitle_followup_pending_sources": 39083
+    "whisper_review_sources": 54132,
+    "whisper_review_pending_sources": 36317,
+    "subtitle_followup_sources": 39084,
+    "subtitle_followup_pending_sources": 39084
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T17:57:23Z",
+      "databaseId": 36260840648,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T17:56:57Z",
+      "databaseId": 36260817604,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T17:56:03Z",
+      "databaseId": 36260767707,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T17:55:59Z",
+      "databaseId": 36260764287,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T17:54:58Z",
       "databaseId": 36260706844,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +71,7 @@
       "createdAt": "2026-09-26T17:53:50Z",
       "databaseId": 36260642841,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -123,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T17:40:59Z",
       "databaseId": 36259891669,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T17:40:37Z",
-      "databaseId": 36259868504,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-26T17:40:24Z",
-      "databaseId": 36259855159,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T17:39:54Z",
-      "databaseId": 36259825123,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T17:39:50Z",
-      "databaseId": 36259820884,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -572234,6 +572234,14 @@
         "status": "needs_whisper"
       },
       {
+        "episode_id": 65784,
+        "source_id": -47731119067063411,
+        "series_title": "A Town Called Malice",
+        "episode_code": "S01E02",
+        "source_title": "A.Town.Called.Malice.S01E02.Daddy.Cool.1080p.NOW.WEB-DL.DDP5.1.H.264-FLUX",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 132181,
         "source_id": -16186527404081437,
         "series_title": "Abysses",
@@ -572511,14 +572519,6 @@
         "series_title": "Alba",
         "episode_code": "S01E05",
         "source_title": "Alba - S1E5 Episode 5 ES",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160696,
-        "source_id": -11255857942080471,
-        "series_title": "Alba",
-        "episode_code": "S01E05",
-        "source_title": "Alba - S1E5 Episode 5 EN",
         "status": "needs_whisper"
       }
     ],
@@ -572977,16 +572977,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 12,
     "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4166,
-    "whisper_non_cz_needs_subtitles": 13651,
-    "needs_whisper": 35250,
-    "whisper_failed": 1060
+    "whisper_confirmed_cz": 4165,
+    "whisper_non_cz_needs_subtitles": 13650,
+    "needs_whisper": 35275,
+    "whisper_failed": 1042
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 39083
+    "needs_subtitle_setup_after_prehrajto_processing": 39084
   }
 }
