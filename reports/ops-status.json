@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 130556,
     "manifest_upload_ready_episodes": 530,
-    "uploaded_episodes": 61323,
+    "uploaded_episodes": 61324,
     "prepared_source_episodes": 63332,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54206,
     "whisper_review_pending_sources": 36588,
     "subtitle_followup_sources": 38522,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-26T01:52:46Z",
-      "databaseId": 36209882770,
+      "createdAt": "2026-09-26T01:54:32Z",
+      "databaseId": 36209975343,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T01:54:01Z",
+      "databaseId": 36209948863,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T01:53:39Z",
+      "databaseId": 36209929394,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-26T01:53:36Z",
+      "databaseId": 36209927006,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T01:52:46Z",
+      "databaseId": 36209882770,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T01:52:45Z",
       "databaseId": 36209881439,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +107,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T01:47:58Z",
       "databaseId": 36209624851,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-26T01:39:38Z",
-      "databaseId": 36209168756,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T01:37:31Z",
-      "databaseId": 36209054710,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-26T01:37:23Z",
-      "databaseId": 36209046656,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T01:36:28Z",
-      "databaseId": 36208996232,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -281724,6 +281724,11 @@
         "episode_id": 127019,
         "display_name": "Druhá matka S03E09 - Syndrom podvodníka CZ Titulky",
         "video_id": 29718037
+      },
+      {
+        "episode_id": 88974,
+        "display_name": "Paradise PD S02E04 - Kdo snědl Wallyho wafle CZ Titulky",
+        "video_id": 29718140
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -563166,6 +563171,11 @@
         "episode_id": 127019,
         "display_name": "Druhá matka S03E09 - Syndrom podvodníka CZ Titulky",
         "video_id": 29718037
+      },
+      {
+        "episode_id": 88974,
+        "display_name": "Paradise PD S02E04 - Kdo snědl Wallyho wafle CZ Titulky",
+        "video_id": 29718140
       }
     ],
     "prepared_not_upload_ready": [
@@ -564327,7 +564337,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
