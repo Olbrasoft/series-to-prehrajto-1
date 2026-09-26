@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 130374,
-    "manifest_upload_ready_episodes": 529,
+    "manifest_upload_ready_episodes": 542,
     "uploaded_episodes": 61537,
-    "prepared_source_episodes": 63351,
+    "prepared_source_episodes": 63349,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 73,
-    "language_whisper_attempted_sources": 41,
+    "language_audited_sources": 91,
+    "language_whisper_attempted_sources": 61,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54203,
-    "whisper_review_pending_sources": 36585,
-    "subtitle_followup_sources": 38613,
-    "subtitle_followup_pending_sources": 38613
+    "whisper_review_sources": 54195,
+    "whisper_review_pending_sources": 36545,
+    "subtitle_followup_sources": 38618,
+    "subtitle_followup_pending_sources": 38618
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T04:35:28Z",
+      "databaseId": 36218285311,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T04:35:22Z",
+      "databaseId": 36218279676,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T04:35:18Z",
+      "databaseId": 36218275999,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T04:34:26Z",
       "databaseId": 36218232014,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T04:26:05Z",
       "databaseId": 36217815031,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-26T04:18:02Z",
-      "databaseId": 36217414030,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:17:18Z",
-      "databaseId": 36217378216,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-26T04:15:54Z",
-      "databaseId": 36217307850,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -565732,14 +565732,6 @@
         "status": "whisper_failed"
       },
       {
-        "episode_id": 176388,
-        "source_id": -39245692190621872,
-        "series_title": "Ackley Bridge",
-        "episode_code": "S01E03",
-        "source_title": "Ackley Bridge - S01E03",
-        "status": "needs_whisper"
-      },
-      {
         "episode_id": 101630,
         "source_id": -41273549346782847,
         "series_title": "Agent bez minulosti",
@@ -566009,6 +566001,14 @@
         "series_title": "Bad Girls",
         "episode_code": "S06E01",
         "source_title": "Bad.Girls.S06E01",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 134655,
+        "source_id": -11593560348256248,
+        "series_title": "Bad Girls",
+        "episode_code": "S08E05",
+        "source_title": "Bad Girls S08E05",
         "status": "needs_whisper"
       }
     ],
@@ -566467,17 +566467,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 32,
-    "ok": 40,
+    "disabled": 30,
+    "ok": 60,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4144,
-    "whisper_non_cz_needs_subtitles": 13474,
-    "needs_whisper": 35629,
+    "whisper_confirmed_cz": 4148,
+    "whisper_non_cz_needs_subtitles": 13502,
+    "needs_whisper": 35589,
     "whisper_failed": 956
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38613
+    "needs_subtitle_setup_after_prehrajto_processing": 38618
   }
 }
