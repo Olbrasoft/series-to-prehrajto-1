@@ -1,29 +1,45 @@
 {
   "counts": {
     "backlog_episodes": 129598,
-    "manifest_upload_ready_episodes": 601,
+    "manifest_upload_ready_episodes": 623,
     "uploaded_episodes": 62188,
-    "prepared_source_episodes": 63516,
+    "prepared_source_episodes": 63533,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 82,
-    "language_whisper_attempted_sources": 63,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54147,
-    "whisper_review_pending_sources": 36368,
-    "subtitle_followup_sources": 38979,
-    "subtitle_followup_pending_sources": 38979
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54139,
+    "whisper_review_pending_sources": 36343,
+    "subtitle_followup_sources": 39000,
+    "subtitle_followup_pending_sources": 39000
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T15:29:32Z",
+      "databaseId": 36252116875,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T15:23:11Z",
+      "databaseId": 36251751896,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:22:12Z",
       "databaseId": 36251694912,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,15 +47,15 @@
       "createdAt": "2026-09-26T15:21:37Z",
       "databaseId": 36251661139,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:21:31Z",
       "databaseId": 36251654968,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -75,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:18:23Z",
       "databaseId": 36251471015,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -99,11 +115,11 @@
       "workflowName": "refresh-backlog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:14:16Z",
       "databaseId": 36251229086,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -139,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:09:00Z",
       "databaseId": 36250919879,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T15:08:16Z",
-      "databaseId": 36250878806,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T15:08:07Z",
-      "databaseId": 36250869851,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -572242,6 +572242,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 176386,
+        "source_id": -67773957606307125,
+        "series_title": "Ackley Bridge",
+        "episode_code": "S01E01",
+        "source_title": "Ackley Bridge - S01E01",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 176390,
         "source_id": -56937774685130343,
         "series_title": "Ackley Bridge",
@@ -572511,14 +572519,6 @@
         "series_title": "Alba",
         "episode_code": "S01E05",
         "source_title": "Alba_S01E05_5. kapitola",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160697,
-        "source_id": -17040726894361918,
-        "series_title": "Alba",
-        "episode_code": "S01E06",
-        "source_title": "Alba - S1E6 Episode 6 ES",
         "status": "needs_whisper"
       }
     ],
@@ -572977,17 +572977,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "resolve_failed": 8,
-    "disabled": 19,
-    "ok": 55
+    "resolve_failed": 13,
+    "ok": 27
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4148,
-    "whisper_non_cz_needs_subtitles": 13631,
-    "needs_whisper": 35348,
-    "whisper_failed": 1020
+    "whisper_non_cz_needs_subtitles": 13648,
+    "needs_whisper": 35305,
+    "whisper_failed": 1038
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38979
+    "needs_subtitle_setup_after_prehrajto_processing": 39000
   }
 }
