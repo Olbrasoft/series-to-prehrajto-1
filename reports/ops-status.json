@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 130374,
-    "manifest_upload_ready_episodes": 560,
-    "uploaded_episodes": 61543,
+    "manifest_upload_ready_episodes": 558,
+    "uploaded_episodes": 61555,
     "prepared_source_episodes": 63353,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 130,
-    "language_whisper_attempted_sources": 81,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54192,
     "whisper_review_pending_sources": 36528,
@@ -20,26 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-26T04:41:47Z",
-      "databaseId": 36218591817,
+      "createdAt": "2026-09-26T04:47:08Z",
+      "databaseId": 36218856340,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-09-26T04:41:42Z",
-      "databaseId": 36218587806,
+      "createdAt": "2026-09-26T04:47:01Z",
+      "databaseId": 36218850362,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T04:46:07Z",
+      "databaseId": 36218808642,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T04:44:21Z",
+      "databaseId": 36218719842,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T04:44:13Z",
+      "databaseId": 36218713248,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T04:42:51Z",
+      "databaseId": 36218644594,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T04:42:48Z",
+      "databaseId": 36218642151,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T04:41:47Z",
+      "databaseId": 36218591817,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-09-26T04:41:42Z",
+      "databaseId": 36218587806,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T04:41:37Z",
       "databaseId": 36218584153,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:35:22Z",
-      "databaseId": 36218279676,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-26T04:35:18Z",
-      "databaseId": 36218275999,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:34:26Z",
-      "databaseId": 36218232014,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-26T04:33:26Z",
-      "databaseId": 36218183608,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-26T04:32:36Z",
-      "databaseId": 36218142734,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-09-26T04:32:06Z",
-      "databaseId": 36218115829,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T04:29:17Z",
-      "databaseId": 36217970358,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -150431,6 +150431,41 @@
         "video_id": 29720587
       },
       {
+        "episode_id": 38888,
+        "display_name": "Pokémon S14E16 - Odveta na stadionu města Nacrene! CZ Titulky",
+        "video_id": 29720677
+      },
+      {
+        "episode_id": 39416,
+        "display_name": "Pokémon S19E44 - Zápasení s čistým štítem CZ Titulky",
+        "video_id": 29720691
+      },
+      {
+        "episode_id": 90860,
+        "display_name": "Poručík Backstrom S01E05 - Bubák CZ Titulky",
+        "video_id": 29720709
+      },
+      {
+        "episode_id": 90864,
+        "display_name": "Poručík Backstrom S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29720725
+      },
+      {
+        "episode_id": 39369,
+        "display_name": "Pokémon S18E40 - Vzpomínka na dávné vlakové setkání! CZ Titulky",
+        "video_id": 29720684
+      },
+      {
+        "episode_id": 43505,
+        "display_name": "Policie Chicago S11E13 - 13. epizoda CZ Titulky",
+        "video_id": 29720698
+      },
+      {
+        "episode_id": 65697,
+        "display_name": "Posedlý pomstou S01E01 - Pilot CZ Titulky",
+        "video_id": 29720714
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -282824,6 +282859,31 @@
         "episode_id": 136279,
         "display_name": "Domácí hřiště S02E07 - 7. epizoda CZ Dabing",
         "video_id": 29720652
+      },
+      {
+        "episode_id": 64382,
+        "display_name": "Pomsta S04E23 - Two Graves CZ Titulky",
+        "video_id": 29720676
+      },
+      {
+        "episode_id": 43487,
+        "display_name": "Policie Chicago S10E12 - 12. epizoda CZ Titulky",
+        "video_id": 29720679
+      },
+      {
+        "episode_id": 65699,
+        "display_name": "Posedlý pomstou S01E03 - Ofsajd CZ Titulky",
+        "video_id": 29720695
+      },
+      {
+        "episode_id": 65703,
+        "display_name": "Posedlý pomstou S01E07 - Solo CZ Titulky",
+        "video_id": 29720712
+      },
+      {
+        "episode_id": 131635,
+        "display_name": "Ponorka S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 29720730
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -432973,6 +433033,41 @@
         "video_id": 29720587
       },
       {
+        "episode_id": 38888,
+        "display_name": "Pokémon S14E16 - Odveta na stadionu města Nacrene! CZ Titulky",
+        "video_id": 29720677
+      },
+      {
+        "episode_id": 39416,
+        "display_name": "Pokémon S19E44 - Zápasení s čistým štítem CZ Titulky",
+        "video_id": 29720691
+      },
+      {
+        "episode_id": 90860,
+        "display_name": "Poručík Backstrom S01E05 - Bubák CZ Titulky",
+        "video_id": 29720709
+      },
+      {
+        "episode_id": 90864,
+        "display_name": "Poručík Backstrom S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29720725
+      },
+      {
+        "episode_id": 39369,
+        "display_name": "Pokémon S18E40 - Vzpomínka na dávné vlakové setkání! CZ Titulky",
+        "video_id": 29720684
+      },
+      {
+        "episode_id": 43505,
+        "display_name": "Policie Chicago S11E13 - 13. epizoda CZ Titulky",
+        "video_id": 29720698
+      },
+      {
+        "episode_id": 65697,
+        "display_name": "Posedlý pomstou S01E01 - Pilot CZ Titulky",
+        "video_id": 29720714
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -565366,6 +565461,31 @@
         "episode_id": 136279,
         "display_name": "Domácí hřiště S02E07 - 7. epizoda CZ Dabing",
         "video_id": 29720652
+      },
+      {
+        "episode_id": 64382,
+        "display_name": "Pomsta S04E23 - Two Graves CZ Titulky",
+        "video_id": 29720676
+      },
+      {
+        "episode_id": 43487,
+        "display_name": "Policie Chicago S10E12 - 12. epizoda CZ Titulky",
+        "video_id": 29720679
+      },
+      {
+        "episode_id": 65699,
+        "display_name": "Posedlý pomstou S01E03 - Ofsajd CZ Titulky",
+        "video_id": 29720695
+      },
+      {
+        "episode_id": 65703,
+        "display_name": "Posedlý pomstou S01E07 - Solo CZ Titulky",
+        "video_id": 29720712
+      },
+      {
+        "episode_id": 131635,
+        "display_name": "Ponorka S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 29720730
       }
     ],
     "prepared_not_upload_ready": [
@@ -566527,8 +566647,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 49,
-    "ok": 80,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
