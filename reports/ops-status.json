@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 130556,
-    "manifest_upload_ready_episodes": 530,
-    "uploaded_episodes": 61326,
-    "prepared_source_episodes": 63332,
+    "manifest_upload_ready_episodes": 502,
+    "uploaded_episodes": 61345,
+    "prepared_source_episodes": 63321,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54206,
-    "whisper_review_pending_sources": 36588,
-    "subtitle_followup_sources": 38522,
-    "subtitle_followup_pending_sources": 38522
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54207,
+    "whisper_review_pending_sources": 36589,
+    "subtitle_followup_sources": 38535,
+    "subtitle_followup_pending_sources": 38535
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-26T01:54:54Z",
-      "databaseId": 36209995069,
+      "createdAt": "2026-09-26T02:04:09Z",
+      "databaseId": 36210507205,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T02:02:03Z",
+      "databaseId": 36210391742,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T01:56:00Z",
+      "databaseId": 36210055771,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T01:54:54Z",
+      "databaseId": 36209995069,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T01:54:49Z",
       "databaseId": 36209990108,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T01:54:01Z",
       "databaseId": 36209948863,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T01:53:36Z",
       "databaseId": 36209927006,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-26T01:52:41Z",
       "databaseId": 36209878193,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -99,19 +123,19 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T01:51:20Z",
       "databaseId": 36209807897,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-09-26T01:50:49Z",
       "databaseId": 36209777986,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -139,11 +163,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T01:44:13Z",
       "databaseId": 36209420280,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-26T01:43:22Z",
-      "databaseId": 36209375767,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T01:42:54Z",
-      "databaseId": 36209350045,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T01:42:49Z",
-      "databaseId": 36209345877,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -149881,9 +149881,69 @@
         "video_id": 29718099
       },
       {
+        "episode_id": 174616,
+        "display_name": "Penoza S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 29718161
+      },
+      {
+        "episode_id": 127016,
+        "display_name": "Druhá matka S03E06 - Ztráty a nálezy CZ Titulky",
+        "video_id": 29718207
+      },
+      {
+        "episode_id": 127020,
+        "display_name": "Druhá matka S03E10 - Krásná rodina CZ Titulky",
+        "video_id": 29718248
+      },
+      {
+        "episode_id": 72420,
+        "display_name": "Láska na druhý pokus S02E28 - 28. epizoda CZ Titulky",
+        "video_id": 29718267
+      },
+      {
+        "episode_id": 72432,
+        "display_name": "Láska na druhý pokus S02E37 - 37. epizoda CZ Titulky",
+        "video_id": 29718285
+      },
+      {
+        "episode_id": 139800,
+        "display_name": "Umění špionáže S01E01 - Sledování špičkovou technikou a nebeské oči CZ Dabing",
+        "video_id": 29718300
+      },
+      {
         "episode_id": 88977,
         "display_name": "Paradise PD S02E07 - Paradise PD v Brickleberry CZ Titulky",
         "video_id": 29718142
+      },
+      {
+        "episode_id": 171061,
+        "display_name": "Paranoid S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29718162
+      },
+      {
+        "episode_id": 143905,
+        "display_name": "Vzkazy mrtvých S02E04 - 4. epizoda CZ Dabing",
+        "video_id": 29718204
+      },
+      {
+        "episode_id": 143909,
+        "display_name": "Vzkazy mrtvých S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 29718233
+      },
+      {
+        "episode_id": 135557,
+        "display_name": "El internado: Las Cumbres S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29718254
+      },
+      {
+        "episode_id": 135561,
+        "display_name": "El internado: Las Cumbres S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29718268
+      },
+      {
+        "episode_id": 135565,
+        "display_name": "El internado: Las Cumbres S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29718293
       },
       {
         "episode_id": 114182,
@@ -281736,9 +281796,44 @@
         "video_id": 29718140
       },
       {
+        "episode_id": 88978,
+        "display_name": "Paradise PD S02E08 - Náležitá péče CZ Titulky",
+        "video_id": 29718158
+      },
+      {
+        "episode_id": 174614,
+        "display_name": "Penoza S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29718210
+      },
+      {
+        "episode_id": 171818,
+        "display_name": "Prisma S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29718236
+      },
+      {
+        "episode_id": 175134,
+        "display_name": "Úspěch S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29718262
+      },
+      {
         "episode_id": 171059,
         "display_name": "Paranoid S01E05 - 5. epizoda CZ Titulky",
         "video_id": 29718153
+      },
+      {
+        "episode_id": 174615,
+        "display_name": "Penoza S04E08 - 8. epizoda CZ Titulky",
+        "video_id": 29718186
+      },
+      {
+        "episode_id": 70635,
+        "display_name": "Lovci S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29718247
+      },
+      {
+        "episode_id": 70639,
+        "display_name": "Lovci S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29718286
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -431338,9 +431433,69 @@
         "video_id": 29718099
       },
       {
+        "episode_id": 174616,
+        "display_name": "Penoza S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 29718161
+      },
+      {
+        "episode_id": 127016,
+        "display_name": "Druhá matka S03E06 - Ztráty a nálezy CZ Titulky",
+        "video_id": 29718207
+      },
+      {
+        "episode_id": 127020,
+        "display_name": "Druhá matka S03E10 - Krásná rodina CZ Titulky",
+        "video_id": 29718248
+      },
+      {
+        "episode_id": 72420,
+        "display_name": "Láska na druhý pokus S02E28 - 28. epizoda CZ Titulky",
+        "video_id": 29718267
+      },
+      {
+        "episode_id": 72432,
+        "display_name": "Láska na druhý pokus S02E37 - 37. epizoda CZ Titulky",
+        "video_id": 29718285
+      },
+      {
+        "episode_id": 139800,
+        "display_name": "Umění špionáže S01E01 - Sledování špičkovou technikou a nebeské oči CZ Dabing",
+        "video_id": 29718300
+      },
+      {
         "episode_id": 88977,
         "display_name": "Paradise PD S02E07 - Paradise PD v Brickleberry CZ Titulky",
         "video_id": 29718142
+      },
+      {
+        "episode_id": 171061,
+        "display_name": "Paranoid S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29718162
+      },
+      {
+        "episode_id": 143905,
+        "display_name": "Vzkazy mrtvých S02E04 - 4. epizoda CZ Dabing",
+        "video_id": 29718204
+      },
+      {
+        "episode_id": 143909,
+        "display_name": "Vzkazy mrtvých S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 29718233
+      },
+      {
+        "episode_id": 135557,
+        "display_name": "El internado: Las Cumbres S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29718254
+      },
+      {
+        "episode_id": 135561,
+        "display_name": "El internado: Las Cumbres S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29718268
+      },
+      {
+        "episode_id": 135565,
+        "display_name": "El internado: Las Cumbres S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29718293
       },
       {
         "episode_id": 114182,
@@ -563193,9 +563348,44 @@
         "video_id": 29718140
       },
       {
+        "episode_id": 88978,
+        "display_name": "Paradise PD S02E08 - Náležitá péče CZ Titulky",
+        "video_id": 29718158
+      },
+      {
+        "episode_id": 174614,
+        "display_name": "Penoza S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29718210
+      },
+      {
+        "episode_id": 171818,
+        "display_name": "Prisma S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29718236
+      },
+      {
+        "episode_id": 175134,
+        "display_name": "Úspěch S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 29718262
+      },
+      {
         "episode_id": 171059,
         "display_name": "Paranoid S01E05 - 5. epizoda CZ Titulky",
         "video_id": 29718153
+      },
+      {
+        "episode_id": 174615,
+        "display_name": "Penoza S04E08 - 8. epizoda CZ Titulky",
+        "video_id": 29718186
+      },
+      {
+        "episode_id": 70635,
+        "display_name": "Lovci S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29718247
+      },
+      {
+        "episode_id": 70639,
+        "display_name": "Lovci S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29718286
       }
     ],
     "prepared_not_upload_ready": [
@@ -564357,16 +564547,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4160,
     "whisper_non_cz_needs_subtitles": 13458,
-    "needs_whisper": 35634,
+    "needs_whisper": 35635,
     "whisper_failed": 954
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38522
+    "needs_subtitle_setup_after_prehrajto_processing": 38535
   }
 }
