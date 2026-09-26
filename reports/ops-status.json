@@ -1,7 +1,7 @@
 {
   "counts": {
     "backlog_episodes": 129616,
-    "manifest_upload_ready_episodes": 590,
+    "manifest_upload_ready_episodes": 601,
     "uploaded_episodes": 62188,
     "prepared_source_episodes": 63516,
     "description_series": 60,
@@ -9,21 +9,53 @@
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 62,
-    "language_whisper_attempted_sources": 43,
+    "language_audited_sources": 82,
+    "language_whisper_attempted_sources": 63,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54134,
-    "whisper_review_pending_sources": 36290,
-    "subtitle_followup_sources": 38972,
-    "subtitle_followup_pending_sources": 38972
+    "whisper_review_sources": 54147,
+    "whisper_review_pending_sources": 36368,
+    "subtitle_followup_sources": 38979,
+    "subtitle_followup_pending_sources": 38979
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-26T15:17:30Z",
+      "databaseId": 36251420977,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T15:17:25Z",
+      "databaseId": 36251415315,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-26T15:14:16Z",
+      "databaseId": 36251229086,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-26T15:13:06Z",
+      "databaseId": 36251160856,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:12:10Z",
       "databaseId": 36251107145,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +91,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-09-26T15:08:19Z",
       "databaseId": 36250881810,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T14:56:59Z",
-      "databaseId": 36250235781,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T14:56:37Z",
-      "databaseId": 36250216763,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T14:56:06Z",
-      "databaseId": 36250186943,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-26T14:56:02Z",
-      "databaseId": 36250182723,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -572242,6 +572242,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 176390,
+        "source_id": -56937774685130343,
+        "series_title": "Ackley Bridge",
+        "episode_code": "S01E05",
+        "source_title": "Ackley Bridge - S01E05",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 176391,
         "source_id": -3073174856818649,
         "series_title": "Ackley Bridge",
@@ -572279,6 +572287,14 @@
         "series_title": "Aesthetica of a Rogue Hero",
         "episode_code": "S01E08",
         "source_title": "Aesthetica Of A Rogue Hero S01E08",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 164919,
+        "source_id": -33904120455783274,
+        "series_title": "Aesthetica of a Rogue Hero",
+        "episode_code": "S01E09",
+        "source_title": "Aesthetica Of A Rogue Hero S01E09",
         "status": "needs_whisper"
       },
       {
@@ -572503,22 +572519,6 @@
         "series_title": "Alba",
         "episode_code": "S01E06",
         "source_title": "Alba - S1E6 Episode 6 ES",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160697,
-        "source_id": -10209276228088937,
-        "series_title": "Alba",
-        "episode_code": "S01E06",
-        "source_title": "Alba - S1E6 Episode 6 EN",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160697,
-        "source_id": -44414244273776030,
-        "series_title": "Alba",
-        "episode_code": "S01E06",
-        "source_title": "Alba_S01E06_6. kapitola",
         "status": "needs_whisper"
       }
     ],
@@ -572977,17 +572977,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "resolve_failed": 8,
     "disabled": 19,
-    "ok": 42,
-    "resolve_failed": 1
+    "ok": 55
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4151,
-    "whisper_non_cz_needs_subtitles": 13693,
-    "needs_whisper": 35277,
-    "whisper_failed": 1013
+    "whisper_confirmed_cz": 4148,
+    "whisper_non_cz_needs_subtitles": 13631,
+    "needs_whisper": 35348,
+    "whisper_failed": 1020
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 38972
+    "needs_subtitle_setup_after_prehrajto_processing": 38979
   }
 }
