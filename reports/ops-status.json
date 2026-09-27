@@ -3,27 +3,67 @@
     "backlog_episodes": 129598,
     "manifest_upload_ready_episodes": 1448,
     "uploaded_episodes": 62188,
-    "prepared_source_episodes": 64304,
+    "prepared_source_episodes": 64314,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 34,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 72,
+    "language_audited_sources": 85,
     "language_whisper_attempted_sources": 66,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54073,
-    "whisper_review_pending_sources": 36071,
-    "subtitle_followup_sources": 39404,
-    "subtitle_followup_pending_sources": 39404
+    "whisper_review_sources": 54063,
+    "whisper_review_pending_sources": 36035,
+    "subtitle_followup_sources": 39406,
+    "subtitle_followup_pending_sources": 39406
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-09-27T01:58:45Z",
+      "databaseId": 36287145175,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-27T01:57:24Z",
+      "databaseId": 36287082823,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-27T01:55:34Z",
+      "databaseId": 36286995459,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-27T01:55:31Z",
+      "databaseId": 36286993157,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-27T01:55:28Z",
+      "databaseId": 36286991777,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-09-27T01:54:32Z",
       "databaseId": 36286944644,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-27T01:31:04Z",
-      "databaseId": 36285771063,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-27T01:21:32Z",
-      "databaseId": 36285288096,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-27T01:20:38Z",
-      "databaseId": 36285242414,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-27T01:20:34Z",
-      "databaseId": 36285238844,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-27T01:19:10Z",
-      "databaseId": 36285167560,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -572978,16 +572978,16 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "resolve_failed": 12,
-    "ok": 54,
-    "disabled": 6
+    "disabled": 19,
+    "ok": 54
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4201,
-    "whisper_non_cz_needs_subtitles": 13801,
-    "needs_whisper": 34970,
-    "whisper_failed": 1101
+    "whisper_confirmed_cz": 4208,
+    "whisper_non_cz_needs_subtitles": 13820,
+    "needs_whisper": 34920,
+    "whisper_failed": 1115
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 39404
+    "needs_subtitle_setup_after_prehrajto_processing": 39406
   }
 }
