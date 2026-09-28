@@ -88,6 +88,18 @@ def load_latest_status(path: Path) -> dict[int, dict]:
     return latest
 
 
+def matching_upload_status(previous: dict | None, upload: dict) -> dict:
+    """Episode history is reusable only for the same uploaded video."""
+    if not previous or previous.get("prehrajto_video_id") is None:
+        return {}
+    if str(previous["prehrajto_video_id"]) != str(upload.get("prehrajto_video_id")):
+        return {}
+    if (previous.get("upload_account") and upload.get("upload_account")
+            and previous["upload_account"] != upload["upload_account"]):
+        return {}
+    return previous
+
+
 def row_pending(row: dict) -> bool:
     status = str(row.get("status") or "missing")
     subtitle_status = str(row.get("subtitle_status") or "")
@@ -508,7 +520,7 @@ def pending_uploads(
         followup = followups.get(episode_id, {})
         if not row_pending(followup):
             continue
-        previous = latest_status.get(episode_id)
+        previous = matching_upload_status(latest_status.get(episode_id), upload)
         if previous and previous.get("status") in TERMINAL_STATUSES and not retry_reported:
             continue
         # Uploaded video metadata is authoritative, even if its follow-up row
@@ -525,6 +537,12 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
         upload_account=getattr(args, "upload_account", None),
         retry_reported=args.retry_reported, episode_ids=args.episode_id,
     )
+    latest_status = {
+        int(upload["episode_id"]): matching_upload_status(
+            latest_status.get(int(upload["episode_id"])), upload
+        )
+        for _, upload in matched
+    }
     matched.sort(key=newest_upload_first, reverse=True)
     # Inspect unseen uploads first, newest first. Rotate retries by their last
     # check so unavailable targets cannot consume every bounded batch forever.
@@ -618,9 +636,11 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
 def verify_submissions(args: argparse.Namespace) -> None:
     """Check a bounded set once, without sleeping or re-uploading."""
     previous_rows = load_latest_status(args.report_file).values()
+    uploads = load_uploads(args.state_file, args.upload_account)
     pending = [row for row in previous_rows if row.get("status") in SUBMITTED_STATUSES
                and (not args.upload_account or row.get("upload_account") == args.upload_account)
-               and (not args.episode_id or row.get("episode_id") in args.episode_id)]
+               and (not args.episode_id or row.get("episode_id") in args.episode_id)
+               and matching_upload_status(row, uploads.get(int(row["episode_id"]), {}))]
     pending.sort(key=lambda row: str(row.get("checked_at") or ""))
     deadline = min(time.monotonic() + 120, getattr(args, "deadline", float("inf")))
     for row in pending[:args.verification_limit]:

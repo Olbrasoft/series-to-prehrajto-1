@@ -121,9 +121,9 @@ def test_bounded_backfill_prioritizes_unseen_uploads_and_rotates_retries(
         for i in range(1, 6)
     ]}))
     report.write_text("".join(json.dumps(row) + "\n" for row in [
-        {"episode_id": 1, "status": "target_not_found", "checked_at": "2026-09-21T10:00:00Z"},
-        {"episode_id": 4, "status": "target_not_found", "checked_at": "2026-09-22T10:00:00Z"},
-        {"episode_id": 5, "status": "uploaded", "checked_at": "2026-09-22T10:00:00Z"},
+        {"episode_id": 1, "prehrajto_video_id": 1, "status": "target_not_found", "checked_at": "2026-09-21T10:00:00Z"},
+        {"episode_id": 4, "prehrajto_video_id": 4, "status": "target_not_found", "checked_at": "2026-09-22T10:00:00Z"},
+        {"episode_id": 5, "prehrajto_video_id": 5, "status": "uploaded", "checked_at": "2026-09-22T10:00:00Z"},
     ]))
     args = Namespace(followup_file=followups, state_file=[state], report_file=report,
                      episode_id=[], retry_reported=False, max_rows=max_rows,
@@ -141,7 +141,7 @@ def test_bounded_backfill_prioritizes_unseen_uploads_and_rotates_retries(
         tasks = build_tasks(args, None)
         assert [task[0]["episode_id"] for task in tasks] == [expected]
         with report.open("a") as fh:
-            fh.write(json.dumps({"episode_id": expected, "status": "target_not_found",
+            fh.write(json.dumps({"episode_id": expected, "prehrajto_video_id": expected, "status": "target_not_found",
                                  "checked_at": "2026-09-23T10:00:00Z"}) + "\n")
     assert inspected == [3, 2, 1, 4]
 
@@ -178,10 +178,10 @@ def test_both_account_backlogs_include_uploads_missing_followups(tmp_path):
         {"episode_id": 1, "upload_account": "primary", "display_name": "One CZ Titulky",
          "source_url": "https://example.test/actual-source"},
         {"episode_id": 2, "upload_account": "serialy", "display_name": "Two CZ Titulky"},
-        {"episode_id": 3, "upload_account": "serialy", "display_name": "Three CZ Titulky"},
+        {"episode_id": 3, "prehrajto_video_id": 3, "upload_account": "serialy", "display_name": "Three CZ Titulky"},
     ]}))
     followups.write_text(json.dumps({"episode_id": 1, "source_url": "https://example.test/stale-source"}) + "\n")
-    report.write_text(json.dumps({"episode_id": 3, "checked_at": "2026-09-22T14:00:00Z", "status": "uploaded"}) + "\n")
+    report.write_text(json.dumps({"episode_id": 3, "prehrajto_video_id": 3, "checked_at": "2026-09-22T14:00:00Z", "status": "uploaded"}) + "\n")
 
     primary = pending_uploads(followups, [state], report, upload_account="primary")
     serialy = pending_uploads(followups, [state], report, upload_account="serialy")
@@ -266,6 +266,60 @@ def test_verification_cannot_write_other_account_rows(tmp_path, monkeypatch):
     monkeypatch.setattr(b, 'verify_tracks', lambda *a: pytest.fail('wrong account'))
     b.verify_submissions(args)
     assert b.load_latest_status(args.report_file)[99]['status'] == 'submitted'
+
+
+@pytest.mark.parametrize('status', [
+    'uploaded', 'already_has_tracks', 'source_track_not_found',
+    'submitted', 'submission_pending', 'submission_unknown', 'subtitle_processing',
+])
+def test_previous_copy_cannot_hide_current_upload(tmp_path, monkeypatch, status):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    old_copy = {**upload, 'prehrajto_video_id': 99}
+    b.append_jsonl(args.report_file, b.status_row(old_copy, old_copy, status,
+                  detail_url='https://example.test/old-copy'))
+    looked_up = []
+    def find(session, target):
+        looked_up.append(target['prehrajto_video_id'])
+        return {'processing': False, 'detail_url': 'https://example.test/current-copy'}
+    monkeypatch.setattr(b, 'find_profile_detail', find)
+    resolved = []
+    def resolve(url, **kwargs):
+        resolved.append(url)
+        return SimpleNamespace(tracks=[])
+    monkeypatch.setattr(b, 'resolve', resolve)
+    monkeypatch.setattr(b, 'verify_tracks', lambda *a: pytest.fail('must not verify retired copy'))
+
+    b.verify_submissions(args)
+    tasks = list(b.iter_tasks(args, object()))
+    assert [target['prehrajto_video_id'] for _, target, _ in tasks] == [1]
+    assert looked_up == [1]
+    assert resolved == ['https://example.test/current-copy']
+
+
+def test_current_completed_video_stays_excluded(tmp_path):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    b.append_jsonl(args.report_file, b.status_row(upload, upload, 'uploaded'))
+    assert b.pending_uploads(args.followup_file, args.state_file, args.report_file) == []
+
+
+def test_current_copy_with_existing_czech_track_is_not_resubmitted(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    b.append_jsonl(args.report_file, {**b.status_row(upload, upload, 'uploaded'),
+                                    'prehrajto_video_id': 99})
+    monkeypatch.setattr(b, 'find_profile_detail', lambda *a: {
+        'processing': False, 'detail_url': 'https://example.test/current-copy'})
+    monkeypatch.setattr(b, 'resolve', lambda *a, **kw: SimpleNamespace(tracks=[object()]))
+    monkeypatch.setattr(b, 'pick_czech_track', lambda *a: 'https://example.test/cs.vtt')
+    assert list(b.iter_tasks(args, object())) == []
+    current = b.load_latest_status(args.report_file)[1]
+    assert current['prehrajto_video_id'] == 1
+    assert current['status'] == 'already_has_tracks'
 
 
 def test_deferred_discovery_gets_one_slot_without_starving_fresh_uploads(tmp_path, monkeypatch):

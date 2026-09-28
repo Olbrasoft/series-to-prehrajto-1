@@ -378,6 +378,15 @@ replacement starts.
 
 ## Subtitle throughput (September 2026)
 
+On September 28, 979 current videos were incorrectly excluded by terminal
+subtitle results belonging to an older copy of the same episode (500 primary,
+479 serialy). Subtitle history now applies only when the numeric video ID
+matches the current upload, and known account identities agree. This applies
+to terminal filtering, retry ordering, cached detail URLs, and submission
+verification. A replacement copy is inspected independently, including checking
+for existing Czech tracks before attaching anything. Pending submissions for
+the same video remain verification-only, so an uncertain POST is not repeated.
+
 `backfill-subtitles` runs one worker per account. Each worker searches the
 signed-in uploaded-video listing by title and confirms the exact numeric video
 ID. It streams work immediately instead of resolving an entire batch first.
