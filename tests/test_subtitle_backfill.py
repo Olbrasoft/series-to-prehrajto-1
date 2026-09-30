@@ -213,8 +213,10 @@ def test_profile_search_requires_matching_video_id(monkeypatch):
     from backfill_uploaded_subtitles import find_profile_detail
     class Session:
         def get(self, url, **kwargs):
-            assert kwargs['params'] == {'searchPhrase': 'Series S01E01 CZ Titulky'}
-            return SimpleNamespace(text='<div id="snippet-uploadedVideoListing-video-99">wrong upload</div>',
+            assert kwargs['params']['searchPhrase'] in {'Series S01E01 CZ Titulky', 'Series S01E01'}
+            assert kwargs['params']['selectedFolderId'] == '-1'
+            assert kwargs['params']['filterIsDeleted'] in {'0', '1'}
+            return SimpleNamespace(text=DELETED_CONTROL + '<div id="snippet-uploadedVideoListing-video-99">wrong upload</div>',
                                    raise_for_status=lambda: None)
     assert find_profile_detail(Session(), {'display_name': 'Series S01E01 CZ Titulky',
                                           'prehrajto_video_id': 100}) is None
@@ -269,7 +271,7 @@ def test_verification_cannot_write_other_account_rows(tmp_path, monkeypatch):
 
 
 @pytest.mark.parametrize('status', [
-    'uploaded', 'already_has_tracks', 'source_track_not_found',
+    'uploaded', 'already_has_tracks', 'source_track_not_found', 'target_deleted',
     'submitted', 'submission_pending', 'submission_unknown', 'subtitle_processing',
 ])
 def test_previous_copy_cannot_hide_current_upload(tmp_path, monkeypatch, status):
@@ -320,6 +322,131 @@ def test_current_copy_with_existing_czech_track_is_not_resubmitted(tmp_path, mon
     current = b.load_latest_status(args.report_file)[1]
     assert current['prehrajto_video_id'] == 1
     assert current['status'] == 'already_has_tracks'
+
+
+DELETED_CONTROL = '<a class="cta--muted button" href="/profil/nahrana-videa">Smazané</a>'
+
+
+def test_profile_lookup_confirms_deleted_target_by_video_id():
+    import backfill_uploaded_subtitles as b
+    calls = []
+    class Session:
+        def get(self, url, **kwargs):
+            params = kwargs['params']
+            calls.append(params)
+            assert params['selectedFolderId'] == '-1'
+            text = '' if params['filterIsDeleted'] == '0' else (
+                DELETED_CONTROL + '<div id="snippet-uploadedVideoListing-video-42">deleted</div>')
+            return SimpleNamespace(text=text, raise_for_status=lambda: None)
+    result = b.find_profile_detail(Session(), {'display_name': 'Example CZ Titulky', 'prehrajto_video_id': 42})
+    assert result['deleted'] is True
+    assert [c['filterIsDeleted'] for c in calls] == ['0', '1']
+
+
+def test_unconfirmed_filter_cannot_mark_a_video_deleted():
+    import backfill_uploaded_subtitles as b
+    class Session:
+        def get(self, *args, **kwargs):
+            return SimpleNamespace(text='<div id="snippet-uploadedVideoListing-video-42">active video</div>',
+                                   raise_for_status=lambda: None)
+    with pytest.raises(b.requests.RequestException, match='Deleted filter'):
+        b.find_deleted_profile_detail(Session(), {'display_name': 'Example', 'prehrajto_video_id': 42})
+
+
+def test_existing_active_target_needs_no_deleted_lookup():
+    import backfill_uploaded_subtitles as b
+    class Session:
+        def get(self, *args, **kwargs):
+            assert kwargs['params']['filterIsDeleted'] == '0'
+            return SimpleNamespace(text='<div id="snippet-uploadedVideoListing-video-42">active video</div>',
+                                   raise_for_status=lambda: None)
+    result = b.find_profile_detail(Session(), {'display_name': 'Example', 'prehrajto_video_id': 42})
+    assert not result.get('deleted')
+
+
+def test_episode_prefix_finds_renamed_target_but_never_another_copy():
+    import backfill_uploaded_subtitles as b
+    calls = []
+    class Session:
+        def get(self, *args, **kwargs):
+            params = kwargs['params']
+            calls.append(params['searchPhrase'])
+            assert params['filterIsDeleted'] == '0'
+            text = '<div id="snippet-uploadedVideoListing-video-99">different copy</div>'
+            if params['searchPhrase'] == 'Example S01E06':
+                text += '<div id="snippet-uploadedVideoListing-video-42">renamed episode</div>'
+            return SimpleNamespace(text=text, raise_for_status=lambda: None)
+    result = b.find_profile_detail(Session(), {
+        'display_name': 'Example S01E06 - Title... CZ Titulky', 'prehrajto_video_id': 42})
+    assert result is not None
+    assert calls == ['Example S01E06 - Title... CZ Titulky', 'Example S01E06']
+
+
+def test_deleted_target_is_closed_before_resolving_or_attaching(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    write_uploads(args, 1)
+    monkeypatch.setattr(b, 'find_profile_detail', lambda *a: {'deleted': True})
+    monkeypatch.setattr(b, 'resolve', lambda *a, **kw: pytest.fail('deleted target must not be resolved'))
+    assert list(b.iter_tasks(args, object())) == []
+    assert b.load_latest_status(args.report_file)[1]['status'] == 'target_deleted'
+    assert b.pending_uploads(args.followup_file, args.state_file, args.report_file) == []
+
+
+def test_cached_unresolvable_target_can_be_confirmed_deleted(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    b.append_jsonl(args.report_file, b.status_row(upload, upload, 'target_unresolved',
+                  detail_url='https://example.test/deleted'))
+    def resolve(*args, **kwargs):
+        raise RuntimeError('No video streams')
+    monkeypatch.setattr(b, 'resolve', resolve)
+    monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: {'deleted': True})
+    assert list(b.iter_tasks(args, object())) == []
+    assert b.load_latest_status(args.report_file)[1]['status'] == 'target_deleted'
+
+
+def test_deleted_submitted_target_is_closed_without_reupload(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    b.append_jsonl(args.report_file, b.status_row(upload, upload, 'submitted',
+                  detail_url='https://example.test/deleted', submitted_at='2026-01-01T00:00:00Z'))
+    monkeypatch.setattr(b, 'verify_tracks', lambda *a: False)
+    monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: {'deleted': True})
+    b.verify_submissions(args, object())
+    result = b.load_latest_status(args.report_file)[1]
+    assert result['status'] == 'target_deleted'
+    assert result['previous_status'] == 'submitted'
+    assert b.pending_uploads(args.followup_file, args.state_file, args.report_file) == []
+
+
+def test_pending_submission_deletion_check_runs_at_most_daily(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    b.append_jsonl(args.report_file, b.status_row(upload, upload, 'submitted',
+                  detail_url='https://example.test/video', submitted_at='2026-01-01T00:00:00Z'))
+    monkeypatch.setattr(b, 'verify_tracks', lambda *a: False)
+    checks = []
+    monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: checks.append(a))
+    b.verify_submissions(args, object())
+    b.verify_submissions(args, object())
+    assert len(checks) == 1
+    assert b.load_latest_status(args.report_file)[1]['status'] == 'subtitle_processing'
+
+
+def test_new_submission_does_not_trigger_deleted_lookup(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    b.append_jsonl(args.report_file, b.status_row(upload, upload, 'submitted',
+                  detail_url='https://example.test/video', submitted_at=b.now_iso()))
+    monkeypatch.setattr(b, 'verify_tracks', lambda *a: False)
+    monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: pytest.fail('too soon'))
+    b.verify_submissions(args, object())
+    assert b.load_latest_status(args.report_file)[1]['status'] == 'subtitle_processing'
 
 
 def test_deferred_discovery_gets_one_slot_without_starving_fresh_uploads(tmp_path, monkeypatch):

@@ -378,6 +378,34 @@ replacement starts.
 
 ## Subtitle throughput (September 2026)
 
+### Deleted targets and renamed videos (September 30)
+
+`target_not_found` describes our destination video, not the source of its
+subtitles. An authenticated audit of the portal's selected Deleted filter
+found 1,287 `CZ Titulky` entries across both accounts. Only 863 matched the
+current account/video IDs in upload state (344 primary, 519 serialy); other
+entries are historical copies and must not close a current replacement.
+
+Confirmed deleted targets receive `target_deleted`, which excludes them from
+normal subtitle work and remaining-work totals. The evidence must be an exact
+video ID under the visibly selected Deleted filter, never an empty search,
+HTTP error, or missing public stream. Account upload state is retained so the
+paused uploader cannot mistakenly treat a deleted episode as never uploaded.
+Cached unresolved targets and long-pending submissions also check for deletion;
+the latter check at most once daily. Restored videos can be explicitly retried
+with `--retry-reported`.
+
+Profile lookup searches all folders. It tries the recorded title and then the
+series/episode prefix, always requiring the immutable video ID. For example,
+video 29009897 is present as `Penny Dreadful: Město andělů S01E06 - Já na bráchu
+CZ Titulky`, while upload state contains `Já na bráchu...`; the previous exact
+title search incorrectly reported it missing.
+
+Source problems remain separate: `source_search_pending` means alternate Czech
+subtitle discovery is deferred, and `source_track_not_found` means no suitable
+track was found in the attempted sources. Neither status proves the source
+video was deleted; sampled sources were playable but had no Czech track.
+
 On September 28, 979 current videos were incorrectly excluded by terminal
 subtitle results belonging to an older copy of the same episode (500 primary,
 479 serialy). Subtitle history now applies only when the numeric video ID

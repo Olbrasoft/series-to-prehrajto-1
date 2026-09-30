@@ -38,6 +38,7 @@ TERMINAL_STATUSES = {
     "already_has_tracks",
     "invalid_subtitle_format",
     "source_track_not_found",
+    "target_deleted",
     "uploaded",
     "unsupported_subtitle_format",
 }
@@ -157,9 +158,10 @@ def load_uploads(paths: list[Path], upload_account: str | None = None) -> dict[i
 
 
 def profile_page_url(page: int) -> str:
-    if page <= 1:
-        return PROFILE_URL
-    return f"{PROFILE_URL}?uploadedVideoListing-visualPaginator-page={page}"
+    url = f"{PROFILE_URL}?selectedFolderId=-1&filterIsDeleted=0"
+    if page > 1:
+        url += f"&uploadedVideoListing-visualPaginator-page={page}"
+    return url
 
 
 def extract_blocks(page_html: str, page: int) -> dict[int, dict]:
@@ -371,14 +373,53 @@ def find_uploaded_detail(upload: dict, *, min_interval: float) -> dict | None:
     return None
 
 
+def profile_target_queries(upload: dict) -> list[str]:
+    name = str(upload["display_name"]).strip()
+    queries = [name]
+    code = re.search(r"\bS\d{1,2}E\d{1,3}\b", name, re.IGNORECASE)
+    if code:
+        queries.append(name[:code.end()].strip())
+    return list(dict.fromkeys(queries))
+
+
 def find_profile_detail(session: requests.Session, upload: dict) -> dict | None:
-    """Search this account's listing once, then match the immutable video ID."""
+    """Search all folders, then distinguish a deleted target from a missing one."""
+    for query in profile_target_queries(upload):
+        response = session.get(
+            PROFILE_URL, params={"searchPhrase": query,
+                                 "selectedFolderId": "-1", "filterIsDeleted": "0"},
+            headers={"Referer": PROFILE_URL}, timeout=30,
+        )
+        response.raise_for_status()
+        info = extract_blocks(response.text, 1).get(int(upload["prehrajto_video_id"]))
+        if info:
+            return info
+    return find_deleted_profile_detail(session, upload)
+
+
+def deleted_filter_active(page_html: str) -> bool:
+    """Require the portal's selected Deleted control before trusting its rows."""
+    for attrs, label in re.findall(r"<a\b([^>]*)>(.*?)</a>", page_html, re.DOTALL):
+        classes = re.search(r'\bclass=["\']([^"\']*)["\']', attrs)
+        text = html.unescape(re.sub(r"<[^>]+>", "", label)).strip()
+        if text == "Smazané" and classes and "cta--muted" in classes.group(1).split():
+            return True
+    return False
+
+
+def find_deleted_profile_detail(session: requests.Session, upload: dict) -> dict | None:
     response = session.get(
-        PROFILE_URL, params={"searchPhrase": upload["display_name"]},
+        PROFILE_URL, params={"searchPhrase": profile_target_queries(upload)[-1],
+                             "selectedFolderId": "-1", "filterIsDeleted": "1"},
         headers={"Referer": PROFILE_URL}, timeout=30,
     )
     response.raise_for_status()
-    return extract_blocks(response.text, 1).get(int(upload["prehrajto_video_id"]))
+    if not deleted_filter_active(response.text):
+        raise requests.RequestException("Portal did not confirm the selected Deleted filter")
+    info = extract_blocks(response.text, 1).get(int(upload["prehrajto_video_id"]))
+    if info:
+        info["deleted"] = True
+    return info
 
 
 def find_alternate_track(row: dict, target_duration: int | None, *, min_interval: float) -> tuple[str | None, str | None]:
@@ -493,6 +534,25 @@ def status_row(row: dict, upload: dict, status: str, **extra) -> dict:
     return out
 
 
+def deleted_target_status(row: dict, upload: dict, info: dict, previous: dict) -> dict:
+    return status_row(
+        row, upload, "target_deleted", detail_url=info.get("detail_url"),
+        deletion_confirmed_at=now_iso(), deletion_evidence="profile_deleted_filter",
+        previous_status=previous.get("status"),
+    )
+
+
+def deletion_check_due(row: dict) -> bool:
+    timestamp = row.get("deletion_checked_at") or row.get("submitted_at")
+    if timestamp:
+        try:
+            checked = dt.datetime.fromisoformat(str(timestamp).replace("Z", "+00:00"))
+            return dt.datetime.now(dt.timezone.utc) - checked >= dt.timedelta(days=1)
+        except (TypeError, ValueError):
+            pass
+    return True
+
+
 def newest_upload_first(item: tuple[dict, dict]) -> tuple[str, int]:
     row, upload = item
     return (
@@ -594,6 +654,10 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
             append_jsonl(args.report_file, status_row(row, upload, "target_not_found"))
             log(f"skip target not found episode_id={row.get('episode_id')} video_id={video_id}")
             continue
+        if info.get("deleted"):
+            append_jsonl(args.report_file, deleted_target_status(row, upload, info, previous))
+            log(f"skip deleted target episode_id={row.get('episode_id')} video_id={video_id}")
+            continue
         if info["processing"]:
             append_jsonl(args.report_file, status_row(row, upload, "target_processing", detail_url=info.get("detail_url")))
             log(f"skip processing video_id={video_id} name={upload.get('display_name')!r}")
@@ -605,7 +669,19 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
         try:
             current = info.get("resolved") or resolve(detail_url, max_retries=1)
         except Exception as exc:
-            append_jsonl(args.report_file, status_row(row, upload, "target_unresolved", detail_url=detail_url, reason=str(exc)))
+            deletion_checked_at = previous.get("deletion_checked_at")
+            if session is not None and deletion_check_due(previous):
+                try:
+                    deleted = find_deleted_profile_detail(session, upload)
+                    deletion_checked_at = now_iso()
+                    if deleted:
+                        append_jsonl(args.report_file, deleted_target_status(row, upload, deleted, previous))
+                        log(f"skip deleted target episode_id={row.get('episode_id')} video_id={video_id}")
+                        continue
+                except requests.RequestException as lookup_exc:
+                    log(f"deletion check deferred video_id={video_id}: {lookup_exc}")
+            append_jsonl(args.report_file, status_row(row, upload, "target_unresolved", detail_url=detail_url,
+                         reason=str(exc), deletion_checked_at=deletion_checked_at))
             log(f"skip unresolved target video_id={video_id} {exc}")
             continue
         if pick_czech_track(current):
@@ -633,7 +709,7 @@ def build_tasks(args: argparse.Namespace, session: requests.Session | None) -> l
     return list(iter_tasks(args, session))
 
 
-def verify_submissions(args: argparse.Namespace) -> None:
+def verify_submissions(args: argparse.Namespace, session: requests.Session | None = None) -> None:
     """Check a bounded set once, without sleeping or re-uploading."""
     previous_rows = load_latest_status(args.report_file).values()
     uploads = load_uploads(args.state_file, args.upload_account)
@@ -652,6 +728,17 @@ def verify_submissions(args: argparse.Namespace) -> None:
             log(f"verification deferred episode_id={row['episode_id']}: {exc}")
             continue
         status = "uploaded" if verified else "subtitle_processing"
+        if not verified and session is not None and deletion_check_due(row):
+            upload = uploads[int(row["episode_id"])]
+            try:
+                deleted = find_deleted_profile_detail(session, upload)
+                row = {**row, "deletion_checked_at": now_iso()}
+                if deleted:
+                    append_jsonl(args.report_file, deleted_target_status(row, upload, deleted, row))
+                    log(f"skip deleted submitted target episode_id={row['episode_id']}")
+                    continue
+            except requests.RequestException as exc:
+                log(f"deletion check deferred episode_id={row['episode_id']}: {exc}")
         append_jsonl(args.report_file, {**row, "status": status, "checked_at": now_iso()})
         log(f"verify episode_id={row['episode_id']} status={status}")
 
@@ -696,7 +783,7 @@ def main() -> int:
     session = login(email, password) if needs_login else None
     args.deadline = time.monotonic() + args.max_runtime if args.max_runtime else float("inf")
     if not args.dry_run:
-        verify_submissions(args)
+        verify_submissions(args, session)
     tasks = iter_tasks(args, session)
     if args.dry_run:
         for row, upload, info in tasks:
