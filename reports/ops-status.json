@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 129595,
-    "manifest_upload_ready_episodes": 2836,
+    "manifest_upload_ready_episodes": 2838,
     "uploaded_episodes": 62188,
-    "prepared_source_episodes": 61811,
+    "prepared_source_episodes": 61801,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 868,
+    "language_audited_sources": 880,
     "language_whisper_attempted_sources": 125,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53952,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-09-30T22:44:27Z",
-      "databaseId": 36787288749,
+      "createdAt": "2026-09-30T22:48:32Z",
+      "databaseId": 36787668720,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-30T22:47:57Z",
+      "databaseId": 36787612847,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "success",
+      "createdAt": "2026-09-30T22:46:22Z",
+      "databaseId": 36787466954,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-09-30T22:46:19Z",
+      "databaseId": 36787462397,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-09-30T22:46:16Z",
+      "databaseId": 36787458263,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-30T22:44:27Z",
+      "databaseId": 36787288749,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "failure",
       "createdAt": "2026-09-30T22:43:35Z",
       "databaseId": 36787207343,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -55,7 +95,7 @@
       "createdAt": "2026-09-30T22:40:12Z",
       "databaseId": 36786888836,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -134,46 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-09-30T22:32:03Z",
       "databaseId": 36786121376,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-30T22:27:01Z",
-      "databaseId": 36785631482,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-30T22:26:51Z",
-      "databaseId": 36785616175,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "failure",
-      "createdAt": "2026-09-30T22:26:46Z",
-      "databaseId": 36785608064,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-09-30T22:26:18Z",
-      "databaseId": 36785563060,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-09-30T22:25:44Z",
-      "databaseId": 36785508256,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -572977,7 +572977,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 743,
+    "disabled": 755,
     "resolve_failed": 86,
     "ok": 39
   },
