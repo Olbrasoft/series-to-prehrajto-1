@@ -383,8 +383,8 @@ replacement starts.
 `target_not_found` describes our destination video, not the source of its
 subtitles. An authenticated audit of the portal's selected Deleted filter
 found 1,287 `CZ Titulky` entries across both accounts. Only 863 matched the
-current account/video IDs in upload state (344 primary, 519 serialy); other
-entries are historical copies and must not close a current replacement.
+current account/video IDs in upload state (344 primary, 519 serialy). Entries
+with different IDs must not close a current replacement.
 
 Confirmed deleted targets receive `target_deleted`, which excludes them from
 normal subtitle work and remaining-work totals. The evidence must be an exact
