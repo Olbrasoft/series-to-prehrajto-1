@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 129294,
-    "manifest_upload_ready_episodes": 2846,
-    "uploaded_episodes": 62492,
+    "manifest_upload_ready_episodes": 2844,
+    "uploaded_episodes": 62497,
     "prepared_source_episodes": 59008,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 30,
-    "language_whisper_attempted_sources": 24,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53924,
     "whisper_review_pending_sources": 35679,
     "subtitle_followup_sources": 40905,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-01T21:22:09Z",
-      "databaseId": 36928203771,
+      "createdAt": "2026-10-01T21:29:58Z",
+      "databaseId": 36929072691,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-01T21:29:55Z",
+      "databaseId": 36929066759,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T21:28:26Z",
+      "databaseId": 36928906907,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T21:24:06Z",
+      "databaseId": 36928423537,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T21:23:11Z",
+      "databaseId": 36928320835,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-01T21:22:09Z",
+      "databaseId": 36928203771,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-01T21:21:58Z",
       "databaseId": 36928184278,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +91,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-01T21:20:07Z",
       "databaseId": 36927972079,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -91,11 +131,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-01T21:16:53Z",
       "databaseId": 36927596796,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -103,7 +143,7 @@
       "createdAt": "2026-10-01T21:15:32Z",
       "databaseId": 36927442225,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -131,52 +171,12 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-01T21:14:04Z",
       "databaseId": 36927272548,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-01T21:08:59Z",
-      "databaseId": 36926685200,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-01T21:08:34Z",
-      "databaseId": 36926636118,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-01T21:08:07Z",
-      "databaseId": 36926585731,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-01T21:05:04Z",
-      "databaseId": 36926230167,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-01T21:05:01Z",
-      "databaseId": 36926224833,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -152766,6 +152766,21 @@
         "video_id": 29907878
       },
       {
+        "episode_id": 125893,
+        "display_name": "Maradona: Požehnaný sen S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29907976
+      },
+      {
+        "episode_id": 179213,
+        "display_name": "Hyper skalpel S01E03 - 3. díl CZ Titulky",
+        "video_id": 29908033
+      },
+      {
+        "episode_id": 163265,
+        "display_name": "Cuffs S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29908080
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -287569,6 +287584,16 @@
         "episode_id": 190575,
         "display_name": "Camp S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29907999
+      },
+      {
+        "episode_id": 203215,
+        "display_name": "Živá pára S01E04 - Zóna hrůzy CZ Dabing",
+        "video_id": 29908044
+      },
+      {
+        "episode_id": 125899,
+        "display_name": "Maradona: Požehnaný sen S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29908081
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -440053,6 +440078,21 @@
         "video_id": 29907878
       },
       {
+        "episode_id": 125893,
+        "display_name": "Maradona: Požehnaný sen S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 29907976
+      },
+      {
+        "episode_id": 179213,
+        "display_name": "Hyper skalpel S01E03 - 3. díl CZ Titulky",
+        "video_id": 29908033
+      },
+      {
+        "episode_id": 163265,
+        "display_name": "Cuffs S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29908080
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -574856,6 +574896,16 @@
         "episode_id": 190575,
         "display_name": "Camp S01E06 - 6. epizoda CZ Titulky",
         "video_id": 29907999
+      },
+      {
+        "episode_id": 203215,
+        "display_name": "Živá pára S01E04 - Zóna hrůzy CZ Dabing",
+        "video_id": 29908044
+      },
+      {
+        "episode_id": 125899,
+        "display_name": "Maradona: Požehnaný sen S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 29908081
       }
     ],
     "prepared_not_upload_ready": [
@@ -576017,8 +576067,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 6,
-    "ok": 23,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
