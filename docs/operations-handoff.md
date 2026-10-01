@@ -1,28 +1,23 @@
 # Operations handoff
 
-## Operator pause: video uploads (September 26, 2026)
+## Video uploads resumed (October 1, 2026)
 
-The user requested a pause because both accounts have many videos still being
-processed by Prehraj.to. Video uploads must remain stopped until the user
-explicitly requests resumption. There is no automatic 24-hour expiry. This
-overrides the continuous-upload health targets below; do not recover this
-intentional pause as an outage.
+The user explicitly requested resumption on both accounts after confirming that
+Prehraj.to had processed the previously uploaded videos. The September 26 pause
+is over; normal continuous-upload health targets apply again.
 
-In `Olbrasoft/series-to-prehrajto-1`, `sync.yml` is `disabled_manually`, and its
-running and pending batches were cancelled. The repository Actions variable
-`VIDEO_UPLOADS_PAUSED` is `true`. Upload jobs, successor dispatches, preparation
-dispatches, and the watchdog respect that variable. The disabled workflow also
-blocks dispatches from jobs using an older workflow revision. Subtitle backfill
+In `Olbrasoft/series-to-prehrajto-1`, `sync.yml` is enabled and the repository
+Actions variable `VIDEO_UPLOADS_PAUSED` is `false`. Run `36868127402` was
+dispatched at 13:21 UTC with four shards (0/1 primary, 2/3 serialy), eight
+episodes per shard, and automatic continuation enabled. Subtitle backfill
 remains enabled for both accounts and continues independently.
 
-Before reporting the pause complete, verify that no sync run is active or
-pending, that the workflow is disabled, and that the pause variable is true.
-Verify subtitle progress from fresh report timestamps and playable Czech tracks.
-
-Only after a new explicit user request to resume, set `VIDEO_UPLOADS_PAUSED` to
-`false`, enable `sync.yml`, and dispatch/verify a four-shard sync. Keep these
-two controls in agreement. Setting the variable alone does not interrupt
-already-running upload jobs; cancel active and pending sync runs when pausing.
+Keep the workflow enablement and pause variable in agreement. For any future
+operator-requested pause, set `VIDEO_UPLOADS_PAUSED=true`, disable `sync.yml`,
+and cancel active and pending sync runs; changing the variable alone does not
+interrupt running jobs. Resume only after an explicit user request. Verify
+actual upload progress from fresh per-account upload timestamps, and subtitle
+progress from report timestamps and playable Czech tracks.
 
 This is the first document a new operator or Codex session should read. It
 describes the production workflow as it currently runs, the state persisted in
