@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 129294,
     "manifest_upload_ready_episodes": 2807,
-    "uploaded_episodes": 62520,
-    "prepared_source_episodes": 59014,
+    "uploaded_episodes": 62521,
+    "prepared_source_episodes": 59013,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 30,
-    "language_whisper_attempted_sources": 22,
+    "language_whisper_attempted_sources": 25,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53923,
-    "whisper_review_pending_sources": 35678,
-    "subtitle_followup_sources": 40909,
-    "subtitle_followup_pending_sources": 40909
+    "whisper_review_sources": 53922,
+    "whisper_review_pending_sources": 35674,
+    "subtitle_followup_sources": 40910,
+    "subtitle_followup_pending_sources": 40910
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T21:55:31Z",
+      "databaseId": 36931847673,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T21:55:25Z",
+      "databaseId": 36931837492,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T21:55:16Z",
+      "databaseId": 36931820474,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-01T21:54:38Z",
@@ -31,15 +55,15 @@
       "createdAt": "2026-10-01T21:54:19Z",
       "databaseId": 36931720361,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-01T21:53:59Z",
       "databaseId": 36931685353,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-01T21:52:53Z",
       "databaseId": 36931571898,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -103,7 +127,7 @@
       "createdAt": "2026-10-01T21:48:09Z",
       "databaseId": 36931055937,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-01T21:43:27Z",
-      "databaseId": 36930545974,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-01T21:40:58Z",
-      "databaseId": 36930280924,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-01T21:40:46Z",
-      "databaseId": 36930260469,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -152809,6 +152809,11 @@
         "episode_id": 125896,
         "display_name": "Maradona: Požehnaný sen S01E02 - 2. epizoda CZ Dabing",
         "video_id": 29908393
+      },
+      {
+        "episode_id": 179212,
+        "display_name": "Hyper skalpel S01E02 - 2. díl CZ Titulky",
+        "video_id": 29908463
       },
       {
         "episode_id": 145109,
@@ -440238,6 +440243,11 @@
         "video_id": 29908393
       },
       {
+        "episode_id": 179212,
+        "display_name": "Hyper skalpel S01E02 - 2. díl CZ Titulky",
+        "video_id": 29908463
+      },
+      {
         "episode_id": 145109,
         "display_name": "Vysvoboď mě S01E01 - Cos to provedl? CZ Dabing",
         "video_id": 29908165
@@ -576297,17 +576307,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 21,
-    "disabled": 8,
+    "ok": 24,
+    "disabled": 5,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4285,
-    "whisper_non_cz_needs_subtitles": 13960,
-    "needs_whisper": 34337,
+    "whisper_confirmed_cz": 4286,
+    "whisper_non_cz_needs_subtitles": 13962,
+    "needs_whisper": 34333,
     "whisper_failed": 1341
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 40909
+    "needs_subtitle_setup_after_prehrajto_processing": 40910
   }
 }
