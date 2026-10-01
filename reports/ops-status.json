@@ -1,29 +1,45 @@
 {
   "counts": {
     "backlog_episodes": 129474,
-    "manifest_upload_ready_episodes": 2983,
-    "uploaded_episodes": 62340,
-    "prepared_source_episodes": 58840,
+    "manifest_upload_ready_episodes": 2977,
+    "uploaded_episodes": 62341,
+    "prepared_source_episodes": 58841,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 100,
-    "language_whisper_attempted_sources": 81,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53971,
-    "whisper_review_pending_sources": 35909,
-    "subtitle_followup_sources": 40817,
-    "subtitle_followup_pending_sources": 40817
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 53956,
+    "whisper_review_pending_sources": 35835,
+    "subtitle_followup_sources": 40818,
+    "subtitle_followup_pending_sources": 40818
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T15:42:17Z",
+      "databaseId": 36886339885,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-01T15:42:00Z",
+      "databaseId": 36886304376,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-01T15:40:07Z",
       "databaseId": 36886062700,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,7 +63,7 @@
       "createdAt": "2026-10-01T15:39:51Z",
       "databaseId": 36886026062,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,11 +75,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-01T15:39:03Z",
       "databaseId": 36885920241,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -99,11 +115,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-01T15:37:43Z",
       "databaseId": 36885741826,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -158,22 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-01T15:24:09Z",
       "databaseId": 36883963519,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-01T15:23:22Z",
-      "databaseId": 36883862518,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-01T15:23:05Z",
-      "databaseId": 36883820465,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -152349,6 +152349,11 @@
         "episode_id": 196132,
         "display_name": "He-Man a vládci vesmíru S02E03 - Eternie 2000 CZ Dabing",
         "video_id": 29903291
+      },
+      {
+        "episode_id": 196136,
+        "display_name": "He-Man a vládci vesmíru S02E07 - Bitva o Avion CZ Dabing",
+        "video_id": 29903309
       },
       {
         "episode_id": 196129,
@@ -438878,6 +438883,11 @@
         "video_id": 29903291
       },
       {
+        "episode_id": 196136,
+        "display_name": "He-Man a vládci vesmíru S02E07 - Bitva o Avion CZ Dabing",
+        "video_id": 29903309
+      },
+      {
         "episode_id": 196129,
         "display_name": "He-Man a vládci vesmíru S01E10 - Zkáza (2) CZ Dabing",
         "video_id": 29903100
@@ -574497,17 +574507,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 80,
-    "disabled": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4256,
-    "whisper_non_cz_needs_subtitles": 13806,
-    "needs_whisper": 34572,
+    "whisper_confirmed_cz": 4259,
+    "whisper_non_cz_needs_subtitles": 13862,
+    "needs_whisper": 34498,
     "whisper_failed": 1337
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 40817
+    "needs_subtitle_setup_after_prehrajto_processing": 40818
   }
 }
