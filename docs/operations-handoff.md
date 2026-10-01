@@ -19,6 +19,16 @@ interrupt running jobs. Resume only after an explicit user request. Verify
 actual upload progress from fresh per-account upload timestamps, and subtitle
 progress from report timestamps and playable Czech tracks.
 
+## Whisper dependency compatibility (October 1, 2026)
+
+Unconstrained installs selected PyAV 19, which removed the `metadata_errors`
+argument still passed by faster-whisper 1.2.1. Audio decoding then raised a
+`TypeError` in both language audit and Whisper review. All three workflows
+that install Whisper now share `requirements-whisper.txt`, pinning the tested
+faster-whisper 1.2.1 / PyAV 18.0.0 combination. Their installation steps also
+decode and resample a generated WAV through the real Whisper decoder, without
+downloading a model, to catch future dependency incompatibilities early.
+
 This is the first document a new operator or Codex session should read. It
 describes the production workflow as it currently runs, the state persisted in
 the repository, the invariants that must not be broken, and the commands used

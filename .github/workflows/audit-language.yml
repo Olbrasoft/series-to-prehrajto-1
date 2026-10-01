@@ -48,7 +48,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
           pip install -r requirements.txt
-          pip install faster-whisper
+          pip install -r requirements-whisper.txt
+          python -m unittest discover -s tests -p test_whisper_dependencies.py
 
       - name: Configure git
         run: |
