@@ -51,6 +51,17 @@ REMOVE_RE = re.compile(
 )
 
 
+class SourceDiscoveryDeferred(RuntimeError):
+    """An incomplete lookup cannot establish that Czech subtitles are absent."""
+
+
+def discovery_error(stage: str, exc: Exception) -> SourceDiscoveryDeferred:
+    # Exception URLs can contain proxy credentials; persist only a safe reason.
+    response = getattr(exc, "response", None)
+    status = getattr(response, "status_code", None)
+    return SourceDiscoveryDeferred(f"{stage}_http_{status}" if status else f"{stage}_{type(exc).__name__}")
+
+
 def now_iso() -> str:
     return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -301,6 +312,8 @@ def source_with_subtitles(row: dict) -> tuple[str | None, str | None]:
             if track:
                 return str(source_url), track
         except Exception as exc:
+            if not isinstance(exc, ResolveError) or not exc.permanent:
+                raise discovery_error("source_resolve", exc) from exc
             log(f"source resolve failed episode_id={row.get('episode_id')} {exc}")
     return None, None
 
@@ -423,12 +436,16 @@ def find_deleted_profile_detail(session: requests.Session, upload: dict) -> dict
 
 
 def find_alternate_track(row: dict, target_duration: int | None, *, min_interval: float) -> tuple[str | None, str | None]:
+    incomplete = None
     for query in query_variants(row):
         log(f"search subtitles episode_id={row.get('episode_id')} query={query!r}")
         try:
             pages = search_pages(query, max_pages=2, min_interval=min_interval, should_fetch_next=lambda results: True)
         except Exception as exc:
-            log(f"search failed episode_id={row.get('episode_id')} query={query!r} {exc}")
+            incomplete = discovery_error("search", exc)
+            log(f"search deferred episode_id={row.get('episode_id')} reason={incomplete}")
+            if getattr(getattr(exc, "response", None), "status_code", None) == 429:
+                raise incomplete from exc
             continue
         candidates = [item for page in pages for item in page]
         scored: list[tuple[int, str, str]] = []
@@ -441,7 +458,9 @@ def find_alternate_track(row: dict, target_duration: int | None, *, min_interval
                 continue
             try:
                 resolved = resolve(item.url, max_retries=1)
-            except Exception:
+            except Exception as exc:
+                if not isinstance(exc, ResolveError) or not exc.permanent:
+                    incomplete = discovery_error("candidate_resolve", exc)
                 continue
             track = pick_czech_track(resolved)
             if not track:
@@ -454,6 +473,8 @@ def find_alternate_track(row: dict, target_duration: int | None, *, min_interval
         if scored:
             scored.sort(key=lambda item: item[0])
             return scored[0][1], scored[0][2]
+    if incomplete is not None:
+        raise incomplete
     return None, None
 
 
@@ -795,6 +816,7 @@ def main() -> int:
 
     ok = fail = 0
     alternate_searches = 0
+    discovery_deferred = False
     # Keep names below the portal's label truncation threshold, including
     # two-digit batch indices. Pending submissions are never sent twice.
     suffix_base = str(int(time.time()))[-6:]
@@ -805,14 +827,22 @@ def main() -> int:
         if info.get("subtitle_count", 0) and not info["resolved"].tracks:
             append_jsonl(args.report_file, status_row(row, upload, "target_processing", detail_url=detail_url))
             continue
-        source_url, track_url = source_with_subtitles(row)
-        if not track_url:
-            if args.alternate_limit and alternate_searches >= args.alternate_limit:
-                append_jsonl(args.report_file, status_row(row, upload, "source_search_pending", detail_url=detail_url))
-                continue
-            alternate_searches += 1
-            target_duration = info["resolved"].duration_sec
-            source_url, track_url = find_alternate_track(row, target_duration, min_interval=args.search_min_interval)
+        try:
+            source_url, track_url = source_with_subtitles(row)
+            if not track_url:
+                if discovery_deferred or (args.alternate_limit and alternate_searches >= args.alternate_limit):
+                    append_jsonl(args.report_file, status_row(row, upload, "source_search_pending", detail_url=detail_url))
+                    continue
+                alternate_searches += 1
+                target_duration = info["resolved"].duration_sec
+                source_url, track_url = find_alternate_track(row, target_duration, min_interval=args.search_min_interval)
+        except SourceDiscoveryDeferred as exc:
+            discovery_deferred = True
+            append_jsonl(args.report_file, status_row(
+                row, upload, "source_search_pending", detail_url=detail_url, reason=str(exc),
+            ))
+            log(f"defer subtitle discovery episode_id={row.get('episode_id')} reason={exc}")
+            continue
         if not track_url:
             fail += 1
             append_jsonl(

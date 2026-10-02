@@ -383,6 +383,18 @@ replacement starts.
 
 ## Subtitle throughput (September 2026)
 
+### Incomplete subtitle discovery (October 2)
+
+A search HTTP 429 was previously swallowed, so a partially failed search could
+record terminal `source_track_not_found`. Source resolution outages, failed
+search queries, and transient alternate-candidate resolution failures now keep
+the episode as `source_search_pending` with a credential-free reason. A 429
+stops further query variants immediately; the batch also defers further
+alternate searches while still accepting usable original-source tracks.
+Permanent missing sources and successfully completed empty searches retain
+their existing handling. Episode 95701 / current primary video 29670385 was
+identified for requeue from failed-search evidence in run 37009294200.
+
 ### Deleted targets and renamed videos (September 30)
 
 `target_not_found` describes our destination video, not the source of its

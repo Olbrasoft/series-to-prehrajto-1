@@ -489,3 +489,93 @@ def test_main_records_submission_before_post_and_defers_verification(tmp_path, m
     result = b.load_latest_status(args.report_file)[1]
     assert result['status'] == ('submitted' if response_mode == 'accepted' else 'submission_unknown')
     assert result['submitted_at']
+
+
+def test_rate_limited_search_stops_query_variants_without_rejecting_source(monkeypatch):
+    import backfill_uploaded_subtitles as b
+    response = b.requests.Response()
+    response.status_code = 429
+    calls = []
+    def search(query, **kwargs):
+        calls.append(query)
+        raise b.requests.HTTPError('https://proxy.test/?key=private', response=response)
+    monkeypatch.setattr(b, 'search_pages', search)
+    with pytest.raises(b.SourceDiscoveryDeferred, match='^search_http_429$'):
+        b.find_alternate_track({'series_title': 'Series', 'season': 1, 'episode': 1}, 100, min_interval=0)
+    assert len(calls) == 1
+
+
+@pytest.mark.parametrize('later_match', [False, True])
+def test_incomplete_search_is_retryable_unless_later_query_finds_track(monkeypatch, later_match):
+    import backfill_uploaded_subtitles as b
+    calls = []
+    candidate = SimpleNamespace(title='Series', url='https://example.test/source', duration_sec=100)
+    def search(query, **kwargs):
+        calls.append(query)
+        if len(calls) == 1:
+            raise b.requests.Timeout('temporary outage')
+        return [[candidate]] if later_match else [[]]
+    monkeypatch.setattr(b, 'search_pages', search)
+    monkeypatch.setattr(b, 'candidate_matches_series', lambda *a: True)
+    monkeypatch.setattr(b, 'resolve', lambda *a, **kw: SimpleNamespace(
+        duration_sec=100, tracks=[SimpleNamespace(lang='cs', url='https://example.test/cs.vtt')]))
+    row = {'series_title': 'Series', 'season': 1, 'episode': 1}
+    if later_match:
+        assert b.find_alternate_track(row, 100, min_interval=0) == (candidate.url, 'https://example.test/cs.vtt')
+    else:
+        with pytest.raises(b.SourceDiscoveryDeferred, match='search_Timeout'):
+            b.find_alternate_track(row, 100, min_interval=0)
+
+
+def test_completed_empty_search_still_reports_no_track(monkeypatch):
+    import backfill_uploaded_subtitles as b
+    monkeypatch.setattr(b, 'search_pages', lambda *a, **kw: [[]])
+    assert b.find_alternate_track({'series_title': 'Series'}, 100, min_interval=0) == (None, None)
+
+
+@pytest.mark.parametrize('permanent', [False, True])
+@pytest.mark.parametrize('original_source', [False, True])
+def test_source_resolution_distinguishes_outage_from_deleted_source(monkeypatch, permanent, original_source):
+    import backfill_uploaded_subtitles as b
+    def resolve(*args, **kwargs):
+        raise b.ResolveError('source unavailable', permanent=permanent)
+    monkeypatch.setattr(b, 'resolve', resolve)
+    monkeypatch.setattr(b, 'candidate_matches_series', lambda *a: True)
+    monkeypatch.setattr(b, 'search_pages', lambda *a, **kw: [[SimpleNamespace(title='Series', url='source')]])
+    row = {'series_title': 'Series', 'source_url': 'source'}
+    def lookup():
+        return b.source_with_subtitles(row) if original_source else b.find_alternate_track(row, 100, min_interval=0)
+    if permanent:
+        assert lookup() == (None, None)
+    else:
+        with pytest.raises(b.SourceDiscoveryDeferred, match='resolve_ResolveError'):
+            lookup()
+
+
+def test_incomplete_discovery_keeps_episode_pending_and_stops_extra_searches(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    uploads = write_uploads(args, 2)
+    monkeypatch.setenv('PREHRAJTO_EMAIL', 'test@example.test')
+    monkeypatch.setenv('PREHRAJTO_PASSWORD', 'test-password')
+    monkeypatch.setattr(b, 'login', lambda *a: object())
+    monkeypatch.setattr(b, 'verify_submissions', lambda *a: None)
+    monkeypatch.setattr(b, 'iter_tasks', lambda *a: iter((u, u, {
+        'detail_url': 'https://example.test/target', 'resolved': SimpleNamespace(tracks=[], duration_sec=100),
+    }) for u in uploads))
+    monkeypatch.setattr(b, 'source_with_subtitles', lambda *a: (None, None))
+    calls = []
+    def search(*args, **kwargs):
+        calls.append(args)
+        raise b.SourceDiscoveryDeferred('search_http_429')
+    monkeypatch.setattr(b, 'find_alternate_track', search)
+    monkeypatch.setattr(b, 'upload_subtitle', lambda *a: pytest.fail('no subtitle was found'))
+    monkeypatch.setattr(sys, 'argv', ['backfill', '--upload-account', 'primary',
+        '--state-file', str(args.state_file[0]), '--report-file', str(args.report_file),
+        '--followup-file', str(args.followup_file), '--allow-partial'])
+    assert b.main() == 0
+    results = b.load_latest_status(args.report_file)
+    assert all(r['status'] == 'source_search_pending' for r in results.values())
+    assert results[1]['reason'] == 'search_http_429'
+    assert len(calls) == 1
+    assert len(b.pending_uploads(args.followup_file, args.state_file, args.report_file)) == 2
