@@ -2,28 +2,76 @@
   "counts": {
     "backlog_episodes": 128767,
     "manifest_upload_ready_episodes": 2115,
-    "uploaded_episodes": 63023,
-    "prepared_source_episodes": 58835,
+    "uploaded_episodes": 63025,
+    "prepared_source_episodes": 58842,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 35,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 21,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53918,
-    "whisper_review_pending_sources": 35660,
+    "whisper_review_pending_sources": 35661,
     "subtitle_followup_sources": 40937,
     "subtitle_followup_pending_sources": 40937
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T03:37:00Z",
+      "databaseId": 36960952532,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T03:36:39Z",
+      "databaseId": 36960928436,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T03:36:33Z",
+      "databaseId": 36960921093,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T03:36:13Z",
+      "databaseId": 36960896649,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T03:35:58Z",
+      "databaseId": 36960879842,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T03:35:56Z",
+      "databaseId": 36960876634,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T03:34:54Z",
       "databaseId": 36960800629,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +99,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T03:28:48Z",
       "databaseId": 36960346444,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -75,11 +123,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-02T03:26:44Z",
       "databaseId": 36960197876,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "refresh-backlog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T03:24:23Z",
       "databaseId": 36960025077,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T03:14:29Z",
-      "databaseId": 36959288819,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:13:29Z",
-      "databaseId": 36959215598,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:13:25Z",
-      "databaseId": 36959210604,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:12:45Z",
-      "databaseId": 36959157153,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:12:21Z",
-      "databaseId": 36959127149,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T03:12:07Z",
-      "databaseId": 36959109624,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -154116,6 +154116,11 @@
         "video_id": 29912616
       },
       {
+        "episode_id": 120669,
+        "display_name": "The Good Cop S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29912657
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -290224,6 +290229,11 @@
         "episode_id": 102755,
         "display_name": "Ravenswood S01E10 - 10. epizoda CZ Titulky",
         "video_id": 29912583
+      },
+      {
+        "episode_id": 89227,
+        "display_name": "Lexx S04E06 - 6. epizoda CZ Dabing",
+        "video_id": 29912658
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -444058,6 +444068,11 @@
         "video_id": 29912616
       },
       {
+        "episode_id": 120669,
+        "display_name": "The Good Cop S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29912657
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -580166,6 +580181,11 @@
         "episode_id": 102755,
         "display_name": "Ravenswood S01E10 - 10. epizoda CZ Titulky",
         "video_id": 29912583
+      },
+      {
+        "episode_id": 89227,
+        "display_name": "Lexx S04E06 - 6. epizoda CZ Dabing",
+        "video_id": 29912658
       }
     ],
     "prepared_not_upload_ready": [
@@ -581327,13 +581347,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 20,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4289,
+    "whisper_confirmed_cz": 4288,
     "whisper_non_cz_needs_subtitles": 13969,
-    "needs_whisper": 34318,
+    "needs_whisper": 34319,
     "whisper_failed": 1342
   },
   "subtitle_followup_statuses": {
