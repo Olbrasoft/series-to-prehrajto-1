@@ -1,17 +1,17 @@
 {
   "counts": {
-    "backlog_episodes": 127772,
+    "backlog_episodes": 127730,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 64004,
-    "prepared_source_episodes": 58979,
+    "uploaded_episodes": 64006,
+    "prepared_source_episodes": 58974,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53902,
     "whisper_review_pending_sources": 35609,
     "subtitle_followup_sources": 41041,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T21:18:39Z",
-      "databaseId": 37066059624,
+      "createdAt": "2026-10-02T21:24:37Z",
+      "databaseId": 37066660954,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T21:22:41Z",
+      "databaseId": 37066464137,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T21:20:04Z",
+      "databaseId": 37066200002,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T21:19:54Z",
+      "databaseId": 37066183210,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T21:19:50Z",
+      "databaseId": 37066177125,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T21:19:38Z",
+      "databaseId": 37066157617,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T21:18:39Z",
+      "databaseId": 37066059624,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T21:18:32Z",
       "databaseId": 37066047583,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,7 +95,7 @@
       "createdAt": "2026-10-02T21:15:24Z",
       "databaseId": 37065731763,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T21:08:30Z",
-      "databaseId": 37065026950,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T21:08:27Z",
-      "databaseId": 37065022016,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T21:08:04Z",
-      "databaseId": 37064982918,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T21:07:25Z",
-      "databaseId": 37064913864,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T21:05:10Z",
-      "databaseId": 37064678454,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T21:02:50Z",
-      "databaseId": 37064435126,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -156201,6 +156201,11 @@
         "video_id": 29928249
       },
       {
+        "episode_id": 30968,
+        "display_name": "Vražedná práva S06E08 - Chci být volná CZ Titulky",
+        "video_id": 29928834
+      },
+      {
         "episode_id": 59445,
         "display_name": "Seinfeld S07E16 - 16. epizoda CZ Titulky",
         "video_id": 29928771
@@ -294494,6 +294499,11 @@
         "episode_id": 91527,
         "display_name": "Kimecu no jaiba S03E09 - 9. epizoda CZ Titulky",
         "video_id": 29928781
+      },
+      {
+        "episode_id": 91535,
+        "display_name": "Kimecu no jaiba S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29928869
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -450413,6 +450423,11 @@
         "video_id": 29928249
       },
       {
+        "episode_id": 30968,
+        "display_name": "Vražedná práva S06E08 - Chci být volná CZ Titulky",
+        "video_id": 29928834
+      },
+      {
         "episode_id": 59445,
         "display_name": "Seinfeld S07E16 - 16. epizoda CZ Titulky",
         "video_id": 29928771
@@ -588706,6 +588721,11 @@
         "episode_id": 91527,
         "display_name": "Kimecu no jaiba S03E09 - 9. epizoda CZ Titulky",
         "video_id": 29928781
+      },
+      {
+        "episode_id": 91535,
+        "display_name": "Kimecu no jaiba S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29928869
       }
     ],
     "prepared_not_upload_ready": [
@@ -589867,7 +589887,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
