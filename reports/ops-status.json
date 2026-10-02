@@ -1,45 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 128053,
-    "manifest_upload_ready_episodes": 1093,
-    "uploaded_episodes": 63723,
-    "prepared_source_episodes": 58716,
+    "manifest_upload_ready_episodes": 1088,
+    "uploaded_episodes": 63725,
+    "prepared_source_episodes": 58711,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 27,
-    "language_whisper_attempted_sources": 22,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 43,
+    "language_whisper_attempted_sources": 43,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53909,
-    "whisper_review_pending_sources": 35627,
+    "whisper_review_pending_sources": 35624,
     "subtitle_followup_sources": 41001,
     "subtitle_followup_pending_sources": 41001
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T12:47:41Z",
-      "databaseId": 37008851004,
+      "createdAt": "2026-10-02T12:52:01Z",
+      "databaseId": 37009294200,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T12:47:06Z",
-      "databaseId": 37008791325,
+      "createdAt": "2026-10-02T12:51:25Z",
+      "databaseId": 37009235266,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T12:49:45Z",
+      "databaseId": 37009060425,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T12:49:09Z",
+      "databaseId": 37008999587,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T12:48:37Z",
+      "databaseId": 37008946330,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T12:48:29Z",
+      "databaseId": 37008933263,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T12:47:41Z",
+      "databaseId": 37008851004,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T12:47:06Z",
+      "databaseId": 37008791325,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T12:47:02Z",
       "databaseId": 37008784697,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -83,11 +131,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T12:40:21Z",
       "databaseId": 37008090827,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T12:38:48Z",
       "databaseId": 37007932399,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T12:33:36Z",
-      "databaseId": 37007404387,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:32:24Z",
-      "databaseId": 37007281517,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:28:59Z",
-      "databaseId": 37006935416,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:27:19Z",
-      "databaseId": 37006770427,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:26:42Z",
-      "databaseId": 37006712778,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:26:11Z",
-      "databaseId": 37006659624,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -293641,6 +293641,16 @@
         "video_id": 29919254
       },
       {
+        "episode_id": 60610,
+        "display_name": "Ray Donovan S01E05 - Golem CZ Dabing",
+        "video_id": 29919268
+      },
+      {
+        "episode_id": 70754,
+        "display_name": "Skins S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29919299
+      },
+      {
         "episode_id": 41375,
         "display_name": "Skandál S04E14 - Zahradní židle CZ Titulky",
         "video_id": 29918995
@@ -449168,21 +449178,6 @@
         "video_id": 29918994
       },
       {
-        "episode_id": 13380,
-        "display_name": "Živí mrtví S04E09 - Po bitvě CZ Titulky",
-        "video_id": 29919199
-      },
-      {
-        "episode_id": 13384,
-        "display_name": "Živí mrtví S04E13 - Sami CZ Dabing",
-        "video_id": 29919244
-      },
-      {
-        "episode_id": 13392,
-        "display_name": "Živí mrtví S05E05 - Svépomoc CZ Dabing",
-        "video_id": 29919269
-      },
-      {
         "episode_id": 12421,
         "display_name": "Superman a Lois S04E02 - Svět bez CZ Titulky",
         "video_id": 29918984
@@ -587053,6 +587048,16 @@
         "video_id": 29919254
       },
       {
+        "episode_id": 60610,
+        "display_name": "Ray Donovan S01E05 - Golem CZ Dabing",
+        "video_id": 29919268
+      },
+      {
+        "episode_id": 70754,
+        "display_name": "Skins S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29919299
+      },
+      {
         "episode_id": 41375,
         "display_name": "Skandál S04E14 - Zahradní židle CZ Titulky",
         "video_id": 29918995
@@ -588252,14 +588257,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 21,
-    "disabled": 5,
+    "ok": 42,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4298,
-    "whisper_non_cz_needs_subtitles": 13984,
-    "needs_whisper": 34272,
+    "whisper_non_cz_needs_subtitles": 13987,
+    "needs_whisper": 34269,
     "whisper_failed": 1355
   },
   "subtitle_followup_statuses": {
