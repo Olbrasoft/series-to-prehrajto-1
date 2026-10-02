@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 128053,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 63847,
-    "prepared_source_episodes": 58736,
+    "uploaded_episodes": 63853,
+    "prepared_source_episodes": 58740,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 53,
-    "language_whisper_attempted_sources": 42,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53908,
     "whisper_review_pending_sources": 35621,
@@ -20,26 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T15:05:42Z",
-      "databaseId": 37024521904,
+      "createdAt": "2026-10-02T15:17:50Z",
+      "databaseId": 37025966074,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T15:05:27Z",
-      "databaseId": 37024493913,
+      "createdAt": "2026-10-02T15:17:40Z",
+      "databaseId": 37025946055,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T15:09:29Z",
+      "databaseId": 37024971155,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T15:08:56Z",
+      "databaseId": 37024906239,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T15:07:55Z",
+      "databaseId": 37024785493,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T15:05:42Z",
+      "databaseId": 37024521904,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T15:05:27Z",
+      "databaseId": 37024493913,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T15:04:54Z",
       "databaseId": 37024426924,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,23 +87,23 @@
       "createdAt": "2026-10-02T15:04:49Z",
       "databaseId": 37024417578,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T15:03:48Z",
       "databaseId": 37024292863,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T15:03:45Z",
       "databaseId": 37024287540,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T14:57:25Z",
       "databaseId": 37023521192,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -131,52 +171,12 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T14:54:54Z",
       "databaseId": 37023223083,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T14:52:51Z",
-      "databaseId": 37022980380,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T14:52:44Z",
-      "databaseId": 37022967631,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T14:52:15Z",
-      "databaseId": 37022909249,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T14:52:11Z",
-      "databaseId": 37022901387,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T14:52:08Z",
-      "databaseId": 37022895878,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -449708,11 +449708,6 @@
         "video_id": 29922138
       },
       {
-        "episode_id": 13385,
-        "display_name": "Živí mrtví S04E14 - V háji CZ Titulky",
-        "video_id": 29922181
-      },
-      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -587761,6 +587756,26 @@
         "episode_id": 29075,
         "display_name": "Ženatý se závazky S05E14 - Cheescake CZ Dabing",
         "video_id": 29921521
+      },
+      {
+        "episode_id": 13434,
+        "display_name": "Živí mrtví S07E13 - Tady mě pohřběte CZ Titulky",
+        "video_id": 29922282
+      },
+      {
+        "episode_id": 13454,
+        "display_name": "Živí mrtví S08E01 - Milosrdenství CZ Dabing",
+        "video_id": 29922335
+      },
+      {
+        "episode_id": 13446,
+        "display_name": "Živí mrtví S08E09 - Čest CZ Titulky",
+        "video_id": 29922393
+      },
+      {
+        "episode_id": 13443,
+        "display_name": "Živí mrtví S08E06 - Král, Vdova a Rick CZ Titulky",
+        "video_id": 29922304
       }
     ],
     "prepared_not_upload_ready": [
@@ -588922,8 +588937,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 11,
-    "ok": 41,
+    "disabled": 4,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
