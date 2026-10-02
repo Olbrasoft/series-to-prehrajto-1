@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 127886,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 63878,
-    "prepared_source_episodes": 58744,
+    "uploaded_episodes": 63880,
+    "prepared_source_episodes": 58741,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 36,
-    "language_whisper_attempted_sources": 22,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53908,
     "whisper_review_pending_sources": 35621,
     "subtitle_followup_sources": 41019,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T15:45:10Z",
+      "databaseId": 37029179191,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T15:44:57Z",
+      "databaseId": 37029151547,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T15:43:06Z",
+      "databaseId": 37028937974,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T15:43:02Z",
+      "databaseId": 37028929258,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-02T15:42:10Z",
       "databaseId": 37028831022,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -31,7 +63,7 @@
       "createdAt": "2026-10-02T15:40:17Z",
       "databaseId": 37028615587,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +107,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T15:38:15Z",
       "databaseId": 37028380737,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -131,11 +163,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T15:32:48Z",
       "databaseId": 37027732987,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T15:24:38Z",
-      "databaseId": 37026773450,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T15:23:03Z",
-      "databaseId": 37026584390,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T15:22:43Z",
-      "databaseId": 37026545360,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T15:21:49Z",
-      "databaseId": 37026439187,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -156004,6 +156004,11 @@
         "episode_id": 54952,
         "display_name": "Odbor městské zeleně S02E06 - Kdo si hraje, nezlobí CZ Dabing",
         "video_id": 29922661
+      },
+      {
+        "episode_id": 54644,
+        "display_name": "Prvních 100 S07E10 - Malá oběť CZ Titulky",
+        "video_id": 29922769
       },
       {
         "episode_id": 114182,
@@ -449778,9 +449783,19 @@
         "video_id": 29922661
       },
       {
+        "episode_id": 54644,
+        "display_name": "Prvních 100 S07E10 - Malá oběť CZ Titulky",
+        "video_id": 29922769
+      },
+      {
         "episode_id": 13421,
         "display_name": "Živí mrtví S06E16 - Poslední den na Zemi CZ Titulky",
         "video_id": 29922697
+      },
+      {
+        "episode_id": 13429,
+        "display_name": "Živí mrtví S07E08 - Srdce bijí dál CZ Titulky",
+        "video_id": 29922747
       },
       {
         "episode_id": 114182,
@@ -589002,8 +589017,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 14,
-    "ok": 21,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
