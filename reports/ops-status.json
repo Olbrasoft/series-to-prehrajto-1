@@ -1,17 +1,17 @@
 {
   "counts": {
-    "backlog_episodes": 128767,
-    "manifest_upload_ready_episodes": 1798,
-    "uploaded_episodes": 63247,
-    "prepared_source_episodes": 58811,
+    "backlog_episodes": 128517,
+    "manifest_upload_ready_episodes": 1773,
+    "uploaded_episodes": 63262,
+    "prepared_source_episodes": 58796,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53917,
     "whisper_review_pending_sources": 35658,
     "subtitle_followup_sources": 40945,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T06:36:06Z",
-      "databaseId": 36974334746,
+      "createdAt": "2026-10-02T06:44:42Z",
+      "databaseId": 36975033673,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T06:40:32Z",
+      "databaseId": 36974696175,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T06:38:15Z",
+      "databaseId": 36974507753,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T06:37:34Z",
+      "databaseId": 36974453420,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T06:36:35Z",
+      "databaseId": 36974374418,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T06:36:32Z",
+      "databaseId": 36974369989,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T06:36:06Z",
+      "databaseId": 36974334746,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T06:35:25Z",
       "databaseId": 36974280215,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T06:35:08Z",
       "databaseId": 36974257121,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T06:19:27Z",
-      "databaseId": 36972995557,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T06:19:24Z",
-      "databaseId": 36972991280,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T06:19:21Z",
-      "databaseId": 36972987989,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T06:18:11Z",
-      "databaseId": 36972899473,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T06:16:52Z",
-      "databaseId": 36972794930,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T06:16:06Z",
-      "databaseId": 36972736289,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -154671,6 +154671,36 @@
         "video_id": 29914331
       },
       {
+        "episode_id": 83388,
+        "display_name": "Podfukáři S07E05 - 5. epizoda CZ Dabing",
+        "video_id": 29914348
+      },
+      {
+        "episode_id": 83384,
+        "display_name": "Podfukáři S07E01 - 1. epizoda CZ Dabing",
+        "video_id": 29914373
+      },
+      {
+        "episode_id": 83380,
+        "display_name": "Podfukáři S06E03 - 3. epizoda CZ Dabing",
+        "video_id": 29914390
+      },
+      {
+        "episode_id": 83376,
+        "display_name": "Podfukáři S05E05 - 5. epizoda CZ Dabing",
+        "video_id": 29914399
+      },
+      {
+        "episode_id": 83372,
+        "display_name": "Podfukáři S05E01 - 1. epizoda CZ Dabing",
+        "video_id": 29914414
+      },
+      {
+        "episode_id": 83396,
+        "display_name": "Podfukáři S04E04 - 4. epizoda CZ Dabing",
+        "video_id": 29914433
+      },
+      {
         "episode_id": 72173,
         "display_name": "Stitchers S03E05 - Paternis CZ Titulky",
         "video_id": 29914314
@@ -154679,6 +154709,26 @@
         "episode_id": 167769,
         "display_name": "Red Oaks S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29914336
+      },
+      {
+        "episode_id": 72169,
+        "display_name": "Stitchers S03E01 - Out of the Shadows CZ Titulky",
+        "video_id": 29914363
+      },
+      {
+        "episode_id": 72165,
+        "display_name": "Stitchers S02E08 - Red Eye CZ Titulky",
+        "video_id": 29914380
+      },
+      {
+        "episode_id": 72161,
+        "display_name": "Stitchers S02E04 - The 2 Deaths of Jamie B. CZ Titulky",
+        "video_id": 29914402
+      },
+      {
+        "episode_id": 159085,
+        "display_name": "The Bay S05E01 - 1. epizoda CZ Titulky",
+        "video_id": 29914426
       },
       {
         "episode_id": 114182,
@@ -291341,9 +291391,34 @@
         "video_id": 29914320
       },
       {
+        "episode_id": 51582,
+        "display_name": "Ripper Street S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29914367
+      },
+      {
+        "episode_id": 51598,
+        "display_name": "Ripper Street S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29914396
+      },
+      {
+        "episode_id": 83394,
+        "display_name": "Podfukáři S08E05 - 5. epizoda CZ Dabing",
+        "video_id": 29914448
+      },
+      {
         "episode_id": 76319,
         "display_name": "Stumptown S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29914315
+      },
+      {
+        "episode_id": 128323,
+        "display_name": "Quantum Leap S02E11 - 11. epizoda CZ Titulky",
+        "video_id": 29914346
+      },
+      {
+        "episode_id": 107623,
+        "display_name": "Vagabond S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29914393
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -445733,6 +445808,36 @@
         "video_id": 29914331
       },
       {
+        "episode_id": 83388,
+        "display_name": "Podfukáři S07E05 - 5. epizoda CZ Dabing",
+        "video_id": 29914348
+      },
+      {
+        "episode_id": 83384,
+        "display_name": "Podfukáři S07E01 - 1. epizoda CZ Dabing",
+        "video_id": 29914373
+      },
+      {
+        "episode_id": 83380,
+        "display_name": "Podfukáři S06E03 - 3. epizoda CZ Dabing",
+        "video_id": 29914390
+      },
+      {
+        "episode_id": 83376,
+        "display_name": "Podfukáři S05E05 - 5. epizoda CZ Dabing",
+        "video_id": 29914399
+      },
+      {
+        "episode_id": 83372,
+        "display_name": "Podfukáři S05E01 - 1. epizoda CZ Dabing",
+        "video_id": 29914414
+      },
+      {
+        "episode_id": 83396,
+        "display_name": "Podfukáři S04E04 - 4. epizoda CZ Dabing",
+        "video_id": 29914433
+      },
+      {
         "episode_id": 72173,
         "display_name": "Stitchers S03E05 - Paternis CZ Titulky",
         "video_id": 29914314
@@ -445741,6 +445846,26 @@
         "episode_id": 167769,
         "display_name": "Red Oaks S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29914336
+      },
+      {
+        "episode_id": 72169,
+        "display_name": "Stitchers S03E01 - Out of the Shadows CZ Titulky",
+        "video_id": 29914363
+      },
+      {
+        "episode_id": 72165,
+        "display_name": "Stitchers S02E08 - Red Eye CZ Titulky",
+        "video_id": 29914380
+      },
+      {
+        "episode_id": 72161,
+        "display_name": "Stitchers S02E04 - The 2 Deaths of Jamie B. CZ Titulky",
+        "video_id": 29914402
+      },
+      {
+        "episode_id": 159085,
+        "display_name": "The Bay S05E01 - 1. epizoda CZ Titulky",
+        "video_id": 29914426
       },
       {
         "episode_id": 114182,
@@ -582403,9 +582528,34 @@
         "video_id": 29914320
       },
       {
+        "episode_id": 51582,
+        "display_name": "Ripper Street S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29914367
+      },
+      {
+        "episode_id": 51598,
+        "display_name": "Ripper Street S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29914396
+      },
+      {
+        "episode_id": 83394,
+        "display_name": "Podfukáři S08E05 - 5. epizoda CZ Dabing",
+        "video_id": 29914448
+      },
+      {
         "episode_id": 76319,
         "display_name": "Stumptown S01E11 - 11. epizoda CZ Titulky",
         "video_id": 29914315
+      },
+      {
+        "episode_id": 128323,
+        "display_name": "Quantum Leap S02E11 - 11. epizoda CZ Titulky",
+        "video_id": 29914346
+      },
+      {
+        "episode_id": 107623,
+        "display_name": "Vagabond S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29914393
       }
     ],
     "prepared_not_upload_ready": [
@@ -583567,7 +583717,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
