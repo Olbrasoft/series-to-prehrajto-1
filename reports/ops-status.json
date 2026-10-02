@@ -1,17 +1,17 @@
 {
   "counts": {
-    "backlog_episodes": 128279,
-    "manifest_upload_ready_episodes": 1128,
-    "uploaded_episodes": 63694,
-    "prepared_source_episodes": 58724,
+    "backlog_episodes": 128053,
+    "manifest_upload_ready_episodes": 1112,
+    "uploaded_episodes": 63711,
+    "prepared_source_episodes": 58710,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 54,
-    "language_whisper_attempted_sources": 44,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 53910,
     "whisper_review_pending_sources": 35630,
     "subtitle_followup_sources": 40999,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T12:26:42Z",
-      "databaseId": 37006712778,
+      "createdAt": "2026-10-02T12:37:47Z",
+      "databaseId": 37007831918,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T12:36:35Z",
+      "databaseId": 37007709961,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T12:34:08Z",
+      "databaseId": 37007458391,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T12:33:36Z",
+      "databaseId": 37007404387,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T12:32:24Z",
+      "databaseId": 37007281517,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T12:28:59Z",
+      "databaseId": 37006935416,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T12:27:19Z",
+      "databaseId": 37006770427,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T12:26:42Z",
+      "databaseId": 37006712778,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T12:26:11Z",
       "databaseId": 37006659624,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T12:25:35Z",
       "databaseId": 37006601223,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -91,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T12:20:33Z",
       "databaseId": 37006106767,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -115,68 +171,12 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T12:16:51Z",
       "databaseId": 37005747988,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:14:54Z",
-      "databaseId": 37005552408,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T12:13:50Z",
-      "databaseId": 37005447765,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:13:23Z",
-      "databaseId": 37005403287,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:12:13Z",
-      "databaseId": 37005292425,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:12:09Z",
-      "databaseId": 37005286633,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:11:35Z",
-      "databaseId": 37005233054,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T12:11:02Z",
-      "databaseId": 37005181295,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -155766,6 +155766,36 @@
         "video_id": 29918669
       },
       {
+        "episode_id": 55300,
+        "display_name": "Co děláme v temnotách S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29918994
+      },
+      {
+        "episode_id": 12421,
+        "display_name": "Superman a Lois S04E02 - Svět bez CZ Titulky",
+        "video_id": 29918984
+      },
+      {
+        "episode_id": 89849,
+        "display_name": "Scream S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 29919027
+      },
+      {
+        "episode_id": 67385,
+        "display_name": "Spravedlnost v krvi  S03E09 - 9. epizoda CZ Titulky",
+        "video_id": 29919070
+      },
+      {
+        "episode_id": 67481,
+        "display_name": "Spravedlnost v krvi  S03E11 - 11. epizoda CZ Dabing",
+        "video_id": 29919086
+      },
+      {
+        "episode_id": 55069,
+        "display_name": "Ragnarök – Konec světa S01E06 - Ano, milujeme tuhle zemi CZ Titulky",
+        "video_id": 29919106
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -293569,6 +293599,46 @@
         "episode_id": 144134,
         "display_name": "Továrna v Kotě S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29918986
+      },
+      {
+        "episode_id": 48286,
+        "display_name": "Policejní odznak S07E07 - Vaření psů CZ Dabing",
+        "video_id": 29919017
+      },
+      {
+        "episode_id": 48282,
+        "display_name": "Policejní odznak S07E01 - Koeficient tahu CZ Dabing",
+        "video_id": 29919099
+      },
+      {
+        "episode_id": 41375,
+        "display_name": "Skandál S04E14 - Zahradní židle CZ Titulky",
+        "video_id": 29918995
+      },
+      {
+        "episode_id": 107547,
+        "display_name": "Sósó no Frieren S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29919021
+      },
+      {
+        "episode_id": 144139,
+        "display_name": "Továrna v Kotě S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29919060
+      },
+      {
+        "episode_id": 144143,
+        "display_name": "Továrna v Kotě S03E03 - 3. epizoda CZ Titulky",
+        "video_id": 29919074
+      },
+      {
+        "episode_id": 4095,
+        "display_name": "Resident Alien S01E01 - Pilot CZ Titulky",
+        "video_id": 29919094
+      },
+      {
+        "episode_id": 144131,
+        "display_name": "Továrna v Kotě S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29919135
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -449048,14 +449118,54 @@
         "video_id": 29918822
       },
       {
-        "episode_id": 13352,
-        "display_name": "Živí mrtví S02E12 - To lepší v nás CZ Titulky",
-        "video_id": 29918855
-      },
-      {
         "episode_id": 67333,
         "display_name": "Ranč S03E19 - Kudy se dát CZ Titulky",
         "video_id": 29918669
+      },
+      {
+        "episode_id": 55300,
+        "display_name": "Co děláme v temnotách S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29918994
+      },
+      {
+        "episode_id": 13364,
+        "display_name": "Živí mrtví S03E11 - Nejsem Jidáš CZ Titulky",
+        "video_id": 29919040
+      },
+      {
+        "episode_id": 13368,
+        "display_name": "Živí mrtví S03E15 - Život plný utrpení CZ Dabing",
+        "video_id": 29919079
+      },
+      {
+        "episode_id": 13372,
+        "display_name": "Živí mrtví S04E01 - Třicet dnů bez nehody CZ Dabing",
+        "video_id": 29919101
+      },
+      {
+        "episode_id": 12421,
+        "display_name": "Superman a Lois S04E02 - Svět bez CZ Titulky",
+        "video_id": 29918984
+      },
+      {
+        "episode_id": 89849,
+        "display_name": "Scream S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 29919027
+      },
+      {
+        "episode_id": 67385,
+        "display_name": "Spravedlnost v krvi  S03E09 - 9. epizoda CZ Titulky",
+        "video_id": 29919070
+      },
+      {
+        "episode_id": 67481,
+        "display_name": "Spravedlnost v krvi  S03E11 - 11. epizoda CZ Dabing",
+        "video_id": 29919086
+      },
+      {
+        "episode_id": 55069,
+        "display_name": "Ragnarök – Konec světa S01E06 - Ano, milujeme tuhle zemi CZ Titulky",
+        "video_id": 29919106
       },
       {
         "episode_id": 114182,
@@ -586861,6 +586971,46 @@
         "episode_id": 144134,
         "display_name": "Továrna v Kotě S01E04 - 4. epizoda CZ Titulky",
         "video_id": 29918986
+      },
+      {
+        "episode_id": 48286,
+        "display_name": "Policejní odznak S07E07 - Vaření psů CZ Dabing",
+        "video_id": 29919017
+      },
+      {
+        "episode_id": 48282,
+        "display_name": "Policejní odznak S07E01 - Koeficient tahu CZ Dabing",
+        "video_id": 29919099
+      },
+      {
+        "episode_id": 41375,
+        "display_name": "Skandál S04E14 - Zahradní židle CZ Titulky",
+        "video_id": 29918995
+      },
+      {
+        "episode_id": 107547,
+        "display_name": "Sósó no Frieren S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29919021
+      },
+      {
+        "episode_id": 144139,
+        "display_name": "Továrna v Kotě S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29919060
+      },
+      {
+        "episode_id": 144143,
+        "display_name": "Továrna v Kotě S03E03 - 3. epizoda CZ Titulky",
+        "video_id": 29919074
+      },
+      {
+        "episode_id": 4095,
+        "display_name": "Resident Alien S01E01 - Pilot CZ Titulky",
+        "video_id": 29919094
+      },
+      {
+        "episode_id": 144131,
+        "display_name": "Továrna v Kotě S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29919135
       }
     ],
     "prepared_not_upload_ready": [
@@ -588022,8 +588172,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 10,
-    "ok": 43,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
