@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 129016,
-    "manifest_upload_ready_episodes": 2520,
-    "uploaded_episodes": 62772,
-    "prepared_source_episodes": 58955,
+    "manifest_upload_ready_episodes": 2502,
+    "uploaded_episodes": 62781,
+    "prepared_source_episodes": 58938,
     "description_series": 60,
     "description_episodes": 753,
-    "description_errors": 36,
+    "description_errors": 35,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53920,
-    "whisper_review_pending_sources": 35671,
-    "subtitle_followup_sources": 40928,
-    "subtitle_followup_pending_sources": 40928
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 53919,
+    "whisper_review_pending_sources": 35667,
+    "subtitle_followup_sources": 40929,
+    "subtitle_followup_pending_sources": 40929
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T00:57:55Z",
-      "databaseId": 36948613324,
+      "createdAt": "2026-10-02T01:07:28Z",
+      "databaseId": 36949412068,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "backfill-subtitles"
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T01:07:19Z",
+      "databaseId": 36949400164,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T01:07:09Z",
+      "databaseId": 36949386926,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T01:03:19Z",
+      "databaseId": 36949065425,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T01:00:49Z",
+      "databaseId": 36948856450,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T00:58:47Z",
+      "databaseId": 36948682089,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T00:58:31Z",
+      "databaseId": 36948660282,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-02T00:57:55Z",
+      "databaseId": 36948613324,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T00:57:38Z",
       "databaseId": 36948589555,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,19 +99,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T00:56:58Z",
       "databaseId": 36948537216,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T00:56:56Z",
       "databaseId": 36948534065,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +139,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T00:51:46Z",
       "databaseId": 36948107876,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -107,11 +163,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T00:33:28Z",
       "databaseId": 36946587800,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T00:28:17Z",
-      "databaseId": 36946147357,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T00:26:47Z",
-      "databaseId": 36946023309,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T00:26:36Z",
-      "databaseId": 36946007937,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T00:26:33Z",
-      "databaseId": 36946004314,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T00:25:58Z",
-      "databaseId": 36945955194,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T00:25:49Z",
-      "databaseId": 36945942516,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T00:25:16Z",
-      "databaseId": 36945896979,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -153446,6 +153446,16 @@
         "video_id": 29911435
       },
       {
+        "episode_id": 50988,
+        "display_name": "Stan Lee's Lucky Man S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29911455
+      },
+      {
+        "episode_id": 50984,
+        "display_name": "Stan Lee's Lucky Man S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29911468
+      },
+      {
         "episode_id": 65285,
         "display_name": "Soy Luna S01E77 - 77. epizoda CZ Dabing",
         "video_id": 29911350
@@ -288951,6 +288961,21 @@
         "video_id": 29911443
       },
       {
+        "episode_id": 179082,
+        "display_name": "Tanec s ďáblem: TikToková sekta zvaná 7M S01E01 - 1. část: Tvoje já musí zemřít CZ Dabing",
+        "video_id": 29911458
+      },
+      {
+        "episode_id": 97066,
+        "display_name": "Smilf S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29911480
+      },
+      {
+        "episode_id": 97070,
+        "display_name": "Smilf S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 29911486
+      },
+      {
         "episode_id": 162763,
         "display_name": "Residue S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29911352
@@ -288969,6 +288994,26 @@
         "episode_id": 120063,
         "display_name": "Spring Fever S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29911433
+      },
+      {
+        "episode_id": 140695,
+        "display_name": "Screw S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29911452
+      },
+      {
+        "episode_id": 181359,
+        "display_name": "Tady žije ďábel S19E01 - 1. epizoda CZ Titulky",
+        "video_id": 29911469
+      },
+      {
+        "episode_id": 120447,
+        "display_name": "The Big Leap: Nová šance S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29911481
+      },
+      {
+        "episode_id": 140691,
+        "display_name": "Screw S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29911509
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -442133,6 +442178,16 @@
         "video_id": 29911435
       },
       {
+        "episode_id": 50988,
+        "display_name": "Stan Lee's Lucky Man S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29911455
+      },
+      {
+        "episode_id": 50984,
+        "display_name": "Stan Lee's Lucky Man S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29911468
+      },
+      {
         "episode_id": 65285,
         "display_name": "Soy Luna S01E77 - 77. epizoda CZ Dabing",
         "video_id": 29911350
@@ -577638,6 +577693,21 @@
         "video_id": 29911443
       },
       {
+        "episode_id": 179082,
+        "display_name": "Tanec s ďáblem: TikToková sekta zvaná 7M S01E01 - 1. část: Tvoje já musí zemřít CZ Dabing",
+        "video_id": 29911458
+      },
+      {
+        "episode_id": 97066,
+        "display_name": "Smilf S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 29911480
+      },
+      {
+        "episode_id": 97070,
+        "display_name": "Smilf S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 29911486
+      },
+      {
         "episode_id": 162763,
         "display_name": "Residue S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29911352
@@ -577656,6 +577726,26 @@
         "episode_id": 120063,
         "display_name": "Spring Fever S01E03 - 3. epizoda CZ Titulky",
         "video_id": 29911433
+      },
+      {
+        "episode_id": 140695,
+        "display_name": "Screw S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29911452
+      },
+      {
+        "episode_id": 181359,
+        "display_name": "Tady žije ďábel S19E01 - 1. epizoda CZ Titulky",
+        "video_id": 29911469
+      },
+      {
+        "episode_id": 120447,
+        "display_name": "The Big Leap: Nová šance S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29911481
+      },
+      {
+        "episode_id": 140691,
+        "display_name": "Screw S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29911509
       }
     ],
     "prepared_not_upload_ready": [
@@ -578817,17 +578907,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 1,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4286,
-    "whisper_non_cz_needs_subtitles": 13963,
-    "needs_whisper": 34330,
+    "whisper_confirmed_cz": 4287,
+    "whisper_non_cz_needs_subtitles": 13965,
+    "needs_whisper": 34326,
     "whisper_failed": 1341
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 40928
+    "needs_subtitle_setup_after_prehrajto_processing": 40929
   }
 }
