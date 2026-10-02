@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 128517,
-    "manifest_upload_ready_episodes": 1530,
-    "uploaded_episodes": 63420,
+    "manifest_upload_ready_episodes": 1524,
+    "uploaded_episodes": 63421,
     "prepared_source_episodes": 58767,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 47,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53913,
-    "whisper_review_pending_sources": 35633,
+    "whisper_review_sources": 53915,
+    "whisper_review_pending_sources": 35643,
     "subtitle_followup_sources": 40959,
     "subtitle_followup_pending_sources": 40959
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T08:44:19Z",
+      "databaseId": 36985748551,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T08:44:06Z",
+      "databaseId": 36985727861,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T08:42:33Z",
+      "databaseId": 36985580509,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-02T08:42:09Z",
@@ -27,11 +51,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T08:41:34Z",
       "databaseId": 36985487356,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T08:32:28Z",
       "databaseId": 36984607367,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T08:31:01Z",
       "databaseId": 36984468973,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:24:41Z",
-      "databaseId": 36983869105,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T08:24:32Z",
-      "databaseId": 36983855225,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:23:53Z",
-      "databaseId": 36983790801,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -155059,6 +155059,11 @@
         "episode_id": 71148,
         "display_name": "Wynonna Earp S03E10 - The Other Woman CZ Titulky",
         "video_id": 29915976
+      },
+      {
+        "episode_id": 148644,
+        "display_name": "Gumy, kam se podíváš S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29915998
       },
       {
         "episode_id": 16173,
@@ -446983,6 +446988,11 @@
         "video_id": 29915976
       },
       {
+        "episode_id": 148644,
+        "display_name": "Gumy, kam se podíváš S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 29915998
+      },
+      {
         "episode_id": 16173,
         "display_name": "Rytíř Sedmi království S01E04 - Sedm CZ Dabing",
         "video_id": 29915787
@@ -585287,13 +585297,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 7,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4295,
-    "whisper_non_cz_needs_subtitles": 13985,
-    "needs_whisper": 34290,
+    "whisper_non_cz_needs_subtitles": 13977,
+    "needs_whisper": 34300,
     "whisper_failed": 1343
   },
   "subtitle_followup_statuses": {
