@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 127772,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 63987,
-    "prepared_source_episodes": 58940,
+    "uploaded_episodes": 63991,
+    "prepared_source_episodes": 58939,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 51,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53903,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T20:30:37Z",
+      "databaseId": 37061038881,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T20:30:34Z",
+      "databaseId": 37061032416,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T20:27:59Z",
+      "databaseId": 37060753988,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T20:27:02Z",
+      "databaseId": 37060650723,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T20:26:58Z",
+      "databaseId": 37060643857,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T20:25:36Z",
       "databaseId": 37060498223,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,19 +107,19 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-02T20:21:01Z",
       "databaseId": 37059997202,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T20:16:56Z",
       "databaseId": 37059560819,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -87,7 +127,7 @@
       "createdAt": "2026-10-02T20:16:51Z",
       "databaseId": 37059550273,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T20:15:21Z",
       "databaseId": 37059390473,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -123,11 +163,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-02T20:13:57Z",
       "databaseId": 37059238523,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T20:11:18Z",
-      "databaseId": 37058953558,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T20:10:08Z",
-      "databaseId": 37058831172,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T20:09:27Z",
-      "databaseId": 37058761073,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T20:09:14Z",
-      "databaseId": 37058737797,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T20:08:40Z",
-      "databaseId": 37058676532,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -156126,6 +156126,16 @@
         "video_id": 29927613
       },
       {
+        "episode_id": 88608,
+        "display_name": "Sběratelé kostí S11E02 - Bratr ve sklepě CZ Dabing",
+        "video_id": 29928066
+      },
+      {
+        "episode_id": 36960,
+        "display_name": "Sběratelé kostí S11E06 - Skandál v senátu CZ Titulky",
+        "video_id": 29928084
+      },
+      {
         "episode_id": 96041,
         "display_name": "Království S01E03 - Naslouchejte, a uslyšíte CZ Dabing",
         "video_id": 29927045
@@ -156139,6 +156149,16 @@
         "episode_id": 59405,
         "display_name": "Seinfeld S05E12 - 12. epizoda CZ Titulky",
         "video_id": 29927415
+      },
+      {
+        "episode_id": 59413,
+        "display_name": "Seinfeld S05E18 - 18. epizoda CZ Titulky",
+        "video_id": 29928063
+      },
+      {
+        "episode_id": 59429,
+        "display_name": "Seinfeld S06E19 - 19. epizoda CZ Titulky",
+        "video_id": 29928086
       },
       {
         "episode_id": 114182,
@@ -450253,6 +450273,16 @@
         "video_id": 29927613
       },
       {
+        "episode_id": 88608,
+        "display_name": "Sběratelé kostí S11E02 - Bratr ve sklepě CZ Dabing",
+        "video_id": 29928066
+      },
+      {
+        "episode_id": 36960,
+        "display_name": "Sběratelé kostí S11E06 - Skandál v senátu CZ Titulky",
+        "video_id": 29928084
+      },
+      {
         "episode_id": 96041,
         "display_name": "Království S01E03 - Naslouchejte, a uslyšíte CZ Dabing",
         "video_id": 29927045
@@ -450266,6 +450296,16 @@
         "episode_id": 59405,
         "display_name": "Seinfeld S05E12 - 12. epizoda CZ Titulky",
         "video_id": 29927415
+      },
+      {
+        "episode_id": 59413,
+        "display_name": "Seinfeld S05E18 - 18. epizoda CZ Titulky",
+        "video_id": 29928063
+      },
+      {
+        "episode_id": 59429,
+        "display_name": "Seinfeld S06E19 - 19. epizoda CZ Titulky",
+        "video_id": 29928086
       },
       {
         "episode_id": 114182,
@@ -589697,7 +589737,6 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 11,
     "ok": 39,
     "resolve_failed": 1
   },
