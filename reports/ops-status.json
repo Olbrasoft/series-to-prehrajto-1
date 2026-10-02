@@ -2,22 +2,38 @@
   "counts": {
     "backlog_episodes": 127730,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 64054,
-    "prepared_source_episodes": 58997,
+    "uploaded_episodes": 64057,
+    "prepared_source_episodes": 59004,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
+    "language_audited_sources": 47,
     "language_whisper_attempted_sources": 43,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53901,
     "whisper_review_pending_sources": 35607,
-    "subtitle_followup_sources": 41048,
-    "subtitle_followup_pending_sources": 41048
+    "subtitle_followup_sources": 41049,
+    "subtitle_followup_pending_sources": 41049
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T22:31:58Z",
+      "databaseId": 37072989946,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T22:31:15Z",
+      "databaseId": 37072927876,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-02T22:29:57Z",
@@ -35,19 +51,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T22:29:50Z",
       "databaseId": 37072791175,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T22:28:48Z",
       "databaseId": 37072702924,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +79,7 @@
       "createdAt": "2026-10-02T22:28:43Z",
       "databaseId": 37072695044,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T22:12:43Z",
-      "databaseId": 37071245974,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T22:11:04Z",
-      "databaseId": 37071096113,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -156341,6 +156341,11 @@
         "video_id": 29929464
       },
       {
+        "episode_id": 43821,
+        "display_name": "Šílenci z Manhattanu  S05E09 - Temné stíny CZ Titulky",
+        "video_id": 29929723
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -294739,6 +294744,16 @@
         "episode_id": 63583,
         "display_name": "Poslední království S05E02 - 2. epizoda CZ Titulky",
         "video_id": 29929626
+      },
+      {
+        "episode_id": 63578,
+        "display_name": "Poslední království S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 29929725
+      },
+      {
+        "episode_id": 63587,
+        "display_name": "Poslední království S05E06 - 6. epizoda CZ Titulky",
+        "video_id": 29929731
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -450798,6 +450813,11 @@
         "video_id": 29929464
       },
       {
+        "episode_id": 43821,
+        "display_name": "Šílenci z Manhattanu  S05E09 - Temné stíny CZ Titulky",
+        "video_id": 29929723
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -589196,6 +589216,16 @@
         "episode_id": 63583,
         "display_name": "Poslední království S05E02 - 2. epizoda CZ Titulky",
         "video_id": 29929626
+      },
+      {
+        "episode_id": 63578,
+        "display_name": "Poslední království S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 29929725
+      },
+      {
+        "episode_id": 63587,
+        "display_name": "Poslední království S05E06 - 6. epizoda CZ Titulky",
+        "video_id": 29929731
       }
     ],
     "prepared_not_upload_ready": [
@@ -590358,8 +590388,8 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 41,
-    "resolve_failed": 2,
-    "disabled": 2
+    "disabled": 4,
+    "resolve_failed": 2
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4301,
@@ -590368,6 +590398,6 @@
     "whisper_failed": 1360
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41048
+    "needs_subtitle_setup_after_prehrajto_processing": 41049
   }
 }
