@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 128517,
-    "manifest_upload_ready_episodes": 1489,
-    "uploaded_episodes": 63451,
-    "prepared_source_episodes": 58753,
+    "manifest_upload_ready_episodes": 1474,
+    "uploaded_episodes": 63453,
+    "prepared_source_episodes": 58759,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 25,
-    "language_whisper_attempted_sources": 25,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53914,
-    "whisper_review_pending_sources": 35637,
+    "whisper_review_pending_sources": 35639,
     "subtitle_followup_sources": 40960,
     "subtitle_followup_pending_sources": 40960
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T09:01:55Z",
+      "databaseId": 36987428016,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T09:00:05Z",
+      "databaseId": 36987246249,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T09:00:01Z",
+      "databaseId": 36987238090,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-02T08:59:22Z",
@@ -43,11 +67,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T08:58:26Z",
       "databaseId": 36987091725,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +87,7 @@
       "createdAt": "2026-10-02T08:57:48Z",
       "databaseId": 36987033963,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:48:05Z",
-      "databaseId": 36986108640,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T08:47:33Z",
-      "databaseId": 36986057827,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:45:12Z",
-      "databaseId": 36985833545,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -155141,6 +155141,11 @@
         "video_id": 29916226
       },
       {
+        "episode_id": 79012,
+        "display_name": "Zachraň mě S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29916257
+      },
+      {
         "episode_id": 83381,
         "display_name": "Podfukáři S06E04 - 4. epizoda CZ Titulky",
         "video_id": 29916067
@@ -292359,6 +292364,11 @@
         "episode_id": 203603,
         "display_name": "Ludwig: Šifra zločinu S02E01 - Uvěřitelná lež CZ Dabing",
         "video_id": 29916227
+      },
+      {
+        "episode_id": 10911,
+        "display_name": "Ludwig: Šifra zločinu S01E04 - Past na myši CZ Titulky",
+        "video_id": 29916254
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -447218,6 +447228,11 @@
         "video_id": 29916226
       },
       {
+        "episode_id": 79012,
+        "display_name": "Zachraň mě S03E01 - 1. epizoda CZ Titulky",
+        "video_id": 29916257
+      },
+      {
         "episode_id": 83381,
         "display_name": "Podfukáři S06E04 - 4. epizoda CZ Titulky",
         "video_id": 29916067
@@ -584436,6 +584451,11 @@
         "episode_id": 203603,
         "display_name": "Ludwig: Šifra zločinu S02E01 - Uvěřitelná lež CZ Dabing",
         "video_id": 29916227
+      },
+      {
+        "episode_id": 10911,
+        "display_name": "Ludwig: Šifra zločinu S01E04 - Past na myši CZ Titulky",
+        "video_id": 29916254
       }
     ],
     "prepared_not_upload_ready": [
@@ -585597,13 +585617,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 24,
+    "disabled": 4,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4296,
-    "whisper_non_cz_needs_subtitles": 13981,
-    "needs_whisper": 34294,
+    "whisper_confirmed_cz": 4295,
+    "whisper_non_cz_needs_subtitles": 13980,
+    "needs_whisper": 34296,
     "whisper_failed": 1343
   },
   "subtitle_followup_statuses": {
