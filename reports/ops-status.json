@@ -1,17 +1,17 @@
 {
   "counts": {
-    "backlog_episodes": 129016,
-    "manifest_upload_ready_episodes": 2137,
-    "uploaded_episodes": 63011,
-    "prepared_source_episodes": 58847,
+    "backlog_episodes": 128767,
+    "manifest_upload_ready_episodes": 2125,
+    "uploaded_episodes": 63021,
+    "prepared_source_episodes": 58839,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 35,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 46,
-    "language_whisper_attempted_sources": 43,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 53918,
     "whisper_review_pending_sources": 35661,
     "subtitle_followup_sources": 40937,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T03:21:17Z",
-      "databaseId": 36959797533,
+      "createdAt": "2026-10-02T03:27:47Z",
+      "databaseId": 36960272831,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "audit-language"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T03:27:36Z",
+      "databaseId": 36960260242,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T03:26:44Z",
+      "databaseId": 36960197876,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T03:25:11Z",
+      "databaseId": 36960083225,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T03:24:23Z",
+      "databaseId": 36960025077,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T03:21:58Z",
+      "databaseId": 36959846222,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T03:21:56Z",
+      "databaseId": 36959842838,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T03:21:17Z",
+      "databaseId": 36959797533,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T03:20:55Z",
       "databaseId": 36959769551,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +115,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T03:12:45Z",
       "databaseId": 36959157153,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:04:43Z",
-      "databaseId": 36958540616,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:02:06Z",
-      "databaseId": 36958341376,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:02:02Z",
-      "databaseId": 36958336857,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:01:32Z",
-      "databaseId": 36958299050,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T03:00:55Z",
-      "databaseId": 36958251931,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T02:58:40Z",
-      "databaseId": 36958078796,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T02:54:12Z",
-      "databaseId": 36957754326,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -154051,6 +154051,21 @@
         "video_id": 29912559
       },
       {
+        "episode_id": 92640,
+        "display_name": "Třetí hlídka S02E20 - 20. Fotografie Faith CZ Dabing",
+        "video_id": 29912575
+      },
+      {
+        "episode_id": 92644,
+        "display_name": "Třetí hlídka S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 29912594
+      },
+      {
+        "episode_id": 92700,
+        "display_name": "Třetí hlídka S03E07 - 7. epizoda CZ Titulky",
+        "video_id": 29912609
+      },
+      {
         "episode_id": 69525,
         "display_name": "The Joy of Painting S29E13 - 13. epizoda CZ Titulky",
         "video_id": 29912501
@@ -154069,6 +154084,26 @@
         "episode_id": 102577,
         "display_name": "The Irrational S02E09 - 9. epizoda CZ Titulky",
         "video_id": 29912549
+      },
+      {
+        "episode_id": 177537,
+        "display_name": "The Way Home S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29912569
+      },
+      {
+        "episode_id": 115501,
+        "display_name": "The Enemy Within S01E12 - Sequestered CZ Titulky",
+        "video_id": 29912592
+      },
+      {
+        "episode_id": 133317,
+        "display_name": "Requiem S01E04 - Blaidd Carreg CZ Titulky",
+        "video_id": 29912604
+      },
+      {
+        "episode_id": 120677,
+        "display_name": "The Good Cop S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29912616
       },
       {
         "episode_id": 114182,
@@ -290136,6 +290171,11 @@
         "video_id": 29912563
       },
       {
+        "episode_id": 92642,
+        "display_name": "Třetí hlídka S03E02 - 2. epizoda CZ Dabing",
+        "video_id": 29912576
+      },
+      {
         "episode_id": 121735,
         "display_name": "Širé moře S01E05 - Bouře CZ Titulky",
         "video_id": 29912498
@@ -290164,6 +290204,16 @@
         "episode_id": 8167,
         "display_name": "Smrtící podoba S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29912567
+      },
+      {
+        "episode_id": 73319,
+        "display_name": "The Path S03E03 - 3. epizoda CZ Titulky",
+        "video_id": 29912578
+      },
+      {
+        "episode_id": 102755,
+        "display_name": "Ravenswood S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29912583
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -443933,6 +443983,21 @@
         "video_id": 29912559
       },
       {
+        "episode_id": 92640,
+        "display_name": "Třetí hlídka S02E20 - 20. Fotografie Faith CZ Dabing",
+        "video_id": 29912575
+      },
+      {
+        "episode_id": 92644,
+        "display_name": "Třetí hlídka S03E04 - 4. epizoda CZ Dabing",
+        "video_id": 29912594
+      },
+      {
+        "episode_id": 92700,
+        "display_name": "Třetí hlídka S03E07 - 7. epizoda CZ Titulky",
+        "video_id": 29912609
+      },
+      {
         "episode_id": 69525,
         "display_name": "The Joy of Painting S29E13 - 13. epizoda CZ Titulky",
         "video_id": 29912501
@@ -443951,6 +444016,26 @@
         "episode_id": 102577,
         "display_name": "The Irrational S02E09 - 9. epizoda CZ Titulky",
         "video_id": 29912549
+      },
+      {
+        "episode_id": 177537,
+        "display_name": "The Way Home S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29912569
+      },
+      {
+        "episode_id": 115501,
+        "display_name": "The Enemy Within S01E12 - Sequestered CZ Titulky",
+        "video_id": 29912592
+      },
+      {
+        "episode_id": 133317,
+        "display_name": "Requiem S01E04 - Blaidd Carreg CZ Titulky",
+        "video_id": 29912604
+      },
+      {
+        "episode_id": 120677,
+        "display_name": "The Good Cop S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29912616
       },
       {
         "episode_id": 114182,
@@ -580018,6 +580103,11 @@
         "video_id": 29912563
       },
       {
+        "episode_id": 92642,
+        "display_name": "Třetí hlídka S03E02 - 2. epizoda CZ Dabing",
+        "video_id": 29912576
+      },
+      {
         "episode_id": 121735,
         "display_name": "Širé moře S01E05 - Bouře CZ Titulky",
         "video_id": 29912498
@@ -580046,6 +580136,16 @@
         "episode_id": 8167,
         "display_name": "Smrtící podoba S01E02 - 2. epizoda CZ Titulky",
         "video_id": 29912567
+      },
+      {
+        "episode_id": 73319,
+        "display_name": "The Path S03E03 - 3. epizoda CZ Titulky",
+        "video_id": 29912578
+      },
+      {
+        "episode_id": 102755,
+        "display_name": "Ravenswood S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29912583
       }
     ],
     "prepared_not_upload_ready": [
@@ -581207,9 +581307,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 3,
-    "ok": 41,
-    "resolve_failed": 2
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4288,
