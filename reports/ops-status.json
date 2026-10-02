@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 128279,
-    "manifest_upload_ready_episodes": 1176,
-    "uploaded_episodes": 63664,
-    "prepared_source_episodes": 58716,
+    "manifest_upload_ready_episodes": 1174,
+    "uploaded_episodes": 63665,
+    "prepared_source_episodes": 58720,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 43,
+    "language_whisper_attempted_sources": 42,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53910,
-    "whisper_review_pending_sources": 35631,
-    "subtitle_followup_sources": 40990,
-    "subtitle_followup_pending_sources": 40990
+    "whisper_review_pending_sources": 35630,
+    "subtitle_followup_sources": 40992,
+    "subtitle_followup_pending_sources": 40992
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T11:58:11Z",
+      "databaseId": 37003952446,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T11:56:53Z",
+      "databaseId": 37003834602,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T11:56:48Z",
+      "databaseId": 37003828473,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-02T11:56:25Z",
@@ -43,11 +67,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T11:55:28Z",
       "databaseId": 37003703836,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +87,7 @@
       "createdAt": "2026-10-02T11:54:55Z",
       "databaseId": 37003651249,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T11:44:19Z",
-      "databaseId": 37002654751,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T11:43:26Z",
-      "databaseId": 37002572888,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T11:42:31Z",
-      "databaseId": 37002486793,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -293424,6 +293424,11 @@
         "episode_id": 37295,
         "display_name": "Star Trek: Hluboký Vesmír Devět S01E05 - Stíhání oběti CZ Dabing",
         "video_id": 29918481
+      },
+      {
+        "episode_id": 10491,
+        "display_name": "Rozčarování S01E08 - Hranice nesmrtelnosti CZ Dabing",
+        "video_id": 29918515
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -586566,6 +586571,11 @@
         "episode_id": 37295,
         "display_name": "Star Trek: Hluboký Vesmír Devět S01E05 - Stíhání oběti CZ Dabing",
         "video_id": 29918481
+      },
+      {
+        "episode_id": 10491,
+        "display_name": "Rozčarování S01E08 - Hranice nesmrtelnosti CZ Dabing",
+        "video_id": 29918515
       }
     ],
     "prepared_not_upload_ready": [
@@ -586871,14 +586881,6 @@
       }
     ],
     "whisper_review_pending": [
-      {
-        "episode_id": 180897,
-        "source_id": -27797020032767389,
-        "series_title": "86: Eighty Six",
-        "episode_code": "S01E01",
-        "source_title": "86 Eighty Six - S01E01 - Undertaker [1080p, ENG TITULKY]",
-        "status": "needs_whisper"
-      },
       {
         "episode_id": 141589,
         "source_id": -4463393267195850,
@@ -587269,6 +587271,14 @@
         "series_title": "Alba",
         "episode_code": "S01E02",
         "source_title": "Alba - S1E2 Episode 2 ES",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 160693,
+        "source_id": -8423225032525582,
+        "series_title": "Alba",
+        "episode_code": "S01E02",
+        "source_title": "Alba_S01E02_2. kapitola",
         "status": "needs_whisper"
       }
     ],
@@ -587727,16 +587737,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 41,
+    "disabled": 1,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4297,
-    "whisper_non_cz_needs_subtitles": 13982,
-    "needs_whisper": 34276,
+    "whisper_non_cz_needs_subtitles": 13983,
+    "needs_whisper": 34275,
     "whisper_failed": 1355
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 40990
+    "needs_subtitle_setup_after_prehrajto_processing": 40992
   }
 }
