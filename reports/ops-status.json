@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 127730,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 64129,
+    "uploaded_episodes": 64130,
     "prepared_source_episodes": 58997,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53897,
     "whisper_review_pending_sources": 35598,
     "subtitle_followup_sources": 41055,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T23:34:44Z",
+      "databaseId": 37078243680,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T23:34:43Z",
+      "databaseId": 37078241996,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-02T23:33:29Z",
       "databaseId": 37078144819,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "ops-status"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T23:32:21Z",
       "databaseId": 37078052716,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -51,11 +67,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T23:31:31Z",
       "databaseId": 37077987595,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -107,11 +123,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T23:27:18Z",
       "databaseId": 37077649666,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T23:22:13Z",
-      "databaseId": 37077240827,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T23:21:42Z",
-      "databaseId": 37077198486,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -156519,6 +156519,11 @@
         "episode_id": 63589,
         "display_name": "Poslední království S05E08 - 8. epizoda CZ Titulky",
         "video_id": 29930450
+      },
+      {
+        "episode_id": 36961,
+        "display_name": "Sběratelé kostí S11E08 - Vlastizrada v době svátků CZ Titulky",
+        "video_id": 29930488
       },
       {
         "episode_id": 114182,
@@ -451353,6 +451358,11 @@
         "video_id": 29930450
       },
       {
+        "episode_id": 36961,
+        "display_name": "Sběratelé kostí S11E08 - Vlastizrada v době svátků CZ Titulky",
+        "video_id": 29930488
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -591107,8 +591117,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 1,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
