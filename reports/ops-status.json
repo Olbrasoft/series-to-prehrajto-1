@@ -1,45 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 128517,
-    "manifest_upload_ready_episodes": 1472,
-    "uploaded_episodes": 63461,
-    "prepared_source_episodes": 58759,
+    "manifest_upload_ready_episodes": 1446,
+    "uploaded_episodes": 63471,
+    "prepared_source_episodes": 58753,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
-    "language_whisper_attempted_sources": 45,
+    "language_audited_sources": 42,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53913,
-    "whisper_review_pending_sources": 35635,
-    "subtitle_followup_sources": 40960,
-    "subtitle_followup_pending_sources": 40960
+    "whisper_review_pending_sources": 35634,
+    "subtitle_followup_sources": 40962,
+    "subtitle_followup_pending_sources": 40962
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T09:06:24Z",
-      "databaseId": 36987863319,
+      "createdAt": "2026-10-02T09:12:45Z",
+      "databaseId": 36988470622,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T09:04:30Z",
-      "databaseId": 36987674151,
+      "createdAt": "2026-10-02T09:10:51Z",
+      "databaseId": 36988290165,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T09:10:23Z",
+      "databaseId": 36988245352,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T09:09:47Z",
+      "databaseId": 36988186367,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T09:08:02Z",
+      "databaseId": 36988021548,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T09:06:24Z",
+      "databaseId": 36987863319,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T09:04:30Z",
+      "databaseId": 36987674151,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T09:04:26Z",
       "databaseId": 36987667928,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -75,19 +115,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T09:00:01Z",
       "databaseId": 36987238090,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T08:59:22Z",
       "databaseId": 36987178911,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -131,52 +171,12 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T08:55:47Z",
       "databaseId": 36986842702,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:55:24Z",
-      "databaseId": 36986806293,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:53:16Z",
-      "databaseId": 36986600154,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:53:15Z",
-      "databaseId": 36986599278,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:53:12Z",
-      "databaseId": 36986594793,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T08:52:10Z",
-      "databaseId": 36986498723,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -155196,6 +155196,21 @@
         "video_id": 29916327
       },
       {
+        "episode_id": 70712,
+        "display_name": "V utajení S05E12 - 12. epizoda CZ Titulky",
+        "video_id": 29916346
+      },
+      {
+        "episode_id": 79884,
+        "display_name": "Smrt v ráji S10E04 - 4. epizoda CZ Titulky",
+        "video_id": 29916367
+      },
+      {
+        "episode_id": 108096,
+        "display_name": "Smrt v ráji S03E02 - Špatná oběť CZ Titulky",
+        "video_id": 29916391
+      },
+      {
         "episode_id": 72353,
         "display_name": "Jednotka zvláštního určení S04E15 - 15. epizoda CZ Titulky",
         "video_id": 29916300
@@ -155204,6 +155219,16 @@
         "episode_id": 72349,
         "display_name": "Jednotka zvláštního určení S04E16 - 16. epizoda CZ Titulky",
         "video_id": 29916334
+      },
+      {
+        "episode_id": 72357,
+        "display_name": "Jednotka zvláštního určení S04E11 - 11. epizoda CZ Titulky",
+        "video_id": 29916366
+      },
+      {
+        "episode_id": 72345,
+        "display_name": "Jednotka zvláštního určení S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 29916392
       },
       {
         "episode_id": 114182,
@@ -292401,6 +292426,16 @@
         "video_id": 29916328
       },
       {
+        "episode_id": 79914,
+        "display_name": "Smrt v ráji S15E02 - 2. epizoda CZ Titulky",
+        "video_id": 29916355
+      },
+      {
+        "episode_id": 79874,
+        "display_name": "Smrt v ráji S09E02 - 2. epizoda CZ Titulky",
+        "video_id": 29916386
+      },
+      {
         "episode_id": 87903,
         "display_name": "Zpátky do práce S06E01 - Pěstounka Kate CZ Titulky",
         "video_id": 29916298
@@ -292409,6 +292444,21 @@
         "episode_id": 87899,
         "display_name": "Zpátky do práce S05E07 - Odpalovací rampa i propast CZ Titulky",
         "video_id": 29916326
+      },
+      {
+        "episode_id": 184007,
+        "display_name": "Strážci vesmíru S07E29 - 29. epizoda CZ Titulky",
+        "video_id": 29916360
+      },
+      {
+        "episode_id": 183995,
+        "display_name": "Strážci vesmíru S07E15 - 15. epizoda CZ Titulky",
+        "video_id": 29916381
+      },
+      {
+        "episode_id": 183987,
+        "display_name": "Strážci vesmíru S07E06 - 6. epizoda CZ Titulky",
+        "video_id": 29916394
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -447323,6 +447373,21 @@
         "video_id": 29916327
       },
       {
+        "episode_id": 70712,
+        "display_name": "V utajení S05E12 - 12. epizoda CZ Titulky",
+        "video_id": 29916346
+      },
+      {
+        "episode_id": 79884,
+        "display_name": "Smrt v ráji S10E04 - 4. epizoda CZ Titulky",
+        "video_id": 29916367
+      },
+      {
+        "episode_id": 108096,
+        "display_name": "Smrt v ráji S03E02 - Špatná oběť CZ Titulky",
+        "video_id": 29916391
+      },
+      {
         "episode_id": 72353,
         "display_name": "Jednotka zvláštního určení S04E15 - 15. epizoda CZ Titulky",
         "video_id": 29916300
@@ -447331,6 +447396,16 @@
         "episode_id": 72349,
         "display_name": "Jednotka zvláštního určení S04E16 - 16. epizoda CZ Titulky",
         "video_id": 29916334
+      },
+      {
+        "episode_id": 72357,
+        "display_name": "Jednotka zvláštního určení S04E11 - 11. epizoda CZ Titulky",
+        "video_id": 29916366
+      },
+      {
+        "episode_id": 72345,
+        "display_name": "Jednotka zvláštního určení S04E06 - 6. epizoda CZ Titulky",
+        "video_id": 29916392
       },
       {
         "episode_id": 114182,
@@ -584528,6 +584603,16 @@
         "video_id": 29916328
       },
       {
+        "episode_id": 79914,
+        "display_name": "Smrt v ráji S15E02 - 2. epizoda CZ Titulky",
+        "video_id": 29916355
+      },
+      {
+        "episode_id": 79874,
+        "display_name": "Smrt v ráji S09E02 - 2. epizoda CZ Titulky",
+        "video_id": 29916386
+      },
+      {
         "episode_id": 87903,
         "display_name": "Zpátky do práce S06E01 - Pěstounka Kate CZ Titulky",
         "video_id": 29916298
@@ -584536,6 +584621,21 @@
         "episode_id": 87899,
         "display_name": "Zpátky do práce S05E07 - Odpalovací rampa i propast CZ Titulky",
         "video_id": 29916326
+      },
+      {
+        "episode_id": 184007,
+        "display_name": "Strážci vesmíru S07E29 - 29. epizoda CZ Titulky",
+        "video_id": 29916360
+      },
+      {
+        "episode_id": 183995,
+        "display_name": "Strážci vesmíru S07E15 - 15. epizoda CZ Titulky",
+        "video_id": 29916381
+      },
+      {
+        "episode_id": 183987,
+        "display_name": "Strážci vesmíru S07E06 - 6. epizoda CZ Titulky",
+        "video_id": 29916394
       }
     ],
     "prepared_not_upload_ready": [
@@ -585697,17 +585797,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
-    "resolve_failed": 5,
-    "ok": 40
+    "disabled": 2,
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4297,
-    "whisper_non_cz_needs_subtitles": 13981,
-    "needs_whisper": 34288,
-    "whisper_failed": 1347
+    "whisper_confirmed_cz": 4296,
+    "whisper_non_cz_needs_subtitles": 13983,
+    "needs_whisper": 34291,
+    "whisper_failed": 1343
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 40960
+    "needs_subtitle_setup_after_prehrajto_processing": 40962
   }
 }
