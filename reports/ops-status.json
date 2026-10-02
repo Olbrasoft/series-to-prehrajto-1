@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 127886,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 63959,
-    "prepared_source_episodes": 58795,
+    "uploaded_episodes": 63961,
+    "prepared_source_episodes": 58808,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53907,
     "whisper_review_pending_sources": 35618,
     "subtitle_followup_sources": 41029,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T18:07:25Z",
+      "databaseId": 37045319166,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T17:59:17Z",
+      "databaseId": 37044399635,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T17:59:13Z",
+      "databaseId": 37044392407,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T17:57:36Z",
       "databaseId": 37044219493,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +55,7 @@
       "createdAt": "2026-10-02T17:57:30Z",
       "databaseId": 37044209500,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "queued",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -95,7 +119,7 @@
       "createdAt": "2026-10-02T17:52:28Z",
       "databaseId": 37043657167,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T17:47:22Z",
       "databaseId": 37043089776,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T17:46:04Z",
-      "databaseId": 37042944110,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T17:45:38Z",
-      "databaseId": 37042894802,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T17:45:19Z",
-      "databaseId": 37042858162,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -294261,6 +294261,16 @@
         "video_id": 29925047
       },
       {
+        "episode_id": 59446,
+        "display_name": "Seinfeld S07E24 - 24. epizoda CZ Titulky",
+        "video_id": 29925076
+      },
+      {
+        "episode_id": 59358,
+        "display_name": "Seinfeld S08E15 - 15. epizoda CZ Titulky",
+        "video_id": 29925119
+      },
+      {
         "episode_id": 59351,
         "display_name": "Seinfeld S07E05 - 5. epizoda CZ Titulky",
         "video_id": 29924770
@@ -588258,6 +588268,16 @@
         "video_id": 29925047
       },
       {
+        "episode_id": 59446,
+        "display_name": "Seinfeld S07E24 - 24. epizoda CZ Titulky",
+        "video_id": 29925076
+      },
+      {
+        "episode_id": 59358,
+        "display_name": "Seinfeld S08E15 - 15. epizoda CZ Titulky",
+        "video_id": 29925119
+      },
+      {
         "episode_id": 59351,
         "display_name": "Seinfeld S07E05 - 5. epizoda CZ Titulky",
         "video_id": 29924770
@@ -589438,7 +589458,7 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 1,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
