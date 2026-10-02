@@ -1,37 +1,101 @@
 {
   "counts": {
     "backlog_episodes": 128767,
-    "manifest_upload_ready_episodes": 1913,
-    "uploaded_episodes": 63167,
-    "prepared_source_episodes": 58809,
+    "manifest_upload_ready_episodes": 1898,
+    "uploaded_episodes": 63176,
+    "prepared_source_episodes": 58796,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 41,
-    "language_whisper_attempted_sources": 41,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53917,
-    "whisper_review_pending_sources": 35659,
+    "whisper_review_pending_sources": 35656,
     "subtitle_followup_sources": 40942,
     "subtitle_followup_pending_sources": 40942
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T05:17:36Z",
-      "databaseId": 36968280914,
+      "createdAt": "2026-10-02T05:26:20Z",
+      "databaseId": 36968929892,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:25:19Z",
+      "databaseId": 36968855075,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T05:24:40Z",
+      "databaseId": 36968804838,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T05:23:06Z",
+      "databaseId": 36968687882,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:23:05Z",
+      "databaseId": 36968687068,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-02T05:22:51Z",
+      "databaseId": 36968667986,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:18:19Z",
+      "databaseId": 36968333010,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:18:15Z",
+      "databaseId": 36968328494,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T05:17:36Z",
+      "databaseId": 36968280914,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T05:17:21Z",
       "databaseId": 36968263100,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T05:16:05Z",
       "databaseId": 36968170823,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -91,11 +155,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T05:11:12Z",
       "databaseId": 36967808666,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T05:09:02Z",
-      "databaseId": 36967649642,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T05:06:24Z",
-      "databaseId": 36967454856,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T05:06:21Z",
-      "databaseId": 36967450545,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T05:06:18Z",
-      "databaseId": 36967447149,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T05:05:41Z",
-      "databaseId": 36967401941,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T05:05:14Z",
-      "databaseId": 36967369257,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T05:00:05Z",
-      "databaseId": 36966985751,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T04:59:21Z",
-      "databaseId": 36966936770,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -154451,6 +154451,21 @@
         "video_id": 29913587
       },
       {
+        "episode_id": 7496,
+        "display_name": "Stargirl S02E03 - Kapitola třetí CZ Titulky",
+        "video_id": 29913605
+      },
+      {
+        "episode_id": 167620,
+        "display_name": "Ranč Heartland S14E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913634
+      },
+      {
+        "episode_id": 137016,
+        "display_name": "Zasvěcený S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29913657
+      },
+      {
         "episode_id": 103005,
         "display_name": "The Fall Guy S01E13 - 13. epizoda CZ Titulky",
         "video_id": 29913494
@@ -154484,6 +154499,11 @@
         "episode_id": 74781,
         "display_name": "Špinaví poldové S02E03 - 3. epizoda CZ Titulky",
         "video_id": 29913603
+      },
+      {
+        "episode_id": 74777,
+        "display_name": "Špinaví poldové S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 29913622
       },
       {
         "episode_id": 114182,
@@ -290931,6 +290951,21 @@
         "video_id": 29913598
       },
       {
+        "episode_id": 94210,
+        "display_name": "The Bridge S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29913617
+      },
+      {
+        "episode_id": 94206,
+        "display_name": "The Bridge S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913643
+      },
+      {
+        "episode_id": 89414,
+        "display_name": "Doktor Martin S07E07 - Činy, ne slova CZ Titulky",
+        "video_id": 29913668
+      },
+      {
         "episode_id": 92711,
         "display_name": "Třetí hlídka S04E02 - 2. epizoda CZ Titulky",
         "video_id": 29913502
@@ -290944,6 +290979,16 @@
         "episode_id": 92643,
         "display_name": "Třetí hlídka S03E03 - 3. epizoda CZ Titulky",
         "video_id": 29913576
+      },
+      {
+        "episode_id": 92699,
+        "display_name": "Třetí hlídka S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29913615
+      },
+      {
+        "episode_id": 92703,
+        "display_name": "Třetí hlídka S03E09 - 9. epizoda CZ Dabing",
+        "video_id": 29913654
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -445113,6 +445158,21 @@
         "video_id": 29913587
       },
       {
+        "episode_id": 7496,
+        "display_name": "Stargirl S02E03 - Kapitola třetí CZ Titulky",
+        "video_id": 29913605
+      },
+      {
+        "episode_id": 167620,
+        "display_name": "Ranč Heartland S14E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913634
+      },
+      {
+        "episode_id": 137016,
+        "display_name": "Zasvěcený S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 29913657
+      },
+      {
         "episode_id": 103005,
         "display_name": "The Fall Guy S01E13 - 13. epizoda CZ Titulky",
         "video_id": 29913494
@@ -445146,6 +445206,11 @@
         "episode_id": 74781,
         "display_name": "Špinaví poldové S02E03 - 3. epizoda CZ Titulky",
         "video_id": 29913603
+      },
+      {
+        "episode_id": 74777,
+        "display_name": "Špinaví poldové S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 29913622
       },
       {
         "episode_id": 114182,
@@ -581593,6 +581658,21 @@
         "video_id": 29913598
       },
       {
+        "episode_id": 94210,
+        "display_name": "The Bridge S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29913617
+      },
+      {
+        "episode_id": 94206,
+        "display_name": "The Bridge S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913643
+      },
+      {
+        "episode_id": 89414,
+        "display_name": "Doktor Martin S07E07 - Činy, ne slova CZ Titulky",
+        "video_id": 29913668
+      },
+      {
         "episode_id": 92711,
         "display_name": "Třetí hlídka S04E02 - 2. epizoda CZ Titulky",
         "video_id": 29913502
@@ -581606,6 +581686,16 @@
         "episode_id": 92643,
         "display_name": "Třetí hlídka S03E03 - 3. epizoda CZ Titulky",
         "video_id": 29913576
+      },
+      {
+        "episode_id": 92699,
+        "display_name": "Třetí hlídka S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29913615
+      },
+      {
+        "episode_id": 92703,
+        "display_name": "Třetí hlídka S03E09 - 9. epizoda CZ Dabing",
+        "video_id": 29913654
       }
     ],
     "prepared_not_upload_ready": [
@@ -582767,13 +582857,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 40,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4288,
-    "whisper_non_cz_needs_subtitles": 13970,
-    "needs_whisper": 34316,
+    "whisper_non_cz_needs_subtitles": 13973,
+    "needs_whisper": 34313,
     "whisper_failed": 1343
   },
   "subtitle_followup_statuses": {
