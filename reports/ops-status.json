@@ -1,37 +1,109 @@
 {
   "counts": {
     "backlog_episodes": 128767,
-    "manifest_upload_ready_episodes": 1942,
-    "uploaded_episodes": 63147,
-    "prepared_source_episodes": 58818,
+    "manifest_upload_ready_episodes": 1926,
+    "uploaded_episodes": 63159,
+    "prepared_source_episodes": 58809,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 42,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53918,
     "whisper_review_pending_sources": 35661,
-    "subtitle_followup_sources": 40940,
-    "subtitle_followup_pending_sources": 40940
+    "subtitle_followup_sources": 40942,
+    "subtitle_followup_pending_sources": 40942
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-02T05:05:41Z",
-      "databaseId": 36967401941,
+      "createdAt": "2026-10-02T05:12:25Z",
+      "databaseId": 36967898201,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-02T05:12:11Z",
+      "databaseId": 36967879516,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T05:11:12Z",
+      "databaseId": 36967808666,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T05:09:55Z",
+      "databaseId": 36967713145,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:09:36Z",
+      "databaseId": 36967690970,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T05:09:02Z",
+      "databaseId": 36967649642,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:06:24Z",
+      "databaseId": 36967454856,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:06:21Z",
+      "databaseId": 36967450545,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-02T05:06:18Z",
+      "databaseId": 36967447149,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-02T05:05:41Z",
+      "databaseId": 36967401941,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-02T05:05:14Z",
       "databaseId": 36967369257,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T04:59:21Z",
       "databaseId": 36966936770,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -59,11 +131,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-02T04:58:06Z",
       "databaseId": 36966851060,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -105,78 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T04:53:22Z",
-      "databaseId": 36966512084,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T04:52:23Z",
-      "databaseId": 36966439236,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T04:50:35Z",
-      "databaseId": 36966310420,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-02T04:50:12Z",
-      "databaseId": 36966280132,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T04:48:42Z",
-      "databaseId": 36966172235,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T04:48:38Z",
-      "databaseId": 36966167636,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T04:48:13Z",
-      "databaseId": 36966138051,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-02T04:48:02Z",
-      "databaseId": 36966124827,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-02T04:47:32Z",
-      "databaseId": 36966090775,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -154426,6 +154426,41 @@
         "video_id": 29913404
       },
       {
+        "episode_id": 122032,
+        "display_name": "Zachovávat dekorum S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913500
+      },
+      {
+        "episode_id": 94228,
+        "display_name": "The Bridge S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29913526
+      },
+      {
+        "episode_id": 94224,
+        "display_name": "The Bridge S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 29913547
+      },
+      {
+        "episode_id": 103005,
+        "display_name": "The Fall Guy S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29913494
+      },
+      {
+        "episode_id": 140977,
+        "display_name": "Renegátka Nell S01E07 - Přestaň tisknout ten hnus CZ Titulky",
+        "video_id": 29913505
+      },
+      {
+        "episode_id": 102997,
+        "display_name": "The Fall Guy S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29913530
+      },
+      {
+        "episode_id": 116269,
+        "display_name": "Tajemství loňského léta S01E02 - Není to jen pro psí hovno CZ Titulky",
+        "video_id": 29913550
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -290844,6 +290879,31 @@
         "episode_id": 88347,
         "display_name": "The Returned S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29913397
+      },
+      {
+        "episode_id": 86594,
+        "display_name": "Slasher S02E04 - Noc lovců CZ Titulky",
+        "video_id": 29913498
+      },
+      {
+        "episode_id": 26402,
+        "display_name": "Suburra: Krvavé předměstí S01E10 - Jako ve spánku CZ Titulky",
+        "video_id": 29913521
+      },
+      {
+        "episode_id": 113694,
+        "display_name": "The Tick S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29913544
+      },
+      {
+        "episode_id": 92711,
+        "display_name": "Třetí hlídka S04E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913502
+      },
+      {
+        "episode_id": 92715,
+        "display_name": "Třetí hlídka S04E07 - 7. epizoda CZ Dabing",
+        "video_id": 29913540
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -444988,6 +445048,41 @@
         "video_id": 29913404
       },
       {
+        "episode_id": 122032,
+        "display_name": "Zachovávat dekorum S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913500
+      },
+      {
+        "episode_id": 94228,
+        "display_name": "The Bridge S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29913526
+      },
+      {
+        "episode_id": 94224,
+        "display_name": "The Bridge S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 29913547
+      },
+      {
+        "episode_id": 103005,
+        "display_name": "The Fall Guy S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29913494
+      },
+      {
+        "episode_id": 140977,
+        "display_name": "Renegátka Nell S01E07 - Přestaň tisknout ten hnus CZ Titulky",
+        "video_id": 29913505
+      },
+      {
+        "episode_id": 102997,
+        "display_name": "The Fall Guy S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29913530
+      },
+      {
+        "episode_id": 116269,
+        "display_name": "Tajemství loňského léta S01E02 - Není to jen pro psí hovno CZ Titulky",
+        "video_id": 29913550
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -581406,6 +581501,31 @@
         "episode_id": 88347,
         "display_name": "The Returned S01E01 - 1. epizoda CZ Titulky",
         "video_id": 29913397
+      },
+      {
+        "episode_id": 86594,
+        "display_name": "Slasher S02E04 - Noc lovců CZ Titulky",
+        "video_id": 29913498
+      },
+      {
+        "episode_id": 26402,
+        "display_name": "Suburra: Krvavé předměstí S01E10 - Jako ve spánku CZ Titulky",
+        "video_id": 29913521
+      },
+      {
+        "episode_id": 113694,
+        "display_name": "The Tick S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29913544
+      },
+      {
+        "episode_id": 92711,
+        "display_name": "Třetí hlídka S04E02 - 2. epizoda CZ Titulky",
+        "video_id": 29913502
+      },
+      {
+        "episode_id": 92715,
+        "display_name": "Třetí hlídka S04E07 - 7. epizoda CZ Dabing",
+        "video_id": 29913540
       }
     ],
     "prepared_not_upload_ready": [
@@ -582567,7 +582687,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 41,
+    "disabled": 2,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -582577,6 +582698,6 @@
     "whisper_failed": 1343
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 40940
+    "needs_subtitle_setup_after_prehrajto_processing": 40942
   }
 }
