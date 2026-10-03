@@ -1,0 +1,57 @@
+name: prepare-subtitles
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "2,17,32,47 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/prepare-subtitles.yml"
+      - "src/prepare_subtitle_sources.py"
+      - "src/subtitle_source_cache.py"
+      - "src/backfill_uploaded_subtitles.py"
+
+concurrency:
+  group: series-to-prehrajto-1-subtitle-discovery
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Restore prepared subtitle files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python src/subtitle_source_cache.py .cache/subtitles
+      - name: Prepare subtitle sources for both accounts
+        env:
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          CZ_PROXY_MIN_GAP_SECONDS: "30"
+          PREHRAJTO_SEARCH_MIN_INTERVAL: "30"
+          PYTHONUNBUFFERED: "1"
+        run: python src/prepare_subtitle_sources.py --limit 30 --max-ready 100 --max-runtime 600
+      - name: Save prepared subtitle files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: subtitle-source-cache
+          path: .cache/subtitles/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 9

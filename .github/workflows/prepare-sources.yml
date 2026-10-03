@@ -53,8 +53,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Prioritize subtitle discovery when uploads are ready
+        id: priority
+        run: python src/subtitle_priority.py --github-output "$GITHUB_OUTPUT"
+
       - name: Install Whisper dependencies
-        if: ${{ inputs.use_whisper != 'false' }}
+        if: inputs.use_whisper != 'false' && steps.priority.outputs.hold_source_search != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
@@ -67,6 +71,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Prepare episode sources
+        if: steps.priority.outputs.hold_source_search != 'true'
         env:
           CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
           CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
@@ -93,7 +98,7 @@ jobs:
           python src/prepare_episode_sources.py "${ARGS[@]}"
 
       - name: Commit preparation results
-        if: always()
+        if: always() && steps.priority.outputs.hold_source_search != 'true'
         run: |
           TMP_DIR="$(mktemp -d)"
           mkdir -p "$TMP_DIR/plans" "$TMP_DIR/audits"

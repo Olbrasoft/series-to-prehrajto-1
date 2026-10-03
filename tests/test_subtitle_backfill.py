@@ -398,7 +398,7 @@ def test_cached_unresolvable_target_can_be_confirmed_deleted(tmp_path, monkeypat
     args = task_args(tmp_path)
     upload = write_uploads(args, 1)[0]
     b.append_jsonl(args.report_file, b.status_row(upload, upload, 'target_unresolved',
-                  detail_url='https://example.test/deleted'))
+                  detail_url='https://example.test/deleted', checked_at='2026-01-01T00:00:00Z'))
     def resolve(*args, **kwargs):
         raise RuntimeError('No video streams')
     monkeypatch.setattr(b, 'resolve', resolve)
@@ -412,7 +412,7 @@ def test_deleted_submitted_target_is_closed_without_reupload(tmp_path, monkeypat
     args = task_args(tmp_path)
     upload = write_uploads(args, 1)[0]
     b.append_jsonl(args.report_file, b.status_row(upload, upload, 'submitted',
-                  detail_url='https://example.test/deleted', submitted_at='2026-01-01T00:00:00Z'))
+                  detail_url='https://example.test/deleted', submitted_at='2026-01-01T00:00:00Z', checked_at='2026-01-01T00:00:00Z'))
     monkeypatch.setattr(b, 'verify_tracks', lambda *a: False)
     monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: {'deleted': True})
     b.verify_submissions(args, object())
@@ -427,7 +427,7 @@ def test_pending_submission_deletion_check_runs_at_most_daily(tmp_path, monkeypa
     args = task_args(tmp_path)
     upload = write_uploads(args, 1)[0]
     b.append_jsonl(args.report_file, b.status_row(upload, upload, 'submitted',
-                  detail_url='https://example.test/video', submitted_at='2026-01-01T00:00:00Z'))
+                  detail_url='https://example.test/video', submitted_at='2026-01-01T00:00:00Z', checked_at='2026-01-01T00:00:00Z'))
     monkeypatch.setattr(b, 'verify_tracks', lambda *a: False)
     checks = []
     monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: checks.append(a))
@@ -454,7 +454,7 @@ def test_deferred_discovery_gets_one_slot_without_starving_fresh_uploads(tmp_pat
     args = task_args(tmp_path)
     uploads = write_uploads(args, 3)
     for upload in uploads[:2]:
-        b.append_jsonl(args.report_file, b.status_row(upload, upload, 'source_search_pending'))
+        b.append_jsonl(args.report_file, b.status_row(upload, upload, 'source_search_pending', checked_at='2026-01-01T00:00:00Z'))
     monkeypatch.setattr(b, 'find_profile_detail', lambda *a: {'detail_url': 'https://example.test/video', 'processing': False})
     monkeypatch.setattr(b, 'resolve', lambda *a, **kw: SimpleNamespace(tracks=[]))
     assert [row['episode_id'] for row, _, _ in b.iter_tasks(args, object())] == [2, 3, 1]
@@ -509,7 +509,7 @@ def test_rate_limited_search_stops_query_variants_without_rejecting_source(monke
 def test_incomplete_search_is_retryable_unless_later_query_finds_track(monkeypatch, later_match):
     import backfill_uploaded_subtitles as b
     calls = []
-    candidate = SimpleNamespace(title='Series', url='https://example.test/source', duration_sec=100)
+    candidate = SimpleNamespace(title='Series S01E01', url='https://example.test/source', duration_sec=100)
     def search(query, **kwargs):
         calls.append(query)
         if len(calls) == 1:
@@ -541,7 +541,7 @@ def test_source_resolution_distinguishes_outage_from_deleted_source(monkeypatch,
         raise b.ResolveError('source unavailable', permanent=permanent)
     monkeypatch.setattr(b, 'resolve', resolve)
     monkeypatch.setattr(b, 'candidate_matches_series', lambda *a: True)
-    monkeypatch.setattr(b, 'search_pages', lambda *a, **kw: [[SimpleNamespace(title='Series', url='source')]])
+    monkeypatch.setattr(b, 'search_pages', lambda *a, **kw: [[SimpleNamespace(title='Series S00E00', url='source')]])
     row = {'series_title': 'Series', 'source_url': 'source'}
     def lookup():
         return b.source_with_subtitles(row) if original_source else b.find_alternate_track(row, 100, min_interval=0)

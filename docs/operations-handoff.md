@@ -1,5 +1,44 @@
 # Operations handoff
 
+## Subtitle discovery and attachment (October 3, 2026)
+
+`prepare-subtitles.yml` searches and downloads Czech subtitle files for both
+accounts independently of attachment. One shared discovery worker runs every
+15 minutes, uses a 30-second proxy/search interval, stops searching on transient
+failures, and retains at most 100 ready SRT files. Files and discovery cooldowns
+are stored in the `subtitle-source-cache` Actions artifact (one-day retention),
+not Git history. Losing this cache only repeats discovery; attachment history
+remains in the existing report. No duplicate video uploads are created.
+
+`backfill-subtitles.yml` restores that cache and prioritizes prepared files.
+It can still attach subtitles from the original source immediately, but slow
+alternate searches now run only in discovery. Cache entries are bound to the
+account, episode, current destination video ID, original source, checksum and
+target duration. Submitted/uncertain POSTs remain verification-only.
+
+Source titles recorded for the exact uploaded source can supply an original
+series alias when their season and episode match. Mismatched episode numbers
+are rejected. Old negative title results with a valid new alias are revisited
+once; successful or deleted targets are not reopened.
+
+Missing targets retry after 24 hours, processing videos after two hours, and
+unresolved targets or deferred source discovery after six hours. Subtitle
+submissions older than a day are verified every six hours. Explicit targeted
+runs bypass these time gates. Discovery without a track retries after a week.
+
+While at least 900 upload-ready episodes and 100 subtitle candidates remain,
+the watchdog and both video source preparation entrypoints yield search
+capacity to subtitles. Below 900 ready episodes, normal source preparation
+resumes. Video uploads remain enabled on both accounts.
+
+For a targeted acceptance test, dispatch backfill with `episode_id`, the
+correct `account`, `continue_backfill=false`, and `verify_immediately=true`.
+Then run `src/verify_subtitle_delivery.py URL --video-id ID` to independently
+fetch fresh public player HTML, confirm the exact video ID, and download and
+parse actual Czech subtitle cues. `--expected-srt` additionally compares all
+delivered cues against the prepared file. The resulting JSON omits signed
+CDN URLs and credentials. HTTP 200 on the attachment POST alone is insufficient.
+
 ## Video uploads resumed (October 1, 2026)
 
 The user explicitly requested resumption on both accounts after confirming that

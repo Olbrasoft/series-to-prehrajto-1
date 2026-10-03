@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from ops_status import main as build_status  # noqa: E402
 from upload_queue_status import upload_ready_rows  # noqa: E402
+from subtitle_priority import hold_source_search  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 REPORT = REPO / "reports" / "ops-status.json"
@@ -196,7 +197,7 @@ def main() -> int:
     counts = report.get("counts") or {}
     gaps = report.get("gaps") or {}
     active = active_workflows(report)
-    upload_ready = len(upload_ready_rows())
+    upload_ready = len(upload_ready_rows(require_description=False))
     backlog_count = int(counts.get("backlog_episodes") or 0)
     manifest_ready = int(counts.get("manifest_upload_ready_episodes") or 0)
     prepared_source_episodes = int(counts.get("prepared_source_episodes") or 0)
@@ -205,6 +206,7 @@ def main() -> int:
     pending_whisper = int(counts.get("language_pending_whisper_sources") or 0)
     whisper_review_pending = int(counts.get("whisper_review_pending_sources") or 0)
     subtitle_followup_pending = int(counts.get("subtitle_followup_pending_sources") or 0)
+    subtitles_first = hold_source_search(upload_ready, subtitle_followup_pending)
     description_gap = len(gaps.get("backlog_without_episode_description") or [])
     uploaded_needing_desc_update = len(gaps.get("uploaded_not_marked_description_updated") or [])
 
@@ -235,7 +237,7 @@ def main() -> int:
     prepare_episode_target = min(args.emergency_episodes, 40)
     prepare_series_target = min(args.target_series, 80)
 
-    if has_preparation_work:
+    if has_preparation_work and not subtitles_first:
         queue_workflow(
             "prepare-manifest",
             {
@@ -251,7 +253,7 @@ def main() -> int:
             max_active=1,
         )
 
-    if prepared_source_episodes < args.target_prepared_episodes:
+    if prepared_source_episodes < args.target_prepared_episodes and not subtitles_first:
         missing_prepared = args.target_prepared_episodes - prepared_source_episodes
         queued_refresh = False
         if (

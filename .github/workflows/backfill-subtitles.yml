@@ -8,6 +8,7 @@ on:
       - ".github/workflows/backfill-subtitles.yml"
       - "src/backfill_uploaded_subtitles.py"
       - "src/resolve_stream.py"
+      - "src/subtitle_source_cache.py"
   schedule:
     - cron: "7,37 * * * *"
   workflow_dispatch:
@@ -44,6 +45,10 @@ on:
         description: "Queue another bounded subtitle backfill run when pending rows remain"
         required: false
         default: "true"
+      verify_immediately:
+        description: "Wait for the server track after a targeted subtitle upload"
+        type: boolean
+        default: false
 
 concurrency:
   group: series-to-prehrajto-1-backfill-subtitles
@@ -81,6 +86,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Restore prepared subtitle files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python src/subtitle_source_cache.py .cache/subtitles
+
       - name: Configure git for report pushes
         run: |
           git config user.name "github-actions[bot]"
@@ -95,6 +105,7 @@ jobs:
           SERIALY_PREHRAJTO_PASSWORD: ${{ secrets.SERIALY_PREHRAJTO_PASSWORD }}
           CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
           CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          CZ_PROXY_MIN_GAP_SECONDS: "20"
         run: |
           case "$UPLOAD_ACCOUNT" in
             primary)
@@ -116,11 +127,15 @@ jobs:
             "--search-min-interval" "20"
             "--verify-timeout" "600"
             "--lookup" "profile-search"
-            "--defer-verification"
             "--max-runtime" "600"
             "--alternate-limit" "1"
+            "--prepared-only"
+            "--subtitle-cache" ".cache/subtitles"
             "--allow-partial"
           )
+          if [ "${{ inputs.verify_immediately || 'false' }}" != "true" ]; then
+            ARGS+=("--defer-verification")
+          fi
           for state_file in "${STATE_FILES[@]}"; do
             ARGS+=("--state-file" "$state_file")
           done

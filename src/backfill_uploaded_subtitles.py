@@ -10,8 +10,10 @@ converted to strict CRLF SRT with a unique short filename.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import datetime as dt
 import html
+import io
 import json
 import os
 import re
@@ -19,7 +21,7 @@ import sys
 import time
 import unicodedata
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 from collections.abc import Iterator
 
 import requests
@@ -43,6 +45,8 @@ TERMINAL_STATUSES = {
     "unsupported_subtitle_format",
 }
 SUBMITTED_STATUSES = {"submission_pending", "submitted", "submission_unknown", "subtitle_processing"}
+TITLE_MATCH_VERSION = 2
+EPISODE_MARKER = re.compile(r"(?i)(?:s(\d{1,2})[ ._-]*e(\d{1,3})|(\d{1,2})[x×](\d{1,3}))(?!\d)")
 VIDEO_MARKER_RE = re.compile(r'id="snippet-uploadedVideoListing-video-(\d+)"')
 REMOVE_RE = re.compile(
     r"uploadedVideoListing-videoId=(\d+)[^\"']*?"
@@ -136,18 +140,65 @@ def normalize_title(value: str) -> str:
 
 
 def candidate_matches_series(row: dict, title: str) -> bool:
-    series = normalize_title(str(row.get("series_title") or ""))
     candidate = normalize_title(title)
-    if not series or not candidate:
+    if not candidate:
         return False
-    if candidate == series or candidate.startswith(series + " "):
-        return True
-    # Long localized aliases can prefix the canonical title, e.g.
-    # "Anna zo Zeleného domu Z - Anne s E na konci". Keep short titles strict
-    # so broad names such as "Bloodline" do not match "Tekken Bloodline".
-    if len(series.split()) >= 4 and f" {series} " in f" {candidate} ":
-        return True
+    marker = EPISODE_MARKER.search(title)
+    if marker and row.get("season") is not None and row.get("episode") is not None:
+        if marker_numbers(marker) != (int(row["season"]), int(row["episode"])):
+            return False
+    for name in series_names(row):
+        series = normalize_title(name)
+        if candidate == series or candidate.startswith(series + " "):
+            return True
+        if len(series.split()) >= 4 and f" {series} " in f" {candidate} ":
+            return True
     return False
+
+
+def marker_numbers(marker: re.Match) -> tuple[int, int]:
+    return (int(marker.group(1) or marker.group(3)), int(marker.group(2) or marker.group(4)))
+
+
+def source_identity(url: str) -> str:
+    parsed = urlsplit(url)
+    if parsed.hostname not in {"prehraj.to", "www.prehraj.to", "prehrajto.cz", "www.prehrajto.cz"}:
+        return url
+    return parsed.path.rstrip("/").rsplit("/", 1)[-1]
+
+
+def series_names(row: dict) -> list[str]:
+    names = [str(row.get(k) or "").strip() for k in ("series_title", "series_original_title")]
+    # Only a title recorded for this exact uploaded source can supply an alias.
+    # An older follow-up source must never rename a replacement upload.
+    recorded = str(row.get("trusted_source_title") or "")
+    marker = EPISODE_MARKER.search(recorded)
+    if marker and marker_numbers(marker) == (int(row.get("season") or 0), int(row.get("episode") or 0)):
+        names.append(recorded[:marker.start()].strip(" ._-"))
+    return list(dict.fromkeys(name for name in names if name))
+
+
+def retry_due(previous: dict, *, verification: bool = False, now: dt.datetime | None = None) -> bool:
+    now = now or dt.datetime.now(dt.timezone.utc)
+    try:
+        checked = dt.datetime.fromisoformat(str(previous["checked_at"]).replace("Z", "+00:00"))
+        if checked.tzinfo is None:
+            checked = checked.replace(tzinfo=dt.timezone.utc)
+    except (KeyError, TypeError, ValueError):
+        return True
+    seconds = {"target_not_found": 86400, "target_unresolved": 21600,
+               "target_processing": 7200, "subtitle_fetch_failed": 21600,
+               "target_detail_missing": 21600, "source_search_pending": 21600}.get(previous.get("status"), 0)
+    if verification:
+        try:
+            submitted = dt.datetime.fromisoformat(str(previous.get("submitted_at") or previous["checked_at"]).replace("Z", "+00:00"))
+            if submitted.tzinfo is None:
+                submitted = submitted.replace(tzinfo=dt.timezone.utc)
+            age = (now - submitted).total_seconds()
+        except (TypeError, ValueError):
+            age = 0
+        seconds = 21600 if age >= 86400 else 1800 if age >= 3600 else 0
+    return (now - checked).total_seconds() >= seconds
 
 
 def load_uploads(paths: list[Path], upload_account: str | None = None) -> dict[int, dict]:
@@ -323,11 +374,8 @@ def query_variants(row: dict) -> list[str]:
     season = int(row.get("season") or 0)
     episode = int(row.get("episode") or 0)
     code = str(row.get("episode_code") or f"S{season:02d}E{episode:02d}")
-    variants = [
-        f"{series} {code}",
-        f"{series} {season}x{episode}",
-        f"{series} {season:02d}x{episode:02d}",
-    ]
+    variants = [f"{name} {code}" for name in series_names(row)]
+    variants += [f"{series} {season}x{episode}", f"{series} {season:02d}x{episode:02d}"]
     seen: set[str] = set()
     out: list[str] = []
     for value in variants:
@@ -450,7 +498,7 @@ def find_alternate_track(row: dict, target_duration: int | None, *, min_interval
         candidates = [item for page in pages for item in page]
         scored: list[tuple[int, str, str]] = []
         for item in candidates:
-            if not candidate_matches_series(row, item.title):
+            if not candidate_matches_series(row, item.title) or not EPISODE_MARKER.search(item.title):
                 log(
                     f"skip title mismatch episode_id={row.get('episode_id')} "
                     f"series={row.get('series_title')!r} title={item.title!r}"
@@ -550,6 +598,7 @@ def status_row(row: dict, upload: dict, status: str, **extra) -> dict:
         "display_name": upload.get("display_name"),
         "upload_account": upload.get("upload_account"),
         "prehrajto_video_id": upload.get("prehrajto_video_id"),
+        "title_match_version": TITLE_MATCH_VERSION,
     }
     out.update(extra)
     return out
@@ -602,11 +651,20 @@ def pending_uploads(
         if not row_pending(followup):
             continue
         previous = matching_upload_status(latest_status.get(episode_id), upload)
-        if previous and previous.get("status") in TERMINAL_STATUSES and not retry_reported:
-            continue
         # Uploaded video metadata is authoritative, even if its follow-up row
         # is missing or still references a previously considered source.
         row = {**followup, **{key: value for key, value in upload.items() if value is not None}}
+        if (followup.get("source_url") and upload.get("source_url")
+                and source_identity(followup["source_url"]) == source_identity(upload["source_url"])):
+            row["trusted_source_title"] = followup.get("source_title")
+        # Revisit old negative results once when an identity-bound alias fixes
+        # their title mismatch. Successful/deleted/pending uploads stay closed.
+        repaired_alias = (previous.get("status") in {"source_track_not_found", "source_search_pending"}
+                          and int(previous.get("title_match_version") or 0) < TITLE_MATCH_VERSION
+                          and len(series_names(row)) > 1)
+        if previous.get("status") in TERMINAL_STATUSES and not retry_reported and not repaired_alias:
+            continue
+        row["title_match_recheck"] = repaired_alias
         matched.append((row, upload))
     return matched
 
@@ -624,6 +682,12 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
         )
         for _, upload in matched
     }
+    cache = getattr(args, "prepared_cache", None)
+    matched = [item for item in matched if (
+        args.retry_reported or args.episode_id or item[0].get("title_match_recheck")
+        or (cache is not None and cache.ready(item[1]) and latest_status.get(int(item[0]["episode_id"]), {}).get("status") in {"source_search_pending", "source_track_not_found"})
+        or retry_due(latest_status.get(int(item[0]["episode_id"]), {}))
+    )]
     matched.sort(key=newest_upload_first, reverse=True)
     # Inspect unseen uploads first, newest first. Rotate retries by their last
     # check so unavailable targets cannot consume every bounded batch forever.
@@ -632,10 +696,12 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
             latest_status.get(int(item[0]["episode_id"]), {}).get("checked_at") or ""
         )
     )
+    if cache is not None:
+        matched.sort(key=lambda item: not cache.ready(item[1]))
     matched = [item for item in matched if latest_status.get(int(item[0]["episode_id"]), {}).get("status") not in SUBMITTED_STATUSES]
     # Reserve one slot for deferred discovery, while keeping the remaining
     # batch available to uploads whose original source already has subtitles.
-    deferred = next((item for item in matched if latest_status.get(int(item[0]["episode_id"]), {}).get("status") == "source_search_pending"), None)
+    deferred = None if getattr(args, "prepared_only", False) else next((item for item in matched if latest_status.get(int(item[0]["episode_id"]), {}).get("status") == "source_search_pending"), None)
     if deferred is not None:
         matched.remove(deferred)
         matched.insert(0, deferred)
@@ -738,6 +804,7 @@ def verify_submissions(args: argparse.Namespace, session: requests.Session | Non
                and (not args.upload_account or row.get("upload_account") == args.upload_account)
                and (not args.episode_id or row.get("episode_id") in args.episode_id)
                and matching_upload_status(row, uploads.get(int(row["episode_id"]), {}))]
+    pending = [row for row in pending if retry_due(row, verification=True) or args.episode_id or args.retry_reported]
     pending.sort(key=lambda row: str(row.get("checked_at") or ""))
     deadline = min(time.monotonic() + 120, getattr(args, "deadline", float("inf")))
     for row in pending[:args.verification_limit]:
@@ -773,6 +840,8 @@ def main() -> int:
     ap.add_argument("--defer-verification", action="store_true")
     ap.add_argument("--verification-limit", type=int, default=100)
     ap.add_argument("--alternate-limit", type=int, default=0, help="Maximum slow alternate searches per batch; zero is unlimited")
+    ap.add_argument("--prepared-only", action="store_true", help="Use original or cached subtitles; leave web search to discovery")
+    ap.add_argument("--subtitle-cache", type=Path)
     ap.add_argument("--max-profile-pages", type=int, default=40)
     ap.add_argument("--verify-timeout", type=int, default=70)
     ap.add_argument("--search-min-interval", type=float, default=10.0)
@@ -801,7 +870,11 @@ def main() -> int:
         print("ERROR: PREHRAJTO_EMAIL / PREHRAJTO_PASSWORD required", file=sys.stderr)
         return 2
 
-    session = login(email, password) if needs_login else None
+    # The legacy login helper prints response snippets containing session data.
+    with contextlib.redirect_stdout(io.StringIO()):
+        session = login(email, password) if needs_login else None
+    from subtitle_source_cache import SubtitleCache
+    args.prepared_cache = SubtitleCache(args.subtitle_cache) if args.subtitle_cache else None
     args.deadline = time.monotonic() + args.max_runtime if args.max_runtime else float("inf")
     if not args.dry_run:
         verify_submissions(args, session)
@@ -827,10 +900,11 @@ def main() -> int:
         if info.get("subtitle_count", 0) and not info["resolved"].tracks:
             append_jsonl(args.report_file, status_row(row, upload, "target_processing", detail_url=detail_url))
             continue
+        cached = args.prepared_cache.get(upload, info["resolved"].duration_sec) if args.prepared_cache else None
         try:
-            source_url, track_url = source_with_subtitles(row)
+            source_url, track_url = (cached[0], "cached") if cached else source_with_subtitles(row)
             if not track_url:
-                if discovery_deferred or (args.alternate_limit and alternate_searches >= args.alternate_limit):
+                if args.prepared_only or discovery_deferred or (args.alternate_limit and alternate_searches >= args.alternate_limit):
                     append_jsonl(args.report_file, status_row(row, upload, "source_search_pending", detail_url=detail_url))
                     continue
                 alternate_searches += 1
@@ -858,7 +932,7 @@ def main() -> int:
             log(f"FAIL no subtitle track episode_id={row.get('episode_id')} video_id={video_id}")
             continue
         try:
-            content = fetch_subtitle(track_url)
+            content = cached[1] if cached else fetch_subtitle(track_url)
         except Exception as exc:
             fail += 1
             append_jsonl(
