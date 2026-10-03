@@ -2,36 +2,92 @@
   "counts": {
     "backlog_episodes": 126846,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 64891,
-    "prepared_source_episodes": 58840,
+    "uploaded_episodes": 64916,
+    "prepared_source_episodes": 58838,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 36,
-    "language_whisper_attempted_sources": 31,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53870,
-    "whisper_review_pending_sources": 35561,
+    "language_audited_sources": 42,
+    "language_whisper_attempted_sources": 42,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 53869,
+    "whisper_review_pending_sources": 35560,
     "subtitle_followup_sources": 41209,
     "subtitle_followup_pending_sources": 41209
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-03T14:06:35Z",
-      "databaseId": 37128486557,
+      "createdAt": "2026-10-03T14:33:20Z",
+      "databaseId": 37130013703,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-03T14:28:13Z",
+      "databaseId": 37129695442,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T14:25:11Z",
+      "databaseId": 37129519242,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T14:16:27Z",
+      "databaseId": 37129036800,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T14:16:19Z",
+      "databaseId": 37129031211,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T14:07:38Z",
+      "databaseId": 37128546992,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T14:07:35Z",
+      "databaseId": 37128544182,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T14:06:35Z",
+      "databaseId": 37128486557,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-03T14:03:59Z",
       "databaseId": 37128334333,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -59,11 +115,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T13:58:32Z",
       "databaseId": 37128010894,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T13:52:32Z",
-      "databaseId": 37127672018,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T13:52:00Z",
-      "databaseId": 37127640038,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T13:51:45Z",
-      "databaseId": 37127625473,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T13:50:55Z",
-      "databaseId": 37127578254,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T13:49:27Z",
-      "databaseId": 37127491238,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T13:40:02Z",
-      "databaseId": 37126952451,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T13:28:02Z",
-      "databaseId": 37126274377,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -158446,9 +158446,79 @@
         "video_id": 29945498
       },
       {
+        "episode_id": 152244,
+        "display_name": "Milenec z vesmíru S01E20 - Dvácátý záznam CZ Dabing",
+        "video_id": 29945667
+      },
+      {
+        "episode_id": 140400,
+        "display_name": "Skvělé zprávy S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29945773
+      },
+      {
+        "episode_id": 140404,
+        "display_name": "Skvělé zprávy S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29945806
+      },
+      {
+        "episode_id": 140408,
+        "display_name": "Skvělé zprávy S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29945845
+      },
+      {
+        "episode_id": 140412,
+        "display_name": "Skvělé zprávy S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29945883
+      },
+      {
+        "episode_id": 140416,
+        "display_name": "Skvělé zprávy S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29945968
+      },
+      {
+        "episode_id": 169436,
+        "display_name": "Witch Hat Atelier S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29945999
+      },
+      {
         "episode_id": 170417,
         "display_name": "Radši kluci než kytky S01E07 - 7. epizoda CZ Titulky",
         "video_id": 29945622
+      },
+      {
+        "episode_id": 150029,
+        "display_name": "Jak dobýt Ameriku S01E06 - Tři sta triček CZ Titulky",
+        "video_id": 29945656
+      },
+      {
+        "episode_id": 150033,
+        "display_name": "Jak dobýt Ameriku S02E05 - Mofongo CZ Titulky",
+        "video_id": 29945691
+      },
+      {
+        "episode_id": 64785,
+        "display_name": "Pobřeží moskytů S01E04 - Autobusová zastávka CZ Dabing",
+        "video_id": 29945731
+      },
+      {
+        "episode_id": 64793,
+        "display_name": "Pobřeží moskytů S02E05 - Pozitivní výhledy CZ Titulky",
+        "video_id": 29945760
+      },
+      {
+        "episode_id": 95093,
+        "display_name": "Tosh.0 S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29945784
+      },
+      {
+        "episode_id": 162545,
+        "display_name": "Zítra je taky den S01E09 - Jednoho dne, díky tobě CZ Titulky",
+        "video_id": 29945844
+      },
+      {
+        "episode_id": 110789,
+        "display_name": "Temný Wales S02E02 - Smrt v horách (2) CZ Titulky",
+        "video_id": 29945912
       },
       {
         "episode_id": 114182,
@@ -298909,6 +298979,61 @@
         "episode_id": 119190,
         "display_name": "Vetřelci z hlubin S01E03 - Hrozba se vynořuje CZ Dabing",
         "video_id": 29945608
+      },
+      {
+        "episode_id": 119194,
+        "display_name": "Vetřelci z hlubin S01E13 - Po stopách viníků CZ Dabing",
+        "video_id": 29945687
+      },
+      {
+        "episode_id": 99750,
+        "display_name": "Vraždy v Brokenwoodu S02E03 - Úlovek dne CZ Titulky",
+        "video_id": 29945757
+      },
+      {
+        "episode_id": 94754,
+        "display_name": "Twisted S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29945796
+      },
+      {
+        "episode_id": 94758,
+        "display_name": "Twisted S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29945819
+      },
+      {
+        "episode_id": 94762,
+        "display_name": "Twisted S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29945859
+      },
+      {
+        "episode_id": 94766,
+        "display_name": "Twisted S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29945885
+      },
+      {
+        "episode_id": 170415,
+        "display_name": "Radši kluci než kytky S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29945641
+      },
+      {
+        "episode_id": 170419,
+        "display_name": "Radši kluci než kytky S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29945733
+      },
+      {
+        "episode_id": 201595,
+        "display_name": "Sezame, otevři se S37E09 - 9. epizoda CZ Titulky",
+        "video_id": 29945812
+      },
+      {
+        "episode_id": 201599,
+        "display_name": "Sezame, otevři se S37E20 - 20. epizoda CZ Titulky",
+        "video_id": 29945851
+      },
+      {
+        "episode_id": 150035,
+        "display_name": "Jak dobýt Ameriku S02E08 - Na jméně nezáleží CZ Titulky",
+        "video_id": 29945902
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -457073,9 +457198,79 @@
         "video_id": 29945498
       },
       {
+        "episode_id": 152244,
+        "display_name": "Milenec z vesmíru S01E20 - Dvácátý záznam CZ Dabing",
+        "video_id": 29945667
+      },
+      {
+        "episode_id": 140400,
+        "display_name": "Skvělé zprávy S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29945773
+      },
+      {
+        "episode_id": 140404,
+        "display_name": "Skvělé zprávy S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 29945806
+      },
+      {
+        "episode_id": 140408,
+        "display_name": "Skvělé zprávy S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 29945845
+      },
+      {
+        "episode_id": 140412,
+        "display_name": "Skvělé zprávy S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29945883
+      },
+      {
+        "episode_id": 140416,
+        "display_name": "Skvělé zprávy S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 29945968
+      },
+      {
+        "episode_id": 169436,
+        "display_name": "Witch Hat Atelier S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29945999
+      },
+      {
         "episode_id": 170417,
         "display_name": "Radši kluci než kytky S01E07 - 7. epizoda CZ Titulky",
         "video_id": 29945622
+      },
+      {
+        "episode_id": 150029,
+        "display_name": "Jak dobýt Ameriku S01E06 - Tři sta triček CZ Titulky",
+        "video_id": 29945656
+      },
+      {
+        "episode_id": 150033,
+        "display_name": "Jak dobýt Ameriku S02E05 - Mofongo CZ Titulky",
+        "video_id": 29945691
+      },
+      {
+        "episode_id": 64785,
+        "display_name": "Pobřeží moskytů S01E04 - Autobusová zastávka CZ Dabing",
+        "video_id": 29945731
+      },
+      {
+        "episode_id": 64793,
+        "display_name": "Pobřeží moskytů S02E05 - Pozitivní výhledy CZ Titulky",
+        "video_id": 29945760
+      },
+      {
+        "episode_id": 95093,
+        "display_name": "Tosh.0 S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29945784
+      },
+      {
+        "episode_id": 162545,
+        "display_name": "Zítra je taky den S01E09 - Jednoho dne, díky tobě CZ Titulky",
+        "video_id": 29945844
+      },
+      {
+        "episode_id": 110789,
+        "display_name": "Temný Wales S02E02 - Smrt v horách (2) CZ Titulky",
+        "video_id": 29945912
       },
       {
         "episode_id": 114182,
@@ -597536,6 +597731,61 @@
         "episode_id": 119190,
         "display_name": "Vetřelci z hlubin S01E03 - Hrozba se vynořuje CZ Dabing",
         "video_id": 29945608
+      },
+      {
+        "episode_id": 119194,
+        "display_name": "Vetřelci z hlubin S01E13 - Po stopách viníků CZ Dabing",
+        "video_id": 29945687
+      },
+      {
+        "episode_id": 99750,
+        "display_name": "Vraždy v Brokenwoodu S02E03 - Úlovek dne CZ Titulky",
+        "video_id": 29945757
+      },
+      {
+        "episode_id": 94754,
+        "display_name": "Twisted S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29945796
+      },
+      {
+        "episode_id": 94758,
+        "display_name": "Twisted S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29945819
+      },
+      {
+        "episode_id": 94762,
+        "display_name": "Twisted S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 29945859
+      },
+      {
+        "episode_id": 94766,
+        "display_name": "Twisted S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 29945885
+      },
+      {
+        "episode_id": 170415,
+        "display_name": "Radši kluci než kytky S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 29945641
+      },
+      {
+        "episode_id": 170419,
+        "display_name": "Radši kluci než kytky S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29945733
+      },
+      {
+        "episode_id": 201595,
+        "display_name": "Sezame, otevři se S37E09 - 9. epizoda CZ Titulky",
+        "video_id": 29945812
+      },
+      {
+        "episode_id": 201599,
+        "display_name": "Sezame, otevři se S37E20 - 20. epizoda CZ Titulky",
+        "video_id": 29945851
+      },
+      {
+        "episode_id": 150035,
+        "display_name": "Jak dobýt Ameriku S02E08 - Na jméně nezáleží CZ Titulky",
+        "video_id": 29945902
       }
     ],
     "prepared_not_upload_ready": [
@@ -598697,16 +598947,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 27,
-    "sample_failed": 3,
-    "disabled": 5,
+    "sample_failed": 2,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4307,
     "whisper_non_cz_needs_subtitles": 14002,
-    "whisper_failed": 1403,
-    "needs_whisper": 34158
+    "whisper_failed": 1405,
+    "needs_whisper": 34155
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 41209
