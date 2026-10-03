@@ -3,35 +3,43 @@
     "backlog_episodes": 127335,
     "manifest_upload_ready_episodes": 1000,
     "uploaded_episodes": 64488,
-    "prepared_source_episodes": 58966,
+    "prepared_source_episodes": 58972,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 43,
+    "language_audited_sources": 51,
     "language_whisper_attempted_sources": 43,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53884,
-    "whisper_review_pending_sources": 35579,
+    "whisper_review_sources": 53885,
+    "whisper_review_pending_sources": 35585,
     "subtitle_followup_sources": 41135,
     "subtitle_followup_pending_sources": 41135
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T05:12:02Z",
+      "databaseId": 37099054291,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-10-03T05:11:03Z",
       "databaseId": 37099000388,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T05:11:02Z",
       "databaseId": 37098999495,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +47,7 @@
       "createdAt": "2026-10-03T05:10:58Z",
       "databaseId": 37098996073,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T05:10:42Z",
       "databaseId": 37098980480,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -155,11 +163,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T04:57:22Z",
       "databaseId": 37098243153,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -169,14 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T04:57:18Z",
-      "databaseId": 37098240329,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -593828,6 +593828,14 @@
         "status": "whisper_failed"
       },
       {
+        "episode_id": 116506,
+        "source_id": -45670483309980865,
+        "series_title": "3 mimo: Příběhy z Arkádie",
+        "episode_code": "S02E04",
+        "source_title": "3Below.Tales.of.Arcadia.S02E04.Mothers.Day.1080p.NF.WEB-DL.DDP5.1.x264-QOQ",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 141589,
         "source_id": -4463393267195850,
         "series_title": "A Good Day to Be a Dog",
@@ -594201,14 +594209,6 @@
         "series_title": "Alba",
         "episode_code": "S01E01",
         "source_title": "Alba_S01E01_Co spáchala Alba_",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 160692,
-        "source_id": -22823480024525086,
-        "series_title": "Alba",
-        "episode_code": "S01E01",
-        "source_title": "Alba - S1E1 Episode 1 EN",
         "status": "needs_whisper"
       }
     ],
@@ -594668,13 +594668,14 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 42,
+    "disabled": 8,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4295,
-    "whisper_non_cz_needs_subtitles": 14010,
+    "whisper_non_cz_needs_subtitles": 14005,
     "whisper_failed": 1388,
-    "needs_whisper": 34191
+    "needs_whisper": 34197
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 41135
