@@ -1,45 +1,117 @@
 {
   "counts": {
     "backlog_episodes": 127148,
-    "manifest_upload_ready_episodes": 1005,
-    "uploaded_episodes": 64636,
-    "prepared_source_episodes": 58960,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 64653,
+    "prepared_source_episodes": 58954,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 58,
-    "language_whisper_attempted_sources": 58,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 42,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53877,
-    "whisper_review_pending_sources": 35587,
+    "whisper_review_sources": 53884,
+    "whisper_review_pending_sources": 35601,
     "subtitle_followup_sources": 41174,
     "subtitle_followup_pending_sources": 41174
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-03T07:27:54Z",
-      "databaseId": 37106425852,
+      "createdAt": "2026-10-03T07:38:58Z",
+      "databaseId": 37107039533,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T07:38:39Z",
+      "databaseId": 37107020331,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-03T07:26:42Z",
-      "databaseId": 37106364556,
+      "createdAt": "2026-10-03T07:38:35Z",
+      "databaseId": 37107017192,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "backfill-subtitles"
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-03T07:37:26Z",
+      "databaseId": 37106956227,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-03T07:32:11Z",
+      "databaseId": 37106667444,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T07:31:24Z",
+      "databaseId": 37106624865,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T07:30:08Z",
+      "databaseId": 37106546474,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T07:28:59Z",
+      "databaseId": 37106484185,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T07:28:56Z",
+      "databaseId": 37106481584,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T07:27:54Z",
+      "databaseId": 37106425852,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-03T07:26:42Z",
+      "databaseId": 37106364556,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-03T07:25:52Z",
       "databaseId": 37106320804,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -75,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T07:23:55Z",
       "databaseId": 37106211580,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -102,78 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-03T07:13:51Z",
       "databaseId": 37105657597,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T07:12:54Z",
-      "databaseId": 37105605505,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T07:12:51Z",
-      "databaseId": 37105602762,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T07:12:48Z",
-      "databaseId": 37105600709,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T07:11:40Z",
-      "databaseId": 37105538994,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-03T07:11:37Z",
-      "databaseId": 37105535818,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T07:09:01Z",
-      "databaseId": 37105388868,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-03T07:08:40Z",
-      "databaseId": 37105369639,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T07:06:59Z",
-      "databaseId": 37105275884,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-03T07:03:49Z",
-      "databaseId": 37105099787,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
@@ -157791,9 +157791,34 @@
         "video_id": 29937843
       },
       {
+        "episode_id": 184080,
+        "display_name": "Strážci vesmíru S24E16 - 16. epizoda CZ Titulky",
+        "video_id": 29938167
+      },
+      {
+        "episode_id": 184084,
+        "display_name": "Strážci vesmíru S24E20 - 20. epizoda CZ Titulky",
+        "video_id": 29938234
+      },
+      {
         "episode_id": 82741,
         "display_name": "Supergirl S06E14 - 14. epizoda CZ Titulky",
         "video_id": 29938079
+      },
+      {
+        "episode_id": 55281,
+        "display_name": "Co děláme v temnotách S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29938120
+      },
+      {
+        "episode_id": 55297,
+        "display_name": "Co děláme v temnotách S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29938174
+      },
+      {
+        "episode_id": 55301,
+        "display_name": "Co děláme v temnotách S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 29938225
       },
       {
         "episode_id": 114182,
@@ -297631,9 +297656,69 @@
         "video_id": 29938078
       },
       {
+        "episode_id": 174758,
+        "display_name": "Rodinná pouta S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 29938115
+      },
+      {
+        "episode_id": 2442,
+        "display_name": "Star proti silám zla S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29938160
+      },
+      {
+        "episode_id": 2426,
+        "display_name": "Star proti silám zla S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29938181
+      },
+      {
+        "episode_id": 2410,
+        "display_name": "Star proti silám zla S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 29938194
+      },
+      {
+        "episode_id": 2398,
+        "display_name": "Star proti silám zla S03E13 - 13. epizoda CZ Titulky",
+        "video_id": 29938214
+      },
+      {
+        "episode_id": 2382,
+        "display_name": "Star proti silám zla S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29938226
+      },
+      {
+        "episode_id": 2378,
+        "display_name": "Star proti silám zla S04E11 - 11. epizoda CZ Titulky",
+        "video_id": 29938265
+      },
+      {
         "episode_id": 12751,
         "display_name": "Agent Hamilton S02E03 - 3. epizoda CZ Dabing",
         "video_id": 29938076
+      },
+      {
+        "episode_id": 15915,
+        "display_name": "Nadace S02E03 - Král a plebejec CZ Titulky",
+        "video_id": 29938100
+      },
+      {
+        "episode_id": 15919,
+        "display_name": "Nadace S02E05 - Zřící a ti, kdo jsou vidět CZ Titulky",
+        "video_id": 29938138
+      },
+      {
+        "episode_id": 9855,
+        "display_name": "Titans S03E11 - Volání přichází zevnitř CZ Dabing",
+        "video_id": 29938189
+      },
+      {
+        "episode_id": 65579,
+        "display_name": "V bezpečí S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29938222
+      },
+      {
+        "episode_id": 93531,
+        "display_name": "Ted a spol. S02E02 - Právnička, lemur a malá špionka CZ Titulky",
+        "video_id": 29938257
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -455143,9 +455228,34 @@
         "video_id": 29937843
       },
       {
+        "episode_id": 184080,
+        "display_name": "Strážci vesmíru S24E16 - 16. epizoda CZ Titulky",
+        "video_id": 29938167
+      },
+      {
+        "episode_id": 184084,
+        "display_name": "Strážci vesmíru S24E20 - 20. epizoda CZ Titulky",
+        "video_id": 29938234
+      },
+      {
         "episode_id": 82741,
         "display_name": "Supergirl S06E14 - 14. epizoda CZ Titulky",
         "video_id": 29938079
+      },
+      {
+        "episode_id": 55281,
+        "display_name": "Co děláme v temnotách S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 29938120
+      },
+      {
+        "episode_id": 55297,
+        "display_name": "Co děláme v temnotách S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 29938174
+      },
+      {
+        "episode_id": 55301,
+        "display_name": "Co děláme v temnotách S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 29938225
       },
       {
         "episode_id": 114182,
@@ -594983,9 +595093,69 @@
         "video_id": 29938078
       },
       {
+        "episode_id": 174758,
+        "display_name": "Rodinná pouta S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 29938115
+      },
+      {
+        "episode_id": 2442,
+        "display_name": "Star proti silám zla S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 29938160
+      },
+      {
+        "episode_id": 2426,
+        "display_name": "Star proti silám zla S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29938181
+      },
+      {
+        "episode_id": 2410,
+        "display_name": "Star proti silám zla S03E02 - 2. epizoda CZ Titulky",
+        "video_id": 29938194
+      },
+      {
+        "episode_id": 2398,
+        "display_name": "Star proti silám zla S03E13 - 13. epizoda CZ Titulky",
+        "video_id": 29938214
+      },
+      {
+        "episode_id": 2382,
+        "display_name": "Star proti silám zla S04E07 - 7. epizoda CZ Titulky",
+        "video_id": 29938226
+      },
+      {
+        "episode_id": 2378,
+        "display_name": "Star proti silám zla S04E11 - 11. epizoda CZ Titulky",
+        "video_id": 29938265
+      },
+      {
         "episode_id": 12751,
         "display_name": "Agent Hamilton S02E03 - 3. epizoda CZ Dabing",
         "video_id": 29938076
+      },
+      {
+        "episode_id": 15915,
+        "display_name": "Nadace S02E03 - Král a plebejec CZ Titulky",
+        "video_id": 29938100
+      },
+      {
+        "episode_id": 15919,
+        "display_name": "Nadace S02E05 - Zřící a ti, kdo jsou vidět CZ Titulky",
+        "video_id": 29938138
+      },
+      {
+        "episode_id": 9855,
+        "display_name": "Titans S03E11 - Volání přichází zevnitř CZ Dabing",
+        "video_id": 29938189
+      },
+      {
+        "episode_id": 65579,
+        "display_name": "V bezpečí S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 29938222
+      },
+      {
+        "episode_id": 93531,
+        "display_name": "Ted a spol. S02E02 - Právnička, lemur a malá špionka CZ Titulky",
+        "video_id": 29938257
       }
     ],
     "prepared_not_upload_ready": [
@@ -595321,7 +595491,7 @@
         "series_title": "3 mimo: Příběhy z Arkádie",
         "episode_code": "S02E05",
         "source_title": "3Below.Tales.of.Arcadia.S02E05.Ill.Gotten.Gains.1080p.NF.WEB-DL.DDP5.1.x264-QOQ",
-        "status": "whisper_failed"
+        "status": "needs_whisper"
       },
       {
         "episode_id": 116508,
@@ -595330,6 +595500,22 @@
         "episode_code": "S02E06",
         "source_title": "3Below.Tales.of.Arcadia.S02E06.Theres.Something.About.Gwen.of.Gorbon.1080p.NF.WEB-DL.DDP5.1.x264-QOQ",
         "status": "whisper_failed"
+      },
+      {
+        "episode_id": 116509,
+        "source_id": -60509038265480230,
+        "series_title": "3 mimo: Příběhy z Arkádie",
+        "episode_code": "S02E07",
+        "source_title": "3Below.Tales.of.Arcadia.S02E07.Asteroid.Rage.1080p.NF.WEB-DL.DDP5.1.x264-QOQ",
+        "status": "needs_whisper"
+      },
+      {
+        "episode_id": 116510,
+        "source_id": -33177958091346285,
+        "series_title": "3 mimo: Příběhy z Arkádie",
+        "episode_code": "S02E08",
+        "source_title": "3Below.Tales.of.Arcadia.S02E08.Luugs.Day.Out.1080p.NF.WEB-DL.DDP5.1.x264-QOQ",
+        "status": "needs_whisper"
       },
       {
         "episode_id": 116511,
@@ -595345,7 +595531,7 @@
         "series_title": "3 mimo: Příběhy z Arkádie",
         "episode_code": "S02E10",
         "source_title": "3Below.Tales.of.Arcadia.S02E10.The.Big.Sleep.1080p.NF.WEB-DL.DDP5.1.x264-QOQ",
-        "status": "whisper_failed"
+        "status": "needs_whisper"
       },
       {
         "episode_id": 116514,
@@ -595353,7 +595539,7 @@
         "series_title": "3 mimo: Příběhy z Arkádie",
         "episode_code": "S02E12",
         "source_title": "3Below.Tales.of.Arcadia.S02E12.A.Glorious.End.Part.One.1080p.NF.WEB-DL.DDP5.1.x264-QOQ",
-        "status": "whisper_failed"
+        "status": "needs_whisper"
       },
       {
         "episode_id": 141589,
@@ -595673,22 +595859,6 @@
         "series_title": "Agent bez minulosti",
         "episode_code": "S01E06",
         "source_title": "Agent bez minulosti S01E06 SKdab",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 101649,
-        "source_id": -66101067965183085,
-        "series_title": "Agent bez minulosti",
-        "episode_code": "S01E09",
-        "source_title": "Agent bez minulosti - s01e09",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 101649,
-        "source_id": -38548419200743590,
-        "series_title": "Agent bez minulosti",
-        "episode_code": "S01E09",
-        "source_title": "Agent bez minulosti S01E09 SKdab",
         "status": "needs_whisper"
       }
     ],
@@ -596147,15 +596317,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "sample_failed": 11,
-    "ok": 46,
+    "disabled": 2,
+    "ok": 41,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4295,
-    "whisper_non_cz_needs_subtitles": 13995,
-    "whisper_failed": 1401,
-    "needs_whisper": 34186
+    "whisper_non_cz_needs_subtitles": 13988,
+    "whisper_failed": 1390,
+    "needs_whisper": 34211
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 41174
