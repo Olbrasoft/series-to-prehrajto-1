@@ -252,6 +252,12 @@ jobs:
           )
           echo "pending subtitle rows: ${PENDING}"
           if [ "$PENDING" -gt 0 ]; then
+            QUEUED=$(gh run list --workflow backfill-subtitles.yml --limit 10 --json status \
+              --jq '[.[] | select(.status == "pending" or .status == "queued" or .status == "waiting")] | length')
+            if [ "$QUEUED" -gt 0 ]; then
+              echo "A successor is already queued; preserving the pending run"
+              exit 0
+            fi
             gh workflow run backfill-subtitles.yml \
               -f account="$SUBTITLE_ACCOUNT" \
               -f limit="${{ inputs.limit || '30' }}" \
