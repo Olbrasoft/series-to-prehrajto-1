@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 126754,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 65001,
+    "uploaded_episodes": 65002,
     "prepared_source_episodes": 58730,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
-    "language_whisper_attempted_sources": 24,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53864,
     "whisper_review_pending_sources": 35541,
     "subtitle_followup_sources": 41209,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-03T17:43:51Z",
-      "databaseId": 37141584076,
+      "createdAt": "2026-10-03T17:56:13Z",
+      "databaseId": 37142331532,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T17:55:36Z",
+      "databaseId": 37142294461,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-03T17:51:55Z",
+      "databaseId": 37142073851,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T17:51:22Z",
+      "databaseId": 37142040103,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T17:51:14Z",
+      "databaseId": 37142032317,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T17:45:53Z",
+      "databaseId": 37141707769,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T17:45:44Z",
+      "databaseId": 37141699034,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T17:43:51Z",
+      "databaseId": 37141584076,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-03T17:39:26Z",
       "databaseId": 37141308654,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -51,11 +107,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T17:34:38Z",
       "databaseId": 37141017838,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:49:57Z",
-      "databaseId": 37138296297,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:43:54Z",
-      "databaseId": 37137927857,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:43:51Z",
-      "databaseId": 37137924699,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:42:54Z",
-      "databaseId": 37137868536,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:42:03Z",
-      "databaseId": 37137814956,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:35:09Z",
-      "databaseId": 37137390961,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:34:30Z",
-      "databaseId": 37137351713,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -299459,6 +299459,11 @@
         "episode_id": 94771,
         "display_name": "Twisted S01E18 - 18. epizoda CZ Titulky",
         "video_id": 29969780
+      },
+      {
+        "episode_id": 1395,
+        "display_name": "Winx Club S02E22 - Nebezpečí v Divokově CZ Dabing",
+        "video_id": 29969944
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -598636,6 +598641,11 @@
         "episode_id": 94771,
         "display_name": "Twisted S01E18 - 18. epizoda CZ Titulky",
         "video_id": 29969780
+      },
+      {
+        "episode_id": 1395,
+        "display_name": "Winx Club S02E22 - Nebezpečí v Divokově CZ Dabing",
+        "video_id": 29969944
       }
     ],
     "prepared_not_upload_ready": [
@@ -599797,8 +599807,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 22,
-    "sample_failed": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
