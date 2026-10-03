@@ -39,6 +39,15 @@ parse actual Czech subtitle cues. `--expected-srt` additionally compares all
 delivered cues against the prepared file. The resulting JSON omits signed
 CDN URLs and credentials. HTTP 200 on the attachment POST alone is insufficient.
 
+Live acceptance on October 3 passed on both accounts: episode 87916 / primary
+received 324 Czech cues from its original source; episode 101642 / serialy
+received 474 cues through the discovery artifact. Both public pages had no
+Czech track before the test. Fresh HTML confirmed the exact destination IDs,
+and the delivered VTT normalized to the exact prepared SRT hashes. The
+[acceptance record](subtitle-acceptance-2026-10-03.json) includes run links,
+timestamps, cue counts and hashes; 139 automated tests passed. Regular
+two-account backfill and discovery were dispatched again after acceptance.
+
 ## Video uploads resumed (October 1, 2026)
 
 The user explicitly requested resumption on both accounts after confirming that
