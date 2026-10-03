@@ -139,6 +139,21 @@ def test_discovery_stops_on_rate_limit_and_keeps_backlog_retryable(tmp_path, mon
     assert b.load_latest_status(report)[87916]["status"] == "source_track_not_found"
 
 
+def test_targeted_discovery_keeps_other_pending_cached_files(tmp_path, monkeypatch):
+    state, followup, report = files(tmp_path)
+    current = upload()
+    other = upload(episode_id=101642, prehrajto_video_id=29699743, upload_account="serialy")
+    state.write_text(json.dumps({"uploads": [current, other]}))
+    cache = SubtitleCache(tmp_path / "cache")
+    cache.put(other, "source", 1381, SRT)
+    args = Namespace(cache_dir=cache.directory, report_file=report, followup_file=followup,
+                     state_file=[state], max_runtime=30, limit=30, max_ready=100,
+                     search_min_interval=0, episode_id=[999])
+    monkeypatch.setattr(b, "resolve", lambda *a, **kw: pytest.fail("Unselected target must not be queried"))
+    assert discovery.prepare(args) == 0
+    assert SubtitleCache(cache.directory).get(other, 1381) == ("source", SRT)
+
+
 @pytest.mark.parametrize("ready,pending,hold", [(1000,100,True), (994,10000,True), (900,100,True),
                                              (899,10000,False), (1000,99,False)])
 def test_subtitle_priority_keeps_upload_queue_supplied(ready, pending, hold):

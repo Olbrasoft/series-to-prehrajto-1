@@ -20,6 +20,9 @@ def prepare(args) -> int:
     pending = [(row, upload) for row, upload in pending
                if b.matching_upload_status(reports.get(int(row["episode_id"])), upload).get("status") not in b.SUBMITTED_STATUSES]
     cache.prune([upload for _, upload in pending])
+    cached_ready = sum(cache.ready(upload) for _, upload in pending)
+    if getattr(args, "episode_id", None):
+        pending = [(row, upload) for row, upload in pending if int(row["episode_id"]) in args.episode_id]
     now = dt.datetime.now(dt.timezone.utc)
     pending.sort(key=lambda pair: (
         not pair[0].get("title_match_recheck", False),
@@ -27,7 +30,6 @@ def prepare(args) -> int:
     ))
     deadline = time.monotonic() + args.max_runtime
     processed = ready = 0
-    cached_ready = sum(cache.ready(upload) for _, upload in pending)
     for row, upload in pending:
         if time.monotonic() >= deadline or processed >= args.limit or cached_ready >= args.max_ready:
             break
@@ -81,6 +83,7 @@ def main() -> int:
     parser.add_argument("--max-runtime", type=int, default=600)
     parser.add_argument("--search-min-interval", type=float, default=30)
     parser.add_argument("--state-file", type=Path, action="append", default=[])
+    parser.add_argument("--episode-id", type=int, action="append", default=[])
     parser.add_argument("--followup-file", type=Path, default=b.REPO / "plans/subtitle-followup-queue.jsonl")
     parser.add_argument("--report-file", type=Path, default=b.REPO / "reports/subtitle-backfill-status.jsonl")
     args = parser.parse_args()
