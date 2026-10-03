@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 127335,
-    "manifest_upload_ready_episodes": 1003,
-    "uploaded_episodes": 64427,
-    "prepared_source_episodes": 58955,
+    "manifest_upload_ready_episodes": 1000,
+    "uploaded_episodes": 64437,
+    "prepared_source_episodes": 58959,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 66,
-    "language_whisper_attempted_sources": 60,
+    "language_audited_sources": 59,
+    "language_whisper_attempted_sources": 46,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53880,
-    "whisper_review_pending_sources": 35558,
-    "subtitle_followup_sources": 41113,
-    "subtitle_followup_pending_sources": 41113
+    "whisper_review_sources": 53887,
+    "whisper_review_pending_sources": 35580,
+    "subtitle_followup_sources": 41116,
+    "subtitle_followup_pending_sources": 41116
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-03T04:04:26Z",
-      "databaseId": 37095314363,
+      "createdAt": "2026-10-03T04:12:16Z",
+      "databaseId": 37095756243,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "status": "pending",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-03T04:11:37Z",
+      "databaseId": 37095718258,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-03T04:10:32Z",
+      "databaseId": 37095658469,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T04:08:34Z",
+      "databaseId": 37095548897,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T04:06:13Z",
+      "databaseId": 37095418852,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T04:05:35Z",
+      "databaseId": 37095382414,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T04:05:32Z",
+      "databaseId": 37095379315,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T04:04:26Z",
+      "databaseId": 37095314363,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-03T04:04:22Z",
       "databaseId": 37095310654,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -75,11 +131,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T04:00:05Z",
       "databaseId": 37095055436,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -91,19 +147,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-03T03:58:21Z",
       "databaseId": 37094960241,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T03:57:55Z",
       "databaseId": 37094935913,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-03T03:55:09Z",
-      "databaseId": 37094783257,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:53:55Z",
-      "databaseId": 37094714288,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:46:53Z",
-      "databaseId": 37094342587,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:45:47Z",
-      "databaseId": 37094286742,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-03T03:44:44Z",
-      "databaseId": 37094228719,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:41:26Z",
-      "databaseId": 37094045863,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:41:22Z",
-      "databaseId": 37094042219,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -157261,6 +157261,36 @@
         "video_id": 29934613
       },
       {
+        "episode_id": 111856,
+        "display_name": "Underground S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 29934675
+      },
+      {
+        "episode_id": 83980,
+        "display_name": "Městečko Broadchurch S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29934724
+      },
+      {
+        "episode_id": 68901,
+        "display_name": "Riverdale S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29934681
+      },
+      {
+        "episode_id": 68905,
+        "display_name": "Riverdale S02E12 - 12. epizoda CZ Titulky",
+        "video_id": 29934713
+      },
+      {
+        "episode_id": 68913,
+        "display_name": "Riverdale S02E22 - 22. epizoda CZ Titulky",
+        "video_id": 29934729
+      },
+      {
+        "episode_id": 68941,
+        "display_name": "Riverdale S03E20 - Chapter Fifty-Five: Prom Night CZ Titulky",
+        "video_id": 29934746
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -296589,6 +296619,26 @@
         "episode_id": 78679,
         "display_name": "Malcolm v nesnázích S03E13 - 13. epizoda CZ Titulky",
         "video_id": 29934496
+      },
+      {
+        "episode_id": 111850,
+        "display_name": "Underground S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29934674
+      },
+      {
+        "episode_id": 68838,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S14E06 - Přátelství s Emily CZ Dabing",
+        "video_id": 29934703
+      },
+      {
+        "episode_id": 68842,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S14E24 - Její případ CZ Dabing",
+        "video_id": 29934757
+      },
+      {
+        "episode_id": 60459,
+        "display_name": "Malcolm v nesnázích S05E03 - 3. epizoda CZ Titulky",
+        "video_id": 29934754
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -453568,6 +453618,36 @@
         "video_id": 29934613
       },
       {
+        "episode_id": 111856,
+        "display_name": "Underground S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 29934675
+      },
+      {
+        "episode_id": 83980,
+        "display_name": "Městečko Broadchurch S03E06 - 6. epizoda CZ Titulky",
+        "video_id": 29934724
+      },
+      {
+        "episode_id": 68901,
+        "display_name": "Riverdale S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 29934681
+      },
+      {
+        "episode_id": 68905,
+        "display_name": "Riverdale S02E12 - 12. epizoda CZ Titulky",
+        "video_id": 29934713
+      },
+      {
+        "episode_id": 68913,
+        "display_name": "Riverdale S02E22 - 22. epizoda CZ Titulky",
+        "video_id": 29934729
+      },
+      {
+        "episode_id": 68941,
+        "display_name": "Riverdale S03E20 - Chapter Fifty-Five: Prom Night CZ Titulky",
+        "video_id": 29934746
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -592896,6 +592976,26 @@
         "episode_id": 78679,
         "display_name": "Malcolm v nesnázích S03E13 - 13. epizoda CZ Titulky",
         "video_id": 29934496
+      },
+      {
+        "episode_id": 111850,
+        "display_name": "Underground S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 29934674
+      },
+      {
+        "episode_id": 68838,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S14E06 - Přátelství s Emily CZ Dabing",
+        "video_id": 29934703
+      },
+      {
+        "episode_id": 68842,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S14E24 - Její případ CZ Dabing",
+        "video_id": 29934757
+      },
+      {
+        "episode_id": 60459,
+        "display_name": "Malcolm v nesnázích S05E03 - 3. epizoda CZ Titulky",
+        "video_id": 29934754
       }
     ],
     "prepared_not_upload_ready": [
@@ -594057,18 +594157,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 54,
-    "sample_failed": 5,
-    "disabled": 6,
+    "disabled": 13,
+    "ok": 45,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4297,
-    "whisper_non_cz_needs_subtitles": 14025,
-    "needs_whisper": 34170,
-    "whisper_failed": 1388
+    "whisper_confirmed_cz": 4296,
+    "whisper_non_cz_needs_subtitles": 14011,
+    "needs_whisper": 34197,
+    "whisper_failed": 1383
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41113
+    "needs_subtitle_setup_after_prehrajto_processing": 41116
   }
 }
