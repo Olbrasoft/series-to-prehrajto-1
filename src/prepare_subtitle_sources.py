@@ -49,7 +49,8 @@ def prepare(args) -> int:
                 continue
             source_url, track = b.source_with_subtitles(row)
             if not track:
-                source_url, track = b.find_alternate_track(row, target.duration_sec, min_interval=args.search_min_interval)
+                source_url, track = b.find_alternate_track(row, target.duration_sec,
+                                                         min_interval=args.search_min_interval, deadline=deadline)
             if not track:
                 cache.record(upload, "no_track", retry_hours=168)
                 continue

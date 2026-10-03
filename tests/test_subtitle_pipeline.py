@@ -74,6 +74,27 @@ def test_old_submissions_are_verified_periodically_not_reposted():
     assert b.retry_due(previous, verification=True, now=NOW + dt.timedelta(hours=6))
 
 
+def test_alternate_discovery_budget_exhaustion_is_retryable(monkeypatch):
+    monkeypatch.setattr(b.time, "monotonic", lambda: 100)
+    monkeypatch.setattr(b, "search_pages", lambda *a, **kw: pytest.fail("Expired search must not start"))
+    with pytest.raises(b.SourceDiscoveryDeferred, match="runtime_budget"):
+        b.find_alternate_track(upload(), 1381, min_interval=0, deadline=100)
+
+
+def test_alternate_discovery_deduplicates_candidates_and_stops_at_close_match(monkeypatch):
+    candidate = SimpleNamespace(title="Zpátky do práce S07E13", url="https://prehraj.to/source/abc", duration_sec=1381)
+    other = SimpleNamespace(title=candidate.title, url="https://prehraj.to/source/def", duration_sec=1381)
+    monkeypatch.setattr(b, "search_pages", lambda *a, **kw: [[candidate, candidate, other]])
+    calls = []
+    def resolve(url, **kw):
+        calls.append(url)
+        return SimpleNamespace(tracks=[SimpleNamespace(lang="cs", url="track")] if url == other.url else [],
+                               duration_sec=1381)
+    monkeypatch.setattr(b, "resolve", resolve)
+    assert b.find_alternate_track(upload(), 1381, min_interval=0) == (other.url, "track")
+    assert calls == [candidate.url, other.url]
+
+
 def test_prepared_file_is_bound_to_account_source_target_and_duration(tmp_path):
     cache = SubtitleCache(tmp_path)
     item = upload()

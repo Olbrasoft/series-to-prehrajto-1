@@ -483,9 +483,13 @@ def find_deleted_profile_detail(session: requests.Session, upload: dict) -> dict
     return info
 
 
-def find_alternate_track(row: dict, target_duration: int | None, *, min_interval: float) -> tuple[str | None, str | None]:
+def find_alternate_track(row: dict, target_duration: int | None, *, min_interval: float,
+                         deadline: float = float("inf")) -> tuple[str | None, str | None]:
     incomplete = None
+    seen = set()
     for query in query_variants(row):
+        if time.monotonic() >= deadline:
+            raise SourceDiscoveryDeferred("runtime_budget")
         log(f"search subtitles episode_id={row.get('episode_id')} query={query!r}")
         try:
             pages = search_pages(query, max_pages=2, min_interval=min_interval, should_fetch_next=lambda results: True)
@@ -498,6 +502,12 @@ def find_alternate_track(row: dict, target_duration: int | None, *, min_interval
         candidates = [item for page in pages for item in page]
         scored: list[tuple[int, str, str]] = []
         for item in candidates:
+            if time.monotonic() >= deadline:
+                raise SourceDiscoveryDeferred("runtime_budget")
+            identity = source_identity(item.url)
+            if identity in seen:
+                continue
+            seen.add(identity)
             if not candidate_matches_series(row, item.title) or not EPISODE_MARKER.search(item.title):
                 log(
                     f"skip title mismatch episode_id={row.get('episode_id')} "
@@ -517,6 +527,8 @@ def find_alternate_track(row: dict, target_duration: int | None, *, min_interval
             delta = abs(duration - target_duration) if duration and target_duration else 99999
             if delta > 20:
                 continue
+            if delta <= 2:
+                return item.url, track
             scored.append((delta, item.url, track))
         if scored:
             scored.sort(key=lambda item: item[0])
