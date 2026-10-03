@@ -1,45 +1,109 @@
 {
   "counts": {
-    "backlog_episodes": 127517,
+    "backlog_episodes": 127335,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 64386,
-    "prepared_source_episodes": 58957,
+    "uploaded_episodes": 64398,
+    "prepared_source_episodes": 58959,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 55,
-    "language_whisper_attempted_sources": 52,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53891,
-    "whisper_review_pending_sources": 35591,
-    "subtitle_followup_sources": 41099,
-    "subtitle_followup_pending_sources": 41099
+    "whisper_review_sources": 53889,
+    "whisper_review_pending_sources": 35587,
+    "subtitle_followup_sources": 41101,
+    "subtitle_followup_pending_sources": 41101
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-03T03:24:59Z",
-      "databaseId": 37093119458,
+      "createdAt": "2026-10-03T03:35:49Z",
+      "databaseId": 37093731898,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T03:35:36Z",
+      "databaseId": 37093718681,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T03:35:20Z",
+      "databaseId": 37093702602,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
-      "createdAt": "2026-10-03T03:24:55Z",
-      "databaseId": 37093115623,
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-03T03:33:39Z",
+      "databaseId": 37093608919,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T03:32:31Z",
+      "databaseId": 37093543213,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-03T03:32:01Z",
+      "databaseId": 37093512648,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T03:26:19Z",
+      "databaseId": 37093194806,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T03:25:53Z",
+      "databaseId": 37093170908,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T03:24:59Z",
+      "databaseId": 37093119458,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-03T03:24:55Z",
+      "databaseId": 37093115623,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-03T03:24:38Z",
       "databaseId": 37093101903,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -51,19 +115,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T03:24:09Z",
       "databaseId": 37093076878,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-03T03:24:07Z",
       "databaseId": 37093074052,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:10:00Z",
-      "databaseId": 37092279695,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:09:57Z",
-      "databaseId": 37092276971,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:09:28Z",
-      "databaseId": 37092252574,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:09:05Z",
-      "databaseId": 37092231794,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-03T03:09:01Z",
-      "databaseId": 37092228464,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-03T03:04:42Z",
-      "databaseId": 37091991877,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:04:12Z",
-      "databaseId": 37091961340,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T03:04:09Z",
-      "databaseId": 37091957684,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -157121,6 +157121,21 @@
         "video_id": 29934006
       },
       {
+        "episode_id": 62176,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S17E10 - Lov na zajíčky CZ Dabing",
+        "video_id": 29934066
+      },
+      {
+        "episode_id": 68852,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S21E05 - O půlnoci na Manhattanu CZ Titulky",
+        "video_id": 29934118
+      },
+      {
+        "episode_id": 107188,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S21E06 - Vražda na špatné adrese CZ Titulky",
+        "video_id": 29934172
+      },
+      {
         "episode_id": 62281,
         "display_name": "Námořní vyšetřovací služba S22E04 - 4. epizoda CZ Dabing",
         "video_id": 29933870
@@ -157139,6 +157154,21 @@
         "episode_id": 62293,
         "display_name": "Námořní vyšetřovací služba S22E16 - 16. epizoda CZ Dabing",
         "video_id": 29934023
+      },
+      {
+        "episode_id": 62225,
+        "display_name": "Námořní vyšetřovací služba S22E19 - 19. epizoda CZ Dabing",
+        "video_id": 29934081
+      },
+      {
+        "episode_id": 17969,
+        "display_name": "Gilmorova děvčata S01E03 - Zab mě CZ Dabing",
+        "video_id": 29934112
+      },
+      {
+        "episode_id": 17965,
+        "display_name": "Gilmorova děvčata S01E11 - Hoří Paříž CZ Dabing",
+        "video_id": 29934170
       },
       {
         "episode_id": 114182,
@@ -296376,6 +296406,11 @@
         "video_id": 29934047
       },
       {
+        "episode_id": 47462,
+        "display_name": "Živí mrtví: Počátek konce S05E14 - Dnes a zítra CZ Dabing",
+        "video_id": 29934070
+      },
+      {
         "episode_id": 14095,
         "display_name": "Gilmorova děvčata S05E10 - Už zase další výročí CZ Dabing",
         "video_id": 29933880
@@ -296384,6 +296419,31 @@
         "episode_id": 14103,
         "display_name": "Gilmorova děvčata S05E18 - Dědictví po starém Twickhamovi CZ Dabing",
         "video_id": 29933949
+      },
+      {
+        "episode_id": 14123,
+        "display_name": "Gilmorova děvčata S06E16 - Co družičky vyprávěly CZ Dabing",
+        "video_id": 29934019
+      },
+      {
+        "episode_id": 14143,
+        "display_name": "Gilmorova děvčata S07E14 - Sbohem, můj mazlíčku CZ Dabing",
+        "video_id": 29934087
+      },
+      {
+        "episode_id": 128783,
+        "display_name": "Tohle jsme my S04E05 - Láska jako v pohádce CZ Titulky",
+        "video_id": 29934117
+      },
+      {
+        "episode_id": 52879,
+        "display_name": "Tohle jsme my S06E06 - Naše malá ostrovanka: Druhá část CZ Titulky",
+        "video_id": 29934148
+      },
+      {
+        "episode_id": 52671,
+        "display_name": "Sense8 S01E06 - Demons CZ Titulky",
+        "video_id": 29934219
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -453223,6 +453283,21 @@
         "video_id": 29934006
       },
       {
+        "episode_id": 62176,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S17E10 - Lov na zajíčky CZ Dabing",
+        "video_id": 29934066
+      },
+      {
+        "episode_id": 68852,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S21E05 - O půlnoci na Manhattanu CZ Titulky",
+        "video_id": 29934118
+      },
+      {
+        "episode_id": 107188,
+        "display_name": "Zákon a pořádek: Útvar pro zvláštní oběti S21E06 - Vražda na špatné adrese CZ Titulky",
+        "video_id": 29934172
+      },
+      {
         "episode_id": 62281,
         "display_name": "Námořní vyšetřovací služba S22E04 - 4. epizoda CZ Dabing",
         "video_id": 29933870
@@ -453241,6 +453316,21 @@
         "episode_id": 62293,
         "display_name": "Námořní vyšetřovací služba S22E16 - 16. epizoda CZ Dabing",
         "video_id": 29934023
+      },
+      {
+        "episode_id": 62225,
+        "display_name": "Námořní vyšetřovací služba S22E19 - 19. epizoda CZ Dabing",
+        "video_id": 29934081
+      },
+      {
+        "episode_id": 17969,
+        "display_name": "Gilmorova děvčata S01E03 - Zab mě CZ Dabing",
+        "video_id": 29934112
+      },
+      {
+        "episode_id": 17965,
+        "display_name": "Gilmorova děvčata S01E11 - Hoří Paříž CZ Dabing",
+        "video_id": 29934170
       },
       {
         "episode_id": 114182,
@@ -592478,6 +592568,11 @@
         "video_id": 29934047
       },
       {
+        "episode_id": 47462,
+        "display_name": "Živí mrtví: Počátek konce S05E14 - Dnes a zítra CZ Dabing",
+        "video_id": 29934070
+      },
+      {
         "episode_id": 14095,
         "display_name": "Gilmorova děvčata S05E10 - Už zase další výročí CZ Dabing",
         "video_id": 29933880
@@ -592486,6 +592581,31 @@
         "episode_id": 14103,
         "display_name": "Gilmorova děvčata S05E18 - Dědictví po starém Twickhamovi CZ Dabing",
         "video_id": 29933949
+      },
+      {
+        "episode_id": 14123,
+        "display_name": "Gilmorova děvčata S06E16 - Co družičky vyprávěly CZ Dabing",
+        "video_id": 29934019
+      },
+      {
+        "episode_id": 14143,
+        "display_name": "Gilmorova děvčata S07E14 - Sbohem, můj mazlíčku CZ Dabing",
+        "video_id": 29934087
+      },
+      {
+        "episode_id": 128783,
+        "display_name": "Tohle jsme my S04E05 - Láska jako v pohádce CZ Titulky",
+        "video_id": 29934117
+      },
+      {
+        "episode_id": 52879,
+        "display_name": "Tohle jsme my S06E06 - Naše malá ostrovanka: Druhá část CZ Titulky",
+        "video_id": 29934148
+      },
+      {
+        "episode_id": 52671,
+        "display_name": "Sense8 S01E06 - Demons CZ Titulky",
+        "video_id": 29934219
       }
     ],
     "prepared_not_upload_ready": [
@@ -593647,18 +593767,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "sample_failed": 7,
-    "disabled": 3,
-    "ok": 44,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4296,
-    "whisper_non_cz_needs_subtitles": 14004,
-    "needs_whisper": 34213,
-    "whisper_failed": 1378
+    "whisper_non_cz_needs_subtitles": 14006,
+    "needs_whisper": 34205,
+    "whisper_failed": 1382
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41099
+    "needs_subtitle_setup_after_prehrajto_processing": 41101
   }
 }
