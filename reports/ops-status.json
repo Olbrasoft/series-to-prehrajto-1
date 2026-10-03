@@ -2,36 +2,76 @@
   "counts": {
     "backlog_episodes": 126754,
     "manifest_upload_ready_episodes": 1000,
-    "uploaded_episodes": 65000,
-    "prepared_source_episodes": 58741,
+    "uploaded_episodes": 65001,
+    "prepared_source_episodes": 58730,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 24,
+    "language_whisper_attempted_sources": 24,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53865,
-    "whisper_review_pending_sources": 35545,
+    "whisper_review_sources": 53864,
+    "whisper_review_pending_sources": 35541,
     "subtitle_followup_sources": 41209,
     "subtitle_followup_pending_sources": 41209
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-03T17:33:47Z",
-      "databaseId": 37140965057,
+      "createdAt": "2026-10-03T17:43:51Z",
+      "databaseId": 37141584076,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-03T17:39:26Z",
+      "databaseId": 37141308654,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T17:34:44Z",
+      "databaseId": 37141023527,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T17:34:41Z",
+      "databaseId": 37141020239,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-03T17:34:38Z",
+      "databaseId": 37141017838,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-03T17:33:47Z",
+      "databaseId": 37140965057,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-03T17:27:30Z",
       "databaseId": 37140571255,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:34:26Z",
-      "databaseId": 37137348103,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:34:23Z",
-      "databaseId": 37137344702,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:33:23Z",
-      "databaseId": 37137281850,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:32:45Z",
-      "databaseId": 37137243887,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-03T16:32:09Z",
-      "databaseId": 37137207915,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -299454,6 +299454,11 @@
         "episode_id": 94767,
         "display_name": "Twisted S01E14 - 14. epizoda CZ Titulky",
         "video_id": 29969423
+      },
+      {
+        "episode_id": 94771,
+        "display_name": "Twisted S01E18 - 18. epizoda CZ Titulky",
+        "video_id": 29969780
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -598626,6 +598631,11 @@
         "episode_id": 94767,
         "display_name": "Twisted S01E14 - 14. epizoda CZ Titulky",
         "video_id": 29969423
+      },
+      {
+        "episode_id": 94771,
+        "display_name": "Twisted S01E18 - 18. epizoda CZ Titulky",
+        "video_id": 29969780
       }
     ],
     "prepared_not_upload_ready": [
@@ -599787,14 +599797,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 22,
+    "sample_failed": 1,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4312,
-    "whisper_non_cz_needs_subtitles": 14008,
-    "whisper_failed": 1407,
-    "needs_whisper": 34138
+    "whisper_non_cz_needs_subtitles": 14011,
+    "whisper_failed": 1408,
+    "needs_whisper": 34133
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 41209
