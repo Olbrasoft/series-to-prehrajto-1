@@ -50,6 +50,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           VIDEO_UPLOADS_PAUSED: ${{ vars.VIDEO_UPLOADS_PAUSED }}
+          ALTERNATE_SUBTITLE_SEARCH_PAUSED: ${{ vars.ALTERNATE_SUBTITLE_SEARCH_PAUSED }}
         run: |
           python src/ops_watchdog.py \
             --min-upload-ready 1000 \

@@ -192,7 +192,8 @@ def queue_subtitle_work(counts: dict, *, active: set[str], dry_run: bool) -> Non
     if counts["actionable"]:
         queue_workflow("backfill-subtitles", {"account": "both", "continue_backfill": "true"},
                        active=active, dry_run=dry_run)
-    if counts["alternate_pending"] and not recently_started("prepare-subtitles", 15):
+    if (os.environ.get("ALTERNATE_SUBTITLE_SEARCH_PAUSED", "").lower() != "true"
+            and counts["alternate_pending"] and not recently_started("prepare-subtitles", 15)):
         queue_workflow("prepare-subtitles", {}, active=active, dry_run=dry_run)
 
 

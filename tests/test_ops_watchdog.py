@@ -103,3 +103,10 @@ def test_discovery_recovery_obeys_fifteen_minute_interval(monkeypatch):
     monkeypatch.setattr(ops_watchdog, "recently_started", lambda name, minutes: minutes == 15)
     ops_watchdog.queue_subtitle_work({"actionable": 3, "alternate_pending": 100}, active=set(), dry_run=False)
     assert calls == ["backfill-subtitles"]
+def test_paused_alternate_lookup_keeps_attachment_running(monkeypatch):
+    monkeypatch.setenv("ALTERNATE_SUBTITLE_SEARCH_PAUSED", "true")
+    calls = []
+    monkeypatch.setattr(ops_watchdog, "queue_workflow", lambda name, *a, **kw: calls.append(name))
+    monkeypatch.setattr(ops_watchdog, "recently_started", lambda *a: (_ for _ in ()).throw(AssertionError("Paused search needs no API check")))
+    ops_watchdog.queue_subtitle_work({"actionable": 3, "alternate_pending": 2000}, active=set(), dry_run=False)
+    assert calls == ["backfill-subtitles"]
