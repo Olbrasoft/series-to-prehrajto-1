@@ -26,6 +26,17 @@ before POST; pending/uncertain submissions are never reposted. Fresh submissions
 are verified before older processing records so positive work is promptly
 confirmed. `--no-source-first` retains the old ordering for diagnostics.
 
+Acceptance run `37201521518` selected its own episodes on both accounts and
+sent eight attachments in a 5m26s account-processing window. Independent fresh
+HTML and CDN downloads verified seven exact SRT matches. Episode 64729 / primary
+advertised a new Czech track but its CDN file returned HTTP 404; its report was
+corrected to `subtitle_processing` with the actual POST time, preserving the
+verification-only invariant. Verification now requires downloadable timed cues,
+so an advertised but unavailable file cannot count as a completed attachment.
+The [acceptance record](subtitle-priority-acceptance-2026-10-04.json) documents the
+results; 170 automated tests passed. This is an initial batch, not a sustained
+daily-throughput measurement.
+
 ## Separate original and alternate subtitle queues (October 4, 2026)
 
 Attachment now performs only original-source checks, prepared-file attachment

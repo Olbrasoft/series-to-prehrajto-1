@@ -144,3 +144,14 @@ def test_fresh_submission_is_verified_before_long_stuck_processing(tmp_path, mon
     b.verify_submissions(args)
     assert checked == [str(fresh["episode_id"])]
     assert b.load_latest_status(report)[current["episode_id"]]["status"] == "submitted"
+
+
+@pytest.mark.parametrize("response,expected", [("missing", False), ("html", False), ("srt", True)])
+def test_advertised_track_must_have_downloadable_cues(monkeypatch, response, expected):
+    monkeypatch.setattr(b, "resolve", lambda *a, **kw: SimpleNamespace(tracks=[SimpleNamespace(lang="cs", url="track")]))
+    def fetch(url):
+        if response == "missing":
+            raise b.requests.HTTPError("404")
+        return SRT if response == "srt" else b"<html>not available</html>"
+    monkeypatch.setattr(b, "fetch_subtitle", fetch)
+    assert b.verify_tracks("target", 0) == expected

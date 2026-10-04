@@ -699,9 +699,17 @@ def verify_tracks(detail_url: str, timeout_sec: int) -> bool:
     while True:
         try:
             resolved = resolve(detail_url, max_retries=1)
-            if pick_czech_track(resolved):
-                return True
-        except ResolveError:
+            track = pick_czech_track(resolved)
+            if track:
+                content = fetch_subtitle(track)
+                extension, _ = detect_subtitle_format(content)
+                if extension == ".vtt":
+                    vtt_to_srt(content)
+                    return True
+                if extension == ".srt":
+                    normalize_srt(content)
+                    return True
+        except (ResolveError, requests.RequestException, ValueError):
             pass
         if time.monotonic() >= deadline:
             return False
@@ -1170,6 +1178,7 @@ def main() -> int:
                     source_format=ext,
                     uploaded_format="srt",
                     subtitle_language="cs",
+                    submitted_at=submitted["submitted_at"],
                 ),
             )
             log(f"OK tracks verified episode_id={row.get('episode_id')} video_id={video_id}")
