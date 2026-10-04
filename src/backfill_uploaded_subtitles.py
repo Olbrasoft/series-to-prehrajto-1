@@ -825,7 +825,7 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
         matched.sort(key=lambda item: not cache.available(item[1]))
     if getattr(args, "source_first", False):
         from subtitle_source_priority import load_evidence, priority
-        evidence = load_evidence(load_uploads(args.state_file), load_latest_status(args.report_file),
+        evidence = load_evidence(load_uploads(getattr(args, "evidence_state_file", None) or args.state_file), load_latest_status(args.report_file),
                                  getattr(args, "prepared_file", None), getattr(args, "audit_file", None))
         matched.sort(key=lambda item: priority(*item, latest_status.get(int(item[0]["episode_id"]), {}), cache, evidence))
     matched = [item for item in matched if latest_status.get(int(item[0]["episode_id"]), {}).get("status") not in SUBMITTED_STATUSES]
@@ -1001,6 +1001,8 @@ def main() -> int:
     ap.add_argument("--source-first", action=argparse.BooleanOptionalAction, default=True)
     ap.add_argument("--prepared-file", type=Path, default=REPO / "plans/prepared-episodes.jsonl")
     ap.add_argument("--audit-file", type=Path, default=REPO / "audits/language-audit-latest.jsonl.gz")
+    ap.add_argument("--evidence-state-file", type=Path, action="append", default=[],
+                    help="Read original-source evidence across accounts; never expands attachment scope")
     ap.add_argument("--max-profile-pages", type=int, default=40)
     ap.add_argument("--verify-timeout", type=int, default=70)
     ap.add_argument("--search-min-interval", type=float, default=10.0)

@@ -141,6 +141,9 @@ jobs:
           for state_file in "${STATE_FILES[@]}"; do
             ARGS+=("--state-file" "$state_file")
           done
+          for evidence_file in state/uploaded-shard-*.json; do
+            ARGS+=("--evidence-state-file" "$evidence_file")
+          done
           if [ "${{ inputs.dry_run || 'false' }}" = "true" ]; then
             ARGS+=("--dry-run")
           fi

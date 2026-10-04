@@ -15,6 +15,8 @@ original source (including previous fetch failures), and then identity-bound
 source title hints. Historical original-source success rates order equally
 hinted series. These hints only affect order: the actual source is resolved and
 its Czech track confirmed before use. Target availability cooldowns still apply.
+Source evidence is shared across both accounts by exact original URL identity;
+each account worker still attaches only to its own uploaded video IDs.
 
 Original sources are checked before destination pages. A missing track causes
 one source check and a handoff, with no account search or target resolve. A

@@ -20,6 +20,22 @@ def test_generated_labels_and_foreign_audio_are_not_subtitle_evidence():
     assert priority(row, row, {}, None, evidence)[0] == 2
 
 
+def test_fetch_failure_prioritizes_only_the_recorded_original_source():
+    current = upload()
+    evidence = {"sources": {}, "series": {}}
+    for url, expected in [(current["source_url"], 1), ("https://prehraj.to/other/old-copy", 3)]:
+        assert priority(current, current, {"status": "subtitle_fetch_failed", "source_url": url}, None, evidence)[0] == expected
+
+
+def test_same_original_source_evidence_can_be_shared_across_accounts():
+    current = upload()
+    other = upload(episode_id=87917, prehrajto_video_id=29670964, upload_account="serialy")
+    reports = {other["episode_id"]: b.status_row(other, other, "uploaded", source_url=other["source_url"])}
+    evidence = load_evidence({current["episode_id"]: current, other["episode_id"]: other}, reports)
+    assert priority(current, current, {}, None, evidence)[0] == 1
+    assert b.matching_upload_status(reports[other["episode_id"]], current) == {}
+
+
 def test_track_evidence_is_bound_to_the_exact_source_and_newest_probe(tmp_path):
     current = upload()
     path = tmp_path / "prepared.jsonl"

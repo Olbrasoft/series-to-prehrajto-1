@@ -62,7 +62,8 @@ def priority(row, upload, previous, cache, evidence):
     source = evidence["sources"].get(source_identity(upload.get("source_url") or ""), {})
     if source.get("positive"):
         return (1, 0)
-    if previous.get("status") == "subtitle_fetch_failed":
+    if (previous.get("status") == "subtitle_fetch_failed" and previous.get("source_url")
+            and source_identity(previous["source_url"]) == source_identity(upload.get("source_url") or "")):
         return (1, 0)
     # Titles and follow-up reasons are hints, not evidence of a playable track.
     hinted = bool(CZ_TITLE.search(row.get("trusted_source_title") or "") or row.get("trusted_subtitle_hint"))
