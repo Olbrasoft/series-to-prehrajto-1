@@ -30,6 +30,14 @@ favor the original sweep. This is a conservative budget, not a shared global
 rate limiter. Successful backfill also triggers discovery; prepared files wake
 attachment only when no attachment run is already active or queued.
 
+October 4 acceptance passed 155 automated tests. A targeted production run
+attached the original Czech track to episode 101640 / primary; fresh public
+HTML and downloaded VTT confirmed all 354 cues exactly matched the prepared
+SRT. A read-only live discovery test for episode 59117 exhausted a one-second
+budget, restarted from its saved query/candidate cursor, and completed the
+remaining queries without repeating earlier searches. No alternate track was
+found for that negative case. See the [acceptance record](subtitle-acceptance-2026-10-04.json).
+
 ## Subtitle discovery and attachment (October 3, 2026)
 
 `prepare-subtitles.yml` searches and downloads Czech subtitle files for both
