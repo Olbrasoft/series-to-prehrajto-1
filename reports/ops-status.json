@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 126039,
-    "manifest_upload_ready_episodes": 234,
-    "uploaded_episodes": 65820,
-    "prepared_source_episodes": 58438,
+    "manifest_upload_ready_episodes": 193,
+    "uploaded_episodes": 65825,
+    "prepared_source_episodes": 58452,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 48,
-    "language_whisper_attempted_sources": 43,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 53850,
     "whisper_review_pending_sources": 35486,
-    "subtitle_followup_sources": 41269,
-    "subtitle_followup_pending_sources": 41269
+    "subtitle_followup_sources": 41273,
+    "subtitle_followup_pending_sources": 41273
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-04T10:34:51Z",
-      "databaseId": 37195818382,
+      "createdAt": "2026-10-04T10:50:55Z",
+      "databaseId": 37196701667,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-04T10:50:24Z",
+      "databaseId": 37196668925,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-04T10:49:28Z",
+      "databaseId": 37196614617,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T10:43:24Z",
+      "databaseId": 37196286463,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T10:37:52Z",
+      "databaseId": 37195984054,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T10:35:59Z",
+      "databaseId": 37195880079,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T10:34:51Z",
+      "databaseId": 37195818382,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-04T10:34:50Z",
       "databaseId": 37195817638,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -75,19 +123,19 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T10:31:38Z",
       "databaseId": 37195647106,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T10:31:35Z",
       "databaseId": 37195644845,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T10:30:53Z",
       "databaseId": 37195606903,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -126,54 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-04T10:19:39Z",
       "databaseId": 37195004502,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T10:18:38Z",
-      "databaseId": 37194952375,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T10:18:37Z",
-      "databaseId": 37194951691,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T10:09:50Z",
-      "databaseId": 37194468588,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T10:06:31Z",
-      "databaseId": 37194294141,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T10:04:14Z",
-      "databaseId": 37194168835,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T10:02:55Z",
-      "databaseId": 37194095698,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -160811,6 +160811,21 @@
         "video_id": 29985925
       },
       {
+        "episode_id": 172148,
+        "display_name": "Maxine S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 29986059
+      },
+      {
+        "episode_id": 175489,
+        "display_name": "Holky ze zadních lavic S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29986046
+      },
+      {
+        "episode_id": 131853,
+        "display_name": "Barvy Palerma S02E08 - Růžová jako odvaha CZ Titulky",
+        "video_id": 29986075
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -303554,6 +303569,16 @@
         "episode_id": 154679,
         "display_name": "Trable s dospíváním  S01E05 - 5. epizoda CZ Dabing",
         "video_id": 29985868
+      },
+      {
+        "episode_id": 154671,
+        "display_name": "Trable s dospíváním  S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 29986083
+      },
+      {
+        "episode_id": 180291,
+        "display_name": "Dva na cestě S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29986179
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -464083,6 +464108,21 @@
         "video_id": 29985925
       },
       {
+        "episode_id": 172148,
+        "display_name": "Maxine S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 29986059
+      },
+      {
+        "episode_id": 175489,
+        "display_name": "Holky ze zadních lavic S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 29986046
+      },
+      {
+        "episode_id": 131853,
+        "display_name": "Barvy Palerma S02E08 - Růžová jako odvaha CZ Titulky",
+        "video_id": 29986075
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -606826,6 +606866,16 @@
         "episode_id": 154679,
         "display_name": "Trable s dospíváním  S01E05 - 5. epizoda CZ Dabing",
         "video_id": 29985868
+      },
+      {
+        "episode_id": 154671,
+        "display_name": "Trable s dospíváním  S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 29986083
+      },
+      {
+        "episode_id": 180291,
+        "display_name": "Dva na cestě S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29986179
       }
     ],
     "prepared_not_upload_ready": [
@@ -607987,8 +608037,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
-    "ok": 42,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -607998,6 +608047,6 @@
     "needs_whisper": 34075
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41269
+    "needs_subtitle_setup_after_prehrajto_processing": 41273
   }
 }
