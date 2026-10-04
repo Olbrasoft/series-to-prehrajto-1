@@ -1,45 +1,117 @@
 {
   "counts": {
     "backlog_episodes": 125810,
-    "manifest_upload_ready_episodes": 99,
-    "uploaded_episodes": 65942,
-    "prepared_source_episodes": 58581,
+    "manifest_upload_ready_episodes": 105,
+    "uploaded_episodes": 65948,
+    "prepared_source_episodes": 58594,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53847,
-    "whisper_review_pending_sources": 35481,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 53848,
+    "whisper_review_pending_sources": 35486,
     "subtitle_followup_sources": 41285,
     "subtitle_followup_pending_sources": 41285
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-04T14:49:21Z",
-      "databaseId": 37210674550,
+      "createdAt": "2026-10-04T15:02:52Z",
+      "databaseId": 37211537888,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-status"
+      "status": "pending",
+      "workflowName": "sync"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-04T14:45:38Z",
-      "databaseId": 37210451659,
+      "createdAt": "2026-10-04T15:02:27Z",
+      "databaseId": 37211509235,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-04T15:00:16Z",
+      "databaseId": 37211359120,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T14:57:03Z",
+      "databaseId": 37211157810,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-04T14:55:56Z",
+      "databaseId": 37211089465,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T14:54:55Z",
+      "databaseId": 37211024206,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T14:52:51Z",
+      "databaseId": 37210897264,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T14:50:15Z",
+      "databaseId": 37210732592,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-10-04T14:50:13Z",
+      "databaseId": 37210730289,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T14:49:21Z",
+      "databaseId": 37210674550,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T14:45:38Z",
+      "databaseId": 37210451659,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-04T14:41:31Z",
       "databaseId": 37210196366,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -105,78 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:21:36Z",
-      "databaseId": 37208967194,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:21:33Z",
-      "databaseId": 37208964512,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:20:24Z",
-      "databaseId": 37208891458,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:17:11Z",
-      "databaseId": 37208692734,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:10:31Z",
-      "databaseId": 37208282104,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:09:56Z",
-      "databaseId": 37208242708,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T14:09:39Z",
-      "databaseId": 37208225108,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:08:47Z",
-      "databaseId": 37208173464,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T14:03:23Z",
-      "databaseId": 37207849703,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -161111,6 +161111,11 @@
         "video_id": 29992867
       },
       {
+        "episode_id": 157796,
+        "display_name": "Search: WWW S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29993210
+      },
+      {
         "episode_id": 184137,
         "display_name": "Strážci vesmíru S27E15 - 15. epizoda CZ Titulky",
         "video_id": 29992656
@@ -161129,6 +161134,11 @@
         "episode_id": 103893,
         "display_name": "Osamělí rodiče S01E15 - Zisk průmyslu krepového papíru CZ Dabing",
         "video_id": 29992853
+      },
+      {
+        "episode_id": 103897,
+        "display_name": "Osamělí rodiče S01E18 - Zářivý plášť sexuální neodolatelnosti CZ Dabing",
+        "video_id": 29993254
       },
       {
         "episode_id": 114182,
@@ -304144,6 +304154,26 @@
         "episode_id": 103890,
         "display_name": "Osamělí rodiče S01E12 - Vítejte na potápějící se lodi dvou rodičů CZ Dabing",
         "video_id": 29992805
+      },
+      {
+        "episode_id": 103894,
+        "display_name": "Osamělí rodiče S01E16 - Zatracený John Stamos CZ Dabing",
+        "video_id": 29993143
+      },
+      {
+        "episode_id": 179810,
+        "display_name": "Útok v Salisbury S01E03 - Epizoda CZ Titulky",
+        "video_id": 29993255
+      },
+      {
+        "episode_id": 146030,
+        "display_name": "Hotel Eleon S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29993325
+      },
+      {
+        "episode_id": 146034,
+        "display_name": "Hotel Eleon S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29993360
       },
       {
         "episode_id": 184135,
@@ -464993,6 +465023,11 @@
         "video_id": 29992867
       },
       {
+        "episode_id": 157796,
+        "display_name": "Search: WWW S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 29993210
+      },
+      {
         "episode_id": 184137,
         "display_name": "Strážci vesmíru S27E15 - 15. epizoda CZ Titulky",
         "video_id": 29992656
@@ -465011,6 +465046,11 @@
         "episode_id": 103893,
         "display_name": "Osamělí rodiče S01E15 - Zisk průmyslu krepového papíru CZ Dabing",
         "video_id": 29992853
+      },
+      {
+        "episode_id": 103897,
+        "display_name": "Osamělí rodiče S01E18 - Zářivý plášť sexuální neodolatelnosti CZ Dabing",
+        "video_id": 29993254
       },
       {
         "episode_id": 114182,
@@ -608028,6 +608068,26 @@
         "video_id": 29992805
       },
       {
+        "episode_id": 103894,
+        "display_name": "Osamělí rodiče S01E16 - Zatracený John Stamos CZ Dabing",
+        "video_id": 29993143
+      },
+      {
+        "episode_id": 179810,
+        "display_name": "Útok v Salisbury S01E03 - Epizoda CZ Titulky",
+        "video_id": 29993255
+      },
+      {
+        "episode_id": 146030,
+        "display_name": "Hotel Eleon S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 29993325
+      },
+      {
+        "episode_id": 146034,
+        "display_name": "Hotel Eleon S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 29993360
+      },
+      {
         "episode_id": 184135,
         "display_name": "Strážci vesmíru S27E12 - 12. epizoda CZ Titulky",
         "video_id": 29992641
@@ -609207,15 +609267,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4344,
-    "whisper_non_cz_needs_subtitles": 14022,
+    "whisper_non_cz_needs_subtitles": 14018,
     "whisper_failed": 1413,
-    "needs_whisper": 34068
+    "needs_whisper": 34073
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 41285
