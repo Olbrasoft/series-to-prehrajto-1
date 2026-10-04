@@ -171,6 +171,18 @@ def test_slow_worker_leaves_original_queue_alone(tmp_path, monkeypatch):
     assert not SubtitleCache(args.cache_dir).entries
 
 
+def test_saved_search_finishes_before_unseen_backlog_without_starving_other_account(tmp_path):
+    cache = SubtitleCache(tmp_path)
+    resumed = upload(episode_id=3)
+    cache.record(resumed, "deferred", retry_hours=0, search_progress={"query_index": 1})
+    cache.scheduler["last_account"] = "primary"
+    cache.save()
+    pending = [(upload(episode_id=i), upload(episode_id=i)) for i in [1, 2, 3]]
+    serialy = upload(episode_id=4, upload_account="serialy")
+    pending.append((serialy, serialy))
+    assert [u["episode_id"] for _, u in discovery.fair_order(pending, SubtitleCache(tmp_path))] == [4, 3, 1, 2]
+
+
 def test_changed_duration_invalidates_prepared_file_for_rediscovery(tmp_path):
     cache = SubtitleCache(tmp_path)
     cache.put(upload(), "source", 1381, SRT)

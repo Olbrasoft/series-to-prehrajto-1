@@ -14,12 +14,17 @@ from subtitle_source_cache import SubtitleCache, cache_key
 
 
 def fair_order(pending, cache):
-    """Alternate accounts, rotating oldest attempts within each account."""
+    """Alternate accounts and finish saved searches before starting new ones."""
+    def priority(pair):
+        entry = cache.entries.get(cache_key(pair[1]), {})
+        resumable = entry.get("status") in {"searching", "deferred"} and bool(entry.get("search_progress"))
+        return (not resumable, entry.get("checked_at", ""))
+
     groups = {}
     for pair in pending:
         groups.setdefault(pair[1]["upload_account"], []).append(pair)
     for account, rows in groups.items():
-        rows.sort(key=lambda pair: cache.entries.get(cache_key(pair[1]), {}).get("checked_at", ""))
+        rows.sort(key=priority)
         groups[account] = deque(rows)
     accounts = sorted(groups, key=lambda account: account == cache.scheduler.get("last_account"))
     while any(groups.values()):

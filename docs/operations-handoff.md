@@ -24,13 +24,15 @@ Discovery selects only handed-off rows. Its artifact persists query results,
 candidate cursor, completed queries and checked video identities, with no signed
 subtitle URLs. Interrupted searches resume at the unchecked candidate. Accounts
 alternate, including across runs. Each episode gets at most a 180-second search
-budget; runtime exhaustion retries after 15 minutes. While at least 100 original
+budget; runtime exhaustion retries after 15 minutes. Within each account, due
+saved searches take priority over unseen rows so a large backlog cannot starve
+resumption. While at least 100 original
 checks are due, discovery gets a 120-second batch and a 60-second request gap to
 favor the original sweep. This is a conservative budget, not a shared global
 rate limiter. Successful backfill also triggers discovery; prepared files wake
 attachment only when no attachment run is already active or queued.
 
-October 4 acceptance passed 155 automated tests. A targeted production run
+October 4 acceptance passed 156 automated tests. A targeted production run
 attached the original Czech track to episode 101640 / primary; fresh public
 HTML and downloaded VTT confirmed all 354 cues exactly matched the prepared
 SRT. A read-only live discovery test for episode 59117 exhausted a one-second
