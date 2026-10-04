@@ -584,7 +584,8 @@ def find_alternate_track(row: dict, target_duration: int | None, *, min_interval
         if "candidates" not in state:
             log(f"search subtitles episode_id={row.get('episode_id')} query={query!r}")
             try:
-                pages = search_pages(query, max_pages=2, min_interval=min_interval, should_fetch_next=lambda results: True)
+                pages = search_pages(query, max_pages=2, min_interval=min_interval, retries=1,
+                                     should_fetch_next=lambda results: True)
             except Exception as exc:
                 incomplete = discovery_error("search", exc)
                 log(f"search deferred episode_id={row.get('episode_id')} reason={incomplete}")
