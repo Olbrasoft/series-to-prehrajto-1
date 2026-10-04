@@ -782,6 +782,7 @@ def pending_uploads(
         if (followup.get("source_url") and upload.get("source_url")
                 and source_identity(followup["source_url"]) == source_identity(upload["source_url"])):
             row["trusted_source_title"] = followup.get("source_title")
+            row["trusted_subtitle_hint"] = followup.get("reason") == "selected source has Czech subtitles but no Czech audio source was found"
         # Revisit old negative results once when an identity-bound alias fixes
         # their title mismatch. Successful/deleted/pending uploads stay closed.
         repaired_alias = (previous.get("status") in {"source_track_not_found", "source_search_pending"}
@@ -822,6 +823,11 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
     )
     if cache is not None:
         matched.sort(key=lambda item: not cache.available(item[1]))
+    if getattr(args, "source_first", False):
+        from subtitle_source_priority import load_evidence, priority
+        evidence = load_evidence(load_uploads(args.state_file), load_latest_status(args.report_file),
+                                 getattr(args, "prepared_file", None), getattr(args, "audit_file", None))
+        matched.sort(key=lambda item: priority(*item, latest_status.get(int(item[0]["episode_id"]), {}), cache, evidence))
     matched = [item for item in matched if latest_status.get(int(item[0]["episode_id"]), {}).get("status") not in SUBMITTED_STATUSES]
     started = time.monotonic()
     selected = 0
@@ -838,6 +844,27 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
         # never cause another POST while the server may still be processing it.
         if previous.get("status") in SUBMITTED_STATUSES:
             continue
+        original_subtitles = None
+        if getattr(args, "source_first", False) and not (cache is not None and cache.available(upload)):
+            try:
+                original_subtitles = source_with_subtitles(row)
+            except SourceDiscoveryDeferred as exc:
+                append_jsonl(args.report_file, status_row(
+                    row, upload, "source_retry_pending", source_lane="original",
+                    detail_url=previous.get("detail_url"), reason=str(exc), original_result="temporary_failure"))
+                log(f"defer original source check episode_id={row['episode_id']} reason={exc}")
+                if str(exc).endswith("http_429"):
+                    break
+                continue
+            if not original_subtitles[1]:
+                append_jsonl(args.report_file, status_row(
+                    row, upload, "alternate_search_pending", detail_url=previous.get("detail_url"),
+                    **handoff_fields(upload, target_duration=previous.get("target_duration"),
+                                     outcome=row.get("original_result") or "no_usable_original_track")))
+                log(f"handoff without target request episode_id={row['episode_id']}")
+                continue
+            row.update(source_lane="original", original_source_url=upload.get("source_url"),
+                       original_checked_at=now_iso(), original_result="czech_track_found")
         if previous.get("detail_url") and str(previous.get("prehrajto_video_id")) == str(video_id):
             info = {"page": 1, "processing": False, "detail_url": previous["detail_url"]}
         elif args.lookup == "profile-search":
@@ -906,6 +933,8 @@ def iter_tasks(args: argparse.Namespace, session: requests.Session | None) -> It
             log(f"skip already has Czech tracks video_id={video_id} tracks={len(current.tracks)}")
             continue
         info["resolved"] = current
+        if original_subtitles is not None:
+            info["original_subtitles"] = original_subtitles
         yield row, upload, info
         selected += 1
         if args.limit and selected >= args.limit:
@@ -925,7 +954,14 @@ def verify_submissions(args: argparse.Namespace, session: requests.Session | Non
                and (not args.episode_id or row.get("episode_id") in args.episode_id)
                and matching_upload_status(row, uploads.get(int(row["episode_id"]), {}))]
     pending = [row for row in pending if retry_due(row, verification=True) or args.episode_id or args.retry_reported]
-    pending.sort(key=lambda row: str(row.get("checked_at") or ""))
+    def verification_order(row):
+        try:
+            submitted = dt.datetime.fromisoformat(row["submitted_at"].replace("Z", "+00:00"))
+            fresh = dt.timedelta(0) <= dt.datetime.now(dt.timezone.utc) - submitted < dt.timedelta(hours=1)
+        except (KeyError, ValueError, TypeError):
+            fresh = False
+        return (not fresh, str(row.get("checked_at") or ""))
+    pending.sort(key=verification_order)
     deadline = min(time.monotonic() + 120, getattr(args, "deadline", float("inf")))
     for row in pending[:args.verification_limit]:
         if time.monotonic() >= deadline:
@@ -962,6 +998,9 @@ def main() -> int:
     ap.add_argument("--alternate-limit", type=int, default=0, help="Deprecated compatibility option; alternate searches run in discovery")
     ap.add_argument("--prepared-only", action="store_true", help="Compatibility option; attachment always uses original or prepared subtitles")
     ap.add_argument("--subtitle-cache", type=Path)
+    ap.add_argument("--source-first", action=argparse.BooleanOptionalAction, default=True)
+    ap.add_argument("--prepared-file", type=Path, default=REPO / "plans/prepared-episodes.jsonl")
+    ap.add_argument("--audit-file", type=Path, default=REPO / "audits/language-audit-latest.jsonl.gz")
     ap.add_argument("--max-profile-pages", type=int, default=40)
     ap.add_argument("--verify-timeout", type=int, default=70)
     ap.add_argument("--search-min-interval", type=float, default=10.0)
@@ -1021,7 +1060,7 @@ def main() -> int:
             continue
         cached = args.prepared_cache.get(upload, info["resolved"].duration_sec) if args.prepared_cache else None
         try:
-            source_url, track_url = (cached[0], "cached") if cached else source_with_subtitles(row)
+            source_url, track_url = (cached[0], "cached") if cached else (info.get("original_subtitles") or source_with_subtitles(row))
             if not track_url:
                 append_jsonl(args.report_file, status_row(
                     row, upload, "alternate_search_pending", detail_url=detail_url,

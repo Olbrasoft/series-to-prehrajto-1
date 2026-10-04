@@ -1,5 +1,29 @@
 # Operations handoff
 
+## Original-source priority; alternate searches paused (October 4, 2026)
+
+The user requested that difficult subtitle cases be recorded for later while
+available original tracks receive priority. `ALTERNATE_SUBTITLE_SEARCH_PAUSED`
+is now `true`. The discovery workflow skips its job and the watchdog does not
+dispatch it. Do not resume alternate searches without an operator request.
+Missing original tracks still produce durable handoffs; video uploads continue.
+
+The generated `CZ Titulky` name and `source_lang_class=CZ_SUB` do not prove that
+a source has a track: foreign audio is also assigned this classification.
+Attachment now prioritizes prepared files, positive track evidence for the exact
+original source (including previous fetch failures), and then identity-bound
+source title hints. Historical original-source success rates order equally
+hinted series. These hints only affect order: the actual source is resolved and
+its Czech track confirmed before use. Target availability cooldowns still apply.
+
+Original sources are checked before destination pages. A missing track causes
+one source check and a handoff, with no account search or target resolve. A
+positive result is reused for attachment rather than resolving the source twice.
+The destination ID and absence of an existing Czech track are still verified
+before POST; pending/uncertain submissions are never reposted. Fresh submissions
+are verified before older processing records so positive work is promptly
+confirmed. `--no-source-first` retains the old ordering for diagnostics.
+
 ## Separate original and alternate subtitle queues (October 4, 2026)
 
 Attachment now performs only original-source checks, prepared-file attachment
