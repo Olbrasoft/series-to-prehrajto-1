@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 125730,
-    "manifest_upload_ready_episodes": 69,
-    "uploaded_episodes": 66014,
-    "prepared_source_episodes": 58879,
+    "manifest_upload_ready_episodes": 65,
+    "uploaded_episodes": 66018,
+    "prepared_source_episodes": 58884,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 28,
-    "language_whisper_attempted_sources": 28,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53855,
     "whisper_review_pending_sources": 35539,
     "subtitle_followup_sources": 41320,
@@ -20,10 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-04T20:33:01Z",
+      "databaseId": 37232528707,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T20:32:18Z",
+      "databaseId": 37232479903,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T20:28:36Z",
+      "databaseId": 37232235725,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T20:25:04Z",
+      "databaseId": 37232007961,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T20:24:47Z",
+      "databaseId": 37231989721,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T20:22:27Z",
+      "databaseId": 37231837337,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-04T20:21:06Z",
       "databaseId": 37231754934,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -35,27 +83,27 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T20:20:33Z",
       "databaseId": 37231721458,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T20:20:30Z",
       "databaseId": 37231718180,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T20:19:31Z",
       "databaseId": 37231655428,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -107,11 +155,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T20:13:40Z",
       "databaseId": 37231285067,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T20:12:39Z",
-      "databaseId": 37231221515,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T20:12:29Z",
-      "databaseId": 37231211453,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T20:08:51Z",
-      "databaseId": 37230983574,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-04T20:07:20Z",
-      "databaseId": 37230887813,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T20:06:30Z",
-      "databaseId": 37230834750,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T19:58:32Z",
-      "databaseId": 37230300502,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -304524,6 +304524,26 @@
         "episode_id": 192883,
         "display_name": "Kung Fu Panda: Legendy o mazáctví S02E17 - Zastavte posla CZ Titulky",
         "video_id": 29997482
+      },
+      {
+        "episode_id": 114110,
+        "display_name": "Jak funguje vesmír S09E02 - 2. epizoda CZ Titulky",
+        "video_id": 29998221
+      },
+      {
+        "episode_id": 174694,
+        "display_name": "Šéf S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 29998271
+      },
+      {
+        "episode_id": 113802,
+        "display_name": "Taggart S02E01 - Na ostří nože - 1. část CZ Dabing",
+        "video_id": 29998309
+      },
+      {
+        "episode_id": 174695,
+        "display_name": "Šéf S04E02 - 2. epizoda CZ Titulky",
+        "video_id": 29998266
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -608766,6 +608786,26 @@
         "episode_id": 192883,
         "display_name": "Kung Fu Panda: Legendy o mazáctví S02E17 - Zastavte posla CZ Titulky",
         "video_id": 29997482
+      },
+      {
+        "episode_id": 114110,
+        "display_name": "Jak funguje vesmír S09E02 - 2. epizoda CZ Titulky",
+        "video_id": 29998221
+      },
+      {
+        "episode_id": 174694,
+        "display_name": "Šéf S04E01 - 1. epizoda CZ Titulky",
+        "video_id": 29998271
+      },
+      {
+        "episode_id": 113802,
+        "display_name": "Taggart S02E01 - Na ostří nože - 1. část CZ Dabing",
+        "video_id": 29998309
+      },
+      {
+        "episode_id": 174695,
+        "display_name": "Šéf S04E02 - 2. epizoda CZ Titulky",
+        "video_id": 29998266
       }
     ],
     "prepared_not_upload_ready": [
@@ -609927,15 +609967,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 25,
-    "sample_failed": 2,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4344,
     "whisper_non_cz_needs_subtitles": 13972,
-    "whisper_failed": 1416,
-    "needs_whisper": 34123
+    "whisper_failed": 1418,
+    "needs_whisper": 34121
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 41320
