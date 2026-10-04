@@ -1,37 +1,117 @@
 {
   "counts": {
-    "backlog_episodes": 125749,
-    "manifest_upload_ready_episodes": 82,
-    "uploaded_episodes": 66003,
-    "prepared_source_episodes": 58811,
+    "backlog_episodes": 125730,
+    "manifest_upload_ready_episodes": 59,
+    "uploaded_episodes": 66008,
+    "prepared_source_episodes": 58814,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 47,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 51,
+    "language_whisper_attempted_sources": 49,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53853,
-    "whisper_review_pending_sources": 35529,
-    "subtitle_followup_sources": 41310,
-    "subtitle_followup_pending_sources": 41310
+    "whisper_review_sources": 53854,
+    "whisper_review_pending_sources": 35531,
+    "subtitle_followup_sources": 41313,
+    "subtitle_followup_pending_sources": 41313
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-04T19:08:21Z",
-      "databaseId": 37227116286,
+      "createdAt": "2026-10-04T19:21:30Z",
+      "databaseId": 37227966466,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-04T19:21:26Z",
+      "databaseId": 37227961521,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T19:21:07Z",
+      "databaseId": 37227940904,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T19:17:21Z",
+      "databaseId": 37227699711,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T19:09:12Z",
+      "databaseId": 37227170288,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T19:09:11Z",
+      "databaseId": 37227169435,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T19:09:09Z",
+      "databaseId": 37227166447,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T19:09:06Z",
+      "databaseId": 37227163136,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-04T19:08:56Z",
+      "databaseId": 37227151217,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-04T19:08:51Z",
+      "databaseId": 37227146687,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-04T19:08:21Z",
+      "databaseId": 37227116286,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-04T19:08:14Z",
       "databaseId": 37227108830,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +155,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-04T18:57:21Z",
       "databaseId": 37226401913,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -97,86 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T18:49:17Z",
-      "databaseId": 37225897149,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:45:39Z",
-      "databaseId": 37225669539,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:42:38Z",
-      "databaseId": 37225477156,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-04T18:42:24Z",
-      "databaseId": 37225461678,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:35:38Z",
-      "databaseId": 37225030393,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:33:56Z",
-      "databaseId": 37224919396,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:28:21Z",
-      "databaseId": 37224566133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:28:17Z",
-      "databaseId": 37224562248,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:28:15Z",
-      "databaseId": 37224559707,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-04T18:27:20Z",
-      "databaseId": 37224503077,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -161261,6 +161261,21 @@
         "video_id": 29997265
       },
       {
+        "episode_id": 192864,
+        "display_name": "Kung Fu Panda: Legendy o mazáctví S01E04 - Řetězová reakce CZ Dabing",
+        "video_id": 29997422
+      },
+      {
+        "episode_id": 184549,
+        "display_name": "Strážci vesmíru S25E22 - 22. epizoda CZ Titulky",
+        "video_id": 29997445
+      },
+      {
+        "episode_id": 201597,
+        "display_name": "Sezame, otevři se S37E16 - 16. epizoda CZ Titulky",
+        "video_id": 29997472
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -304466,9 +304481,19 @@
         "video_id": 29997346
       },
       {
+        "episode_id": 103918,
+        "display_name": "Osamělí rodiče S02E21 - Noc delikátní francouzštiny CZ Titulky",
+        "video_id": 29997404
+      },
+      {
         "episode_id": 184131,
         "display_name": "Strážci vesmíru S27E08 - 8. epizoda CZ Titulky",
         "video_id": 29997285
+      },
+      {
+        "episode_id": 192883,
+        "display_name": "Kung Fu Panda: Legendy o mazáctví S02E17 - Zastavte posla CZ Titulky",
+        "video_id": 29997482
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -465448,6 +465473,21 @@
         "video_id": 29997265
       },
       {
+        "episode_id": 192864,
+        "display_name": "Kung Fu Panda: Legendy o mazáctví S01E04 - Řetězová reakce CZ Dabing",
+        "video_id": 29997422
+      },
+      {
+        "episode_id": 184549,
+        "display_name": "Strážci vesmíru S25E22 - 22. epizoda CZ Titulky",
+        "video_id": 29997445
+      },
+      {
+        "episode_id": 201597,
+        "display_name": "Sezame, otevři se S37E16 - 16. epizoda CZ Titulky",
+        "video_id": 29997472
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -608653,9 +608693,19 @@
         "video_id": 29997346
       },
       {
+        "episode_id": 103918,
+        "display_name": "Osamělí rodiče S02E21 - Noc delikátní francouzštiny CZ Titulky",
+        "video_id": 29997404
+      },
+      {
         "episode_id": 184131,
         "display_name": "Strážci vesmíru S27E08 - 8. epizoda CZ Titulky",
         "video_id": 29997285
+      },
+      {
+        "episode_id": 192883,
+        "display_name": "Kung Fu Panda: Legendy o mazáctví S02E17 - Zastavte posla CZ Titulky",
+        "video_id": 29997482
       }
     ],
     "prepared_not_upload_ready": [
@@ -609817,17 +609867,18 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 7,
-    "ok": 39,
+    "ok": 46,
+    "sample_failed": 2,
+    "disabled": 2,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4344,
-    "whisper_non_cz_needs_subtitles": 13980,
+    "whisper_non_cz_needs_subtitles": 13979,
     "whisper_failed": 1416,
-    "needs_whisper": 34113
+    "needs_whisper": 34115
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41310
+    "needs_subtitle_setup_after_prehrajto_processing": 41313
   }
 }
