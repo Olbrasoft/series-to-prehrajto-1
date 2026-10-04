@@ -9,6 +9,9 @@ on:
         default: ""
   schedule:
     - cron: "2,17,32,47 * * * *"
+  workflow_run:
+    workflows: [backfill-subtitles]
+    types: [completed]
   push:
     branches: [main]
     paths:
@@ -23,11 +26,12 @@ concurrency:
 
 jobs:
   prepare:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
       contents: read
-      actions: read
+      actions: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -43,6 +47,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python src/subtitle_source_cache.py .cache/subtitles
       - name: Prepare subtitle sources for both accounts
+        id: sources
         env:
           CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
           CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
@@ -51,7 +56,7 @@ jobs:
           PYTHONUNBUFFERED: "1"
           EPISODE_ID: ${{ inputs.episode_id }}
         run: |
-          ARGS=(--limit 30 --max-ready 100 --max-runtime 600)
+          ARGS=(--limit 30 --max-ready 100 --max-runtime 600 --episode-runtime 180 --github-output "$GITHUB_OUTPUT")
           if [ -n "$EPISODE_ID" ]; then
             ARGS+=(--episode-id "$EPISODE_ID")
           fi
@@ -66,3 +71,13 @@ jobs:
           if-no-files-found: error
           retention-days: 1
           compression-level: 9
+      - name: Queue attachment of prepared subtitles
+        if: success() && steps.sources.outputs.ready != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ACTIVE=$(gh run list --workflow backfill-subtitles.yml --limit 20 --json status \
+            --jq '[.[] | select(.status == "in_progress" or .status == "pending" or .status == "queued" or .status == "waiting")] | length')
+          if [ "$ACTIVE" = "0" ]; then
+            gh workflow run backfill-subtitles.yml -f account=both -f continue_backfill=true
+          fi

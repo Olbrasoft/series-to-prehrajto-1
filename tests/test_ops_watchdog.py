@@ -87,3 +87,19 @@ def test_explicit_resume_allows_sync_dispatch(monkeypatch):
 
     assert ops_watchdog.queue_workflow("sync", {}, active=set(), dry_run=False)
     assert dispatched == [["workflow", "run", "sync.yml"]]
+
+
+def test_slow_backlog_does_not_dispatch_empty_fast_batches(monkeypatch):
+    calls = []
+    monkeypatch.setattr(ops_watchdog, "queue_workflow", lambda name, fields, **kw: calls.append(name))
+    monkeypatch.setattr(ops_watchdog, "recently_started", lambda name, minutes: False)
+    ops_watchdog.queue_subtitle_work({"actionable": 0, "alternate_pending": 100}, active=set(), dry_run=False)
+    assert calls == ["prepare-subtitles"]
+
+
+def test_discovery_recovery_obeys_fifteen_minute_interval(monkeypatch):
+    calls = []
+    monkeypatch.setattr(ops_watchdog, "queue_workflow", lambda name, fields, **kw: calls.append(name))
+    monkeypatch.setattr(ops_watchdog, "recently_started", lambda name, minutes: minutes == 15)
+    ops_watchdog.queue_subtitle_work({"actionable": 3, "alternate_pending": 100}, active=set(), dry_run=False)
+    assert calls == ["backfill-subtitles"]

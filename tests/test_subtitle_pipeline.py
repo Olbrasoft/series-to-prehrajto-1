@@ -44,7 +44,9 @@ def test_localized_title_recovers_original_source_only_with_matching_identity(tm
     assert not b.candidate_matches_series(row, "Workin Moms S07E12 CZtitulky")
     assert "Workin Moms S07E13" in b.query_variants(row)
     files(tmp_path, source="https://prehraj.to/workin-moms/older-upload")
-    assert b.pending_uploads(followup, [state], report) == []
+    [(row, _)] = b.pending_uploads(followup, [state], report)
+    assert not row.get("trusted_source_title")
+    assert not b.candidate_matches_series(row, "Workin Moms S07E13 CZtitulky")
 
 
 @pytest.mark.parametrize("status,version", [("uploaded", 0), ("target_deleted", 0), ("source_track_not_found", 2)])
@@ -131,10 +133,13 @@ def test_cached_source_bypasses_search_cooldown_and_is_selected_first(tmp_path, 
 
 
 def test_discovery_prepares_file_then_reuses_it_without_more_requests(tmp_path, monkeypatch):
-    state, followup, report = files(tmp_path)
+    state, followup, report = files(tmp_path, status="alternate_search_pending", version=2)
+    previous = json.loads(report.read_text())
+    report.write_text(json.dumps({**previous, **b.handoff_fields(upload(), target_duration=1381)}))
     calls = []
     monkeypatch.setattr(b, "resolve", lambda *a, **kw: SimpleNamespace(tracks=[], duration_sec=1381))
-    monkeypatch.setattr(b, "source_with_subtitles", lambda row: calls.append(row) or (row["source_url"], "track"))
+    monkeypatch.setattr(b, "source_with_subtitles", lambda *a: pytest.fail("Slow worker must not recheck original sources"))
+    monkeypatch.setattr(b, "find_alternate_track", lambda row, *a, **kw: calls.append(row) or (row["source_url"], "track"))
     monkeypatch.setattr(b, "fetch_subtitle", lambda url: VTT)
     args = Namespace(cache_dir=tmp_path / "cache", report_file=report, followup_file=followup,
                      state_file=[state], max_runtime=30, limit=30, max_ready=100, search_min_interval=0)
@@ -145,11 +150,13 @@ def test_discovery_prepares_file_then_reuses_it_without_more_requests(tmp_path, 
 
 
 def test_discovery_stops_on_rate_limit_and_keeps_backlog_retryable(tmp_path, monkeypatch):
-    state, followup, report = files(tmp_path)
+    state, followup, report = files(tmp_path, status="alternate_search_pending", version=2)
+    previous = json.loads(report.read_text())
+    report.write_text(json.dumps({**previous, **b.handoff_fields(upload(), target_duration=1381)}))
     monkeypatch.setattr(b, "resolve", lambda *a, **kw: SimpleNamespace(tracks=[], duration_sec=1381))
-    def unavailable(row):
+    def unavailable(row, *args, **kwargs):
         raise b.SourceDiscoveryDeferred("rate_limited")
-    monkeypatch.setattr(b, "source_with_subtitles", unavailable)
+    monkeypatch.setattr(b, "find_alternate_track", unavailable)
     args = Namespace(cache_dir=tmp_path / "cache", report_file=report, followup_file=followup,
                      state_file=[state], max_runtime=30, limit=30, max_ready=100, search_min_interval=0)
     assert discovery.prepare(args) == 0
@@ -157,7 +164,7 @@ def test_discovery_stops_on_rate_limit_and_keeps_backlog_retryable(tmp_path, mon
     assert cache.entries[cache_key(upload())]["status"] == "deferred"
     assert not cache.due(upload(), dt.datetime.now(dt.timezone.utc))
     assert cache.due(upload(), dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=7))
-    assert b.load_latest_status(report)[87916]["status"] == "source_track_not_found"
+    assert b.load_latest_status(report)[87916]["status"] == "alternate_search_pending"
 
 
 def test_targeted_discovery_keeps_other_pending_cached_files(tmp_path, monkeypatch):

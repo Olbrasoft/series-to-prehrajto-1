@@ -9,6 +9,7 @@ on:
       - "src/backfill_uploaded_subtitles.py"
       - "src/resolve_stream.py"
       - "src/subtitle_source_cache.py"
+      - "src/subtitle_queue_status.py"
   schedule:
     - cron: "7,37 * * * *"
   workflow_dispatch:
@@ -228,29 +229,24 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Restore prepared subtitle files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python src/subtitle_source_cache.py .cache/subtitles
+
+      - name: Count actionable subtitle work
+        id: work
+        env:
+          SUBTITLE_ACCOUNT: ${{ inputs.account || 'both' }}
+        run: python src/subtitle_queue_status.py --account "$SUBTITLE_ACCOUNT" --github-output "$GITHUB_OUTPUT"
+
       - name: Queue next subtitle backfill
         env:
           GH_TOKEN: ${{ github.token }}
           SUBTITLE_ACCOUNT: ${{ inputs.account || 'both' }}
         run: |
-          PENDING=$(python - <<'PYCODE'
-          import os
-          import sys
-          from pathlib import Path
-
-          sys.path.insert(0, "src")
-          from backfill_uploaded_subtitles import pending_uploads
-
-          account = os.environ["SUBTITLE_ACCOUNT"]
-          print(len(pending_uploads(
-              Path("plans/subtitle-followup-queue.jsonl"),
-              sorted(Path("state").glob("uploaded-shard-*.json")),
-              Path("reports/subtitle-backfill-status.jsonl"),
-              upload_account=None if account == "both" else account,
-          )))
-          PYCODE
-          )
-          echo "pending subtitle rows: ${PENDING}"
+          PENDING="${{ steps.work.outputs.actionable }}"
+          echo "actionable fast/verification rows: ${PENDING}"
           if [ "$PENDING" -gt 0 ]; then
             QUEUED=$(gh run list --workflow backfill-subtitles.yml --limit 10 --json status \
               --jq '[.[] | select(.status == "pending" or .status == "queued" or .status == "waiting")] | length')

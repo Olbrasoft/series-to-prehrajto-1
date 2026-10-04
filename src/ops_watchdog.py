@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ops_status import main as build_status  # noqa: E402
 from upload_queue_status import upload_ready_rows  # noqa: E402
 from subtitle_priority import hold_source_search  # noqa: E402
+from subtitle_queue_status import queue_status as subtitle_queue_status  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 REPORT = REPO / "reports" / "ops-status.json"
@@ -174,6 +175,27 @@ def queue_workflow(
     return True
 
 
+def recently_started(workflow: str, minutes: int) -> bool:
+    try:
+        rows = json.loads(subprocess.check_output([
+            "gh", "run", "list", "--workflow", f"{workflow}.yml", "--limit", "1", "--json", "createdAt",
+        ], text=True))
+        if not rows:
+            return False
+        created = dt.datetime.fromisoformat(rows[0]["createdAt"].replace("Z", "+00:00"))
+        return dt.datetime.now(dt.timezone.utc) - created < dt.timedelta(minutes=minutes)
+    except (subprocess.SubprocessError, ValueError, KeyError, TypeError):
+        return True
+
+
+def queue_subtitle_work(counts: dict, *, active: set[str], dry_run: bool) -> None:
+    if counts["actionable"]:
+        queue_workflow("backfill-subtitles", {"account": "both", "continue_backfill": "true"},
+                       active=active, dry_run=dry_run)
+    if counts["alternate_pending"] and not recently_started("prepare-subtitles", 15):
+        queue_workflow("prepare-subtitles", {}, active=active, dry_run=dry_run)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--min-upload-ready", type=int, default=1000)
@@ -197,6 +219,9 @@ def main() -> int:
     counts = report.get("counts") or {}
     gaps = report.get("gaps") or {}
     active = active_workflows(report)
+    queue_subtitle_work(subtitle_queue_status(
+        REPO / "plans/subtitle-followup-queue.jsonl", sorted((REPO / "state").glob("uploaded-shard-*.json")),
+        REPO / "reports/subtitle-backfill-status.jsonl"), active=active, dry_run=args.dry_run)
     upload_ready = len(upload_ready_rows(require_description=False))
     backlog_count = int(counts.get("backlog_episodes") or 0)
     manifest_ready = int(counts.get("manifest_upload_ready_episodes") or 0)

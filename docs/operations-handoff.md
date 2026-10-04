@@ -1,5 +1,35 @@
 # Operations handoff
 
+## Separate original and alternate subtitle queues (October 4, 2026)
+
+Attachment now performs only original-source checks, prepared-file attachment
+and verification. A conclusive missing/unusable original source is persisted
+as `alternate_search_pending` with `source_lane=alternate`, source identity,
+check time, target duration and a weekly original recheck deadline. These rows
+are excluded before any fast-worker HTTP request. Losing the discovery artifact
+does not put them back in the original queue. Transient original failures use
+`source_retry_pending` with a six-hour delay; rate limiting ends the batch.
+Changed source identity or title matcher reopens the original check. Submitted
+or uncertain attachments remain verification-only, including targeted runs.
+
+Existing negative checks made with the current title matcher migrate to the
+alternate queue without another source request. Transport failures and older
+matcher results do not migrate: older results receive one corrected check.
+`src/subtitle_queue_status.py` reports fast, alternate and verification counts.
+Queue-next dispatches only actionable fast/verification work, so an alternate
+backlog alone cannot create a chain of empty attachment jobs. The watchdog
+recovers missing workers and spaces discovery recovery starts by 15 minutes.
+
+Discovery selects only handed-off rows. Its artifact persists query results,
+candidate cursor, completed queries and checked video identities, with no signed
+subtitle URLs. Interrupted searches resume at the unchecked candidate. Accounts
+alternate, including across runs. Each episode gets at most a 180-second search
+budget; runtime exhaustion retries after 15 minutes. While at least 100 original
+checks are due, discovery gets a 120-second batch and a 60-second request gap to
+favor the original sweep. This is a conservative budget, not a shared global
+rate limiter. Successful backfill also triggers discovery; prepared files wake
+attachment only when no attachment run is already active or queued.
+
 ## Subtitle discovery and attachment (October 3, 2026)
 
 `prepare-subtitles.yml` searches and downloads Czech subtitle files for both

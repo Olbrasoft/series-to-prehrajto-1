@@ -449,7 +449,7 @@ def test_new_submission_does_not_trigger_deleted_lookup(tmp_path, monkeypatch):
     assert b.load_latest_status(args.report_file)[1]['status'] == 'subtitle_processing'
 
 
-def test_deferred_discovery_gets_one_slot_without_starving_fresh_uploads(tmp_path, monkeypatch):
+def test_fresh_original_checks_precede_legacy_retries(tmp_path, monkeypatch):
     import backfill_uploaded_subtitles as b
     args = task_args(tmp_path)
     uploads = write_uploads(args, 3)
@@ -457,7 +457,7 @@ def test_deferred_discovery_gets_one_slot_without_starving_fresh_uploads(tmp_pat
         b.append_jsonl(args.report_file, b.status_row(upload, upload, 'source_search_pending', checked_at='2026-01-01T00:00:00Z'))
     monkeypatch.setattr(b, 'find_profile_detail', lambda *a: {'detail_url': 'https://example.test/video', 'processing': False})
     monkeypatch.setattr(b, 'resolve', lambda *a, **kw: SimpleNamespace(tracks=[]))
-    assert [row['episode_id'] for row, _, _ in b.iter_tasks(args, object())] == [2, 3, 1]
+    assert [row['episode_id'] for row, _, _ in b.iter_tasks(args, object())] == [3, 2, 1]
 
 
 @pytest.mark.parametrize('response_mode', ['accepted', 'timeout'])
@@ -552,7 +552,7 @@ def test_source_resolution_distinguishes_outage_from_deleted_source(monkeypatch,
             lookup()
 
 
-def test_incomplete_discovery_keeps_episode_pending_and_stops_extra_searches(tmp_path, monkeypatch):
+def test_missing_original_tracks_are_handed_off_without_any_search(tmp_path, monkeypatch):
     import backfill_uploaded_subtitles as b
     args = task_args(tmp_path)
     uploads = write_uploads(args, 2)
@@ -575,7 +575,7 @@ def test_incomplete_discovery_keeps_episode_pending_and_stops_extra_searches(tmp
         '--followup-file', str(args.followup_file), '--allow-partial'])
     assert b.main() == 0
     results = b.load_latest_status(args.report_file)
-    assert all(r['status'] == 'source_search_pending' for r in results.values())
-    assert results[1]['reason'] == 'search_http_429'
-    assert len(calls) == 1
+    assert all(r['status'] == 'alternate_search_pending' for r in results.values())
+    assert all(r['source_lane'] == 'alternate' for r in results.values())
+    assert len(calls) == 0
     assert len(b.pending_uploads(args.followup_file, args.state_file, args.report_file)) == 2

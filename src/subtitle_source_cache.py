@@ -28,6 +28,12 @@ class SubtitleCache:
         self.index = directory / "index.json"
         data = json.loads(self.index.read_text()) if self.index.exists() else {}
         self.entries = data.get("entries", {}) if data.get("version") == 1 else {}
+        self.scheduler = data.get("scheduler", {})
+
+    def available(self, upload: dict) -> bool:
+        entry = self.entries.get(cache_key(upload), {})
+        return self.ready(upload) or (entry.get("status") == "target_has_tracks"
+                                      and entry.get("original_source_url") == upload.get("source_url"))
 
     def ready(self, upload: dict) -> bool:
         key = cache_key(upload)
@@ -50,6 +56,12 @@ class SubtitleCache:
         if hashlib.sha256(content).hexdigest() != entry.get("sha256"):
             return None
         return entry["source_url"], content
+
+    def invalidate_duration(self, upload: dict, target_duration: int | None) -> None:
+        entry = self.entries.get(cache_key(upload), {})
+        stored = entry.get("target_duration")
+        if entry.get("status") == "ready" and stored and target_duration and abs(stored - target_duration) > 2:
+            self.record(upload, "stale", retry_hours=0)
 
     def due(self, upload: dict, now: dt.datetime) -> bool:
         entry = self.entries.get(cache_key(upload), {})
@@ -94,7 +106,7 @@ class SubtitleCache:
     def save(self) -> None:
         self.directory.mkdir(parents=True, exist_ok=True)
         tmp = self.index.with_suffix(".tmp")
-        tmp.write_text(json.dumps({"version": 1, "entries": self.entries}, ensure_ascii=False, sort_keys=True))
+        tmp.write_text(json.dumps({"version": 1, "entries": self.entries, "scheduler": self.scheduler}, ensure_ascii=False, sort_keys=True))
         tmp.replace(self.index)
 
 
