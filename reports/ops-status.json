@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 125429,
-    "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 66319,
-    "prepared_source_episodes": 60269,
+    "manifest_upload_ready_episodes": 1,
+    "uploaded_episodes": 66321,
+    "prepared_source_episodes": 60267,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 27,
-    "language_whisper_attempted_sources": 23,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53858,
     "whisper_review_pending_sources": 35568,
     "subtitle_followup_sources": 41448,
@@ -20,34 +20,98 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-05T22:38:48Z",
-      "databaseId": 37383790036,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-05T22:38:41Z",
-      "databaseId": 37383777735,
+      "createdAt": "2026-10-05T22:42:46Z",
+      "databaseId": 37384187391,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "prepare-sources"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-05T22:38:37Z",
-      "databaseId": 37383770376,
+      "createdAt": "2026-10-05T22:42:44Z",
+      "databaseId": 37384183626,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-05T22:42:14Z",
+      "databaseId": 37384133543,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T22:41:54Z",
+      "databaseId": 37384099942,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T22:41:41Z",
+      "databaseId": 37384077836,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-05T22:39:52Z",
+      "databaseId": 37383895464,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-05T22:39:48Z",
+      "databaseId": 37383889395,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-05T22:39:40Z",
+      "databaseId": 37383876697,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T22:38:48Z",
+      "databaseId": 37383790036,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-05T22:38:41Z",
+      "databaseId": 37383777735,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-05T22:38:37Z",
+      "databaseId": 37383770376,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-05T22:38:31Z",
       "databaseId": 37383761049,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -110,70 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-05T22:34:04Z",
       "databaseId": 37383289013,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T22:32:23Z",
-      "databaseId": 37383115170,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-05T22:32:15Z",
-      "databaseId": 37383100533,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T22:31:42Z",
-      "databaseId": 37383042924,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-05T22:31:36Z",
-      "databaseId": 37383032131,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T22:31:29Z",
-      "databaseId": 37383021354,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-05T22:31:19Z",
-      "databaseId": 37383003835,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T22:31:05Z",
-      "databaseId": 37382978568,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T22:31:01Z",
-      "databaseId": 37382972159,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
@@ -162099,6 +162099,16 @@
         "episode_id": 106928,
         "display_name": "The Cool Kids S01E10 - 10. epizoda CZ Dabing",
         "video_id": 30036188
+      },
+      {
+        "episode_id": 135317,
+        "display_name": "Lost You Forever S01E24 - 24. epizoda CZ Titulky",
+        "video_id": 30036223
+      },
+      {
+        "episode_id": 106929,
+        "display_name": "The Cool Kids S01E11 - 11. epizoda CZ Dabing",
+        "video_id": 30036240
       },
       {
         "episode_id": 114182,
@@ -467868,6 +467878,16 @@
         "video_id": 30036188
       },
       {
+        "episode_id": 135317,
+        "display_name": "Lost You Forever S01E24 - 24. epizoda CZ Titulky",
+        "video_id": 30036223
+      },
+      {
+        "episode_id": 106929,
+        "display_name": "The Cool Kids S01E11 - 11. epizoda CZ Dabing",
+        "video_id": 30036240
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -612977,8 +612997,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 22,
-    "disabled": 4,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
