@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 125429,
-    "manifest_upload_ready_episodes": 5,
-    "uploaded_episodes": 66309,
-    "prepared_source_episodes": 60198,
+    "manifest_upload_ready_episodes": 4,
+    "uploaded_episodes": 66310,
+    "prepared_source_episodes": 60201,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
@@ -12,18 +12,50 @@
     "language_audited_sources": 20,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53858,
-    "whisper_review_pending_sources": 35568,
+    "whisper_review_sources": 53861,
+    "whisper_review_pending_sources": 35581,
     "subtitle_followup_sources": 41443,
     "subtitle_followup_pending_sources": 41443
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-05T21:35:05Z",
+      "databaseId": 37376802165,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-05T21:34:58Z",
+      "databaseId": 37376789286,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T21:34:55Z",
+      "databaseId": 37376782701,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T21:34:52Z",
+      "databaseId": 37376777276,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-05T21:33:39Z",
       "databaseId": 37376644569,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-05T21:21:09Z",
-      "databaseId": 37375317954,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "failure",
-      "createdAt": "2026-10-05T21:20:17Z",
-      "databaseId": 37375228211,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T21:20:06Z",
-      "databaseId": 37375208932,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-05T21:19:57Z",
-      "databaseId": 37375192239,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -162069,6 +162069,11 @@
         "episode_id": 173656,
         "display_name": "The Last Narc S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30035152
+      },
+      {
+        "episode_id": 172444,
+        "display_name": "The Gone S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30035198
       },
       {
         "episode_id": 114182,
@@ -467788,6 +467793,11 @@
         "video_id": 30035152
       },
       {
+        "episode_id": 172444,
+        "display_name": "The Gone S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30035198
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -612882,9 +612892,9 @@
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4346,
-    "whisper_non_cz_needs_subtitles": 13944,
+    "whisper_non_cz_needs_subtitles": 13934,
     "whisper_failed": 1418,
-    "needs_whisper": 34150
+    "needs_whisper": 34163
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 41443
