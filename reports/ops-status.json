@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 125609,
-    "manifest_upload_ready_episodes": 0,
+    "manifest_upload_ready_episodes": 1,
     "uploaded_episodes": 66143,
-    "prepared_source_episodes": 59928,
+    "prepared_source_episodes": 59937,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 41,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53858,
     "whisper_review_pending_sources": 35566,
-    "subtitle_followup_sources": 41423,
-    "subtitle_followup_pending_sources": 41423
+    "subtitle_followup_sources": 41424,
+    "subtitle_followup_pending_sources": 41424
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T14:03:48Z",
+      "databaseId": 37321677848,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-05T14:03:01Z",
+      "databaseId": 37321575031,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T14:02:49Z",
+      "databaseId": 37321550073,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-05T14:02:14Z",
       "databaseId": 37321473880,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-05T14:02:08Z",
       "databaseId": 37321459144,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-05T14:01:48Z",
       "databaseId": 37321415371,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-05T13:59:06Z",
       "databaseId": 37321048214,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-05T13:50:05Z",
-      "databaseId": 37319866504,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-05T13:49:47Z",
-      "databaseId": 37319827395,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T13:49:10Z",
-      "databaseId": 37319749742,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -610108,6 +610108,12 @@
         "episode": 8
       },
       {
+        "episode_id": 66408,
+        "series_title": "10 Things I Hate About You",
+        "season": 1,
+        "episode": 9
+      },
+      {
         "episode_id": 84327,
         "series_title": "1600 Penn",
         "season": 1,
@@ -610352,12 +610358,6 @@
         "series_title": "2. světová válka: Ztracené filmy",
         "season": 1,
         "episode": 5
-      },
-      {
-        "episode_id": 175696,
-        "series_title": "2. světová válka: Ztracené filmy",
-        "season": 1,
-        "episode": 6
       }
     ],
     "whisper_review_pending": [
@@ -611217,7 +611217,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 40,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -611227,6 +611227,6 @@
     "needs_whisper": 34148
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41423
+    "needs_subtitle_setup_after_prehrajto_processing": 41424
   }
 }
