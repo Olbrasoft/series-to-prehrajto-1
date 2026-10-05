@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 125570,
-    "manifest_upload_ready_episodes": 35,
-    "uploaded_episodes": 66191,
-    "prepared_source_episodes": 60043,
+    "manifest_upload_ready_episodes": 37,
+    "uploaded_episodes": 66196,
+    "prepared_source_episodes": 60042,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
@@ -19,19 +19,67 @@
   },
   "workflow_runs": [
     {
-      "conclusion": "",
-      "createdAt": "2026-10-05T16:02:28Z",
-      "databaseId": 37337685081,
+      "conclusion": "skipped",
+      "createdAt": "2026-10-05T16:07:04Z",
+      "databaseId": 37338298678,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-05T16:06:58Z",
+      "databaseId": 37338285463,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T16:06:31Z",
+      "databaseId": 37338227518,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T16:06:15Z",
+      "databaseId": 37338188959,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-05T16:04:22Z",
+      "databaseId": 37337936113,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-05T16:04:18Z",
+      "databaseId": 37337926894,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-05T16:02:28Z",
+      "databaseId": 37337685081,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-05T16:02:23Z",
       "databaseId": 37337671524,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-05T15:54:38Z",
-      "databaseId": 37336619811,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T15:52:40Z",
-      "databaseId": 37336355552,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T15:51:32Z",
-      "databaseId": 37336205411,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T15:50:04Z",
-      "databaseId": 37336003175,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T15:50:00Z",
-      "databaseId": 37335993563,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-05T15:48:58Z",
-      "databaseId": 37335859821,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -161771,6 +161771,11 @@
         "video_id": 30029242
       },
       {
+        "episode_id": 106141,
+        "display_name": "Transplant S02E10 - 10. epizoda CZ Dabing",
+        "video_id": 30029507
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -305409,6 +305414,26 @@
         "episode_id": 47411,
         "display_name": "Živí mrtví: Počátek konce S02E13 - U skomírajícího ohně CZ Dabing",
         "video_id": 30028962
+      },
+      {
+        "episode_id": 36310,
+        "display_name": "Aunty Donna: Zábavný dům S01E04 - Randění CZ Dabing",
+        "video_id": 30029482
+      },
+      {
+        "episode_id": 108982,
+        "display_name": "Voyage to the Bottom of the Sea S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30029521
+      },
+      {
+        "episode_id": 99611,
+        "display_name": "She-Ra a princezny moci S05E02 - Launch CZ Titulky",
+        "video_id": 30029471
+      },
+      {
+        "episode_id": 99619,
+        "display_name": "She-Ra a princezny moci S05E11 - Failsafe CZ Titulky",
+        "video_id": 30029517
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -466898,6 +466923,11 @@
         "video_id": 30029242
       },
       {
+        "episode_id": 106141,
+        "display_name": "Transplant S02E10 - 10. epizoda CZ Dabing",
+        "video_id": 30029507
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -610536,6 +610566,26 @@
         "episode_id": 47411,
         "display_name": "Živí mrtví: Počátek konce S02E13 - U skomírajícího ohně CZ Dabing",
         "video_id": 30028962
+      },
+      {
+        "episode_id": 36310,
+        "display_name": "Aunty Donna: Zábavný dům S01E04 - Randění CZ Dabing",
+        "video_id": 30029482
+      },
+      {
+        "episode_id": 108982,
+        "display_name": "Voyage to the Bottom of the Sea S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30029521
+      },
+      {
+        "episode_id": 99611,
+        "display_name": "She-Ra a princezny moci S05E02 - Launch CZ Titulky",
+        "video_id": 30029471
+      },
+      {
+        "episode_id": 99619,
+        "display_name": "She-Ra a princezny moci S05E11 - Failsafe CZ Titulky",
+        "video_id": 30029517
       }
     ],
     "prepared_not_upload_ready": [
