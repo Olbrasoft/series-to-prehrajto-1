@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 124966,
-    "manifest_upload_ready_episodes": 90,
-    "uploaded_episodes": 66906,
-    "prepared_source_episodes": 61638,
+    "manifest_upload_ready_episodes": 84,
+    "uploaded_episodes": 66913,
+    "prepared_source_episodes": 61632,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 21,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53888,
     "whisper_review_pending_sources": 35787,
     "subtitle_followup_sources": 41850,
@@ -20,26 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-06T23:50:00Z",
-      "databaseId": 37548701321,
+      "createdAt": "2026-10-06T23:55:13Z",
+      "databaseId": 37549172483,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-06T23:49:11Z",
-      "databaseId": 37548630058,
+      "createdAt": "2026-10-06T23:55:10Z",
+      "databaseId": 37549167393,
       "headBranch": "main",
-      "status": "queued",
-      "workflowName": "process-whisper-review"
+      "status": "pending",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-06T23:54:27Z",
+      "databaseId": 37549104482,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T23:54:25Z",
+      "databaseId": 37549101951,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T23:51:10Z",
+      "databaseId": 37548810303,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-06T23:51:03Z",
+      "databaseId": 37548799091,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T23:50:00Z",
+      "databaseId": 37548701321,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T23:49:11Z",
+      "databaseId": 37548630058,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-06T23:47:33Z",
       "databaseId": 37548483360,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T23:45:41Z",
       "databaseId": 37548318076,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-06T23:42:44Z",
-      "databaseId": 37548048361,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:41:04Z",
-      "databaseId": 37547899075,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:41:00Z",
-      "databaseId": 37547893929,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-06T23:40:54Z",
-      "databaseId": 37547884462,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-06T23:40:51Z",
-      "databaseId": 37547880647,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-06T23:40:49Z",
-      "databaseId": 37547877769,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -163601,9 +163601,24 @@
         "video_id": 30063654
       },
       {
+        "episode_id": 86568,
+        "display_name": "Boj o čas  S04E10 - 10. epizoda CZ Dabing",
+        "video_id": 30063690
+      },
+      {
+        "episode_id": 32464,
+        "display_name": "Černá srdce S02E03 - 3. epizoda CZ Dabing",
+        "video_id": 30063728
+      },
+      {
         "episode_id": 82493,
         "display_name": " Profil zločinu  S07E09 - Vyvolení, část 1 CZ Dabing",
         "video_id": 30063661
+      },
+      {
+        "episode_id": 99409,
+        "display_name": " Profil zločinu  S09E01 - Nový začátek, část 1 CZ Dabing",
+        "video_id": 30063703
       },
       {
         "episode_id": 114182,
@@ -308984,6 +308999,26 @@
         "episode_id": 125551,
         "display_name": "The Killing Vote S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30063576
+      },
+      {
+        "episode_id": 99410,
+        "display_name": " Profil zločinu  S09E02 - Nový začátek, část 2 CZ Dabing",
+        "video_id": 30063678
+      },
+      {
+        "episode_id": 99423,
+        "display_name": " Profil zločinu  S09E04 - Magie CZ Dabing",
+        "video_id": 30063662
+      },
+      {
+        "episode_id": 86571,
+        "display_name": "Boj o čas  S04E13 - 13. epizoda CZ Dabing",
+        "video_id": 30063721
+      },
+      {
+        "episode_id": 172799,
+        "display_name": "Chikatilo S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30063755
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -472303,9 +472338,24 @@
         "video_id": 30063654
       },
       {
+        "episode_id": 86568,
+        "display_name": "Boj o čas  S04E10 - 10. epizoda CZ Dabing",
+        "video_id": 30063690
+      },
+      {
+        "episode_id": 32464,
+        "display_name": "Černá srdce S02E03 - 3. epizoda CZ Dabing",
+        "video_id": 30063728
+      },
+      {
         "episode_id": 82493,
         "display_name": " Profil zločinu  S07E09 - Vyvolení, část 1 CZ Dabing",
         "video_id": 30063661
+      },
+      {
+        "episode_id": 99409,
+        "display_name": " Profil zločinu  S09E01 - Nový začátek, část 1 CZ Dabing",
+        "video_id": 30063703
       },
       {
         "episode_id": 114182,
@@ -617686,6 +617736,26 @@
         "episode_id": 125551,
         "display_name": "The Killing Vote S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30063576
+      },
+      {
+        "episode_id": 99410,
+        "display_name": " Profil zločinu  S09E02 - Nový začátek, část 2 CZ Dabing",
+        "video_id": 30063678
+      },
+      {
+        "episode_id": 99423,
+        "display_name": " Profil zločinu  S09E04 - Magie CZ Dabing",
+        "video_id": 30063662
+      },
+      {
+        "episode_id": 86571,
+        "display_name": "Boj o čas  S04E13 - 13. epizoda CZ Dabing",
+        "video_id": 30063721
+      },
+      {
+        "episode_id": 172799,
+        "display_name": "Chikatilo S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30063755
       }
     ],
     "prepared_not_upload_ready": [
@@ -618847,7 +618917,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 20,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
