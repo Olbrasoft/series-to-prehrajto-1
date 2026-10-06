@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 125016,
-    "manifest_upload_ready_episodes": 151,
-    "uploaded_episodes": 66752,
-    "prepared_source_episodes": 61525,
+    "manifest_upload_ready_episodes": 144,
+    "uploaded_episodes": 66755,
+    "prepared_source_episodes": 61521,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 79,
-    "language_whisper_attempted_sources": 27,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53892,
     "whisper_review_pending_sources": 35801,
     "subtitle_followup_sources": 41802,
@@ -20,10 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-06T20:27:56Z",
+      "databaseId": 37526642215,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T20:27:05Z",
+      "databaseId": 37526535284,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T20:24:16Z",
+      "databaseId": 37526175572,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T20:23:28Z",
+      "databaseId": 37526074958,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T20:22:30Z",
+      "databaseId": 37525951246,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-06T20:20:43Z",
+      "databaseId": 37525726479,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T20:18:25Z",
+      "databaseId": 37525438492,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T20:17:03Z",
+      "databaseId": 37525267297,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-06T20:15:40Z",
       "databaseId": 37525092583,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T20:13:25Z",
       "databaseId": 37524808466,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -91,19 +155,19 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T20:10:06Z",
       "databaseId": 37524386755,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T20:09:50Z",
       "databaseId": 37524351528,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T20:09:00Z",
-      "databaseId": 37524248755,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T20:06:15Z",
-      "databaseId": 37523899734,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-06T20:06:02Z",
-      "databaseId": 37523869465,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-06T20:05:46Z",
-      "databaseId": 37523836223,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T20:01:17Z",
-      "databaseId": 37523270808,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T19:59:57Z",
-      "databaseId": 37523090296,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T19:59:15Z",
-      "databaseId": 37523002162,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T19:59:12Z",
-      "databaseId": 37522996378,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -163206,6 +163206,11 @@
         "video_id": 30059776
       },
       {
+        "episode_id": 86536,
+        "display_name": "Boj o čas  S02E21 - 21. epizoda CZ Dabing",
+        "video_id": 30060247
+      },
+      {
         "episode_id": 203621,
         "display_name": "Na východ od ráje S01E05 - Odchod CZ Dabing",
         "video_id": 30059806
@@ -308211,9 +308216,19 @@
         "video_id": 30059774
       },
       {
+        "episode_id": 203502,
+        "display_name": "Pohřešovaná S01E03 - Lež CZ Dabing",
+        "video_id": 30060254
+      },
+      {
         "episode_id": 202011,
         "display_name": "Malá mořská víla S03E01 - Pařát CZ Dabing",
         "video_id": 30059582
+      },
+      {
+        "episode_id": 82439,
+        "display_name": " Profil zločinu  S06E05 - Obětované CZ Dabing",
+        "video_id": 30060279
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -471138,6 +471153,11 @@
         "video_id": 30059776
       },
       {
+        "episode_id": 86536,
+        "display_name": "Boj o čas  S02E21 - 21. epizoda CZ Dabing",
+        "video_id": 30060247
+      },
+      {
         "episode_id": 203621,
         "display_name": "Na východ od ráje S01E05 - Odchod CZ Dabing",
         "video_id": 30059806
@@ -616143,9 +616163,19 @@
         "video_id": 30059774
       },
       {
+        "episode_id": 203502,
+        "display_name": "Pohřešovaná S01E03 - Lež CZ Dabing",
+        "video_id": 30060254
+      },
+      {
         "episode_id": 202011,
         "display_name": "Malá mořská víla S03E01 - Pařát CZ Dabing",
         "video_id": 30059582
+      },
+      {
+        "episode_id": 82439,
+        "display_name": " Profil zločinu  S06E05 - Obětované CZ Dabing",
+        "video_id": 30060279
       }
     ],
     "prepared_not_upload_ready": [
@@ -617307,8 +617337,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 52,
-    "ok": 26,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
