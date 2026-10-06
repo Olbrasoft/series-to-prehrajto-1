@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 125371,
     "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 66398,
+    "uploaded_episodes": 66399,
     "prepared_source_episodes": 60708,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 50,
-    "language_whisper_attempted_sources": 44,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53866,
     "whisper_review_pending_sources": 35628,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-06T05:38:01Z",
+      "databaseId": 37419502080,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T05:37:57Z",
+      "databaseId": 37419497293,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T05:37:57Z",
+      "databaseId": 37419497252,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-06T05:36:49Z",
       "databaseId": 37419405587,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T05:28:33Z",
       "databaseId": 37418711290,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T05:26:06Z",
-      "databaseId": 37418511502,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T05:24:04Z",
-      "databaseId": 37418340149,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T05:23:39Z",
-      "databaseId": 37418306109,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -162319,6 +162319,11 @@
         "episode_id": 157801,
         "display_name": "Search: WWW S01E07 - 7. epizoda CZ Titulky",
         "video_id": 30042958
+      },
+      {
+        "episode_id": 188564,
+        "display_name": "Datel Woody S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 30043024
       },
       {
         "episode_id": 114182,
@@ -468483,6 +468488,11 @@
         "video_id": 30042958
       },
       {
+        "episode_id": 188564,
+        "display_name": "Datel Woody S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 30043024
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -613767,8 +613777,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 6,
-    "ok": 43,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
