@@ -2,22 +2,78 @@
   "counts": {
     "backlog_episodes": 125188,
     "manifest_upload_ready_episodes": 22,
-    "uploaded_episodes": 66650,
-    "prepared_source_episodes": 61200,
+    "uploaded_episodes": 66653,
+    "prepared_source_episodes": 61214,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 85,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53877,
-    "whisper_review_pending_sources": 35699,
-    "subtitle_followup_sources": 41704,
-    "subtitle_followup_pending_sources": 41704
+    "whisper_review_sources": 53880,
+    "whisper_review_pending_sources": 35714,
+    "subtitle_followup_sources": 41705,
+    "subtitle_followup_pending_sources": 41705
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T15:21:33Z",
+      "databaseId": 37486822643,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T15:21:17Z",
+      "databaseId": 37486785416,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-06T15:21:15Z",
+      "databaseId": 37486781962,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-06T15:21:00Z",
+      "databaseId": 37486746109,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-06T15:20:54Z",
+      "databaseId": 37486730936,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T15:20:02Z",
+      "databaseId": 37486601622,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T15:19:55Z",
+      "databaseId": 37486582590,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
     {
       "conclusion": "skipped",
       "createdAt": "2026-10-06T15:18:11Z",
@@ -51,11 +107,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T15:16:22Z",
       "databaseId": 37486056465,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-06T15:16:16Z",
       "databaseId": 37486042082,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -115,68 +171,12 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T15:08:12Z",
       "databaseId": 37484824533,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T15:06:04Z",
-      "databaseId": 37484525135,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-06T15:05:53Z",
-      "databaseId": 37484499691,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T15:04:33Z",
-      "databaseId": 37484307178,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-06T15:04:25Z",
-      "databaseId": 37484289733,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T15:03:04Z",
-      "databaseId": 37484098406,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T15:02:32Z",
-      "databaseId": 37484023699,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T15:01:31Z",
-      "databaseId": 37483877031,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -162951,6 +162951,16 @@
         "video_id": 30055453
       },
       {
+        "episode_id": 82492,
+        "display_name": " Profil zločinu  S03E11 - Mimo podezření, část 1 CZ Dabing",
+        "video_id": 30055606
+      },
+      {
+        "episode_id": 86517,
+        "display_name": "Boj o čas  S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 30055613
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -307704,6 +307714,11 @@
         "episode_id": 178983,
         "display_name": "Pravidla hry S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30055515
+      },
+      {
+        "episode_id": 146158,
+        "display_name": "Volejte Millie Blackovou S01E04 - Janet CZ Dabing",
+        "video_id": 30055605
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -470373,6 +470388,16 @@
         "video_id": 30055453
       },
       {
+        "episode_id": 82492,
+        "display_name": " Profil zločinu  S03E11 - Mimo podezření, část 1 CZ Dabing",
+        "video_id": 30055606
+      },
+      {
+        "episode_id": 86517,
+        "display_name": "Boj o čas  S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 30055613
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -615126,6 +615151,11 @@
         "episode_id": 178983,
         "display_name": "Pravidla hry S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30055515
+      },
+      {
+        "episode_id": 146158,
+        "display_name": "Volejte Millie Blackovou S01E04 - Janet CZ Dabing",
+        "video_id": 30055605
       }
     ],
     "prepared_not_upload_ready": [
@@ -616287,16 +616317,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 45,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4337,
-    "whisper_non_cz_needs_subtitles": 13841,
+    "whisper_confirmed_cz": 4332,
+    "whisper_non_cz_needs_subtitles": 13834,
     "whisper_failed": 1418,
-    "needs_whisper": 34281
+    "needs_whisper": 34296
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41704
+    "needs_subtitle_setup_after_prehrajto_processing": 41705
   }
 }
