@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 124620,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 67149,
-    "prepared_source_episodes": 62057,
+    "manifest_upload_ready_episodes": 2,
+    "uploaded_episodes": 67151,
+    "prepared_source_episodes": 62056,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
-    "language_whisper_attempted_sources": 49,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53893,
     "whisper_review_pending_sources": 35810,
@@ -20,26 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-07T08:09:48Z",
-      "databaseId": 37591936223,
+      "createdAt": "2026-10-07T08:14:53Z",
+      "databaseId": 37592493707,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-07T08:14:48Z",
+      "databaseId": 37592484923,
+      "headBranch": "main",
+      "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
-      "createdAt": "2026-10-07T08:09:41Z",
-      "databaseId": 37591924247,
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-07T08:14:19Z",
+      "databaseId": 37592432127,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T08:13:39Z",
+      "databaseId": 37592360479,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-07T08:12:55Z",
+      "databaseId": 37592281663,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T08:10:14Z",
+      "databaseId": 37591984027,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T08:10:10Z",
+      "databaseId": 37591977222,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-07T08:09:48Z",
+      "databaseId": 37591936223,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T08:09:41Z",
+      "databaseId": 37591924247,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-07T08:09:01Z",
       "databaseId": 37591854030,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +139,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-07T08:05:55Z",
       "databaseId": 37591514070,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-07T08:02:31Z",
-      "databaseId": 37591143908,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-07T08:02:11Z",
-      "databaseId": 37591106912,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T07:58:31Z",
-      "databaseId": 37590703285,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T07:58:22Z",
-      "databaseId": 37590689093,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T07:57:25Z",
-      "databaseId": 37590585266,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-07T07:57:16Z",
-      "databaseId": 37590569848,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T07:56:12Z",
-      "databaseId": 37590455167,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -310199,6 +310199,16 @@
         "episode_id": 163878,
         "display_name": "Index strachu S01E01 - Večer CZ Dabing",
         "video_id": 30069276
+      },
+      {
+        "episode_id": 120006,
+        "display_name": "Lopez vs Lopez S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30069354
+      },
+      {
+        "episode_id": 120007,
+        "display_name": "Lopez vs Lopez S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 30069348
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -620116,6 +620126,16 @@
         "episode_id": 163878,
         "display_name": "Index strachu S01E01 - Večer CZ Dabing",
         "video_id": 30069276
+      },
+      {
+        "episode_id": 120006,
+        "display_name": "Lopez vs Lopez S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30069354
+      },
+      {
+        "episode_id": 120007,
+        "display_name": "Lopez vs Lopez S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 30069348
       }
     ],
     "prepared_not_upload_ready": [
@@ -621277,7 +621297,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 48,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
