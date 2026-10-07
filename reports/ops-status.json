@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 124966,
-    "manifest_upload_ready_episodes": 77,
-    "uploaded_episodes": 66928,
-    "prepared_source_episodes": 61647,
+    "manifest_upload_ready_episodes": 73,
+    "uploaded_episodes": 66934,
+    "prepared_source_episodes": 61649,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 81,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 90,
+    "language_whisper_attempted_sources": 42,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53889,
-    "whisper_review_pending_sources": 35789,
-    "subtitle_followup_sources": 41850,
-    "subtitle_followup_pending_sources": 41850
+    "whisper_review_pending_sources": 35792,
+    "subtitle_followup_sources": 41853,
+    "subtitle_followup_pending_sources": 41853
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-07T00:10:36Z",
-      "databaseId": 37550570740,
+      "createdAt": "2026-10-07T00:16:40Z",
+      "databaseId": 37551108353,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-07T00:16:29Z",
+      "databaseId": 37551091216,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-07T00:15:11Z",
+      "databaseId": 37550975907,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T00:11:41Z",
+      "databaseId": 37550667019,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T00:11:38Z",
+      "databaseId": 37550663052,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-07T00:11:36Z",
+      "databaseId": 37550659235,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T00:10:36Z",
+      "databaseId": 37550570740,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-07T00:05:32Z",
       "databaseId": 37550107267,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +91,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-07T00:04:39Z",
       "databaseId": 37550017603,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-07T00:00:11Z",
       "databaseId": 37549599763,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:56:09Z",
-      "databaseId": 37549255710,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:55:13Z",
-      "databaseId": 37549172483,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-06T23:55:10Z",
-      "databaseId": 37549167393,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:54:27Z",
-      "databaseId": 37549104482,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-06T23:54:25Z",
-      "databaseId": 37549101951,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:51:10Z",
-      "databaseId": 37548810303,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -163626,6 +163626,11 @@
         "video_id": 30063879
       },
       {
+        "episode_id": 141116,
+        "display_name": "Na mašině kolem světa: Cesta domů S01E03 - Přežít jízdu CZ Titulky",
+        "video_id": 30063942
+      },
+      {
         "episode_id": 82493,
         "display_name": " Profil zločinu  S07E09 - Vyvolení, část 1 CZ Dabing",
         "video_id": 30063661
@@ -163654,6 +163659,16 @@
         "episode_id": 125557,
         "display_name": "The Killing Vote S01E09 - 9. epizoda CZ Titulky",
         "video_id": 30063936
+      },
+      {
+        "episode_id": 183237,
+        "display_name": "Měsíční dívka a ďábelský dinosaurus S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 30063987
+      },
+      {
+        "episode_id": 150993,
+        "display_name": "HANA-KIMI S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30064019
       },
       {
         "episode_id": 114182,
@@ -309061,6 +309076,16 @@
         "video_id": 30063929
       },
       {
+        "episode_id": 125554,
+        "display_name": "The Killing Vote S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30064000
+      },
+      {
+        "episode_id": 125558,
+        "display_name": "The Killing Vote S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30064052
+      },
+      {
         "episode_id": 99423,
         "display_name": " Profil zločinu  S09E04 - Magie CZ Dabing",
         "video_id": 30063662
@@ -309094,6 +309119,11 @@
         "episode_id": 150987,
         "display_name": "HANA-KIMI S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30063981
+      },
+      {
+        "episode_id": 156643,
+        "display_name": "The Death of Bunny Munro S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30064005
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -472438,6 +472468,11 @@
         "video_id": 30063879
       },
       {
+        "episode_id": 141116,
+        "display_name": "Na mašině kolem světa: Cesta domů S01E03 - Přežít jízdu CZ Titulky",
+        "video_id": 30063942
+      },
+      {
         "episode_id": 82493,
         "display_name": " Profil zločinu  S07E09 - Vyvolení, část 1 CZ Dabing",
         "video_id": 30063661
@@ -472466,6 +472501,16 @@
         "episode_id": 125557,
         "display_name": "The Killing Vote S01E09 - 9. epizoda CZ Titulky",
         "video_id": 30063936
+      },
+      {
+        "episode_id": 183237,
+        "display_name": "Měsíční dívka a ďábelský dinosaurus S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 30063987
+      },
+      {
+        "episode_id": 150993,
+        "display_name": "HANA-KIMI S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30064019
       },
       {
         "episode_id": 114182,
@@ -617873,6 +617918,16 @@
         "video_id": 30063929
       },
       {
+        "episode_id": 125554,
+        "display_name": "The Killing Vote S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30064000
+      },
+      {
+        "episode_id": 125558,
+        "display_name": "The Killing Vote S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30064052
+      },
+      {
         "episode_id": 99423,
         "display_name": " Profil zločinu  S09E04 - Magie CZ Dabing",
         "video_id": 30063662
@@ -617906,6 +617961,11 @@
         "episode_id": 150987,
         "display_name": "HANA-KIMI S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30063981
+      },
+      {
+        "episode_id": 156643,
+        "display_name": "The Death of Bunny Munro S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30064005
       }
     ],
     "prepared_not_upload_ready": [
@@ -619067,17 +619127,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 41,
-    "ok": 39,
+    "disabled": 48,
+    "ok": 41,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4331,
-    "whisper_non_cz_needs_subtitles": 13769,
+    "whisper_confirmed_cz": 4329,
+    "whisper_non_cz_needs_subtitles": 13768,
     "whisper_failed": 1418,
-    "needs_whisper": 34371
+    "needs_whisper": 34374
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 41850
+    "needs_subtitle_setup_after_prehrajto_processing": 41853
   }
 }
