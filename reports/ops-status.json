@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 124318,
-    "manifest_upload_ready_episodes": 78,
-    "uploaded_episodes": 67426,
-    "prepared_source_episodes": 62675,
+    "manifest_upload_ready_episodes": 79,
+    "uploaded_episodes": 67427,
+    "prepared_source_episodes": 62681,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 96,
+    "language_audited_sources": 105,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53922,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-07T18:43:12Z",
-      "databaseId": 37668978255,
+      "createdAt": "2026-10-07T18:45:26Z",
+      "databaseId": 37669266193,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T18:44:20Z",
+      "databaseId": 37669124935,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-07T18:44:19Z",
+      "databaseId": 37669123503,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T18:44:12Z",
+      "databaseId": 37669108604,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T18:43:12Z",
+      "databaseId": 37668978255,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-07T18:42:50Z",
       "databaseId": 37668930086,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -107,11 +139,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-07T18:29:09Z",
       "databaseId": 37667187491,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-07T18:27:14Z",
-      "databaseId": 37666941316,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T18:27:02Z",
-      "databaseId": 37666915329,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T18:26:08Z",
-      "databaseId": 37666800889,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T18:25:05Z",
-      "databaseId": 37666662208,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -311576,6 +311576,11 @@
         "video_id": 30080541
       },
       {
+        "episode_id": 94182,
+        "display_name": "Vražedné pobřeží S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30080937
+      },
+      {
         "episode_id": 46159,
         "display_name": "Zmije S03E04 - Skrytá agenda CZ Dabing",
         "video_id": 30080084
@@ -622878,6 +622883,11 @@
         "video_id": 30080541
       },
       {
+        "episode_id": 94182,
+        "display_name": "Vražedné pobřeží S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30080937
+      },
+      {
         "episode_id": 46159,
         "display_name": "Zmije S03E04 - Skrytá agenda CZ Dabing",
         "video_id": 30080084
@@ -624047,7 +624057,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 56,
+    "disabled": 65,
     "ok": 39,
     "resolve_failed": 1
   },
