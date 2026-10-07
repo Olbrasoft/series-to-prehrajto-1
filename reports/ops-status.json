@@ -2,36 +2,52 @@
   "counts": {
     "backlog_episodes": 124402,
     "manifest_upload_ready_episodes": 14,
-    "uploaded_episodes": 67347,
-    "prepared_source_episodes": 62484,
+    "uploaded_episodes": 67349,
+    "prepared_source_episodes": 62493,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 47,
-    "language_whisper_attempted_sources": 47,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53905,
-    "whisper_review_pending_sources": 35860,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 53906,
+    "whisper_review_pending_sources": 35864,
     "subtitle_followup_sources": 42066,
     "subtitle_followup_pending_sources": 42066
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-07T15:44:45Z",
-      "databaseId": 37646434280,
+      "createdAt": "2026-10-07T15:46:30Z",
+      "databaseId": 37646682283,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "process-whisper-review"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-07T15:46:15Z",
+      "databaseId": 37646648319,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T15:44:45Z",
+      "databaseId": 37646434280,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-07T15:44:35Z",
       "databaseId": 37646410956,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -131,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-07T15:32:35Z",
       "databaseId": 37644740244,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-07T15:31:03Z",
-      "databaseId": 37644548763,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T15:30:16Z",
-      "databaseId": 37644443946,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
     }
   ],
   "gaps": {
@@ -164656,6 +164656,11 @@
         "video_id": 30078163
       },
       {
+        "episode_id": 46164,
+        "display_name": "Zmije S03E09 - Nehoda CZ Dabing",
+        "video_id": 30078227
+      },
+      {
         "episode_id": 158453,
         "display_name": "Hotel S01E07 - 7. epizoda CZ Dabing",
         "video_id": 30078168
@@ -311179,6 +311184,11 @@
         "episode_id": 158450,
         "display_name": "Hotel S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30078056
+      },
+      {
+        "episode_id": 158454,
+        "display_name": "Hotel S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 30078173
       },
       {
         "episode_id": 46163,
@@ -475563,6 +475573,11 @@
         "video_id": 30078163
       },
       {
+        "episode_id": 46164,
+        "display_name": "Zmije S03E09 - Nehoda CZ Dabing",
+        "video_id": 30078227
+      },
+      {
         "episode_id": 158453,
         "display_name": "Hotel S01E07 - 7. epizoda CZ Dabing",
         "video_id": 30078168
@@ -622088,6 +622103,11 @@
         "video_id": 30078056
       },
       {
+        "episode_id": 158454,
+        "display_name": "Hotel S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 30078173
+      },
+      {
         "episode_id": 46163,
         "display_name": "Zmije S03E08 - Klub žen mafiánů CZ Dabing",
         "video_id": 30078167
@@ -623257,14 +623277,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 46,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4283,
-    "whisper_non_cz_needs_subtitles": 13762,
+    "whisper_confirmed_cz": 4281,
+    "whisper_non_cz_needs_subtitles": 13761,
     "whisper_failed": 1417,
-    "needs_whisper": 34443
+    "needs_whisper": 34447
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 42066
