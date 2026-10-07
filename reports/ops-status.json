@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 124402,
-    "manifest_upload_ready_episodes": 42,
-    "uploaded_episodes": 67424,
-    "prepared_source_episodes": 62638,
+    "manifest_upload_ready_episodes": 47,
+    "uploaded_episodes": 67425,
+    "prepared_source_episodes": 62649,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 22,
+    "language_audited_sources": 50,
     "language_whisper_attempted_sources": 22,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53917,
-    "whisper_review_pending_sources": 35917,
-    "subtitle_followup_sources": 42119,
-    "subtitle_followup_pending_sources": 42119
+    "whisper_review_sources": 53918,
+    "whisper_review_pending_sources": 35925,
+    "subtitle_followup_sources": 42120,
+    "subtitle_followup_pending_sources": 42120
   },
   "workflow_runs": [
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-07T18:24:39Z",
+      "databaseId": 37666607451,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-07T18:24:09Z",
+      "databaseId": 37666541811,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T18:23:37Z",
+      "databaseId": 37666473105,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-07T18:22:47Z",
       "databaseId": 37666365390,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-07T18:22:22Z",
       "databaseId": 37666312283,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-07T18:18:20Z",
       "databaseId": 37665796630,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T18:04:00Z",
-      "databaseId": 37663941014,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-07T18:03:02Z",
-      "databaseId": 37663814532,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-07T18:02:57Z",
-      "databaseId": 37663803761,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -164864,6 +164864,11 @@
         "episode_id": 118497,
         "display_name": "Superstition S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30080531
+      },
+      {
+        "episode_id": 91661,
+        "display_name": "Mamon S01E01 - Oběť CZ Dabing",
+        "video_id": 30080585
       },
       {
         "episode_id": 114182,
@@ -476158,6 +476163,11 @@
         "video_id": 30080531
       },
       {
+        "episode_id": 91661,
+        "display_name": "Mamon S01E01 - Oběť CZ Dabing",
+        "video_id": 30080585
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -624027,16 +624037,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 28,
     "ok": 21,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4269,
-    "whisper_non_cz_needs_subtitles": 13731,
+    "whisper_non_cz_needs_subtitles": 13724,
     "whisper_failed": 1417,
-    "needs_whisper": 34500
+    "needs_whisper": 34508
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42119
+    "needs_subtitle_setup_after_prehrajto_processing": 42120
   }
 }
