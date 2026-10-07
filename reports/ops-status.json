@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 124966,
-    "manifest_upload_ready_episodes": 82,
-    "uploaded_episodes": 66917,
-    "prepared_source_episodes": 61645,
+    "manifest_upload_ready_episodes": 77,
+    "uploaded_episodes": 66928,
+    "prepared_source_episodes": 61647,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
+    "language_audited_sources": 81,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53889,
@@ -20,26 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-07T00:00:11Z",
-      "databaseId": 37549599763,
+      "createdAt": "2026-10-07T00:10:36Z",
+      "databaseId": 37550570740,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-07T00:05:32Z",
+      "databaseId": 37550107267,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
-      "createdAt": "2026-10-06T23:59:30Z",
-      "databaseId": 37549538929,
+      "conclusion": "skipped",
+      "createdAt": "2026-10-07T00:04:43Z",
+      "databaseId": 37550024138,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "process-whisper-review"
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-07T00:04:39Z",
+      "databaseId": 37550017603,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-07T00:00:38Z",
+      "databaseId": 37549647497,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-07T00:00:11Z",
+      "databaseId": 37549599763,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-06T23:59:30Z",
+      "databaseId": 37549538929,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-06T23:58:35Z",
       "databaseId": 37549461402,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -91,11 +131,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T23:56:09Z",
       "databaseId": 37549255710,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -115,11 +155,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-06T23:54:27Z",
       "databaseId": 37549104482,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -134,46 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-06T23:51:10Z",
       "databaseId": 37548810303,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-06T23:51:03Z",
-      "databaseId": 37548799091,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:50:00Z",
-      "databaseId": 37548701321,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:49:11Z",
-      "databaseId": 37548630058,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-06T23:47:33Z",
-      "databaseId": 37548483360,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-06T23:47:07Z",
-      "databaseId": 37548445771,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -163616,6 +163616,16 @@
         "video_id": 30063780
       },
       {
+        "episode_id": 178968,
+        "display_name": "Setkání S01E03 - Broadhavenský trojúhelník CZ Dabing",
+        "video_id": 30063821
+      },
+      {
+        "episode_id": 134024,
+        "display_name": "Anna S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30063879
+      },
+      {
         "episode_id": 82493,
         "display_name": " Profil zločinu  S07E09 - Vyvolení, část 1 CZ Dabing",
         "video_id": 30063661
@@ -163629,6 +163639,21 @@
         "episode_id": 86569,
         "display_name": "Boj o čas  S04E11 - 11. epizoda CZ Dabing",
         "video_id": 30063766
+      },
+      {
+        "episode_id": 32465,
+        "display_name": "Černá srdce S02E04 - 4. epizoda CZ Dabing",
+        "video_id": 30063808
+      },
+      {
+        "episode_id": 145829,
+        "display_name": "Výkřik bez ozvěny S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30063871
+      },
+      {
+        "episode_id": 125557,
+        "display_name": "The Killing Vote S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 30063936
       },
       {
         "episode_id": 114182,
@@ -309026,6 +309051,16 @@
         "video_id": 30063812
       },
       {
+        "episode_id": 145830,
+        "display_name": "Výkřik bez ozvěny S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 30063869
+      },
+      {
+        "episode_id": 125550,
+        "display_name": "The Killing Vote S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30063929
+      },
+      {
         "episode_id": 99423,
         "display_name": " Profil zločinu  S09E04 - Magie CZ Dabing",
         "video_id": 30063662
@@ -309039,6 +309074,26 @@
         "episode_id": 172799,
         "display_name": "Chikatilo S01E07 - 7. epizoda CZ Titulky",
         "video_id": 30063755
+      },
+      {
+        "episode_id": 125555,
+        "display_name": "The Killing Vote S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30063802
+      },
+      {
+        "episode_id": 125559,
+        "display_name": "The Killing Vote S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30063881
+      },
+      {
+        "episode_id": 183235,
+        "display_name": "Měsíční dívka a ďábelský dinosaurus S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30063940
+      },
+      {
+        "episode_id": 150987,
+        "display_name": "HANA-KIMI S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30063981
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -472373,6 +472428,16 @@
         "video_id": 30063780
       },
       {
+        "episode_id": 178968,
+        "display_name": "Setkání S01E03 - Broadhavenský trojúhelník CZ Dabing",
+        "video_id": 30063821
+      },
+      {
+        "episode_id": 134024,
+        "display_name": "Anna S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30063879
+      },
+      {
         "episode_id": 82493,
         "display_name": " Profil zločinu  S07E09 - Vyvolení, část 1 CZ Dabing",
         "video_id": 30063661
@@ -472386,6 +472451,21 @@
         "episode_id": 86569,
         "display_name": "Boj o čas  S04E11 - 11. epizoda CZ Dabing",
         "video_id": 30063766
+      },
+      {
+        "episode_id": 32465,
+        "display_name": "Černá srdce S02E04 - 4. epizoda CZ Dabing",
+        "video_id": 30063808
+      },
+      {
+        "episode_id": 145829,
+        "display_name": "Výkřik bez ozvěny S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30063871
+      },
+      {
+        "episode_id": 125557,
+        "display_name": "The Killing Vote S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 30063936
       },
       {
         "episode_id": 114182,
@@ -617783,6 +617863,16 @@
         "video_id": 30063812
       },
       {
+        "episode_id": 145830,
+        "display_name": "Výkřik bez ozvěny S01E08 - 8. epizoda CZ Dabing",
+        "video_id": 30063869
+      },
+      {
+        "episode_id": 125550,
+        "display_name": "The Killing Vote S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30063929
+      },
+      {
         "episode_id": 99423,
         "display_name": " Profil zločinu  S09E04 - Magie CZ Dabing",
         "video_id": 30063662
@@ -617796,6 +617886,26 @@
         "episode_id": 172799,
         "display_name": "Chikatilo S01E07 - 7. epizoda CZ Titulky",
         "video_id": 30063755
+      },
+      {
+        "episode_id": 125555,
+        "display_name": "The Killing Vote S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30063802
+      },
+      {
+        "episode_id": 125559,
+        "display_name": "The Killing Vote S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30063881
+      },
+      {
+        "episode_id": 183235,
+        "display_name": "Měsíční dívka a ďábelský dinosaurus S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30063940
+      },
+      {
+        "episode_id": 150987,
+        "display_name": "HANA-KIMI S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30063981
       }
     ],
     "prepared_not_upload_ready": [
@@ -618957,7 +619067,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 9,
+    "disabled": 41,
     "ok": 39,
     "resolve_failed": 1
   },
