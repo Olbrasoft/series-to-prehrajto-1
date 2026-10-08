@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 123399,
-    "manifest_upload_ready_episodes": 23,
-    "uploaded_episodes": 68350,
-    "prepared_source_episodes": 63438,
+    "manifest_upload_ready_episodes": 20,
+    "uploaded_episodes": 68351,
+    "prepared_source_episodes": 63436,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
-    "language_whisper_attempted_sources": 49,
+    "language_audited_sources": 55,
+    "language_whisper_attempted_sources": 52,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53979,
     "whisper_review_pending_sources": 36186,
@@ -19,19 +19,43 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T15:31:02Z",
+      "databaseId": 37801403881,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T15:31:00Z",
+      "databaseId": 37801398876,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-08T15:30:47Z",
+      "databaseId": 37801366021,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-10-08T15:30:36Z",
       "databaseId": 37801340431,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T15:29:49Z",
       "databaseId": 37801233200,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T15:26:11Z",
       "databaseId": 37800746398,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -87,7 +111,7 @@
       "createdAt": "2026-10-08T15:23:44Z",
       "databaseId": 37800410395,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -107,11 +131,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T15:22:47Z",
       "databaseId": 37800275546,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T15:13:23Z",
-      "databaseId": 37798938643,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T15:13:01Z",
-      "databaseId": 37798889717,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T15:11:26Z",
-      "databaseId": 37798675772,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -316204,6 +316204,11 @@
         "episode_id": 177619,
         "display_name": "Poslední hvězdy stříbrného plátna S01E05 - Navzdory osudu CZ Titulky",
         "video_id": 30101931
+      },
+      {
+        "episode_id": 154267,
+        "display_name": "Druhý nejlepší špitál v galaxii S01E03 - Zítřejší smrt je včerejší problém CZ Titulky",
+        "video_id": 30102343
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -632126,6 +632131,11 @@
         "episode_id": 177619,
         "display_name": "Poslední hvězdy stříbrného plátna S01E05 - Navzdory osudu CZ Titulky",
         "video_id": 30101931
+      },
+      {
+        "episode_id": 154267,
+        "display_name": "Druhý nejlepší špitál v galaxii S01E03 - Zítřejší smrt je včerejší problém CZ Titulky",
+        "video_id": 30102343
       }
     ],
     "prepared_not_upload_ready": [
@@ -633287,7 +633297,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 48,
+    "ok": 51,
+    "disabled": 3,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
