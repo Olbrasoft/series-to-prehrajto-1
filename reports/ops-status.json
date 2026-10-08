@@ -1,29 +1,77 @@
 {
   "counts": {
     "backlog_episodes": 123786,
-    "manifest_upload_ready_episodes": 86,
-    "uploaded_episodes": 67965,
-    "prepared_source_episodes": 63089,
+    "manifest_upload_ready_episodes": 97,
+    "uploaded_episodes": 67966,
+    "prepared_source_episodes": 63111,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 92,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53963,
-    "whisper_review_pending_sources": 36094,
-    "subtitle_followup_sources": 42384,
-    "subtitle_followup_pending_sources": 42384
+    "whisper_review_sources": 53968,
+    "whisper_review_pending_sources": 36115,
+    "subtitle_followup_sources": 42388,
+    "subtitle_followup_pending_sources": 42388
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-08T06:46:37Z",
+      "databaseId": 37739496848,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T06:46:06Z",
+      "databaseId": 37739446605,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-08T06:46:00Z",
+      "databaseId": 37739437361,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T06:45:42Z",
+      "databaseId": 37739407414,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T06:45:37Z",
+      "databaseId": 37739398732,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-08T06:45:34Z",
+      "databaseId": 37739395157,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-08T06:44:30Z",
       "databaseId": 37739288453,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -111,7 +159,7 @@
       "createdAt": "2026-10-08T06:28:55Z",
       "databaseId": 37737834446,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T06:28:18Z",
-      "databaseId": 37737778068,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T06:27:15Z",
-      "databaseId": 37737682907,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T06:27:11Z",
-      "databaseId": 37737676685,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T06:21:54Z",
-      "databaseId": 37737195138,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T06:18:39Z",
-      "databaseId": 37736897833,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T06:18:36Z",
-      "databaseId": 37736894002,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -314279,6 +314279,11 @@
         "episode_id": 173739,
         "display_name": "Topi S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30092368
+      },
+      {
+        "episode_id": 155031,
+        "display_name": "Královny hip hopu S01E01 - 1999 CZ Dabing",
+        "video_id": 30092441
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -628276,6 +628281,11 @@
         "episode_id": 173739,
         "display_name": "Topi S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30092368
+      },
+      {
+        "episode_id": 155031,
+        "display_name": "Královny hip hopu S01E01 - 1999 CZ Dabing",
+        "video_id": 30092441
       }
     ],
     "prepared_not_upload_ready": [
@@ -629437,16 +629447,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 52,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4260,
-    "whisper_non_cz_needs_subtitles": 13609,
+    "whisper_non_cz_needs_subtitles": 13593,
     "whisper_failed": 1394,
-    "needs_whisper": 34700
+    "needs_whisper": 34721
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42384
+    "needs_subtitle_setup_after_prehrajto_processing": 42388
   }
 }
