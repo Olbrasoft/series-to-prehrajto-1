@@ -1,37 +1,133 @@
 {
   "counts": {
     "backlog_episodes": 123663,
-    "manifest_upload_ready_episodes": 120,
-    "uploaded_episodes": 68207,
-    "prepared_source_episodes": 63329,
+    "manifest_upload_ready_episodes": 110,
+    "uploaded_episodes": 68219,
+    "prepared_source_episodes": 63330,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
-    "language_whisper_attempted_sources": 43,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53974,
     "whisper_review_pending_sources": 36179,
-    "subtitle_followup_sources": 42584,
-    "subtitle_followup_pending_sources": 42584
+    "subtitle_followup_sources": 42587,
+    "subtitle_followup_pending_sources": 42587
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-08T12:10:51Z",
-      "databaseId": 37775053988,
+      "createdAt": "2026-10-08T12:22:23Z",
+      "databaseId": 37776386336,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-08T12:22:19Z",
+      "databaseId": 37776378029,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:21:58Z",
+      "databaseId": 37776337250,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:18:39Z",
+      "databaseId": 37775956904,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:17:50Z",
+      "databaseId": 37775865531,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:15:57Z",
+      "databaseId": 37775650309,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:14:55Z",
+      "databaseId": 37775526996,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:14:21Z",
+      "databaseId": 37775457052,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:13:33Z",
+      "databaseId": 37775366178,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:12:06Z",
+      "databaseId": 37775198084,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:12:02Z",
+      "databaseId": 37775189063,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:11:59Z",
+      "databaseId": 37775182927,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:10:51Z",
+      "databaseId": 37775053988,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-08T12:10:37Z",
       "databaseId": 37775028635,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -51,11 +147,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-08T12:06:16Z",
       "databaseId": 37774529332,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -81,102 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T12:00:52Z",
-      "databaseId": 37773903592,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T12:00:02Z",
-      "databaseId": 37773798645,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T11:59:57Z",
-      "databaseId": 37773788133,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:58:57Z",
-      "databaseId": 37773678727,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:58:54Z",
-      "databaseId": 37773672158,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:58:51Z",
-      "databaseId": 37773667171,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:58:50Z",
-      "databaseId": 37773664851,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T11:58:46Z",
-      "databaseId": 37773656402,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:58:38Z",
-      "databaseId": 37773641887,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:57:48Z",
-      "databaseId": 37773549023,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T11:57:08Z",
-      "databaseId": 37773475382,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:56:27Z",
-      "databaseId": 37773401073,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -166796,6 +166796,16 @@
         "video_id": 30099065
       },
       {
+        "episode_id": 122456,
+        "display_name": "Yonderland S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30099133
+      },
+      {
+        "episode_id": 122444,
+        "display_name": "Yonderland S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30099195
+      },
+      {
         "episode_id": 191933,
         "display_name": "Pyžamasky S02E07 - 7. epizoda CZ Dabing",
         "video_id": 30098848
@@ -166819,6 +166829,21 @@
         "episode_id": 177617,
         "display_name": "Poslední hvězdy stříbrného plátna S01E02 - Zrodila se hvězda CZ Titulky",
         "video_id": 30099014
+      },
+      {
+        "episode_id": 128465,
+        "display_name": "Rovnou do pekla S01E02 - 2. díl CZ Dabing",
+        "video_id": 30099137
+      },
+      {
+        "episode_id": 128469,
+        "display_name": "Rovnou do pekla S01E06 - 6. díl CZ Dabing",
+        "video_id": 30099216
+      },
+      {
+        "episode_id": 138109,
+        "display_name": "Prehistorický park S01E04 - Jihoameričtí predátoři CZ Dabing",
+        "video_id": 30099269
       },
       {
         "episode_id": 114182,
@@ -315471,6 +315496,21 @@
         "video_id": 30099030
       },
       {
+        "episode_id": 150722,
+        "display_name": "Je to past! S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30099166
+      },
+      {
+        "episode_id": 150726,
+        "display_name": "Je to past! S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30099207
+      },
+      {
+        "episode_id": 150730,
+        "display_name": "Je to past! S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 30099255
+      },
+      {
         "episode_id": 142427,
         "display_name": "Partners for Justice S02E16 - 16. epizoda CZ Titulky",
         "video_id": 30098855
@@ -315489,6 +315529,26 @@
         "episode_id": 165539,
         "display_name": "From Old Country Bumpkin to Master Swordsman S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30099027
+      },
+      {
+        "episode_id": 117535,
+        "display_name": "Podsvětí S01E01 - 1. díl CZ Dabing",
+        "video_id": 30099094
+      },
+      {
+        "episode_id": 117539,
+        "display_name": "Podsvětí S01E02 - 2. díl CZ Dabing",
+        "video_id": 30099184
+      },
+      {
+        "episode_id": 137539,
+        "display_name": "Poppa's House S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30099263
+      },
+      {
+        "episode_id": 137551,
+        "display_name": "Poppa's House S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30099298
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -482003,6 +482063,16 @@
         "video_id": 30099065
       },
       {
+        "episode_id": 122456,
+        "display_name": "Yonderland S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30099133
+      },
+      {
+        "episode_id": 122444,
+        "display_name": "Yonderland S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30099195
+      },
+      {
         "episode_id": 191933,
         "display_name": "Pyžamasky S02E07 - 7. epizoda CZ Dabing",
         "video_id": 30098848
@@ -482026,6 +482096,21 @@
         "episode_id": 177617,
         "display_name": "Poslední hvězdy stříbrného plátna S01E02 - Zrodila se hvězda CZ Titulky",
         "video_id": 30099014
+      },
+      {
+        "episode_id": 128465,
+        "display_name": "Rovnou do pekla S01E02 - 2. díl CZ Dabing",
+        "video_id": 30099137
+      },
+      {
+        "episode_id": 128469,
+        "display_name": "Rovnou do pekla S01E06 - 6. díl CZ Dabing",
+        "video_id": 30099216
+      },
+      {
+        "episode_id": 138109,
+        "display_name": "Prehistorický park S01E04 - Jihoameričtí predátoři CZ Dabing",
+        "video_id": 30099269
       },
       {
         "episode_id": 114182,
@@ -630678,6 +630763,21 @@
         "video_id": 30099030
       },
       {
+        "episode_id": 150722,
+        "display_name": "Je to past! S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30099166
+      },
+      {
+        "episode_id": 150726,
+        "display_name": "Je to past! S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30099207
+      },
+      {
+        "episode_id": 150730,
+        "display_name": "Je to past! S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 30099255
+      },
+      {
         "episode_id": 142427,
         "display_name": "Partners for Justice S02E16 - 16. epizoda CZ Titulky",
         "video_id": 30098855
@@ -630696,6 +630796,26 @@
         "episode_id": 165539,
         "display_name": "From Old Country Bumpkin to Master Swordsman S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30099027
+      },
+      {
+        "episode_id": 117535,
+        "display_name": "Podsvětí S01E01 - 1. díl CZ Dabing",
+        "video_id": 30099094
+      },
+      {
+        "episode_id": 117539,
+        "display_name": "Podsvětí S01E02 - 2. díl CZ Dabing",
+        "video_id": 30099184
+      },
+      {
+        "episode_id": 137539,
+        "display_name": "Poppa's House S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30099263
+      },
+      {
+        "episode_id": 137551,
+        "display_name": "Poppa's House S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30099298
       }
     ],
     "prepared_not_upload_ready": [
@@ -631857,8 +631977,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 42,
-    "disabled": 2,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -631868,6 +631987,6 @@
     "needs_whisper": 34785
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42584
+    "needs_subtitle_setup_after_prehrajto_processing": 42587
   }
 }
