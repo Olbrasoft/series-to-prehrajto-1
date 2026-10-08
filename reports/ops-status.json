@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 123516,
-    "manifest_upload_ready_episodes": 24,
-    "uploaded_episodes": 68310,
-    "prepared_source_episodes": 63370,
+    "manifest_upload_ready_episodes": 29,
+    "uploaded_episodes": 68315,
+    "prepared_source_episodes": 63376,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 43,
-    "language_whisper_attempted_sources": 28,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53973,
-    "whisper_review_pending_sources": 36170,
-    "subtitle_followup_sources": 42642,
-    "subtitle_followup_pending_sources": 42642
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 50,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 53974,
+    "whisper_review_pending_sources": 36176,
+    "subtitle_followup_sources": 42649,
+    "subtitle_followup_pending_sources": 42649
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-08T14:12:13Z",
-      "databaseId": 37790533786,
+      "createdAt": "2026-10-08T14:17:46Z",
+      "databaseId": 37791280666,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T14:17:04Z",
+      "databaseId": 37791187138,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-08T14:16:22Z",
+      "databaseId": 37791094634,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T14:13:18Z",
+      "databaseId": 37790677202,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T14:13:18Z",
+      "databaseId": 37790676880,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T14:13:04Z",
+      "databaseId": 37790646563,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T14:13:00Z",
+      "databaseId": 37790637238,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-08T14:12:13Z",
+      "databaseId": 37790533786,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-08T14:11:38Z",
       "databaseId": 37790453460,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +115,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T14:09:29Z",
       "databaseId": 37790161130,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T14:00:44Z",
-      "databaseId": 37788959028,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T14:00:28Z",
-      "databaseId": 37788920117,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T13:59:41Z",
-      "databaseId": 37788808498,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T13:59:36Z",
-      "databaseId": 37788797068,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T13:58:27Z",
-      "databaseId": 37788641288,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T13:58:22Z",
-      "databaseId": 37788631961,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T13:58:19Z",
-      "databaseId": 37788624902,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -167086,6 +167086,16 @@
         "video_id": 30100588
       },
       {
+        "episode_id": 131484,
+        "display_name": "Sintonia S04E02 - Kopírka CZ Titulky",
+        "video_id": 30100729
+      },
+      {
+        "episode_id": 203557,
+        "display_name": "Zmizelí S01E03 - Crystal CZ Dabing",
+        "video_id": 30100718
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -316004,6 +316014,21 @@
         "episode_id": 139259,
         "display_name": "Syndrom vraha S01E03 - 3. epizoda CZ Dabing",
         "video_id": 30100639
+      },
+      {
+        "episode_id": 203558,
+        "display_name": "Zmizelí S01E04 - Tiger CZ Dabing",
+        "video_id": 30100717
+      },
+      {
+        "episode_id": 175739,
+        "display_name": "Heksejakt S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30100715
+      },
+      {
+        "episode_id": 130107,
+        "display_name": "The Fable S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30100753
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -482808,6 +482833,16 @@
         "video_id": 30100588
       },
       {
+        "episode_id": 131484,
+        "display_name": "Sintonia S04E02 - Kopírka CZ Titulky",
+        "video_id": 30100729
+      },
+      {
+        "episode_id": 203557,
+        "display_name": "Zmizelí S01E03 - Crystal CZ Dabing",
+        "video_id": 30100718
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -631726,6 +631761,21 @@
         "episode_id": 139259,
         "display_name": "Syndrom vraha S01E03 - 3. epizoda CZ Dabing",
         "video_id": 30100639
+      },
+      {
+        "episode_id": 203558,
+        "display_name": "Zmizelí S01E04 - Tiger CZ Dabing",
+        "video_id": 30100717
+      },
+      {
+        "episode_id": 175739,
+        "display_name": "Heksejakt S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30100715
+      },
+      {
+        "episode_id": 130107,
+        "display_name": "The Fable S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30100753
       }
     ],
     "prepared_not_upload_ready": [
@@ -632887,17 +632937,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 15,
-    "ok": 27,
+    "ok": 49,
+    "disabled": 10,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4263,
-    "whisper_non_cz_needs_subtitles": 13540,
+    "whisper_non_cz_needs_subtitles": 13535,
     "whisper_failed": 1394,
-    "needs_whisper": 34776
+    "needs_whisper": 34782
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42642
+    "needs_subtitle_setup_after_prehrajto_processing": 42649
   }
 }
