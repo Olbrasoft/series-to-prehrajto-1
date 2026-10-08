@@ -1,23 +1,39 @@
 {
   "counts": {
     "backlog_episodes": 123516,
-    "manifest_upload_ready_episodes": 26,
-    "uploaded_episodes": 68303,
-    "prepared_source_episodes": 63354,
+    "manifest_upload_ready_episodes": 35,
+    "uploaded_episodes": 68305,
+    "prepared_source_episodes": 63367,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 21,
+    "language_audited_sources": 36,
+    "language_whisper_attempted_sources": 28,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53973,
-    "whisper_review_pending_sources": 36169,
-    "subtitle_followup_sources": 42637,
-    "subtitle_followup_pending_sources": 42637
+    "whisper_review_sources": 53975,
+    "whisper_review_pending_sources": 36181,
+    "subtitle_followup_sources": 42641,
+    "subtitle_followup_pending_sources": 42641
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T14:02:46Z",
+      "databaseId": 37789245376,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T14:02:08Z",
+      "databaseId": 37789155738,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-08T14:01:03Z",
@@ -27,11 +43,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T14:00:44Z",
       "databaseId": 37788959028,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -43,11 +59,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T13:59:41Z",
       "databaseId": 37788808498,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T13:50:43Z",
-      "databaseId": 37787593769,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T13:49:02Z",
-      "databaseId": 37787364579,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -167051,6 +167051,11 @@
         "video_id": 30100489
       },
       {
+        "episode_id": 150732,
+        "display_name": "Je to past! S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 30100539
+      },
+      {
         "episode_id": 171437,
         "display_name": "Losers S01E08 - 8. epizoda CZ Titulky",
         "video_id": 30100449
@@ -167059,6 +167064,11 @@
         "episode_id": 157269,
         "display_name": "Láska s čokoládovou příchutí S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30100486
+      },
+      {
+        "episode_id": 154265,
+        "display_name": "Druhý nejlepší špitál v galaxii S01E01 - Hlava se občas rozskočí CZ Titulky",
+        "video_id": 30100544
       },
       {
         "episode_id": 114182,
@@ -482738,6 +482748,11 @@
         "video_id": 30100489
       },
       {
+        "episode_id": 150732,
+        "display_name": "Je to past! S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 30100539
+      },
+      {
         "episode_id": 171437,
         "display_name": "Losers S01E08 - 8. epizoda CZ Titulky",
         "video_id": 30100449
@@ -482746,6 +482761,11 @@
         "episode_id": 157269,
         "display_name": "Láska s čokoládovou příchutí S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30100486
+      },
+      {
+        "episode_id": 154265,
+        "display_name": "Druhý nejlepší špitál v galaxii S01E01 - Hlava se občas rozskočí CZ Titulky",
+        "video_id": 30100544
       },
       {
         "episode_id": 114182,
@@ -632817,16 +632837,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 20,
+    "ok": 27,
+    "disabled": 8,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4263,
-    "whisper_non_cz_needs_subtitles": 13541,
+    "whisper_non_cz_needs_subtitles": 13531,
     "whisper_failed": 1394,
-    "needs_whisper": 34775
+    "needs_whisper": 34787
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42637
+    "needs_subtitle_setup_after_prehrajto_processing": 42641
   }
 }
