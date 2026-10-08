@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 123284,
-    "manifest_upload_ready_episodes": 147,
-    "uploaded_episodes": 68543,
-    "prepared_source_episodes": 63861,
+    "manifest_upload_ready_episodes": 143,
+    "uploaded_episodes": 68544,
+    "prepared_source_episodes": 63856,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 53,
-    "language_whisper_attempted_sources": 44,
+    "language_audited_sources": 55,
+    "language_whisper_attempted_sources": 46,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54009,
-    "whisper_review_pending_sources": 36333,
+    "whisper_review_sources": 54008,
+    "whisper_review_pending_sources": 36330,
     "subtitle_followup_sources": 42923,
     "subtitle_followup_pending_sources": 42923
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-08T22:38:58Z",
+      "databaseId": 37854786267,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T22:38:50Z",
+      "databaseId": 37854772594,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T22:38:45Z",
+      "databaseId": 37854764124,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-08T22:37:30Z",
       "databaseId": 37854638609,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "ops-status"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T22:36:06Z",
       "databaseId": 37854495032,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T22:35:26Z",
       "databaseId": 37854425574,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T22:24:35Z",
-      "databaseId": 37853279070,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T22:24:23Z",
-      "databaseId": 37853257797,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T22:23:14Z",
-      "databaseId": 37853133691,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -317169,6 +317169,11 @@
         "episode_id": 113019,
         "display_name": "Dámský podnik S03E11 - 11. epizoda CZ Dabing",
         "video_id": 30109665
+      },
+      {
+        "episode_id": 175399,
+        "display_name": "42 dní temnoty S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30109722
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -634056,6 +634061,11 @@
         "episode_id": 113019,
         "display_name": "Dámský podnik S03E11 - 11. epizoda CZ Dabing",
         "video_id": 30109665
+      },
+      {
+        "episode_id": 175399,
+        "display_name": "42 dní temnoty S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30109722
       }
     ],
     "prepared_not_upload_ready": [
@@ -635217,15 +635227,15 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 45,
     "disabled": 9,
-    "ok": 43,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4237,
-    "whisper_non_cz_needs_subtitles": 13439,
+    "whisper_non_cz_needs_subtitles": 13441,
     "whisper_failed": 1394,
-    "needs_whisper": 34939
+    "needs_whisper": 34936
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 42923
