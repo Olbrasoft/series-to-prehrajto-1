@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 123284,
-    "manifest_upload_ready_episodes": 175,
-    "uploaded_episodes": 68475,
+    "manifest_upload_ready_episodes": 170,
+    "uploaded_episodes": 68477,
     "prepared_source_episodes": 63850,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 69,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54007,
     "whisper_review_pending_sources": 36326,
     "subtitle_followup_sources": 42891,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-08T21:37:44Z",
+      "databaseId": 37848113709,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-08T21:37:35Z",
+      "databaseId": 37848096134,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T21:37:31Z",
+      "databaseId": 37848088010,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T21:36:22Z",
+      "databaseId": 37847955729,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T21:36:18Z",
+      "databaseId": 37847947874,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-08T21:34:58Z",
       "databaseId": 37847791326,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T21:22:19Z",
-      "databaseId": 37846293879,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T21:22:15Z",
-      "databaseId": 37846285624,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T21:21:37Z",
-      "databaseId": 37846211131,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T21:21:19Z",
-      "databaseId": 37846175219,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T21:21:17Z",
-      "databaseId": 37846170929,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -167486,6 +167486,11 @@
         "video_id": 30108623
       },
       {
+        "episode_id": 139076,
+        "display_name": "Wok of Love S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30108676
+      },
+      {
         "episode_id": 175437,
         "display_name": "Elitní agenti Spriggan S01E03 - Les, odkud není návratu CZ Titulky",
         "video_id": 30108508
@@ -316829,6 +316834,11 @@
         "episode_id": 108103,
         "display_name": "Byl jednou jeden… vesmír S01E11 - Vesmírní trosečníci CZ Dabing",
         "video_id": 30108634
+      },
+      {
+        "episode_id": 108123,
+        "display_name": "Byl jednou jeden… vesmír S01E12 - Obři CZ Dabing",
+        "video_id": 30108672
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -484033,6 +484043,11 @@
         "video_id": 30108623
       },
       {
+        "episode_id": 139076,
+        "display_name": "Wok of Love S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30108676
+      },
+      {
         "episode_id": 175437,
         "display_name": "Elitní agenti Spriggan S01E03 - Les, odkud není návratu CZ Titulky",
         "video_id": 30108508
@@ -633376,6 +633391,11 @@
         "episode_id": 108103,
         "display_name": "Byl jednou jeden… vesmír S01E11 - Vesmírní trosečníci CZ Dabing",
         "video_id": 30108634
+      },
+      {
+        "episode_id": 108123,
+        "display_name": "Byl jednou jeden… vesmír S01E12 - Obři CZ Dabing",
+        "video_id": 30108672
       }
     ],
     "prepared_not_upload_ready": [
@@ -634537,8 +634557,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 29,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
