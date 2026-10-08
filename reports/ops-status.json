@@ -1,37 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 123786,
-    "manifest_upload_ready_episodes": 90,
-    "uploaded_episodes": 67985,
-    "prepared_source_episodes": 63106,
+    "manifest_upload_ready_episodes": 94,
+    "uploaded_episodes": 67986,
+    "prepared_source_episodes": 63117,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 63,
+    "language_audited_sources": 84,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53964,
     "whisper_review_pending_sources": 36102,
-    "subtitle_followup_sources": 42394,
-    "subtitle_followup_pending_sources": 42394
+    "subtitle_followup_sources": 42398,
+    "subtitle_followup_pending_sources": 42398
   },
   "workflow_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T07:02:54Z",
+      "databaseId": 37741061890,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T07:02:49Z",
+      "databaseId": 37741055476,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T07:02:46Z",
+      "databaseId": 37741050257,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T07:02:29Z",
+      "databaseId": 37741022497,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-08T07:02:00Z",
       "databaseId": 37740974841,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T07:01:32Z",
       "databaseId": 37740929008,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +75,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-08T07:01:28Z",
       "databaseId": 37740922265,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -107,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T06:46:37Z",
       "databaseId": 37739496848,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T06:45:34Z",
-      "databaseId": 37739395157,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T06:44:30Z",
-      "databaseId": 37739288453,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T06:42:14Z",
-      "databaseId": 37739073833,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T06:40:08Z",
-      "databaseId": 37738876728,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -166264,6 +166264,11 @@
         "episode_id": 102225,
         "display_name": "Kosmokid S03E06 - Kosmokid a slavnostní otevření planety Země CZ Dabing",
         "video_id": 30092676
+      },
+      {
+        "episode_id": 131465,
+        "display_name": "Sintonia S01E01 - Chytili Cacau CZ Titulky",
+        "video_id": 30092713
       },
       {
         "episode_id": 114182,
@@ -480363,6 +480368,11 @@
         "video_id": 30092676
       },
       {
+        "episode_id": 131465,
+        "display_name": "Sintonia S01E01 - Chytili Cacau CZ Titulky",
+        "video_id": 30092713
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -629637,7 +629647,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 23,
+    "disabled": 44,
     "ok": 39,
     "resolve_failed": 1
   },
@@ -629648,6 +629658,6 @@
     "needs_whisper": 34708
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42394
+    "needs_subtitle_setup_after_prehrajto_processing": 42398
   }
 }
