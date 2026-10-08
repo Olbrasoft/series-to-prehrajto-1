@@ -1,37 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 123284,
-    "manifest_upload_ready_episodes": 170,
-    "uploaded_episodes": 68485,
-    "prepared_source_episodes": 63846,
+    "manifest_upload_ready_episodes": 174,
+    "uploaded_episodes": 68487,
+    "prepared_source_episodes": 63859,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 58,
+    "language_audited_sources": 72,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54007,
-    "whisper_review_pending_sources": 36327,
-    "subtitle_followup_sources": 42897,
-    "subtitle_followup_pending_sources": 42897
+    "whisper_review_sources": 54008,
+    "whisper_review_pending_sources": 36331,
+    "subtitle_followup_sources": 42899,
+    "subtitle_followup_pending_sources": 42899
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T21:50:44Z",
+      "databaseId": 37849581371,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T21:50:34Z",
+      "databaseId": 37849561285,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-08T21:49:26Z",
       "databaseId": 37849434600,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-08T21:49:22Z",
       "databaseId": 37849426594,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,19 +59,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T21:48:47Z",
       "databaseId": 37849361081,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T21:48:05Z",
       "databaseId": 37849281590,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T21:37:31Z",
-      "databaseId": 37848088010,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T21:36:22Z",
-      "databaseId": 37847955729,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -167501,6 +167501,11 @@
         "video_id": 30108785
       },
       {
+        "episode_id": 145788,
+        "display_name": "Anthony Bourdain: The Layover S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30108825
+      },
+      {
         "episode_id": 175437,
         "display_name": "Elitní agenti Spriggan S01E03 - Les, odkud není návratu CZ Titulky",
         "video_id": 30108508
@@ -167519,6 +167524,11 @@
         "episode_id": 144269,
         "display_name": "V zájmu lásky S01E13 - 13. epizoda CZ Titulky",
         "video_id": 30108675
+      },
+      {
+        "episode_id": 144273,
+        "display_name": "V zájmu lásky S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30108854
       },
       {
         "episode_id": 114182,
@@ -484098,6 +484108,11 @@
         "video_id": 30108785
       },
       {
+        "episode_id": 145788,
+        "display_name": "Anthony Bourdain: The Layover S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30108825
+      },
+      {
         "episode_id": 175437,
         "display_name": "Elitní agenti Spriggan S01E03 - Les, odkud není návratu CZ Titulky",
         "video_id": 30108508
@@ -484116,6 +484131,11 @@
         "episode_id": 144269,
         "display_name": "V zájmu lásky S01E13 - 13. epizoda CZ Titulky",
         "video_id": 30108675
+      },
+      {
+        "episode_id": 144273,
+        "display_name": "V zájmu lásky S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30108854
       },
       {
         "episode_id": 114182,
@@ -634637,17 +634657,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 18,
+    "disabled": 32,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4237,
-    "whisper_non_cz_needs_subtitles": 13443,
+    "whisper_non_cz_needs_subtitles": 13440,
     "whisper_failed": 1394,
-    "needs_whisper": 34933
+    "needs_whisper": 34937
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42897
+    "needs_subtitle_setup_after_prehrajto_processing": 42899
   }
 }
