@@ -1,29 +1,45 @@
 {
   "counts": {
     "backlog_episodes": 123341,
-    "manifest_upload_ready_episodes": 166,
-    "uploaded_episodes": 68448,
-    "prepared_source_episodes": 63793,
+    "manifest_upload_ready_episodes": 160,
+    "uploaded_episodes": 68449,
+    "prepared_source_episodes": 63786,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 23,
+    "language_whisper_attempted_sources": 23,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54001,
-    "whisper_review_pending_sources": 36293,
-    "subtitle_followup_sources": 42865,
-    "subtitle_followup_pending_sources": 42865
+    "whisper_review_sources": 54000,
+    "whisper_review_pending_sources": 36289,
+    "subtitle_followup_sources": 42868,
+    "subtitle_followup_pending_sources": 42868
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T20:41:13Z",
+      "databaseId": 37841297429,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T20:41:10Z",
+      "databaseId": 37841290918,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-08T20:40:02Z",
       "databaseId": 37841145240,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "update-descriptions"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T20:38:44Z",
       "databaseId": 37840986298,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -51,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T20:38:33Z",
       "databaseId": 37840960395,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T20:23:48Z",
-      "databaseId": 37839124764,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T20:23:44Z",
-      "databaseId": 37839117649,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -316676,6 +316676,11 @@
         "video_id": 30107550
       },
       {
+        "episode_id": 139082,
+        "display_name": "Wok of Love S01E25 - 25. epizoda CZ Titulky",
+        "video_id": 30107772
+      },
+      {
         "episode_id": 191943,
         "display_name": "Pyžamasky S02E17 - 17. epizoda CZ Titulky",
         "video_id": 30107343
@@ -633088,6 +633093,11 @@
         "video_id": 30107550
       },
       {
+        "episode_id": 139082,
+        "display_name": "Wok of Love S01E25 - 25. epizoda CZ Titulky",
+        "video_id": 30107772
+      },
+      {
         "episode_id": 191943,
         "display_name": "Pyžamasky S02E17 - 17. epizoda CZ Titulky",
         "video_id": 30107343
@@ -634267,16 +634277,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 22,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "whisper_confirmed_cz": 4237,
-    "whisper_non_cz_needs_subtitles": 13471,
+    "whisper_non_cz_needs_subtitles": 13474,
     "whisper_failed": 1394,
-    "needs_whisper": 34899
+    "needs_whisper": 34895
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42865
+    "needs_subtitle_setup_after_prehrajto_processing": 42868
   }
 }
