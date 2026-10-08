@@ -1,23 +1,63 @@
 {
   "counts": {
     "backlog_episodes": 123786,
-    "manifest_upload_ready_episodes": 117,
-    "uploaded_episodes": 68009,
-    "prepared_source_episodes": 63143,
+    "manifest_upload_ready_episodes": 125,
+    "uploaded_episodes": 68014,
+    "prepared_source_episodes": 63149,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 137,
-    "language_whisper_attempted_sources": 46,
+    "language_audited_sources": 53,
+    "language_whisper_attempted_sources": 41,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53967,
-    "whisper_review_pending_sources": 36121,
-    "subtitle_followup_sources": 42424,
-    "subtitle_followup_pending_sources": 42424
+    "whisper_review_sources": 53962,
+    "whisper_review_pending_sources": 36096,
+    "subtitle_followup_sources": 42433,
+    "subtitle_followup_pending_sources": 42433
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T07:41:20Z",
+      "databaseId": 37744982660,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-08T07:40:52Z",
+      "databaseId": 37744932613,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T07:38:38Z",
+      "databaseId": 37744699369,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T07:35:44Z",
+      "databaseId": 37744401759,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T07:35:26Z",
+      "databaseId": 37744370898,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-08T07:34:24Z",
@@ -35,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T07:33:50Z",
       "databaseId": 37744206963,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -51,11 +91,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T07:32:43Z",
       "databaseId": 37744088230,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -79,15 +119,15 @@
       "createdAt": "2026-10-08T07:31:39Z",
       "databaseId": 37743978731,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T07:29:32Z",
       "databaseId": 37743751219,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -119,7 +159,7 @@
       "createdAt": "2026-10-08T07:26:16Z",
       "databaseId": 37743418591,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T07:24:07Z",
-      "databaseId": 37743198222,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T07:23:08Z",
-      "databaseId": 37743098204,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T07:23:03Z",
-      "databaseId": 37743089122,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T07:19:21Z",
-      "databaseId": 37742710411,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T07:17:45Z",
-      "databaseId": 37742549517,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -166316,9 +166316,19 @@
         "video_id": 30093667
       },
       {
+        "episode_id": 131472,
+        "display_name": "Sintonia S02E02 - Jiné světy CZ Titulky",
+        "video_id": 30093735
+      },
+      {
         "episode_id": 27081,
         "display_name": "Rychle a zběsile Závodníci v utajení S06E02 - 2. epizoda CZ Dabing",
         "video_id": 30093473
+      },
+      {
+        "episode_id": 173737,
+        "display_name": "Topi S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30093562
       },
       {
         "episode_id": 114182,
@@ -314486,6 +314496,16 @@
         "video_id": 30093636
       },
       {
+        "episode_id": 171434,
+        "display_name": "Losers S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30093708
+      },
+      {
+        "episode_id": 155914,
+        "display_name": "Blue Heelers S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30093780
+      },
+      {
         "episode_id": 158667,
         "display_name": "Buried Hearts S01E10 - 10. epizoda CZ Titulky",
         "video_id": 30093490
@@ -314499,6 +314519,11 @@
         "episode_id": 171187,
         "display_name": "Sthlm Rekviem S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30093664
+      },
+      {
+        "episode_id": 115799,
+        "display_name": "Un village français S03E06 - 6. epizoda CZ Dabing",
+        "video_id": 30093731
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -480533,9 +480558,19 @@
         "video_id": 30093667
       },
       {
+        "episode_id": 131472,
+        "display_name": "Sintonia S02E02 - Jiné světy CZ Titulky",
+        "video_id": 30093735
+      },
+      {
         "episode_id": 27081,
         "display_name": "Rychle a zběsile Závodníci v utajení S06E02 - 2. epizoda CZ Dabing",
         "video_id": 30093473
+      },
+      {
+        "episode_id": 173737,
+        "display_name": "Topi S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30093562
       },
       {
         "episode_id": 114182,
@@ -628703,6 +628738,16 @@
         "video_id": 30093636
       },
       {
+        "episode_id": 171434,
+        "display_name": "Losers S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30093708
+      },
+      {
+        "episode_id": 155914,
+        "display_name": "Blue Heelers S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30093780
+      },
+      {
         "episode_id": 158667,
         "display_name": "Buried Hearts S01E10 - 10. epizoda CZ Titulky",
         "video_id": 30093490
@@ -628716,6 +628761,11 @@
         "episode_id": 171187,
         "display_name": "Sthlm Rekviem S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30093664
+      },
+      {
+        "episode_id": 115799,
+        "display_name": "Un village français S03E06 - 6. epizoda CZ Dabing",
+        "video_id": 30093731
       }
     ],
     "prepared_not_upload_ready": [
@@ -629877,17 +629927,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 91,
-    "ok": 45,
+    "disabled": 12,
+    "ok": 40,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4260,
-    "whisper_non_cz_needs_subtitles": 13586,
+    "whisper_confirmed_cz": 4262,
+    "whisper_non_cz_needs_subtitles": 13604,
     "whisper_failed": 1394,
-    "needs_whisper": 34727
+    "needs_whisper": 34702
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42424
+    "needs_subtitle_setup_after_prehrajto_processing": 42433
   }
 }
