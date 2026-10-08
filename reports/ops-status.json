@@ -1,37 +1,125 @@
 {
   "counts": {
-    "backlog_episodes": 123786,
-    "manifest_upload_ready_episodes": 122,
-    "uploaded_episodes": 68071,
-    "prepared_source_episodes": 63216,
+    "backlog_episodes": 123663,
+    "manifest_upload_ready_episodes": 125,
+    "uploaded_episodes": 68086,
+    "prepared_source_episodes": 63230,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 53971,
-    "whisper_review_pending_sources": 36149,
-    "subtitle_followup_sources": 42468,
-    "subtitle_followup_pending_sources": 42468
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 53972,
+    "whisper_review_pending_sources": 36157,
+    "subtitle_followup_sources": 42476,
+    "subtitle_followup_pending_sources": 42476
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-08T09:09:20Z",
-      "databaseId": 37754676684,
+      "createdAt": "2026-10-08T09:27:44Z",
+      "databaseId": 37756809555,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "prepare-sources"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-08T09:27:30Z",
+      "databaseId": 37756781259,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T09:26:31Z",
+      "databaseId": 37756668184,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T09:24:37Z",
+      "databaseId": 37756442616,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-08T09:23:07Z",
+      "databaseId": 37756266804,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T09:22:49Z",
+      "databaseId": 37756231231,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-08T09:21:57Z",
+      "databaseId": 37756130654,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T09:21:16Z",
+      "databaseId": 37756055310,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T09:18:05Z",
+      "databaseId": 37755693670,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T09:13:05Z",
+      "databaseId": 37755110361,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T09:12:42Z",
+      "databaseId": 37755067009,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T09:09:20Z",
+      "databaseId": 37754676684,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-08T09:07:31Z",
       "databaseId": 37754468753,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T09:07:11Z",
       "databaseId": 37754430115,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -67,11 +155,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T09:06:00Z",
       "databaseId": 37754294346,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -89,94 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T09:01:13Z",
-      "databaseId": 37753745524,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T09:00:47Z",
-      "databaseId": 37753695266,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T09:00:38Z",
-      "databaseId": 37753672785,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T09:00:34Z",
-      "databaseId": 37753665193,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T09:00:31Z",
-      "databaseId": 37753659467,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T09:00:26Z",
-      "databaseId": 37753650444,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T08:59:33Z",
-      "databaseId": 37753546254,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T08:56:00Z",
-      "databaseId": 37753148817,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T08:53:54Z",
-      "databaseId": 37752909861,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-08T08:53:53Z",
-      "databaseId": 37752907598,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-08T08:53:15Z",
-      "databaseId": 37752836542,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -166456,6 +166456,16 @@
         "video_id": 30095450
       },
       {
+        "episode_id": 132704,
+        "display_name": "V bahně S01E04 - 4. díl CZ Dabing",
+        "video_id": 30095580
+      },
+      {
+        "episode_id": 132708,
+        "display_name": "V bahně S01E08 - 8. díl CZ Dabing",
+        "video_id": 30095813
+      },
+      {
         "episode_id": 175737,
         "display_name": "Heksejakt S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30095443
@@ -166469,6 +166479,31 @@
         "episode_id": 159405,
         "display_name": "Specialisté Prvního Zásahu S01E12 - 12. epizoda CZ Titulky",
         "video_id": 30095550
+      },
+      {
+        "episode_id": 159409,
+        "display_name": "Specialisté Prvního Zásahu S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 30095649
+      },
+      {
+        "episode_id": 159413,
+        "display_name": "Specialisté Prvního Zásahu S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 30095735
+      },
+      {
+        "episode_id": 159417,
+        "display_name": "Specialisté Prvního Zásahu S02E12 - 12. epizoda CZ Titulky",
+        "video_id": 30095808
+      },
+      {
+        "episode_id": 135573,
+        "display_name": "Advokát S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30095912
+      },
+      {
+        "episode_id": 135577,
+        "display_name": "Advokát S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 30095940
       },
       {
         "episode_id": 114182,
@@ -314791,6 +314826,36 @@
         "video_id": 30095582
       },
       {
+        "episode_id": 64290,
+        "display_name": "Noční závod S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30095676
+      },
+      {
+        "episode_id": 64294,
+        "display_name": "Noční závod S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30095762
+      },
+      {
+        "episode_id": 165538,
+        "display_name": "From Old Country Bumpkin to Master Swordsman S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30095788
+      },
+      {
+        "episode_id": 117538,
+        "display_name": "Podsvětí S01E06 - 6. díl CZ Dabing",
+        "video_id": 30095849
+      },
+      {
+        "episode_id": 137546,
+        "display_name": "Poppa's House S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30095909
+      },
+      {
+        "episode_id": 157978,
+        "display_name": "Zástěrka S01E06 - I ty, Brute? CZ Titulky",
+        "video_id": 30095936
+      },
+      {
         "episode_id": 27091,
         "display_name": "Rychle a zběsile Závodníci v utajení S06E12 - 12. epizoda CZ Dabing",
         "video_id": 30095454
@@ -314809,6 +314874,16 @@
         "episode_id": 131487,
         "display_name": "Sintonia S04E06 - Šílenec CZ Titulky",
         "video_id": 30095626
+      },
+      {
+        "episode_id": 132703,
+        "display_name": "V bahně S01E03 - 3. díl CZ Dabing",
+        "video_id": 30095681
+      },
+      {
+        "episode_id": 132707,
+        "display_name": "V bahně S01E07 - 7. díl CZ Dabing",
+        "video_id": 30095814
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -480983,6 +481058,16 @@
         "video_id": 30095450
       },
       {
+        "episode_id": 132704,
+        "display_name": "V bahně S01E04 - 4. díl CZ Dabing",
+        "video_id": 30095580
+      },
+      {
+        "episode_id": 132708,
+        "display_name": "V bahně S01E08 - 8. díl CZ Dabing",
+        "video_id": 30095813
+      },
+      {
         "episode_id": 175737,
         "display_name": "Heksejakt S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30095443
@@ -480996,6 +481081,31 @@
         "episode_id": 159405,
         "display_name": "Specialisté Prvního Zásahu S01E12 - 12. epizoda CZ Titulky",
         "video_id": 30095550
+      },
+      {
+        "episode_id": 159409,
+        "display_name": "Specialisté Prvního Zásahu S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 30095649
+      },
+      {
+        "episode_id": 159413,
+        "display_name": "Specialisté Prvního Zásahu S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 30095735
+      },
+      {
+        "episode_id": 159417,
+        "display_name": "Specialisté Prvního Zásahu S02E12 - 12. epizoda CZ Titulky",
+        "video_id": 30095808
+      },
+      {
+        "episode_id": 135573,
+        "display_name": "Advokát S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30095912
+      },
+      {
+        "episode_id": 135577,
+        "display_name": "Advokát S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 30095940
       },
       {
         "episode_id": 114182,
@@ -629318,6 +629428,36 @@
         "video_id": 30095582
       },
       {
+        "episode_id": 64290,
+        "display_name": "Noční závod S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30095676
+      },
+      {
+        "episode_id": 64294,
+        "display_name": "Noční závod S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30095762
+      },
+      {
+        "episode_id": 165538,
+        "display_name": "From Old Country Bumpkin to Master Swordsman S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30095788
+      },
+      {
+        "episode_id": 117538,
+        "display_name": "Podsvětí S01E06 - 6. díl CZ Dabing",
+        "video_id": 30095849
+      },
+      {
+        "episode_id": 137546,
+        "display_name": "Poppa's House S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30095909
+      },
+      {
+        "episode_id": 157978,
+        "display_name": "Zástěrka S01E06 - I ty, Brute? CZ Titulky",
+        "video_id": 30095936
+      },
+      {
         "episode_id": 27091,
         "display_name": "Rychle a zběsile Závodníci v utajení S06E12 - 12. epizoda CZ Dabing",
         "video_id": 30095454
@@ -629336,6 +629476,16 @@
         "episode_id": 131487,
         "display_name": "Sintonia S04E06 - Šílenec CZ Titulky",
         "video_id": 30095626
+      },
+      {
+        "episode_id": 132703,
+        "display_name": "V bahně S01E03 - 3. díl CZ Dabing",
+        "video_id": 30095681
+      },
+      {
+        "episode_id": 132707,
+        "display_name": "V bahně S01E07 - 7. díl CZ Dabing",
+        "video_id": 30095814
       }
     ],
     "prepared_not_upload_ready": [
@@ -630497,16 +630647,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "whisper_confirmed_cz": 4260,
-    "whisper_non_cz_needs_subtitles": 13562,
+    "whisper_confirmed_cz": 4263,
+    "whisper_non_cz_needs_subtitles": 13552,
     "whisper_failed": 1394,
-    "needs_whisper": 34755
+    "needs_whisper": 34763
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42468
+    "needs_subtitle_setup_after_prehrajto_processing": 42476
   }
 }
