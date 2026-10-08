@@ -1,23 +1,71 @@
 {
   "counts": {
     "backlog_episodes": 123663,
-    "manifest_upload_ready_episodes": 124,
-    "uploaded_episodes": 68197,
-    "prepared_source_episodes": 63328,
+    "manifest_upload_ready_episodes": 118,
+    "uploaded_episodes": 68204,
+    "prepared_source_episodes": 63322,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 38,
-    "language_whisper_attempted_sources": 27,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53974,
     "whisper_review_pending_sources": 36179,
-    "subtitle_followup_sources": 42582,
-    "subtitle_followup_pending_sources": 42582
+    "subtitle_followup_sources": 42583,
+    "subtitle_followup_pending_sources": 42583
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:08:48Z",
+      "databaseId": 37774821206,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:08:01Z",
+      "databaseId": 37774731305,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:06:16Z",
+      "databaseId": 37774529332,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:03:49Z",
+      "databaseId": 37774243956,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:02:26Z",
+      "databaseId": 37774088853,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:02:22Z",
+      "databaseId": 37774081556,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-08T12:00:52Z",
@@ -27,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T12:00:02Z",
       "databaseId": 37773798645,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +87,7 @@
       "createdAt": "2026-10-08T11:59:57Z",
       "databaseId": 37773788133,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T11:58:51Z",
       "databaseId": 37773667171,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +131,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T11:58:38Z",
       "databaseId": 37773641887,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:53:46Z",
-      "databaseId": 37773098284,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:53:28Z",
-      "databaseId": 37773065525,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-08T11:52:59Z",
-      "databaseId": 37773010454,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:52:29Z",
-      "databaseId": 37772954695,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:52:25Z",
-      "databaseId": 37772946988,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T11:51:54Z",
-      "databaseId": 37772889672,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -166781,6 +166781,16 @@
         "video_id": 30098893
       },
       {
+        "episode_id": 117540,
+        "display_name": "Podsvětí S01E05 - 5. díl CZ Dabing",
+        "video_id": 30098945
+      },
+      {
+        "episode_id": 137544,
+        "display_name": "Poppa's House S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30099017
+      },
+      {
         "episode_id": 191933,
         "display_name": "Pyžamasky S02E07 - 7. epizoda CZ Dabing",
         "video_id": 30098848
@@ -166794,6 +166804,11 @@
         "episode_id": 142425,
         "display_name": "Partners for Justice S02E14 - 14. epizoda CZ Titulky",
         "video_id": 30098922
+      },
+      {
+        "episode_id": 161957,
+        "display_name": "Snöänglar S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30098970
       },
       {
         "episode_id": 114182,
@@ -315436,9 +315451,29 @@
         "video_id": 30098919
       },
       {
+        "episode_id": 142426,
+        "display_name": "Partners for Justice S02E15 - 15. epizoda CZ Titulky",
+        "video_id": 30098966
+      },
+      {
         "episode_id": 142427,
         "display_name": "Partners for Justice S02E16 - 16. epizoda CZ Titulky",
         "video_id": 30098855
+      },
+      {
+        "episode_id": 64291,
+        "display_name": "Noční závod S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30098934
+      },
+      {
+        "episode_id": 64295,
+        "display_name": "Noční závod S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 30099002
+      },
+      {
+        "episode_id": 165539,
+        "display_name": "From Old Country Bumpkin to Master Swordsman S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30099027
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -481938,6 +481973,16 @@
         "video_id": 30098893
       },
       {
+        "episode_id": 117540,
+        "display_name": "Podsvětí S01E05 - 5. díl CZ Dabing",
+        "video_id": 30098945
+      },
+      {
+        "episode_id": 137544,
+        "display_name": "Poppa's House S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30099017
+      },
+      {
         "episode_id": 191933,
         "display_name": "Pyžamasky S02E07 - 7. epizoda CZ Dabing",
         "video_id": 30098848
@@ -481951,6 +481996,11 @@
         "episode_id": 142425,
         "display_name": "Partners for Justice S02E14 - 14. epizoda CZ Titulky",
         "video_id": 30098922
+      },
+      {
+        "episode_id": 161957,
+        "display_name": "Snöänglar S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30098970
       },
       {
         "episode_id": 114182,
@@ -630593,9 +630643,29 @@
         "video_id": 30098919
       },
       {
+        "episode_id": 142426,
+        "display_name": "Partners for Justice S02E15 - 15. epizoda CZ Titulky",
+        "video_id": 30098966
+      },
+      {
         "episode_id": 142427,
         "display_name": "Partners for Justice S02E16 - 16. epizoda CZ Titulky",
         "video_id": 30098855
+      },
+      {
+        "episode_id": 64291,
+        "display_name": "Noční závod S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30098934
+      },
+      {
+        "episode_id": 64295,
+        "display_name": "Noční závod S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 30099002
+      },
+      {
+        "episode_id": 165539,
+        "display_name": "From Old Country Bumpkin to Master Swordsman S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30099027
       }
     ],
     "prepared_not_upload_ready": [
@@ -631757,8 +631827,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 11,
-    "ok": 26,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -631768,6 +631837,6 @@
     "needs_whisper": 34785
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 42582
+    "needs_subtitle_setup_after_prehrajto_processing": 42583
   }
 }
