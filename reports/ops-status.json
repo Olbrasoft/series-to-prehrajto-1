@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 123284,
     "manifest_upload_ready_episodes": 130,
-    "uploaded_episodes": 68590,
+    "uploaded_episodes": 68591,
     "prepared_source_episodes": 63897,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 61,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54008,
@@ -18,6 +18,46 @@
     "subtitle_followup_pending_sources": 42946
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T23:37:25Z",
+      "databaseId": 37860455853,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T23:37:24Z",
+      "databaseId": 37860455013,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T23:37:20Z",
+      "databaseId": 37860448480,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T23:36:54Z",
+      "databaseId": 37860409910,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T23:35:00Z",
+      "databaseId": 37860234246,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-08T23:33:46Z",
@@ -35,11 +75,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T23:33:16Z",
       "databaseId": 37860076002,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,15 +95,15 @@
       "createdAt": "2026-10-08T23:32:29Z",
       "databaseId": 37860005662,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-08T23:30:16Z",
       "databaseId": 37859795002,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T23:26:29Z",
-      "databaseId": 37859445181,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T23:24:41Z",
-      "databaseId": 37859276389,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T23:23:28Z",
-      "databaseId": 37859160683,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T23:21:18Z",
-      "databaseId": 37858959070,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T23:20:48Z",
-      "databaseId": 37858911752,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -167789,6 +167789,11 @@
         "episode_id": 130977,
         "display_name": "Smrtící střední S02E05 - Kumrán CZ Dabing",
         "video_id": 30110715
+      },
+      {
+        "episode_id": 166217,
+        "display_name": "Savage River S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30110804
       },
       {
         "episode_id": 114182,
@@ -484913,6 +484918,11 @@
         "video_id": 30110715
       },
       {
+        "episode_id": 166217,
+        "display_name": "Savage River S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30110804
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -635687,7 +635697,6 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 21,
     "ok": 39,
     "resolve_failed": 1
   },
