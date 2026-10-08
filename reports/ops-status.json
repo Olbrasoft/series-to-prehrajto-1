@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 123516,
-    "manifest_upload_ready_episodes": 93,
-    "uploaded_episodes": 68234,
-    "prepared_source_episodes": 63333,
+    "manifest_upload_ready_episodes": 83,
+    "uploaded_episodes": 68240,
+    "prepared_source_episodes": 63319,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
@@ -20,34 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-08T12:35:43Z",
-      "databaseId": 37777986668,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T12:35:10Z",
-      "databaseId": 37777919706,
+      "createdAt": "2026-10-08T12:40:01Z",
+      "databaseId": 37778498548,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
-      "createdAt": "2026-10-08T12:34:48Z",
-      "databaseId": 37777875551,
+      "conclusion": "skipped",
+      "createdAt": "2026-10-08T12:39:56Z",
+      "databaseId": 37778488420,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:39:49Z",
+      "databaseId": 37778475377,
+      "headBranch": "main",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-08T12:38:01Z",
+      "databaseId": 37778262293,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:36:27Z",
+      "databaseId": 37778074764,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-08T12:36:24Z",
+      "databaseId": 37778067925,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:35:43Z",
+      "databaseId": 37777986668,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:35:10Z",
+      "databaseId": 37777919706,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-08T12:34:48Z",
+      "databaseId": 37777875551,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-08T12:33:15Z",
       "databaseId": 37777689422,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -107,11 +155,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-08T12:27:21Z",
       "databaseId": 37776970926,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-08T12:23:59Z",
-      "databaseId": 37776572573,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T12:23:41Z",
-      "databaseId": 37776538222,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T12:23:36Z",
-      "databaseId": 37776528751,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T12:23:33Z",
-      "databaseId": 37776522828,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-08T12:22:23Z",
-      "databaseId": 37776386336,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-08T12:22:19Z",
-      "databaseId": 37776378029,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -166861,6 +166861,16 @@
         "video_id": 30099436
       },
       {
+        "episode_id": 161952,
+        "display_name": "Snöänglar S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30099511
+      },
+      {
+        "episode_id": 161956,
+        "display_name": "Snöänglar S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30099550
+      },
+      {
         "episode_id": 191937,
         "display_name": "Pyžamasky S02E11 - 11. epizoda CZ Dabing",
         "video_id": 30099382
@@ -166884,6 +166894,11 @@
         "episode_id": 157281,
         "display_name": "Láska s čokoládovou příchutí S01E14 - 14. epizoda CZ Titulky",
         "video_id": 30099502
+      },
+      {
+        "episode_id": 170637,
+        "display_name": "The Sound of Your Heart S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30099530
       },
       {
         "episode_id": 114182,
@@ -315606,6 +315621,16 @@
         "video_id": 30099490
       },
       {
+        "episode_id": 130106,
+        "display_name": "The Fable S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30099521
+      },
+      {
+        "episode_id": 130110,
+        "display_name": "The Fable S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30099542
+      },
+      {
         "episode_id": 191935,
         "display_name": "Pyžamasky S02E09 - 9. epizoda CZ Dabing",
         "video_id": 30099379
@@ -315624,6 +315649,11 @@
         "episode_id": 122443,
         "display_name": "Yonderland S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30099487
+      },
+      {
+        "episode_id": 122455,
+        "display_name": "Yonderland S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30099513
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -482203,6 +482233,16 @@
         "video_id": 30099436
       },
       {
+        "episode_id": 161952,
+        "display_name": "Snöänglar S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30099511
+      },
+      {
+        "episode_id": 161956,
+        "display_name": "Snöänglar S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30099550
+      },
+      {
         "episode_id": 191937,
         "display_name": "Pyžamasky S02E11 - 11. epizoda CZ Dabing",
         "video_id": 30099382
@@ -482226,6 +482266,11 @@
         "episode_id": 157281,
         "display_name": "Láska s čokoládovou příchutí S01E14 - 14. epizoda CZ Titulky",
         "video_id": 30099502
+      },
+      {
+        "episode_id": 170637,
+        "display_name": "The Sound of Your Heart S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30099530
       },
       {
         "episode_id": 114182,
@@ -630948,6 +630993,16 @@
         "video_id": 30099490
       },
       {
+        "episode_id": 130106,
+        "display_name": "The Fable S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30099521
+      },
+      {
+        "episode_id": 130110,
+        "display_name": "The Fable S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30099542
+      },
+      {
         "episode_id": 191935,
         "display_name": "Pyžamasky S02E09 - 9. epizoda CZ Dabing",
         "video_id": 30099379
@@ -630966,6 +631021,11 @@
         "episode_id": 122443,
         "display_name": "Yonderland S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30099487
+      },
+      {
+        "episode_id": 122455,
+        "display_name": "Yonderland S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30099513
       }
     ],
     "prepared_not_upload_ready": [
