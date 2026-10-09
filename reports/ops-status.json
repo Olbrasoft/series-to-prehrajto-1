@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 122944,
-    "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 68815,
-    "prepared_source_episodes": 64023,
+    "manifest_upload_ready_episodes": 12,
+    "uploaded_episodes": 68818,
+    "prepared_source_episodes": 64018,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54001,
     "whisper_review_pending_sources": 36287,
     "subtitle_followup_sources": 43043,
@@ -20,10 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-09T03:55:44Z",
+      "databaseId": 37881508520,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T03:55:39Z",
+      "databaseId": 37881501673,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T03:54:31Z",
+      "databaseId": 37881416350,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T03:52:55Z",
+      "databaseId": 37881292345,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T03:52:52Z",
+      "databaseId": 37881287904,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T03:52:34Z",
+      "databaseId": 37881264449,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-09T03:51:46Z",
       "databaseId": 37881204187,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +79,7 @@
       "createdAt": "2026-10-09T03:51:41Z",
       "databaseId": 37881197400,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -51,11 +99,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T03:49:16Z",
       "databaseId": 37881015385,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +131,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-09T03:43:55Z",
       "databaseId": 37880610502,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-09T03:41:10Z",
-      "databaseId": 37880399924,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-09T03:38:45Z",
-      "databaseId": 37880221199,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T03:37:57Z",
-      "databaseId": 37880163523,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T03:37:54Z",
-      "databaseId": 37880159687,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T03:37:52Z",
-      "databaseId": 37880156644,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T03:36:47Z",
-      "databaseId": 37880075552,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -168374,6 +168374,21 @@
         "episode_id": 141772,
         "display_name": "Dvě mrtvoly a sedm pytlů peněz S01E03 - 3. díl CZ Dabing",
         "video_id": 30115034
+      },
+      {
+        "episode_id": 141776,
+        "display_name": "Dvě mrtvoly a sedm pytlů peněz S01E07 - 7. díl CZ Dabing",
+        "video_id": 30115068
+      },
+      {
+        "episode_id": 93244,
+        "display_name": "Východní křídlo S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30115104
+      },
+      {
+        "episode_id": 93248,
+        "display_name": "Východní křídlo S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30115118
       },
       {
         "episode_id": 93245,
@@ -486623,6 +486638,21 @@
         "video_id": 30115034
       },
       {
+        "episode_id": 141776,
+        "display_name": "Dvě mrtvoly a sedm pytlů peněz S01E07 - 7. díl CZ Dabing",
+        "video_id": 30115068
+      },
+      {
+        "episode_id": 93244,
+        "display_name": "Východní křídlo S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30115104
+      },
+      {
+        "episode_id": 93248,
+        "display_name": "Východní křídlo S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30115118
+      },
+      {
         "episode_id": 93245,
         "display_name": "Východní křídlo S01E05 - 5. epizoda CZ Dabing",
         "video_id": 30114856
@@ -637937,7 +637967,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
