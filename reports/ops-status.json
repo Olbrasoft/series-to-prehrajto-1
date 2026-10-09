@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 122478,
-    "manifest_upload_ready_episodes": 12,
+    "manifest_upload_ready_episodes": 15,
     "uploaded_episodes": 69259,
-    "prepared_source_episodes": 64500,
+    "prepared_source_episodes": 64509,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 57,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54004,
-    "whisper_review_pending_sources": 36340,
-    "subtitle_followup_sources": 43421,
-    "subtitle_followup_pending_sources": 43421
+    "whisper_review_sources": 54005,
+    "whisper_review_pending_sources": 36349,
+    "subtitle_followup_sources": 43422,
+    "subtitle_followup_pending_sources": 43422
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T15:22:49Z",
+      "databaseId": 37951292613,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T15:22:45Z",
+      "databaseId": 37951283892,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T15:22:01Z",
+      "databaseId": 37951191116,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T15:21:59Z",
+      "databaseId": 37951185447,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-09T15:21:27Z",
@@ -35,11 +67,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T15:20:30Z",
       "databaseId": 37950999431,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-09T15:18:27Z",
       "databaseId": 37950741089,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-09T15:08:56Z",
       "databaseId": 37949535290,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-09T15:08:24Z",
-      "databaseId": 37949469067,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-09T15:06:49Z",
-      "databaseId": 37949263278,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T15:06:18Z",
-      "databaseId": 37949198595,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T15:06:08Z",
-      "databaseId": 37949176624,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -641586,6 +641586,14 @@
         "status": "needs_whisper"
       },
       {
+        "episode_id": 128580,
+        "source_id": -64577187621998393,
+        "series_title": "2point4 Children",
+        "episode_code": "S04E06",
+        "source_title": "2Point4.Children.S04E06",
+        "status": "needs_whisper"
+      },
+      {
         "episode_id": 116503,
         "source_id": -34240468124363691,
         "series_title": "3 mimo: Příběhy z Arkádie",
@@ -641911,14 +641919,6 @@
         "series_title": "A Town Called Malice",
         "episode_code": "S01E03",
         "source_title": "A.Town.Called.Malice.S01E03.Two.Tribes.1080p.NOW.WEB-DL.DDP5.1.H.264-FLUX",
-        "status": "needs_whisper"
-      },
-      {
-        "episode_id": 65786,
-        "source_id": -3721388712468640,
-        "series_title": "A Town Called Malice",
-        "episode_code": "S01E05",
-        "source_title": "A.Town.Called.Malice.S01E05.Cruel.Summer.1080p.NOW.WEB-DL.DDP5.1.H.264-FLUX",
         "status": "needs_whisper"
       }
     ],
@@ -642377,16 +642377,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 17,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 34963,
-    "whisper_confirmed_cz": 4185,
-    "whisper_non_cz_needs_subtitles": 13479,
+    "needs_whisper": 34972,
+    "whisper_confirmed_cz": 4180,
+    "whisper_non_cz_needs_subtitles": 13476,
     "whisper_failed": 1377
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 43421
+    "needs_subtitle_setup_after_prehrajto_processing": 43422
   }
 }
