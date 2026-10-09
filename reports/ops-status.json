@@ -1,45 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 122703,
-    "manifest_upload_ready_episodes": 12,
-    "uploaded_episodes": 69041,
-    "prepared_source_episodes": 64248,
+    "manifest_upload_ready_episodes": 16,
+    "uploaded_episodes": 69045,
+    "prepared_source_episodes": 64258,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 34,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 74,
+    "language_whisper_attempted_sources": 28,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 53999,
-    "whisper_review_pending_sources": 36280,
-    "subtitle_followup_sources": 43239,
-    "subtitle_followup_pending_sources": 43239
+    "whisper_review_sources": 53996,
+    "whisper_review_pending_sources": 36262,
+    "subtitle_followup_sources": 43245,
+    "subtitle_followup_pending_sources": 43245
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-09T09:32:05Z",
-      "databaseId": 37911890346,
+      "createdAt": "2026-10-09T09:38:54Z",
+      "databaseId": 37912620185,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-09T09:32:01Z",
-      "databaseId": 37911882621,
+      "createdAt": "2026-10-09T09:37:19Z",
+      "databaseId": 37912449828,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T09:35:05Z",
+      "databaseId": 37912209474,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T09:33:16Z",
+      "databaseId": 37912013549,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-09T09:33:11Z",
+      "databaseId": 37912006132,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T09:33:04Z",
+      "databaseId": 37911993609,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T09:32:05Z",
+      "databaseId": 37911890346,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-09T09:32:01Z",
+      "databaseId": 37911882621,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-09T09:31:33Z",
       "databaseId": 37911834383,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -67,11 +115,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T09:30:09Z",
       "databaseId": 37911676743,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T09:28:17Z",
       "databaseId": 37911474715,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T09:26:13Z",
-      "databaseId": 37911255802,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T09:25:14Z",
-      "databaseId": 37911147173,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-09T09:23:41Z",
-      "databaseId": 37910982299,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T09:22:53Z",
-      "databaseId": 37910894846,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T09:21:46Z",
-      "databaseId": 37910775401,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T09:18:13Z",
-      "databaseId": 37910393731,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -168916,6 +168916,16 @@
         "video_id": 30121424
       },
       {
+        "episode_id": 109556,
+        "display_name": "Salón Eliott S03E02 - 2. epizoda CZ Dabing",
+        "video_id": 30121614
+      },
+      {
+        "episode_id": 157416,
+        "display_name": "Vyškrtnutí S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30121670
+      },
+      {
         "episode_id": 133701,
         "display_name": "Jekatěrina S03E08 - 8. epizoda CZ Titulky",
         "video_id": 30121546
@@ -168924,6 +168934,11 @@
         "episode_id": 109557,
         "display_name": "Salón Eliott S03E03 - 3. epizoda CZ Dabing",
         "video_id": 30121569
+      },
+      {
+        "episode_id": 157417,
+        "display_name": "Vyškrtnutí S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30121599
       },
       {
         "episode_id": 114182,
@@ -319659,6 +319674,11 @@
         "episode_id": 159439,
         "display_name": "Projekt 1619: Historie otroctví S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30121566
+      },
+      {
+        "episode_id": 143439,
+        "display_name": "Amidst a Snowstorm of Love S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30121582
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -488293,6 +488313,16 @@
         "video_id": 30121424
       },
       {
+        "episode_id": 109556,
+        "display_name": "Salón Eliott S03E02 - 2. epizoda CZ Dabing",
+        "video_id": 30121614
+      },
+      {
+        "episode_id": 157416,
+        "display_name": "Vyškrtnutí S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30121670
+      },
+      {
         "episode_id": 133701,
         "display_name": "Jekatěrina S03E08 - 8. epizoda CZ Titulky",
         "video_id": 30121546
@@ -488301,6 +488331,11 @@
         "episode_id": 109557,
         "display_name": "Salón Eliott S03E03 - 3. epizoda CZ Dabing",
         "video_id": 30121569
+      },
+      {
+        "episode_id": 157417,
+        "display_name": "Vyškrtnutí S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30121599
       },
       {
         "episode_id": 114182,
@@ -639036,6 +639071,11 @@
         "episode_id": 159439,
         "display_name": "Projekt 1619: Historie otroctví S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30121566
+      },
+      {
+        "episode_id": 143439,
+        "display_name": "Amidst a Snowstorm of Love S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30121582
       }
     ],
     "prepared_not_upload_ready": [
@@ -640197,17 +640237,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 14,
-    "ok": 19,
+    "disabled": 46,
+    "ok": 27,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 34888,
+    "needs_whisper": 34870,
     "whisper_confirmed_cz": 4237,
-    "whisper_non_cz_needs_subtitles": 13482,
+    "whisper_non_cz_needs_subtitles": 13497,
     "whisper_failed": 1392
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 43239
+    "needs_subtitle_setup_after_prehrajto_processing": 43245
   }
 }
