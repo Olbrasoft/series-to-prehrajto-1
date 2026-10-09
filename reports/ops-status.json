@@ -1,37 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 123076,
-    "manifest_upload_ready_episodes": 23,
-    "uploaded_episodes": 68784,
-    "prepared_source_episodes": 63986,
+    "manifest_upload_ready_episodes": 26,
+    "uploaded_episodes": 68785,
+    "prepared_source_episodes": 63997,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
+    "language_audited_sources": 61,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54001,
-    "whisper_review_pending_sources": 36289,
-    "subtitle_followup_sources": 43025,
-    "subtitle_followup_pending_sources": 43025
+    "whisper_review_sources": 54002,
+    "whisper_review_pending_sources": 36290,
+    "subtitle_followup_sources": 43027,
+    "subtitle_followup_pending_sources": 43027
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-09T02:53:44Z",
-      "databaseId": 37876728221,
+      "createdAt": "2026-10-09T02:55:06Z",
+      "databaseId": 37876835931,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-09T02:54:55Z",
+      "databaseId": 37876820397,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T02:54:51Z",
+      "databaseId": 37876815575,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T02:54:37Z",
+      "databaseId": 37876797246,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T02:53:44Z",
+      "databaseId": 37876728221,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-09T02:53:40Z",
       "databaseId": 37876723305,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -131,11 +163,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T02:39:00Z",
       "databaseId": 37875570343,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T02:38:18Z",
-      "databaseId": 37875517497,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T02:38:14Z",
-      "databaseId": 37875513454,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T02:38:12Z",
-      "databaseId": 37875510616,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-09T02:37:47Z",
-      "databaseId": 37875480247,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -168269,6 +168269,11 @@
         "episode_id": 140392,
         "display_name": "Lidstvo: Příběh nás všech S01E07 - 7. epizoda CZ Dabing",
         "video_id": 30114267
+      },
+      {
+        "episode_id": 119480,
+        "display_name": "100 věcí, které byste měli udělat před střední S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30114282
       },
       {
         "episode_id": 141773,
@@ -486363,6 +486368,11 @@
         "video_id": 30114267
       },
       {
+        "episode_id": 119480,
+        "display_name": "100 věcí, které byste měli udělat před střední S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30114282
+      },
+      {
         "episode_id": 141773,
         "display_name": "Dvě mrtvoly a sedm pytlů peněz S01E04 - 4. díl CZ Dabing",
         "video_id": 30114238
@@ -637627,17 +637637,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
+    "disabled": 21,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 34895,
+    "needs_whisper": 34896,
     "whisper_confirmed_cz": 4240,
     "whisper_non_cz_needs_subtitles": 13472,
     "whisper_failed": 1394
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 43025
+    "needs_subtitle_setup_after_prehrajto_processing": 43027
   }
 }
