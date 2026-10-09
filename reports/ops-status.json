@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 122832,
-    "manifest_upload_ready_episodes": 24,
-    "uploaded_episodes": 68922,
-    "prepared_source_episodes": 64185,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 68927,
+    "prepared_source_episodes": 64175,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 79,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54004,
@@ -18,6 +18,54 @@
     "subtitle_followup_pending_sources": 43131
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T07:13:37Z",
+      "databaseId": 37897808880,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T07:09:58Z",
+      "databaseId": 37897467639,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T07:09:35Z",
+      "databaseId": 37897432955,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T07:08:15Z",
+      "databaseId": 37897312527,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-09T07:08:03Z",
+      "databaseId": 37897294884,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T07:07:40Z",
+      "databaseId": 37897262148,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-09T07:06:18Z",
@@ -35,19 +83,19 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T07:06:11Z",
       "databaseId": 37897121658,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T07:05:29Z",
       "databaseId": 37897056010,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +131,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T07:02:52Z",
       "databaseId": 37896802049,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -119,7 +167,7 @@
       "createdAt": "2026-10-09T06:56:59Z",
       "databaseId": 37896250279,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T06:55:51Z",
-      "databaseId": 37896144552,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T06:49:44Z",
-      "databaseId": 37895584081,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-09T06:49:05Z",
-      "databaseId": 37895528628,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T06:49:00Z",
-      "databaseId": 37895521196,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-09T06:48:35Z",
-      "databaseId": 37895483757,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T06:45:04Z",
-      "databaseId": 37895167956,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -168631,6 +168631,16 @@
         "video_id": 30118228
       },
       {
+        "episode_id": 133473,
+        "display_name": "Bronzová zahrada S03E08 - 8. epizoda CZ Dabing",
+        "video_id": 30118312
+      },
+      {
+        "episode_id": 94381,
+        "display_name": "Jekatěrina S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 30118348
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -319051,6 +319061,16 @@
         "video_id": 30118276
       },
       {
+        "episode_id": 145642,
+        "display_name": "La caza S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30118307
+      },
+      {
+        "episode_id": 133714,
+        "display_name": "Strange Empire S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30118356
+      },
+      {
         "episode_id": 190247,
         "display_name": "Vlčí král S01E04 - Wyrmwood CZ Dabing",
         "video_id": 30118223
@@ -319064,6 +319084,11 @@
         "episode_id": 133715,
         "display_name": "Strange Empire S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30118279
+      },
+      {
+        "episode_id": 165399,
+        "display_name": "Dope S01E01 - Americký šálek kávy CZ Titulky",
+        "video_id": 30118299
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -487413,6 +487438,16 @@
         "video_id": 30118228
       },
       {
+        "episode_id": 133473,
+        "display_name": "Bronzová zahrada S03E08 - 8. epizoda CZ Dabing",
+        "video_id": 30118312
+      },
+      {
+        "episode_id": 94381,
+        "display_name": "Jekatěrina S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 30118348
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -637833,6 +637868,16 @@
         "video_id": 30118276
       },
       {
+        "episode_id": 145642,
+        "display_name": "La caza S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30118307
+      },
+      {
+        "episode_id": 133714,
+        "display_name": "Strange Empire S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30118356
+      },
+      {
         "episode_id": 190247,
         "display_name": "Vlčí král S01E04 - Wyrmwood CZ Dabing",
         "video_id": 30118223
@@ -637846,6 +637891,11 @@
         "episode_id": 133715,
         "display_name": "Strange Empire S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30118279
+      },
+      {
+        "episode_id": 165399,
+        "display_name": "Dope S01E01 - Americký šálek kávy CZ Titulky",
+        "video_id": 30118299
       }
     ],
     "prepared_not_upload_ready": [
@@ -639007,7 +639057,6 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 39,
     "ok": 39,
     "resolve_failed": 1
   },
