@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 122944,
     "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 68875,
+    "uploaded_episodes": 68876,
     "prepared_source_episodes": 64102,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 67,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 53999,
@@ -19,19 +19,59 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-09T05:40:01Z",
+      "databaseId": 37889662832,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T05:39:56Z",
+      "databaseId": 37889655842,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T05:39:52Z",
+      "databaseId": 37889650194,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-09T05:37:40Z",
+      "databaseId": 37889478530,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-09T05:37:36Z",
+      "databaseId": 37889474087,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-10-09T05:37:13Z",
       "databaseId": 37889442675,
       "headBranch": "main",
-      "status": "queued",
+      "status": "pending",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T05:36:30Z",
       "databaseId": 37889386242,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-09T05:30:20Z",
       "databaseId": 37888885654,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T05:27:09Z",
-      "databaseId": 37888633717,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T05:27:05Z",
-      "databaseId": 37888629363,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-09T05:26:17Z",
-      "databaseId": 37888566544,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T05:26:02Z",
-      "databaseId": 37888548174,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-09T05:25:42Z",
-      "databaseId": 37888521619,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -318829,6 +318829,11 @@
         "episode_id": 134267,
         "display_name": "Bronzová zahrada S02E05 - 5. epizoda CZ Dabing",
         "video_id": 30116464
+      },
+      {
+        "episode_id": 134350,
+        "display_name": "Králův avatar S01E40 - 40. epizoda CZ Titulky",
+        "video_id": 30116757
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -637376,6 +637381,11 @@
         "episode_id": 134267,
         "display_name": "Bronzová zahrada S02E05 - 5. epizoda CZ Dabing",
         "video_id": 30116464
+      },
+      {
+        "episode_id": 134350,
+        "display_name": "Králův avatar S01E40 - 40. epizoda CZ Titulky",
+        "video_id": 30116757
       }
     ],
     "prepared_not_upload_ready": [
@@ -638537,7 +638547,6 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 27,
     "ok": 39,
     "resolve_failed": 1
   },
