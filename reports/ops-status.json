@@ -1,23 +1,63 @@
 {
   "counts": {
     "backlog_episodes": 121813,
-    "manifest_upload_ready_episodes": 9,
-    "uploaded_episodes": 69942,
-    "prepared_source_episodes": 65405,
+    "manifest_upload_ready_episodes": 10,
+    "uploaded_episodes": 69950,
+    "prepared_source_episodes": 65404,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 22,
+    "language_whisper_attempted_sources": 22,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54065,
-    "whisper_review_pending_sources": 36736,
-    "subtitle_followup_sources": 43918,
-    "subtitle_followup_pending_sources": 43918
+    "whisper_review_pending_sources": 36734,
+    "subtitle_followup_sources": 43920,
+    "subtitle_followup_pending_sources": 43920
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T10:05:11Z",
+      "databaseId": 38043674633,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T10:05:04Z",
+      "databaseId": 38043666466,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T10:04:11Z",
+      "databaseId": 38043614349,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T10:00:15Z",
+      "databaseId": 38043375539,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T09:59:02Z",
+      "databaseId": 38043304630,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-10T09:56:56Z",
@@ -27,19 +67,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T09:56:56Z",
       "databaseId": 38043189167,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T09:56:53Z",
       "databaseId": 38043186648,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -55,7 +95,7 @@
       "createdAt": "2026-10-10T09:56:19Z",
       "databaseId": 38043152709,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -67,19 +107,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-10T09:55:45Z",
       "databaseId": 38043120623,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T09:55:40Z",
       "databaseId": 38043114887,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -91,11 +131,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T09:55:22Z",
       "databaseId": 38043096636,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T09:52:49Z",
-      "databaseId": 38042944385,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-10T09:52:22Z",
-      "databaseId": 38042919690,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-10T09:51:34Z",
-      "databaseId": 38042873261,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T09:51:34Z",
-      "databaseId": 38042872934,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T09:51:29Z",
-      "databaseId": 38042868668,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -171161,6 +171161,26 @@
         "video_id": 30146327
       },
       {
+        "episode_id": 124568,
+        "display_name": "Missing: The Other Side S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 30146640
+      },
+      {
+        "episode_id": 142900,
+        "display_name": "Callboys S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 30146694
+      },
+      {
+        "episode_id": 176105,
+        "display_name": "Pátrání po vetřelcích S01E06 - Mimozemská identita CZ Dabing",
+        "video_id": 30146637
+      },
+      {
+        "episode_id": 175377,
+        "display_name": "Drôle S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30146705
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -324164,6 +324184,26 @@
         "episode_id": 124567,
         "display_name": "Missing: The Other Side S02E04 - 4. epizoda CZ Titulky",
         "video_id": 30146561
+      },
+      {
+        "episode_id": 154798,
+        "display_name": "Sneakerheads S01E04 - Případ se sendvičem CZ Titulky",
+        "video_id": 30146632
+      },
+      {
+        "episode_id": 170307,
+        "display_name": "Crash S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30146646
+      },
+      {
+        "episode_id": 142899,
+        "display_name": "Callboys S02E05 - 5. epizoda CZ Dabing",
+        "video_id": 30146735
+      },
+      {
+        "episode_id": 177163,
+        "display_name": "Pouliční strava: Latinská Amerika S01E05 - Bogotá, Kolumbie CZ Titulky",
+        "video_id": 30146749
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -495043,6 +495083,26 @@
         "video_id": 30146327
       },
       {
+        "episode_id": 124568,
+        "display_name": "Missing: The Other Side S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 30146640
+      },
+      {
+        "episode_id": 142900,
+        "display_name": "Callboys S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 30146694
+      },
+      {
+        "episode_id": 176105,
+        "display_name": "Pátrání po vetřelcích S01E06 - Mimozemská identita CZ Dabing",
+        "video_id": 30146637
+      },
+      {
+        "episode_id": 175377,
+        "display_name": "Drôle S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30146705
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -648046,6 +648106,26 @@
         "episode_id": 124567,
         "display_name": "Missing: The Other Side S02E04 - 4. epizoda CZ Titulky",
         "video_id": 30146561
+      },
+      {
+        "episode_id": 154798,
+        "display_name": "Sneakerheads S01E04 - Případ se sendvičem CZ Titulky",
+        "video_id": 30146632
+      },
+      {
+        "episode_id": 170307,
+        "display_name": "Crash S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30146646
+      },
+      {
+        "episode_id": 142899,
+        "display_name": "Callboys S02E05 - 5. epizoda CZ Dabing",
+        "video_id": 30146735
+      },
+      {
+        "episode_id": 177163,
+        "display_name": "Pouliční strava: Latinská Amerika S01E05 - Bogotá, Kolumbie CZ Titulky",
+        "video_id": 30146749
       }
     ],
     "prepared_not_upload_ready": [
@@ -649207,16 +649287,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 21,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35379,
+    "needs_whisper": 35377,
     "whisper_confirmed_cz": 4060,
-    "whisper_non_cz_needs_subtitles": 13269,
+    "whisper_non_cz_needs_subtitles": 13271,
     "whisper_failed": 1357
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 43918
+    "needs_subtitle_setup_after_prehrajto_processing": 43920
   }
 }
