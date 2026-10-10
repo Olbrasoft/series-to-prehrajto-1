@@ -1,29 +1,77 @@
 {
   "counts": {
     "backlog_episodes": 121652,
-    "manifest_upload_ready_episodes": 149,
-    "uploaded_episodes": 70169,
-    "prepared_source_episodes": 65910,
+    "manifest_upload_ready_episodes": 153,
+    "uploaded_episodes": 70172,
+    "prepared_source_episodes": 65916,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 62,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 88,
+    "language_whisper_attempted_sources": 48,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54084,
-    "whisper_review_pending_sources": 36860,
-    "subtitle_followup_sources": 44145,
-    "subtitle_followup_pending_sources": 44145
+    "whisper_review_sources": 54087,
+    "whisper_review_pending_sources": 36872,
+    "subtitle_followup_sources": 44149,
+    "subtitle_followup_pending_sources": 44149
   },
   "workflow_runs": [
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-10T18:22:16Z",
+      "databaseId": 38075499789,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-10-10T18:22:04Z",
+      "databaseId": 38075485704,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T18:22:00Z",
+      "databaseId": 38075481544,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T18:21:00Z",
+      "databaseId": 38075415993,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T18:20:13Z",
+      "databaseId": 38075362231,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T18:15:02Z",
+      "databaseId": 38075014668,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-10T18:14:04Z",
       "databaseId": 38074951354,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T18:13:38Z",
       "databaseId": 38074921201,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -67,11 +115,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-10T18:11:43Z",
       "databaseId": 38074792587,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T18:09:17Z",
       "databaseId": 38074630436,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T18:00:12Z",
-      "databaseId": 38074011961,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T18:00:08Z",
-      "databaseId": 38074006602,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T18:00:08Z",
-      "databaseId": 38074006577,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T18:00:06Z",
-      "databaseId": 38074004507,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T18:00:04Z",
-      "databaseId": 38074001716,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T17:58:59Z",
-      "databaseId": 38073931063,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -171694,6 +171694,21 @@
         "episode_id": 140969,
         "display_name": "Population 11 S01E11 - 11. epizoda CZ Titulky",
         "video_id": 30155793
+      },
+      {
+        "episode_id": 158825,
+        "display_name": "Action S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30155829
+      },
+      {
+        "episode_id": 177145,
+        "display_name": "Atlanta's Missing and Murdered: The Lost Children S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30155874
+      },
+      {
+        "episode_id": 177149,
+        "display_name": "Atlanta's Missing and Murdered: The Lost Children S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30155902
       },
       {
         "episode_id": 114182,
@@ -496713,6 +496728,21 @@
         "video_id": 30155793
       },
       {
+        "episode_id": 158825,
+        "display_name": "Action S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30155829
+      },
+      {
+        "episode_id": 177145,
+        "display_name": "Atlanta's Missing and Murdered: The Lost Children S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30155874
+      },
+      {
+        "episode_id": 177149,
+        "display_name": "Atlanta's Missing and Murdered: The Lost Children S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30155902
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -651477,17 +651507,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 22,
-    "ok": 39,
+    "disabled": 40,
+    "ok": 47,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35512,
+    "needs_whisper": 35524,
     "whisper_confirmed_cz": 4031,
-    "whisper_non_cz_needs_subtitles": 13193,
+    "whisper_non_cz_needs_subtitles": 13184,
     "whisper_failed": 1348
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44145
+    "needs_subtitle_setup_after_prehrajto_processing": 44149
   }
 }
