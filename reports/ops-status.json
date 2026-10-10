@@ -2,22 +2,46 @@
   "counts": {
     "backlog_episodes": 121545,
     "manifest_upload_ready_episodes": 304,
-    "uploaded_episodes": 70230,
+    "uploaded_episodes": 70231,
     "prepared_source_episodes": 66235,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 55,
-    "language_whisper_attempted_sources": 44,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54094,
     "whisper_review_pending_sources": 36898,
     "subtitle_followup_sources": 44269,
     "subtitle_followup_pending_sources": 44269
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T22:36:17Z",
+      "databaseId": 38092048645,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T22:35:55Z",
+      "databaseId": 38092025318,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T22:35:52Z",
+      "databaseId": 38092021598,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-10T22:34:43Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T22:33:46Z",
       "databaseId": 38091890701,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-10T22:20:28Z",
-      "databaseId": 38091053981,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T22:20:27Z",
-      "databaseId": 38091052188,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-10T22:17:27Z",
-      "databaseId": 38090863716,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -325566,6 +325566,11 @@
         "video_id": 30160192
       },
       {
+        "episode_id": 87170,
+        "display_name": "Don Matteo S06E15 - Já tě zachráním CZ Dabing",
+        "video_id": 30160294
+      },
+      {
         "episode_id": 198903,
         "display_name": "Star Wars: Dobrodružství Freemakerů S01E09 - 9. epizoda CZ Dabing",
         "video_id": 30159623
@@ -650888,6 +650893,11 @@
         "video_id": 30160192
       },
       {
+        "episode_id": 87170,
+        "display_name": "Don Matteo S06E15 - Já tě zachráním CZ Dabing",
+        "video_id": 30160294
+      },
+      {
         "episode_id": 198903,
         "display_name": "Star Wars: Dobrodružství Freemakerů S01E09 - 9. epizoda CZ Dabing",
         "video_id": 30159623
@@ -652087,8 +652097,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 11,
-    "ok": 43,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
