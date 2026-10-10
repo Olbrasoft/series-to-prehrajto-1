@@ -1,45 +1,141 @@
 {
   "counts": {
     "backlog_episodes": 122084,
-    "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 69759,
-    "prepared_source_episodes": 65020,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 69767,
+    "prepared_source_episodes": 65022,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 52,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54055,
     "whisper_review_pending_sources": 36666,
-    "subtitle_followup_sources": 43745,
-    "subtitle_followup_pending_sources": 43745
+    "subtitle_followup_sources": 43747,
+    "subtitle_followup_pending_sources": 43747
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-10T03:10:11Z",
-      "databaseId": 38019608715,
+      "createdAt": "2026-10-10T03:23:28Z",
+      "databaseId": 38020386371,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T03:23:23Z",
+      "databaseId": 38020381579,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T03:22:51Z",
+      "databaseId": 38020351075,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T03:21:49Z",
+      "databaseId": 38020291362,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-10T03:20:33Z",
+      "databaseId": 38020218267,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-10T03:17:46Z",
+      "databaseId": 38020056134,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T03:17:42Z",
+      "databaseId": 38020051941,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T03:14:28Z",
+      "databaseId": 38019860620,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-10T03:10:08Z",
-      "databaseId": 38019604634,
+      "createdAt": "2026-10-10T03:13:42Z",
+      "databaseId": 38019816300,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-status"
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-10T03:11:49Z",
+      "databaseId": 38019704337,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T03:11:43Z",
+      "databaseId": 38019698715,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-10T03:10:54Z",
+      "databaseId": 38019652247,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T03:10:11Z",
+      "databaseId": 38019608715,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T03:10:08Z",
+      "databaseId": 38019604634,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-10T03:09:28Z",
       "databaseId": 38019566967,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,19 +147,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T03:08:48Z",
       "databaseId": 38019529069,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T03:08:46Z",
       "databaseId": 38019526877,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -81,102 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T03:07:27Z",
-      "databaseId": 38019451027,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-10T03:07:20Z",
-      "databaseId": 38019444821,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T03:04:19Z",
-      "databaseId": 38019262025,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T03:04:14Z",
-      "databaseId": 38019256409,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T03:03:09Z",
-      "databaseId": 38019190835,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T03:02:33Z",
-      "databaseId": 38019156244,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-10T03:02:33Z",
-      "databaseId": 38019156200,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T03:02:12Z",
-      "databaseId": 38019135111,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T03:02:06Z",
-      "databaseId": 38019129216,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T03:02:00Z",
-      "databaseId": 38019122117,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T03:02:00Z",
-      "databaseId": 38019122016,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T03:00:51Z",
-      "databaseId": 38019050328,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -170711,6 +170711,21 @@
         "video_id": 30140535
       },
       {
+        "episode_id": 103364,
+        "display_name": "Najdi si mě v Paříži S03E16 - 16. epizoda CZ Titulky",
+        "video_id": 30140583
+      },
+      {
+        "episode_id": 102344,
+        "display_name": "Návrat do ráje S02E03 - 3. epizoda CZ Dabing",
+        "video_id": 30140643
+      },
+      {
+        "episode_id": 173853,
+        "display_name": "A League of Their Own S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30140637
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -323249,6 +323264,31 @@
         "episode_id": 103363,
         "display_name": "Najdi si mě v Paříži S03E17 - 17. epizoda CZ Titulky",
         "video_id": 30140585
+      },
+      {
+        "episode_id": 175318,
+        "display_name": "Voir S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30140647
+      },
+      {
+        "episode_id": 31662,
+        "display_name": "Ultrafialoví S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 30140664
+      },
+      {
+        "episode_id": 134558,
+        "display_name": "Femme Fatales S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 30140684
+      },
+      {
+        "episode_id": 176027,
+        "display_name": "SPRINT S01E04 - KVALIFIKACE CZ Dabing",
+        "video_id": 30140654
+      },
+      {
+        "episode_id": 31663,
+        "display_name": "Ultrafialoví S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 30140703
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -493678,6 +493718,21 @@
         "video_id": 30140535
       },
       {
+        "episode_id": 103364,
+        "display_name": "Najdi si mě v Paříži S03E16 - 16. epizoda CZ Titulky",
+        "video_id": 30140583
+      },
+      {
+        "episode_id": 102344,
+        "display_name": "Návrat do ráje S02E03 - 3. epizoda CZ Dabing",
+        "video_id": 30140643
+      },
+      {
+        "episode_id": 173853,
+        "display_name": "A League of Their Own S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30140637
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -646216,6 +646271,31 @@
         "episode_id": 103363,
         "display_name": "Najdi si mě v Paříži S03E17 - 17. epizoda CZ Titulky",
         "video_id": 30140585
+      },
+      {
+        "episode_id": 175318,
+        "display_name": "Voir S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30140647
+      },
+      {
+        "episode_id": 31662,
+        "display_name": "Ultrafialoví S01E09 - 9. epizoda CZ Dabing",
+        "video_id": 30140664
+      },
+      {
+        "episode_id": 134558,
+        "display_name": "Femme Fatales S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 30140684
+      },
+      {
+        "episode_id": 176027,
+        "display_name": "SPRINT S01E04 - KVALIFIKACE CZ Dabing",
+        "video_id": 30140654
+      },
+      {
+        "episode_id": 31663,
+        "display_name": "Ultrafialoví S01E10 - 10. epizoda CZ Dabing",
+        "video_id": 30140703
       }
     ],
     "prepared_not_upload_ready": [
@@ -647377,17 +647457,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 12,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 35307,
-    "whisper_confirmed_cz": 4060,
-    "whisper_non_cz_needs_subtitles": 13329,
+    "whisper_confirmed_cz": 4061,
+    "whisper_non_cz_needs_subtitles": 13328,
     "whisper_failed": 1359
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 43745
+    "needs_subtitle_setup_after_prehrajto_processing": 43747
   }
 }
