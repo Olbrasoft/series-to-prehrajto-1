@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 121652,
-    "manifest_upload_ready_episodes": 145,
-    "uploaded_episodes": 70157,
-    "prepared_source_episodes": 65889,
+    "manifest_upload_ready_episodes": 152,
+    "uploaded_episodes": 70158,
+    "prepared_source_episodes": 65897,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 46,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 69,
+    "language_whisper_attempted_sources": 25,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54084,
-    "whisper_review_pending_sources": 36862,
-    "subtitle_followup_sources": 44140,
-    "subtitle_followup_pending_sources": 44140
+    "whisper_review_sources": 54083,
+    "whisper_review_pending_sources": 36855,
+    "subtitle_followup_sources": 44143,
+    "subtitle_followup_pending_sources": 44143
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T17:58:59Z",
+      "databaseId": 38073931063,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-10T17:57:39Z",
+      "databaseId": 38073846311,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T17:57:33Z",
+      "databaseId": 38073840534,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T17:55:10Z",
+      "databaseId": 38073687498,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-10T17:54:21Z",
@@ -39,15 +71,15 @@
       "createdAt": "2026-10-10T17:53:50Z",
       "databaseId": 38073599707,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T17:53:03Z",
       "databaseId": 38073547802,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T17:52:46Z",
       "databaseId": 38073529093,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T17:45:00Z",
-      "databaseId": 38073001032,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T17:43:50Z",
-      "databaseId": 38072922156,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-10T17:43:32Z",
-      "databaseId": 38072901913,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T17:42:56Z",
-      "databaseId": 38072861133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -325239,6 +325239,11 @@
         "episode_id": 140967,
         "display_name": "Population 11 S01E09 - 9. epizoda CZ Titulky",
         "video_id": 30155479
+      },
+      {
+        "episode_id": 158823,
+        "display_name": "Action S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30155511
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -650196,6 +650201,11 @@
         "episode_id": 140967,
         "display_name": "Population 11 S01E09 - 9. epizoda CZ Titulky",
         "video_id": 30155479
+      },
+      {
+        "episode_id": 158823,
+        "display_name": "Action S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30155511
       }
     ],
     "prepared_not_upload_ready": [
@@ -651357,17 +651367,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 26,
-    "ok": 19,
+    "disabled": 44,
+    "ok": 24,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35514,
+    "needs_whisper": 35507,
     "whisper_confirmed_cz": 4031,
-    "whisper_non_cz_needs_subtitles": 13191,
+    "whisper_non_cz_needs_subtitles": 13197,
     "whisper_failed": 1348
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44140
+    "needs_subtitle_setup_after_prehrajto_processing": 44143
   }
 }
