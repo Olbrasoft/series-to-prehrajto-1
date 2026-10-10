@@ -1,37 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 121652,
-    "manifest_upload_ready_episodes": 109,
-    "uploaded_episodes": 70135,
-    "prepared_source_episodes": 65793,
+    "manifest_upload_ready_episodes": 107,
+    "uploaded_episodes": 70136,
+    "prepared_source_episodes": 65792,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 85,
-    "language_whisper_attempted_sources": 48,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 24,
+    "language_whisper_attempted_sources": 24,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54084,
-    "whisper_review_pending_sources": 36852,
-    "subtitle_followup_sources": 44109,
-    "subtitle_followup_pending_sources": 44109
+    "whisper_review_pending_sources": 36848,
+    "subtitle_followup_sources": 44112,
+    "subtitle_followup_pending_sources": 44112
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-10T16:33:17Z",
-      "databaseId": 38068135130,
+      "createdAt": "2026-10-10T16:37:48Z",
+      "databaseId": 38068439626,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-10T16:37:14Z",
+      "databaseId": 38068403817,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T16:33:17Z",
+      "databaseId": 38068135130,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-10T16:33:14Z",
       "databaseId": 38068131594,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -39,15 +55,15 @@
       "createdAt": "2026-10-10T16:32:56Z",
       "databaseId": 38068111132,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T16:32:19Z",
       "databaseId": 38068069800,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -91,11 +107,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T16:31:22Z",
       "databaseId": 38068006197,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T16:20:57Z",
-      "databaseId": 38067294310,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-10T16:19:14Z",
-      "databaseId": 38067177486,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -171609,6 +171609,11 @@
         "episode_id": 157209,
         "display_name": "Awaken S01E03 - Pozůstalí CZ Titulky",
         "video_id": 30154295
+      },
+      {
+        "episode_id": 157213,
+        "display_name": "Awaken S01E07 - Pronásledování Jung Wooa CZ Titulky",
+        "video_id": 30154346
       },
       {
         "episode_id": 114182,
@@ -496458,6 +496463,11 @@
         "video_id": 30154295
       },
       {
+        "episode_id": 157213,
+        "display_name": "Awaken S01E07 - Pronásledování Jung Wooa CZ Titulky",
+        "video_id": 30154346
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -651137,17 +651147,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 37,
-    "ok": 47,
+    "ok": 23,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35504,
+    "needs_whisper": 35500,
     "whisper_confirmed_cz": 4037,
-    "whisper_non_cz_needs_subtitles": 13195,
+    "whisper_non_cz_needs_subtitles": 13199,
     "whisper_failed": 1348
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44109
+    "needs_subtitle_setup_after_prehrajto_processing": 44112
   }
 }
