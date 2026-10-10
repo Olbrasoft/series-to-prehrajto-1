@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 121545,
-    "manifest_upload_ready_episodes": 308,
-    "uploaded_episodes": 70241,
+    "manifest_upload_ready_episodes": 304,
+    "uploaded_episodes": 70242,
     "prepared_source_episodes": 66264,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 67,
-    "language_whisper_attempted_sources": 53,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54095,
     "whisper_review_pending_sources": 36900,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 44281
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T23:05:10Z",
+      "databaseId": 38093783541,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T23:04:26Z",
+      "databaseId": 38093739362,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T23:04:23Z",
+      "databaseId": 38093735809,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "skipped",
       "createdAt": "2026-10-10T23:03:59Z",
@@ -35,11 +59,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T23:03:20Z",
       "databaseId": 38093673779,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T22:55:27Z",
       "databaseId": 38093202472,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-10-10T22:51:22Z",
       "databaseId": 38092958102,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-10T22:51:20Z",
-      "databaseId": 38092955707,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T22:49:09Z",
-      "databaseId": 38092824841,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T22:48:36Z",
-      "databaseId": 38092792348,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -171874,6 +171874,11 @@
         "episode_id": 198897,
         "display_name": "Star Wars: Dobrodružství Freemakerů S01E03 - 3. epizoda CZ Dabing",
         "video_id": 30160608
+      },
+      {
+        "episode_id": 87173,
+        "display_name": "Don Matteo S06E18 - Blízké setkání CZ Dabing",
+        "video_id": 30160650
       },
       {
         "episode_id": 114182,
@@ -497253,6 +497258,11 @@
         "video_id": 30160608
       },
       {
+        "episode_id": 87173,
+        "display_name": "Don Matteo S06E18 - Blízké setkání CZ Dabing",
+        "video_id": 30160650
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -652197,8 +652207,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 14,
-    "ok": 52,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
