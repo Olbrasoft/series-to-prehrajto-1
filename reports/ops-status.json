@@ -1,37 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 121731,
-    "manifest_upload_ready_episodes": 93,
-    "uploaded_episodes": 70089,
-    "prepared_source_episodes": 65697,
+    "manifest_upload_ready_episodes": 94,
+    "uploaded_episodes": 70090,
+    "prepared_source_episodes": 65704,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 28,
+    "language_audited_sources": 32,
     "language_whisper_attempted_sources": 28,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54068,
-    "whisper_review_pending_sources": 36771,
+    "whisper_review_sources": 54069,
+    "whisper_review_pending_sources": 36774,
     "subtitle_followup_sources": 44066,
     "subtitle_followup_pending_sources": 44066
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-10T15:05:25Z",
-      "databaseId": 38062203412,
+      "createdAt": "2026-10-10T15:09:40Z",
+      "databaseId": 38062480980,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T15:08:45Z",
+      "databaseId": 38062422127,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-10T15:08:40Z",
+      "databaseId": 38062415419,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T15:08:26Z",
+      "databaseId": 38062399605,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T15:05:25Z",
+      "databaseId": 38062203412,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-10T15:02:49Z",
       "databaseId": 38062027789,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -131,11 +163,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T14:54:35Z",
       "databaseId": 38061481065,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T14:54:26Z",
-      "databaseId": 38061471282,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T14:51:57Z",
-      "databaseId": 38061305384,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T14:51:54Z",
-      "databaseId": 38061301435,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-10T14:51:15Z",
-      "databaseId": 38061262257,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -171494,6 +171494,11 @@
         "episode_id": 176104,
         "display_name": "Pátrání po vetřelcích S01E05 - Světla z Phoenixu CZ Dabing",
         "video_id": 30152560
+      },
+      {
+        "episode_id": 175376,
+        "display_name": "Drôle S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30152955
       },
       {
         "episode_id": 178577,
@@ -496113,6 +496118,11 @@
         "video_id": 30152560
       },
       {
+        "episode_id": 175376,
+        "display_name": "Drôle S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30152955
+      },
+      {
         "episode_id": 178577,
         "display_name": "Persona S01E02 - Sběratelka CZ Titulky",
         "video_id": 30152624
@@ -650677,13 +650687,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 4,
     "ok": 27,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35422,
-    "whisper_confirmed_cz": 4047,
-    "whisper_non_cz_needs_subtitles": 13250,
+    "needs_whisper": 35425,
+    "whisper_confirmed_cz": 4044,
+    "whisper_non_cz_needs_subtitles": 13251,
     "whisper_failed": 1349
   },
   "subtitle_followup_statuses": {
