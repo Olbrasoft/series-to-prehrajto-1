@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 121575,
-    "manifest_upload_ready_episodes": 247,
-    "uploaded_episodes": 70196,
-    "prepared_source_episodes": 66075,
+    "manifest_upload_ready_episodes": 249,
+    "uploaded_episodes": 70197,
+    "prepared_source_episodes": 66086,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 69,
+    "language_audited_sources": 80,
     "language_whisper_attempted_sources": 48,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54092,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-10T20:25:29Z",
-      "databaseId": 38083690857,
+      "createdAt": "2026-10-10T20:27:43Z",
+      "databaseId": 38083833531,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-10T20:27:40Z",
+      "databaseId": 38083830352,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T20:26:36Z",
+      "databaseId": 38083763020,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-10T20:26:16Z",
+      "databaseId": 38083741836,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T20:25:29Z",
+      "databaseId": 38083690857,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-10T20:24:21Z",
       "databaseId": 38083616511,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-10T20:11:23Z",
-      "databaseId": 38082759753,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T20:09:57Z",
-      "databaseId": 38082659180,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T20:08:54Z",
-      "databaseId": 38082592287,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-10T20:08:51Z",
-      "databaseId": 38082588684,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -325434,6 +325434,11 @@
         "episode_id": 192919,
         "display_name": "Ridley Jonesová: Strážkyně muzea S04E02 - 2. epizoda CZ Dabing",
         "video_id": 30158567
+      },
+      {
+        "episode_id": 177147,
+        "display_name": "Atlanta's Missing and Murdered: The Lost Children S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30158628
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -650586,6 +650591,11 @@
         "episode_id": 192919,
         "display_name": "Ridley Jonesová: Strážkyně muzea S04E02 - 2. epizoda CZ Dabing",
         "video_id": 30158567
+      },
+      {
+        "episode_id": 177147,
+        "display_name": "Atlanta's Missing and Murdered: The Lost Children S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30158628
       }
     ],
     "prepared_not_upload_ready": [
@@ -651747,7 +651757,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 21,
+    "disabled": 32,
     "ok": 47,
     "resolve_failed": 1
   },
