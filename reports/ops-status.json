@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 121731,
-    "manifest_upload_ready_episodes": 72,
-    "uploaded_episodes": 70054,
-    "prepared_source_episodes": 65628,
+    "manifest_upload_ready_episodes": 75,
+    "uploaded_episodes": 70055,
+    "prepared_source_episodes": 65638,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 80,
+    "language_audited_sources": 92,
     "language_whisper_attempted_sources": 46,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54064,
     "whisper_review_pending_sources": 36751,
-    "subtitle_followup_sources": 44019,
-    "subtitle_followup_pending_sources": 44019
+    "subtitle_followup_sources": 44021,
+    "subtitle_followup_pending_sources": 44021
   },
   "workflow_runs": [
     {
-      "conclusion": "",
-      "createdAt": "2026-10-10T13:53:26Z",
-      "databaseId": 38057464626,
+      "conclusion": "success",
+      "createdAt": "2026-10-10T13:54:27Z",
+      "databaseId": 38057528648,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-10T13:54:24Z",
+      "databaseId": 38057524761,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T13:54:24Z",
+      "databaseId": 38057524636,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T13:54:23Z",
+      "databaseId": 38057524169,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T13:54:20Z",
+      "databaseId": 38057520866,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-10T13:54:17Z",
+      "databaseId": 38057517448,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T13:54:13Z",
+      "databaseId": 38057513702,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-10T13:53:26Z",
+      "databaseId": 38057464626,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-10T13:53:18Z",
       "databaseId": 38057455679,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +155,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-10T13:45:52Z",
       "databaseId": 38056978023,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T13:45:27Z",
-      "databaseId": 38056948036,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T13:45:20Z",
-      "databaseId": 38056940543,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T13:45:11Z",
-      "databaseId": 38056929328,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T13:45:08Z",
-      "databaseId": 38056926330,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T13:44:02Z",
-      "databaseId": 38056855131,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T13:42:55Z",
-      "databaseId": 38056783499,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T13:42:18Z",
-      "databaseId": 38056744259,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -171424,6 +171424,11 @@
         "episode_id": 178576,
         "display_name": "Persona S01E01 - Nulová Láska CZ Titulky",
         "video_id": 30151338
+      },
+      {
+        "episode_id": 177036,
+        "display_name": "Mladý Van Helsing S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30151385
       },
       {
         "episode_id": 177161,
@@ -495868,6 +495873,11 @@
         "video_id": 30151338
       },
       {
+        "episode_id": 177036,
+        "display_name": "Mladý Van Helsing S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30151385
+      },
+      {
         "episode_id": 177161,
         "display_name": "Pouliční strava: Latinská Amerika S01E03 - Oaxaca, Mexiko CZ Titulky",
         "video_id": 30151256
@@ -650327,7 +650337,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 34,
+    "disabled": 46,
     "ok": 45,
     "resolve_failed": 1
   },
@@ -650338,6 +650348,6 @@
     "whisper_failed": 1355
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44019
+    "needs_subtitle_setup_after_prehrajto_processing": 44021
   }
 }
