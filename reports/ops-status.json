@@ -1,8 +1,8 @@
 {
   "counts": {
     "backlog_episodes": 121545,
-    "manifest_upload_ready_episodes": 307,
-    "uploaded_episodes": 70234,
+    "manifest_upload_ready_episodes": 306,
+    "uploaded_episodes": 70235,
     "prepared_source_episodes": 66251,
     "description_series": 60,
     "description_episodes": 753,
@@ -12,18 +12,50 @@
     "language_audited_sources": 37,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54095,
-    "whisper_review_pending_sources": 36901,
+    "whisper_review_sources": 54093,
+    "whisper_review_pending_sources": 36894,
     "subtitle_followup_sources": 44273,
     "subtitle_followup_pending_sources": 44273
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-10T22:51:27Z",
+      "databaseId": 38092963727,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-10T22:51:22Z",
+      "databaseId": 38092958102,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-10T22:51:20Z",
+      "databaseId": 38092955707,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-10T22:49:09Z",
+      "databaseId": 38092824841,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-10T22:48:36Z",
       "databaseId": 38092792348,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T22:47:42Z",
       "databaseId": 38092738986,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-10T22:46:38Z",
       "databaseId": 38092676910,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -103,7 +135,7 @@
       "createdAt": "2026-10-10T22:46:02Z",
       "databaseId": 38092642392,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -127,7 +159,7 @@
       "createdAt": "2026-10-10T22:42:36Z",
       "databaseId": 38092434909,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-10T22:40:33Z",
-      "databaseId": 38092312004,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T22:40:18Z",
-      "databaseId": 38092293338,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-10T22:38:06Z",
-      "databaseId": 38092157129,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-10T22:38:03Z",
-      "databaseId": 38092153678,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -171814,6 +171814,11 @@
         "episode_id": 108872,
         "display_name": "ANZAC Girls S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30160427
+      },
+      {
+        "episode_id": 153220,
+        "display_name": "Naše oceány S01E05 - Jižní oceán CZ Dabing",
+        "video_id": 30160508
       },
       {
         "episode_id": 198917,
@@ -497158,6 +497163,11 @@
         "video_id": 30160427
       },
       {
+        "episode_id": 153220,
+        "display_name": "Naše oceány S01E05 - Jižní oceán CZ Dabing",
+        "video_id": 30160508
+      },
+      {
         "episode_id": 198917,
         "display_name": "Star Wars: Dobrodružství Freemakerů S02E10 - 10. epizoda CZ Dabing",
         "video_id": 30159596
@@ -652132,9 +652142,9 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35553,
+    "needs_whisper": 35546,
     "whisper_confirmed_cz": 4025,
-    "whisper_non_cz_needs_subtitles": 13169,
+    "whisper_non_cz_needs_subtitles": 13174,
     "whisper_failed": 1348
   },
   "subtitle_followup_statuses": {
