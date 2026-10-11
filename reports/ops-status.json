@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 121314,
-    "manifest_upload_ready_episodes": 271,
-    "uploaded_episodes": 70444,
-    "prepared_source_episodes": 66388,
+    "manifest_upload_ready_episodes": 260,
+    "uploaded_episodes": 70455,
+    "prepared_source_episodes": 66399,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 29,
-    "language_whisper_attempted_sources": 29,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54122,
-    "whisper_review_pending_sources": 37054,
-    "subtitle_followup_sources": 44407,
-    "subtitle_followup_pending_sources": 44407
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54123,
+    "whisper_review_pending_sources": 37061,
+    "subtitle_followup_sources": 44408,
+    "subtitle_followup_pending_sources": 44408
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T03:37:53Z",
-      "databaseId": 38109007439,
+      "createdAt": "2026-10-11T03:46:30Z",
+      "databaseId": 38109464733,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-11T03:45:57Z",
+      "databaseId": 38109436013,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-11T03:45:51Z",
+      "databaseId": 38109431458,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T03:42:26Z",
+      "databaseId": 38109247650,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-11T03:41:07Z",
+      "databaseId": 38109178975,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T03:39:07Z",
+      "databaseId": 38109070624,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T03:37:53Z",
+      "databaseId": 38109007439,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-11T03:34:59Z",
       "databaseId": 38108850363,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -43,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T03:34:14Z",
       "databaseId": 38108810996,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -91,19 +139,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-11T03:31:45Z",
       "databaseId": 38108674381,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T03:30:14Z",
       "databaseId": 38108585911,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T03:27:07Z",
-      "databaseId": 38108419607,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-11T03:26:49Z",
-      "databaseId": 38108403623,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-11T03:25:27Z",
-      "databaseId": 38108330756,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T03:24:48Z",
-      "databaseId": 38108292409,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T03:22:10Z",
-      "databaseId": 38108154340,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T03:22:08Z",
-      "databaseId": 38108152203,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -172361,6 +172361,21 @@
         "video_id": 30164044
       },
       {
+        "episode_id": 118732,
+        "display_name": "Nevyslovitelné hříchy S01E03 - Beznaděj CZ Dabing",
+        "video_id": 30164237
+      },
+      {
+        "episode_id": 118736,
+        "display_name": "Nevyslovitelné hříchy S01E07 - Pád státního zástupce CZ Dabing",
+        "video_id": 30164350
+      },
+      {
+        "episode_id": 118740,
+        "display_name": "Nevyslovitelné hříchy S01E11 - Vydírání CZ Dabing",
+        "video_id": 30164395
+      },
+      {
         "episode_id": 87217,
         "display_name": "Don Matteo S08E16 - 16. epizoda CZ Titulky",
         "video_id": 30163878
@@ -172379,6 +172394,26 @@
         "episode_id": 127021,
         "display_name": "Spy City S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30164037
+      },
+      {
+        "episode_id": 158321,
+        "display_name": "Dokonalé míjení S01E04 - Náplast s kočkou CZ Titulky",
+        "video_id": 30164266
+      },
+      {
+        "episode_id": 158325,
+        "display_name": "Dokonalé míjení S01E08 - Marburg je pro zamilované CZ Titulky",
+        "video_id": 30164348
+      },
+      {
+        "episode_id": 177557,
+        "display_name": "Monique Olivier: Součást zla S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30164383
+      },
+      {
+        "episode_id": 17857,
+        "display_name": "Dáma S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30164411
       },
       {
         "episode_id": 114182,
@@ -326646,6 +326681,16 @@
         "video_id": 30164000
       },
       {
+        "episode_id": 164686,
+        "display_name": "Příběhy Želv ninja S02E02 - Souboj o mutantí titul CZ Dabing",
+        "video_id": 30164079
+      },
+      {
+        "episode_id": 164682,
+        "display_name": "Příběhy Želv ninja S02E07 - Návrat Nočního ninji CZ Dabing",
+        "video_id": 30164339
+      },
+      {
         "episode_id": 87219,
         "display_name": "Don Matteo S08E18 - 18. epizoda CZ Titulky",
         "video_id": 30163869
@@ -326674,6 +326719,16 @@
         "episode_id": 116043,
         "display_name": "Sýr pro Ameriku S01E01 - Poselství Kennyho Sharpa CZ Titulky",
         "video_id": 30164043
+      },
+      {
+        "episode_id": 116047,
+        "display_name": "Sýr pro Ameriku S01E05 - Inventura otcovství CZ Titulky",
+        "video_id": 30164085
+      },
+      {
+        "episode_id": 17859,
+        "display_name": "Dáma S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30164293
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -498753,6 +498808,21 @@
         "video_id": 30164044
       },
       {
+        "episode_id": 118732,
+        "display_name": "Nevyslovitelné hříchy S01E03 - Beznaděj CZ Dabing",
+        "video_id": 30164237
+      },
+      {
+        "episode_id": 118736,
+        "display_name": "Nevyslovitelné hříchy S01E07 - Pád státního zástupce CZ Dabing",
+        "video_id": 30164350
+      },
+      {
+        "episode_id": 118740,
+        "display_name": "Nevyslovitelné hříchy S01E11 - Vydírání CZ Dabing",
+        "video_id": 30164395
+      },
+      {
         "episode_id": 87217,
         "display_name": "Don Matteo S08E16 - 16. epizoda CZ Titulky",
         "video_id": 30163878
@@ -498771,6 +498841,26 @@
         "episode_id": 127021,
         "display_name": "Spy City S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30164037
+      },
+      {
+        "episode_id": 158321,
+        "display_name": "Dokonalé míjení S01E04 - Náplast s kočkou CZ Titulky",
+        "video_id": 30164266
+      },
+      {
+        "episode_id": 158325,
+        "display_name": "Dokonalé míjení S01E08 - Marburg je pro zamilované CZ Titulky",
+        "video_id": 30164348
+      },
+      {
+        "episode_id": 177557,
+        "display_name": "Monique Olivier: Součást zla S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30164383
+      },
+      {
+        "episode_id": 17857,
+        "display_name": "Dáma S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30164411
       },
       {
         "episode_id": 114182,
@@ -653038,6 +653128,16 @@
         "video_id": 30164000
       },
       {
+        "episode_id": 164686,
+        "display_name": "Příběhy Želv ninja S02E02 - Souboj o mutantí titul CZ Dabing",
+        "video_id": 30164079
+      },
+      {
+        "episode_id": 164682,
+        "display_name": "Příběhy Želv ninja S02E07 - Návrat Nočního ninji CZ Dabing",
+        "video_id": 30164339
+      },
+      {
         "episode_id": 87219,
         "display_name": "Don Matteo S08E18 - 18. epizoda CZ Titulky",
         "video_id": 30163869
@@ -653066,6 +653166,16 @@
         "episode_id": 116043,
         "display_name": "Sýr pro Ameriku S01E01 - Poselství Kennyho Sharpa CZ Titulky",
         "video_id": 30164043
+      },
+      {
+        "episode_id": 116047,
+        "display_name": "Sýr pro Ameriku S01E05 - Inventura otcovství CZ Titulky",
+        "video_id": 30164085
+      },
+      {
+        "episode_id": 17859,
+        "display_name": "Dáma S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30164293
       }
     ],
     "prepared_not_upload_ready": [
@@ -654227,16 +654337,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 28,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35705,
+    "needs_whisper": 35712,
     "whisper_confirmed_cz": 4009,
-    "whisper_non_cz_needs_subtitles": 13059,
+    "whisper_non_cz_needs_subtitles": 13053,
     "whisper_failed": 1349
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44407
+    "needs_subtitle_setup_after_prehrajto_processing": 44408
   }
 }
