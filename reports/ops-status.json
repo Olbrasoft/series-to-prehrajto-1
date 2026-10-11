@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 120695,
     "manifest_upload_ready_episodes": 191,
-    "uploaded_episodes": 71029,
+    "uploaded_episodes": 71030,
     "prepared_source_episodes": 67210,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 35,
-    "language_whisper_attempted_sources": 22,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54150,
     "whisper_review_pending_sources": 37209,
     "subtitle_followup_sources": 44900,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-11T22:12:40Z",
+      "databaseId": 38179504076,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T22:12:22Z",
+      "databaseId": 38179483738,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T22:12:19Z",
+      "databaseId": 38179480528,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T22:11:25Z",
+      "databaseId": 38179417929,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T22:11:21Z",
+      "databaseId": 38179414460,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-11T22:10:15Z",
       "databaseId": 38179337657,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T21:57:56Z",
       "databaseId": 38178499074,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T21:55:15Z",
-      "databaseId": 38178327260,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T21:55:12Z",
-      "databaseId": 38178323945,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T21:54:55Z",
-      "databaseId": 38178302870,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T21:54:50Z",
-      "databaseId": 38178297295,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T21:54:43Z",
-      "databaseId": 38178289578,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -173799,6 +173799,11 @@
         "episode_id": 159468,
         "display_name": "Pohotovost: NYC S01E06 - Jako doma CZ Dabing",
         "video_id": 30184425
+      },
+      {
+        "episode_id": 74464,
+        "display_name": "Zig a Sharko S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30184532
       },
       {
         "episode_id": 203513,
@@ -503118,6 +503123,11 @@
         "video_id": 30184425
       },
       {
+        "episode_id": 74464,
+        "display_name": "Zig a Sharko S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30184532
+      },
+      {
         "episode_id": 203513,
         "display_name": "Loutka S01E02 - 2. epizoda CZ Dabing",
         "video_id": 30184122
@@ -660077,8 +660087,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 21,
-    "disabled": 13,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
