@@ -2,36 +2,76 @@
   "counts": {
     "backlog_episodes": 121099,
     "manifest_upload_ready_episodes": 135,
-    "uploaded_episodes": 70634,
-    "prepared_source_episodes": 66441,
+    "uploaded_episodes": 70635,
+    "prepared_source_episodes": 66449,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 56,
-    "language_whisper_attempted_sources": 29,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54125,
-    "whisper_review_pending_sources": 37083,
-    "subtitle_followup_sources": 44509,
-    "subtitle_followup_pending_sources": 44509
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54126,
+    "whisper_review_pending_sources": 37088,
+    "subtitle_followup_sources": 44511,
+    "subtitle_followup_pending_sources": 44511
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T06:48:16Z",
-      "databaseId": 38119248216,
+      "createdAt": "2026-10-11T06:49:41Z",
+      "databaseId": 38119321972,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-11T06:49:36Z",
+      "databaseId": 38119317683,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T06:49:27Z",
+      "databaseId": 38119310119,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T06:49:23Z",
+      "databaseId": 38119307388,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-11T06:49:21Z",
+      "databaseId": 38119305700,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T06:48:16Z",
+      "databaseId": 38119248216,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-11T06:48:13Z",
       "databaseId": 38119245055,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T06:43:12Z",
       "databaseId": 38118973486,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -111,7 +151,7 @@
       "createdAt": "2026-10-11T06:34:31Z",
       "databaseId": 38118505366,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -131,52 +171,12 @@
       "workflowName": "refresh-backlog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T06:33:25Z",
       "databaseId": 38118445815,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-11T06:32:03Z",
-      "databaseId": 38118372848,
-      "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-11T06:31:21Z",
-      "databaseId": 38118334532,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T06:30:41Z",
-      "databaseId": 38118296473,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T06:28:36Z",
-      "databaseId": 38118178535,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T06:27:13Z",
-      "databaseId": 38118105133,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -172849,6 +172849,11 @@
         "episode_id": 95261,
         "display_name": "Hikaru no Go S01E27 - 27. epizoda CZ Titulky",
         "video_id": 30168500
+      },
+      {
+        "episode_id": 120365,
+        "display_name": "Bread S04E14 - 14. epizoda CZ Titulky",
+        "video_id": 30168754
       },
       {
         "episode_id": 114182,
@@ -500193,6 +500198,11 @@
         "video_id": 30168500
       },
       {
+        "episode_id": 120365,
+        "display_name": "Bread S04E14 - 14. epizoda CZ Titulky",
+        "video_id": 30168754
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -656127,17 +656137,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 28,
-    "disabled": 27,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35736,
-    "whisper_confirmed_cz": 4005,
+    "needs_whisper": 35741,
+    "whisper_confirmed_cz": 4001,
     "whisper_non_cz_needs_subtitles": 13037,
     "whisper_failed": 1347
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44509
+    "needs_subtitle_setup_after_prehrajto_processing": 44511
   }
 }
