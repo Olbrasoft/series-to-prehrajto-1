@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 121426,
-    "manifest_upload_ready_episodes": 280,
-    "uploaded_episodes": 70416,
-    "prepared_source_episodes": 66381,
+    "manifest_upload_ready_episodes": 281,
+    "uploaded_episodes": 70422,
+    "prepared_source_episodes": 66392,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 56,
+    "language_audited_sources": 63,
     "language_whisper_attempted_sources": 46,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54122,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T03:08:46Z",
-      "databaseId": 38107442635,
+      "createdAt": "2026-10-11T03:12:08Z",
+      "databaseId": 38107622219,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-11T03:10:25Z",
+      "databaseId": 38107531776,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T03:10:25Z",
+      "databaseId": 38107531629,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T03:09:52Z",
+      "databaseId": 38107499222,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T03:09:49Z",
+      "databaseId": 38107496741,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T03:08:46Z",
+      "databaseId": 38107442635,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-11T03:08:43Z",
       "databaseId": 38107439678,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,11 +99,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T03:04:05Z",
       "databaseId": 38107189132,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -91,11 +131,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T02:58:48Z",
       "databaseId": 38106890860,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T02:54:45Z",
       "databaseId": 38106676624,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-11T02:53:44Z",
-      "databaseId": 38106623673,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T02:51:56Z",
-      "databaseId": 38106527274,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T02:49:46Z",
-      "databaseId": 38106406900,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T02:49:43Z",
-      "databaseId": 38106403929,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T02:49:40Z",
-      "databaseId": 38106401283,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -172286,6 +172286,11 @@
         "video_id": 30163596
       },
       {
+        "episode_id": 164168,
+        "display_name": "Bo Ra! Deborah S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30163647
+      },
+      {
         "episode_id": 198909,
         "display_name": "Star Wars: Dobrodružství Freemakerů S02E02 - 2. epizoda CZ Dabing",
         "video_id": 30163473
@@ -172314,6 +172319,16 @@
         "episode_id": 118737,
         "display_name": "Nevyslovitelné hříchy S01E08 - Telefonát CZ Dabing",
         "video_id": 30163644
+      },
+      {
+        "episode_id": 118741,
+        "display_name": "Nevyslovitelné hříchy S01E12 - Stará tajemství CZ Dabing",
+        "video_id": 30163661
+      },
+      {
+        "episode_id": 118745,
+        "display_name": "Nevyslovitelné hříchy S01E16 - Odhalení CZ Dabing",
+        "video_id": 30163685
       },
       {
         "episode_id": 114182,
@@ -326511,6 +326526,11 @@
         "video_id": 30163606
       },
       {
+        "episode_id": 98466,
+        "display_name": "Medúsa S01E12 - Medusa CZ Dabing",
+        "video_id": 30163654
+      },
+      {
         "episode_id": 87211,
         "display_name": "Don Matteo S08E10 - 10. epizoda CZ Titulky",
         "video_id": 30163480
@@ -326534,6 +326554,16 @@
         "episode_id": 118731,
         "display_name": "Nevyslovitelné hříchy S01E02 - Zase spolu CZ Dabing",
         "video_id": 30163643
+      },
+      {
+        "episode_id": 118735,
+        "display_name": "Nevyslovitelné hříchy S01E06 - Falešná smrt CZ Dabing",
+        "video_id": 30163663
+      },
+      {
+        "episode_id": 118739,
+        "display_name": "Nevyslovitelné hříchy S01E10 - Je naživu CZ Dabing",
+        "video_id": 30163689
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -498538,6 +498568,11 @@
         "video_id": 30163596
       },
       {
+        "episode_id": 164168,
+        "display_name": "Bo Ra! Deborah S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30163647
+      },
+      {
         "episode_id": 198909,
         "display_name": "Star Wars: Dobrodružství Freemakerů S02E02 - 2. epizoda CZ Dabing",
         "video_id": 30163473
@@ -498566,6 +498601,16 @@
         "episode_id": 118737,
         "display_name": "Nevyslovitelné hříchy S01E08 - Telefonát CZ Dabing",
         "video_id": 30163644
+      },
+      {
+        "episode_id": 118741,
+        "display_name": "Nevyslovitelné hříchy S01E12 - Stará tajemství CZ Dabing",
+        "video_id": 30163661
+      },
+      {
+        "episode_id": 118745,
+        "display_name": "Nevyslovitelné hříchy S01E16 - Odhalení CZ Dabing",
+        "video_id": 30163685
       },
       {
         "episode_id": 114182,
@@ -652763,6 +652808,11 @@
         "video_id": 30163606
       },
       {
+        "episode_id": 98466,
+        "display_name": "Medúsa S01E12 - Medusa CZ Dabing",
+        "video_id": 30163654
+      },
+      {
         "episode_id": 87211,
         "display_name": "Don Matteo S08E10 - 10. epizoda CZ Titulky",
         "video_id": 30163480
@@ -652786,6 +652836,16 @@
         "episode_id": 118731,
         "display_name": "Nevyslovitelné hříchy S01E02 - Zase spolu CZ Dabing",
         "video_id": 30163643
+      },
+      {
+        "episode_id": 118735,
+        "display_name": "Nevyslovitelné hříchy S01E06 - Falešná smrt CZ Dabing",
+        "video_id": 30163663
+      },
+      {
+        "episode_id": 118739,
+        "display_name": "Nevyslovitelné hříchy S01E10 - Je naživu CZ Dabing",
+        "video_id": 30163689
       }
     ],
     "prepared_not_upload_ready": [
@@ -653947,7 +654007,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 10,
+    "disabled": 17,
     "ok": 45,
     "resolve_failed": 1
   },
