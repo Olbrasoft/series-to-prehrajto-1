@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 120695,
-    "manifest_upload_ready_episodes": 147,
-    "uploaded_episodes": 71116,
-    "prepared_source_episodes": 67271,
+    "manifest_upload_ready_episodes": 134,
+    "uploaded_episodes": 71124,
+    "prepared_source_episodes": 67269,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 152,
-    "language_whisper_attempted_sources": 54,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54146,
     "whisper_review_pending_sources": 37202,
@@ -20,18 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T23:50:10Z",
-      "databaseId": 38185758221,
+      "createdAt": "2026-10-11T23:55:42Z",
+      "databaseId": 38186094708,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-11T23:55:17Z",
+      "databaseId": 38186068796,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-10-11T23:55:12Z",
+      "databaseId": 38186063848,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T23:55:09Z",
+      "databaseId": 38186059705,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T23:55:06Z",
+      "databaseId": 38186056722,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T23:54:48Z",
+      "databaseId": 38186037037,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-11T23:51:17Z",
+      "databaseId": 38185828500,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T23:50:50Z",
+      "databaseId": 38185800541,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T23:50:10Z",
+      "databaseId": 38185758221,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-11T23:49:06Z",
       "databaseId": 38185693034,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +123,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T23:48:24Z",
       "databaseId": 38185653442,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -99,11 +163,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-11T23:46:23Z",
       "databaseId": 38185535356,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-11T23:43:21Z",
-      "databaseId": 38185344435,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T23:43:00Z",
-      "databaseId": 38185321698,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-11T23:41:13Z",
-      "databaseId": 38185212103,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T23:40:13Z",
-      "databaseId": 38185148486,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T23:40:05Z",
-      "databaseId": 38185137863,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T23:40:01Z",
-      "databaseId": 38185133306,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T23:38:25Z",
-      "databaseId": 38185036779,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-11T23:38:10Z",
-      "databaseId": 38185020164,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -174031,6 +174031,11 @@
         "video_id": 30186402
       },
       {
+        "episode_id": 137576,
+        "display_name": "Moonrise S01E14 - Minulost a realita CZ Dabing",
+        "video_id": 30186506
+      },
+      {
         "episode_id": 154973,
         "display_name": "Jak přežít bez partnera S01E05 - K čemu přátelé? CZ Titulky",
         "video_id": 30185920
@@ -174044,6 +174049,16 @@
         "episode_id": 154961,
         "display_name": "Jak přežít bez partnera S02E01 - Páté rande CZ Titulky",
         "video_id": 30186313
+      },
+      {
+        "episode_id": 154965,
+        "display_name": "Jak přežít bez partnera S02E05 - Promeškané spojení CZ Titulky",
+        "video_id": 30186465
+      },
+      {
+        "episode_id": 131653,
+        "display_name": "Zoufalé lži S01E06 - Nápis na stěně CZ Dabing",
+        "video_id": 30186548
       },
       {
         "episode_id": 114182,
@@ -330021,6 +330036,21 @@
         "video_id": 30186460
       },
       {
+        "episode_id": 119582,
+        "display_name": "Huntik S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 30186502
+      },
+      {
+        "episode_id": 119590,
+        "display_name": "Huntik S02E14 - 14. epizoda CZ Dabing",
+        "video_id": 30186528
+      },
+      {
+        "episode_id": 162758,
+        "display_name": "Quirke: Záhady z pitevny S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30186570
+      },
+      {
         "episode_id": 130791,
         "display_name": "Policajtky S01E03 - Stát, nebo budu střílet! CZ Dabing",
         "video_id": 30185931
@@ -330034,6 +330064,16 @@
         "episode_id": 137579,
         "display_name": "Moonrise S01E17 - Dominance CZ Dabing",
         "video_id": 30186316
+      },
+      {
+        "episode_id": 159135,
+        "display_name": "That Damn Michael Che S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30186435
+      },
+      {
+        "episode_id": 154971,
+        "display_name": "Jak přežít bez partnera S01E03 - Melodi CZ Titulky",
+        "video_id": 30186536
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -503783,6 +503823,11 @@
         "video_id": 30186402
       },
       {
+        "episode_id": 137576,
+        "display_name": "Moonrise S01E14 - Minulost a realita CZ Dabing",
+        "video_id": 30186506
+      },
+      {
         "episode_id": 154973,
         "display_name": "Jak přežít bez partnera S01E05 - K čemu přátelé? CZ Titulky",
         "video_id": 30185920
@@ -503796,6 +503841,16 @@
         "episode_id": 154961,
         "display_name": "Jak přežít bez partnera S02E01 - Páté rande CZ Titulky",
         "video_id": 30186313
+      },
+      {
+        "episode_id": 154965,
+        "display_name": "Jak přežít bez partnera S02E05 - Promeškané spojení CZ Titulky",
+        "video_id": 30186465
+      },
+      {
+        "episode_id": 131653,
+        "display_name": "Zoufalé lži S01E06 - Nápis na stěně CZ Dabing",
+        "video_id": 30186548
       },
       {
         "episode_id": 114182,
@@ -659773,6 +659828,21 @@
         "video_id": 30186460
       },
       {
+        "episode_id": 119582,
+        "display_name": "Huntik S02E06 - 6. epizoda CZ Dabing",
+        "video_id": 30186502
+      },
+      {
+        "episode_id": 119590,
+        "display_name": "Huntik S02E14 - 14. epizoda CZ Dabing",
+        "video_id": 30186528
+      },
+      {
+        "episode_id": 162758,
+        "display_name": "Quirke: Záhady z pitevny S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30186570
+      },
+      {
         "episode_id": 130791,
         "display_name": "Policajtky S01E03 - Stát, nebo budu střílet! CZ Dabing",
         "video_id": 30185931
@@ -659786,6 +659856,16 @@
         "episode_id": 137579,
         "display_name": "Moonrise S01E17 - Dominance CZ Dabing",
         "video_id": 30186316
+      },
+      {
+        "episode_id": 159135,
+        "display_name": "That Damn Michael Che S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30186435
+      },
+      {
+        "episode_id": 154971,
+        "display_name": "Jak přežít bez partnera S01E03 - Melodi CZ Titulky",
+        "video_id": 30186536
       }
     ],
     "prepared_not_upload_ready": [
@@ -660947,9 +661027,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 98,
-    "ok": 53,
-    "resolve_failed": 1
+    "resolve_failed": 40
   },
   "whisper_review_statuses": {
     "needs_whisper": 35857,
