@@ -1,45 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 120931,
-    "manifest_upload_ready_episodes": 58,
-    "uploaded_episodes": 70790,
-    "prepared_source_episodes": 66498,
+    "manifest_upload_ready_episodes": 65,
+    "uploaded_episodes": 70794,
+    "prepared_source_episodes": 66505,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 37,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 81,
-    "language_whisper_attempted_sources": 46,
+    "language_audited_sources": 104,
+    "language_whisper_attempted_sources": 51,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54128,
-    "whisper_review_pending_sources": 37094,
-    "subtitle_followup_sources": 44615,
-    "subtitle_followup_pending_sources": 44615
+    "whisper_review_sources": 54131,
+    "whisper_review_pending_sources": 37109,
+    "subtitle_followup_sources": 44623,
+    "subtitle_followup_pending_sources": 44623
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T09:38:29Z",
-      "databaseId": 38129092016,
+      "createdAt": "2026-10-11T09:41:13Z",
+      "databaseId": 38129254222,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T09:41:09Z",
+      "databaseId": 38129250551,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T09:39:07Z",
+      "databaseId": 38129127694,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T09:37:47Z",
-      "databaseId": 38129049779,
+      "createdAt": "2026-10-11T09:39:04Z",
+      "databaseId": 38129125073,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-status"
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-11T09:38:45Z",
+      "databaseId": 38129106562,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-11T09:38:40Z",
+      "databaseId": 38129102344,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T09:38:29Z",
+      "databaseId": 38129092016,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T09:37:47Z",
+      "databaseId": 38129049779,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-11T09:37:18Z",
       "databaseId": 38129023290,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T09:34:58Z",
       "databaseId": 38128883456,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-11T09:32:17Z",
       "databaseId": 38128724076,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -123,60 +171,12 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T09:26:57Z",
       "databaseId": 38128402265,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-11T09:25:56Z",
-      "databaseId": 38128344088,
-      "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T09:25:43Z",
-      "databaseId": 38128331037,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T09:23:15Z",
-      "databaseId": 38128185604,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T09:22:27Z",
-      "databaseId": 38128138105,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T09:22:14Z",
-      "databaseId": 38128125140,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T09:22:10Z",
-      "databaseId": 38128121161,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -173251,6 +173251,11 @@
         "video_id": 30172760
       },
       {
+        "episode_id": 170857,
+        "display_name": "Bize Bi'Şey Olmaz S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30172857
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -328371,6 +328376,16 @@
         "video_id": 30172667
       },
       {
+        "episode_id": 159394,
+        "display_name": "Rookie Cops S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30172803
+      },
+      {
+        "episode_id": 159398,
+        "display_name": "Rookie Cops S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30172866
+      },
+      {
         "episode_id": 87259,
         "display_name": "Don Matteo S10E17 - 17. epizoda CZ Dabing",
         "video_id": 30172409
@@ -328404,6 +328419,11 @@
         "episode_id": 131739,
         "display_name": "The Americas S01E01 - 1. epizoda CZ Dabing",
         "video_id": 30172756
+      },
+      {
+        "episode_id": 131743,
+        "display_name": "The Americas S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30172837
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -501373,6 +501393,11 @@
         "video_id": 30172760
       },
       {
+        "episode_id": 170857,
+        "display_name": "Bize Bi'Şey Olmaz S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30172857
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -656493,6 +656518,16 @@
         "video_id": 30172667
       },
       {
+        "episode_id": 159394,
+        "display_name": "Rookie Cops S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30172803
+      },
+      {
+        "episode_id": 159398,
+        "display_name": "Rookie Cops S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30172866
+      },
+      {
         "episode_id": 87259,
         "display_name": "Don Matteo S10E17 - 17. epizoda CZ Dabing",
         "video_id": 30172409
@@ -656526,6 +656561,11 @@
         "episode_id": 131739,
         "display_name": "The Americas S01E01 - 1. epizoda CZ Dabing",
         "video_id": 30172756
+      },
+      {
+        "episode_id": 131743,
+        "display_name": "The Americas S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30172837
       }
     ],
     "prepared_not_upload_ready": [
@@ -657687,17 +657727,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 35,
-    "ok": 45,
+    "disabled": 53,
+    "ok": 50,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35747,
+    "needs_whisper": 35762,
     "whisper_confirmed_cz": 3987,
-    "whisper_non_cz_needs_subtitles": 13047,
+    "whisper_non_cz_needs_subtitles": 13035,
     "whisper_failed": 1347
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44615
+    "needs_subtitle_setup_after_prehrajto_processing": 44623
   }
 }
