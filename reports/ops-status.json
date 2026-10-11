@@ -1,45 +1,117 @@
 {
   "counts": {
     "backlog_episodes": 120695,
-    "manifest_upload_ready_episodes": 184,
-    "uploaded_episodes": 71033,
-    "prepared_source_episodes": 67209,
+    "manifest_upload_ready_episodes": 186,
+    "uploaded_episodes": 71039,
+    "prepared_source_episodes": 67216,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54150,
-    "whisper_review_pending_sources": 37209,
+    "whisper_review_pending_sources": 37208,
     "subtitle_followup_sources": 44900,
     "subtitle_followup_pending_sources": 44900
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T22:15:51Z",
-      "databaseId": 38179720590,
+      "createdAt": "2026-10-11T22:22:56Z",
+      "databaseId": 38180197462,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T22:22:51Z",
+      "databaseId": 38180192010,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-11T22:14:59Z",
-      "databaseId": 38179655754,
+      "createdAt": "2026-10-11T22:21:30Z",
+      "databaseId": 38180099222,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "process-whisper-review"
+      "workflowName": "prepare-sources"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-11T22:20:56Z",
+      "databaseId": 38180060220,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T22:18:53Z",
+      "databaseId": 38179920566,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-11T22:18:47Z",
+      "databaseId": 38179913596,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-11T22:18:06Z",
+      "databaseId": 38179870071,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T22:16:39Z",
+      "databaseId": 38179771707,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T22:16:21Z",
+      "databaseId": 38179751423,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-11T22:15:51Z",
+      "databaseId": 38179720590,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-11T22:14:59Z",
+      "databaseId": 38179655754,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-11T22:14:56Z",
       "databaseId": 38179652480,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T22:13:39Z",
       "databaseId": 38179569614,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -87,7 +159,7 @@
       "createdAt": "2026-10-11T22:12:19Z",
       "databaseId": 38179480528,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -102,78 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-11T22:11:21Z",
       "databaseId": 38179414460,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T22:10:15Z",
-      "databaseId": 38179337657,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-11T22:09:22Z",
-      "databaseId": 38179275289,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T22:08:45Z",
-      "databaseId": 38179236134,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T22:08:32Z",
-      "databaseId": 38179220926,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T22:06:49Z",
-      "databaseId": 38179107175,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T22:05:13Z",
-      "databaseId": 38178997502,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T21:59:50Z",
-      "databaseId": 38178616916,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T21:59:46Z",
-      "databaseId": 38178613867,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T21:59:46Z",
-      "databaseId": 38178613415,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
@@ -173811,6 +173811,16 @@
         "video_id": 30184594
       },
       {
+        "episode_id": 74468,
+        "display_name": "Zig a Sharko S01E16 - 16. epizoda CZ Titulky",
+        "video_id": 30184650
+      },
+      {
+        "episode_id": 74472,
+        "display_name": "Zig a Sharko S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 30184682
+      },
+      {
         "episode_id": 203513,
         "display_name": "Loutka S01E02 - 2. epizoda CZ Dabing",
         "video_id": 30184122
@@ -329586,6 +329596,21 @@
         "video_id": 30184549
       },
       {
+        "episode_id": 113778,
+        "display_name": "Temnota S01E01 - Hora prasat CZ Dabing",
+        "video_id": 30184624
+      },
+      {
+        "episode_id": 113782,
+        "display_name": "Temnota S01E05 - Co všechno je skryto CZ Dabing",
+        "video_id": 30184684
+      },
+      {
+        "episode_id": 166414,
+        "display_name": "Box 21 S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30184722
+      },
+      {
         "episode_id": 159463,
         "display_name": "Pohotovost: NYC S01E01 - Nejste na to sami CZ Dabing",
         "video_id": 30184066
@@ -329619,6 +329644,11 @@
         "episode_id": 74479,
         "display_name": "Zig a Sharko S01E27 - 27. epizoda CZ Titulky",
         "video_id": 30184480
+      },
+      {
+        "episode_id": 178503,
+        "display_name": "Agenti chaosu S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30184565
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -503148,6 +503178,16 @@
         "video_id": 30184594
       },
       {
+        "episode_id": 74468,
+        "display_name": "Zig a Sharko S01E16 - 16. epizoda CZ Titulky",
+        "video_id": 30184650
+      },
+      {
+        "episode_id": 74472,
+        "display_name": "Zig a Sharko S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 30184682
+      },
+      {
         "episode_id": 203513,
         "display_name": "Loutka S01E02 - 2. epizoda CZ Dabing",
         "video_id": 30184122
@@ -658923,6 +658963,21 @@
         "video_id": 30184549
       },
       {
+        "episode_id": 113778,
+        "display_name": "Temnota S01E01 - Hora prasat CZ Dabing",
+        "video_id": 30184624
+      },
+      {
+        "episode_id": 113782,
+        "display_name": "Temnota S01E05 - Co všechno je skryto CZ Dabing",
+        "video_id": 30184684
+      },
+      {
+        "episode_id": 166414,
+        "display_name": "Box 21 S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30184722
+      },
+      {
         "episode_id": 159463,
         "display_name": "Pohotovost: NYC S01E01 - Nejste na to sami CZ Dabing",
         "video_id": 30184066
@@ -658956,6 +659011,11 @@
         "episode_id": 74479,
         "display_name": "Zig a Sharko S01E27 - 27. epizoda CZ Titulky",
         "video_id": 30184480
+      },
+      {
+        "episode_id": 178503,
+        "display_name": "Agenti chaosu S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30184565
       }
     ],
     "prepared_not_upload_ready": [
@@ -660117,13 +660177,12 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 9,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35864,
-    "whisper_confirmed_cz": 3979,
+    "needs_whisper": 35863,
+    "whisper_confirmed_cz": 3980,
     "whisper_non_cz_needs_subtitles": 12962,
     "whisper_failed": 1345
   },
