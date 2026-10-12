@@ -30,7 +30,7 @@ from backfill_uploaded_subtitles import (find_profile_detail, load_latest_status
 from opensubtitles_client import OpenSubtitles, ProviderStopped, timestamp, write_json
 from prehrajto_upload import login
 from resolve_stream import GOOGLEBOT_HEADERS, parse_html
-from review_subtitles_with_whisper import apply_manual_review, collect, parse_cues, render_review
+from review_subtitles_with_whisper import apply_manual_review, collect, parse_cues, read_player, render_review
 from verify_subtitle_delivery import verify
 
 REPO = Path(__file__).resolve().parents[1]
@@ -75,9 +75,7 @@ def transport_srt(path):
 
 
 def target(row):
-    response = requests.get(row["target_detail_url"], headers={**GOOGLEBOT_HEADERS, "Cache-Control": "no-cache"}, timeout=25)
-    response.raise_for_status()
-    resolved = parse_html(response.text, row["target_detail_url"])
+    resolved = read_player(row["target_detail_url"])
     if resolved.video_id != int(row["target_video_id"]) or resolved.duration_sec != row["video_duration_sec"]:
         raise ValueError("Target identity or duration changed")
     return resolved
@@ -226,9 +224,7 @@ def prepare(pipeline, args):
                "target_detail_url": previous["detail_url"], "video_duration_sec": previous.get("target_duration")}
         selected += 1
         try:
-            page = requests.get(row["target_detail_url"], headers=GOOGLEBOT_HEADERS, timeout=25)
-            page.raise_for_status()
-            resolved = parse_html(page.text, row["target_detail_url"])
+            resolved = read_player(row["target_detail_url"])
             if resolved.video_id != video_id or not resolved.duration_sec:
                 raise ValueError("Target identity or duration unconfirmed")
             if pick_czech_track(resolved):

@@ -8,9 +8,11 @@ subtitle_sha256 and local_subtitle_file. This tool never attaches subtitles.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import datetime as dt
 import hashlib
 import html
+import io
 import json
 import os
 import re
@@ -21,7 +23,7 @@ from pathlib import Path
 
 import requests
 
-from resolve_stream import GOOGLEBOT_HEADERS, parse_html
+from resolve_stream import GOOGLEBOT_HEADERS, ResolveError, parse_html, resolve
 
 FRACTIONS = (0.2, 0.5, 0.8)
 TIME_RE = re.compile(
@@ -29,6 +31,19 @@ TIME_RE = re.compile(
     r"(\d{1,3}):(\d{2}):(\d{2})[,.](\d{3})[^\n]*\n"
     r"(.*?)(?=\n\s*\n|\Z)", re.S,
 )
+
+
+def read_player(url):
+    """Prefer the direct public page; use the configured paced proxy if needed."""
+    try:
+        response = requests.get(url, headers={**GOOGLEBOT_HEADERS, "Cache-Control": "no-cache"}, timeout=25)
+        response.raise_for_status()
+        return parse_html(response.text, url)
+    except (requests.RequestException, ResolveError):
+        if not os.environ.get("CZ_PROXY_URL"):
+            raise
+        with contextlib.redirect_stdout(io.StringIO()):
+            return resolve(url, max_retries=1)
 
 
 def parse_cues(path: Path, expected_sha256: str) -> list[dict]:
@@ -147,9 +162,7 @@ def collect(candidate: dict, model, args, out: Path) -> dict:
                   checked_at=dt.datetime.now(dt.timezone.utc).isoformat(), model=args.model,
                   device=args.device, task="translate", clips=[], automatic_attachment_allowed=False)
     try:
-        response = requests.get(candidate["target_detail_url"], headers=GOOGLEBOT_HEADERS, timeout=25)
-        response.raise_for_status()
-        video = parse_html(response.text, candidate["target_detail_url"])
+        video = read_player(candidate["target_detail_url"])
         if video.video_id != int(candidate["target_video_id"]):
             raise ValueError("Target identity mismatch")
         if video.duration_sec != candidate["video_duration_sec"]:

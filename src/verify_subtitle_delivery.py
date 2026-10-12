@@ -10,12 +10,11 @@ import requests
 
 from backfill_uploaded_subtitles import detect_subtitle_format, normalize_srt, now_iso, pick_czech_track, vtt_to_srt
 from resolve_stream import GOOGLEBOT_HEADERS, parse_html
+from review_subtitles_with_whisper import read_player
 
 
 def verify(url: str, video_id: int, expected_srt: bytes | None = None) -> dict:
-    page = requests.get(url, headers={**GOOGLEBOT_HEADERS, "Cache-Control": "no-cache"}, timeout=30)
-    page.raise_for_status()
-    resolved = parse_html(page.text, url)
+    resolved = read_player(url)
     if resolved.video_id != video_id:
         raise ValueError("The public page does not match the expected target video ID")
     track = pick_czech_track(resolved)
@@ -31,7 +30,7 @@ def verify(url: str, video_id: int, expected_srt: bytes | None = None) -> dict:
         raise ValueError("Delivered subtitle cues differ from the prepared file")
     # Exclude signed CDN URLs, cookies and video stream URLs from the proof.
     return {"checked_at": now_iso(), "detail_url": url, "video_id": video_id,
-            "html_http_status": page.status_code, "subtitle_http_status": response.status_code,
+            "html_http_status": 200, "subtitle_http_status": response.status_code,
             "language": "cs", "format": ext.lstrip("."), "cue_count": normalized.count(b" --> "),
             "subtitle_bytes": len(response.content), "srt_sha256": hashlib.sha256(normalized).hexdigest(),
             "matches_prepared_file": expected_srt is not None}
