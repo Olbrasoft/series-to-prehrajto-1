@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 120043,
     "manifest_upload_ready_episodes": 34,
-    "uploaded_episodes": 71659,
-    "prepared_source_episodes": 67962,
+    "uploaded_episodes": 71662,
+    "prepared_source_episodes": 67961,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 71,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54172,
     "whisper_review_pending_sources": 37403,
     "subtitle_followup_sources": 45289,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-12T16:06:13Z",
+      "databaseId": 38275046204,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T16:03:09Z",
+      "databaseId": 38274677163,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T16:01:56Z",
+      "databaseId": 38274530115,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T16:01:53Z",
+      "databaseId": 38274524053,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T16:01:51Z",
+      "databaseId": 38274519178,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-12T16:00:37Z",
       "databaseId": 38274358126,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T15:48:20Z",
-      "databaseId": 38272895233,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-12T15:47:55Z",
-      "databaseId": 38272845712,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-12T15:45:54Z",
-      "databaseId": 38272609602,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-12T15:45:14Z",
-      "databaseId": 38272526682,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T15:45:08Z",
-      "databaseId": 38272515392,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -175359,6 +175359,21 @@
         "episode_id": 199092,
         "display_name": "Kámoši hafíci S01E05 - Že mě nechytíš CZ Dabing",
         "video_id": 30202992
+      },
+      {
+        "episode_id": 84268,
+        "display_name": "Zmizení S05E02 - 2. epizoda CZ Dabing",
+        "video_id": 30203127
+      },
+      {
+        "episode_id": 199093,
+        "display_name": "Kámoši hafíci S01E06 - Hrnec zlata CZ Titulky",
+        "video_id": 30203118
+      },
+      {
+        "episode_id": 84265,
+        "display_name": "Zmizení S04E05 - 5. epizoda CZ Dabing",
+        "video_id": 30203179
       },
       {
         "episode_id": 114182,
@@ -507828,6 +507843,21 @@
         "video_id": 30202992
       },
       {
+        "episode_id": 84268,
+        "display_name": "Zmizení S05E02 - 2. epizoda CZ Dabing",
+        "video_id": 30203127
+      },
+      {
+        "episode_id": 199093,
+        "display_name": "Kámoši hafíci S01E06 - Hrnec zlata CZ Titulky",
+        "video_id": 30203118
+      },
+      {
+        "episode_id": 84265,
+        "display_name": "Zmizení S04E05 - 5. epizoda CZ Dabing",
+        "video_id": 30203179
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -666377,7 +666407,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "disabled": 31,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
