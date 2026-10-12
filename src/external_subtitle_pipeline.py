@@ -180,6 +180,16 @@ def uploads_by_account():
     return {account: load_uploads(paths, account) for account in ("primary", "serialy")}
 
 
+def deferred_tasks(uploads, reports):
+    tasks = []
+    for account, items in uploads.items():
+        for eid, upload in items.items():
+            previous = matching_upload_status(reports.get(eid), upload)
+            if previous.get("status") == "alternate_search_pending":
+                tasks.append((account, upload, previous))
+    return tasks
+
+
 def prepare(pipeline, args):
     # Refresh the retained checkpoint daily even while manual review is pending.
     pipeline.state["last_daily_preparation"] = timestamp()
@@ -193,13 +203,8 @@ def prepare(pipeline, args):
         for line in source:
             row = json.loads(line)
             metadata.setdefault(int(row["series_id"]), {k: row.get(k) for k in ("series_original_title", "imdb_id")})
-    tasks = []
-    for account, items in uploads.items():
-        for eid, upload in items.items():
-            previous = matching_upload_status(reports.get(eid), upload)
-            if previous.get("status") != "alternate_search_pending" or not previous.get("detail_url"):
-                continue
-            tasks.append((account, upload, previous))
+    tasks = deferred_tasks(uploads, reports)
+    sessions = {}
     # Fair account interleaving, stable rotation past prior negative searches.
     tasks.sort(key=lambda task: (str(pipeline.state["episodes"].get(f"{task[0]}-{task[1]['prehrajto_video_id']}", {}).get("checked_at", "")),
                                  int(task[1]["episode_id"])))
@@ -217,13 +222,29 @@ def prepare(pipeline, args):
         if any(r["status"] not in {"rejected", "duration_mismatch"} for r in existing):
             continue
         prior = pipeline.state["episodes"].get(episode_identity, {})
+        if prior.get("status") == "target_deleted":
+            continue
         if prior.get("retry_after") and timestamp() < prior["retry_after"]:
             continue
         row = {**upload, **metadata.get(int(upload.get("series_id") or 0), {}),
                "upload_account": account, "target_video_id": video_id,
-               "target_detail_url": previous["detail_url"], "video_duration_sec": previous.get("target_duration")}
+               "target_detail_url": previous.get("detail_url"), "video_duration_sec": previous.get("target_duration")}
         selected += 1
         try:
+            # Some source-first handoffs never looked up the target. Resolve
+            # them through the owning account, not public source discovery.
+            if not row["target_detail_url"]:
+                if account not in sessions:
+                    sessions[account] = credentials(account)
+                info = find_profile_detail(sessions[account], upload)
+                if not info or info.get("deleted") or info.get("processing") or not info.get("detail_url"):
+                    outcome = ("target_deleted" if info and info.get("deleted") else
+                               "target_not_on_account" if not info else "target_processing")
+                    pipeline.state["episodes"][episode_identity] = {"status": outcome, "checked_at": timestamp(),
+                        "retry_after": (dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=1)).isoformat()}
+                    pipeline.save()
+                    continue
+                row["target_detail_url"] = info["detail_url"]
             resolved = read_player(row["target_detail_url"])
             if resolved.video_id != video_id or not resolved.duration_sec:
                 raise ValueError("Target identity or duration unconfirmed")

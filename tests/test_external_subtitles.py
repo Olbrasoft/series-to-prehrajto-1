@@ -11,7 +11,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from opensubtitles_client import OpenSubtitles, ProviderStopped, identity_match
-from external_subtitle_pipeline import Pipeline, approval, candidate_key, evidence_digest, submit, transport_srt, whisper
+from external_subtitle_pipeline import Pipeline, approval, candidate_key, deferred_tasks, evidence_digest, submit, transport_srt, whisper
 from backfill_uploaded_subtitles import load_latest_status
 
 
@@ -150,3 +150,13 @@ def test_missing_ffmpeg_stops_before_model_or_network_calls(tmp_path):
     with patch('external_subtitle_pipeline.shutil.which', return_value=None):
         with pytest.raises(RuntimeError, match='FFmpeg is required'):
             whisper(Pipeline(tmp_path), SimpleNamespace())
+
+
+def test_deferred_queue_includes_unknown_target_urls_but_excludes_completed():
+    uploads={'primary':{1:{'episode_id':1,'prehrajto_video_id':2,'upload_account':'primary'},
+                        3:{'episode_id':3,'prehrajto_video_id':4,'upload_account':'primary'}}}
+    reports={1:{'episode_id':1,'prehrajto_video_id':2,'upload_account':'primary','status':'alternate_search_pending'},
+             3:{'episode_id':3,'prehrajto_video_id':4,'upload_account':'primary','status':'uploaded'}}
+    tasks=deferred_tasks(uploads,reports)
+    assert len(tasks)==1 and tasks[0][1]['episode_id']==1
+    assert not tasks[0][2].get('detail_url')
