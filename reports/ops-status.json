@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 120695,
-    "manifest_upload_ready_episodes": 131,
-    "uploaded_episodes": 71127,
-    "prepared_source_episodes": 67260,
+    "manifest_upload_ready_episodes": 135,
+    "uploaded_episodes": 71133,
+    "prepared_source_episodes": 67279,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 42,
-    "language_whisper_attempted_sources": 42,
+    "language_audited_sources": 57,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54145,
-    "whisper_review_pending_sources": 37200,
-    "subtitle_followup_sources": 44942,
-    "subtitle_followup_pending_sources": 44942
+    "whisper_review_sources": 54146,
+    "whisper_review_pending_sources": 37205,
+    "subtitle_followup_sources": 44945,
+    "subtitle_followup_pending_sources": 44945
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-12T00:01:23Z",
-      "databaseId": 38186438797,
+      "createdAt": "2026-10-12T00:18:47Z",
+      "databaseId": 38187519194,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-12T00:18:27Z",
+      "databaseId": 38187498525,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T00:07:20Z",
+      "databaseId": 38186804163,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T00:07:07Z",
+      "databaseId": 38186791041,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-12T00:05:37Z",
+      "databaseId": 38186698817,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T00:02:32Z",
+      "databaseId": 38186510115,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T00:02:29Z",
+      "databaseId": 38186506463,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T00:01:23Z",
+      "databaseId": 38186438797,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-12T00:01:19Z",
       "databaseId": 38186435143,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,11 +115,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T23:58:28Z",
       "databaseId": 38186254261,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -107,73 +163,17 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-11T23:55:12Z",
       "databaseId": 38186063848,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "success",
       "createdAt": "2026-10-11T23:55:09Z",
       "databaseId": 38186059705,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T23:55:06Z",
-      "databaseId": 38186056722,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T23:54:48Z",
-      "databaseId": 38186037037,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-11T23:51:17Z",
-      "databaseId": 38185828500,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T23:50:50Z",
-      "databaseId": 38185800541,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-11T23:50:10Z",
-      "databaseId": 38185758221,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-11T23:49:06Z",
-      "databaseId": 38185693034,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-11T23:48:41Z",
-      "databaseId": 38185668822,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -174041,6 +174041,16 @@
         "video_id": 30186571
       },
       {
+        "episode_id": 154976,
+        "display_name": "Jak přežít bez partnera S01E08 - Ještě přidej CZ Titulky",
+        "video_id": 30186879
+      },
+      {
+        "episode_id": 154968,
+        "display_name": "Jak přežít bez partnera S02E08 - Poslední show CZ Titulky",
+        "video_id": 30187030
+      },
+      {
         "episode_id": 154973,
         "display_name": "Jak přežít bez partnera S01E05 - K čemu přátelé? CZ Titulky",
         "video_id": 30185920
@@ -174069,6 +174079,16 @@
         "episode_id": 131657,
         "display_name": "Zoufalé lži S01E10 - Minimalizovat škody CZ Dabing",
         "video_id": 30186647
+      },
+      {
+        "episode_id": 81045,
+        "display_name": "Satisfakce S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30186787
+      },
+      {
+        "episode_id": 81049,
+        "display_name": "Satisfakce S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30186926
       },
       {
         "episode_id": 114182,
@@ -330089,6 +330109,16 @@
         "episode_id": 154975,
         "display_name": "Jak přežít bez partnera S01E07 - Romantická komedie CZ Titulky",
         "video_id": 30186644
+      },
+      {
+        "episode_id": 154963,
+        "display_name": "Jak přežít bez partnera S02E03 - Večírek s Poxem CZ Titulky",
+        "video_id": 30186899
+      },
+      {
+        "episode_id": 154967,
+        "display_name": "Jak přežít bez partnera S02E07 - Vyšinutá Mexikánka CZ Titulky",
+        "video_id": 30187115
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -503848,6 +503878,16 @@
         "video_id": 30186571
       },
       {
+        "episode_id": 154976,
+        "display_name": "Jak přežít bez partnera S01E08 - Ještě přidej CZ Titulky",
+        "video_id": 30186879
+      },
+      {
+        "episode_id": 154968,
+        "display_name": "Jak přežít bez partnera S02E08 - Poslední show CZ Titulky",
+        "video_id": 30187030
+      },
+      {
         "episode_id": 154973,
         "display_name": "Jak přežít bez partnera S01E05 - K čemu přátelé? CZ Titulky",
         "video_id": 30185920
@@ -503876,6 +503916,16 @@
         "episode_id": 131657,
         "display_name": "Zoufalé lži S01E10 - Minimalizovat škody CZ Dabing",
         "video_id": 30186647
+      },
+      {
+        "episode_id": 81045,
+        "display_name": "Satisfakce S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30186787
+      },
+      {
+        "episode_id": 81049,
+        "display_name": "Satisfakce S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30186926
       },
       {
         "episode_id": 114182,
@@ -659896,6 +659946,16 @@
         "episode_id": 154975,
         "display_name": "Jak přežít bez partnera S01E07 - Romantická komedie CZ Titulky",
         "video_id": 30186644
+      },
+      {
+        "episode_id": 154963,
+        "display_name": "Jak přežít bez partnera S02E03 - Večírek s Poxem CZ Titulky",
+        "video_id": 30186899
+      },
+      {
+        "episode_id": 154967,
+        "display_name": "Jak přežít bez partnera S02E07 - Vyšinutá Mexikánka CZ Titulky",
+        "video_id": 30187115
       }
     ],
     "prepared_not_upload_ready": [
@@ -661057,16 +661117,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 21,
-    "resolve_failed": 21
+    "disabled": 17,
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35855,
-    "whisper_confirmed_cz": 3977,
-    "whisper_non_cz_needs_subtitles": 12968,
+    "needs_whisper": 35860,
+    "whisper_confirmed_cz": 3976,
+    "whisper_non_cz_needs_subtitles": 12965,
     "whisper_failed": 1345
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 44942
+    "needs_subtitle_setup_after_prehrajto_processing": 44945
   }
 }
