@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 120214,
-    "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 71501,
-    "prepared_source_episodes": 67698,
+    "manifest_upload_ready_episodes": 25,
+    "uploaded_episodes": 71505,
+    "prepared_source_episodes": 67694,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 127,
-    "language_whisper_attempted_sources": 46,
+    "language_audited_sources": 58,
+    "language_whisper_attempted_sources": 58,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54175,
-    "whisper_review_pending_sources": 37407,
-    "subtitle_followup_sources": 45144,
-    "subtitle_followup_pending_sources": 45144
+    "whisper_review_sources": 54171,
+    "whisper_review_pending_sources": 37389,
+    "subtitle_followup_sources": 45156,
+    "subtitle_followup_pending_sources": 45156
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-12T10:20:20Z",
-      "databaseId": 38235688661,
+      "createdAt": "2026-10-12T10:29:02Z",
+      "databaseId": 38236600978,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-12T10:28:37Z",
+      "databaseId": 38236557656,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T10:28:35Z",
+      "databaseId": 38236554350,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T10:27:58Z",
+      "databaseId": 38236489206,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-12T10:24:06Z",
+      "databaseId": 38236086286,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T10:22:15Z",
+      "databaseId": 38235892246,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T10:21:07Z",
+      "databaseId": 38235771861,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T10:20:20Z",
+      "databaseId": 38235688661,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-12T10:19:58Z",
       "databaseId": 38235647397,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -95,7 +151,7 @@
       "createdAt": "2026-10-12T10:05:00Z",
       "databaseId": 38234059669,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-12T10:03:09Z",
-      "databaseId": 38233857050,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T10:02:57Z",
-      "databaseId": 38233835994,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-12T10:02:53Z",
-      "databaseId": 38233827496,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-12T10:02:44Z",
-      "databaseId": 38233812908,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T10:02:17Z",
-      "databaseId": 38233762166,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T10:02:14Z",
-      "databaseId": 38233756647,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T10:01:07Z",
-      "databaseId": 38233634737,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -174946,6 +174946,16 @@
         "video_id": 30199305
       },
       {
+        "episode_id": 137285,
+        "display_name": "Tichá dohoda S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30199334
+      },
+      {
+        "episode_id": 167549,
+        "display_name": "Nedá se utéct S01E01 - Na útěku CZ Titulky",
+        "video_id": 30199380
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -331941,6 +331951,11 @@
         "video_id": 30199311
       },
       {
+        "episode_id": 167550,
+        "display_name": "Nedá se utéct S01E02 - Narážka CZ Titulky",
+        "video_id": 30199336
+      },
+      {
         "episode_id": 172079,
         "display_name": "Kyberválka S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30199228
@@ -331959,6 +331974,11 @@
         "episode_id": 137283,
         "display_name": "Tichá dohoda S01E05 - 5. epizoda CZ Dabing",
         "video_id": 30199299
+      },
+      {
+        "episode_id": 153959,
+        "display_name": "Naomi Ósaka S01E03 - Vlastní cestou CZ Dabing",
+        "video_id": 30199328
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -506623,6 +506643,16 @@
         "video_id": 30199305
       },
       {
+        "episode_id": 137285,
+        "display_name": "Tichá dohoda S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30199334
+      },
+      {
+        "episode_id": 167549,
+        "display_name": "Nedá se utéct S01E01 - Na útěku CZ Titulky",
+        "video_id": 30199380
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -663618,6 +663648,11 @@
         "video_id": 30199311
       },
       {
+        "episode_id": 167550,
+        "display_name": "Nedá se utéct S01E02 - Narážka CZ Titulky",
+        "video_id": 30199336
+      },
+      {
         "episode_id": 172079,
         "display_name": "Kyberválka S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30199228
@@ -663636,6 +663671,11 @@
         "episode_id": 137283,
         "display_name": "Tichá dohoda S01E05 - 5. epizoda CZ Dabing",
         "video_id": 30199299
+      },
+      {
+        "episode_id": 153959,
+        "display_name": "Naomi Ósaka S01E03 - Vlastní cestou CZ Dabing",
+        "video_id": 30199328
       }
     ],
     "prepared_not_upload_ready": [
@@ -664797,17 +664837,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 45,
-    "disabled": 81,
+    "ok": 57,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36062,
+    "needs_whisper": 36044,
     "whisper_confirmed_cz": 3952,
-    "whisper_non_cz_needs_subtitles": 12816,
+    "whisper_non_cz_needs_subtitles": 12830,
     "whisper_failed": 1345
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 45144
+    "needs_subtitle_setup_after_prehrajto_processing": 45156
   }
 }
