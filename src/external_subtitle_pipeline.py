@@ -36,7 +36,7 @@ from verify_subtitle_delivery import verify
 REPO = Path(__file__).resolve().parents[1]
 ARTIFACT_PREFIX = "external-subtitle-state-"
 WORKFLOW = "external-subtitles.yml"
-PENDING = {"awaiting_whisper", "awaiting_manual_review"}
+PENDING = {"awaiting_whisper", "awaiting_manual_review", "whisper_incomplete"}
 SUBMITTED = {"submission_pending", "submitted", "submission_unknown"}
 
 
@@ -270,7 +270,7 @@ def prepare(pipeline, args):
 
 def whisper(pipeline, args):
     from faster_whisper import WhisperModel
-    rows = [r for r in pipeline.state["candidates"].values() if r["status"] == "awaiting_whisper"][:args.limit]
+    rows = [r for r in pipeline.state["candidates"].values() if r["status"] in {"awaiting_whisper", "whisper_incomplete"}][:args.limit]
     if not rows:
         return
     model = WhisperModel(args.model, device="cpu", compute_type="int8", cpu_threads=6)
@@ -388,7 +388,11 @@ def submit(pipeline, args):
             sessions[account] = credentials(account)
         # Reconfirm ownership and pending subtitle counts immediately before POST.
         info = find_profile_detail(sessions[account], current)
-        if not info or info.get("deleted") or info.get("processing") or info.get("subtitle_count", 0):
+        if not info or info.get("deleted"):
+            row["status"] = "target_deleted" if info and info.get("deleted") else "target_not_on_account"
+            pipeline.save()
+            continue
+        if info.get("processing") or info.get("subtitle_count", 0):
             continue
         try:
             response = upload_subtitle(sessions[account], video, int(info["page"]), content, str(int(time.time()))[-6:])
