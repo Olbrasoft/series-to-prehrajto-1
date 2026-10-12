@@ -4,6 +4,7 @@
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import requests
@@ -11,6 +12,15 @@ import requests
 from backfill_uploaded_subtitles import detect_subtitle_format, normalize_srt, now_iso, pick_czech_track, vtt_to_srt
 from resolve_stream import GOOGLEBOT_HEADERS, parse_html
 from review_subtitles_with_whisper import read_player
+
+
+def comparison_srt(content: bytes) -> bytes:
+    """Ignore only SSA on-screen alignment tags stripped by the portal.
+
+    All caption text and millisecond timestamps remain part of the comparison.
+    This does not modify the uploaded subtitle file or shift any cue.
+    """
+    return re.sub(rb"\{\\an[1-9]\}", b"", normalize_srt(content))
 
 
 def verify(url: str, video_id: int, expected_srt: bytes | None = None) -> dict:
@@ -26,14 +36,15 @@ def verify(url: str, video_id: int, expected_srt: bytes | None = None) -> dict:
     if ext not in {".vtt", ".srt"}:
         raise ValueError("The subtitle response is not VTT or SRT")
     normalized = vtt_to_srt(response.content) if ext == ".vtt" else normalize_srt(response.content)
-    if expected_srt is not None and normalized != normalize_srt(expected_srt):
+    if expected_srt is not None and comparison_srt(normalized) != comparison_srt(expected_srt):
         raise ValueError("Delivered subtitle cues differ from the prepared file")
     # Exclude signed CDN URLs, cookies and video stream URLs from the proof.
     return {"checked_at": now_iso(), "detail_url": url, "video_id": video_id,
             "html_http_status": 200, "subtitle_http_status": response.status_code,
             "language": "cs", "format": ext.lstrip("."), "cue_count": normalized.count(b" --> "),
             "subtitle_bytes": len(response.content), "srt_sha256": hashlib.sha256(normalized).hexdigest(),
-            "matches_prepared_file": expected_srt is not None}
+            "matches_prepared_file": expected_srt is not None,
+            "comparison_ignores": ["cue numbering", "line endings", "SSA on-screen alignment tags"]}
 
 
 def main() -> int:
