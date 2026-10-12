@@ -18,6 +18,7 @@ import shutil
 import subprocess
 import time
 from collections import Counter
+from itertools import zip_longest
 from pathlib import Path
 
 import requests
@@ -121,6 +122,7 @@ class Pipeline:
         self.save()
 
     def export(self):
+        self.prune()
         waiting = []
         for row in self.state["candidates"].values():
             if row["status"] in PENDING:
@@ -142,6 +144,30 @@ class Pipeline:
                                  "reviewed_anchors": []})
         write_json(self.root / "manual-review-template.json", template)
         write_json(self.root / "summary.json", {"checked_at": timestamp(), "counts": dict(Counter(r["status"] for r in self.state["candidates"].values()))})
+
+    def prune(self):
+        """Keep active evidence and a bounded recent cache, not all historic WAV/text."""
+        terminal = [row for row in self.state["candidates"].values()
+                    if row["status"] not in PENDING | SUBMITTED | {"approved"}]
+        terminal.sort(key=lambda row: row.get("prepared_at", ""), reverse=True)
+        for row in terminal[100:]:
+            row.pop("evidence", None)
+        for row in terminal:
+            if row["status"] == "uploaded":
+                row.pop("evidence", None)
+        provider = self.root / "provider/provider.json"
+        if provider.exists():
+            data = json.loads(provider.read_text())
+            recent = sorted(data["files"], key=lambda key: data["files"][key].get("downloaded_at", ""), reverse=True)[:300]
+            active = {str(row["file_id"]) for row in self.state["candidates"].values()
+                      if row["status"] in PENDING | SUBMITTED | {"approved"}}
+            keep = set(recent) | active
+            data["files"] = {key: value for key, value in data["files"].items() if key in keep}
+            write_json(provider, data)
+            for path in provider.parent.glob("*.srt"):
+                if path.stem not in keep:
+                    path.unlink()
+        self.save()
 
 
 def uploads_by_account():
@@ -169,6 +195,8 @@ def prepare(pipeline, args):
     # Fair account interleaving, stable rotation past prior negative searches.
     tasks.sort(key=lambda task: (str(pipeline.state["episodes"].get(f"{task[0]}-{task[1]['prehrajto_video_id']}", {}).get("checked_at", "")),
                                  int(task[1]["episode_id"])))
+    account_tasks = [[task for task in tasks if task[0] == account] for account in ("primary", "serialy")]
+    tasks = [task for pair in zip_longest(*account_tasks) for task in pair if task is not None]
     selected, deadline = 0, time.monotonic() + args.max_runtime
     for account, upload, previous in tasks:
         if selected >= args.search_limit or time.monotonic() >= deadline:
