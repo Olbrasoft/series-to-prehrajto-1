@@ -1,37 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 120043,
-    "manifest_upload_ready_episodes": 34,
-    "uploaded_episodes": 71662,
-    "prepared_source_episodes": 67961,
+    "manifest_upload_ready_episodes": 35,
+    "uploaded_episodes": 71665,
+    "prepared_source_episodes": 67966,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 71,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 82,
+    "language_whisper_attempted_sources": 47,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54172,
     "whisper_review_pending_sources": 37403,
-    "subtitle_followup_sources": 45289,
-    "subtitle_followup_pending_sources": 45289
+    "subtitle_followup_sources": 45295,
+    "subtitle_followup_pending_sources": 45295
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-12T16:06:13Z",
-      "databaseId": 38275046204,
+      "createdAt": "2026-10-12T16:12:21Z",
+      "databaseId": 38275754849,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-12T16:12:17Z",
+      "databaseId": 38275746461,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-12T16:10:27Z",
+      "databaseId": 38275529031,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T16:10:07Z",
+      "databaseId": 38275503392,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T16:09:33Z",
+      "databaseId": 38275437659,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-12T16:09:28Z",
+      "databaseId": 38275426730,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-12T16:09:21Z",
+      "databaseId": 38275413821,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-12T16:06:13Z",
+      "databaseId": 38275046204,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-12T16:03:09Z",
       "databaseId": 38274677163,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-12T16:01:53Z",
       "databaseId": 38274524053,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -75,11 +131,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-12T15:57:48Z",
       "databaseId": 38274008253,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T15:53:01Z",
-      "databaseId": 38273448294,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T15:52:06Z",
-      "databaseId": 38273340344,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-12T15:52:00Z",
-      "databaseId": 38273328331,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-12T15:51:36Z",
-      "databaseId": 38273284034,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-12T15:51:35Z",
-      "databaseId": 38273281431,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-12T15:51:31Z",
-      "databaseId": 38273273243,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-12T15:50:05Z",
-      "databaseId": 38273100897,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -175376,6 +175376,11 @@
         "video_id": 30203179
       },
       {
+        "episode_id": 140813,
+        "display_name": "Hyena S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 30203212
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -332761,9 +332766,19 @@
         "video_id": 30202669
       },
       {
+        "episode_id": 84266,
+        "display_name": "Zmizení S04E06 - 6. epizoda CZ Dabing",
+        "video_id": 30203202
+      },
+      {
         "episode_id": 172335,
         "display_name": "Případ Outreau: Francouzská noční můra S01E01 - Dům ve čtvrti Tour du Renard CZ Dabing",
         "video_id": 30203013
+      },
+      {
+        "episode_id": 140811,
+        "display_name": "Hyena S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30203255
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -507858,6 +507873,11 @@
         "video_id": 30203179
       },
       {
+        "episode_id": 140813,
+        "display_name": "Hyena S01E14 - 14. epizoda CZ Titulky",
+        "video_id": 30203212
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -665243,9 +665263,19 @@
         "video_id": 30202669
       },
       {
+        "episode_id": 84266,
+        "display_name": "Zmizení S04E06 - 6. epizoda CZ Dabing",
+        "video_id": 30203202
+      },
+      {
         "episode_id": 172335,
         "display_name": "Případ Outreau: Francouzská noční můra S01E01 - Dům ve čtvrti Tour du Renard CZ Dabing",
         "video_id": 30203013
+      },
+      {
+        "episode_id": 140811,
+        "display_name": "Hyena S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30203255
       }
     ],
     "prepared_not_upload_ready": [
@@ -666407,8 +666437,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 31,
-    "ok": 39,
+    "ok": 46,
+    "disabled": 35,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -666418,6 +666448,6 @@
     "whisper_failed": 1345
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 45289
+    "needs_subtitle_setup_after_prehrajto_processing": 45295
   }
 }
