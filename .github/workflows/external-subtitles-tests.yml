@@ -1,0 +1,23 @@
+name: external-subtitles-tests
+on:
+  pull_request:
+    paths:
+      - "src/external_subtitle_pipeline.py"
+      - "src/opensubtitles_client.py"
+      - "src/review_subtitles_with_whisper.py"
+      - "tests/test_external_subtitles.py"
+      - "tests/test_subtitle_audio_review.py"
+      - ".github/workflows/external-subtitles*.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt pytest
+      - run: python -m pytest tests/test_external_subtitles.py tests/test_subtitle_audio_review.py tests/test_subtitle_backfill.py -q

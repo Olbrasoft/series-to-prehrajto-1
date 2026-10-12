@@ -1,0 +1,104 @@
+name: external-subtitles
+
+on:
+  schedule:
+    - cron: "20 0 * * *"
+    - cron: "17,47 * * * *"
+  push:
+    branches: [main]
+    paths: ["plans/opensubtitles-reviews.jsonl"]
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [attach, prepare, seed]
+        default: attach
+      search_limit:
+        default: "300"
+      max_pending:
+        default: "90"
+
+# One application allowance and one checkpoint lineage cover both accounts.
+concurrency:
+  group: series-to-prehrajto-1-external-subtitles
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENSUBTITLES_API_KEY: ${{ secrets.OPENSUBTITLES_API_KEY }}
+      OPENSUBTITLES_USER_AGENT: OlbrasoftSubtitleCoverage2026 v0.1
+      UPLOAD_PREHRAJTO_EMAIL: ${{ secrets.UPLOAD_PREHRAJTO_EMAIL }}
+      UPLOAD_PREHRAJTO_PASSWORD: ${{ secrets.UPLOAD_PREHRAJTO_PASSWORD }}
+      SERIALY_PREHRAJTO_EMAIL: ${{ secrets.SERIALY_PREHRAJTO_EMAIL }}
+      SERIALY_PREHRAJTO_PASSWORD: ${{ secrets.SERIALY_PREHRAJTO_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Restore the latest trusted checkpoint
+        run: python src/external_subtitle_pipeline.py restore
+      - name: Seed already tested pilot choices
+        if: inputs.mode == 'seed'
+        run: python src/external_subtitle_pipeline.py seed
+      - name: Prepare deferred episodes within the daily allowance
+        if: inputs.mode == 'prepare' || github.event.schedule == '20 0 * * *'
+        env:
+          SEARCH_LIMIT: ${{ inputs.search_limit || '300' }}
+          MAX_PENDING: ${{ inputs.max_pending || '90' }}
+        run: |
+          python src/external_subtitle_pipeline.py prepare \
+            --search-limit "$SEARCH_LIMIT" \
+            --max-pending "$MAX_PENDING"
+      - name: Install Whisper for preparation
+        if: inputs.mode == 'seed' || inputs.mode == 'prepare' || github.event.schedule == '20 0 * * *'
+        run: pip install -r requirements-whisper.txt
+      - name: Prepare three audio samples for manual review
+        if: inputs.mode == 'seed' || inputs.mode == 'prepare' || github.event.schedule == '20 0 * * *'
+        run: python src/external_subtitle_pipeline.py whisper --limit 90
+      - name: Apply manual decisions and prepare approved attachments
+        run: python src/external_subtitle_pipeline.py plan-upload --limit 10
+      - name: Persist the pre-submission checkpoint
+        id: checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-subtitle-state-checkpoint
+          overwrite: true
+          path: |
+            .cache/external-subtitles/**
+            !.cache/external-subtitles/audio/**
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+      - name: Submit only identity-bound, manually approved subtitles
+        env:
+          CHECKPOINT_ARTIFACT_ID: ${{ steps.checkpoint.outputs.artifact-id }}
+        run: python src/external_subtitle_pipeline.py submit
+      - name: Persist final state even after a failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-subtitle-state-final
+          overwrite: true
+          path: |
+            .cache/external-subtitles/**
+            !.cache/external-subtitles/audio/**
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Show queue status
+        if: always()
+        run: python src/external_subtitle_pipeline.py status
