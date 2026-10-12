@@ -265,6 +265,8 @@ def prepare(pipeline, args):
 
 
 def whisper(pipeline, args):
+    if not shutil.which("ffmpeg"):
+        raise RuntimeError("FFmpeg is required for subtitle audio checks")
     from faster_whisper import WhisperModel
     rows = [r for r in pipeline.state["candidates"].values() if r["status"] in {"awaiting_whisper", "whisper_incomplete"}][:args.limit]
     if not rows:

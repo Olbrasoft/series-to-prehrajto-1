@@ -67,7 +67,10 @@ jobs:
             --max-pending "$MAX_PENDING"
       - name: Install Whisper for preparation
         if: inputs.mode == 'seed' || inputs.mode == 'prepare' || github.event.schedule == '20 0 * * *'
-        run: pip install -r requirements-whisper.txt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -r requirements-whisper.txt
       - name: Prepare three audio samples for manual review
         if: inputs.mode == 'seed' || inputs.mode == 'prepare' || github.event.schedule == '20 0 * * *'
         run: python src/external_subtitle_pipeline.py whisper --limit 90
