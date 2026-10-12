@@ -11,7 +11,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from opensubtitles_client import OpenSubtitles, ProviderStopped, identity_match
-from external_subtitle_pipeline import Pipeline, approval, candidate_key, evidence_digest, submit, transport_srt
+from external_subtitle_pipeline import Pipeline, approval, candidate_key, evidence_digest, submit, transport_srt, whisper
 from backfill_uploaded_subtitles import load_latest_status
 
 
@@ -144,3 +144,9 @@ def test_external_ledger_closes_deferred_work_without_rewriting_original(tmp_pat
     (tmp_path/'opensubtitles-verified.jsonl').write_text(json.dumps(new)+'\n')
     assert load_latest_status(path)[1]['status']=='uploaded'
     assert json.loads(path.read_text())['status']=='alternate_search_pending'
+
+
+def test_missing_ffmpeg_stops_before_model_or_network_calls(tmp_path):
+    with patch('external_subtitle_pipeline.shutil.which', return_value=None):
+        with pytest.raises(RuntimeError, match='FFmpeg is required'):
+            whisper(Pipeline(tmp_path), SimpleNamespace())
