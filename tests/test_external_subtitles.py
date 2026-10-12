@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from opensubtitles_client import OpenSubtitles, ProviderStopped, identity_match
 from external_subtitle_pipeline import Pipeline, approval, candidate_key, deferred_tasks, evidence_digest, submit, transport_srt, whisper
 from backfill_uploaded_subtitles import load_latest_status
+from verify_subtitle_delivery import comparison_srt
 
 
 def client(directory):
@@ -160,3 +161,12 @@ def test_deferred_queue_includes_unknown_target_urls_but_excludes_completed():
     tasks=deferred_tasks(uploads,reports)
     assert len(tasks)==1 and tasks[0][1]['episode_id']==1
     assert not tasks[0][2].get('detail_url')
+
+
+def test_portal_alignment_tags_do_not_mask_text_or_timing_mismatches():
+    expected=b'1\n00:00:01,123 --> 00:00:02,456\n{\\an8}Caption\n'
+    actual=b'1\n00:00:01,123 --> 00:00:02,456\nCaption\n'
+    assert comparison_srt(expected)==comparison_srt(actual)
+    assert comparison_srt(expected)!=comparison_srt(actual.replace(b'01,123',b'01,124'))
+    assert comparison_srt(expected)!=comparison_srt(actual.replace(b'Caption',b'Other caption'))
+    assert comparison_srt(expected)!=comparison_srt(actual.replace(b'Caption',b'{\\other}Caption'))
