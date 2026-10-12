@@ -94,6 +94,12 @@ class Pipeline:
     def save(self):
         write_json(self.path, self.state)
 
+    def fingerprint(self):
+        digest = hashlib.sha256()
+        for path in (self.path, self.root / "provider/provider.json"):
+            digest.update(path.read_bytes() if path.exists() else b"missing")
+        return digest.hexdigest()
+
     def file(self, row):
         path = self.root / "provider" / f"{int(row['file_id'])}.srt"
         if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != row["subtitle_sha256"]:
@@ -176,6 +182,9 @@ def uploads_by_account():
 
 
 def prepare(pipeline, args):
+    # Refresh the retained checkpoint daily even while manual review is pending.
+    pipeline.state["last_daily_preparation"] = timestamp()
+    pipeline.save()
     client = OpenSubtitles(pipeline.root / "provider", os.environ.get("OPENSUBTITLES_API_KEY", ""),
                           os.environ.get("OPENSUBTITLES_USER_AGENT", "OlbrasoftSubtitleCoverage2026 v0.1"))
     uploads = uploads_by_account()
@@ -420,8 +429,7 @@ def seed(pipeline, args):
 def restore(pipeline, repo):
     workflow = json.loads(subprocess.check_output(["gh", "api", f"repos/{repo}/actions/workflows/{WORKFLOW}"], text=True))
     artifacts = []
-    # Two rotating snapshots avoid accumulating identical binary state every
-    # half hour. During replacement, the other checkpoint remains available.
+    # Snapshots are created only when state changes and retained for seven days.
     for name in (ARTIFACT_PREFIX + "checkpoint", ARTIFACT_PREFIX + "final"):
         data = json.loads(subprocess.check_output(["gh", "api", f"repos/{repo}/actions/artifacts?name={name}&per_page=10"], text=True))
         for artifact in data["artifacts"]:
@@ -474,7 +482,7 @@ def import_pilot(pipeline, directory, reviews):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("restore", "prepare", "whisper", "apply-reviews", "plan-upload", "submit", "verify", "status", "import-pilot", "seed", "checkpoint"))
+    parser.add_argument("command", choices=("restore", "prepare", "whisper", "apply-reviews", "plan-upload", "submit", "verify", "status", "import-pilot", "seed", "checkpoint", "needs-save"))
     parser.add_argument("--directory", type=Path, default=REPO / ".cache/external-subtitles")
     parser.add_argument("--reviews", type=Path, default=REPO / "plans/opensubtitles-reviews.jsonl")
     parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY"))
@@ -491,6 +499,9 @@ def main():
     pipeline = Pipeline(args.directory)
     if args.command == "restore":
         restore(pipeline, args.repo)
+        # Reload after downloading; the initial object predates the snapshot.
+        pipeline = Pipeline(args.directory)
+        (pipeline.root / ".initial-fingerprint").write_text(pipeline.fingerprint())
     elif args.command == "prepare":
         prepare(pipeline, args)
     elif args.command == "whisper":
@@ -500,6 +511,10 @@ def main():
         pipeline.export()
     elif args.command == "plan-upload":
         plan_upload(pipeline, args)
+        if os.environ.get("GITHUB_OUTPUT"):
+            plan = json.loads((pipeline.root / "upload-plan.json").read_text())
+            with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+                output.write(f"has_uploads={'true' if plan['candidates'] else 'false'}\n")
     elif args.command == "submit":
         submit(pipeline, args)
     elif args.command == "verify":
@@ -515,6 +530,13 @@ def main():
         shutil.copyfile(pipeline.path, args.checkpoint)
         with args.checkpoint.open("rb") as handle:
             os.fsync(handle.fileno())
+    elif args.command == "needs-save":
+        initial = pipeline.root / ".initial-fingerprint"
+        changed = not initial.exists() or initial.read_text() != pipeline.fingerprint()
+        if os.environ.get("GITHUB_OUTPUT"):
+            with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+                output.write(f"changed={'true' if changed else 'false'}\n")
+        print(f"state_changed={changed}")
     else:
         pipeline.export()
         print((pipeline.root / "summary.json").read_text())

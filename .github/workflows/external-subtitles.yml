@@ -70,35 +70,40 @@ jobs:
         if: inputs.mode == 'seed' || inputs.mode == 'prepare' || github.event.schedule == '20 0 * * *'
         run: python src/external_subtitle_pipeline.py whisper --limit 90
       - name: Apply manual decisions and prepare approved attachments
+        id: plan
         run: python src/external_subtitle_pipeline.py plan-upload --limit 10
       - name: Persist the pre-submission checkpoint
+        if: steps.plan.outputs.has_uploads == 'true'
         id: checkpoint
         uses: actions/upload-artifact@v4
         with:
           name: external-subtitle-state-checkpoint
-          overwrite: true
           path: |
             .cache/external-subtitles/**
             !.cache/external-subtitles/audio/**
           include-hidden-files: true
           if-no-files-found: error
-          retention-days: 90
+          retention-days: 7
       - name: Submit only identity-bound, manually approved subtitles
+        if: steps.plan.outputs.has_uploads == 'true'
         env:
           CHECKPOINT_ARTIFACT_ID: ${{ steps.checkpoint.outputs.artifact-id }}
         run: python src/external_subtitle_pipeline.py submit
-      - name: Persist final state even after a failure
+      - name: Check whether the snapshot changed
         if: always()
+        id: changed
+        run: python src/external_subtitle_pipeline.py needs-save
+      - name: Persist final state even after a failure
+        if: always() && steps.changed.outputs.changed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: external-subtitle-state-final
-          overwrite: true
           path: |
             .cache/external-subtitles/**
             !.cache/external-subtitles/audio/**
           include-hidden-files: true
           if-no-files-found: warn
-          retention-days: 90
+          retention-days: 7
       - name: Show queue status
         if: always()
         run: python src/external_subtitle_pipeline.py status
