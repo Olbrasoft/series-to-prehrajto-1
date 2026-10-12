@@ -7,6 +7,7 @@ decisions live in plans/opensubtitles-reviews.jsonl. No subtitle is retimed.
 from __future__ import annotations
 
 import argparse
+import base64
 import contextlib
 import datetime as dt
 import gzip
@@ -426,6 +427,57 @@ def seed(pipeline, args):
     pipeline.export()
 
 
+def publish_proofs(pipeline, repo):
+    """Append verified results through the contents API with optimistic retries."""
+    pending = [row for row in pipeline.state["candidates"].values()
+               if row["status"] == "uploaded" and not row.get("report_published")]
+    if not pending:
+        return
+    endpoint = f"repos/{repo}/contents/reports/opensubtitles-verified.jsonl"
+    for _ in range(6):
+        response = subprocess.run(["gh", "api", endpoint + "?ref=main"], capture_output=True, text=True)
+        sha, text = None, ""
+        if response.returncode == 0:
+            data = json.loads(response.stdout)
+            sha = data["sha"]
+            text = (base64.b64decode(data["content"]).decode() if data.get("encoding") == "base64" else
+                    subprocess.check_output(["gh", "api", endpoint + "?ref=main", "-H", "Accept: application/vnd.github.raw+json"], text=True))
+        elif "404" not in response.stderr:
+            raise RuntimeError("Cannot read verified subtitle ledger")
+        records = {(r["upload_account"], int(r["prehrajto_video_id"])): r
+                   for r in (json.loads(line) for line in text.splitlines() if line.strip())}
+        original = dict(records)
+        for row in pending:
+            proof = row["server_proof"]
+            if not proof.get("matches_prepared_file") or proof.get("cue_count", 0) <= 0:
+                raise ValueError("No exact server delivery proof")
+            records[(row["upload_account"], row["target_video_id"])] = {
+                "episode_id": row["episode_id"], "upload_account": row["upload_account"],
+                "prehrajto_video_id": row["target_video_id"], "status": "uploaded",
+                "source_lane": "external", "checked_at": proof["checked_at"],
+                "detail_url": row["target_detail_url"], "subtitle_language": "cs",
+                "srt_sha256": proof["srt_sha256"], "cue_count": proof["cue_count"],
+            }
+        if records != original:
+            content = "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for _, row in sorted(records.items()))
+            payload = {"message": "chore: record verified external subtitle attachments", "branch": "main",
+                       "content": base64.b64encode(content.encode()).decode()}
+            if sha:
+                payload["sha"] = sha
+            result = subprocess.run(["gh", "api", "--method", "PUT", endpoint, "--input", "-"],
+                                    input=json.dumps(payload), capture_output=True, text=True)
+            if result.returncode:
+                if "409" in result.stderr or "422" in result.stderr:
+                    time.sleep(2)
+                    continue
+                raise RuntimeError("Cannot publish verified subtitle ledger")
+        for row in pending:
+            row["report_published"] = True
+        pipeline.save()
+        return
+    raise RuntimeError("Verified subtitle ledger changed too often")
+
+
 def restore(pipeline, repo):
     workflow = json.loads(subprocess.check_output(["gh", "api", f"repos/{repo}/actions/workflows/{WORKFLOW}"], text=True))
     artifacts = []
@@ -482,7 +534,7 @@ def import_pilot(pipeline, directory, reviews):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("restore", "prepare", "whisper", "apply-reviews", "plan-upload", "submit", "verify", "status", "import-pilot", "seed", "checkpoint", "needs-save"))
+    parser.add_argument("command", choices=("restore", "prepare", "whisper", "apply-reviews", "plan-upload", "submit", "verify", "status", "import-pilot", "seed", "checkpoint", "needs-save", "publish-proofs"))
     parser.add_argument("--directory", type=Path, default=REPO / ".cache/external-subtitles")
     parser.add_argument("--reviews", type=Path, default=REPO / "plans/opensubtitles-reviews.jsonl")
     parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY"))
@@ -524,6 +576,8 @@ def main():
         import_pilot(pipeline, args.pilot_directory, args.reviews)
     elif args.command == "seed":
         seed(pipeline, args)
+    elif args.command == "publish-proofs":
+        publish_proofs(pipeline, args.repo)
     elif args.command == "checkpoint":
         if not args.checkpoint:
             parser.error("--checkpoint is required")

@@ -12,6 +12,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from opensubtitles_client import OpenSubtitles, ProviderStopped, identity_match
 from external_subtitle_pipeline import Pipeline, approval, candidate_key, evidence_digest, submit, transport_srt
+from backfill_uploaded_subtitles import load_latest_status
 
 
 def client(directory):
@@ -133,3 +134,13 @@ def test_encoding_conversion_preserves_cue_times_and_czech(tmp_path):
 def test_restore_candidate_identity_includes_account():
     row, _ = fixture()
     assert candidate_key(row) != candidate_key({**row,'upload_account':'serialy'})
+
+
+def test_external_ledger_closes_deferred_work_without_rewriting_original(tmp_path):
+    old={'episode_id':1,'prehrajto_video_id':2,'upload_account':'primary','status':'alternate_search_pending','checked_at':'2026-10-11'}
+    new={**old,'status':'uploaded','checked_at':'2026-10-12'}
+    path=tmp_path/'subtitle-backfill-status.jsonl'
+    path.write_text(json.dumps(old)+'\n')
+    (tmp_path/'opensubtitles-verified.jsonl').write_text(json.dumps(new)+'\n')
+    assert load_latest_status(path)[1]['status']=='uploaded'
+    assert json.loads(path.read_text())['status']=='alternate_search_pending'

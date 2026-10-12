@@ -94,7 +94,12 @@ def append_jsonl(path: Path, row: dict) -> None:
 
 def load_latest_status(path: Path) -> dict[int, dict]:
     latest: dict[int, dict] = {}
-    for row in load_jsonl(path):
+    rows = load_jsonl(path)
+    # External attachments have a small separate ledger, avoiding another
+    # rewrite of the large original backfill report for every verified track.
+    if path.name == "subtitle-backfill-status.jsonl":
+        rows += load_jsonl(path.with_name("opensubtitles-verified.jsonl"))
+    for row in rows:
         try:
             episode_id = int(row["episode_id"])
             previous = latest.get(episode_id)
