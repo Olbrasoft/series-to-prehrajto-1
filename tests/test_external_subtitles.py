@@ -170,3 +170,20 @@ def test_portal_alignment_tags_do_not_mask_text_or_timing_mismatches():
     assert comparison_srt(expected)!=comparison_srt(actual.replace(b'01,123',b'01,124'))
     assert comparison_srt(expected)!=comparison_srt(actual.replace(b'Caption',b'Other caption'))
     assert comparison_srt(expected)!=comparison_srt(actual.replace(b'Caption',b'{\\other}Caption'))
+
+
+def test_portal_empty_cue_removal_preserves_exact_nonempty_captions():
+    expected = (b'1\n00:00:01,123 --> 00:00:02,456\nFirst\n\n'
+                b'2\n00:00:03,000 --> 00:00:04,000\n   \n\n'
+                b'3\n00:00:05,123 --> 00:00:06,456\nSecond\n')
+    delivered = (b'1\n00:00:01,123 --> 00:00:02,456\nFirst\n\n'
+                 b'2\n00:00:05,123 --> 00:00:06,456\nSecond\n')
+    assert comparison_srt(expected) == comparison_srt(delivered)
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'05,123', b'05,124'))
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'Second', b'Changed'))
+    assert comparison_srt(expected) != comparison_srt(delivered.split(b'\n\n')[0])
+
+
+def test_empty_cues_cannot_verify_an_empty_subtitle_file():
+    with pytest.raises(ValueError, match='no valid SRT cues'):
+        comparison_srt(b'1\n00:00:01,123 --> 00:00:02,456\n\n')
