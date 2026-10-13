@@ -187,3 +187,11 @@ def test_portal_empty_cue_removal_preserves_exact_nonempty_captions():
 def test_empty_cues_cannot_verify_an_empty_subtitle_file():
     with pytest.raises(ValueError, match='no valid SRT cues'):
         comparison_srt(b'1\n00:00:01,123 --> 00:00:02,456\n\n')
+
+
+def test_caption_indentation_does_not_mask_internal_text_changes():
+    expected = b'1\n00:00:01,123 --> 00:00:02,456\n <i>Caption text</i>\n'
+    delivered = b'1\n00:00:01,123 --> 00:00:02,456\n<i>Caption text</i>\n'
+    assert comparison_srt(expected) == comparison_srt(delivered)
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'Caption text', b'Caption  text'))
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'01,123', b'01,124'))
