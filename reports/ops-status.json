@@ -1,45 +1,109 @@
 {
   "counts": {
     "backlog_episodes": 119175,
-    "manifest_upload_ready_episodes": 169,
-    "uploaded_episodes": 72488,
-    "prepared_source_episodes": 69297,
+    "manifest_upload_ready_episodes": 174,
+    "uploaded_episodes": 72492,
+    "prepared_source_episodes": 69305,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 46,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 88,
-    "language_whisper_attempted_sources": 45,
+    "language_audited_sources": 102,
+    "language_whisper_attempted_sources": 49,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54174,
-    "whisper_review_pending_sources": 37495,
-    "subtitle_followup_sources": 46062,
-    "subtitle_followup_pending_sources": 46062
+    "whisper_review_sources": 54175,
+    "whisper_review_pending_sources": 37498,
+    "subtitle_followup_sources": 46066,
+    "subtitle_followup_pending_sources": 46066
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-13T21:23:46Z",
-      "databaseId": 38470268500,
+      "createdAt": "2026-10-13T21:30:14Z",
+      "databaseId": 38471095126,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "status": "pending",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-13T21:23:37Z",
-      "databaseId": 38470247889,
+      "createdAt": "2026-10-13T21:29:31Z",
+      "databaseId": 38470999001,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T21:27:48Z",
+      "databaseId": 38470784615,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-13T21:26:46Z",
+      "databaseId": 38470656005,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-13T21:26:04Z",
+      "databaseId": 38470565866,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T21:25:41Z",
+      "databaseId": 38470518590,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T21:25:06Z",
+      "databaseId": 38470441066,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "external-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T21:25:05Z",
+      "databaseId": 38470437173,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T21:23:46Z",
+      "databaseId": 38470268500,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T21:23:37Z",
+      "databaseId": 38470247889,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-13T21:23:33Z",
       "databaseId": 38470238591,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -95,7 +159,7 @@
       "createdAt": "2026-10-13T21:17:13Z",
       "databaseId": 38469434076,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T21:15:53Z",
-      "databaseId": 38469264072,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "refresh-backlog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T21:15:48Z",
-      "databaseId": 38469253698,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T21:15:17Z",
-      "databaseId": 38469184788,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T21:15:11Z",
-      "databaseId": 38469170972,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-13T21:14:44Z",
-      "databaseId": 38469110343,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T21:13:16Z",
-      "databaseId": 38468920830,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T21:12:15Z",
-      "databaseId": 38468792634,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T21:12:11Z",
-      "databaseId": 38468785356,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -177466,9 +177466,19 @@
         "video_id": 30227876
       },
       {
+        "episode_id": 188448,
+        "display_name": "Vampirina S01E10 - Nadpřirozený CZ Dabing",
+        "video_id": 30228334
+      },
+      {
         "episode_id": 188445,
         "display_name": "Vampirina S01E05 - Večírek s překvapením CZ Dabing",
         "video_id": 30228311
+      },
+      {
+        "episode_id": 188449,
+        "display_name": "Vampirina S01E11 - Vampování CZ Dabing",
+        "video_id": 30228375
       },
       {
         "episode_id": 114182,
@@ -336894,6 +336904,16 @@
         "episode_id": 188447,
         "display_name": "Vampirina S01E06 - Hrůzotrs CZ Dabing",
         "video_id": 30227783
+      },
+      {
+        "episode_id": 135050,
+        "display_name": "Police University S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30228367
+      },
+      {
+        "episode_id": 188443,
+        "display_name": "Vampirina S01E04 - Portrét upíra CZ Dabing",
+        "video_id": 30228270
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -514078,9 +514098,19 @@
         "video_id": 30227876
       },
       {
+        "episode_id": 188448,
+        "display_name": "Vampirina S01E10 - Nadpřirozený CZ Dabing",
+        "video_id": 30228334
+      },
+      {
         "episode_id": 188445,
         "display_name": "Vampirina S01E05 - Večírek s překvapením CZ Dabing",
         "video_id": 30228311
+      },
+      {
+        "episode_id": 188449,
+        "display_name": "Vampirina S01E11 - Vampování CZ Dabing",
+        "video_id": 30228375
       },
       {
         "episode_id": 114182,
@@ -673506,6 +673536,16 @@
         "episode_id": 188447,
         "display_name": "Vampirina S01E06 - Hrůzotrs CZ Dabing",
         "video_id": 30227783
+      },
+      {
+        "episode_id": 135050,
+        "display_name": "Police University S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30228367
+      },
+      {
+        "episode_id": 188443,
+        "display_name": "Vampirina S01E04 - Portrét upíra CZ Dabing",
+        "video_id": 30228270
       }
     ],
     "prepared_not_upload_ready": [
@@ -674667,17 +674707,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 43,
-    "ok": 44,
+    "disabled": 53,
+    "ok": 48,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36174,
-    "whisper_confirmed_cz": 3933,
-    "whisper_non_cz_needs_subtitles": 12746,
+    "needs_whisper": 36177,
+    "whisper_confirmed_cz": 3934,
+    "whisper_non_cz_needs_subtitles": 12743,
     "whisper_failed": 1321
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46062
+    "needs_subtitle_setup_after_prehrajto_processing": 46066
   }
 }
