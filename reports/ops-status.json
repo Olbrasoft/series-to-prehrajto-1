@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 119391,
-    "manifest_upload_ready_episodes": 19,
-    "uploaded_episodes": 72297,
-    "prepared_source_episodes": 68793,
+    "manifest_upload_ready_episodes": 13,
+    "uploaded_episodes": 72305,
+    "prepared_source_episodes": 68797,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 55,
+    "language_whisper_attempted_sources": 42,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54140,
-    "whisper_review_pending_sources": 37312,
-    "subtitle_followup_sources": 45791,
-    "subtitle_followup_pending_sources": 45791
+    "whisper_review_pending_sources": 37314,
+    "subtitle_followup_sources": 45796,
+    "subtitle_followup_pending_sources": 45796
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-13T13:14:26Z",
-      "databaseId": 38403367922,
+      "createdAt": "2026-10-13T13:21:22Z",
+      "databaseId": 38404286725,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T13:20:17Z",
+      "databaseId": 38404140029,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-13T13:17:59Z",
+      "databaseId": 38403837027,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-10-13T13:17:54Z",
+      "databaseId": 38403824780,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T13:17:46Z",
+      "databaseId": 38403806073,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T13:17:02Z",
+      "databaseId": 38403711984,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-13T13:14:26Z",
+      "databaseId": 38403367922,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-13T13:14:11Z",
       "databaseId": 38403335317,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -51,11 +99,11 @@
       "workflowName": "external-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T13:07:19Z",
       "databaseId": 38402458968,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T13:00:26Z",
-      "databaseId": 38401562154,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T13:00:23Z",
-      "databaseId": 38401554636,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T13:00:08Z",
-      "databaseId": 38401518740,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T12:59:33Z",
-      "databaseId": 38401441377,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T12:59:14Z",
-      "databaseId": 38401402566,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T12:59:10Z",
-      "databaseId": 38401392525,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -176991,6 +176991,26 @@
         "video_id": 30219504
       },
       {
+        "episode_id": 136600,
+        "display_name": "The Legend of ShenLi S01E21 - 21. epizoda CZ Titulky",
+        "video_id": 30219680
+      },
+      {
+        "episode_id": 142584,
+        "display_name": "Královny podsvětí S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30219721
+      },
+      {
+        "episode_id": 136601,
+        "display_name": "The Legend of ShenLi S01E22 - 22. epizoda CZ Titulky",
+        "video_id": 30219682
+      },
+      {
+        "episode_id": 99253,
+        "display_name": "Vrah z TikToku S01E01 - Poslední zpráva CZ Dabing",
+        "video_id": 30219718
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -335939,6 +335959,26 @@
         "episode_id": 8155,
         "display_name": "Gomorra - Le Origini S01E03 - 3. epizoda CZ Dabing",
         "video_id": 30219607
+      },
+      {
+        "episode_id": 136598,
+        "display_name": "The Legend of ShenLi S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30219681
+      },
+      {
+        "episode_id": 8158,
+        "display_name": "Gomorra - Le Origini S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30219705
+      },
+      {
+        "episode_id": 136599,
+        "display_name": "The Legend of ShenLi S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 30219679
+      },
+      {
+        "episode_id": 8159,
+        "display_name": "Gomorra - Le Origini S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30219710
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -512648,6 +512688,26 @@
         "video_id": 30219504
       },
       {
+        "episode_id": 136600,
+        "display_name": "The Legend of ShenLi S01E21 - 21. epizoda CZ Titulky",
+        "video_id": 30219680
+      },
+      {
+        "episode_id": 142584,
+        "display_name": "Královny podsvětí S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30219721
+      },
+      {
+        "episode_id": 136601,
+        "display_name": "The Legend of ShenLi S01E22 - 22. epizoda CZ Titulky",
+        "video_id": 30219682
+      },
+      {
+        "episode_id": 99253,
+        "display_name": "Vrah z TikToku S01E01 - Poslední zpráva CZ Dabing",
+        "video_id": 30219718
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -671596,6 +671656,26 @@
         "episode_id": 8155,
         "display_name": "Gomorra - Le Origini S01E03 - 3. epizoda CZ Dabing",
         "video_id": 30219607
+      },
+      {
+        "episode_id": 136598,
+        "display_name": "The Legend of ShenLi S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30219681
+      },
+      {
+        "episode_id": 8158,
+        "display_name": "Gomorra - Le Origini S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30219705
+      },
+      {
+        "episode_id": 136599,
+        "display_name": "The Legend of ShenLi S01E20 - 20. epizoda CZ Titulky",
+        "video_id": 30219679
+      },
+      {
+        "episode_id": 8159,
+        "display_name": "Gomorra - Le Origini S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30219710
       }
     ],
     "prepared_not_upload_ready": [
@@ -672757,16 +672837,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 13,
+    "ok": 41,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35973,
+    "needs_whisper": 35975,
     "whisper_confirmed_cz": 3933,
-    "whisper_non_cz_needs_subtitles": 12895,
+    "whisper_non_cz_needs_subtitles": 12893,
     "whisper_failed": 1339
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 45791
+    "needs_subtitle_setup_after_prehrajto_processing": 45796
   }
 }
