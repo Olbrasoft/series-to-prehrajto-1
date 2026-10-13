@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 119583,
-    "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 72153,
-    "prepared_source_episodes": 68529,
+    "manifest_upload_ready_episodes": 5,
+    "uploaded_episodes": 72154,
+    "prepared_source_episodes": 68527,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 28,
-    "language_whisper_attempted_sources": 22,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54138,
     "whisper_review_pending_sources": 37302,
     "subtitle_followup_sources": 45670,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-13T08:21:54Z",
+      "databaseId": 38368754147,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:21:49Z",
+      "databaseId": 38368742984,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:21:43Z",
+      "databaseId": 38368733305,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:19:37Z",
+      "databaseId": 38368491293,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:19:34Z",
+      "databaseId": 38368485439,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:18:34Z",
       "databaseId": 38368373087,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -83,11 +123,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:13:08Z",
       "databaseId": 38367763589,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:04:13Z",
-      "databaseId": 38366776567,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:04:10Z",
-      "databaseId": 38366770718,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:03:24Z",
-      "databaseId": 38366685980,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:02:59Z",
-      "databaseId": 38366639038,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-13T08:01:52Z",
-      "databaseId": 38366515656,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -176609,6 +176609,11 @@
         "episode_id": 144292,
         "display_name": "Manayek S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30215204
+      },
+      {
+        "episode_id": 116424,
+        "display_name": "Mr. & Mrs. Murder S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30215236
       },
       {
         "episode_id": 144293,
@@ -511548,6 +511553,11 @@
         "video_id": 30215204
       },
       {
+        "episode_id": 116424,
+        "display_name": "Mr. & Mrs. Murder S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30215236
+      },
+      {
         "episode_id": 144293,
         "display_name": "Manayek S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30215150
@@ -671317,8 +671327,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 21,
-    "disabled": 6,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
