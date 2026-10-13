@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 119489,
-    "manifest_upload_ready_episodes": 6,
-    "uploaded_episodes": 72197,
-    "prepared_source_episodes": 68635,
+    "manifest_upload_ready_episodes": 8,
+    "uploaded_episodes": 72200,
+    "prepared_source_episodes": 68645,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54141,
     "whisper_review_pending_sources": 37313,
     "subtitle_followup_sources": 45713,
@@ -20,10 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-13T10:25:58Z",
+      "databaseId": 38383309769,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T10:25:41Z",
+      "databaseId": 38383277566,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T10:25:09Z",
+      "databaseId": 38383214801,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T10:24:08Z",
+      "databaseId": 38383099485,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T10:23:45Z",
+      "databaseId": 38383055652,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T10:23:40Z",
+      "databaseId": 38383046151,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T10:23:38Z",
+      "databaseId": 38383043578,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-13T10:22:45Z",
       "databaseId": 38382944090,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -35,11 +91,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T10:22:29Z",
       "databaseId": 38382913205,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +115,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T10:18:59Z",
       "databaseId": 38382510841,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T10:11:07Z",
-      "databaseId": 38381614941,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T10:11:00Z",
-      "databaseId": 38381599940,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T10:08:08Z",
-      "databaseId": 38381272146,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T10:07:48Z",
-      "databaseId": 38381235065,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T10:07:31Z",
-      "databaseId": 38381202999,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T10:06:37Z",
-      "databaseId": 38381099123,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T10:06:37Z",
-      "databaseId": 38381098818,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -176746,6 +176746,11 @@
         "video_id": 30216592
       },
       {
+        "episode_id": 162184,
+        "display_name": "Nevysvětlené jevy S01E08 - Nohy v Sališském moři CZ Dabing",
+        "video_id": 30216752
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -335439,6 +335444,16 @@
         "episode_id": 102739,
         "display_name": "Lotr S01E02 - 2. epizoda CZ Dabing",
         "video_id": 30216598
+      },
+      {
+        "episode_id": 167482,
+        "display_name": "Psí přátelé S01E04 - Nůžky v pohybu CZ Titulky",
+        "video_id": 30216749
+      },
+      {
+        "episode_id": 141259,
+        "display_name": "Magie kouzla zbavená S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30216756
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -511903,6 +511918,11 @@
         "video_id": 30216592
       },
       {
+        "episode_id": 162184,
+        "display_name": "Nevysvětlené jevy S01E08 - Nohy v Sališském moři CZ Dabing",
+        "video_id": 30216752
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -670596,6 +670616,16 @@
         "episode_id": 102739,
         "display_name": "Lotr S01E02 - 2. epizoda CZ Dabing",
         "video_id": 30216598
+      },
+      {
+        "episode_id": 167482,
+        "display_name": "Psí přátelé S01E04 - Nůžky v pohybu CZ Titulky",
+        "video_id": 30216749
+      },
+      {
+        "episode_id": 141259,
+        "display_name": "Magie kouzla zbavená S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30216756
       }
     ],
     "prepared_not_upload_ready": [
@@ -671757,8 +671787,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 9,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
