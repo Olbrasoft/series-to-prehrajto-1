@@ -15,12 +15,20 @@ from review_subtitles_with_whisper import read_player
 
 
 def comparison_srt(content: bytes) -> bytes:
-    """Ignore only SSA on-screen alignment tags stripped by the portal.
+    """Ignore empty cues, indentation and SSA tags normalized by the portal.
 
     All caption text and millisecond timestamps remain part of the comparison.
     This does not modify the uploaded subtitle file or shift any cue.
     """
-    return re.sub(rb"\{\\an[1-9]\}", b"", normalize_srt(content))
+    normalized = re.sub(rb"\{\\an[1-9]\}", b"", normalize_srt(content))
+    # Removing an empty cue also changes every subsequent cue number. Keep
+    # every nonempty caption and its exact timestamps, then renumber again.
+    captions = []
+    for block in normalized.split(b"\r\n\r\n"):
+        lines = block.strip().split(b"\r\n")
+        if len(lines) > 2:
+            captions.append(b"\r\n".join(lines[:2] + [line.lstrip(b" \t") for line in lines[2:]]))
+    return normalize_srt(b"\r\n\r\n".join(captions))
 
 
 def verify(url: str, video_id: int, expected_srt: bytes | None = None) -> dict:
@@ -44,7 +52,7 @@ def verify(url: str, video_id: int, expected_srt: bytes | None = None) -> dict:
             "language": "cs", "format": ext.lstrip("."), "cue_count": normalized.count(b" --> "),
             "subtitle_bytes": len(response.content), "srt_sha256": hashlib.sha256(normalized).hexdigest(),
             "matches_prepared_file": expected_srt is not None,
-            "comparison_ignores": ["cue numbering", "line endings", "SSA on-screen alignment tags"]}
+            "comparison_ignores": ["cue numbering", "line endings", "empty cues", "caption indentation", "SSA on-screen alignment tags"]}
 
 
 def main() -> int:
