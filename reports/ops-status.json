@@ -1,37 +1,125 @@
 {
   "counts": {
     "backlog_episodes": 119583,
-    "manifest_upload_ready_episodes": 2,
-    "uploaded_episodes": 72161,
-    "prepared_source_episodes": 68536,
+    "manifest_upload_ready_episodes": 3,
+    "uploaded_episodes": 72163,
+    "prepared_source_episodes": 68555,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 23,
-    "language_whisper_attempted_sources": 23,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54141,
-    "whisper_review_pending_sources": 37315,
-    "subtitle_followup_sources": 45676,
-    "subtitle_followup_pending_sources": 45676
+    "language_audited_sources": 55,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54142,
+    "whisper_review_pending_sources": 37316,
+    "subtitle_followup_sources": 45679,
+    "subtitle_followup_pending_sources": 45679
   },
   "workflow_runs": [
     {
-      "conclusion": "",
-      "createdAt": "2026-10-13T08:42:12Z",
-      "databaseId": 38371074417,
+      "conclusion": "skipped",
+      "createdAt": "2026-10-13T08:50:47Z",
+      "databaseId": 38372081257,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-13T08:50:42Z",
+      "databaseId": 38372070640,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:50:17Z",
+      "databaseId": 38372022054,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:50:12Z",
+      "databaseId": 38372010691,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:50:04Z",
+      "databaseId": 38371995295,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:47:45Z",
+      "databaseId": 38371723046,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-13T08:46:21Z",
+      "databaseId": 38371560868,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:46:14Z",
+      "databaseId": 38371547155,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:45:39Z",
+      "databaseId": 38371478141,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "external-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-13T08:44:58Z",
+      "databaseId": 38371391022,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:43:32Z",
+      "databaseId": 38371228685,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:42:12Z",
+      "databaseId": 38371074417,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:41:21Z",
       "databaseId": 38370974052,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -43,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:39:32Z",
       "databaseId": 38370758361,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -59,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-13T08:38:56Z",
       "databaseId": 38370689234,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -89,94 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T08:38:29Z",
-      "databaseId": 38370635623,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T08:37:28Z",
-      "databaseId": 38370521011,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:37:19Z",
-      "databaseId": 38370503556,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-13T08:35:45Z",
-      "databaseId": 38370322517,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T08:35:01Z",
-      "databaseId": 38370238105,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:33:40Z",
-      "databaseId": 38370085149,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T08:33:28Z",
-      "databaseId": 38370062842,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:33:21Z",
-      "databaseId": 38370050967,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T08:31:21Z",
-      "databaseId": 38369823263,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T08:29:11Z",
-      "databaseId": 38369570556,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T08:29:04Z",
-      "databaseId": 38369557514,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -176634,6 +176634,16 @@
         "episode_id": 144297,
         "display_name": "Manayek S01E10 - 10. epizoda CZ Titulky",
         "video_id": 30215409
+      },
+      {
+        "episode_id": 167481,
+        "display_name": "Psí přátelé S01E03 - Led na vodě CZ Titulky",
+        "video_id": 30215515
+      },
+      {
+        "episode_id": 105933,
+        "display_name": "The Mill S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30215572
       },
       {
         "episode_id": 114182,
@@ -511613,6 +511623,16 @@
         "video_id": 30215409
       },
       {
+        "episode_id": 167481,
+        "display_name": "Psí přátelé S01E03 - Led na vodě CZ Titulky",
+        "video_id": 30215515
+      },
+      {
+        "episode_id": 105933,
+        "display_name": "The Mill S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30215572
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -671397,16 +671417,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 22,
+    "disabled": 15,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35971,
+    "needs_whisper": 35975,
     "whisper_confirmed_cz": 3933,
     "whisper_non_cz_needs_subtitles": 12893,
-    "whisper_failed": 1344
+    "whisper_failed": 1341
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 45676
+    "needs_subtitle_setup_after_prehrajto_processing": 45679
   }
 }
