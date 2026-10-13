@@ -1,45 +1,109 @@
 {
   "counts": {
     "backlog_episodes": 119753,
-    "manifest_upload_ready_episodes": 75,
-    "uploaded_episodes": 71967,
-    "prepared_source_episodes": 68385,
+    "manifest_upload_ready_episodes": 76,
+    "uploaded_episodes": 71980,
+    "prepared_source_episodes": 68381,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 59,
-    "language_whisper_attempted_sources": 45,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54147,
-    "whisper_review_pending_sources": 37335,
-    "subtitle_followup_sources": 45565,
-    "subtitle_followup_pending_sources": 45565
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54146,
+    "whisper_review_pending_sources": 37328,
+    "subtitle_followup_sources": 45570,
+    "subtitle_followup_pending_sources": 45570
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-13T04:19:34Z",
-      "databaseId": 38345894902,
+      "createdAt": "2026-10-13T04:31:41Z",
+      "databaseId": 38346872977,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "prepare-sources"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-13T04:18:55Z",
-      "databaseId": 38345843787,
+      "createdAt": "2026-10-13T04:31:01Z",
+      "databaseId": 38346817382,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-13T04:30:38Z",
+      "databaseId": 38346783746,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T04:30:20Z",
+      "databaseId": 38346754336,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-13T04:27:13Z",
+      "databaseId": 38346505506,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T04:25:29Z",
+      "databaseId": 38346367619,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T04:25:04Z",
+      "databaseId": 38346333740,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T04:20:07Z",
+      "databaseId": 38345939732,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T04:19:34Z",
+      "databaseId": 38345894902,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T04:18:55Z",
+      "databaseId": 38345843787,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-13T04:18:49Z",
       "databaseId": 38345836605,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -75,11 +139,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T04:13:21Z",
       "databaseId": 38345396566,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -99,11 +163,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T04:12:15Z",
       "databaseId": 38345309646,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T04:11:12Z",
-      "databaseId": 38345226309,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T04:06:04Z",
-      "databaseId": 38344826188,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T04:06:00Z",
-      "databaseId": 38344821687,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T04:04:32Z",
-      "databaseId": 38344702751,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T04:04:29Z",
-      "databaseId": 38344698422,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T04:03:53Z",
-      "databaseId": 38344650686,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T04:03:03Z",
-      "databaseId": 38344585582,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T04:01:51Z",
-      "databaseId": 38344492175,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -176146,6 +176146,36 @@
         "video_id": 30212223
       },
       {
+        "episode_id": 197164,
+        "display_name": "Jakers! The Adventures of Piggley Winks S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 30212368
+      },
+      {
+        "episode_id": 142680,
+        "display_name": "How Are You? It's Alan (Partridge) S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30212384
+      },
+      {
+        "episode_id": 142684,
+        "display_name": "How Are You? It's Alan (Partridge) S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30212414
+      },
+      {
+        "episode_id": 197165,
+        "display_name": "Jakers! The Adventures of Piggley Winks S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 30212373
+      },
+      {
+        "episode_id": 175609,
+        "display_name": "Pasáci S01E01 - Jumbo jet CZ Titulky",
+        "video_id": 30212390
+      },
+      {
+        "episode_id": 175613,
+        "display_name": "Pasáci S01E05 - Kanáry CZ Titulky",
+        "video_id": 30212435
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -334289,6 +334319,41 @@
         "episode_id": 112299,
         "display_name": "O penězích a krvi S01E05 - 5. epizoda CZ Dabing",
         "video_id": 30212241
+      },
+      {
+        "episode_id": 199090,
+        "display_name": "Kámoši hafíci S01E03 - Francouzská spojka CZ Dabing",
+        "video_id": 30212374
+      },
+      {
+        "episode_id": 203222,
+        "display_name": "Léto 1936 S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30212410
+      },
+      {
+        "episode_id": 202282,
+        "display_name": "Deník budoucí prezidentky S01E07 - ZAHRANIČNÍ VĚCI CZ Dabing",
+        "video_id": 30212452
+      },
+      {
+        "episode_id": 197134,
+        "display_name": "Cocomelon: Zpívánky a říkanky S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30212470
+      },
+      {
+        "episode_id": 199091,
+        "display_name": "Kámoši hafíci S01E04 - Vezmi mě na psí hrátky CZ Dabing",
+        "video_id": 30212370
+      },
+      {
+        "episode_id": 203223,
+        "display_name": "Léto 1936 S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 30212400
+      },
+      {
+        "episode_id": 202283,
+        "display_name": "Deník budoucí prezidentky S01E10 - SYSTÉM DVOU STRAN CZ Dabing",
+        "video_id": 30212446
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -510153,6 +510218,36 @@
         "video_id": 30212223
       },
       {
+        "episode_id": 197164,
+        "display_name": "Jakers! The Adventures of Piggley Winks S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 30212368
+      },
+      {
+        "episode_id": 142680,
+        "display_name": "How Are You? It's Alan (Partridge) S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30212384
+      },
+      {
+        "episode_id": 142684,
+        "display_name": "How Are You? It's Alan (Partridge) S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30212414
+      },
+      {
+        "episode_id": 197165,
+        "display_name": "Jakers! The Adventures of Piggley Winks S02E10 - 10. epizoda CZ Titulky",
+        "video_id": 30212373
+      },
+      {
+        "episode_id": 175609,
+        "display_name": "Pasáci S01E01 - Jumbo jet CZ Titulky",
+        "video_id": 30212390
+      },
+      {
+        "episode_id": 175613,
+        "display_name": "Pasáci S01E05 - Kanáry CZ Titulky",
+        "video_id": 30212435
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -668296,6 +668391,41 @@
         "episode_id": 112299,
         "display_name": "O penězích a krvi S01E05 - 5. epizoda CZ Dabing",
         "video_id": 30212241
+      },
+      {
+        "episode_id": 199090,
+        "display_name": "Kámoši hafíci S01E03 - Francouzská spojka CZ Dabing",
+        "video_id": 30212374
+      },
+      {
+        "episode_id": 203222,
+        "display_name": "Léto 1936 S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30212410
+      },
+      {
+        "episode_id": 202282,
+        "display_name": "Deník budoucí prezidentky S01E07 - ZAHRANIČNÍ VĚCI CZ Dabing",
+        "video_id": 30212452
+      },
+      {
+        "episode_id": 197134,
+        "display_name": "Cocomelon: Zpívánky a říkanky S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30212470
+      },
+      {
+        "episode_id": 199091,
+        "display_name": "Kámoši hafíci S01E04 - Vezmi mě na psí hrátky CZ Dabing",
+        "video_id": 30212370
+      },
+      {
+        "episode_id": 203223,
+        "display_name": "Léto 1936 S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 30212400
+      },
+      {
+        "episode_id": 202283,
+        "display_name": "Deník budoucí prezidentky S01E10 - SYSTÉM DVOU STRAN CZ Dabing",
+        "video_id": 30212446
       }
     ],
     "prepared_not_upload_ready": [
@@ -669457,17 +669587,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 14,
-    "ok": 44,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35990,
+    "needs_whisper": 35983,
     "whisper_confirmed_cz": 3935,
-    "whisper_non_cz_needs_subtitles": 12877,
+    "whisper_non_cz_needs_subtitles": 12883,
     "whisper_failed": 1345
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 45565
+    "needs_subtitle_setup_after_prehrajto_processing": 45570
   }
 }
