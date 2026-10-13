@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 119583,
-    "manifest_upload_ready_episodes": 18,
-    "uploaded_episodes": 72140,
-    "prepared_source_episodes": 68518,
+    "manifest_upload_ready_episodes": 14,
+    "uploaded_episodes": 72147,
+    "prepared_source_episodes": 68515,
     "description_series": 60,
     "description_episodes": 753,
-    "description_errors": 41,
+    "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 50,
-    "language_whisper_attempted_sources": 50,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54138,
     "whisper_review_pending_sources": 37302,
     "subtitle_followup_sources": 45666,
@@ -20,18 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-13T08:03:24Z",
-      "databaseId": 38366685980,
+      "createdAt": "2026-10-13T08:11:56Z",
+      "databaseId": 38367630906,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "external-subtitles"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-13T08:11:51Z",
+      "databaseId": 38367621437,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-13T08:07:11Z",
+      "databaseId": 38367109066,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:04:31Z",
+      "databaseId": 38366810548,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:04:13Z",
+      "databaseId": 38366776567,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:04:10Z",
+      "databaseId": 38366770718,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:03:24Z",
+      "databaseId": 38366685980,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "external-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:02:59Z",
       "databaseId": 38366639038,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -71,7 +119,7 @@
       "createdAt": "2026-10-13T07:58:40Z",
       "databaseId": 38366151232,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -115,65 +163,17 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T07:54:50Z",
       "databaseId": 38365733427,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
       "conclusion": "success",
       "createdAt": "2026-10-13T07:54:23Z",
       "databaseId": 38365685001,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T07:54:18Z",
-      "databaseId": 38365676650,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:52:58Z",
-      "databaseId": 38365531684,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:52:55Z",
-      "databaseId": 38365525310,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:52:52Z",
-      "databaseId": 38365520390,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:51:49Z",
-      "databaseId": 38365405513,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:51:45Z",
-      "databaseId": 38365398421,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -176586,6 +176586,16 @@
         "video_id": 30214988
       },
       {
+        "episode_id": 137557,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E03 - To není moje válka CZ Titulky",
+        "video_id": 30215021
+      },
+      {
+        "episode_id": 116425,
+        "display_name": "Mr. & Mrs. Murder S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30215069
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -335146,6 +335156,21 @@
         "video_id": 30214964
       },
       {
+        "episode_id": 137558,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E04 - Vzpoura CZ Titulky",
+        "video_id": 30214994
+      },
+      {
+        "episode_id": 144290,
+        "display_name": "Manayek S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30215030
+      },
+      {
+        "episode_id": 116426,
+        "display_name": "Mr. & Mrs. Murder S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30215068
+      },
+      {
         "episode_id": 148871,
         "display_name": "Perfect 10 Liners S01E20 - 20. epizoda CZ Titulky",
         "video_id": 30214943
@@ -335154,6 +335179,16 @@
         "episode_id": 108887,
         "display_name": "Recovery Road S01E09 - 9. epizoda CZ Titulky",
         "video_id": 30214974
+      },
+      {
+        "episode_id": 137555,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E05 - Návrat domů CZ Titulky",
+        "video_id": 30215006
+      },
+      {
+        "episode_id": 144291,
+        "display_name": "Manayek S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30215033
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -511458,6 +511493,16 @@
         "video_id": 30214988
       },
       {
+        "episode_id": 137557,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E03 - To není moje válka CZ Titulky",
+        "video_id": 30215021
+      },
+      {
+        "episode_id": 116425,
+        "display_name": "Mr. & Mrs. Murder S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30215069
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -670018,6 +670063,21 @@
         "video_id": 30214964
       },
       {
+        "episode_id": 137558,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E04 - Vzpoura CZ Titulky",
+        "video_id": 30214994
+      },
+      {
+        "episode_id": 144290,
+        "display_name": "Manayek S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30215030
+      },
+      {
+        "episode_id": 116426,
+        "display_name": "Mr. & Mrs. Murder S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30215068
+      },
+      {
         "episode_id": 148871,
         "display_name": "Perfect 10 Liners S01E20 - 20. epizoda CZ Titulky",
         "video_id": 30214943
@@ -670026,6 +670086,16 @@
         "episode_id": 108887,
         "display_name": "Recovery Road S01E09 - 9. epizoda CZ Titulky",
         "video_id": 30214974
+      },
+      {
+        "episode_id": 137555,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E05 - Návrat domů CZ Titulky",
+        "video_id": 30215006
+      },
+      {
+        "episode_id": 144291,
+        "display_name": "Manayek S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30215033
       }
     ],
     "prepared_not_upload_ready": [
@@ -671187,7 +671257,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 49,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
