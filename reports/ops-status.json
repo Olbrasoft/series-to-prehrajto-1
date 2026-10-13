@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 119583,
-    "manifest_upload_ready_episodes": 11,
-    "uploaded_episodes": 72147,
-    "prepared_source_episodes": 68516,
+    "manifest_upload_ready_episodes": 7,
+    "uploaded_episodes": 72153,
+    "prepared_source_episodes": 68529,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 23,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 28,
+    "language_whisper_attempted_sources": 22,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54140,
-    "whisper_review_pending_sources": 37314,
-    "subtitle_followup_sources": 45667,
-    "subtitle_followup_pending_sources": 45667
+    "whisper_review_sources": 54138,
+    "whisper_review_pending_sources": 37302,
+    "subtitle_followup_sources": 45670,
+    "subtitle_followup_pending_sources": 45670
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-13T08:13:13Z",
-      "databaseId": 38367774441,
+      "createdAt": "2026-10-13T08:18:34Z",
+      "databaseId": 38368373087,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:18:00Z",
+      "databaseId": 38368309326,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-13T08:17:05Z",
+      "databaseId": 38368208572,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-13T08:14:27Z",
+      "databaseId": 38367910015,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:14:22Z",
+      "databaseId": 38367900750,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-13T08:14:12Z",
+      "databaseId": 38367882428,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-13T08:13:13Z",
+      "databaseId": 38367774441,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:13:10Z",
       "databaseId": 38367768424,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -43,19 +91,19 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-13T08:13:01Z",
       "databaseId": 38367750064,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:12:54Z",
       "databaseId": 38367737956,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -83,11 +131,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-13T08:04:31Z",
       "databaseId": 38366810548,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:59:27Z",
-      "databaseId": 38366234199,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:59:24Z",
-      "databaseId": 38366229075,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T07:59:22Z",
-      "databaseId": 38366225628,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-13T07:58:40Z",
-      "databaseId": 38366151232,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-13T07:58:18Z",
-      "databaseId": 38366112427,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-13T07:58:14Z",
-      "databaseId": 38366104263,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -176596,6 +176596,26 @@
         "video_id": 30215069
       },
       {
+        "episode_id": 137556,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E06 - Zakončení CZ Titulky",
+        "video_id": 30215148
+      },
+      {
+        "episode_id": 144288,
+        "display_name": "Manayek S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30215180
+      },
+      {
+        "episode_id": 144292,
+        "display_name": "Manayek S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30215204
+      },
+      {
+        "episode_id": 144293,
+        "display_name": "Manayek S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30215150
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -335189,6 +335209,16 @@
         "episode_id": 144291,
         "display_name": "Manayek S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30215033
+      },
+      {
+        "episode_id": 116423,
+        "display_name": "Mr. & Mrs. Murder S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 30215149
+      },
+      {
+        "episode_id": 167479,
+        "display_name": "Psí přátelé S01E01 - Dívka se psem CZ Titulky",
+        "video_id": 30215174
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -511503,6 +511533,26 @@
         "video_id": 30215069
       },
       {
+        "episode_id": 137556,
+        "display_name": "Vietnam: Válka, která změnila Ameriku S01E06 - Zakončení CZ Titulky",
+        "video_id": 30215148
+      },
+      {
+        "episode_id": 144288,
+        "display_name": "Manayek S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30215180
+      },
+      {
+        "episode_id": 144292,
+        "display_name": "Manayek S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30215204
+      },
+      {
+        "episode_id": 144293,
+        "display_name": "Manayek S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30215150
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -670096,6 +670146,16 @@
         "episode_id": 144291,
         "display_name": "Manayek S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30215033
+      },
+      {
+        "episode_id": 116423,
+        "display_name": "Mr. & Mrs. Murder S01E04 - 4. epizoda CZ Dabing",
+        "video_id": 30215149
+      },
+      {
+        "episode_id": 167479,
+        "display_name": "Psí přátelé S01E01 - Dívka se psem CZ Titulky",
+        "video_id": 30215174
       }
     ],
     "prepared_not_upload_ready": [
@@ -671257,17 +671317,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 3,
-    "ok": 19,
+    "ok": 21,
+    "disabled": 6,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 35969,
-    "whisper_confirmed_cz": 3933,
-    "whisper_non_cz_needs_subtitles": 12893,
+    "needs_whisper": 35957,
+    "whisper_confirmed_cz": 3935,
+    "whisper_non_cz_needs_subtitles": 12901,
     "whisper_failed": 1345
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 45667
+    "needs_subtitle_setup_after_prehrajto_processing": 45670
   }
 }
