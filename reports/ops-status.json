@@ -1,23 +1,71 @@
 {
   "counts": {
     "backlog_episodes": 118637,
-    "manifest_upload_ready_episodes": 124,
-    "uploaded_episodes": 73064,
-    "prepared_source_episodes": 69452,
+    "manifest_upload_ready_episodes": 123,
+    "uploaded_episodes": 73077,
+    "prepared_source_episodes": 69441,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54172,
-    "whisper_review_pending_sources": 37516,
-    "subtitle_followup_sources": 46326,
-    "subtitle_followup_pending_sources": 46326
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54167,
+    "whisper_review_pending_sources": 37493,
+    "subtitle_followup_sources": 46337,
+    "subtitle_followup_pending_sources": 46337
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T10:34:30Z",
+      "databaseId": 38550522644,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T10:32:04Z",
+      "databaseId": 38550240388,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T10:31:38Z",
+      "databaseId": 38550190788,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T10:30:13Z",
+      "databaseId": 38550016239,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "external-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T10:24:57Z",
+      "databaseId": 38549403690,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T10:23:45Z",
+      "databaseId": 38549264690,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-14T10:22:45Z",
@@ -35,19 +83,19 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T10:22:31Z",
       "databaseId": 38549120853,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T10:22:27Z",
       "databaseId": 38549113900,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -55,15 +103,15 @@
       "createdAt": "2026-10-14T10:21:58Z",
       "databaseId": 38549055148,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T10:21:32Z",
       "databaseId": 38549003092,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T10:15:56Z",
-      "databaseId": 38548342361,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T10:15:03Z",
-      "databaseId": 38548235191,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T10:13:03Z",
-      "databaseId": 38548003127,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T10:11:42Z",
-      "databaseId": 38547845946,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T10:11:42Z",
-      "databaseId": 38547844510,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T10:11:39Z",
-      "databaseId": 38547838343,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -178906,9 +178906,44 @@
         "video_id": 30238052
       },
       {
+        "episode_id": 145188,
+        "display_name": "Znaky psychopata S09E07 - 7. epizoda CZ Titulky",
+        "video_id": 30238135
+      },
+      {
+        "episode_id": 145192,
+        "display_name": "Znaky psychopata S10E03 - 3. epizoda CZ Titulky",
+        "video_id": 30238196
+      },
+      {
+        "episode_id": 157336,
+        "display_name": "Hello, Me! S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30238239
+      },
+      {
+        "episode_id": 157340,
+        "display_name": "Hello, Me! S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30238289
+      },
+      {
         "episode_id": 109685,
         "display_name": "Esmeralda S01E89 - 89. epizoda CZ Dabing",
         "video_id": 30238059
+      },
+      {
+        "episode_id": 175005,
+        "display_name": "Země imigrantů S01E04 - Nový standard CZ Titulky",
+        "video_id": 30238141
+      },
+      {
+        "episode_id": 157337,
+        "display_name": "Hello, Me! S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30238190
+      },
+      {
+        "episode_id": 157341,
+        "display_name": "Hello, Me! S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30238254
       },
       {
         "episode_id": 114182,
@@ -339771,9 +339806,39 @@
         "video_id": 30238045
       },
       {
+        "episode_id": 109682,
+        "display_name": "Esmeralda S01E86 - 86. epizoda CZ Dabing",
+        "video_id": 30238134
+      },
+      {
+        "episode_id": 115110,
+        "display_name": "The Love You Give Me S01E21 - 21. epizoda CZ Titulky",
+        "video_id": 30238209
+      },
+      {
+        "episode_id": 115114,
+        "display_name": "The Love You Give Me S01E25 - 25. epizoda CZ Titulky",
+        "video_id": 30238262
+      },
+      {
         "episode_id": 109679,
         "display_name": "Esmeralda S01E83 - 83. epizoda CZ Dabing",
         "video_id": 30238048
+      },
+      {
+        "episode_id": 109683,
+        "display_name": "Esmeralda S01E87 - 87. epizoda CZ Dabing",
+        "video_id": 30238150
+      },
+      {
+        "episode_id": 197443,
+        "display_name": "DI4RI S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30238218
+      },
+      {
+        "episode_id": 145191,
+        "display_name": "Znaky psychopata S09E10 - 10. epizoda CZ Titulky",
+        "video_id": 30238257
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -518398,9 +518463,44 @@
         "video_id": 30238052
       },
       {
+        "episode_id": 145188,
+        "display_name": "Znaky psychopata S09E07 - 7. epizoda CZ Titulky",
+        "video_id": 30238135
+      },
+      {
+        "episode_id": 145192,
+        "display_name": "Znaky psychopata S10E03 - 3. epizoda CZ Titulky",
+        "video_id": 30238196
+      },
+      {
+        "episode_id": 157336,
+        "display_name": "Hello, Me! S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30238239
+      },
+      {
+        "episode_id": 157340,
+        "display_name": "Hello, Me! S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30238289
+      },
+      {
         "episode_id": 109685,
         "display_name": "Esmeralda S01E89 - 89. epizoda CZ Dabing",
         "video_id": 30238059
+      },
+      {
+        "episode_id": 175005,
+        "display_name": "Země imigrantů S01E04 - Nový standard CZ Titulky",
+        "video_id": 30238141
+      },
+      {
+        "episode_id": 157337,
+        "display_name": "Hello, Me! S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30238190
+      },
+      {
+        "episode_id": 157341,
+        "display_name": "Hello, Me! S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30238254
       },
       {
         "episode_id": 114182,
@@ -679263,9 +679363,39 @@
         "video_id": 30238045
       },
       {
+        "episode_id": 109682,
+        "display_name": "Esmeralda S01E86 - 86. epizoda CZ Dabing",
+        "video_id": 30238134
+      },
+      {
+        "episode_id": 115110,
+        "display_name": "The Love You Give Me S01E21 - 21. epizoda CZ Titulky",
+        "video_id": 30238209
+      },
+      {
+        "episode_id": 115114,
+        "display_name": "The Love You Give Me S01E25 - 25. epizoda CZ Titulky",
+        "video_id": 30238262
+      },
+      {
         "episode_id": 109679,
         "display_name": "Esmeralda S01E83 - 83. epizoda CZ Dabing",
         "video_id": 30238048
+      },
+      {
+        "episode_id": 109683,
+        "display_name": "Esmeralda S01E87 - 87. epizoda CZ Dabing",
+        "video_id": 30238150
+      },
+      {
+        "episode_id": 197443,
+        "display_name": "DI4RI S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30238218
+      },
+      {
+        "episode_id": 145191,
+        "display_name": "Znaky psychopata S09E10 - 10. epizoda CZ Titulky",
+        "video_id": 30238257
       }
     ],
     "prepared_not_upload_ready": [
@@ -680427,16 +680557,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36198,
-    "whisper_confirmed_cz": 3939,
-    "whisper_non_cz_needs_subtitles": 12717,
+    "needs_whisper": 36175,
+    "whisper_confirmed_cz": 3940,
+    "whisper_non_cz_needs_subtitles": 12734,
     "whisper_failed": 1318
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46326
+    "needs_subtitle_setup_after_prehrajto_processing": 46337
   }
 }
