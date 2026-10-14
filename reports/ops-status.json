@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 118471,
-    "manifest_upload_ready_episodes": 87,
-    "uploaded_episodes": 73247,
-    "prepared_source_episodes": 69531,
+    "manifest_upload_ready_episodes": 82,
+    "uploaded_episodes": 73248,
+    "prepared_source_episodes": 69526,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 72,
+    "language_whisper_attempted_sources": 44,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54179,
     "whisper_review_pending_sources": 37566,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-14T13:47:02Z",
-      "databaseId": 38574715436,
+      "createdAt": "2026-10-14T13:48:09Z",
+      "databaseId": 38574878874,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T13:47:38Z",
+      "databaseId": 38574803493,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T13:47:34Z",
+      "databaseId": 38574791787,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T13:47:02Z",
+      "databaseId": 38574715436,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T13:46:31Z",
       "databaseId": 38574643147,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T13:44:12Z",
       "databaseId": 38574301744,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T13:35:49Z",
-      "databaseId": 38573104663,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T13:35:44Z",
-      "databaseId": 38573091681,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T13:35:10Z",
-      "databaseId": 38573011975,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -340689,6 +340689,11 @@
         "episode_id": 149519,
         "display_name": "Monroe S02E04 - 4. epizoda CZ Titulky",
         "video_id": 30242869
+      },
+      {
+        "episode_id": 178639,
+        "display_name": "Crime Stories: India Detectives S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30242934
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -681096,6 +681101,11 @@
         "episode_id": 149519,
         "display_name": "Monroe S02E04 - 4. epizoda CZ Titulky",
         "video_id": 30242869
+      },
+      {
+        "episode_id": 178639,
+        "display_name": "Crime Stories: India Detectives S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30242934
       }
     ],
     "prepared_not_upload_ready": [
@@ -682257,7 +682267,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 28,
+    "ok": 43,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
