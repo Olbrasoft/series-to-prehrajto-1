@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 119070,
-    "manifest_upload_ready_episodes": 196,
-    "uploaded_episodes": 72627,
-    "prepared_source_episodes": 69286,
+    "manifest_upload_ready_episodes": 194,
+    "uploaded_episodes": 72628,
+    "prepared_source_episodes": 69285,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 47,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 52,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54186,
-    "whisper_review_pending_sources": 37549,
-    "subtitle_followup_sources": 46125,
-    "subtitle_followup_pending_sources": 46125
+    "whisper_review_sources": 54187,
+    "whisper_review_pending_sources": 37554,
+    "subtitle_followup_sources": 46126,
+    "subtitle_followup_pending_sources": 46126
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T01:54:26Z",
+      "databaseId": 38498215310,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T01:54:22Z",
+      "databaseId": 38498209883,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T01:53:10Z",
+      "databaseId": 38498101708,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T01:53:06Z",
+      "databaseId": 38498096072,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T01:51:54Z",
       "databaseId": 38497991349,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +83,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-14T01:48:52Z",
       "databaseId": 38497721073,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T01:40:21Z",
-      "databaseId": 38496980961,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T01:35:03Z",
-      "databaseId": 38496514604,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T01:34:41Z",
-      "databaseId": 38496483248,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T01:33:16Z",
-      "databaseId": 38496362517,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -337589,6 +337589,11 @@
         "episode_id": 200383,
         "display_name": "Můj kamarád Hajzlík S01E05 - Muzikál ze střední CZ Titulky",
         "video_id": 30231525
+      },
+      {
+        "episode_id": 138559,
+        "display_name": "Běsy podle Grimmů S01E01 - Popelka CZ Dabing",
+        "video_id": 30231577
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -674896,6 +674901,11 @@
         "episode_id": 200383,
         "display_name": "Můj kamarád Hajzlík S01E05 - Muzikál ze střední CZ Titulky",
         "video_id": 30231525
+      },
+      {
+        "episode_id": 138559,
+        "display_name": "Běsy podle Grimmů S01E01 - Popelka CZ Dabing",
+        "video_id": 30231577
       }
     ],
     "prepared_not_upload_ready": [
@@ -676057,16 +676067,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 12,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36229,
-    "whisper_confirmed_cz": 3945,
-    "whisper_non_cz_needs_subtitles": 12692,
+    "needs_whisper": 36234,
+    "whisper_confirmed_cz": 3943,
+    "whisper_non_cz_needs_subtitles": 12690,
     "whisper_failed": 1320
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46125
+    "needs_subtitle_setup_after_prehrajto_processing": 46126
   }
 }
