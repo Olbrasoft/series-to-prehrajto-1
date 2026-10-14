@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 118336,
-    "manifest_upload_ready_episodes": 116,
+    "manifest_upload_ready_episodes": 121,
     "uploaded_episodes": 73378,
-    "prepared_source_episodes": 69446,
+    "prepared_source_episodes": 69411,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 50,
+    "language_whisper_attempted_sources": 44,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54193,
-    "whisper_review_pending_sources": 37657,
+    "whisper_review_pending_sources": 37655,
     "subtitle_followup_sources": 46565,
     "subtitle_followup_pending_sources": 46565
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T17:48:21Z",
+      "databaseId": 38609768120,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T17:47:44Z",
+      "databaseId": 38609678447,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T17:47:03Z",
+      "databaseId": 38609581531,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T17:46:42Z",
+      "databaseId": 38609530216,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T17:45:28Z",
       "databaseId": 38609355191,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T17:45:18Z",
       "databaseId": 38609330752,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -139,44 +171,12 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T17:33:47Z",
       "databaseId": 38607697121,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-14T17:33:19Z",
-      "databaseId": 38607629919,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T17:33:12Z",
-      "databaseId": 38607614143,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T17:32:56Z",
-      "databaseId": 38607575738,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T17:32:23Z",
-      "databaseId": 38607497859,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -683567,12 +683567,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "disabled": 6,
+    "ok": 43,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36351,
-    "whisper_confirmed_cz": 3871,
+    "needs_whisper": 36349,
+    "whisper_confirmed_cz": 3873,
     "whisper_non_cz_needs_subtitles": 12665,
     "whisper_failed": 1306
   },
