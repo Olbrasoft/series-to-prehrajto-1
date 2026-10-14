@@ -1,37 +1,85 @@
 {
   "counts": {
-    "backlog_episodes": 119070,
-    "manifest_upload_ready_episodes": 169,
-    "uploaded_episodes": 72705,
-    "prepared_source_episodes": 69268,
+    "backlog_episodes": 118952,
+    "manifest_upload_ready_episodes": 163,
+    "uploaded_episodes": 72708,
+    "prepared_source_episodes": 69259,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 79,
-    "language_whisper_attempted_sources": 47,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54190,
     "whisper_review_pending_sources": 37573,
-    "subtitle_followup_sources": 46149,
-    "subtitle_followup_pending_sources": 46149
+    "subtitle_followup_sources": 46152,
+    "subtitle_followup_pending_sources": 46152
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-14T03:23:34Z",
-      "databaseId": 38506009278,
+      "createdAt": "2026-10-14T03:28:27Z",
+      "databaseId": 38506427380,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T03:27:23Z",
+      "databaseId": 38506337772,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T03:25:17Z",
+      "databaseId": 38506159170,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T03:24:34Z",
+      "databaseId": 38506097255,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T03:24:22Z",
+      "databaseId": 38506081352,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T03:24:19Z",
+      "databaseId": 38506075719,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T03:23:34Z",
+      "databaseId": 38506009278,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T03:23:09Z",
       "databaseId": 38505974615,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T03:19:27Z",
       "databaseId": 38505650991,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T03:16:53Z",
       "databaseId": 38505429985,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -115,11 +163,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T03:15:40Z",
       "databaseId": 38505323968,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T03:10:34Z",
-      "databaseId": 38504883112,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T03:10:15Z",
-      "databaseId": 38504854334,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T03:08:32Z",
-      "databaseId": 38504704755,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T03:06:26Z",
-      "databaseId": 38504524911,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-14T03:03:52Z",
-      "databaseId": 38504299019,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T03:03:47Z",
-      "databaseId": 38504292544,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -178011,6 +178011,11 @@
         "video_id": 30232356
       },
       {
+        "episode_id": 70741,
+        "display_name": "Uprchlíci  S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 30232373
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -337939,6 +337944,16 @@
         "episode_id": 157142,
         "display_name": "Byla to láska? S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30232353
+      },
+      {
+        "episode_id": 157146,
+        "display_name": "Byla to láska? S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 30232378
+      },
+      {
+        "episode_id": 157150,
+        "display_name": "Byla to láska? S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 30232394
       },
       {
         "episode_id": 10083,
@@ -515708,6 +515723,11 @@
         "video_id": 30232356
       },
       {
+        "episode_id": 70741,
+        "display_name": "Uprchlíci  S02E08 - 8. epizoda CZ Dabing",
+        "video_id": 30232373
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -675638,6 +675658,16 @@
         "video_id": 30232353
       },
       {
+        "episode_id": 157146,
+        "display_name": "Byla to láska? S01E09 - 9. epizoda CZ Titulky",
+        "video_id": 30232378
+      },
+      {
+        "episode_id": 157150,
+        "display_name": "Byla to láska? S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 30232394
+      },
+      {
         "episode_id": 10083,
         "display_name": "Zrak S03E02 - Pozor na vlky CZ Titulky",
         "video_id": 30232144
@@ -676837,8 +676867,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 32,
-    "ok": 46,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -676848,6 +676877,6 @@
     "whisper_failed": 1320
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46149
+    "needs_subtitle_setup_after_prehrajto_processing": 46152
   }
 }
