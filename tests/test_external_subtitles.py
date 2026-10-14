@@ -195,3 +195,15 @@ def test_caption_indentation_does_not_mask_internal_text_changes():
     assert comparison_srt(expected) == comparison_srt(delivered)
     assert comparison_srt(expected) != comparison_srt(delivered.replace(b'Caption text', b'Caption  text'))
     assert comparison_srt(expected) != comparison_srt(delivered.replace(b'01,123', b'01,124'))
+
+
+def test_portal_cue_sorting_preserves_caption_times_and_duplicate_counts():
+    late = b'1\n00:00:03,123 --> 00:00:05,456\nLater\n'
+    early = b'2\n00:00:01,123 --> 00:00:04,456\nEarlier\n'
+    simultaneous = b'3\n00:00:01,123 --> 00:00:04,456\nOther voice\n'
+    expected = b'\n'.join([late, early, simultaneous, early])
+    delivered = b'\n'.join([early, early, simultaneous, late])
+    assert comparison_srt(expected) == comparison_srt(delivered)
+    assert comparison_srt(expected) != comparison_srt(b'\n'.join([early, simultaneous, late]))
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'01,123', b'01,124'))
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'Other voice', b'Changed'))
