@@ -1,37 +1,101 @@
 {
   "counts": {
     "backlog_episodes": 118784,
-    "manifest_upload_ready_episodes": 157,
-    "uploaded_episodes": 72900,
-    "prepared_source_episodes": 69374,
+    "manifest_upload_ready_episodes": 162,
+    "uploaded_episodes": 72902,
+    "prepared_source_episodes": 69375,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 67,
+    "language_whisper_attempted_sources": 56,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54176,
     "whisper_review_pending_sources": 37534,
-    "subtitle_followup_sources": 46226,
-    "subtitle_followup_pending_sources": 46226
+    "subtitle_followup_sources": 46233,
+    "subtitle_followup_pending_sources": 46233
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-14T07:19:11Z",
-      "databaseId": 38527544421,
+      "createdAt": "2026-10-14T07:25:38Z",
+      "databaseId": 38528242554,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T07:25:36Z",
+      "databaseId": 38528238490,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T07:25:32Z",
+      "databaseId": 38528231496,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T07:25:13Z",
+      "databaseId": 38528196351,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-14T07:24:35Z",
+      "databaseId": 38528126117,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T07:24:03Z",
+      "databaseId": 38528071496,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-14T07:22:50Z",
+      "databaseId": 38527938781,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T07:20:13Z",
+      "databaseId": 38527653879,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T07:19:11Z",
+      "databaseId": 38527544421,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-14T07:19:06Z",
       "databaseId": 38527536166,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T07:17:26Z",
       "databaseId": 38527361891,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -91,11 +155,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T07:13:27Z",
       "databaseId": 38526938484,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:11:32Z",
-      "databaseId": 38526740249,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T07:11:09Z",
-      "databaseId": 38526701082,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:10:13Z",
-      "databaseId": 38526603290,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:10:13Z",
-      "databaseId": 38526602889,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T07:10:08Z",
-      "databaseId": 38526593476,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:10:01Z",
-      "databaseId": 38526581256,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:08:51Z",
-      "databaseId": 38526463110,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:06:19Z",
-      "databaseId": 38526206444,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -338954,6 +338954,16 @@
         "episode_id": 88323,
         "display_name": "Dědictví temnoty S02E01 - Ztrácím víru CZ Dabing",
         "video_id": 30234878
+      },
+      {
+        "episode_id": 188482,
+        "display_name": "Vampirina S03E02 - Upíří štístko CZ Dabing",
+        "video_id": 30235014
+      },
+      {
+        "episode_id": 171531,
+        "display_name": "Kitchenblock S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30235016
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -677626,6 +677636,16 @@
         "episode_id": 88323,
         "display_name": "Dědictví temnoty S02E01 - Ztrácím víru CZ Dabing",
         "video_id": 30234878
+      },
+      {
+        "episode_id": 188482,
+        "display_name": "Vampirina S03E02 - Upíří štístko CZ Dabing",
+        "video_id": 30235014
+      },
+      {
+        "episode_id": 171531,
+        "display_name": "Kitchenblock S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30235016
       }
     ],
     "prepared_not_upload_ready": [
@@ -678787,7 +678807,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 55,
+    "disabled": 11,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -678797,6 +678818,6 @@
     "whisper_failed": 1318
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46226
+    "needs_subtitle_setup_after_prehrajto_processing": 46233
   }
 }
