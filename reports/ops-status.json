@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 118952,
-    "manifest_upload_ready_episodes": 158,
-    "uploaded_episodes": 72845,
-    "prepared_source_episodes": 69328,
+    "manifest_upload_ready_episodes": 160,
+    "uploaded_episodes": 72847,
+    "prepared_source_episodes": 69337,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 65,
+    "language_audited_sources": 81,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54185,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-14T06:06:53Z",
-      "databaseId": 38520322923,
+      "createdAt": "2026-10-14T06:09:05Z",
+      "databaseId": 38520532417,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-manifest"
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T06:07:27Z",
+      "databaseId": 38520378589,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T06:07:22Z",
+      "databaseId": 38520371707,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T06:07:19Z",
+      "databaseId": 38520366661,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T06:06:53Z",
+      "databaseId": 38520322923,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T06:06:07Z",
       "databaseId": 38520252344,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T05:54:43Z",
-      "databaseId": 38519192630,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T05:54:30Z",
-      "databaseId": 38519171349,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T05:52:31Z",
-      "databaseId": 38518992877,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T05:52:08Z",
-      "databaseId": 38518959175,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -178356,6 +178356,11 @@
         "video_id": 30234075
       },
       {
+        "episode_id": 109648,
+        "display_name": "Esmeralda S01E51 - 51. epizoda CZ Dabing",
+        "video_id": 30234121
+      },
+      {
         "episode_id": 107509,
         "display_name": "Fairfax S02E01 - Noční Fairfax CZ Dabing",
         "video_id": 30234028
@@ -178364,6 +178369,11 @@
         "episode_id": 107513,
         "display_name": "Fairfax S02E07 - Robotická sedmilhářka CZ Dabing",
         "video_id": 30234059
+      },
+      {
+        "episode_id": 149573,
+        "display_name": "Všechno, nebo Nic: Juventus S01E03 - Týmový duch CZ Dabing",
+        "video_id": 30234107
       },
       {
         "episode_id": 114182,
@@ -516753,6 +516763,11 @@
         "video_id": 30234075
       },
       {
+        "episode_id": 109648,
+        "display_name": "Esmeralda S01E51 - 51. epizoda CZ Dabing",
+        "video_id": 30234121
+      },
+      {
         "episode_id": 107509,
         "display_name": "Fairfax S02E01 - Noční Fairfax CZ Dabing",
         "video_id": 30234028
@@ -516761,6 +516776,11 @@
         "episode_id": 107513,
         "display_name": "Fairfax S02E07 - Robotická sedmilhářka CZ Dabing",
         "video_id": 30234059
+      },
+      {
+        "episode_id": 149573,
+        "display_name": "Všechno, nebo Nic: Juventus S01E03 - Týmový duch CZ Dabing",
+        "video_id": 30234107
       },
       {
         "episode_id": 114182,
@@ -678237,7 +678257,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 25,
+    "disabled": 41,
     "ok": 39,
     "resolve_failed": 1
   },
