@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 118784,
-    "manifest_upload_ready_episodes": 127,
-    "uploaded_episodes": 72979,
-    "prepared_source_episodes": 69396,
+    "manifest_upload_ready_episodes": 124,
+    "uploaded_episodes": 72980,
+    "prepared_source_episodes": 69398,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 56,
-    "language_whisper_attempted_sources": 56,
+    "language_audited_sources": 77,
+    "language_whisper_attempted_sources": 58,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54166,
-    "whisper_review_pending_sources": 37485,
+    "whisper_review_sources": 54172,
+    "whisper_review_pending_sources": 37514,
     "subtitle_followup_sources": 46266,
     "subtitle_followup_pending_sources": 46266
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T08:44:10Z",
+      "databaseId": 38537229150,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T08:43:03Z",
+      "databaseId": 38537093766,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T08:42:41Z",
+      "databaseId": 38537050974,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T08:41:52Z",
       "databaseId": 38536952836,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T08:29:51Z",
       "databaseId": 38535512257,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-14T08:25:53Z",
-      "databaseId": 38535048684,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T08:25:34Z",
-      "databaseId": 38535011834,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T08:23:30Z",
-      "databaseId": 38534769097,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -178689,6 +178689,11 @@
         "episode_id": 151189,
         "display_name": "Please Put Them On, Takamine-san S01E11 - 11. epizoda CZ Dabing",
         "video_id": 30236094
+      },
+      {
+        "episode_id": 165113,
+        "display_name": "Pokušení, podvod, pomsta S01E02 - Vojákův pád CZ Dabing",
+        "video_id": 30236121
       },
       {
         "episode_id": 114182,
@@ -517758,6 +517763,11 @@
         "video_id": 30236094
       },
       {
+        "episode_id": 165113,
+        "display_name": "Pokušení, podvod, pomsta S01E02 - Vojákův pád CZ Dabing",
+        "video_id": 30236121
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -679577,13 +679587,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 55,
+    "disabled": 19,
+    "ok": 57,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36167,
-    "whisper_confirmed_cz": 3957,
-    "whisper_non_cz_needs_subtitles": 12724,
+    "needs_whisper": 36196,
+    "whisper_confirmed_cz": 3952,
+    "whisper_non_cz_needs_subtitles": 12706,
     "whisper_failed": 1318
   },
   "subtitle_followup_statuses": {
