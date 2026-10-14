@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 118189,
-    "manifest_upload_ready_episodes": 48,
-    "uploaded_episodes": 73539,
-    "prepared_source_episodes": 69313,
+    "manifest_upload_ready_episodes": 49,
+    "uploaded_episodes": 73542,
+    "prepared_source_episodes": 69318,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 47,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 48,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54192,
-    "whisper_review_pending_sources": 37663,
-    "subtitle_followup_sources": 46620,
-    "subtitle_followup_pending_sources": 46620
+    "whisper_review_sources": 54193,
+    "whisper_review_pending_sources": 37668,
+    "subtitle_followup_sources": 46623,
+    "subtitle_followup_pending_sources": 46623
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-14T23:04:38Z",
-      "databaseId": 38651825122,
+      "createdAt": "2026-10-14T23:08:32Z",
+      "databaseId": 38652237283,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T23:08:14Z",
+      "databaseId": 38652203489,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T23:08:11Z",
+      "databaseId": 38652197665,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T23:07:54Z",
+      "databaseId": 38652166175,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T23:07:12Z",
+      "databaseId": 38652095894,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T23:05:55Z",
+      "databaseId": 38651963518,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T23:04:38Z",
+      "databaseId": 38651825122,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-14T23:04:11Z",
       "databaseId": 38651775931,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +99,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T23:00:17Z",
       "databaseId": 38651354042,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +131,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T22:54:38Z",
       "databaseId": 38650769540,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T22:53:10Z",
-      "databaseId": 38650618797,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T22:53:06Z",
-      "databaseId": 38650612276,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T22:52:41Z",
-      "databaseId": 38650569847,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T22:52:26Z",
-      "databaseId": 38650543616,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T22:52:22Z",
-      "databaseId": 38650536564,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T22:51:21Z",
-      "databaseId": 38650429184,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
     }
   ],
   "gaps": {
@@ -180111,6 +180111,11 @@
         "video_id": 30250630
       },
       {
+        "episode_id": 134081,
+        "display_name": "Zdravotní škola S03E06 - Závislosti CZ Titulky",
+        "video_id": 30250676
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -342136,6 +342141,11 @@
         "video_id": 30250610
       },
       {
+        "episode_id": 173806,
+        "display_name": "Miminka z divočiny S01E02 - Sami doma CZ Dabing",
+        "video_id": 30250653
+      },
+      {
         "episode_id": 11575,
         "display_name": "Hvězdná brána S04E16 - Rok 2010 CZ Dabing",
         "video_id": 30250536
@@ -342149,6 +342159,11 @@
         "episode_id": 138303,
         "display_name": "Řídit se rozumem S01E22 - 22. epizoda CZ Titulky",
         "video_id": 30250613
+      },
+      {
+        "episode_id": 134087,
+        "display_name": "Zdravotní škola S02E06 - Velká rozhodnutí CZ Titulky",
+        "video_id": 30250646
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -521978,6 +521993,11 @@
         "video_id": 30250630
       },
       {
+        "episode_id": 134081,
+        "display_name": "Zdravotní škola S03E06 - Závislosti CZ Titulky",
+        "video_id": 30250676
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -684003,6 +684023,11 @@
         "video_id": 30250610
       },
       {
+        "episode_id": 173806,
+        "display_name": "Miminka z divočiny S01E02 - Sami doma CZ Dabing",
+        "video_id": 30250653
+      },
+      {
         "episode_id": 11575,
         "display_name": "Hvězdná brána S04E16 - Rok 2010 CZ Dabing",
         "video_id": 30250536
@@ -684016,6 +684041,11 @@
         "episode_id": 138303,
         "display_name": "Řídit se rozumem S01E22 - 22. epizoda CZ Titulky",
         "video_id": 30250613
+      },
+      {
+        "episode_id": 134087,
+        "display_name": "Zdravotní škola S02E06 - Velká rozhodnutí CZ Titulky",
+        "video_id": 30250646
       }
     ],
     "prepared_not_upload_ready": [
@@ -685177,17 +685207,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 8,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36366,
+    "needs_whisper": 36371,
     "whisper_confirmed_cz": 3870,
-    "whisper_non_cz_needs_subtitles": 12659,
+    "whisper_non_cz_needs_subtitles": 12655,
     "whisper_failed": 1297
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46620
+    "needs_subtitle_setup_after_prehrajto_processing": 46623
   }
 }
