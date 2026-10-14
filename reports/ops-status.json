@@ -1,37 +1,77 @@
 {
   "counts": {
     "backlog_episodes": 118784,
-    "manifest_upload_ready_episodes": 143,
-    "uploaded_episodes": 72949,
-    "prepared_source_episodes": 69389,
+    "manifest_upload_ready_episodes": 126,
+    "uploaded_episodes": 72954,
+    "prepared_source_episodes": 69382,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 42,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54172,
-    "whisper_review_pending_sources": 37517,
+    "whisper_review_pending_sources": 37518,
     "subtitle_followup_sources": 46249,
     "subtitle_followup_pending_sources": 46249
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-14T08:07:39Z",
-      "databaseId": 38532942356,
+      "createdAt": "2026-10-14T08:13:36Z",
+      "databaseId": 38533613751,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T08:13:35Z",
+      "databaseId": 38533612947,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T08:12:55Z",
+      "databaseId": 38533536242,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T08:12:21Z",
+      "databaseId": 38533471684,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T08:11:34Z",
+      "databaseId": 38533384480,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T08:07:39Z",
+      "databaseId": 38532942356,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-14T08:05:23Z",
       "databaseId": 38532679473,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T08:01:33Z",
       "databaseId": 38532240524,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -123,11 +163,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T07:57:33Z",
       "databaseId": 38531779555,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T07:54:49Z",
-      "databaseId": 38531470793,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-14T07:54:42Z",
-      "databaseId": 38531457801,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:53:58Z",
-      "databaseId": 38531376425,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:53:48Z",
-      "databaseId": 38531357186,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:53:44Z",
-      "databaseId": 38531349922,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -178606,6 +178606,11 @@
         "video_id": 30235633
       },
       {
+        "episode_id": 174952,
+        "display_name": "Pure S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30235684
+      },
+      {
         "episode_id": 109661,
         "display_name": "Esmeralda S01E64 - 64. epizoda CZ Dabing",
         "video_id": 30235434
@@ -178619,6 +178624,11 @@
         "episode_id": 180017,
         "display_name": "Ostrov pobřežních vlků S01E03 - Podzim CZ Dabing",
         "video_id": 30235558
+      },
+      {
+        "episode_id": 75361,
+        "display_name": "Breslau S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30235656
       },
       {
         "episode_id": 114182,
@@ -339176,6 +339186,11 @@
         "video_id": 30235586
       },
       {
+        "episode_id": 172542,
+        "display_name": "Milosrdné lži S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 30235664
+      },
+      {
         "episode_id": 188463,
         "display_name": "Vampirina S01E24 - Tulidýlko CZ Dabing",
         "video_id": 30235426
@@ -339199,6 +339214,16 @@
         "episode_id": 166359,
         "display_name": "Sugar Apple Fairy Tale S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30235607
+      },
+      {
+        "episode_id": 176963,
+        "display_name": "Als de dijken breken S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30235641
+      },
+      {
+        "episode_id": 176967,
+        "display_name": "Als de dijken breken S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30235685
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -517523,6 +517548,11 @@
         "video_id": 30235633
       },
       {
+        "episode_id": 174952,
+        "display_name": "Pure S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30235684
+      },
+      {
         "episode_id": 109661,
         "display_name": "Esmeralda S01E64 - 64. epizoda CZ Dabing",
         "video_id": 30235434
@@ -517536,6 +517566,11 @@
         "episode_id": 180017,
         "display_name": "Ostrov pobřežních vlků S01E03 - Podzim CZ Dabing",
         "video_id": 30235558
+      },
+      {
+        "episode_id": 75361,
+        "display_name": "Breslau S01E01 - 1. epizoda CZ Dabing",
+        "video_id": 30235656
       },
       {
         "episode_id": 114182,
@@ -678093,6 +678128,11 @@
         "video_id": 30235586
       },
       {
+        "episode_id": 172542,
+        "display_name": "Milosrdné lži S01E07 - 7. epizoda CZ Dabing",
+        "video_id": 30235664
+      },
+      {
         "episode_id": 188463,
         "display_name": "Vampirina S01E24 - Tulidýlko CZ Dabing",
         "video_id": 30235426
@@ -678116,6 +678156,16 @@
         "episode_id": 166359,
         "display_name": "Sugar Apple Fairy Tale S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30235607
+      },
+      {
+        "episode_id": 176963,
+        "display_name": "Als de dijken breken S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30235641
+      },
+      {
+        "episode_id": 176967,
+        "display_name": "Als de dijken breken S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30235685
       }
     ],
     "prepared_not_upload_ready": [
@@ -679277,12 +679327,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 2,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36199,
-    "whisper_confirmed_cz": 3950,
+    "needs_whisper": 36200,
+    "whisper_confirmed_cz": 3949,
     "whisper_non_cz_needs_subtitles": 12705,
     "whisper_failed": 1318
   },
