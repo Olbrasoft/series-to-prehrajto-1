@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 118637,
-    "manifest_upload_ready_episodes": 112,
-    "uploaded_episodes": 73059,
-    "prepared_source_episodes": 69431,
+    "manifest_upload_ready_episodes": 117,
+    "uploaded_episodes": 73060,
+    "prepared_source_episodes": 69430,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 51,
-    "language_whisper_attempted_sources": 49,
+    "language_audited_sources": 59,
+    "language_whisper_attempted_sources": 57,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54165,
-    "whisper_review_pending_sources": 37489,
-    "subtitle_followup_sources": 46320,
-    "subtitle_followup_pending_sources": 46320
+    "whisper_review_sources": 54163,
+    "whisper_review_pending_sources": 37481,
+    "subtitle_followup_sources": 46324,
+    "subtitle_followup_pending_sources": 46324
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T10:16:01Z",
+      "databaseId": 38548352523,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T10:15:56Z",
+      "databaseId": 38548342361,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T10:15:03Z",
+      "databaseId": 38548235191,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T10:13:03Z",
+      "databaseId": 38548003127,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T10:11:42Z",
       "databaseId": 38547845946,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,15 +71,15 @@
       "createdAt": "2026-10-14T10:11:39Z",
       "databaseId": 38547838343,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T10:11:37Z",
       "databaseId": 38547835526,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -139,44 +171,12 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T10:03:05Z",
       "databaseId": 38546821670,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:59:15Z",
-      "databaseId": 38546348943,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:59:09Z",
-      "databaseId": 38546338285,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:58:17Z",
-      "databaseId": 38546234464,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:56:32Z",
-      "databaseId": 38546025358,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -339711,6 +339711,11 @@
         "video_id": 30237864
       },
       {
+        "episode_id": 115118,
+        "display_name": "The Love You Give Me S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30237943
+      },
+      {
         "episode_id": 109675,
         "display_name": "Esmeralda S01E79 - 79. epizoda CZ Dabing",
         "video_id": 30237253
@@ -679178,6 +679183,11 @@
         "video_id": 30237864
       },
       {
+        "episode_id": 115118,
+        "display_name": "The Love You Give Me S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30237943
+      },
+      {
         "episode_id": 109675,
         "display_name": "Esmeralda S01E79 - 79. epizoda CZ Dabing",
         "video_id": 30237253
@@ -680377,17 +680387,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 48,
+    "ok": 56,
     "disabled": 2,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36171,
+    "needs_whisper": 36163,
     "whisper_confirmed_cz": 3950,
-    "whisper_non_cz_needs_subtitles": 12726,
+    "whisper_non_cz_needs_subtitles": 12732,
     "whisper_failed": 1318
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46320
+    "needs_subtitle_setup_after_prehrajto_processing": 46324
   }
 }
