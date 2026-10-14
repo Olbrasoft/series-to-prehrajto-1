@@ -1,29 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 118784,
-    "manifest_upload_ready_episodes": 128,
-    "uploaded_episodes": 72957,
-    "prepared_source_episodes": 69392,
+    "manifest_upload_ready_episodes": 121,
+    "uploaded_episodes": 72964,
+    "prepared_source_episodes": 69386,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 67,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54172,
-    "whisper_review_pending_sources": 37518,
-    "subtitle_followup_sources": 46252,
-    "subtitle_followup_pending_sources": 46252
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54169,
+    "whisper_review_pending_sources": 37503,
+    "subtitle_followup_sources": 46256,
+    "subtitle_followup_pending_sources": 46256
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T08:27:20Z",
+      "databaseId": 38535218984,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-14T08:25:53Z",
+      "databaseId": 38535048684,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T08:25:34Z",
+      "databaseId": 38535011834,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T08:23:30Z",
+      "databaseId": 38534769097,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T08:17:06Z",
+      "databaseId": 38534022158,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-14T08:16:06Z",
       "databaseId": 38533905641,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -35,27 +75,27 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T08:14:43Z",
       "databaseId": 38533740466,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T08:14:42Z",
       "databaseId": 38533738954,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T08:14:40Z",
       "databaseId": 38533734774,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -75,11 +115,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T08:13:35Z",
       "databaseId": 38533612947,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T08:01:25Z",
-      "databaseId": 38532225798,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T08:00:09Z",
-      "databaseId": 38532069176,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T07:59:03Z",
-      "databaseId": 38531945642,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T07:58:06Z",
-      "databaseId": 38531841374,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T07:57:55Z",
-      "databaseId": 38531821307,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -178611,6 +178611,16 @@
         "video_id": 30235684
       },
       {
+        "episode_id": 174948,
+        "display_name": "Pure S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30235747
+      },
+      {
+        "episode_id": 135140,
+        "display_name": "Freeridge S01E02 - Dort CZ Dabing",
+        "video_id": 30235809
+      },
+      {
         "episode_id": 109661,
         "display_name": "Esmeralda S01E64 - 64. epizoda CZ Dabing",
         "video_id": 30235434
@@ -178634,6 +178644,21 @@
         "episode_id": 75365,
         "display_name": "Breslau S01E05 - 5. epizoda CZ Dabing",
         "video_id": 30235729
+      },
+      {
+        "episode_id": 175017,
+        "display_name": "Zdraví (ne)prospěšné S01E04 - Půst CZ Titulky",
+        "video_id": 30235806
+      },
+      {
+        "episode_id": 159653,
+        "display_name": "Arktický výstup S01E02 - Na tenkém ledě CZ Dabing",
+        "video_id": 30235875
+      },
+      {
+        "episode_id": 151181,
+        "display_name": "Please Put Them On, Takamine-san S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30235955
       },
       {
         "episode_id": 114182,
@@ -339199,6 +339224,16 @@
         "episode_id": 166358,
         "display_name": "Sugar Apple Fairy Tale S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30235749
+      },
+      {
+        "episode_id": 176966,
+        "display_name": "Als de dijken breken S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30235783
+      },
+      {
+        "episode_id": 174950,
+        "display_name": "Pure S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30235834
       },
       {
         "episode_id": 188463,
@@ -517568,6 +517603,16 @@
         "video_id": 30235684
       },
       {
+        "episode_id": 174948,
+        "display_name": "Pure S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30235747
+      },
+      {
+        "episode_id": 135140,
+        "display_name": "Freeridge S01E02 - Dort CZ Dabing",
+        "video_id": 30235809
+      },
+      {
         "episode_id": 109661,
         "display_name": "Esmeralda S01E64 - 64. epizoda CZ Dabing",
         "video_id": 30235434
@@ -517591,6 +517636,21 @@
         "episode_id": 75365,
         "display_name": "Breslau S01E05 - 5. epizoda CZ Dabing",
         "video_id": 30235729
+      },
+      {
+        "episode_id": 175017,
+        "display_name": "Zdraví (ne)prospěšné S01E04 - Půst CZ Titulky",
+        "video_id": 30235806
+      },
+      {
+        "episode_id": 159653,
+        "display_name": "Arktický výstup S01E02 - Na tenkém ledě CZ Dabing",
+        "video_id": 30235875
+      },
+      {
+        "episode_id": 151181,
+        "display_name": "Please Put Them On, Takamine-san S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30235955
       },
       {
         "episode_id": 114182,
@@ -678158,6 +678218,16 @@
         "video_id": 30235749
       },
       {
+        "episode_id": 176966,
+        "display_name": "Als de dijken breken S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30235783
+      },
+      {
+        "episode_id": 174950,
+        "display_name": "Pure S01E02 - 2. epizoda CZ Dabing",
+        "video_id": 30235834
+      },
+      {
         "episode_id": 188463,
         "display_name": "Vampirina S01E24 - Tulidýlko CZ Dabing",
         "video_id": 30235426
@@ -679357,17 +679427,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 27,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36200,
-    "whisper_confirmed_cz": 3950,
-    "whisper_non_cz_needs_subtitles": 12704,
+    "needs_whisper": 36185,
+    "whisper_confirmed_cz": 3952,
+    "whisper_non_cz_needs_subtitles": 12714,
     "whisper_failed": 1318
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46252
+    "needs_subtitle_setup_after_prehrajto_processing": 46256
   }
 }
