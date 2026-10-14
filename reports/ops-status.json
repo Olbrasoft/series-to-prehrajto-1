@@ -2,22 +2,62 @@
   "counts": {
     "backlog_episodes": 118336,
     "manifest_upload_ready_episodes": 58,
-    "uploaded_episodes": 73344,
+    "uploaded_episodes": 73345,
     "prepared_source_episodes": 69593,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 69,
-    "language_whisper_attempted_sources": 48,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54185,
     "whisper_review_pending_sources": 37617,
     "subtitle_followup_sources": 46500,
     "subtitle_followup_pending_sources": 46500
   },
   "workflow_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T15:58:41Z",
+      "databaseId": 38594073524,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T15:58:37Z",
+      "databaseId": 38594064323,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T15:58:34Z",
+      "databaseId": 38594056467,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T15:58:22Z",
+      "databaseId": 38594028880,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T15:58:18Z",
+      "databaseId": 38594019918,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-14T15:57:44Z",
@@ -27,11 +67,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-14T15:57:32Z",
       "databaseId": 38593908827,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T15:57:28Z",
       "databaseId": 38593898571,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-14T15:49:31Z",
       "databaseId": 38592729013,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T15:48:33Z",
-      "databaseId": 38592586474,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T15:47:39Z",
-      "databaseId": 38592448946,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T15:47:03Z",
-      "databaseId": 38592363268,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T15:46:38Z",
-      "databaseId": 38592302749,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-14T15:44:42Z",
-      "databaseId": 38592011929,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -341174,6 +341174,11 @@
         "episode_id": 169959,
         "display_name": "Unlock My Boss S01E08 - 8. epizoda CZ Titulky",
         "video_id": 30244575
+      },
+      {
+        "episode_id": 169963,
+        "display_name": "Unlock My Boss S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30244751
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -682066,6 +682071,11 @@
         "episode_id": 169959,
         "display_name": "Unlock My Boss S01E08 - 8. epizoda CZ Titulky",
         "video_id": 30244575
+      },
+      {
+        "episode_id": 169963,
+        "display_name": "Unlock My Boss S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30244751
       }
     ],
     "prepared_not_upload_ready": [
@@ -683227,8 +683237,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 21,
-    "ok": 47,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
