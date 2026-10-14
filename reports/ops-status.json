@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 118637,
-    "manifest_upload_ready_episodes": 125,
-    "uploaded_episodes": 73035,
-    "prepared_source_episodes": 69423,
+    "manifest_upload_ready_episodes": 117,
+    "uploaded_episodes": 73036,
+    "prepared_source_episodes": 69415,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54163,
     "whisper_review_pending_sources": 37486,
     "subtitle_followup_sources": 46301,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-14T09:49:51Z",
+      "databaseId": 38545218041,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T09:49:48Z",
+      "databaseId": 38545213057,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T09:49:22Z",
+      "databaseId": 38545161917,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T09:49:18Z",
+      "databaseId": 38545153712,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T09:49:15Z",
+      "databaseId": 38545147277,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-14T09:48:04Z",
       "databaseId": 38545006101,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T09:45:59Z",
       "databaseId": 38544753183,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T09:38:09Z",
-      "databaseId": 38543791236,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:37:42Z",
-      "databaseId": 38543738418,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:37:37Z",
-      "databaseId": 38543727108,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:36:16Z",
-      "databaseId": 38543563422,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T09:36:12Z",
-      "databaseId": 38543555769,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -178824,6 +178824,11 @@
         "episode_id": 109676,
         "display_name": "Esmeralda S01E80 - 80. epizoda CZ Dabing",
         "video_id": 30237246
+      },
+      {
+        "episode_id": 109680,
+        "display_name": "Esmeralda S01E84 - 84. epizoda CZ Dabing",
+        "video_id": 30237402
       },
       {
         "episode_id": 109677,
@@ -518173,6 +518178,11 @@
         "video_id": 30237246
       },
       {
+        "episode_id": 109680,
+        "display_name": "Esmeralda S01E84 - 84. epizoda CZ Dabing",
+        "video_id": 30237402
+      },
+      {
         "episode_id": 109677,
         "display_name": "Esmeralda S01E81 - 81. epizoda CZ Dabing",
         "video_id": 30237251
@@ -680137,7 +680147,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
