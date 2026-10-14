@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 118952,
-    "manifest_upload_ready_episodes": 155,
-    "uploaded_episodes": 72840,
-    "prepared_source_episodes": 69321,
+    "manifest_upload_ready_episodes": 158,
+    "uploaded_episodes": 72845,
+    "prepared_source_episodes": 69328,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 89,
-    "language_whisper_attempted_sources": 48,
+    "language_audited_sources": 65,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54185,
-    "whisper_review_pending_sources": 37569,
-    "subtitle_followup_sources": 46191,
-    "subtitle_followup_pending_sources": 46191
+    "whisper_review_pending_sources": 37573,
+    "subtitle_followup_sources": 46195,
+    "subtitle_followup_pending_sources": 46195
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-14T05:58:37Z",
-      "databaseId": 38519543228,
+      "createdAt": "2026-10-14T06:06:53Z",
+      "databaseId": 38520322923,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-14T06:06:07Z",
+      "databaseId": 38520252344,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-14T06:06:01Z",
+      "databaseId": 38520242262,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-14T06:01:45Z",
+      "databaseId": 38519844309,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-10-14T06:01:41Z",
+      "databaseId": 38519837647,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T05:59:49Z",
+      "databaseId": 38519649990,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-14T05:58:37Z",
+      "databaseId": 38519543228,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-14T05:57:18Z",
       "databaseId": 38519427061,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T05:57:00Z",
       "databaseId": 38519400681,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -59,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-14T05:55:44Z",
       "databaseId": 38519287019,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-14T05:51:54Z",
-      "databaseId": 38518935383,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-14T05:51:20Z",
-      "databaseId": 38518885491,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T05:50:51Z",
-      "databaseId": 38518840777,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T05:50:13Z",
-      "databaseId": 38518778897,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-14T05:50:09Z",
-      "databaseId": 38518772780,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-14T05:49:45Z",
-      "databaseId": 38518735119,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -178351,9 +178351,19 @@
         "video_id": 30234033
       },
       {
+        "episode_id": 188464,
+        "display_name": "Vampirina S01E25 - Netopíří horečka CZ Dabing",
+        "video_id": 30234075
+      },
+      {
         "episode_id": 107509,
         "display_name": "Fairfax S02E01 - Noční Fairfax CZ Dabing",
         "video_id": 30234028
+      },
+      {
+        "episode_id": 107513,
+        "display_name": "Fairfax S02E07 - Robotická sedmilhářka CZ Dabing",
+        "video_id": 30234059
       },
       {
         "episode_id": 114182,
@@ -338654,6 +338664,21 @@
         "episode_id": 188454,
         "display_name": "Vampirina S01E14 - Správní svišti CZ Dabing",
         "video_id": 30234030
+      },
+      {
+        "episode_id": 188466,
+        "display_name": "Vampirina S02E01 - Upírka prezidentkou CZ Dabing",
+        "video_id": 30234066
+      },
+      {
+        "episode_id": 172178,
+        "display_name": "Alphonse S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30234113
+      },
+      {
+        "episode_id": 178547,
+        "display_name": "Hausbót S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30234046
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -516723,9 +516748,19 @@
         "video_id": 30234033
       },
       {
+        "episode_id": 188464,
+        "display_name": "Vampirina S01E25 - Netopíří horečka CZ Dabing",
+        "video_id": 30234075
+      },
+      {
         "episode_id": 107509,
         "display_name": "Fairfax S02E01 - Noční Fairfax CZ Dabing",
         "video_id": 30234028
+      },
+      {
+        "episode_id": 107513,
+        "display_name": "Fairfax S02E07 - Robotická sedmilhářka CZ Dabing",
+        "video_id": 30234059
       },
       {
         "episode_id": 114182,
@@ -677026,6 +677061,21 @@
         "episode_id": 188454,
         "display_name": "Vampirina S01E14 - Správní svišti CZ Dabing",
         "video_id": 30234030
+      },
+      {
+        "episode_id": 188466,
+        "display_name": "Vampirina S02E01 - Upírka prezidentkou CZ Dabing",
+        "video_id": 30234066
+      },
+      {
+        "episode_id": 172178,
+        "display_name": "Alphonse S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30234113
+      },
+      {
+        "episode_id": 178547,
+        "display_name": "Hausbót S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30234046
       }
     ],
     "prepared_not_upload_ready": [
@@ -678187,17 +678237,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 41,
-    "ok": 47,
+    "disabled": 25,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36249,
-    "whisper_confirmed_cz": 3946,
-    "whisper_non_cz_needs_subtitles": 12670,
+    "needs_whisper": 36253,
+    "whisper_confirmed_cz": 3944,
+    "whisper_non_cz_needs_subtitles": 12668,
     "whisper_failed": 1320
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46191
+    "needs_subtitle_setup_after_prehrajto_processing": 46195
   }
 }
