@@ -1,45 +1,109 @@
 {
   "counts": {
     "backlog_episodes": 117677,
-    "manifest_upload_ready_episodes": 25,
-    "uploaded_episodes": 73987,
+    "manifest_upload_ready_episodes": 26,
+    "uploaded_episodes": 73988,
     "prepared_source_episodes": 69696,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 24,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 60,
+    "language_whisper_attempted_sources": 44,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54225,
     "whisper_review_pending_sources": 37833,
-    "subtitle_followup_sources": 46928,
-    "subtitle_followup_pending_sources": 46928
+    "subtitle_followup_sources": 46929,
+    "subtitle_followup_pending_sources": 46929
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-15T11:35:56Z",
-      "databaseId": 38728474284,
+      "createdAt": "2026-10-15T11:41:30Z",
+      "databaseId": 38729126736,
       "headBranch": "main",
       "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T11:41:05Z",
+      "databaseId": 38729080861,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T11:41:01Z",
+      "databaseId": 38729072515,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T11:39:29Z",
+      "databaseId": 38728887454,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-15T11:37:29Z",
+      "databaseId": 38728654787,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T11:37:22Z",
+      "databaseId": 38728641697,
+      "headBranch": "main",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T11:37:10Z",
+      "databaseId": 38728618068,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T11:36:35Z",
+      "databaseId": 38728550389,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T11:35:56Z",
+      "databaseId": 38728474284,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T11:35:52Z",
       "databaseId": 38728466291,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T11:35:43Z",
       "databaseId": 38728449022,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -99,11 +163,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T11:30:10Z",
       "databaseId": 38727781599,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T11:29:48Z",
-      "databaseId": 38727736300,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-15T11:29:44Z",
-      "databaseId": 38727728783,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-15T11:29:36Z",
-      "databaseId": 38727713382,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T11:29:08Z",
-      "databaseId": 38727657398,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T11:29:05Z",
-      "databaseId": 38727651258,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-15T11:29:01Z",
-      "databaseId": 38727643370,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T11:28:56Z",
-      "databaseId": 38727633016,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T11:27:46Z",
-      "databaseId": 38727494924,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
     }
   ],
   "gaps": {
@@ -181234,6 +181234,11 @@
         "episode_id": 179089,
         "display_name": "Domino Day S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30260987
+      },
+      {
+        "episode_id": 154777,
+        "display_name": "Největší záhady historie S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30261067
       },
       {
         "episode_id": 114182,
@@ -525343,6 +525348,11 @@
         "video_id": 30260987
       },
       {
+        "episode_id": 154777,
+        "display_name": "Největší záhady historie S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30261067
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -689658,7 +689668,7 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 16,
-    "ok": 23,
+    "ok": 43,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -689668,6 +689678,6 @@
     "whisper_failed": 1279
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46928
+    "needs_subtitle_setup_after_prehrajto_processing": 46929
   }
 }
