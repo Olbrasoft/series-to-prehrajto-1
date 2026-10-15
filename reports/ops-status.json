@@ -2,36 +2,108 @@
   "counts": {
     "backlog_episodes": 117800,
     "manifest_upload_ready_episodes": 14,
-    "uploaded_episodes": 73875,
-    "prepared_source_episodes": 69629,
+    "uploaded_episodes": 73884,
+    "prepared_source_episodes": 69628,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 53,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54213,
-    "whisper_review_pending_sources": 37792,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54212,
+    "whisper_review_pending_sources": 37787,
     "subtitle_followup_sources": 46862,
     "subtitle_followup_pending_sources": 46862
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-15T08:23:26Z",
-      "databaseId": 38705309547,
+      "createdAt": "2026-10-15T08:33:13Z",
+      "databaseId": 38706483572,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "audit-language"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T08:31:48Z",
+      "databaseId": 38706311341,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T08:29:37Z",
+      "databaseId": 38706040115,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T08:29:13Z",
+      "databaseId": 38705991975,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T08:28:13Z",
+      "databaseId": 38705873261,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-15T08:25:57Z",
+      "databaseId": 38705606588,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T08:24:54Z",
+      "databaseId": 38705484045,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T08:24:24Z",
+      "databaseId": 38705425595,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T08:24:21Z",
+      "databaseId": 38705418572,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T08:23:26Z",
+      "databaseId": 38705309547,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T08:23:14Z",
       "databaseId": 38705285282,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -105,78 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-15T08:13:07Z",
-      "databaseId": 38704094773,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T08:12:56Z",
-      "databaseId": 38704072318,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-15T08:12:47Z",
-      "databaseId": 38704056579,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T08:12:24Z",
-      "databaseId": 38704010454,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T08:11:12Z",
-      "databaseId": 38703875293,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T08:09:28Z",
-      "databaseId": 38703670000,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T08:08:18Z",
-      "databaseId": 38703536796,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T08:07:37Z",
-      "databaseId": 38703456563,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T08:07:22Z",
-      "databaseId": 38703425847,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -180981,6 +180981,31 @@
         "video_id": 30258543
       },
       {
+        "episode_id": 106256,
+        "display_name": "L'arte della gioia S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30258599
+      },
+      {
+        "episode_id": 140832,
+        "display_name": "Adamas S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30258642
+      },
+      {
+        "episode_id": 125281,
+        "display_name": "Ishura S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 30258601
+      },
+      {
+        "episode_id": 11757,
+        "display_name": "Hvězdná brána S06E22 - Kruh se uzavírá CZ Dabing",
+        "video_id": 30258638
+      },
+      {
+        "episode_id": 125273,
+        "display_name": "Ishura S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30258658
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -343829,6 +343854,26 @@
         "episode_id": 106255,
         "display_name": "L'arte della gioia S01E04 - 4. epizoda CZ Dabing",
         "video_id": 30258502
+      },
+      {
+        "episode_id": 11650,
+        "display_name": "Hvězdná brána S06E21 - Proroctví CZ Dabing",
+        "video_id": 30258594
+      },
+      {
+        "episode_id": 4878,
+        "display_name": "Plan B S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30258635
+      },
+      {
+        "episode_id": 125279,
+        "display_name": "Ishura S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30258593
+      },
+      {
+        "episode_id": 4879,
+        "display_name": "Plan B S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30258619
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -524528,6 +524573,31 @@
         "video_id": 30258543
       },
       {
+        "episode_id": 106256,
+        "display_name": "L'arte della gioia S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30258599
+      },
+      {
+        "episode_id": 140832,
+        "display_name": "Adamas S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30258642
+      },
+      {
+        "episode_id": 125281,
+        "display_name": "Ishura S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 30258601
+      },
+      {
+        "episode_id": 11757,
+        "display_name": "Hvězdná brána S06E22 - Kruh se uzavírá CZ Dabing",
+        "video_id": 30258638
+      },
+      {
+        "episode_id": 125273,
+        "display_name": "Ishura S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30258658
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -687376,6 +687446,26 @@
         "episode_id": 106255,
         "display_name": "L'arte della gioia S01E04 - 4. epizoda CZ Dabing",
         "video_id": 30258502
+      },
+      {
+        "episode_id": 11650,
+        "display_name": "Hvězdná brána S06E21 - Proroctví CZ Dabing",
+        "video_id": 30258594
+      },
+      {
+        "episode_id": 4878,
+        "display_name": "Plan B S01E05 - 5. epizoda CZ Dabing",
+        "video_id": 30258635
+      },
+      {
+        "episode_id": 125279,
+        "display_name": "Ishura S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30258593
+      },
+      {
+        "episode_id": 4879,
+        "display_name": "Plan B S01E06 - 6. epizoda CZ Dabing",
+        "video_id": 30258619
       }
     ],
     "prepared_not_upload_ready": [
@@ -688537,14 +688627,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 13,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36495,
-    "whisper_confirmed_cz": 3836,
-    "whisper_non_cz_needs_subtitles": 12585,
+    "needs_whisper": 36490,
+    "whisper_confirmed_cz": 3835,
+    "whisper_non_cz_needs_subtitles": 12590,
     "whisper_failed": 1297
   },
   "subtitle_followup_statuses": {
