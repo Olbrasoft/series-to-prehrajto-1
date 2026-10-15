@@ -1,37 +1,101 @@
 {
   "counts": {
     "backlog_episodes": 117396,
-    "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 74253,
-    "prepared_source_episodes": 69371,
+    "manifest_upload_ready_episodes": 7,
+    "uploaded_episodes": 74254,
+    "prepared_source_episodes": 69358,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 50,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 30,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54240,
-    "whisper_review_pending_sources": 37925,
-    "subtitle_followup_sources": 47053,
-    "subtitle_followup_pending_sources": 47053
+    "whisper_review_pending_sources": 37928,
+    "subtitle_followup_sources": 47055,
+    "subtitle_followup_pending_sources": 47055
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-15T23:46:36Z",
-      "databaseId": 38825583034,
+      "createdAt": "2026-10-15T23:52:15Z",
+      "databaseId": 38826141456,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T23:52:09Z",
+      "databaseId": 38826131706,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T23:51:38Z",
+      "databaseId": 38826081747,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T23:51:01Z",
+      "databaseId": 38826018794,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "external-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-15T23:50:24Z",
+      "databaseId": 38825957017,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T23:47:54Z",
+      "databaseId": 38825711972,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T23:47:51Z",
+      "databaseId": 38825705840,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T23:47:49Z",
+      "databaseId": 38825701948,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T23:46:36Z",
+      "databaseId": 38825583034,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-15T23:46:21Z",
       "databaseId": 38825555872,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -59,11 +123,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T23:45:22Z",
       "databaseId": 38825459485,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T23:39:37Z",
-      "databaseId": 38824899510,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T23:39:18Z",
-      "databaseId": 38824867787,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T23:39:16Z",
-      "databaseId": 38824863024,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-15T23:38:52Z",
-      "databaseId": 38824823765,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T23:38:04Z",
-      "databaseId": 38824748141,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T23:37:49Z",
-      "databaseId": 38824723624,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T23:37:24Z",
-      "databaseId": 38824683253,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-15T23:37:07Z",
-      "databaseId": 38824654889,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -181939,6 +181939,11 @@
         "episode_id": 170901,
         "display_name": "Agatha Christie: Svědek obžaloby S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30275938
+      },
+      {
+        "episode_id": 120949,
+        "display_name": "Nevinný S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 30275968
       },
       {
         "episode_id": 114182,
@@ -527378,6 +527383,11 @@
         "video_id": 30275938
       },
       {
+        "episode_id": 120949,
+        "display_name": "Nevinný S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 30275968
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -692318,16 +692328,16 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 10,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36648,
+    "needs_whisper": 36651,
     "whisper_confirmed_cz": 3806,
-    "whisper_non_cz_needs_subtitles": 12509,
+    "whisper_non_cz_needs_subtitles": 12506,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47053
+    "needs_subtitle_setup_after_prehrajto_processing": 47055
   }
 }
