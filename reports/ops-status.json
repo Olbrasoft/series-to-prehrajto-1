@@ -1,29 +1,77 @@
 {
   "counts": {
     "backlog_episodes": 117506,
-    "manifest_upload_ready_episodes": 14,
-    "uploaded_episodes": 74122,
-    "prepared_source_episodes": 69544,
+    "manifest_upload_ready_episodes": 13,
+    "uploaded_episodes": 74123,
+    "prepared_source_episodes": 69550,
     "description_series": 60,
     "description_episodes": 753,
-    "description_errors": 45,
+    "description_errors": 48,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 27,
+    "language_audited_sources": 43,
     "language_whisper_attempted_sources": 27,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54229,
-    "whisper_review_pending_sources": 37866,
+    "whisper_review_pending_sources": 37865,
     "subtitle_followup_sources": 46994,
     "subtitle_followup_pending_sources": 46994
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T16:38:28Z",
+      "databaseId": 38770693390,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T16:38:12Z",
+      "databaseId": 38770657138,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T16:38:11Z",
+      "databaseId": 38770653945,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T16:38:07Z",
+      "databaseId": 38770645630,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T16:37:36Z",
+      "databaseId": 38770574776,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T16:37:32Z",
+      "databaseId": 38770565978,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T16:36:05Z",
       "databaseId": 38770364752,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +83,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-15T16:32:33Z",
       "databaseId": 38769871575,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T16:23:14Z",
-      "databaseId": 38768555569,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T16:22:32Z",
-      "databaseId": 38768456284,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T16:22:04Z",
-      "databaseId": 38768389956,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T16:22:00Z",
-      "databaseId": 38768380705,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T16:20:47Z",
-      "databaseId": 38768208955,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-15T16:19:25Z",
-      "databaseId": 38768013361,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -345064,6 +345064,11 @@
         "episode_id": 11787,
         "display_name": "Hvězdná brána S09E15 - Satelit CZ Dabing",
         "video_id": 30268783
+      },
+      {
+        "episode_id": 4403,
+        "display_name": "Hloubka S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 30268935
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -689846,6 +689851,11 @@
         "episode_id": 11787,
         "display_name": "Hvězdná brána S09E15 - Satelit CZ Dabing",
         "video_id": 30268783
+      },
+      {
+        "episode_id": 4403,
+        "display_name": "Hloubka S02E09 - 9. epizoda CZ Titulky",
+        "video_id": 30268935
       }
     ],
     "prepared_not_upload_ready": [
@@ -691007,13 +691017,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 16,
     "ok": 26,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36587,
+    "needs_whisper": 36586,
     "whisper_confirmed_cz": 3812,
-    "whisper_non_cz_needs_subtitles": 12551,
+    "whisper_non_cz_needs_subtitles": 12552,
     "whisper_failed": 1279
   },
   "subtitle_followup_statuses": {
