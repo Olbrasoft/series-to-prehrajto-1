@@ -2,28 +2,44 @@
   "counts": {
     "backlog_episodes": 117506,
     "manifest_upload_ready_episodes": 13,
-    "uploaded_episodes": 74093,
+    "uploaded_episodes": 74094,
     "prepared_source_episodes": 69567,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 32,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54233,
-    "whisper_review_pending_sources": 37882,
+    "whisper_review_sources": 54232,
+    "whisper_review_pending_sources": 37878,
     "subtitle_followup_sources": 46975,
     "subtitle_followup_pending_sources": 46975
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T15:36:47Z",
+      "databaseId": 38761866069,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T15:36:42Z",
+      "databaseId": 38761855400,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T15:35:16Z",
       "databaseId": 38761645228,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T15:35:10Z",
       "databaseId": 38761629904,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -123,11 +139,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T15:22:46Z",
       "databaseId": 38759788355,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T15:20:26Z",
-      "databaseId": 38759444182,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T15:19:03Z",
-      "databaseId": 38759239798,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -344906,6 +344906,11 @@
         "video_id": 30267795
       },
       {
+        "episode_id": 79454,
+        "display_name": "Hubert a Staller S01E15 - Koncert pro mrtvolu CZ Dabing",
+        "video_id": 30267896
+      },
+      {
         "episode_id": 11783,
         "display_name": "Hvězdná brána S09E10 - Čtvrtý jezdec apokalypsy, část první CZ Dabing",
         "video_id": 30267742
@@ -689543,6 +689548,11 @@
         "video_id": 30267795
       },
       {
+        "episode_id": 79454,
+        "display_name": "Hubert a Staller S01E15 - Koncert pro mrtvolu CZ Dabing",
+        "video_id": 30267896
+      },
+      {
         "episode_id": 11783,
         "display_name": "Hvězdná brána S09E10 - Čtvrtý jezdec apokalypsy, část první CZ Dabing",
         "video_id": 30267742
@@ -690717,13 +690727,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 12,
     "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36603,
+    "needs_whisper": 36599,
     "whisper_confirmed_cz": 3816,
-    "whisper_non_cz_needs_subtitles": 12535,
+    "whisper_non_cz_needs_subtitles": 12538,
     "whisper_failed": 1279
   },
   "subtitle_followup_statuses": {
