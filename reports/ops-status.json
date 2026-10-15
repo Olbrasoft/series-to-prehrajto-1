@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 117575,
-    "manifest_upload_ready_episodes": 18,
-    "uploaded_episodes": 74035,
-    "prepared_source_episodes": 69621,
+    "manifest_upload_ready_episodes": 13,
+    "uploaded_episodes": 74037,
+    "prepared_source_episodes": 69615,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 64,
-    "language_whisper_attempted_sources": 42,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54230,
     "whisper_review_pending_sources": 37857,
@@ -20,26 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-15T13:46:58Z",
-      "databaseId": 38745637494,
+      "createdAt": "2026-10-15T13:49:03Z",
+      "databaseId": 38745932691,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
-      "createdAt": "2026-10-15T13:45:13Z",
-      "databaseId": 38745386540,
+      "conclusion": "skipped",
+      "createdAt": "2026-10-15T13:48:55Z",
+      "databaseId": 38745912673,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T13:48:49Z",
+      "databaseId": 38745897638,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T13:48:20Z",
+      "databaseId": 38745829242,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T13:48:16Z",
+      "databaseId": 38745819908,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T13:46:58Z",
+      "databaseId": 38745637494,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T13:45:13Z",
+      "databaseId": 38745386540,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T13:44:43Z",
       "databaseId": 38745312488,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -55,7 +95,7 @@
       "createdAt": "2026-10-15T13:42:17Z",
       "databaseId": 38744966751,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T13:39:42Z",
       "databaseId": 38744595781,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-15T13:38:48Z",
-      "databaseId": 38744467358,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:38:28Z",
-      "databaseId": 38744419871,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:37:59Z",
-      "databaseId": 38744354488,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:37:43Z",
-      "databaseId": 38744317013,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:36:14Z",
-      "databaseId": 38744106448,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -344626,9 +344626,19 @@
         "video_id": 30264777
       },
       {
+        "episode_id": 166650,
+        "display_name": "The Wingfeather Saga S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30264991
+      },
+      {
         "episode_id": 11623,
         "display_name": "Hvězdná brána S08E15 - Občan Joe CZ Dabing",
         "video_id": 30264404
+      },
+      {
+        "episode_id": 179983,
+        "display_name": "Abraham Lincoln S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30264867
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -688973,9 +688983,19 @@
         "video_id": 30264777
       },
       {
+        "episode_id": 166650,
+        "display_name": "The Wingfeather Saga S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30264991
+      },
+      {
         "episode_id": 11623,
         "display_name": "Hvězdná brána S08E15 - Občan Joe CZ Dabing",
         "video_id": 30264404
+      },
+      {
+        "episode_id": 179983,
+        "display_name": "Abraham Lincoln S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30264867
       }
     ],
     "prepared_not_upload_ready": [
@@ -690137,8 +690157,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 22,
-    "ok": 41,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
