@@ -207,3 +207,15 @@ def test_portal_cue_sorting_preserves_caption_times_and_duplicate_counts():
     assert comparison_srt(expected) != comparison_srt(b'\n'.join([early, simultaneous, late]))
     assert comparison_srt(expected) != comparison_srt(delivered.replace(b'01,123', b'01,124'))
     assert comparison_srt(expected) != comparison_srt(delivered.replace(b'Other voice', b'Changed'))
+
+
+def test_transport_removes_only_unsupported_placement_without_retiming(tmp_path):
+    source = (b'1\n00:00:36,828 --> 00:00:42,042\n{\\an8}<i>Caption</i>\n\n'
+              b'2\n00:00:43,252 --> 00:00:46,171\n{\\other}Keep this\n')
+    path = tmp_path / 'reviewed.srt'
+    path.write_bytes(source)
+    prepared = transport_srt(path)
+    assert prepared == source.replace(b'{\\an8}', b'').replace(b'\n', b'\r\n')
+    assert path.read_bytes() == source
+    assert b'{\\other}Keep this' in prepared
+    assert comparison_srt(prepared) == comparison_srt(source)
