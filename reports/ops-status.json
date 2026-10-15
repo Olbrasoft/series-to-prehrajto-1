@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 117800,
     "manifest_upload_ready_episodes": 23,
-    "uploaded_episodes": 73857,
+    "uploaded_episodes": 73859,
     "prepared_source_episodes": 69619,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 56,
-    "language_whisper_attempted_sources": 23,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54211,
     "whisper_review_pending_sources": 37785,
     "subtitle_followup_sources": 46853,
@@ -19,11 +19,27 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T07:59:31Z",
+      "databaseId": 38702496479,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T07:59:27Z",
+      "databaseId": 38702490154,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-10-15T07:58:24Z",
       "databaseId": 38702374568,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T07:58:09Z",
       "databaseId": 38702346142,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -123,11 +139,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T07:51:21Z",
       "databaseId": 38701571139,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T07:47:13Z",
-      "databaseId": 38701103832,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T07:46:34Z",
-      "databaseId": 38701031059,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -180914,6 +180914,16 @@
         "episode_id": 125276,
         "display_name": "Ishura S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30258302
+      },
+      {
+        "episode_id": 125280,
+        "display_name": "Ishura S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30258316
+      },
+      {
+        "episode_id": 125272,
+        "display_name": "Ishura S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30258336
       },
       {
         "episode_id": 159569,
@@ -524373,6 +524383,16 @@
         "video_id": 30258302
       },
       {
+        "episode_id": 125280,
+        "display_name": "Ishura S01E06 - 6. epizoda CZ Titulky",
+        "video_id": 30258316
+      },
+      {
+        "episode_id": 125272,
+        "display_name": "Ishura S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30258336
+      },
+      {
         "episode_id": 159569,
         "display_name": "Moon in the Day S01E07 - 7. epizoda CZ Titulky",
         "video_id": 30258122
@@ -688357,8 +688377,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 22,
-    "disabled": 33,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
