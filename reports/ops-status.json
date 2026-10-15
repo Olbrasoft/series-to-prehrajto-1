@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 117396,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 74236,
-    "prepared_source_episodes": 69343,
+    "manifest_upload_ready_episodes": 5,
+    "uploaded_episodes": 74238,
+    "prepared_source_episodes": 69353,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 46,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54239,
-    "whisper_review_pending_sources": 37922,
+    "whisper_review_sources": 54240,
+    "whisper_review_pending_sources": 37924,
     "subtitle_followup_sources": 47051,
     "subtitle_followup_pending_sources": 47051
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T23:02:06Z",
+      "databaseId": 38821049504,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T23:02:02Z",
+      "databaseId": 38821042578,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T23:00:10Z",
+      "databaseId": 38820830670,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T22:59:01Z",
       "databaseId": 38820708858,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T22:58:37Z",
       "databaseId": 38820668134,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-15T22:52:22Z",
       "databaseId": 38820007131,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -152,30 +176,6 @@
       "databaseId": 38819784003,
       "headBranch": "main",
       "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-15T22:49:49Z",
-      "databaseId": 38819728329,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T22:48:05Z",
-      "databaseId": 38819543256,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T22:47:52Z",
-      "databaseId": 38819517729,
-      "headBranch": "main",
-      "status": "in_progress",
       "workflowName": "prepare-manifest"
     }
   ],
@@ -181896,6 +181896,11 @@
         "video_id": 30275165
       },
       {
+        "episode_id": 188861,
+        "display_name": "Daleká cesta za domovem S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30275222
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -345629,6 +345634,11 @@
         "episode_id": 79490,
         "display_name": "Hubert a Staller S04E09 - Klouzačka CZ Dabing",
         "video_id": 30275168
+      },
+      {
+        "episode_id": 79494,
+        "display_name": "Hubert a Staller S04E10 - Japonci přicházejí CZ Dabing",
+        "video_id": 30275236
       },
       {
         "episode_id": 168779,
@@ -527248,6 +527258,11 @@
         "video_id": 30275165
       },
       {
+        "episode_id": 188861,
+        "display_name": "Daleká cesta za domovem S01E04 - 4. epizoda CZ Titulky",
+        "video_id": 30275222
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -690983,6 +690998,11 @@
         "video_id": 30275168
       },
       {
+        "episode_id": 79494,
+        "display_name": "Hubert a Staller S04E10 - Japonci přicházejí CZ Dabing",
+        "video_id": 30275236
+      },
+      {
         "episode_id": 168779,
         "display_name": "Císař z Ocean Parku S01E02 - 2. epizoda CZ Dabing",
         "video_id": 30275172
@@ -692147,12 +692167,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 6,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36645,
-    "whisper_confirmed_cz": 3807,
+    "needs_whisper": 36647,
+    "whisper_confirmed_cz": 3806,
     "whisper_non_cz_needs_subtitles": 12510,
     "whisper_failed": 1277
   },
