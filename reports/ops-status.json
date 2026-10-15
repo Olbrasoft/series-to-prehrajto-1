@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 117396,
-    "manifest_upload_ready_episodes": 13,
-    "uploaded_episodes": 74226,
-    "prepared_source_episodes": 69333,
+    "manifest_upload_ready_episodes": 10,
+    "uploaded_episodes": 74227,
+    "prepared_source_episodes": 69330,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 49,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54239,
-    "whisper_review_pending_sources": 37919,
-    "subtitle_followup_sources": 47049,
-    "subtitle_followup_pending_sources": 47049
+    "whisper_review_pending_sources": 37918,
+    "subtitle_followup_sources": 47050,
+    "subtitle_followup_pending_sources": 47050
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T22:35:05Z",
+      "databaseId": 38818101756,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T22:34:36Z",
+      "databaseId": 38818048063,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T22:33:18Z",
+      "databaseId": 38817897848,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T22:32:08Z",
       "databaseId": 38817766475,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T22:31:06Z",
       "databaseId": 38817651231,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T22:29:30Z",
       "databaseId": 38817457047,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -107,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T22:26:28Z",
       "databaseId": 38817112712,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T22:20:29Z",
-      "databaseId": 38816426385,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T22:20:25Z",
-      "databaseId": 38816418227,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T22:19:39Z",
-      "databaseId": 38816329196,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -181864,6 +181864,11 @@
         "episode_id": 128461,
         "display_name": "Vtěrka Sam S01E11 - 11. epizoda CZ Titulky",
         "video_id": 30274759
+      },
+      {
+        "episode_id": 187461,
+        "display_name": "Gábinin kouzelný domek S02E01 - Malinkatý Kvítek CZ Dabing",
+        "video_id": 30274831
       },
       {
         "episode_id": 114182,
@@ -527168,6 +527173,11 @@
         "video_id": 30274759
       },
       {
+        "episode_id": 187461,
+        "display_name": "Gábinin kouzelný domek S02E01 - Malinkatý Kvítek CZ Dabing",
+        "video_id": 30274831
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -692047,17 +692057,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 9,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36642,
+    "needs_whisper": 36641,
     "whisper_confirmed_cz": 3808,
-    "whisper_non_cz_needs_subtitles": 12512,
+    "whisper_non_cz_needs_subtitles": 12513,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47049
+    "needs_subtitle_setup_after_prehrajto_processing": 47050
   }
 }
