@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 117449,
-    "manifest_upload_ready_episodes": 38,
-    "uploaded_episodes": 74168,
-    "prepared_source_episodes": 69291,
+    "manifest_upload_ready_episodes": 34,
+    "uploaded_episodes": 74169,
+    "prepared_source_episodes": 69299,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 35,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54234,
     "whisper_review_pending_sources": 37894,
     "subtitle_followup_sources": 47030,
@@ -19,11 +19,35 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T20:11:13Z",
+      "databaseId": 38799900240,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T20:11:08Z",
+      "databaseId": 38799890097,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T20:11:05Z",
+      "databaseId": 38799883146,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-10-15T20:10:33Z",
       "databaseId": 38799815612,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +59,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T20:09:55Z",
       "databaseId": 38799727626,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T19:56:03Z",
-      "databaseId": 38797870457,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T19:55:37Z",
-      "databaseId": 38797815003,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T19:54:58Z",
-      "databaseId": 38797726402,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -181689,6 +181689,11 @@
         "episode_id": 177929,
         "display_name": "A Wilderness of Error S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30272207
+      },
+      {
+        "episode_id": 150001,
+        "display_name": "The Tale of Lady Ok S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30272262
       },
       {
         "episode_id": 114182,
@@ -526703,6 +526708,11 @@
         "video_id": 30272207
       },
       {
+        "episode_id": 150001,
+        "display_name": "The Tale of Lady Ok S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30272262
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -691467,8 +691477,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 15,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
