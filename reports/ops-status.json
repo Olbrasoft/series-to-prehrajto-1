@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 117575,
-    "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 74028,
-    "prepared_source_episodes": 69647,
+    "manifest_upload_ready_episodes": 15,
+    "uploaded_episodes": 74029,
+    "prepared_source_episodes": 69645,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 53,
-    "language_whisper_attempted_sources": 21,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54229,
     "whisper_review_pending_sources": 37852,
     "subtitle_followup_sources": 46945,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-15T13:33:24Z",
-      "databaseId": 38743699423,
+      "createdAt": "2026-10-15T13:37:59Z",
+      "databaseId": 38744354488,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T13:37:43Z",
+      "databaseId": 38744317013,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T13:36:14Z",
+      "databaseId": 38744106448,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T13:34:45Z",
+      "databaseId": 38743891515,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T13:34:40Z",
+      "databaseId": 38743879269,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T13:33:24Z",
+      "databaseId": 38743699423,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T13:31:38Z",
       "databaseId": 38743446565,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -51,11 +91,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T13:26:17Z",
       "databaseId": 38742684005,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:20:33Z",
-      "databaseId": 38741871418,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:18:59Z",
-      "databaseId": 38741650102,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-15T13:18:51Z",
-      "databaseId": 38741630056,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:17:42Z",
-      "databaseId": 38741474279,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:17:09Z",
-      "databaseId": 38741400548,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -344591,6 +344591,11 @@
         "video_id": 30263173
       },
       {
+        "episode_id": 177378,
+        "display_name": "Lunapark S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30263679
+      },
+      {
         "episode_id": 11619,
         "display_name": "Hvězdná brána S08E14 - Konfrontace CZ Dabing",
         "video_id": 30262838
@@ -688903,6 +688908,11 @@
         "video_id": 30263173
       },
       {
+        "episode_id": 177378,
+        "display_name": "Lunapark S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30263679
+      },
+      {
         "episode_id": 11619,
         "display_name": "Hvězdná brána S08E14 - Konfrontace CZ Dabing",
         "video_id": 30262838
@@ -690067,8 +690077,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 32,
-    "ok": 20,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
