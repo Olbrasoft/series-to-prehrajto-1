@@ -1,29 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 117677,
-    "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 73926,
-    "prepared_source_episodes": 69667,
+    "manifest_upload_ready_episodes": 7,
+    "uploaded_episodes": 73929,
+    "prepared_source_episodes": 69664,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 68,
-    "language_whisper_attempted_sources": 44,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 41,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54220,
-    "whisper_review_pending_sources": 37805,
-    "subtitle_followup_sources": 46888,
-    "subtitle_followup_pending_sources": 46888
+    "whisper_review_sources": 54219,
+    "whisper_review_pending_sources": 37803,
+    "subtitle_followup_sources": 46889,
+    "subtitle_followup_pending_sources": 46889
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T09:50:14Z",
+      "databaseId": 38715872187,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T09:47:29Z",
+      "databaseId": 38715535611,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-15T09:47:22Z",
+      "databaseId": 38715522459,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T09:45:57Z",
+      "databaseId": 38715350892,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T09:45:32Z",
+      "databaseId": 38715298697,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T09:44:46Z",
+      "databaseId": 38715198688,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T09:44:43Z",
+      "databaseId": 38715192398,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-15T09:44:04Z",
       "databaseId": 38715113272,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -35,19 +91,19 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T09:43:42Z",
       "databaseId": 38715068145,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T09:43:40Z",
       "databaseId": 38715063756,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "external-subtitles"
     },
     {
@@ -63,7 +119,7 @@
       "createdAt": "2026-10-15T09:42:44Z",
       "databaseId": 38714950259,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -95,7 +151,7 @@
       "createdAt": "2026-10-15T09:39:12Z",
       "databaseId": 38714516091,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-descriptions"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T09:37:22Z",
-      "databaseId": 38714294777,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T09:37:20Z",
-      "databaseId": 38714290384,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T09:37:10Z",
-      "databaseId": 38714271263,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-15T09:37:06Z",
-      "databaseId": 38714262877,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T09:37:01Z",
-      "databaseId": 38714251242,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T09:36:19Z",
-      "databaseId": 38714166030,
-      "headBranch": "fix/subtitle-upload-alignment-tags",
-      "status": "completed",
-      "workflowName": "external-subtitles-tests"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T09:36:18Z",
-      "databaseId": 38714162735,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -181096,6 +181096,11 @@
         "video_id": 30259617
       },
       {
+        "episode_id": 11641,
+        "display_name": "Hvězdná brána S07E10 - Právo na zrození CZ Dabing",
+        "video_id": 30259712
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -344084,6 +344089,16 @@
         "episode_id": 166579,
         "display_name": "Adorace S01E05 - 5. díl CZ Dabing",
         "video_id": 30259573
+      },
+      {
+        "episode_id": 140846,
+        "display_name": "Adamas S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30259714
+      },
+      {
+        "episode_id": 11631,
+        "display_name": "Hvězdná brána S07E09 - Mstitel CZ Dabing",
+        "video_id": 30259711
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -524898,6 +524913,11 @@
         "video_id": 30259617
       },
       {
+        "episode_id": 11641,
+        "display_name": "Hvězdná brána S07E10 - Právo na zrození CZ Dabing",
+        "video_id": 30259712
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -687886,6 +687906,16 @@
         "episode_id": 166579,
         "display_name": "Adorace S01E05 - 5. díl CZ Dabing",
         "video_id": 30259573
+      },
+      {
+        "episode_id": 140846,
+        "display_name": "Adamas S01E15 - 15. epizoda CZ Titulky",
+        "video_id": 30259714
+      },
+      {
+        "episode_id": 11631,
+        "display_name": "Hvězdná brána S07E09 - Mstitel CZ Dabing",
+        "video_id": 30259711
       }
     ],
     "prepared_not_upload_ready": [
@@ -689047,17 +689077,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 24,
-    "ok": 43,
+    "ok": 40,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36522,
+    "needs_whisper": 36521,
     "whisper_confirmed_cz": 3826,
-    "whisper_non_cz_needs_subtitles": 12589,
-    "whisper_failed": 1283
+    "whisper_non_cz_needs_subtitles": 12590,
+    "whisper_failed": 1282
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46888
+    "needs_subtitle_setup_after_prehrajto_processing": 46889
   }
 }
