@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 117396,
-    "manifest_upload_ready_episodes": 26,
-    "uploaded_episodes": 74200,
-    "prepared_source_episodes": 69303,
+    "manifest_upload_ready_episodes": 28,
+    "uploaded_episodes": 74201,
+    "prepared_source_episodes": 69300,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 62,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54238,
-    "whisper_review_pending_sources": 37911,
-    "subtitle_followup_sources": 47039,
-    "subtitle_followup_pending_sources": 47039
+    "language_audited_sources": 26,
+    "language_whisper_attempted_sources": 26,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54237,
+    "whisper_review_pending_sources": 37905,
+    "subtitle_followup_sources": 47043,
+    "subtitle_followup_pending_sources": 47043
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T21:35:38Z",
+      "databaseId": 38811057751,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T21:34:31Z",
+      "databaseId": 38810913857,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T21:34:28Z",
+      "databaseId": 38810906224,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "skipped",
       "createdAt": "2026-10-15T21:33:36Z",
@@ -35,11 +59,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T21:33:21Z",
       "databaseId": 38810762234,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T21:31:03Z",
       "databaseId": 38810468538,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:22:24Z",
-      "databaseId": 38809351413,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:21:21Z",
-      "databaseId": 38809228663,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:20:06Z",
-      "databaseId": 38809065925,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -181789,6 +181789,11 @@
         "episode_id": 79481,
         "display_name": "Hubert a Staller S03E11 - Doučování ve věci vraždy CZ Dabing",
         "video_id": 30273725
+      },
+      {
+        "episode_id": 79485,
+        "display_name": "Hubert a Staller S03E15 - Finta se smrtelnou zárukou CZ Dabing",
+        "video_id": 30273817
       },
       {
         "episode_id": 114182,
@@ -526963,6 +526968,11 @@
         "video_id": 30273725
       },
       {
+        "episode_id": 79485,
+        "display_name": "Hubert a Staller S03E15 - Finta se smrtelnou zárukou CZ Dabing",
+        "video_id": 30273817
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -691787,17 +691797,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 22,
-    "ok": 39,
+    "ok": 25,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36634,
+    "needs_whisper": 36628,
     "whisper_confirmed_cz": 3809,
-    "whisper_non_cz_needs_subtitles": 12518,
+    "whisper_non_cz_needs_subtitles": 12523,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47039
+    "needs_subtitle_setup_after_prehrajto_processing": 47043
   }
 }
