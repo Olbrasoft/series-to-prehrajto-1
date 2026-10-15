@@ -1,37 +1,93 @@
 {
   "counts": {
-    "backlog_episodes": 117449,
-    "manifest_upload_ready_episodes": 28,
-    "uploaded_episodes": 74189,
-    "prepared_source_episodes": 69289,
+    "backlog_episodes": 117396,
+    "manifest_upload_ready_episodes": 29,
+    "uploaded_episodes": 74196,
+    "prepared_source_episodes": 69287,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 54,
-    "language_whisper_attempted_sources": 40,
+    "language_whisper_attempted_sources": 44,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54237,
-    "whisper_review_pending_sources": 37907,
-    "subtitle_followup_sources": 47036,
-    "subtitle_followup_pending_sources": 47036
+    "whisper_review_sources": 54236,
+    "whisper_review_pending_sources": 37903,
+    "subtitle_followup_sources": 47039,
+    "subtitle_followup_pending_sources": 47039
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-15T21:11:54Z",
-      "databaseId": 38808001742,
+      "createdAt": "2026-10-15T21:21:21Z",
+      "databaseId": 38809228663,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T21:20:06Z",
+      "databaseId": 38809065925,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T21:19:34Z",
+      "databaseId": 38808993408,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T21:18:24Z",
+      "databaseId": 38808848172,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T21:17:43Z",
+      "databaseId": 38808761307,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-15T21:17:23Z",
+      "databaseId": 38808720080,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T21:15:31Z",
+      "databaseId": 38808474108,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T21:11:54Z",
+      "databaseId": 38808001742,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T21:11:50Z",
       "databaseId": 38807992046,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -51,11 +107,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T21:10:56Z",
       "databaseId": 38807880837,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T21:05:38Z",
-      "databaseId": 38807194501,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:05:05Z",
-      "databaseId": 38807120102,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:04:13Z",
-      "databaseId": 38807005453,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:04:10Z",
-      "databaseId": 38806998657,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:02:59Z",
-      "databaseId": 38806841754,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T21:02:56Z",
-      "databaseId": 38806835122,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T20:56:33Z",
-      "databaseId": 38805992695,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -181746,6 +181746,16 @@
         "video_id": 30273398
       },
       {
+        "episode_id": 79484,
+        "display_name": "Hubert a Staller S03E14 - Vražda dle vlastní receptury CZ Dabing",
+        "video_id": 30273477
+      },
+      {
+        "episode_id": 171860,
+        "display_name": "Těžká volba S01E05 - Bosporský vzduch CZ Titulky",
+        "video_id": 30273551
+      },
+      {
         "episode_id": 180665,
         "display_name": "ClaireBell S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30272670
@@ -181764,6 +181774,11 @@
         "episode_id": 175501,
         "display_name": "James May a lidové autíčko S02E03 - 3. epizoda CZ Titulky",
         "video_id": 30273339
+      },
+      {
+        "episode_id": 179065,
+        "display_name": "Náš svět plný života S01E03 - Bod zlomu CZ Dabing",
+        "video_id": 30273514
       },
       {
         "episode_id": 114182,
@@ -345386,6 +345401,11 @@
         "video_id": 30273309
       },
       {
+        "episode_id": 150006,
+        "display_name": "The Tale of Lady Ok S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 30273471
+      },
+      {
         "episode_id": 175595,
         "display_name": "Infiniti S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30272737
@@ -345399,6 +345419,21 @@
         "episode_id": 79475,
         "display_name": "Hubert a Staller S03E04 - Mnoho větru pro nic CZ Dabing",
         "video_id": 30273257
+      },
+      {
+        "episode_id": 79479,
+        "display_name": "Hubert a Staller S03E09 - Poslední odpočinek CZ Dabing",
+        "video_id": 30273469
+      },
+      {
+        "episode_id": 79483,
+        "display_name": "Hubert a Staller S03E13 - Zahraj mi píseň o smrti CZ Dabing",
+        "video_id": 30273549
+      },
+      {
+        "episode_id": 171859,
+        "display_name": "Těžká volba S01E04 - Správná věc CZ Titulky",
+        "video_id": 30273604
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -526863,6 +526898,16 @@
         "video_id": 30273398
       },
       {
+        "episode_id": 79484,
+        "display_name": "Hubert a Staller S03E14 - Vražda dle vlastní receptury CZ Dabing",
+        "video_id": 30273477
+      },
+      {
+        "episode_id": 171860,
+        "display_name": "Těžká volba S01E05 - Bosporský vzduch CZ Titulky",
+        "video_id": 30273551
+      },
+      {
         "episode_id": 180665,
         "display_name": "ClaireBell S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30272670
@@ -526881,6 +526926,11 @@
         "episode_id": 175501,
         "display_name": "James May a lidové autíčko S02E03 - 3. epizoda CZ Titulky",
         "video_id": 30273339
+      },
+      {
+        "episode_id": 179065,
+        "display_name": "Náš svět plný života S01E03 - Bod zlomu CZ Dabing",
+        "video_id": 30273514
       },
       {
         "episode_id": 114182,
@@ -690503,6 +690553,11 @@
         "video_id": 30273309
       },
       {
+        "episode_id": 150006,
+        "display_name": "The Tale of Lady Ok S01E13 - 13. epizoda CZ Titulky",
+        "video_id": 30273471
+      },
+      {
         "episode_id": 175595,
         "display_name": "Infiniti S01E05 - 5. epizoda CZ Titulky",
         "video_id": 30272737
@@ -690516,6 +690571,21 @@
         "episode_id": 79475,
         "display_name": "Hubert a Staller S03E04 - Mnoho větru pro nic CZ Dabing",
         "video_id": 30273257
+      },
+      {
+        "episode_id": 79479,
+        "display_name": "Hubert a Staller S03E09 - Poslední odpočinek CZ Dabing",
+        "video_id": 30273469
+      },
+      {
+        "episode_id": 79483,
+        "display_name": "Hubert a Staller S03E13 - Zahraj mi píseň o smrti CZ Dabing",
+        "video_id": 30273549
+      },
+      {
+        "episode_id": 171859,
+        "display_name": "Těžká volba S01E04 - Správná věc CZ Titulky",
+        "video_id": 30273604
       }
     ],
     "prepared_not_upload_ready": [
@@ -691677,17 +691747,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 14,
-    "ok": 39,
+    "disabled": 10,
+    "ok": 43,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36630,
+    "needs_whisper": 36626,
     "whisper_confirmed_cz": 3809,
-    "whisper_non_cz_needs_subtitles": 12521,
+    "whisper_non_cz_needs_subtitles": 12524,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47036
+    "needs_subtitle_setup_after_prehrajto_processing": 47039
   }
 }
