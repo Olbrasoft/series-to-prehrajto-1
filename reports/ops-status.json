@@ -2,28 +2,76 @@
   "counts": {
     "backlog_episodes": 117506,
     "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 74116,
-    "prepared_source_episodes": 69532,
+    "uploaded_episodes": 74117,
+    "prepared_source_episodes": 69531,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 64,
-    "language_whisper_attempted_sources": 42,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 21,
+    "language_whisper_attempted_sources": 21,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54231,
-    "whisper_review_pending_sources": 37874,
-    "subtitle_followup_sources": 46988,
-    "subtitle_followup_pending_sources": 46988
+    "whisper_review_pending_sources": 37873,
+    "subtitle_followup_sources": 46989,
+    "subtitle_followup_pending_sources": 46989
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T16:20:47Z",
+      "databaseId": 38768208955,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-15T16:19:25Z",
+      "databaseId": 38768013361,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T16:18:03Z",
+      "databaseId": 38767823121,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T16:17:43Z",
+      "databaseId": 38767777284,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T16:13:30Z",
+      "databaseId": 38767170080,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-15T16:13:26Z",
+      "databaseId": 38767160148,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T16:12:11Z",
       "databaseId": 38766979534,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -123,60 +171,12 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T16:05:10Z",
       "databaseId": 38765983421,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T15:57:56Z",
-      "databaseId": 38764933898,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T15:57:51Z",
-      "databaseId": 38764923574,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T15:56:35Z",
-      "databaseId": 38764738859,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-15T15:55:05Z",
-      "databaseId": 38764517196,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T15:54:56Z",
-      "databaseId": 38764500256,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T15:53:46Z",
-      "databaseId": 38764328694,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -345034,6 +345034,11 @@
         "episode_id": 79455,
         "display_name": "Hubert a Staller S01E16 - Jízda na voru, ze které není návratu CZ Dabing",
         "video_id": 30268465
+      },
+      {
+        "episode_id": 142663,
+        "display_name": "Mrtvý úhel S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30268516
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -689786,6 +689791,11 @@
         "episode_id": 79455,
         "display_name": "Hubert a Staller S01E16 - Jízda na voru, ze které není návratu CZ Dabing",
         "video_id": 30268465
+      },
+      {
+        "episode_id": 142663,
+        "display_name": "Mrtvý úhel S01E03 - 3. epizoda CZ Dabing",
+        "video_id": 30268516
       }
     ],
     "prepared_not_upload_ready": [
@@ -690947,17 +690957,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 22,
-    "ok": 41,
-    "resolve_failed": 1
+    "ok": 1,
+    "resolve_failed": 20
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36595,
+    "needs_whisper": 36594,
     "whisper_confirmed_cz": 3813,
-    "whisper_non_cz_needs_subtitles": 12544,
+    "whisper_non_cz_needs_subtitles": 12545,
     "whisper_failed": 1279
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46988
+    "needs_subtitle_setup_after_prehrajto_processing": 46989
   }
 }
