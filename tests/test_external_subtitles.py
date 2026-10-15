@@ -219,3 +219,12 @@ def test_transport_removes_only_unsupported_placement_without_retiming(tmp_path)
     assert path.read_bytes() == source
     assert b'{\\other}Keep this' in prepared
     assert comparison_srt(prepared) == comparison_srt(source)
+
+
+def test_portal_caption_wrapping_preserves_words_and_exact_times():
+    expected = b'1\n00:00:01,123 --> 00:00:02,456\n<b>Episode</b>\n<i>Title</i>\n'
+    delivered = b'1\n00:00:01,123 --> 00:00:02,456\n<b>Episode</b> <i>Title</i>\n'
+    assert comparison_srt(expected) == comparison_srt(delivered)
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'Title', b'Changed'))
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'01,123', b'01,124'))
+    assert comparison_srt(expected) != comparison_srt(delivered.replace(b'</b> <i>', b'</b>  <i>'))
