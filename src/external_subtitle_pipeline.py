@@ -15,6 +15,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -65,13 +66,13 @@ def approval(row, decision):
 
 
 def transport_srt(path):
-    """Normalize encoding/line endings only; never move or scale cue times."""
+    """Normalize SRT and remove unsupported SSA placement tags, never retime."""
     raw = path.read_bytes()
     try:
         text = raw.decode("utf-8-sig")
     except UnicodeDecodeError:
         text = raw.decode("cp1250")
-    return normalize_srt(text.encode("utf-8"))
+    return re.sub(rb"\{\\an[1-9]\}", b"", normalize_srt(text.encode("utf-8")))
 
 
 def target(row):
