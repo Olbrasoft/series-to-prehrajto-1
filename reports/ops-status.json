@@ -1,53 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 117575,
-    "manifest_upload_ready_episodes": 14,
-    "uploaded_episodes": 74041,
-    "prepared_source_episodes": 69622,
+    "manifest_upload_ready_episodes": 17,
+    "uploaded_episodes": 74043,
+    "prepared_source_episodes": 69628,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 38,
+    "language_audited_sources": 55,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54230,
-    "whisper_review_pending_sources": 37860,
-    "subtitle_followup_sources": 46951,
-    "subtitle_followup_pending_sources": 46951
+    "whisper_review_pending_sources": 37862,
+    "subtitle_followup_sources": 46953,
+    "subtitle_followup_pending_sources": 46953
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-15T13:56:45Z",
-      "databaseId": 38747046317,
-      "headBranch": "main",
-      "status": "queued",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T13:55:59Z",
-      "databaseId": 38746934830,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-15T13:55:54Z",
-      "databaseId": 38746924052,
+      "createdAt": "2026-10-15T13:58:07Z",
+      "databaseId": 38747239867,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-15T13:57:15Z",
+      "databaseId": 38747119361,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T13:57:14Z",
+      "databaseId": 38747115580,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T13:57:11Z",
+      "databaseId": 38747108291,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T13:57:07Z",
+      "databaseId": 38747100282,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-15T13:56:45Z",
+      "databaseId": 38747046317,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-15T13:55:59Z",
+      "databaseId": 38746934830,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-15T13:55:54Z",
+      "databaseId": 38746924052,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-15T13:55:47Z",
       "databaseId": 38746907187,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +99,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-15T13:54:52Z",
       "databaseId": 38746771557,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:48:16Z",
-      "databaseId": 38745819908,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:46:58Z",
-      "databaseId": 38745637494,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:45:13Z",
-      "databaseId": 38745386540,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-15T13:44:43Z",
-      "databaseId": 38745312488,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-15T13:43:36Z",
-      "databaseId": 38745153691,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -181391,6 +181391,11 @@
         "video_id": 30265563
       },
       {
+        "episode_id": 79441,
+        "display_name": "Hubert a Staller S01E01 - Malé ryby, velké ryby CZ Dabing",
+        "video_id": 30265895
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -344649,6 +344654,11 @@
         "episode_id": 138774,
         "display_name": "Paní Playmen S01E05 - 5. díl CZ Dabing",
         "video_id": 30265548
+      },
+      {
+        "episode_id": 79442,
+        "display_name": "Hubert a Staller S01E02 - Příští stanice vražda CZ Dabing",
+        "video_id": 30265911
       },
       {
         "episode_id": 11623,
@@ -525768,6 +525778,11 @@
         "video_id": 30265563
       },
       {
+        "episode_id": 79441,
+        "display_name": "Hubert a Staller S01E01 - Malé ryby, velké ryby CZ Dabing",
+        "video_id": 30265895
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -689028,6 +689043,11 @@
         "video_id": 30265548
       },
       {
+        "episode_id": 79442,
+        "display_name": "Hubert a Staller S01E02 - Příští stanice vražda CZ Dabing",
+        "video_id": 30265911
+      },
+      {
         "episode_id": 11623,
         "display_name": "Hvězdná brána S08E15 - Občan Joe CZ Dabing",
         "video_id": 30264404
@@ -690197,17 +690217,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 18,
+    "disabled": 35,
     "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36581,
+    "needs_whisper": 36583,
     "whisper_confirmed_cz": 3818,
-    "whisper_non_cz_needs_subtitles": 12552,
+    "whisper_non_cz_needs_subtitles": 12550,
     "whisper_failed": 1279
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 46951
+    "needs_subtitle_setup_after_prehrajto_processing": 46953
   }
 }
