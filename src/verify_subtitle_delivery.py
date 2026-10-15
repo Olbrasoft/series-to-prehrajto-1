@@ -27,7 +27,10 @@ def comparison_srt(content: bytes) -> bytes:
     for block in normalized.split(b"\r\n\r\n"):
         lines = block.strip().split(b"\r\n")
         if len(lines) > 2:
-            captions.append(b"\r\n".join(lines[:2] + [line.lstrip(b" \t") for line in lines[2:]]))
+            # The portal also joins wrapped text lines within a single cue.
+            # Preserve spacing inside each line and the exact timed interval.
+            text = b" ".join(line.lstrip(b" \t") for line in lines[2:])
+            captions.append(b"\r\n".join(lines[:2] + [text]))
     # The portal sorts overlapping cues. Preserve every occurrence and compare
     # the exact interval/text pairs independently of their original file order.
     captions.sort(key=lambda block: block.split(b"\r\n", 1)[1])
@@ -55,7 +58,7 @@ def verify(url: str, video_id: int, expected_srt: bytes | None = None) -> dict:
             "language": "cs", "format": ext.lstrip("."), "cue_count": normalized.count(b" --> "),
             "subtitle_bytes": len(response.content), "srt_sha256": hashlib.sha256(normalized).hexdigest(),
             "matches_prepared_file": expected_srt is not None,
-            "comparison_ignores": ["cue numbering", "cue order", "line endings", "empty cues", "caption indentation", "SSA on-screen alignment tags"]}
+            "comparison_ignores": ["cue numbering", "cue order", "line endings", "empty cues", "caption indentation", "caption line wrapping", "SSA on-screen alignment tags"]}
 
 
 def main() -> int:
