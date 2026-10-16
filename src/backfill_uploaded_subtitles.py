@@ -20,6 +20,7 @@ import re
 import sys
 import time
 import unicodedata
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 from collections.abc import Iterator
@@ -40,6 +41,7 @@ TERMINAL_STATUSES = {
     "already_has_tracks",
     "invalid_subtitle_format",
     "source_track_not_found",
+    "subtitle_rejected",
     "target_deleted",
     "uploaded",
     "unsupported_subtitle_format",
@@ -300,6 +302,31 @@ def profile_page_url(page: int) -> str:
     return url
 
 
+class SubtitleFeedback(HTMLParser):
+    """Read feedback only inside the exact target's subtitle snippet."""
+
+    def __init__(self, video_id: int):
+        super().__init__()
+        self.snippet = f"snippet-uploadedVideoListing-subtitles-{video_id}"
+        self.depth = 0
+        self.parts: list[str] = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "div":
+            if self.depth:
+                self.depth += 1
+            elif dict(attrs).get("id") == self.snippet:
+                self.depth = 1
+
+    def handle_endtag(self, tag):
+        if tag == "div" and self.depth:
+            self.depth -= 1
+
+    def handle_data(self, data):
+        if self.depth:
+            self.parts.append(data)
+
+
 def extract_blocks(page_html: str, page: int) -> dict[int, dict]:
     markers = list(VIDEO_MARKER_RE.finditer(page_html))
     blocks: dict[int, dict] = {}
@@ -316,6 +343,9 @@ def extract_blocks(page_html: str, page: int) -> dict[int, dict]:
         detail_match = re.search(r'<a[^>]+href="(?P<href>/[^"]+/[0-9a-f]{12,32})"[^>]*>\s*Detail souboru\s*</a>', block)
         count_match = re.search(rf'subtitlescount-{video_id}">\((\d+)\)', block)
         remove_ids = [int(sid) for vid, sid in REMOVE_RE.findall(block) if int(vid) == video_id]
+        feedback = SubtitleFeedback(video_id)
+        feedback.feed(block)
+        feedback_text = re.sub(r"\s+", " ", " ".join(feedback.parts))
         blocks[video_id] = {
             "page": page,
             "title": title,
@@ -323,6 +353,7 @@ def extract_blocks(page_html: str, page: int) -> dict[int, dict]:
             "detail_url": urljoin(DETAIL_BASE, html.unescape(detail_match.group("href"))) if detail_match else None,
             "subtitle_count": int(count_match.group(1)) if count_match else 0,
             "remove_subtitle_ids": remove_ids,
+            "subtitle_format_rejected": "Nebyl rozpoznán formát titulků" in feedback_text,
         }
     return blocks
 
@@ -420,6 +451,11 @@ def pick_czech_track(resolved: ResolvedUpload) -> str | None:
         if (track.lang or "").strip().lower() in SAFE_LANGS:
             return track.url
     return None
+
+
+def prepare_srt_upload(content: bytes) -> bytes:
+    """Remove unsupported SSA placement tags without changing cues or timing."""
+    return re.sub(rb"\{\\an[1-9]\}", b"", normalize_srt(content))
 
 
 def source_with_subtitles(row: dict) -> tuple[str | None, str | None]:
@@ -988,14 +1024,19 @@ def verify_submissions(args: argparse.Namespace, session: requests.Session | Non
         if not verified and session is not None and deletion_check_due(row):
             upload = uploads[int(row["episode_id"])]
             try:
-                deleted = find_deleted_profile_detail(session, upload)
+                info = find_profile_detail(session, upload)
                 row = {**row, "deletion_checked_at": now_iso()}
-                if deleted:
-                    append_jsonl(args.report_file, deleted_target_status(row, upload, deleted, row))
+                if info and info.get("deleted"):
+                    append_jsonl(args.report_file, deleted_target_status(row, upload, info, row))
                     log(f"skip deleted submitted target episode_id={row['episode_id']}")
                     continue
+                if info and info.get("subtitle_format_rejected"):
+                    append_jsonl(args.report_file, {**row, "status": "subtitle_rejected",
+                                 "reason": "portal_unrecognized_subtitle_format", "checked_at": now_iso()})
+                    log(f"subtitle rejected by portal episode_id={row['episode_id']}")
+                    continue
             except requests.RequestException as exc:
-                log(f"deletion check deferred episode_id={row['episode_id']}: {exc}")
+                log(f"submission profile check deferred episode_id={row['episode_id']}: {exc}")
         append_jsonl(args.report_file, {**row, "status": status, "checked_at": now_iso()})
         log(f"verify episode_id={row['episode_id']} status={status}")
 
@@ -1120,6 +1161,7 @@ def main() -> int:
             continue
         try:
             content = vtt_to_srt(content) if ext == ".vtt" else normalize_srt(content)
+            content = prepare_srt_upload(content)
         except ValueError as exc:
             fail += 1
             append_jsonl(

@@ -414,7 +414,7 @@ def test_deleted_submitted_target_is_closed_without_reupload(tmp_path, monkeypat
     b.append_jsonl(args.report_file, b.status_row(upload, upload, 'submitted',
                   detail_url='https://example.test/deleted', submitted_at='2026-01-01T00:00:00Z', checked_at='2026-01-01T00:00:00Z'))
     monkeypatch.setattr(b, 'verify_tracks', lambda *a: False)
-    monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: {'deleted': True})
+    monkeypatch.setattr(b, 'find_profile_detail', lambda *a: {'deleted': True})
     b.verify_submissions(args, object())
     result = b.load_latest_status(args.report_file)[1]
     assert result['status'] == 'target_deleted'
@@ -430,7 +430,7 @@ def test_pending_submission_deletion_check_runs_at_most_daily(tmp_path, monkeypa
                   detail_url='https://example.test/video', submitted_at='2026-01-01T00:00:00Z', checked_at='2026-01-01T00:00:00Z'))
     monkeypatch.setattr(b, 'verify_tracks', lambda *a: False)
     checks = []
-    monkeypatch.setattr(b, 'find_deleted_profile_detail', lambda *a: checks.append(a))
+    monkeypatch.setattr(b, 'find_profile_detail', lambda *a: checks.append(a))
     b.verify_submissions(args, object())
     b.verify_submissions(args, object())
     assert len(checks) == 1
@@ -579,3 +579,50 @@ def test_missing_original_tracks_are_handed_off_without_any_search(tmp_path, mon
     assert all(r['source_lane'] == 'alternate' for r in results.values())
     assert len(calls) == 0
     assert len(b.pending_uploads(args.followup_file, args.state_file, args.report_file)) == 2
+
+
+def test_upload_transport_removes_only_known_ssa_alignment_tags():
+    import backfill_uploaded_subtitles as b
+    source = b'1\n00:00:01,001 --> 00:00:03,750\n{\\an8}<i>Hello</i> {\\other}  world\n'
+    expected = b.normalize_srt(source).replace(b'{\\an8}', b'')
+    assert b.prepare_srt_upload(source) == expected
+    assert b'{\\an8}' in b.normalize_srt(source)
+
+
+def test_profile_rejection_is_scoped_to_exact_subtitle_snippet():
+    import backfill_uploaded_subtitles as b
+    page = '''
+    <div id="snippet-uploadedVideoListing-video-1">
+      <div id="snippet-uploadedVideoListing-subtitles-1">
+        <div>(Zpracovává se)<div>Nebyl rozpoznán formát titulků</div></div>
+      </div>
+    </div>
+    <div id="snippet-uploadedVideoListing-video-2">
+      <h3 id="snippet-uploadedVideoListing-videoName-2">Nebyl rozpoznán formát titulků</h3>
+      <div id="snippet-uploadedVideoListing-subtitles-2">(Zpracovává se)</div>
+      <div id="snippet-uploadedVideoListing-subtitles-99">Nebyl rozpoznán formát titulků</div>
+    </div>'''
+    blocks = b.extract_blocks(page, 1)
+    assert blocks[1]['subtitle_format_rejected'] is True
+    assert blocks[2]['subtitle_format_rejected'] is False
+
+
+def test_explicit_portal_rejection_stops_verification_without_reposting(tmp_path, monkeypatch):
+    import backfill_uploaded_subtitles as b
+    args = task_args(tmp_path)
+    upload = write_uploads(args, 1)[0]
+    b.append_jsonl(args.report_file, b.status_row(upload, upload, 'subtitle_processing',
+                  detail_url='https://example.test/video', submitted_at='2026-01-01T00:00:00Z',
+                  checked_at='2026-01-01T00:00:00Z'))
+    checks = []
+    monkeypatch.setattr(b, 'verify_tracks', lambda *a: checks.append(a) or False)
+    monkeypatch.setattr(b, 'find_profile_detail', lambda *a: {'subtitle_format_rejected': True})
+    monkeypatch.setattr(b, 'upload_subtitle', lambda *a: pytest.fail('must never repost rejected files'))
+    b.verify_submissions(args, object())
+    result = b.load_latest_status(args.report_file)[1]
+    assert result['status'] == 'subtitle_rejected'
+    assert result['reason'] == 'portal_unrecognized_subtitle_format'
+    assert 'subtitle_rejected' in b.TERMINAL_STATUSES
+    b.verify_submissions(args, object())
+    assert len(checks) == 1
+    assert b.pending_uploads(args.followup_file, args.state_file, args.report_file) == []
