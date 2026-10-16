@@ -15,7 +15,6 @@ import hashlib
 import io
 import json
 import os
-import re
 import shutil
 import subprocess
 import time
@@ -27,7 +26,7 @@ import requests
 
 from backfill_uploaded_subtitles import (find_profile_detail, load_latest_status, load_uploads,
                                         matching_upload_status, normalize_srt, pick_czech_track,
-                                        upload_subtitle)
+                                        upload_subtitle, prepare_srt_upload)
 from opensubtitles_client import OpenSubtitles, ProviderStopped, timestamp, write_json
 from prehrajto_upload import login
 from resolve_stream import GOOGLEBOT_HEADERS, parse_html
@@ -72,7 +71,7 @@ def transport_srt(path):
         text = raw.decode("utf-8-sig")
     except UnicodeDecodeError:
         text = raw.decode("cp1250")
-    return re.sub(rb"\{\\an[1-9]\}", b"", normalize_srt(text.encode("utf-8")))
+    return prepare_srt_upload(text.encode("utf-8"))
 
 
 def target(row):
