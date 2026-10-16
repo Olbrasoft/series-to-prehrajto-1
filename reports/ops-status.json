@@ -2,7 +2,7 @@
   "counts": {
     "backlog_episodes": 117237,
     "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 74368,
+    "uploaded_episodes": 74369,
     "prepared_source_episodes": 69160,
     "description_series": 60,
     "description_episodes": 753,
@@ -10,8 +10,8 @@
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 25,
-    "language_pending_whisper_sources": 2624,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54239,
     "whisper_review_pending_sources": 37930,
     "subtitle_followup_sources": 47124,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-16T09:06:36Z",
-      "databaseId": 38878194473,
+      "createdAt": "2026-10-16T09:08:34Z",
+      "databaseId": 38878418250,
       "headBranch": "main",
-      "status": "queued",
-      "workflowName": "backfill-subtitles"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-16T09:08:28Z",
+      "databaseId": 38878408118,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-16T09:08:22Z",
+      "databaseId": 38878396529,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-16T09:06:36Z",
+      "databaseId": 38878194473,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-16T09:05:59Z",
       "databaseId": 38878121357,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -67,11 +91,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-16T09:01:20Z",
       "databaseId": 38877595367,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -147,36 +171,12 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-16T08:56:40Z",
       "databaseId": 38877067136,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-16T08:56:07Z",
-      "databaseId": 38877006089,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-16T08:56:01Z",
-      "databaseId": 38876995197,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-16T08:55:56Z",
-      "databaseId": 38876986394,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -346294,6 +346294,11 @@
         "episode_id": 154431,
         "display_name": "Bomba polibek S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30282541
+      },
+      {
+        "episode_id": 100887,
+        "display_name": "Hudson & Rex S03E15 - 15. epizoda CZ Dabing",
+        "video_id": 30282603
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -692306,6 +692311,11 @@
         "episode_id": 154431,
         "display_name": "Bomba polibek S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30282541
+      },
+      {
+        "episode_id": 100887,
+        "display_name": "Hudson & Rex S03E15 - 15. epizoda CZ Dabing",
+        "video_id": 30282603
       }
     ],
     "prepared_not_upload_ready": [
@@ -693467,8 +693477,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 15,
-    "ok": 24,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
