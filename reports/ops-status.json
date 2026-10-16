@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 117237,
-    "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 74356,
-    "prepared_source_episodes": 69224,
+    "manifest_upload_ready_episodes": 4,
+    "uploaded_episodes": 74357,
+    "prepared_source_episodes": 69213,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 19,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 47,
+    "language_whisper_attempted_sources": 43,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54238,
-    "whisper_review_pending_sources": 37927,
-    "subtitle_followup_sources": 47110,
-    "subtitle_followup_pending_sources": 47110
+    "whisper_review_pending_sources": 37924,
+    "subtitle_followup_sources": 47112,
+    "subtitle_followup_pending_sources": 47112
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-16T07:59:52Z",
+      "databaseId": 38870748455,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-16T07:59:18Z",
+      "databaseId": 38870689869,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-16T07:59:15Z",
+      "databaseId": 38870684895,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-16T07:59:13Z",
+      "databaseId": 38870680892,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-16T07:58:04Z",
       "databaseId": 38870563531,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +95,7 @@
       "createdAt": "2026-10-16T07:56:51Z",
       "databaseId": 38870434731,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-16T07:50:57Z",
-      "databaseId": 38869808510,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-16T07:50:24Z",
-      "databaseId": 38869747399,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-16T07:49:33Z",
-      "databaseId": 38869660771,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-16T07:49:26Z",
-      "databaseId": 38869647441,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -182214,6 +182214,11 @@
         "episode_id": 102377,
         "display_name": "Hudson & Rex S03E07 - 7. epizoda CZ Dabing",
         "video_id": 30281454
+      },
+      {
+        "episode_id": 136176,
+        "display_name": "Můj hořkosladký život S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 30281763
       },
       {
         "episode_id": 114182,
@@ -528168,6 +528173,11 @@
         "video_id": 30281454
       },
       {
+        "episode_id": 136176,
+        "display_name": "Můj hořkosladký život S02E05 - 5. epizoda CZ Titulky",
+        "video_id": 30281763
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -693347,16 +693357,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 42,
+    "disabled": 4,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36650,
+    "needs_whisper": 36647,
     "whisper_confirmed_cz": 3815,
-    "whisper_non_cz_needs_subtitles": 12496,
+    "whisper_non_cz_needs_subtitles": 12499,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47110
+    "needs_subtitle_setup_after_prehrajto_processing": 47112
   }
 }
