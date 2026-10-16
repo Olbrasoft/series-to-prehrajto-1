@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 117058,
-    "manifest_upload_ready_episodes": 1,
+    "manifest_upload_ready_episodes": 2,
     "uploaded_episodes": 74526,
-    "prepared_source_episodes": 69092,
+    "prepared_source_episodes": 69094,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 43,
-    "language_whisper_attempted_sources": 40,
+    "language_whisper_attempted_sources": 42,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54256,
-    "whisper_review_pending_sources": 38055,
-    "subtitle_followup_sources": 47252,
-    "subtitle_followup_pending_sources": 47252
+    "whisper_review_sources": 54255,
+    "whisper_review_pending_sources": 38053,
+    "subtitle_followup_sources": 47254,
+    "subtitle_followup_pending_sources": 47254
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-16T21:54:20Z",
-      "databaseId": 38972442652,
+      "createdAt": "2026-10-16T21:55:56Z",
+      "databaseId": 38972609545,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-16T21:55:50Z",
+      "databaseId": 38972600228,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-16T21:55:43Z",
+      "databaseId": 38972588007,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-16T21:54:20Z",
+      "databaseId": 38972442652,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-16T21:54:12Z",
       "databaseId": 38972428498,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,19 +67,19 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-16T21:53:11Z",
       "databaseId": 38972321169,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-16T21:53:08Z",
       "databaseId": 38972315480,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "external-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-16T21:51:28Z",
       "databaseId": 38972138614,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-16T21:50:15Z",
-      "databaseId": 38972010406,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-16T21:48:05Z",
-      "databaseId": 38971782502,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-16T21:48:01Z",
-      "databaseId": 38971775263,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -695047,17 +695047,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 3,
-    "ok": 39,
+    "disabled": 1,
+    "ok": 41,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36778,
-    "whisper_confirmed_cz": 3798,
-    "whisper_non_cz_needs_subtitles": 12403,
+    "needs_whisper": 36776,
+    "whisper_confirmed_cz": 3797,
+    "whisper_non_cz_needs_subtitles": 12405,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47252
+    "needs_subtitle_setup_after_prehrajto_processing": 47254
   }
 }
