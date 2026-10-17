@@ -1,45 +1,93 @@
 {
   "counts": {
     "backlog_episodes": 116950,
-    "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 74667,
-    "prepared_source_episodes": 68627,
+    "manifest_upload_ready_episodes": 4,
+    "uploaded_episodes": 74668,
+    "prepared_source_episodes": 68622,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 43,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54275,
-    "whisper_review_pending_sources": 38146,
+    "whisper_review_sources": 54276,
+    "whisper_review_pending_sources": 38151,
     "subtitle_followup_sources": 47461,
     "subtitle_followup_pending_sources": 47461
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-17T14:43:01Z",
-      "databaseId": 39041929681,
+      "createdAt": "2026-10-17T14:45:22Z",
+      "databaseId": 39042094444,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "sync"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-17T14:42:29Z",
-      "databaseId": 39041893026,
+      "createdAt": "2026-10-17T14:45:18Z",
+      "databaseId": 39042089342,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T14:44:47Z",
+      "databaseId": 39042051236,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-17T14:43:56Z",
+      "databaseId": 39041993409,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T14:43:28Z",
+      "databaseId": 39041961982,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-10-17T14:43:25Z",
+      "databaseId": 39041958663,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T14:43:01Z",
+      "databaseId": 39041929681,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T14:42:29Z",
+      "databaseId": 39041893026,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-17T14:42:26Z",
       "databaseId": 39041888994,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -55,7 +103,7 @@
       "createdAt": "2026-10-17T14:40:39Z",
       "databaseId": 39041763950,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -71,7 +119,7 @@
       "createdAt": "2026-10-17T14:39:57Z",
       "databaseId": 39041711658,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -91,11 +139,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T14:38:36Z",
       "databaseId": 39041618823,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-17T14:36:48Z",
-      "databaseId": 39041493733,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-17T14:34:57Z",
-      "databaseId": 39041362697,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T14:34:40Z",
-      "databaseId": 39041342987,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-17T14:34:05Z",
-      "databaseId": 39041303314,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T14:34:00Z",
-      "databaseId": 39041297036,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-17T14:33:49Z",
-      "databaseId": 39041285425,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -347789,6 +347789,11 @@
         "episode_id": 118514,
         "display_name": "Nekontrolovatelná náklonnost S01E12 - 12. epizoda CZ Titulky",
         "video_id": 30305583
+      },
+      {
+        "episode_id": 156423,
+        "display_name": "Soudce z pekla S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30305577
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -695296,6 +695301,11 @@
         "episode_id": 118514,
         "display_name": "Nekontrolovatelná náklonnost S01E12 - 12. epizoda CZ Titulky",
         "video_id": 30305583
+      },
+      {
+        "episode_id": 156423,
+        "display_name": "Soudce z pekla S01E10 - 10. epizoda CZ Titulky",
+        "video_id": 30305577
       }
     ],
     "prepared_not_upload_ready": [
@@ -696457,13 +696467,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 3,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36869,
+    "needs_whisper": 36874,
     "whisper_confirmed_cz": 3753,
-    "whisper_non_cz_needs_subtitles": 12376,
+    "whisper_non_cz_needs_subtitles": 12372,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
