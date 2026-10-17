@@ -2,7 +2,7 @@
   "counts": {
     "backlog_episodes": 116879,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 74730,
+    "uploaded_episodes": 74731,
     "prepared_source_episodes": 68518,
     "description_series": 60,
     "description_episodes": 753,
@@ -13,17 +13,41 @@
     "language_whisper_attempted_sources": 41,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54283,
-    "whisper_review_pending_sources": 38186,
+    "whisper_review_pending_sources": 38185,
     "subtitle_followup_sources": 47541,
     "subtitle_followup_pending_sources": 47541
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-17T23:22:07Z",
+      "databaseId": 39078750661,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T23:22:03Z",
+      "databaseId": 39078746881,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T23:20:29Z",
+      "databaseId": 39078640696,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-17T23:19:27Z",
       "databaseId": 39078573037,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,23 +55,23 @@
       "createdAt": "2026-10-17T23:18:44Z",
       "databaseId": 39078528273,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T23:18:25Z",
       "databaseId": 39078508690,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T23:18:12Z",
       "databaseId": 39078493957,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-17T23:17:50Z",
       "databaseId": 39078470477,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -111,7 +135,7 @@
       "createdAt": "2026-10-17T23:15:11Z",
       "databaseId": 39078294485,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T23:11:49Z",
-      "databaseId": 39078075495,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-17T23:09:54Z",
-      "databaseId": 39077943798,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T23:08:33Z",
-      "databaseId": 39077857512,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -348104,6 +348104,11 @@
         "episode_id": 154211,
         "display_name": "Podivný případ Natalie Grace S02E01 - Věk, vztek a velká lež CZ Dabing",
         "video_id": 30315293
+      },
+      {
+        "episode_id": 139942,
+        "display_name": "Případy sestry Bonifácie S04E05 - 5. epizoda CZ Titulky",
+        "video_id": 30315468
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -695926,6 +695931,11 @@
         "episode_id": 154211,
         "display_name": "Podivný případ Natalie Grace S02E01 - Věk, vztek a velká lež CZ Dabing",
         "video_id": 30315293
+      },
+      {
+        "episode_id": 139942,
+        "display_name": "Případy sestry Bonifácie S04E05 - 5. epizoda CZ Titulky",
+        "video_id": 30315468
       }
     ],
     "prepared_not_upload_ready": [
@@ -697091,9 +697101,9 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36909,
+    "needs_whisper": 36908,
     "whisper_confirmed_cz": 3756,
-    "whisper_non_cz_needs_subtitles": 12341,
+    "whisper_non_cz_needs_subtitles": 12342,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
