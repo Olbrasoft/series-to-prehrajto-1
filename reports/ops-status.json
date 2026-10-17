@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 117018,
-    "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 74566,
-    "prepared_source_episodes": 68983,
+    "manifest_upload_ready_episodes": 0,
+    "uploaded_episodes": 74567,
+    "prepared_source_episodes": 68982,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 41,
-    "language_whisper_attempted_sources": 41,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54267,
     "whisper_review_pending_sources": 38099,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-17T04:00:13Z",
-      "databaseId": 39000909190,
+      "createdAt": "2026-10-17T04:05:52Z",
+      "databaseId": 39001277267,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-17T04:03:47Z",
+      "databaseId": 39001145404,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T04:02:09Z",
+      "databaseId": 39001041022,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T04:01:11Z",
+      "databaseId": 39000979654,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T04:01:08Z",
+      "databaseId": 39000976582,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T04:00:13Z",
+      "databaseId": 39000909190,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-17T03:59:35Z",
       "databaseId": 39000869831,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T03:58:33Z",
       "databaseId": 39000810161,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -67,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-17T03:56:36Z",
       "databaseId": 39000696522,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +131,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T03:56:14Z",
       "databaseId": 39000674796,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T03:54:23Z",
-      "databaseId": 39000561670,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-17T03:53:26Z",
-      "databaseId": 39000499910,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-17T03:53:06Z",
-      "databaseId": 39000479895,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T03:52:01Z",
-      "databaseId": 39000410402,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-17T03:51:55Z",
-      "databaseId": 39000404224,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -182759,6 +182759,11 @@
         "episode_id": 108508,
         "display_name": "Initial D S01E08 - 8. epizoda CZ Titulky",
         "video_id": 30297500
+      },
+      {
+        "episode_id": 187953,
+        "display_name": "Americký Drak: Jake Long S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 30297869
       },
       {
         "episode_id": 114182,
@@ -529763,6 +529768,11 @@
         "video_id": 30297500
       },
       {
+        "episode_id": 187953,
+        "display_name": "Americký Drak: Jake Long S02E03 - 3. epizoda CZ Titulky",
+        "video_id": 30297869
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -695447,7 +695457,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 40,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
