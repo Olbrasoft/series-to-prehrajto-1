@@ -1,37 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 117004,
-    "manifest_upload_ready_episodes": 6,
-    "uploaded_episodes": 74618,
-    "prepared_source_episodes": 68769,
+    "manifest_upload_ready_episodes": 7,
+    "uploaded_episodes": 74619,
+    "prepared_source_episodes": 68774,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 48,
-    "language_whisper_attempted_sources": 48,
+    "language_audited_sources": 50,
+    "language_whisper_attempted_sources": 50,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54270,
-    "whisper_review_pending_sources": 38113,
-    "subtitle_followup_sources": 47395,
-    "subtitle_followup_pending_sources": 47395
+    "whisper_review_sources": 54271,
+    "whisper_review_pending_sources": 38117,
+    "subtitle_followup_sources": 47397,
+    "subtitle_followup_pending_sources": 47397
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-17T09:05:06Z",
-      "databaseId": 39019777968,
+      "createdAt": "2026-10-17T09:08:07Z",
+      "databaseId": 39019967555,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-status"
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-17T09:07:33Z",
+      "databaseId": 39019931511,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T09:07:31Z",
+      "databaseId": 39019929714,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T09:07:26Z",
+      "databaseId": 39019924946,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T09:05:06Z",
+      "databaseId": 39019777968,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-17T09:02:57Z",
       "databaseId": 39019644261,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T08:56:25Z",
       "databaseId": 39019238138,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-17T08:54:02Z",
-      "databaseId": 39019093676,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-17T08:53:21Z",
-      "databaseId": 39019052998,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-17T08:52:50Z",
-      "databaseId": 39019022013,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T08:52:26Z",
-      "databaseId": 39018997503,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -182899,6 +182899,11 @@
         "episode_id": 108549,
         "display_name": "Initial D S04E12 - 12. epizoda CZ Titulky",
         "video_id": 30301616
+      },
+      {
+        "episode_id": 168368,
+        "display_name": "Jubileum S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30301703
       },
       {
         "episode_id": 114182,
@@ -530163,6 +530168,11 @@
         "video_id": 30301616
       },
       {
+        "episode_id": 168368,
+        "display_name": "Jubileum S01E08 - 8. epizoda CZ Titulky",
+        "video_id": 30301703
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -695967,16 +695977,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 47,
+    "ok": 49,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36836,
+    "needs_whisper": 36840,
     "whisper_confirmed_cz": 3753,
-    "whisper_non_cz_needs_subtitles": 12404,
+    "whisper_non_cz_needs_subtitles": 12401,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47395
+    "needs_subtitle_setup_after_prehrajto_processing": 47397
   }
 }
