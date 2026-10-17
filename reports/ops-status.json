@@ -2,22 +2,62 @@
   "counts": {
     "backlog_episodes": 116973,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 74642,
+    "uploaded_episodes": 74643,
     "prepared_source_episodes": 68707,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54274,
     "whisper_review_pending_sources": 38137,
     "subtitle_followup_sources": 47427,
     "subtitle_followup_pending_sources": 47427
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T12:04:26Z",
+      "databaseId": 39031095276,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T12:04:01Z",
+      "databaseId": 39031069477,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-17T12:03:56Z",
+      "databaseId": 39031064088,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T12:00:08Z",
+      "databaseId": 39030811340,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-17T12:00:05Z",
+      "databaseId": 39030806351,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-17T11:58:46Z",
@@ -27,11 +67,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T11:57:49Z",
       "databaseId": 39030668862,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +83,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-17T11:57:36Z",
       "databaseId": 39030656880,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -99,19 +139,19 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T11:53:30Z",
       "databaseId": 39030408371,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-17T11:53:04Z",
       "databaseId": 39030382440,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T11:51:25Z",
-      "databaseId": 39030280551,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-17T11:51:21Z",
-      "databaseId": 39030276749,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T11:51:14Z",
-      "databaseId": 39030270385,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-17T11:51:11Z",
-      "databaseId": 39030266571,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-17T11:50:18Z",
-      "databaseId": 39030212236,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -347664,6 +347664,11 @@
         "episode_id": 125591,
         "display_name": "M. Il figlio del secolo S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30303433
+      },
+      {
+        "episode_id": 125594,
+        "display_name": "M. Il figlio del secolo S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30303695
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -695046,6 +695051,11 @@
         "episode_id": 125591,
         "display_name": "M. Il figlio del secolo S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30303433
+      },
+      {
+        "episode_id": 125594,
+        "display_name": "M. Il figlio del secolo S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30303695
       }
     ],
     "prepared_not_upload_ready": [
@@ -696207,8 +696217,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
