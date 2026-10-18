@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 116823,
-    "manifest_upload_ready_episodes": 2,
-    "uploaded_episodes": 74777,
-    "prepared_source_episodes": 68500,
+    "manifest_upload_ready_episodes": 1,
+    "uploaded_episodes": 74778,
+    "prepared_source_episodes": 68502,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 22,
-    "language_whisper_attempted_sources": 22,
-    "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54283,
-    "whisper_review_pending_sources": 38186,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
+    "whisper_review_sources": 54285,
+    "whisper_review_pending_sources": 38196,
     "subtitle_followup_sources": 47577,
     "subtitle_followup_pending_sources": 47577
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T04:05:48Z",
+      "databaseId": 39095908352,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T04:04:41Z",
+      "databaseId": 39095839754,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T04:02:08Z",
+      "databaseId": 39095690518,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-18T04:00:50Z",
@@ -27,19 +51,19 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T04:00:47Z",
       "databaseId": 39095609704,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T04:00:41Z",
       "databaseId": 39095601723,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-18T03:56:37Z",
       "databaseId": 39095375604,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "success",
       "createdAt": "2026-10-18T03:52:53Z",
       "databaseId": 39095163776,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T03:52:49Z",
-      "databaseId": 39095159880,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T03:51:56Z",
-      "databaseId": 39095108499,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T03:50:16Z",
-      "databaseId": 39095011214,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
@@ -348339,6 +348339,11 @@
         "episode_id": 123898,
         "display_name": "Posvátné hry S02E02 - 2. epizoda CZ Dabing",
         "video_id": 30321507
+      },
+      {
+        "episode_id": 160362,
+        "display_name": "Zákon a pořádek: Spojené království S01E06 - Ráj CZ Titulky",
+        "video_id": 30321598
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -696396,6 +696401,11 @@
         "episode_id": 123898,
         "display_name": "Posvátné hry S02E02 - 2. epizoda CZ Dabing",
         "video_id": 30321507
+      },
+      {
+        "episode_id": 160362,
+        "display_name": "Zákon a pořádek: Spojené království S01E06 - Ráj CZ Titulky",
+        "video_id": 30321598
       }
     ],
     "prepared_not_upload_ready": [
@@ -697557,13 +697567,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 21,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36909,
+    "needs_whisper": 36919,
     "whisper_confirmed_cz": 3742,
-    "whisper_non_cz_needs_subtitles": 12355,
+    "whisper_non_cz_needs_subtitles": 12347,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
