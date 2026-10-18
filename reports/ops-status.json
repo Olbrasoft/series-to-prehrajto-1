@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 116662,
     "manifest_upload_ready_episodes": 8,
-    "uploaded_episodes": 74960,
-    "prepared_source_episodes": 68165,
+    "uploaded_episodes": 74961,
+    "prepared_source_episodes": 68163,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 50,
+    "language_audited_sources": 59,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54287,
@@ -20,18 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-18T17:39:23Z",
-      "databaseId": 39150589635,
+      "createdAt": "2026-10-18T17:42:50Z",
+      "databaseId": 39150846735,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "backfill-subtitles"
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T17:40:19Z",
+      "databaseId": 39150660431,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-18T17:40:05Z",
+      "databaseId": 39150639582,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T17:39:23Z",
+      "databaseId": 39150589635,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-18T17:39:12Z",
       "databaseId": 39150574201,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T17:38:55Z",
       "databaseId": 39150551913,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -139,41 +163,17 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T17:30:28Z",
       "databaseId": 39149898608,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "success",
       "createdAt": "2026-10-18T17:30:24Z",
       "databaseId": 39149893201,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T17:30:24Z",
-      "databaseId": 39149892705,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T17:30:21Z",
-      "databaseId": 39149888530,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-18T17:29:30Z",
-      "databaseId": 39149819306,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
@@ -349241,6 +349241,11 @@
         "video_id": 30338064
       },
       {
+        "episode_id": 119938,
+        "display_name": "Sluga narodu S02E12 - 12. epizoda CZ Titulky",
+        "video_id": 30338637
+      },
+      {
         "episode_id": 40895,
         "display_name": "Obchoďák S05E12 - Myrtle CZ Dabing",
         "video_id": 30337923
@@ -698213,6 +698218,11 @@
         "video_id": 30338064
       },
       {
+        "episode_id": 119938,
+        "display_name": "Sluga narodu S02E12 - 12. epizoda CZ Titulky",
+        "video_id": 30338637
+      },
+      {
         "episode_id": 40895,
         "display_name": "Obchoďák S05E12 - Myrtle CZ Dabing",
         "video_id": 30337923
@@ -699387,7 +699397,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 10,
+    "disabled": 19,
     "ok": 39,
     "resolve_failed": 1
   },
