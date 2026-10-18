@@ -1,23 +1,47 @@
 {
   "counts": {
     "backlog_episodes": 116771,
-    "manifest_upload_ready_episodes": 5,
-    "uploaded_episodes": 74869,
-    "prepared_source_episodes": 68308,
+    "manifest_upload_ready_episodes": 4,
+    "uploaded_episodes": 74870,
+    "prepared_source_episodes": 68306,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 41,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54281,
-    "whisper_review_pending_sources": 38194,
-    "subtitle_followup_sources": 47630,
-    "subtitle_followup_pending_sources": 47630
+    "whisper_review_sources": 54280,
+    "whisper_review_pending_sources": 38193,
+    "subtitle_followup_sources": 47631,
+    "subtitle_followup_pending_sources": 47631
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T12:22:08Z",
+      "databaseId": 39126986995,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T12:21:26Z",
+      "databaseId": 39126937455,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T12:20:59Z",
+      "databaseId": 39126906582,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-18T12:19:39Z",
@@ -27,11 +51,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T12:19:36Z",
       "databaseId": 39126809393,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -43,11 +67,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T12:18:33Z",
       "databaseId": 39126739342,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T12:04:31Z",
-      "databaseId": 39125789334,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T12:03:27Z",
-      "databaseId": 39125716630,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-18T12:02:44Z",
-      "databaseId": 39125667975,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -183554,6 +183554,11 @@
         "episode_id": 68677,
         "display_name": "Královská rodina S01E05 - Cudné luně odhalí svou krásu CZ Titulky",
         "video_id": 30331066
+      },
+      {
+        "episode_id": 68680,
+        "display_name": "Královská rodina S01E08 - Jak ztratíš moc CZ Titulky",
+        "video_id": 30331105
       },
       {
         "episode_id": 114182,
@@ -532073,6 +532078,11 @@
         "video_id": 30331066
       },
       {
+        "episode_id": 68680,
+        "display_name": "Královská rodina S01E08 - Jak ztratíš moc CZ Titulky",
+        "video_id": 30331105
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -698477,16 +698487,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 40,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36918,
+    "needs_whisper": 36917,
     "whisper_confirmed_cz": 3732,
     "whisper_non_cz_needs_subtitles": 12355,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47630
+    "needs_subtitle_setup_after_prehrajto_processing": 47631
   }
 }
