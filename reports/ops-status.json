@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 116823,
-    "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 74776,
-    "prepared_source_episodes": 68489,
+    "manifest_upload_ready_episodes": 2,
+    "uploaded_episodes": 74777,
+    "prepared_source_episodes": 68500,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
@@ -12,26 +12,90 @@
     "language_audited_sources": 22,
     "language_whisper_attempted_sources": 22,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54284,
-    "whisper_review_pending_sources": 38193,
+    "whisper_review_sources": 54283,
+    "whisper_review_pending_sources": 38186,
     "subtitle_followup_sources": 47577,
     "subtitle_followup_pending_sources": 47577
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-18T03:54:55Z",
-      "databaseId": 39095276870,
+      "createdAt": "2026-10-18T03:59:45Z",
+      "databaseId": 39095542427,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-18T03:59:10Z",
+      "databaseId": 39095510704,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
+      "createdAt": "2026-10-18T03:59:05Z",
+      "databaseId": 39095505907,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T03:56:52Z",
+      "databaseId": 39095389590,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T03:56:37Z",
+      "databaseId": 39095375604,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T03:56:12Z",
+      "databaseId": 39095351710,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T03:56:06Z",
+      "databaseId": 39095345946,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T03:56:04Z",
+      "databaseId": 39095343372,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T03:54:55Z",
+      "databaseId": 39095276870,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-18T03:54:52Z",
       "databaseId": 39095273847,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-18T03:48:59Z",
-      "databaseId": 39094937567,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T03:48:29Z",
-      "databaseId": 39094911386,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T03:46:27Z",
-      "databaseId": 39094795960,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T03:45:56Z",
-      "databaseId": 39094767656,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-18T03:44:34Z",
-      "databaseId": 39094683845,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T03:43:30Z",
-      "databaseId": 39094623530,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T03:42:43Z",
-      "databaseId": 39094578951,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-18T03:40:22Z",
-      "databaseId": 39094442923,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -348334,6 +348334,11 @@
         "episode_id": 64626,
         "display_name": "Přízeň S01E04 - Číšník z předminulé noci CZ Titulky",
         "video_id": 30321250
+      },
+      {
+        "episode_id": 123898,
+        "display_name": "Posvátné hry S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 30321507
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -696386,6 +696391,11 @@
         "episode_id": 64626,
         "display_name": "Přízeň S01E04 - Číšník z předminulé noci CZ Titulky",
         "video_id": 30321250
+      },
+      {
+        "episode_id": 123898,
+        "display_name": "Posvátné hry S02E02 - 2. epizoda CZ Dabing",
+        "video_id": 30321507
       }
     ],
     "prepared_not_upload_ready": [
@@ -697551,9 +697561,9 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36916,
+    "needs_whisper": 36909,
     "whisper_confirmed_cz": 3742,
-    "whisper_non_cz_needs_subtitles": 12349,
+    "whisper_non_cz_needs_subtitles": 12355,
     "whisper_failed": 1277
   },
   "subtitle_followup_statuses": {
