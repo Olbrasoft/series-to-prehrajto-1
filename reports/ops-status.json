@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 116717,
-    "manifest_upload_ready_episodes": 15,
-    "uploaded_episodes": 74888,
-    "prepared_source_episodes": 68239,
+    "manifest_upload_ready_episodes": 18,
+    "uploaded_episodes": 74890,
+    "prepared_source_episodes": 68226,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 48,
+    "language_audited_sources": 58,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54284,
-    "whisper_review_pending_sources": 38215,
-    "subtitle_followup_sources": 47650,
-    "subtitle_followup_pending_sources": 47650
+    "whisper_review_pending_sources": 38217,
+    "subtitle_followup_sources": 47652,
+    "subtitle_followup_pending_sources": 47652
   },
   "workflow_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T13:28:14Z",
+      "databaseId": 39131677818,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T13:28:11Z",
+      "databaseId": 39131673769,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T13:28:06Z",
+      "databaseId": 39131668137,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-18T13:27:27Z",
       "databaseId": 39131621950,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,19 +59,19 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T13:27:00Z",
       "databaseId": 39131588147,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-18T13:26:56Z",
       "databaseId": 39131584001,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T13:16:09Z",
-      "databaseId": 39130798840,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T13:16:02Z",
-      "databaseId": 39130790494,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-18T13:15:42Z",
-      "databaseId": 39130766842,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -183591,6 +183591,11 @@
         "video_id": 30332222
       },
       {
+        "episode_id": 112252,
+        "display_name": "Zabij mě, Mary! S02E03 - Dva plameny CZ Titulky",
+        "video_id": 30332281
+      },
+      {
         "episode_id": 40841,
         "display_name": "Obchoďák S03E06 - Zdravotní fond CZ Dabing",
         "video_id": 30332245
@@ -348884,6 +348889,11 @@
         "episode_id": 112251,
         "display_name": "Zabij mě, Mary! S02E02 - Spojení CZ Titulky",
         "video_id": 30331941
+      },
+      {
+        "episode_id": 40854,
+        "display_name": "Obchoďák S03E07 - Štědrý večer CZ Dabing",
+        "video_id": 30332279
       },
       {
         "episode_id": 40859,
@@ -532203,6 +532213,11 @@
         "video_id": 30332222
       },
       {
+        "episode_id": 112252,
+        "display_name": "Zabij mě, Mary! S02E03 - Dva plameny CZ Titulky",
+        "video_id": 30332281
+      },
+      {
         "episode_id": 40841,
         "display_name": "Obchoďák S03E06 - Zdravotní fond CZ Dabing",
         "video_id": 30332245
@@ -697498,6 +697513,11 @@
         "video_id": 30331941
       },
       {
+        "episode_id": 40854,
+        "display_name": "Obchoďák S03E07 - Štědrý večer CZ Dabing",
+        "video_id": 30332279
+      },
+      {
         "episode_id": 40859,
         "display_name": "Obchoďák S03E05 - Sal je mrtvý CZ Dabing",
         "video_id": 30332123
@@ -698667,17 +698687,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 8,
+    "disabled": 18,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36939,
+    "needs_whisper": 36941,
     "whisper_confirmed_cz": 3734,
-    "whisper_non_cz_needs_subtitles": 12335,
+    "whisper_non_cz_needs_subtitles": 12333,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47650
+    "needs_subtitle_setup_after_prehrajto_processing": 47652
   }
 }
