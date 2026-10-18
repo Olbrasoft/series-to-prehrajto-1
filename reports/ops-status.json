@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 116662,
     "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 74937,
+    "uploaded_episodes": 74938,
     "prepared_source_episodes": 68221,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 69,
-    "language_whisper_attempted_sources": 45,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54286,
     "whisper_review_pending_sources": 38237,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-18T15:47:42Z",
+      "databaseId": 39142082728,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T15:44:27Z",
+      "databaseId": 39141838625,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T15:44:23Z",
+      "databaseId": 39141834907,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-18T15:43:16Z",
       "databaseId": 39141754784,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -111,7 +135,7 @@
       "createdAt": "2026-10-18T15:36:58Z",
       "databaseId": 39141281153,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -147,36 +171,12 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-18T15:34:09Z",
       "databaseId": 39141070549,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T15:33:47Z",
-      "databaseId": 39141044974,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T15:33:31Z",
-      "databaseId": 39141023254,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T15:33:26Z",
-      "databaseId": 39141016749,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
     }
   ],
   "gaps": {
@@ -349136,6 +349136,11 @@
         "video_id": 30335541
       },
       {
+        "episode_id": 68702,
+        "display_name": "Královská rodina S04E04 - Temná jak noc a jeho úmysl CZ Titulky",
+        "video_id": 30335873
+      },
+      {
         "episode_id": 120599,
         "display_name": "El tiempo entre costuras S00E08 - 8. epizoda CZ Titulky",
         "video_id": 30335695
@@ -697993,6 +697998,11 @@
         "video_id": 30335541
       },
       {
+        "episode_id": 68702,
+        "display_name": "Královská rodina S04E04 - Temná jak noc a jeho úmysl CZ Titulky",
+        "video_id": 30335873
+      },
+      {
         "episode_id": 120599,
         "display_name": "El tiempo entre costuras S00E08 - 8. epizoda CZ Titulky",
         "video_id": 30335695
@@ -699157,8 +699167,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 24,
-    "ok": 44,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
