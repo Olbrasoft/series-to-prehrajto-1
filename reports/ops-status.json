@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 116597,
-    "manifest_upload_ready_episodes": 0,
-    "uploaded_episodes": 74998,
+    "manifest_upload_ready_episodes": 1,
+    "uploaded_episodes": 74999,
     "prepared_source_episodes": 67966,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 36,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54288,
     "whisper_review_pending_sources": 38249,
     "subtitle_followup_sources": 47707,
@@ -20,26 +20,98 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-18T22:47:05Z",
-      "databaseId": 39173727444,
+      "createdAt": "2026-10-18T22:55:01Z",
+      "databaseId": 39174284005,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T22:54:09Z",
+      "databaseId": 39174225460,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T22:53:24Z",
+      "databaseId": 39174175703,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-18T22:52:16Z",
+      "databaseId": 39174097270,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-18T22:46:59Z",
-      "databaseId": 39173719016,
+      "createdAt": "2026-10-18T22:51:30Z",
+      "databaseId": 39174045375,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "process-whisper-review"
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-18T22:51:25Z",
+      "databaseId": 39174039361,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T22:50:29Z",
+      "databaseId": 39173974018,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "external-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-18T22:50:08Z",
+      "databaseId": 39173945665,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T22:48:22Z",
+      "databaseId": 39173818002,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-18T22:47:05Z",
+      "databaseId": 39173727444,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-18T22:46:59Z",
+      "databaseId": 39173719016,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-18T22:46:36Z",
       "databaseId": 39173694485,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -105,78 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-18T22:42:37Z",
-      "databaseId": 39173412659,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T22:41:46Z",
-      "databaseId": 39173353388,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T22:41:43Z",
-      "databaseId": 39173348601,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T22:40:36Z",
-      "databaseId": 39173270510,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T22:40:23Z",
-      "databaseId": 39173253871,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-18T22:39:57Z",
-      "databaseId": 39173217671,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T22:39:23Z",
-      "databaseId": 39173181550,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-18T22:39:18Z",
-      "databaseId": 39173175957,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-18T22:39:01Z",
-      "databaseId": 39173153882,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -349444,6 +349444,11 @@
         "episode_id": 40890,
         "display_name": "Obchoďák S05E07 - Kurz pro bývalé zloděje CZ Dabing",
         "video_id": 30343810
+      },
+      {
+        "episode_id": 40887,
+        "display_name": "Obchoďák S05E08 - Sbírka hraček CZ Dabing",
+        "video_id": 30344399
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -698606,6 +698611,11 @@
         "episode_id": 40890,
         "display_name": "Obchoďák S05E07 - Kurz pro bývalé zloděje CZ Dabing",
         "video_id": 30343810
+      },
+      {
+        "episode_id": 40887,
+        "display_name": "Obchoďák S05E08 - Sbírka hraček CZ Dabing",
+        "video_id": 30344399
       }
     ],
     "prepared_not_upload_ready": [
@@ -699767,8 +699777,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
