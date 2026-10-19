@@ -2,22 +2,54 @@
   "counts": {
     "backlog_episodes": 116503,
     "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 75104,
-    "prepared_source_episodes": 67465,
+    "uploaded_episodes": 75105,
+    "prepared_source_episodes": 67464,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 29,
-    "language_whisper_attempted_sources": 25,
+    "language_whisper_attempted_sources": 27,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54283,
-    "whisper_review_pending_sources": 38226,
-    "subtitle_followup_sources": 47790,
-    "subtitle_followup_pending_sources": 47790
+    "whisper_review_sources": 54282,
+    "whisper_review_pending_sources": 38221,
+    "subtitle_followup_sources": 47791,
+    "subtitle_followup_pending_sources": 47791
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-19T18:07:21Z",
+      "databaseId": 39299891468,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-19T18:06:04Z",
+      "databaseId": 39299711482,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-19T18:05:56Z",
+      "databaseId": 39299693407,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-19T18:02:44Z",
+      "databaseId": 39299257134,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "skipped",
       "createdAt": "2026-10-19T18:01:50Z",
@@ -43,19 +75,19 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-19T18:01:25Z",
       "databaseId": 39299075731,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-19T18:00:22Z",
       "databaseId": 39298919830,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -119,7 +151,7 @@
       "createdAt": "2026-10-19T17:53:12Z",
       "databaseId": 39297922004,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -142,38 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-10-19T17:52:33Z",
       "databaseId": 39297833110,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-19T17:51:26Z",
-      "databaseId": 39297680747,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-19T17:51:14Z",
-      "databaseId": 39297652804,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-19T17:49:53Z",
-      "databaseId": 39297464960,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-19T17:49:51Z",
-      "databaseId": 39297460282,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -184089,6 +184089,11 @@
         "episode_id": 71568,
         "display_name": "Status: Nežádoucí  S05E14 - 14. epizoda CZ Titulky",
         "video_id": 30362866
+      },
+      {
+        "episode_id": 71584,
+        "display_name": "Status: Nežádoucí  S06E11 - 11. epizoda CZ Titulky",
+        "video_id": 30363791
       },
       {
         "episode_id": 71581,
@@ -533763,6 +533768,11 @@
         "video_id": 30362866
       },
       {
+        "episode_id": 71584,
+        "display_name": "Status: Nežádoucí  S06E11 - 11. epizoda CZ Titulky",
+        "video_id": 30363791
+      },
+      {
         "episode_id": 71581,
         "display_name": "Status: Nežádoucí  S06E08 - 8. epizoda CZ Titulky",
         "video_id": 30363611
@@ -700787,17 +700797,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 24,
-    "disabled": 4,
+    "ok": 26,
+    "disabled": 2,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36950,
-    "whisper_confirmed_cz": 3736,
-    "whisper_non_cz_needs_subtitles": 12321,
+    "needs_whisper": 36945,
+    "whisper_confirmed_cz": 3737,
+    "whisper_non_cz_needs_subtitles": 12324,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47790
+    "needs_subtitle_setup_after_prehrajto_processing": 47791
   }
 }
