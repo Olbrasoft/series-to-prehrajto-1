@@ -109,3 +109,39 @@ def test_whisper_audit_probes_once_and_restores_environment(monkeypatch):
     assert len(calls) == 1
     assert calls[0][1] == '1'
     assert os.environ['WHISPER_LANGUAGE_CHECK'] == 'old'
+
+
+def test_real_stream_size_overrides_optimistic_search_metadata(monkeypatch):
+    source = prep.search_result_to_queue_item(result('Zločinné úmysly S04E12 CZ Dabing'), episode())
+    monkeypatch.setattr(audit, 'audit_provider', lambda *a, **kw: {
+        'status': 'ok', 'streams': [{'res': 480}], 'stream_filesize_bytes': 243_826_066})
+    audited = audit.audit_one(source, use_whisper=False, sample_seconds=20, probe_stream=True)
+    assert audited['filesize_bytes'] == 243_826_066
+    assert not prep.is_resolvable(audited)
+
+
+def test_preparation_tries_next_czech_source_when_first_actual_stream_is_too_small(monkeypatch):
+    ep = episode()
+    ep['sources'] = [prep.search_result_to_queue_item(result('Zločinné úmysly S04E12 CZ Dabing', sid), ep)
+                     for sid in (-1, -2)]
+    ep['sources'][0]['filesize_bytes'] = 800_000_000
+    original = prep.audit_one
+    probed = []
+
+    def audit_one(source, **kwargs):
+        row = original(source, use_whisper=False, sample_seconds=20, probe_stream=False)
+        if kwargs['probe_stream']:
+            probed.append(source['source_id'])
+            size = 243_826_066 if source['source_id'] == -1 else 700_000_000
+            row['signals']['provider_probe'] = {'status': 'ok', 'streams': [{'res': 720}],
+                                               'stream_filesize_bytes': size}
+            row['filesize_bytes'] = size
+        return row
+
+    monkeypatch.setattr(prep, 'audit_one', audit_one)
+    plan = prep.prepare_episode(ep, use_whisper=False, sample_seconds=20, source_limit=4,
+                                burned=set(), require_resolvable_source=True, live_search=False,
+                                live_search_limit=4, live_search_query_limit=4)
+    assert plan['upload_ready']
+    assert plan['selected_source']['source_id'] == -2
+    assert probed == [-1, -2]

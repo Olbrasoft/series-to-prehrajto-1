@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from language_checks import CZECH_AUDIO_LANGS, title_language_hint, whisper_language  # noqa: E402
 from resolve_stream import ResolveError, pick_best, resolve as resolve_prehrajto  # noqa: E402
+from download import head_size  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -274,6 +275,7 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
         "video_id": resolved.video_id,
         "title": resolved.name,
         "duration_sec": resolved.duration_sec,
+        "stream_filesize_bytes": head_size(best.url),
         "streams": [
             {"label": video.label, "res": video.res, "default": video.is_default}
             for video in resolved.videos
@@ -347,7 +349,9 @@ def audit_one(item: dict, *, use_whisper: bool, sample_seconds: int, probe_strea
         "source_title": item.get("source_title"),
         "duration_sec": item.get("duration_sec"),
         "resolution_hint": item.get("resolution_hint"),
-        "filesize_bytes": item.get("filesize_bytes"),
+        "filesize_bytes": (provider_probe.get("stream_filesize_bytes")
+                           if provider_probe.get("stream_filesize_bytes") is not None
+                           else item.get("filesize_bytes")),
         "view_count": item.get("view_count"),
         "source_origin": item.get("source_origin"),
         "db_source_exists": item.get("db_source_exists"),
