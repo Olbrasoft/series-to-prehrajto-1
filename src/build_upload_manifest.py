@@ -412,27 +412,48 @@ def build_manifest(
         if not plan.get("upload_ready") or not selected:
             stats["not_upload_ready"] += 1
             continue
-        source_id = int(selected["source_id"])
-        if source_id in burned:
-            stats["selected_source_burned"] += 1
-            continue
-        fsize = selected.get("filesize_bytes")
-        if fsize is not None and fsize < MIN_PLANNED_FILE_SIZE:
-            stats["selected_source_undersize"] += 1
-            continue
-        resolvable = bool(((selected.get("signals") or {}).get("provider_probe") or {}).get("streams"))
-        if fsize is None and not resolvable:
-            stats["selected_source_no_size_info"] += 1
-            continue
         candidates = upload_candidates(episode, plan, burned)
         if failed_availability:
             before = len(candidates)
             candidates = [candidate for candidate in candidates if candidate.get("url") not in failed_availability]
             stats["github_availability_failed"] += before - len(candidates)
+        sources_by_id = {
+            int(source["source_id"]): source
+            for source in [*(plan.get("tested_sources") or []), selected]
+            if source and source.get("source_id") is not None
+        }
+        usable = []
+        for candidate in candidates:
+            source = sources_by_id[int(candidate["source_id"])]
+            fsize = source.get("filesize_bytes")
+            resolvable = bool(((source.get("signals") or {}).get("provider_probe") or {}).get("streams"))
+            if fsize is None and not resolvable:
+                continue
+            usable.append(candidate)
+        candidates = usable
         if not candidates:
-            stats["selected_source_not_in_backlog"] += 1
+            source_id = int(selected["source_id"])
+            fsize = selected.get("filesize_bytes")
+            if source_id in burned:
+                stats["selected_source_burned"] += 1
+            elif fsize is not None and fsize < MIN_PLANNED_FILE_SIZE:
+                stats["selected_source_undersize"] += 1
+            elif fsize is None and not ((selected.get("signals") or {}).get("provider_probe") or {}).get("streams"):
+                stats["selected_source_no_size_info"] += 1
+            else:
+                stats["selected_source_not_in_backlog"] += 1
             continue
         candidate = candidates[0]
+        source_id = int(candidate["source_id"])
+        if source_id != int(selected["source_id"]):
+            stats["prepared_source_fallback"] += 1
+        selected = sources_by_id[source_id]
+        # Identity, language evidence and follow-up routing must all describe
+        # the actual selected fallback, never the unavailable original source.
+        needs_subtitles = selected.get("verdict") == "CZ_SUBTITLES_ONLY"
+        plan = {**plan, "selected_source": selected,
+                "upload_kind": "subtitles" if needs_subtitles else "audio",
+                "needs_subtitles_after_upload": needs_subtitles}
         audit = audits.get(source_id) or selected
         whisper = (audit.get("signals") or {}).get("whisper") or {}
         if require_whisper and whisper.get("status") != "ok":
