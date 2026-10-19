@@ -15,7 +15,10 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+import re
 from pathlib import Path
+
+import requests
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -41,27 +44,33 @@ class DownloadError(Exception):
 
 
 def head_size(url: str, *, timeout_sec: int = 30) -> int | None:
-    """Return Content-Length from a HEAD request, or None if unknown."""
-    cmd = [
-        "curl", "-fIL", url,
-        "-H", f"User-Agent: {USER_AGENT}",
-        "-H", "Referer: https://prehraj.to/",
-        "--max-time", str(timeout_sec),
-        "-s",
-    ]
+    """Read actual stream size from headers, using one byte if HEAD omits it."""
+    headers = {"User-Agent": USER_AGENT, "Referer": "https://prehraj.to/"}
     try:
-        out = subprocess.check_output(cmd, text=True, errors="replace")
-    except subprocess.CalledProcessError:
-        return None
-    # Walk through redirect chain — last 200/206 wins.
-    last: int | None = None
-    for line in out.splitlines():
-        if line.lower().startswith("content-length:"):
-            try:
-                last = int(line.split(":", 1)[1].strip())
-            except ValueError:
-                pass
-    return last
+        with requests.head(url, headers=headers, timeout=timeout_sec, allow_redirects=True) as response:
+            response.raise_for_status()
+            if response.status_code == 206:
+                match = re.fullmatch(r"bytes \d+-\d+/(\d+)", response.headers.get("Content-Range", ""))
+                if match and int(match.group(1)) > 0:
+                    return int(match.group(1))
+            elif response.status_code == 200:
+                length = response.headers.get("Content-Length", "")
+                if length.isdigit() and int(length) > 0:
+                    return int(length)
+        # Never read the response body: close immediately even if the server
+        # ignores Range and starts returning the entire file.
+        with requests.get(url, headers={**headers, "Range": "bytes=0-0"},
+                          stream=True, timeout=timeout_sec) as response:
+            response.raise_for_status()
+            if response.status_code == 206:
+                match = re.fullmatch(r"bytes 0-0/(\d+)", response.headers.get("Content-Range", ""))
+                return int(match.group(1)) if match and int(match.group(1)) > 0 else None
+            if response.status_code == 200:
+                length = response.headers.get("Content-Length", "")
+                return int(length) if length.isdigit() and int(length) > 0 else None
+    except requests.RequestException:
+        pass
+    return None
 
 
 def download_to(

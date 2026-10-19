@@ -3,7 +3,10 @@ on:
   pull_request:
     paths:
       - "src/build_upload_manifest.py"
+      - "src/download.py"
+      - "src/audit_language_sources.py"
       - "src/prepare_episode_sources.py"
+      - "tests/test_stream_size_probe.py"
       - "tests/test_build_upload_manifest.py"
       - "tests/test_source_discovery_recovery.py"
       - "tests/test_prepare_episode_sources.py"
@@ -20,4 +23,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt pytest
-      - run: python -m pytest tests/test_build_upload_manifest.py tests/test_source_discovery_recovery.py tests/test_prepare_episode_sources.py tests/test_merge_preparation_results.py -q
+      - run: python -m pytest tests/test_stream_size_probe.py tests/test_build_upload_manifest.py tests/test_source_discovery_recovery.py tests/test_prepare_episode_sources.py tests/test_merge_preparation_results.py -q

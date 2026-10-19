@@ -711,7 +711,9 @@ def probe_resolution(result: dict, source: dict) -> int:
 
 def is_resolvable(result: dict) -> bool:
     probe = result.get("signals", {}).get("provider_probe") or {}
-    return probe.get("status") == "ok" and bool(probe.get("streams"))
+    size = probe.get("stream_filesize_bytes")
+    return (probe.get("status") == "ok" and bool(probe.get("streams"))
+            and (size is None or size >= MIN_UPLOAD_FILE_SIZE))
 
 
 def source_score(result: dict, source: dict) -> tuple:
