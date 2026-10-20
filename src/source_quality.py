@@ -6,6 +6,20 @@ import re
 from typing import Any
 
 MIN_PREFERRED_FILESIZE_BYTES = 350 * 1024 * 1024
+MIN_UPLOAD_FILESIZE_BYTES = 300 * 1024 * 1024
+
+
+def source_meets_size_requirement(source: dict[str, Any]) -> bool:
+    """Use the upload minimum for measured streams, a margin for metadata.
+
+    Unknown size still needs a resolvable stream check by the caller.
+    """
+    probe = (source.get("signals") or {}).get("provider_probe") or {}
+    measured = probe.get("stream_filesize_bytes")
+    if probe.get("status") == "ok" and probe.get("streams") and measured is not None:
+        return int(measured) >= MIN_UPLOAD_FILESIZE_BYTES
+    size = source.get("filesize_bytes")
+    return size is None or int(size) >= MIN_PREFERRED_FILESIZE_BYTES
 
 
 def resolution_score(value: str | None) -> int:

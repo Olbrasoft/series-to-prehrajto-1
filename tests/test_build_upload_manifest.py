@@ -83,3 +83,31 @@ def test_healthy_original_keeps_priority_and_audio_routing(tmp_path, monkeypatch
     assert row['display_name'].endswith('CZ Dabing')
     assert row['upload_manifest']['upload_job']['needs_subtitles_after_upload'] is False
     assert not stats['prepared_source_fallback']
+
+
+@pytest.mark.parametrize('measured_mib,expected', [(299, False), (300, True), (325, True), (349, True)])
+def test_measured_stream_uses_actual_upload_minimum(tmp_path, monkeypatch, measured_mib, expected):
+    original = source(11, size=measured_mib * 1024 * 1024)
+    original['signals'] = {'provider_probe': {'status': 'ok', 'streams': [{'res': 1080}],
+                                            'stream_filesize_bytes': measured_mib * 1024 * 1024}}
+    rows, _ = build(tmp_path, monkeypatch, original=original, alternatives=[])
+    assert bool(rows) is expected
+
+
+@pytest.mark.parametrize('probe', [{}, {'status': 'failed', 'streams': [{'res': 1080}],
+                                      'stream_filesize_bytes': 325 * 1024 * 1024},
+                                   {'status': 'ok', 'streams': [],
+                                    'stream_filesize_bytes': 325 * 1024 * 1024}])
+def test_unverified_metadata_keeps_planning_margin(tmp_path, monkeypatch, probe):
+    original = source(11, size=325 * 1024 * 1024)
+    original['signals'] = {'provider_probe': probe}
+    rows, _ = build(tmp_path, monkeypatch, original=original, alternatives=[])
+    assert rows == []
+
+
+def test_measured_small_stream_cannot_pass_using_optimistic_metadata(tmp_path, monkeypatch):
+    original = source(11, size=800_000_000)
+    original['signals'] = {'provider_probe': {'status': 'ok', 'streams': [{'res': 1080}],
+                                            'stream_filesize_bytes': 200_000_000}}
+    rows, _ = build(tmp_path, monkeypatch, original=original, alternatives=[])
+    assert rows == []

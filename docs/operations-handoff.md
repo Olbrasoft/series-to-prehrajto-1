@@ -1,5 +1,20 @@
 # Operations handoff
 
+## Prepared-source recovery (October 20, 2026)
+
+A green sync can finish without uploading because its manifest is empty.
+Historical Czech HD selections without a stream probe were starved behind
+unseen discovery episodes. Preparation now restores matching, unburned HD
+selections from the prepared reservoir and prioritizes their revalidation.
+A working Czech stream at 1080p or above avoids another search. An unavailable
+or lower-resolution selection still falls through to normal discovery.
+Uploaded episode exclusions, claims and subtitle routing remain in force.
+
+The 350 MiB planning margin applies to unverified metadata. A successful stream
+probe measuring at least 300 MiB satisfies the actual upload requirement;
+measured smaller streams remain rejected even if metadata claims a larger file.
+Verify recovery through fresh uploads on both accounts, not workflow success.
+
 ## Original-source priority; alternate searches paused (October 4, 2026)
 
 The user requested that difficult subtitle cases be recorded for later while
