@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from description_quality import is_valid_generated_description
+from source_quality import source_meets_size_requirement
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MIN_UPLOAD_FILE_SIZE = 300 * 1024 * 1024
@@ -281,8 +282,7 @@ def upload_candidate_ids(plan: dict, burned: set[int]) -> list[int]:
         sid = int(source["source_id"])
         if sid in burned:
             return False
-        fsize = source.get("filesize_bytes")
-        if fsize is not None and fsize < MIN_PLANNED_FILE_SIZE:
+        if not source_meets_size_requirement(source):
             return False
         return True
 
@@ -310,7 +310,7 @@ def upload_candidate_ids(plan: dict, burned: set[int]) -> list[int]:
         if not source or not passes(source):
             continue
         fsize = source.get("filesize_bytes")
-        if fsize is None or fsize < MIN_PLANNED_FILE_SIZE:
+        if fsize is None or not source_meets_size_requirement(source):
             continue
         if not source.get("source_url"):
             continue
@@ -436,7 +436,7 @@ def build_manifest(
             fsize = selected.get("filesize_bytes")
             if source_id in burned:
                 stats["selected_source_burned"] += 1
-            elif fsize is not None and fsize < MIN_PLANNED_FILE_SIZE:
+            elif not source_meets_size_requirement(selected):
                 stats["selected_source_undersize"] += 1
             elif fsize is None and not ((selected.get("signals") or {}).get("provider_probe") or {}).get("streams"):
                 stats["selected_source_no_size_info"] += 1

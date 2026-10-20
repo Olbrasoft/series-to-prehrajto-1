@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audit_language_sources import audit_one, write_latest_index  # noqa: E402
 from language_checks import metadata_language_hint, title_language_hint  # noqa: E402
 from prehrajto_search import SearchResult, search_pages as search_prehrajto_pages  # noqa: E402
-from source_quality import source_quality_score, source_quality_tier  # noqa: E402
+from source_quality import source_quality_score, source_quality_tier, source_meets_size_requirement  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MIN_UPLOAD_FILE_SIZE = 300 * 1024 * 1024
@@ -304,8 +304,7 @@ def latest_usable_prepared_episode_ids(path: Path, burned: set[int]) -> set[int]
         source_id = selected.get("source_id")
         if source_id is None or int(source_id) in burned:
             continue
-        filesize = selected.get("filesize_bytes")
-        if filesize is not None and int(filesize) < MIN_PLANNED_FILE_SIZE:
+        if not source_meets_size_requirement(selected):
             continue
         if not is_resolvable(selected):
             continue
@@ -324,6 +323,28 @@ def retry_due(row: dict | None, *, now: dt.datetime) -> bool:
     except ValueError:
         return True
     return now - prepared >= FAILED_RETRY_AFTER
+
+
+def restore_prepared_candidates(episodes: list[dict], latest: dict[int, dict], burned: set[int]) -> None:
+    """Recover known Czech HD sources that never received a stream probe."""
+    for episode in episodes:
+        plan = latest.get(int(episode["episode_id"])) or {}
+        source = plan.get("selected_source") or {}
+        if (not plan.get("upload_ready") or source.get("source_id") is None
+                or source.get("provider") != "prehrajto"
+                or int(source["source_id"]) in burned or not source.get("source_url")
+                or is_resolvable(source) or not source_has_cz_audio_hint(source)
+                or source_quality_score(source)[1] < 1080
+                or not title_matches_episode(source.get("source_title") or "", episode)):
+            continue
+        restored = {**episode, **source, "provider": "prehrajto", "_prepared_source_revalidation": True}
+        restored.pop("sources", None)
+        episode["sources"] = [restored, *(s for s in episode["sources"]
+                                         if int(s["source_id"]) != int(source["source_id"]))]
+
+
+def prepared_revalidation_priority(episode: dict) -> int:
+    return 0 if any(s.get("_prepared_source_revalidation") for s in episode["sources"]) else 1
 
 
 def uploaded_episode_exclusions() -> tuple[set[int], set[tuple[int, int, int]]]:
@@ -756,6 +777,16 @@ def prepare_episode(
 ) -> dict:
     live_sources = [source for source in episode["sources"] if int(source["source_id"]) not in burned]
     if live_search:
+        known = [s for s in live_sources if s.get("_prepared_source_revalidation")]
+        if known:
+            plan = prepare_episode(
+                {**episode, "sources": known}, use_whisper=use_whisper,
+                sample_seconds=sample_seconds, source_limit=source_limit, burned=burned,
+                require_resolvable_source=True, live_search=False,
+                live_search_limit=live_search_limit, live_search_query_limit=live_search_query_limit,
+            )
+            if plan["upload_ready"] and plan["selected_source"]["resolution_score"] >= 1080:
+                return plan
         known_external_ids = {source.get("external_id") for source in live_sources}
         discovered = [
             source
@@ -1053,6 +1084,7 @@ def main() -> int:
         episodes = [episode for episode in episodes if int(episode["episode"]) == args.episode]
     burned = burned_source_ids()
     latest = latest_prepared_rows(Path(args.out))
+    restore_prepared_candidates(episodes, latest, burned)
     done = set() if args.refresh else latest_usable_prepared_episode_ids(Path(args.out), burned)
     uploaded_ids, uploaded_keys = uploaded_episode_exclusions()
     queued_ids, queued_keys = (
@@ -1095,6 +1127,7 @@ def main() -> int:
     ]
     todo.sort(
         key=lambda episode: (
+            prepared_revalidation_priority(episode),
             str((latest.get(int(episode["episode_id"])) or {}).get("prepared_at") or ""),
             tuple(-value for value in episode_preparation_score(episode, burned)),
             -int(episode.get("imdb_votes") or 0),
