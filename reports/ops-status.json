@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 116458,
-    "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 75155,
-    "prepared_source_episodes": 67002,
+    "manifest_upload_ready_episodes": 8,
+    "uploaded_episodes": 75157,
+    "prepared_source_episodes": 67000,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 49,
+    "language_whisper_attempted_sources": 45,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54288,
     "whisper_review_pending_sources": 38251,
@@ -19,19 +19,75 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-20T09:19:46Z",
+      "databaseId": 39399867619,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
-      "createdAt": "2026-10-20T09:13:10Z",
-      "databaseId": 39399071932,
+      "createdAt": "2026-10-20T09:19:02Z",
+      "databaseId": 39399780225,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-20T09:18:55Z",
+      "databaseId": 39399768043,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-20T09:17:57Z",
+      "databaseId": 39399650596,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-20T09:15:04Z",
+      "databaseId": 39399301865,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T09:14:20Z",
+      "databaseId": 39399212997,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T09:14:17Z",
+      "databaseId": 39399206236,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T09:13:10Z",
+      "databaseId": 39399071932,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-20T09:10:21Z",
       "databaseId": 39398729200,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -91,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-20T09:05:05Z",
       "databaseId": 39398082989,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T09:03:39Z",
-      "databaseId": 39397912248,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-20T09:03:35Z",
-      "databaseId": 39397904521,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-20T09:03:04Z",
-      "databaseId": 39397840724,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-20T09:02:59Z",
-      "databaseId": 39397830597,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T08:58:30Z",
-      "databaseId": 39397277177,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T08:57:21Z",
-      "databaseId": 39397141187,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-20T08:57:18Z",
-      "databaseId": 39397136081,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -350209,6 +350209,16 @@
         "episode_id": 43754,
         "display_name": "Buffy, přemožitelka upírů  S06E02 - Vyvolávání (2) CZ Dabing",
         "video_id": 30376078
+      },
+      {
+        "episode_id": 40346,
+        "display_name": "Smallville S09E21 - Spása CZ Dabing",
+        "video_id": 30376117
+      },
+      {
+        "episode_id": 15238,
+        "display_name": "Na mušce S01E01 - Nice Face CZ Dabing",
+        "video_id": 30376163
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -700136,6 +700146,16 @@
         "episode_id": 43754,
         "display_name": "Buffy, přemožitelka upírů  S06E02 - Vyvolávání (2) CZ Dabing",
         "video_id": 30376078
+      },
+      {
+        "episode_id": 40346,
+        "display_name": "Smallville S09E21 - Spása CZ Dabing",
+        "video_id": 30376117
+      },
+      {
+        "episode_id": 15238,
+        "display_name": "Na mušce S01E01 - Nice Face CZ Dabing",
+        "video_id": 30376163
       }
     ],
     "prepared_not_upload_ready": [
@@ -701297,8 +701317,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "resolve_failed": 1
+    "disabled": 4,
+    "resolve_failed": 6,
+    "ok": 39
   },
   "whisper_review_statuses": {
     "needs_whisper": 36975,
