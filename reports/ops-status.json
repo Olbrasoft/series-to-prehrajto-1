@@ -3,43 +3,75 @@
     "backlog_episodes": 116458,
     "manifest_upload_ready_episodes": 0,
     "uploaded_episodes": 75138,
-    "prepared_source_episodes": 67161,
+    "prepared_source_episodes": 67155,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 25,
+    "language_audited_sources": 27,
     "language_whisper_attempted_sources": 23,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54287,
-    "whisper_review_pending_sources": 38246,
+    "whisper_review_pending_sources": 38245,
     "subtitle_followup_sources": 47819,
     "subtitle_followup_pending_sources": 47819
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-20T02:41:46Z",
-      "databaseId": 39360299843,
+      "createdAt": "2026-10-20T02:43:08Z",
+      "databaseId": 39360427032,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
-      "createdAt": "2026-10-20T02:41:09Z",
-      "databaseId": 39360246430,
+      "conclusion": "success",
+      "createdAt": "2026-10-20T02:42:54Z",
+      "databaseId": 39360404960,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-20T02:42:51Z",
+      "databaseId": 39360399275,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-20T02:42:29Z",
+      "databaseId": 39360365848,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T02:41:46Z",
+      "databaseId": 39360299843,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T02:41:09Z",
+      "databaseId": 39360246430,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-20T02:39:56Z",
       "databaseId": 39360132748,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-20T02:28:45Z",
-      "databaseId": 39359124971,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-20T02:28:22Z",
-      "databaseId": 39359088922,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-20T02:25:41Z",
-      "databaseId": 39358844666,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-20T02:23:50Z",
-      "databaseId": 39358676650,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -701127,13 +701127,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 2,
+    "disabled": 4,
     "ok": 22,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36970,
-    "whisper_confirmed_cz": 3744,
+    "needs_whisper": 36969,
+    "whisper_confirmed_cz": 3745,
     "whisper_non_cz_needs_subtitles": 12297,
     "whisper_failed": 1276
   },
