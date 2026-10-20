@@ -1,45 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 116438,
-    "manifest_upload_ready_episodes": 9,
-    "uploaded_episodes": 75162,
-    "prepared_source_episodes": 67004,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 75163,
+    "prepared_source_episodes": 67009,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 76,
-    "language_whisper_attempted_sources": 54,
+    "language_audited_sources": 85,
+    "language_whisper_attempted_sources": 59,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54288,
-    "whisper_review_pending_sources": 38251,
+    "whisper_review_pending_sources": 38252,
     "subtitle_followup_sources": 47820,
     "subtitle_followup_pending_sources": 47820
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-20T09:33:09Z",
-      "databaseId": 39401501065,
+      "createdAt": "2026-10-20T09:35:53Z",
+      "databaseId": 39401842900,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-20T09:32:59Z",
-      "databaseId": 39401480822,
+      "createdAt": "2026-10-20T09:35:49Z",
+      "databaseId": 39401834811,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-20T09:34:30Z",
+      "databaseId": 39401669297,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T09:33:09Z",
+      "databaseId": 39401501065,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-20T09:32:59Z",
+      "databaseId": 39401480822,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-20T09:32:40Z",
       "databaseId": 39401440486,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -147,36 +171,12 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-20T09:20:15Z",
       "databaseId": 39399926581,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T09:20:11Z",
-      "databaseId": 39399918512,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T09:20:08Z",
-      "databaseId": 39399911821,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-20T09:19:46Z",
-      "databaseId": 39399867619,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -184219,6 +184219,11 @@
         "episode_id": 47492,
         "display_name": "Živí mrtví: Počátek konce S02E10 - Nerušit CZ Dabing",
         "video_id": 30376392
+      },
+      {
+        "episode_id": 47464,
+        "display_name": "Živí mrtví: Počátek konce S03E03 - Konec známého světa CZ Dabing",
+        "video_id": 30376442
       },
       {
         "episode_id": 114182,
@@ -534183,6 +534188,11 @@
         "video_id": 30376392
       },
       {
+        "episode_id": 47464,
+        "display_name": "Živí mrtví: Počátek konce S03E03 - Konec známého světa CZ Dabing",
+        "video_id": 30376442
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -701367,14 +701377,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 22,
+    "disabled": 26,
     "ok": 41,
-    "resolve_failed": 13
+    "resolve_failed": 18
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36975,
+    "needs_whisper": 36976,
     "whisper_confirmed_cz": 3745,
-    "whisper_non_cz_needs_subtitles": 12292,
+    "whisper_non_cz_needs_subtitles": 12291,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
