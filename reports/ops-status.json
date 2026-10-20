@@ -1,37 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 116438,
-    "manifest_upload_ready_episodes": 1,
+    "manifest_upload_ready_episodes": 0,
     "uploaded_episodes": 75170,
-    "prepared_source_episodes": 67015,
+    "prepared_source_episodes": 67016,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 42,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54289,
-    "whisper_review_pending_sources": 38256,
+    "whisper_review_pending_sources": 38258,
     "subtitle_followup_sources": 47822,
     "subtitle_followup_pending_sources": 47822
   },
   "workflow_runs": [
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-20T11:40:36Z",
+      "databaseId": 39416644667,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
       "conclusion": "",
-      "createdAt": "2026-10-20T11:38:46Z",
-      "databaseId": 39416425603,
+      "createdAt": "2026-10-20T11:40:32Z",
+      "databaseId": 39416635443,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-20T11:39:50Z",
+      "databaseId": 39416551115,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T11:39:49Z",
+      "databaseId": 39416548017,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-20T11:39:45Z",
+      "databaseId": 39416541338,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-20T11:39:45Z",
+      "databaseId": 39416541332,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
+      "createdAt": "2026-10-20T11:38:46Z",
+      "databaseId": 39416425603,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-20T11:38:42Z",
       "databaseId": 39416417089,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-20T11:32:13Z",
-      "databaseId": 39415649524,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T11:31:53Z",
-      "databaseId": 39415610281,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-20T11:31:48Z",
-      "databaseId": 39415599232,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T11:29:53Z",
-      "databaseId": 39415359200,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T11:28:29Z",
-      "databaseId": 39415196491,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T11:27:35Z",
-      "databaseId": 39415092919,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -701447,13 +701447,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 2,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36980,
+    "needs_whisper": 36982,
     "whisper_confirmed_cz": 3746,
-    "whisper_non_cz_needs_subtitles": 12287,
+    "whisper_non_cz_needs_subtitles": 12285,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
