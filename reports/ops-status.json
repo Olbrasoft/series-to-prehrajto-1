@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 116425,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 75175,
+    "uploaded_episodes": 75176,
     "prepared_source_episodes": 66941,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 26,
-    "language_whisper_attempted_sources": 24,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54287,
     "whisper_review_pending_sources": 38251,
     "subtitle_followup_sources": 47828,
@@ -20,18 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-20T14:05:56Z",
-      "databaseId": 39436153736,
+      "createdAt": "2026-10-20T14:11:20Z",
+      "databaseId": 39436972877,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-status"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-20T14:09:30Z",
+      "databaseId": 39436698410,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T14:09:20Z",
+      "databaseId": 39436672327,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-20T14:09:00Z",
+      "databaseId": 39436621749,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-20T14:07:39Z",
+      "databaseId": 39436423036,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-20T14:05:56Z",
+      "databaseId": 39436153736,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-20T14:04:18Z",
       "databaseId": 39435940911,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -91,11 +131,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-20T13:57:57Z",
       "databaseId": 39434996918,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T13:55:11Z",
-      "databaseId": 39434588679,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T13:54:24Z",
-      "databaseId": 39434472135,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-20T13:53:19Z",
-      "databaseId": 39434315277,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T13:53:16Z",
-      "databaseId": 39434306420,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-20T13:52:45Z",
-      "databaseId": 39434230240,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -184259,6 +184259,11 @@
         "episode_id": 66129,
         "display_name": "Americká manželka S04E20 - 20. epizoda CZ Titulky",
         "video_id": 30380593
+      },
+      {
+        "episode_id": 66133,
+        "display_name": "Americká manželka S05E05 - 5. epizoda CZ Titulky",
+        "video_id": 30381529
       },
       {
         "episode_id": 114182,
@@ -534288,6 +534293,11 @@
         "video_id": 30380593
       },
       {
+        "episode_id": 66133,
+        "display_name": "Americká manželka S05E05 - 5. epizoda CZ Titulky",
+        "video_id": 30381529
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -701497,8 +701507,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 23,
-    "disabled": 2,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
