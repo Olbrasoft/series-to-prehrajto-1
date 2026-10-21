@@ -1,9 +1,9 @@
 {
   "counts": {
     "backlog_episodes": 116208,
-    "manifest_upload_ready_episodes": 13,
-    "uploaded_episodes": 75407,
-    "prepared_source_episodes": 66397,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 75409,
+    "prepared_source_episodes": 66400,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
@@ -13,25 +13,73 @@
     "language_whisper_attempted_sources": 46,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54277,
-    "whisper_review_pending_sources": 38211,
+    "whisper_review_pending_sources": 38213,
     "subtitle_followup_sources": 47976,
     "subtitle_followup_pending_sources": 47976
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-21T20:17:15Z",
-      "databaseId": 39668980897,
+      "createdAt": "2026-10-21T20:21:06Z",
+      "databaseId": 39669539659,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "prepare-subtitles"
+      "workflowName": "prepare-sources"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-21T20:20:18Z",
+      "databaseId": 39669423159,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T20:20:16Z",
+      "databaseId": 39669418694,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T20:19:33Z",
+      "databaseId": 39669311706,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T20:17:45Z",
+      "databaseId": 39669052913,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T20:17:42Z",
+      "databaseId": 39669044584,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-21T20:17:15Z",
+      "databaseId": 39668980897,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-21T20:16:19Z",
       "databaseId": 39668848380,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +147,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-21T20:09:42Z",
       "databaseId": 39667878111,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T20:08:54Z",
-      "databaseId": 39667764547,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T20:08:02Z",
-      "databaseId": 39667643792,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T20:05:04Z",
-      "databaseId": 39667212869,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T20:03:31Z",
-      "databaseId": 39666990371,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T20:02:32Z",
-      "databaseId": 39666843200,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T20:02:22Z",
-      "databaseId": 39666819876,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -351461,6 +351461,16 @@
         "video_id": 30420750
       },
       {
+        "episode_id": 32966,
+        "display_name": "FBI: Ti nejhledanější S06E09 - 9. epizoda CZ Titulky",
+        "video_id": 30420847
+      },
+      {
+        "episode_id": 32970,
+        "display_name": "FBI: Ti nejhledanější S06E13 - 13. epizoda CZ Titulky",
+        "video_id": 30420862
+      },
+      {
         "episode_id": 22491,
         "display_name": "M*A*S*H S02E21 - Krize CZ Dabing",
         "video_id": 30420716
@@ -702648,6 +702658,16 @@
         "video_id": 30420750
       },
       {
+        "episode_id": 32966,
+        "display_name": "FBI: Ti nejhledanější S06E09 - 9. epizoda CZ Titulky",
+        "video_id": 30420847
+      },
+      {
+        "episode_id": 32970,
+        "display_name": "FBI: Ti nejhledanější S06E13 - 13. epizoda CZ Titulky",
+        "video_id": 30420862
+      },
+      {
         "episode_id": 22491,
         "display_name": "M*A*S*H S02E21 - Krize CZ Dabing",
         "video_id": 30420716
@@ -703822,9 +703842,9 @@
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36935,
-    "whisper_confirmed_cz": 3777,
-    "whisper_non_cz_needs_subtitles": 12289,
+    "needs_whisper": 36937,
+    "whisper_confirmed_cz": 3776,
+    "whisper_non_cz_needs_subtitles": 12288,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
