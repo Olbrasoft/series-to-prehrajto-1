@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 116290,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 75327,
+    "uploaded_episodes": 75328,
     "prepared_source_episodes": 66735,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
-    "language_whisper_attempted_sources": 22,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54276,
     "whisper_review_pending_sources": 38193,
     "subtitle_followup_sources": 47910,
@@ -20,26 +20,58 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-21T09:03:03Z",
-      "databaseId": 39573938282,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T09:02:58Z",
-      "databaseId": 39573928042,
+      "createdAt": "2026-10-21T09:06:50Z",
+      "databaseId": 39574429935,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-21T09:06:39Z",
+      "databaseId": 39574405398,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T09:04:27Z",
+      "databaseId": 39574118443,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T09:04:23Z",
+      "databaseId": 39574110455,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T09:03:03Z",
+      "databaseId": 39573938282,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-21T09:02:58Z",
+      "databaseId": 39573928042,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-21T09:02:50Z",
       "databaseId": 39573912086,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T08:55:12Z",
-      "databaseId": 39572922409,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T08:55:09Z",
-      "databaseId": 39572916568,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T08:54:12Z",
-      "databaseId": 39572793910,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T08:54:08Z",
-      "databaseId": 39572784562,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -351069,6 +351069,11 @@
         "episode_id": 66503,
         "display_name": "Vetřelci dávnověku S09E09 - Mimozemšťané a občanská válka CZ Titulky",
         "video_id": 30409162
+      },
+      {
+        "episode_id": 66531,
+        "display_name": "Vetřelci dávnověku S09E10 - Skryté pyramidy CZ Dabing",
+        "video_id": 30409265
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -701856,6 +701861,11 @@
         "episode_id": 66503,
         "display_name": "Vetřelci dávnověku S09E09 - Mimozemšťané a občanská válka CZ Titulky",
         "video_id": 30409162
+      },
+      {
+        "episode_id": 66531,
+        "display_name": "Vetřelci dávnověku S09E10 - Skryté pyramidy CZ Dabing",
+        "video_id": 30409265
       }
     ],
     "prepared_not_upload_ready": [
@@ -703017,8 +703027,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 2,
-    "ok": 21,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
