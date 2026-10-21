@@ -2,36 +2,76 @@
   "counts": {
     "backlog_episodes": 116229,
     "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 75381,
-    "prepared_source_episodes": 66551,
+    "uploaded_episodes": 75382,
+    "prepared_source_episodes": 66550,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
+    "language_audited_sources": 27,
     "language_whisper_attempted_sources": 24,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54277,
-    "whisper_review_pending_sources": 38205,
-    "subtitle_followup_sources": 47952,
-    "subtitle_followup_pending_sources": 47952
+    "whisper_review_sources": 54278,
+    "whisper_review_pending_sources": 38210,
+    "subtitle_followup_sources": 47953,
+    "subtitle_followup_pending_sources": 47953
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-21T17:31:23Z",
-      "databaseId": 39644541986,
+      "createdAt": "2026-10-21T17:33:10Z",
+      "databaseId": 39644808663,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-21T17:33:06Z",
+      "databaseId": 39644797258,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T17:32:45Z",
+      "databaseId": 39644744137,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T17:32:42Z",
+      "databaseId": 39644737111,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T17:32:42Z",
+      "databaseId": 39644736057,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T17:31:23Z",
+      "databaseId": 39644541986,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-21T17:29:02Z",
       "databaseId": 39644182371,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T17:17:49Z",
-      "databaseId": 39642529868,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T17:17:11Z",
-      "databaseId": 39642434010,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T17:17:10Z",
-      "databaseId": 39642430474,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T17:17:05Z",
-      "databaseId": 39642419329,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-21T17:15:46Z",
-      "databaseId": 39642218881,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -351339,6 +351339,11 @@
         "episode_id": 77514,
         "display_name": "FBI: Ti nejhledanější S04E22 - 22. epizoda CZ Titulky",
         "video_id": 30418236
+      },
+      {
+        "episode_id": 31119,
+        "display_name": "Cestovatelé S03E09 - David CZ Titulky",
+        "video_id": 30418273
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -702396,6 +702401,11 @@
         "episode_id": 77514,
         "display_name": "FBI: Ti nejhledanější S04E22 - 22. epizoda CZ Titulky",
         "video_id": 30418236
+      },
+      {
+        "episode_id": 31119,
+        "display_name": "Cestovatelé S03E09 - David CZ Titulky",
+        "video_id": 30418273
       }
     ],
     "prepared_not_upload_ready": [
@@ -703557,16 +703567,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 3,
     "ok": 23,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36929,
+    "needs_whisper": 36934,
     "whisper_confirmed_cz": 3781,
-    "whisper_non_cz_needs_subtitles": 12291,
+    "whisper_non_cz_needs_subtitles": 12287,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 47952
+    "needs_subtitle_setup_after_prehrajto_processing": 47953
   }
 }
