@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 116344,
     "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 75272,
+    "uploaded_episodes": 75274,
     "prepared_source_episodes": 66719,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 51,
+    "language_audited_sources": 40,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54275,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-21T04:36:09Z",
+      "databaseId": 39544938489,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T04:35:48Z",
+      "databaseId": 39544906409,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T04:35:45Z",
+      "databaseId": 39544902121,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T04:35:42Z",
+      "databaseId": 39544898582,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-21T04:35:03Z",
       "databaseId": 39544834109,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +63,7 @@
       "createdAt": "2026-10-21T04:34:59Z",
       "databaseId": 39544828377,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -43,11 +75,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-21T04:34:32Z",
       "databaseId": 39544788461,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T04:25:23Z",
-      "databaseId": 39543948063,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T04:24:50Z",
-      "databaseId": 39543895394,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-21T04:23:28Z",
-      "databaseId": 39543767666,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T04:23:01Z",
-      "databaseId": 39543726222,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -184511,6 +184511,11 @@
         "video_id": 30402740
       },
       {
+        "episode_id": 143137,
+        "display_name": "Rebeli S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30402870
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -350794,6 +350799,11 @@
         "episode_id": 143135,
         "display_name": "Rebeli S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30402741
+      },
+      {
+        "episode_id": 139190,
+        "display_name": "Silná holka Nam-sun S01E10 - Náhradníci CZ Titulky",
+        "video_id": 30402872
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -535023,6 +535033,11 @@
         "video_id": 30402740
       },
       {
+        "episode_id": 143137,
+        "display_name": "Rebeli S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30402870
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -701306,6 +701321,11 @@
         "episode_id": 143135,
         "display_name": "Rebeli S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30402741
+      },
+      {
+        "episode_id": 139190,
+        "display_name": "Silná holka Nam-sun S01E10 - Náhradníci CZ Titulky",
+        "video_id": 30402872
       }
     ],
     "prepared_not_upload_ready": [
@@ -702467,7 +702487,6 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 11,
     "ok": 39,
     "resolve_failed": 1
   },
