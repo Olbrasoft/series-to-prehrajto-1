@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 116208,
-    "manifest_upload_ready_episodes": 19,
-    "uploaded_episodes": 75395,
-    "prepared_source_episodes": 66399,
+    "manifest_upload_ready_episodes": 21,
+    "uploaded_episodes": 75396,
+    "prepared_source_episodes": 66384,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 42,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54278,
@@ -20,10 +20,34 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-21T19:46:30Z",
+      "databaseId": 39664550586,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-21T19:45:55Z",
+      "databaseId": 39664469184,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-21T19:45:51Z",
+      "databaseId": 39664459570,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "skipped",
       "createdAt": "2026-10-21T19:45:29Z",
       "databaseId": 39664407110,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "prepare-subtitles"
     },
     {
@@ -31,7 +55,7 @@
       "createdAt": "2026-10-21T19:45:24Z",
       "databaseId": 39664395106,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -39,7 +63,7 @@
       "createdAt": "2026-10-21T19:45:23Z",
       "databaseId": 39664393764,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -47,7 +71,7 @@
       "createdAt": "2026-10-21T19:45:05Z",
       "databaseId": 39664347725,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-21T19:44:29Z",
       "databaseId": 39664262014,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -95,7 +119,7 @@
       "createdAt": "2026-10-21T19:43:00Z",
       "databaseId": 39664049185,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T19:38:02Z",
-      "databaseId": 39663339283,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-21T19:36:42Z",
-      "databaseId": 39663148493,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-21T19:36:36Z",
-      "databaseId": 39663135687,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -184809,6 +184809,11 @@
         "episode_id": 32961,
         "display_name": "FBI: Ti nejhledanější S06E04 - 4. epizoda CZ Titulky",
         "video_id": 30419803
+      },
+      {
+        "episode_id": 22493,
+        "display_name": "M*A*S*H S02E23 - Pošta volá CZ Dabing",
+        "video_id": 30420452
       },
       {
         "episode_id": 114182,
@@ -535938,6 +535943,11 @@
         "video_id": 30419803
       },
       {
+        "episode_id": 22493,
+        "display_name": "M*A*S*H S02E23 - Pošta volá CZ Dabing",
+        "video_id": 30420452
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -703697,6 +703707,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 2,
     "ok": 39,
     "resolve_failed": 1
   },
