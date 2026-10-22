@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 115982,
     "manifest_upload_ready_episodes": 6,
-    "uploaded_episodes": 75591,
+    "uploaded_episodes": 75595,
     "prepared_source_episodes": 65872,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 45,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 26,
-    "language_whisper_attempted_sources": 26,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54289,
     "whisper_review_pending_sources": 38286,
     "subtitle_followup_sources": 48036,
@@ -20,10 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-22T22:18:45Z",
+      "databaseId": 39864009048,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-22T22:18:43Z",
+      "databaseId": 39864003555,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-22T22:18:00Z",
+      "databaseId": 39863914304,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-22T22:15:41Z",
+      "databaseId": 39863628008,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-22T22:14:10Z",
+      "databaseId": 39863429280,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-22T22:12:30Z",
+      "databaseId": 39863217225,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-22T22:12:26Z",
+      "databaseId": 39863208091,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-22T22:11:06Z",
       "databaseId": 39863042939,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +155,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-22T22:06:19Z",
       "databaseId": 39862444206,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-22T22:05:31Z",
-      "databaseId": 39862343798,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-22T22:05:24Z",
-      "databaseId": 39862328913,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-22T22:05:04Z",
-      "databaseId": 39862283399,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-22T22:05:00Z",
-      "databaseId": 39862273451,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-22T22:03:44Z",
-      "databaseId": 39862111367,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-22T22:02:24Z",
-      "databaseId": 39861941445,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-22T21:59:38Z",
-      "databaseId": 39861579590,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -185296,6 +185296,11 @@
         "video_id": 30445468
       },
       {
+        "episode_id": 114824,
+        "display_name": "Liv a Maddie S02E05 - Rooneyovic dohazovačka CZ Titulky",
+        "video_id": 30445582
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -352389,6 +352394,21 @@
         "episode_id": 114822,
         "display_name": "Liv a Maddie S02E02 - Keramika u Rooneyových CZ Titulky",
         "video_id": 30445460
+      },
+      {
+        "episode_id": 114823,
+        "display_name": "Liv a Maddie S02E04 - Kathy Ken u Rooneyových CZ Titulky",
+        "video_id": 30445583
+      },
+      {
+        "episode_id": 114827,
+        "display_name": "Liv a Maddie S02E07 - Rooneyovic Silvestr CZ Titulky",
+        "video_id": 30445611
+      },
+      {
+        "episode_id": 114835,
+        "display_name": "Liv a Maddie S02E08 - Rooneyovic brloh CZ Titulky",
+        "video_id": 30445633
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -537403,6 +537423,11 @@
         "video_id": 30445468
       },
       {
+        "episode_id": 114824,
+        "display_name": "Liv a Maddie S02E05 - Rooneyovic dohazovačka CZ Titulky",
+        "video_id": 30445582
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -704496,6 +704521,21 @@
         "episode_id": 114822,
         "display_name": "Liv a Maddie S02E02 - Keramika u Rooneyových CZ Titulky",
         "video_id": 30445460
+      },
+      {
+        "episode_id": 114823,
+        "display_name": "Liv a Maddie S02E04 - Kathy Ken u Rooneyových CZ Titulky",
+        "video_id": 30445583
+      },
+      {
+        "episode_id": 114827,
+        "display_name": "Liv a Maddie S02E07 - Rooneyovic Silvestr CZ Titulky",
+        "video_id": 30445611
+      },
+      {
+        "episode_id": 114835,
+        "display_name": "Liv a Maddie S02E08 - Rooneyovic brloh CZ Titulky",
+        "video_id": 30445633
       }
     ],
     "prepared_not_upload_ready": [
@@ -705657,7 +705697,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 25,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
