@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 115954,
-    "manifest_upload_ready_episodes": 17,
-    "uploaded_episodes": 75648,
-    "prepared_source_episodes": 65502,
+    "manifest_upload_ready_episodes": 25,
+    "uploaded_episodes": 75649,
+    "prepared_source_episodes": 65501,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 56,
-    "language_whisper_attempted_sources": 48,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54286,
     "whisper_review_pending_sources": 38285,
     "subtitle_followup_sources": 48082,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-23T20:35:10Z",
+      "databaseId": 40020357678,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-23T20:35:06Z",
+      "databaseId": 40020347429,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-23T20:33:06Z",
+      "databaseId": 40020090200,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-23T20:33:02Z",
+      "databaseId": 40020081515,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-23T20:32:46Z",
+      "databaseId": 40020047155,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-23T20:31:39Z",
       "databaseId": 40019903003,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +71,7 @@
       "createdAt": "2026-10-23T20:31:36Z",
       "databaseId": 40019897022,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -67,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-23T20:28:12Z",
       "databaseId": 40019450857,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-23T20:20:44Z",
-      "databaseId": 40018486685,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-23T20:20:43Z",
-      "databaseId": 40018485121,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-23T20:20:40Z",
-      "databaseId": 40018477968,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-23T20:17:47Z",
-      "databaseId": 40018107908,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-23T20:16:16Z",
-      "databaseId": 40017915102,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -352674,6 +352674,11 @@
         "episode_id": 75926,
         "display_name": "Nemocnice New Amsterdam S04E08 - 8. epizoda CZ Titulky",
         "video_id": 30466170
+      },
+      {
+        "episode_id": 75927,
+        "display_name": "Nemocnice New Amsterdam S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 30466509
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -705066,6 +705071,11 @@
         "episode_id": 75926,
         "display_name": "Nemocnice New Amsterdam S04E08 - 8. epizoda CZ Titulky",
         "video_id": 30466170
+      },
+      {
+        "episode_id": 75927,
+        "display_name": "Nemocnice New Amsterdam S04E09 - 9. epizoda CZ Titulky",
+        "video_id": 30466509
       }
     ],
     "prepared_not_upload_ready": [
@@ -706227,8 +706237,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 8,
-    "ok": 47,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
