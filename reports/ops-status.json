@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 115932,
-    "manifest_upload_ready_episodes": 2,
-    "uploaded_episodes": 75690,
-    "prepared_source_episodes": 65370,
+    "manifest_upload_ready_episodes": 6,
+    "uploaded_episodes": 75691,
+    "prepared_source_episodes": 65354,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
+    "language_audited_sources": 42,
     "language_whisper_attempted_sources": 20,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54284,
@@ -20,10 +20,66 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-24T11:39:30Z",
+      "databaseId": 40090778136,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-24T11:39:27Z",
+      "databaseId": 40090774674,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-24T11:38:31Z",
+      "databaseId": 40090715518,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-24T11:38:25Z",
+      "databaseId": 40090709069,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-24T11:38:01Z",
+      "databaseId": 40090680447,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-24T11:36:54Z",
+      "databaseId": 40090607964,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-24T11:36:51Z",
+      "databaseId": 40090604464,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-24T11:35:34Z",
       "databaseId": 40090521486,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -35,11 +91,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-24T11:35:08Z",
       "databaseId": 40090490050,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +155,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-24T11:31:14Z",
       "databaseId": 40090228642,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -115,68 +171,12 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-24T11:30:21Z",
       "databaseId": 40090165721,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-24T11:29:24Z",
-      "databaseId": 40090099669,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-24T11:29:11Z",
-      "databaseId": 40090085990,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-24T11:29:07Z",
-      "databaseId": 40090082385,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-24T11:28:36Z",
-      "databaseId": 40090050703,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-24T11:28:29Z",
-      "databaseId": 40090044005,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-24T11:27:52Z",
-      "databaseId": 40090001993,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-24T11:26:55Z",
-      "databaseId": 40089941618,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -352884,6 +352884,11 @@
         "episode_id": 173823,
         "display_name": "சுழல் - The Vortex S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30478401
+      },
+      {
+        "episode_id": 173822,
+        "display_name": "சுழல் - The Vortex S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30478458
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -705486,6 +705491,11 @@
         "episode_id": 173823,
         "display_name": "சுழல் - The Vortex S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30478401
+      },
+      {
+        "episode_id": 173822,
+        "display_name": "சுழல் - The Vortex S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30478458
       }
     ],
     "prepared_not_upload_ready": [
@@ -706647,6 +706657,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 22,
     "ok": 19,
     "resolve_failed": 1
   },
