@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 115926,
-    "manifest_upload_ready_episodes": 2,
-    "uploaded_episodes": 75705,
+    "manifest_upload_ready_episodes": 11,
+    "uploaded_episodes": 75706,
     "prepared_source_episodes": 65342,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 42,
-    "language_whisper_attempted_sources": 42,
+    "language_audited_sources": 43,
+    "language_whisper_attempted_sources": 43,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54283,
-    "whisper_review_pending_sources": 38274,
+    "whisper_review_sources": 54282,
+    "whisper_review_pending_sources": 38271,
     "subtitle_followup_sources": 48124,
     "subtitle_followup_pending_sources": 48124
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-24T14:50:22Z",
+      "databaseId": 40104282088,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-24T14:50:04Z",
+      "databaseId": 40104257544,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-24T14:49:42Z",
+      "databaseId": 40104229659,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-24T14:49:04Z",
+      "databaseId": 40104184025,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-24T14:47:22Z",
       "databaseId": 40104062069,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-24T14:46:52Z",
       "databaseId": 40104022557,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-24T14:45:43Z",
       "databaseId": 40103939887,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-24T14:42:31Z",
-      "databaseId": 40103702914,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-24T14:41:34Z",
-      "databaseId": 40103631507,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-24T14:41:31Z",
-      "databaseId": 40103627597,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-24T14:40:46Z",
-      "databaseId": 40103574296,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -352959,6 +352959,11 @@
         "episode_id": 51343,
         "display_name": "Jak vycvičit draky: Závod na hřeben S03E02 - Krach CZ Dabing",
         "video_id": 30480665
+      },
+      {
+        "episode_id": 51346,
+        "display_name": "Jak vycvičit draky: Závod na hřeben S03E05 - Buvolord CZ Dabing",
+        "video_id": 30480820
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -705636,6 +705641,11 @@
         "episode_id": 51343,
         "display_name": "Jak vycvičit draky: Závod na hřeben S03E02 - Krach CZ Dabing",
         "video_id": 30480665
+      },
+      {
+        "episode_id": 51346,
+        "display_name": "Jak vycvičit draky: Závod na hřeben S03E05 - Buvolord CZ Dabing",
+        "video_id": 30480820
       }
     ],
     "prepared_not_upload_ready": [
@@ -706797,12 +706807,12 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 41,
+    "ok": 42,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36998,
-    "whisper_confirmed_cz": 3750,
+    "needs_whisper": 36995,
+    "whisper_confirmed_cz": 3752,
     "whisper_non_cz_needs_subtitles": 12259,
     "whisper_failed": 1276
   },
