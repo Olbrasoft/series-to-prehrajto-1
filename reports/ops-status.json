@@ -1,16 +1,16 @@
 {
   "counts": {
-    "backlog_episodes": 115843,
-    "manifest_upload_ready_episodes": 21,
-    "uploaded_episodes": 75815,
-    "prepared_source_episodes": 65046,
+    "backlog_episodes": 115815,
+    "manifest_upload_ready_episodes": 23,
+    "uploaded_episodes": 75816,
+    "prepared_source_episodes": 65056,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 23,
-    "language_whisper_attempted_sources": 22,
+    "language_whisper_attempted_sources": 21,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54272,
     "whisper_review_pending_sources": 38233,
@@ -20,18 +20,82 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-25T15:16:18Z",
-      "databaseId": 40206143147,
+      "createdAt": "2026-10-25T15:21:07Z",
+      "databaseId": 40206520371,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "refresh-backlog"
+      "status": "pending",
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-25T15:21:03Z",
+      "databaseId": 40206514867,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T15:20:38Z",
+      "databaseId": 40206481751,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-25T15:20:35Z",
+      "databaseId": 40206477798,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T15:20:35Z",
+      "databaseId": 40206477134,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T15:17:58Z",
+      "databaseId": 40206271798,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T15:17:24Z",
+      "databaseId": 40206226978,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T15:17:06Z",
+      "databaseId": 40206205393,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T15:16:18Z",
+      "databaseId": 40206143147,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-25T15:15:50Z",
       "databaseId": 40206106373,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -107,76 +171,12 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-25T15:07:55Z",
       "databaseId": 40205479454,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T15:07:40Z",
-      "databaseId": 40205459638,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-25T15:07:04Z",
-      "databaseId": 40205415348,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-25T15:05:59Z",
-      "databaseId": 40205328800,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-25T15:05:15Z",
-      "databaseId": 40205270219,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T15:04:40Z",
-      "databaseId": 40205221013,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T15:01:03Z",
-      "databaseId": 40204933799,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T14:59:43Z",
-      "databaseId": 40204816394,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T14:57:42Z",
-      "databaseId": 40204669104,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -353496,6 +353496,11 @@
         "video_id": 30498987
       },
       {
+        "episode_id": 71710,
+        "display_name": "Kriminálka New York S04E04 - Čas vypršel CZ Dabing",
+        "video_id": 30499815
+      },
+      {
         "episode_id": 71711,
         "display_name": "Kriminálka New York S04E05 - Do zaječí nory CZ Titulky",
         "video_id": 30499283
@@ -706723,6 +706728,11 @@
         "video_id": 30498987
       },
       {
+        "episode_id": 71710,
+        "display_name": "Kriminálka New York S04E04 - Čas vypršel CZ Dabing",
+        "video_id": 30499815
+      },
+      {
         "episode_id": 71711,
         "display_name": "Kriminálka New York S04E05 - Do zaječí nory CZ Titulky",
         "video_id": 30499283
@@ -707897,8 +707907,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 1,
-    "ok": 21,
+    "disabled": 2,
+    "ok": 20,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
