@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 115869,
-    "manifest_upload_ready_episodes": 12,
-    "uploaded_episodes": 75778,
-    "prepared_source_episodes": 65132,
+    "manifest_upload_ready_episodes": 8,
+    "uploaded_episodes": 75779,
+    "prepared_source_episodes": 65131,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 51,
+    "language_whisper_attempted_sources": 46,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54275,
-    "whisper_review_pending_sources": 38243,
+    "whisper_review_pending_sources": 38242,
     "subtitle_followup_sources": 48165,
     "subtitle_followup_pending_sources": 48165
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:59:54Z",
+      "databaseId": 40187026516,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:58:27Z",
+      "databaseId": 40186934712,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T10:57:57Z",
+      "databaseId": 40186904479,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:57:52Z",
+      "databaseId": 40186899836,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-10-25T10:56:08Z",
@@ -27,11 +59,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-25T10:56:05Z",
       "databaseId": 40186785845,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -51,19 +83,19 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-25T10:55:02Z",
       "databaseId": 40186716491,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-25T10:54:57Z",
       "databaseId": 40186710812,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-25T10:51:53Z",
-      "databaseId": 40186510746,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T10:51:26Z",
-      "databaseId": 40186480822,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T10:51:20Z",
-      "databaseId": 40186473176,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T10:51:16Z",
-      "databaseId": 40186469028,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -185754,6 +185754,11 @@
         "episode_id": 52873,
         "display_name": "Kriminálka New York S02E04 - Firemní bojovníci CZ Dabing",
         "video_id": 30495720
+      },
+      {
+        "episode_id": 53816,
+        "display_name": "Zlo S04E05 - How to Fly an Airplane CZ Titulky",
+        "video_id": 30495955
       },
       {
         "episode_id": 114182,
@@ -538798,6 +538803,11 @@
         "video_id": 30495720
       },
       {
+        "episode_id": 53816,
+        "display_name": "Zlo S04E05 - How to Fly an Airplane CZ Titulky",
+        "video_id": 30495955
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -707527,13 +707537,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "disabled": 5,
+    "ok": 45,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36967,
+    "needs_whisper": 36966,
     "whisper_confirmed_cz": 3765,
-    "whisper_non_cz_needs_subtitles": 12267,
+    "whisper_non_cz_needs_subtitles": 12268,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
