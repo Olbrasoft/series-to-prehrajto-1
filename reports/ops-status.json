@@ -1,37 +1,101 @@
 {
   "counts": {
     "backlog_episodes": 115796,
-    "manifest_upload_ready_episodes": 24,
-    "uploaded_episodes": 75843,
-    "prepared_source_episodes": 65098,
+    "manifest_upload_ready_episodes": 23,
+    "uploaded_episodes": 75844,
+    "prepared_source_episodes": 65096,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54272,
-    "whisper_review_pending_sources": 38231,
-    "subtitle_followup_sources": 48192,
-    "subtitle_followup_pending_sources": 48192
+    "whisper_review_pending_sources": 38229,
+    "subtitle_followup_sources": 48193,
+    "subtitle_followup_pending_sources": 48193
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-25T22:46:56Z",
-      "databaseId": 40241785389,
+      "createdAt": "2026-10-25T22:53:58Z",
+      "databaseId": 40242301242,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-25T22:53:55Z",
+      "databaseId": 40242298222,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T22:53:03Z",
+      "databaseId": 40242236859,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T22:52:16Z",
+      "databaseId": 40242181436,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T22:51:23Z",
+      "databaseId": 40242115356,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "external-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-25T22:50:19Z",
+      "databaseId": 40242033248,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-25T22:49:28Z",
+      "databaseId": 40241970292,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T22:48:02Z",
+      "databaseId": 40241866061,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T22:46:56Z",
+      "databaseId": 40241785389,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-25T22:45:11Z",
       "databaseId": 40241654017,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -55,7 +119,7 @@
       "createdAt": "2026-10-25T22:43:30Z",
       "databaseId": 40241532311,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -99,11 +163,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-25T22:40:35Z",
       "databaseId": 40241307848,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T22:38:22Z",
-      "databaseId": 40241134474,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-25T22:37:40Z",
-      "databaseId": 40241081372,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-25T22:37:11Z",
-      "databaseId": 40241044344,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T22:36:46Z",
-      "databaseId": 40241011653,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T22:36:43Z",
-      "databaseId": 40241008214,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-25T22:35:36Z",
-      "databaseId": 40240920428,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T22:35:14Z",
-      "databaseId": 40240890965,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T22:35:12Z",
-      "databaseId": 40240888721,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -185894,6 +185894,11 @@
         "episode_id": 71716,
         "display_name": "Kriminálka New York S04E18 - Přijímací řízení CZ Titulky",
         "video_id": 30509254
+      },
+      {
+        "episode_id": 51696,
+        "display_name": "Vražedná čísla S04E01 - Míra důvěry CZ Titulky",
+        "video_id": 30510156
       },
       {
         "episode_id": 114182,
@@ -539263,6 +539268,11 @@
         "video_id": 30509254
       },
       {
+        "episode_id": 51696,
+        "display_name": "Vražedná čísla S04E01 - Míra důvěry CZ Titulky",
+        "video_id": 30510156
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -708177,16 +708187,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36955,
+    "needs_whisper": 36953,
     "whisper_confirmed_cz": 3770,
-    "whisper_non_cz_needs_subtitles": 12271,
+    "whisper_non_cz_needs_subtitles": 12273,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48192
+    "needs_subtitle_setup_after_prehrajto_processing": 48193
   }
 }
