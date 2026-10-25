@@ -2,22 +2,86 @@
   "counts": {
     "backlog_episodes": 115869,
     "manifest_upload_ready_episodes": 11,
-    "uploaded_episodes": 75775,
-    "prepared_source_episodes": 65133,
+    "uploaded_episodes": 75777,
+    "prepared_source_episodes": 65131,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 24,
+    "language_whisper_attempted_sources": 24,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54276,
-    "whisper_review_pending_sources": 38245,
+    "whisper_review_sources": 54275,
+    "whisper_review_pending_sources": 38240,
     "subtitle_followup_sources": 48163,
     "subtitle_followup_pending_sources": 48163
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:43:29Z",
+      "databaseId": 40185945050,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:42:48Z",
+      "databaseId": 40185898040,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:41:17Z",
+      "databaseId": 40185796637,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-25T10:40:00Z",
+      "databaseId": 40185705527,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:38:28Z",
+      "databaseId": 40185606004,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T10:37:49Z",
+      "databaseId": 40185561112,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-25T10:37:46Z",
+      "databaseId": 40185557937,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-25T10:37:44Z",
+      "databaseId": 40185555456,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-25T10:37:17Z",
@@ -27,11 +91,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-25T10:36:42Z",
       "databaseId": 40185486278,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -113,70 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T10:31:43Z",
-      "databaseId": 40185146130,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-25T10:31:30Z",
-      "databaseId": 40185131266,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-25T10:31:25Z",
-      "databaseId": 40185126057,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-25T10:28:33Z",
-      "databaseId": 40184921328,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T10:27:40Z",
-      "databaseId": 40184860868,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T10:27:37Z",
-      "databaseId": 40184857706,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-25T10:27:29Z",
-      "databaseId": 40184849181,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-25T10:27:19Z",
-      "databaseId": 40184837597,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
     }
   ],
   "gaps": {
@@ -185746,6 +185746,11 @@
         "video_id": 30495734
       },
       {
+        "episode_id": 50808,
+        "display_name": "Cestovatelé v čase S01E13 - Karma chameleon CZ Dabing",
+        "video_id": 30495765
+      },
+      {
         "episode_id": 52873,
         "display_name": "Kriminálka New York S02E04 - Firemní bojovníci CZ Dabing",
         "video_id": 30495720
@@ -353309,6 +353314,11 @@
         "episode_id": 50818,
         "display_name": "Cestovatelé v čase S02E07 - Paní Sherlock Holmesová CZ Titulky",
         "video_id": 30495725
+      },
+      {
+        "episode_id": 53823,
+        "display_name": "Zlo S04E13 - Fear of the Unholy CZ Titulky",
+        "video_id": 30495780
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -538773,6 +538783,11 @@
         "video_id": 30495734
       },
       {
+        "episode_id": 50808,
+        "display_name": "Cestovatelé v čase S01E13 - Karma chameleon CZ Dabing",
+        "video_id": 30495765
+      },
+      {
         "episode_id": 52873,
         "display_name": "Kriminálka New York S02E04 - Firemní bojovníci CZ Dabing",
         "video_id": 30495720
@@ -706336,6 +706351,11 @@
         "episode_id": 50818,
         "display_name": "Cestovatelé v čase S02E07 - Paní Sherlock Holmesová CZ Titulky",
         "video_id": 30495725
+      },
+      {
+        "episode_id": 53823,
+        "display_name": "Zlo S04E13 - Fear of the Unholy CZ Titulky",
+        "video_id": 30495780
       }
     ],
     "prepared_not_upload_ready": [
@@ -707497,13 +707517,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
+    "ok": 23,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36969,
-    "whisper_confirmed_cz": 3764,
-    "whisper_non_cz_needs_subtitles": 12267,
+    "needs_whisper": 36964,
+    "whisper_confirmed_cz": 3765,
+    "whisper_non_cz_needs_subtitles": 12270,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
