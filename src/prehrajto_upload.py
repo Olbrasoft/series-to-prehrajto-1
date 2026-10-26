@@ -11,6 +11,7 @@ import os
 import sys
 from pathlib import Path
 import requests
+from source_download import VIDEO_TYPES
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -95,7 +96,9 @@ def upload_video(
     # Přehraj.to prepareVideo/CDN require a name ending in an extension.
     # If caller wants a clean display name (e.g. "Lví král (1994) CZ Dabing"),
     # we upload with ".mp4" appended and strip it via a rename call after.
-    upload_name = final_name if "." in final_name else final_name + ".mp4"
+    suffix = path.suffix.lower() if path.suffix.lower() in VIDEO_TYPES else ".mp4"
+    upload_name = final_name if Path(final_name).suffix.lower() == suffix else final_name + suffix
+    content_type = VIDEO_TYPES[suffix]
     print(f"[upload] Soubor: {path.name} ({size} B), upload name: {upload_name}, final: {final_name}")
 
     # Priming GET /profil/nahrat-soubor — browser does this on page load; moderace
@@ -136,7 +139,7 @@ def upload_video(
             "description": description,
             "name": upload_name,
             "size": str(size),
-            "type": "video/mp4",
+            "type": content_type,
             "erotic": "false",
             "folder": "",
             "private": "true" if private else "false",
@@ -157,7 +160,7 @@ def upload_video(
     # tuples we control order.
     with path.open("rb") as fh:
         multipart = [
-            ("files", (upload_name, fh, "video/mp4")),
+            ("files", (upload_name, fh, content_type)),
             ("response", (None, prep_data["response"])),
             ("project", (None, prep_data["project"])),
             ("nonce", (None, prep_data["nonce"])),

@@ -1,5 +1,23 @@
 # Operations handoff
 
+## Complete downloads and interrupted transfers (October 26, 2026)
+
+Some player URLs contain a signed `limitsize` below the full stream size.
+Their preview allowance can end with curl 18/56 and a subsequent HTTP 403.
+When this restriction is explicit, upload workers use the portal's normal
+`?do=download` action in their authenticated session and follow its unmodified
+redirect to the complete original. The original must have a measurable size,
+a supported video extension and a trusted HTTPS CDN location. Existing 300 MiB
+minimum and 6 GB maximum limits still apply. Originals retain their extension
+and MIME type during upload; the display name is restored afterwards.
+
+Ordinary EOF/network failures resume received bytes up to twice within the
+original timeout. Resumed ranges, available validators and total length must
+match. HTTP errors, invalid resumes and slow transfers are not retried.
+Failed partial files are removed, and a successful transfer must match its
+expected length before upload. State records `source_download_kind` and
+`source_container` so production acceptance can distinguish the new path.
+
 ## Prepared-source recovery (October 20, 2026)
 
 A green sync can finish without uploading because its manifest is empty.

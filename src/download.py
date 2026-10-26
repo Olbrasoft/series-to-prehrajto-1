@@ -16,6 +16,8 @@ from __future__ import annotations
 import shutil
 import subprocess
 import re
+import tempfile
+import time
 from pathlib import Path
 
 import requests
@@ -41,6 +43,21 @@ MAX_FILE_SIZE = 6_000_000_000  # 6 GB
 
 class DownloadError(Exception):
     pass
+
+
+def transfer_headers(path: Path) -> tuple[int, dict[str, str]]:
+    """Read the last response, excluding redirects and proxy handshakes."""
+    status, headers = 0, {}
+    for line in path.read_text(errors="replace").splitlines():
+        if line.startswith("HTTP/"):
+            parts = line.split()
+            if len(parts) < 2 or not parts[1].isdigit():
+                raise DownloadError("invalid download response status")
+            status, headers = int(parts[1]), {}
+        elif ":" in line:
+            name, value = line.split(":", 1)
+            headers[name.lower()] = value.strip()
+    return status, headers
 
 
 def head_size(url: str, *, timeout_sec: int = 30) -> int | None:
@@ -80,39 +97,90 @@ def download_to(
     timeout_sec: int = 3600,
     min_speed_bytes: int = 10_000,
     speed_time_sec: int = 60,
+    expected_size: int | None = None,
 ) -> int:
     """Download `url` to `dest`. Returns size in bytes. Raises DownloadError on failure.
 
-    Uses a single curl call with HTTP Range (`bytes=0-`) — premiumcdn supports
-    Range and some endpoints require it. The caller controls curl's low-speed
-    guard so long-running batch jobs can skip unusably slow sources sooner.
-    On non-zero exit, the partial file is removed.
+    Resume premature EOF/network failures up to twice within one time budget.
+    Validate resumed ranges, total length and available resource validators.
+    HTTP errors, slow transfers and invalid resumes fail without uploading a
+    partial file. The caller controls the low-speed guard.
     """
     if not shutil.which("curl"):
         raise DownloadError("curl not found in PATH")
 
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)
-    cmd = [
-        "curl", "-fL", url,
-        "-H", f"User-Agent: {USER_AGENT}",
-        "-H", "Referer: https://prehraj.to/",
-        "-H", "Range: bytes=0-",
-        "--max-time", str(timeout_sec),
-        "--speed-time", str(speed_time_sec), "--speed-limit", str(min_speed_bytes),
-        "-s", "-S",
-        "-o", str(dest),
-    ]
-    proc = subprocess.run(cmd, capture_output=True, text=True)
-    if proc.returncode != 0:
+    dest.unlink(missing_ok=True)
+    deadline = time.monotonic() + timeout_sec
+    validator = None
+    total = expected_size
+    try:
+        with tempfile.TemporaryDirectory(prefix="prehrajto-download-") as directory:
+            header_path = Path(directory) / "response.headers"
+            for attempt in range(3):
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise DownloadError("download time budget exhausted")
+                offset = dest.stat().st_size if dest.exists() else 0
+                header_path.write_text("")
+                cmd = ["curl", "-fL", url, "-H", f"User-Agent: {USER_AGENT}",
+                       "-H", "Referer: https://prehraj.to/", "--max-time", str(remaining),
+                       "--speed-time", str(speed_time_sec), "--speed-limit", str(min_speed_bytes),
+                       "--dump-header", str(header_path), "-s", "-S", "-o", str(dest)]
+                if offset:
+                    cmd += ["--continue-at", str(offset)]
+                    if validator:
+                        cmd += ["-H", f"If-Range: {validator}"]
+                else:
+                    cmd += ["-H", "Range: bytes=0-"]
+                try:
+                    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=remaining + 5)
+                except (subprocess.TimeoutExpired, OSError) as exc:
+                    raise DownloadError(f"download process failed: {type(exc).__name__}") from exc
+                status, headers = transfer_headers(header_path)
+                current_validator = headers.get("etag")
+                if current_validator and current_validator.startswith("W/"):
+                    current_validator = None
+                current_validator = current_validator or headers.get("last-modified")
+                if validator and current_validator and current_validator != validator:
+                    raise DownloadError("resource changed during download")
+                if status == 206:
+                    match = re.fullmatch(r"bytes (\d+)-(\d+)/(\d+)", headers.get("content-range", ""))
+                    if not match or int(match[1]) != offset or not offset <= int(match[2]) < int(match[3]):
+                        raise DownloadError("invalid resumed byte range")
+                    response_total = int(match[3])
+                elif status == 200 and not offset:
+                    length = headers.get("content-length", "")
+                    response_total = int(length) if length.isdigit() else None
+                elif offset and status:
+                    raise DownloadError("server did not honor download resume")
+                else:
+                    response_total = None
+                if response_total is not None:
+                    if total is not None and response_total != total:
+                        raise DownloadError("resource length changed during download")
+                    total = response_total
+                validator = validator or current_validator
+                size = dest.stat().st_size if dest.exists() else 0
+                if total is not None and size > total:
+                    raise DownloadError("download exceeds expected resource length")
+                if proc.returncode == 0:
+                    if total is not None and size != total:
+                        raise DownloadError("incomplete resource after successful transfer")
+                    if size < MIN_FILE_SIZE:
+                        raise DownloadError(f"file too small ({size} B), likely CDN error page")
+                    return size
+                if proc.returncode not in {7, 18, 35, 52, 55, 56} or attempt == 2:
+                    message = re.sub(r"https?://\S+", "[redacted URL]", proc.stderr.strip())
+                    raise DownloadError(f"curl exit {proc.returncode}: {message[:300]}")
+                # Preserve received bytes; restarting a large stream repeats the
+                # same failing prefix and wastes both bandwidth and queue slots.
+                print(f"download retry={attempt + 1}/2 received_bytes={size} curl_exit={proc.returncode}", flush=True)
+                time.sleep(min(2, max(0, deadline - time.monotonic())))
+    except Exception:
         dest.unlink(missing_ok=True)
-        raise DownloadError(f"curl exit {proc.returncode}: {proc.stderr.strip()[:300]}")
-
-    size = dest.stat().st_size
-    if size < MIN_FILE_SIZE:
-        dest.unlink(missing_ok=True)
-        raise DownloadError(f"file too small ({size} B), likely CDN error page")
-    return size
+        raise
 
 
 def _cli() -> int:
