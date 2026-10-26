@@ -1,37 +1,125 @@
 {
   "counts": {
     "backlog_episodes": 115667,
-    "manifest_upload_ready_episodes": 117,
-    "uploaded_episodes": 75982,
-    "prepared_source_episodes": 65210,
+    "manifest_upload_ready_episodes": 104,
+    "uploaded_episodes": 75990,
+    "prepared_source_episodes": 65212,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 50,
+    "language_audited_sources": 51,
     "language_whisper_attempted_sources": 47,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54280,
-    "whisper_review_pending_sources": 38256,
+    "whisper_review_sources": 54281,
+    "whisper_review_pending_sources": 38259,
     "subtitle_followup_sources": 48284,
     "subtitle_followup_pending_sources": 48284
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-26T22:36:28Z",
-      "databaseId": 40413728424,
+      "createdAt": "2026-10-26T22:41:47Z",
+      "databaseId": 40414398224,
       "headBranch": "main",
-      "status": "queued",
-      "workflowName": "backfill-subtitles"
+      "status": "pending",
+      "workflowName": "audit-language"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T22:41:14Z",
+      "databaseId": 40414332783,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T22:41:01Z",
+      "databaseId": 40414307459,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-26T22:40:58Z",
+      "databaseId": 40414300267,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-26T22:40:34Z",
+      "databaseId": 40414250909,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T22:39:01Z",
+      "databaseId": 40414053805,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T22:38:59Z",
+      "databaseId": 40414048693,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "failure",
+      "createdAt": "2026-10-26T22:37:42Z",
+      "databaseId": 40413884994,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T22:36:55Z",
+      "databaseId": 40413786193,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T22:36:51Z",
+      "databaseId": 40413778973,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-26T22:36:32Z",
+      "databaseId": 40413737891,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T22:36:28Z",
+      "databaseId": 40413728424,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T22:35:33Z",
       "databaseId": 40413610297,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -89,94 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T22:26:36Z",
-      "databaseId": 40412462932,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T22:25:59Z",
-      "databaseId": 40412382108,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T22:25:29Z",
-      "databaseId": 40412316411,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T22:25:28Z",
-      "databaseId": 40412313444,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T22:24:37Z",
-      "databaseId": 40412203125,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T22:24:15Z",
-      "databaseId": 40412155260,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T22:22:51Z",
-      "databaseId": 40411975489,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T22:22:47Z",
-      "databaseId": 40411967396,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T22:21:38Z",
-      "databaseId": 40411820572,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T22:21:29Z",
-      "databaseId": 40411800853,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T22:21:03Z",
-      "databaseId": 40411746073,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -186236,9 +186236,24 @@
         "video_id": 30546287
       },
       {
+        "episode_id": 203824,
+        "display_name": "Tohle nikdo nechce S03E05 - 5. epizoda CZ Dabing",
+        "video_id": 30546329
+      },
+      {
         "episode_id": 203829,
         "display_name": "Tohle nikdo nechce S03E10 - 10. epizoda CZ Dabing",
         "video_id": 30546286
+      },
+      {
+        "episode_id": 22609,
+        "display_name": "M*A*S*H S07E19 - Šťabajzna se vrací CZ Dabing",
+        "video_id": 30546322
+      },
+      {
+        "episode_id": 22613,
+        "display_name": "M*A*S*H S07E23 - Noc u Rosie CZ Dabing",
+        "video_id": 30546347
       },
       {
         "episode_id": 114182,
@@ -354341,9 +354356,34 @@
         "video_id": 30545903
       },
       {
+        "episode_id": 203742,
+        "display_name": "Diplomatické vztahy S04E06 - Mrtví CZ Dabing",
+        "video_id": 30546291
+      },
+      {
+        "episode_id": 203822,
+        "display_name": "Tohle nikdo nechce S03E03 - 3. epizoda CZ Dabing",
+        "video_id": 30546333
+      },
+      {
         "episode_id": 73747,
         "display_name": "Sweet Tooth: Chlapec s parožím S02E04 - Darebák CZ Dabing",
         "video_id": 30546279
+      },
+      {
+        "episode_id": 22603,
+        "display_name": "M*A*S*H S07E13 - Oko za oko, zub za zub CZ Dabing",
+        "video_id": 30546308
+      },
+      {
+        "episode_id": 22643,
+        "display_name": "M*A*S*H S09E03 - Betonové přátelství CZ Dabing",
+        "video_id": 30546336
+      },
+      {
+        "episode_id": 22647,
+        "display_name": "M*A*S*H S09E07 - Verbování CZ Dabing",
+        "video_id": 30546358
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -540298,9 +540338,24 @@
         "video_id": 30546287
       },
       {
+        "episode_id": 203824,
+        "display_name": "Tohle nikdo nechce S03E05 - 5. epizoda CZ Dabing",
+        "video_id": 30546329
+      },
+      {
         "episode_id": 203829,
         "display_name": "Tohle nikdo nechce S03E10 - 10. epizoda CZ Dabing",
         "video_id": 30546286
+      },
+      {
+        "episode_id": 22609,
+        "display_name": "M*A*S*H S07E19 - Šťabajzna se vrací CZ Dabing",
+        "video_id": 30546322
+      },
+      {
+        "episode_id": 22613,
+        "display_name": "M*A*S*H S07E23 - Noc u Rosie CZ Dabing",
+        "video_id": 30546347
       },
       {
         "episode_id": 114182,
@@ -708403,9 +708458,34 @@
         "video_id": 30545903
       },
       {
+        "episode_id": 203742,
+        "display_name": "Diplomatické vztahy S04E06 - Mrtví CZ Dabing",
+        "video_id": 30546291
+      },
+      {
+        "episode_id": 203822,
+        "display_name": "Tohle nikdo nechce S03E03 - 3. epizoda CZ Dabing",
+        "video_id": 30546333
+      },
+      {
         "episode_id": 73747,
         "display_name": "Sweet Tooth: Chlapec s parožím S02E04 - Darebák CZ Dabing",
         "video_id": 30546279
+      },
+      {
+        "episode_id": 22603,
+        "display_name": "M*A*S*H S07E13 - Oko za oko, zub za zub CZ Dabing",
+        "video_id": 30546308
+      },
+      {
+        "episode_id": 22643,
+        "display_name": "M*A*S*H S09E03 - Betonové přátelství CZ Dabing",
+        "video_id": 30546336
+      },
+      {
+        "episode_id": 22647,
+        "display_name": "M*A*S*H S09E07 - Verbování CZ Dabing",
+        "video_id": 30546358
       }
     ],
     "prepared_not_upload_ready": [
@@ -709568,13 +709648,13 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "ok": 46,
-    "disabled": 3,
+    "disabled": 4,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36980,
-    "whisper_confirmed_cz": 3771,
-    "whisper_non_cz_needs_subtitles": 12253,
+    "needs_whisper": 36983,
+    "whisper_confirmed_cz": 3770,
+    "whisper_non_cz_needs_subtitles": 12252,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
