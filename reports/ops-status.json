@@ -1,37 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 115667,
-    "manifest_upload_ready_episodes": 84,
-    "uploaded_episodes": 76006,
-    "prepared_source_episodes": 65206,
+    "manifest_upload_ready_episodes": 82,
+    "uploaded_episodes": 76007,
+    "prepared_source_episodes": 65212,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 46,
-    "language_whisper_attempted_sources": 40,
-    "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54282,
-    "whisper_review_pending_sources": 38263,
-    "subtitle_followup_sources": 48285,
-    "subtitle_followup_pending_sources": 48285
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
+    "whisper_review_sources": 54281,
+    "whisper_review_pending_sources": 38257,
+    "subtitle_followup_sources": 48286,
+    "subtitle_followup_pending_sources": 48286
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-26T22:56:43Z",
-      "databaseId": 40416241737,
+      "createdAt": "2026-10-26T22:58:03Z",
+      "databaseId": 40416396753,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T22:57:55Z",
+      "databaseId": 40416380349,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T22:57:51Z",
+      "databaseId": 40416373438,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T22:56:43Z",
+      "databaseId": 40416241737,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T22:56:40Z",
       "databaseId": 40416236362,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "prepare-sources"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-26T22:54:20Z",
       "databaseId": 40415950608,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T22:44:18Z",
-      "databaseId": 40414711931,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T22:43:36Z",
-      "databaseId": 40414626944,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T22:43:04Z",
-      "databaseId": 40414558768,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -186264,6 +186264,11 @@
         "episode_id": 22624,
         "display_name": "M*A*S*H S08E09 - Pan a paní Kdo? CZ Dabing",
         "video_id": 30546514
+      },
+      {
+        "episode_id": 22652,
+        "display_name": "M*A*S*H S09E12 - Nepříjemné zprávy CZ Dabing",
+        "video_id": 30546535
       },
       {
         "episode_id": 203829,
@@ -540448,6 +540453,11 @@
         "video_id": 30546514
       },
       {
+        "episode_id": 22652,
+        "display_name": "M*A*S*H S09E12 - Nepříjemné zprávy CZ Dabing",
+        "video_id": 30546535
+      },
+      {
         "episode_id": 203829,
         "display_name": "Tohle nikdo nechce S03E10 - 10. epizoda CZ Dabing",
         "video_id": 30546286
@@ -709807,17 +709817,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 6,
-    "ok": 39,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36987,
-    "whisper_confirmed_cz": 3769,
-    "whisper_non_cz_needs_subtitles": 12250,
+    "needs_whisper": 36981,
+    "whisper_confirmed_cz": 3771,
+    "whisper_non_cz_needs_subtitles": 12253,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48285
+    "needs_subtitle_setup_after_prehrajto_processing": 48286
   }
 }
