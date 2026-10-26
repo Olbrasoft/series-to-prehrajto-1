@@ -1,15 +1,15 @@
 {
   "counts": {
     "backlog_episodes": 115709,
-    "manifest_upload_ready_episodes": 149,
-    "uploaded_episodes": 75946,
-    "prepared_source_episodes": 65120,
+    "manifest_upload_ready_episodes": 148,
+    "uploaded_episodes": 75948,
+    "prepared_source_episodes": 65121,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 28,
+    "language_audited_sources": 22,
     "language_whisper_attempted_sources": 22,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54281,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T20:21:41Z",
+      "databaseId": 40394930769,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T20:21:00Z",
+      "databaseId": 40394831744,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-26T20:18:36Z",
+      "databaseId": 40394479720,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T20:17:03Z",
+      "databaseId": 40394250842,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T20:16:57Z",
+      "databaseId": 40394236457,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T20:15:41Z",
       "databaseId": 40394053561,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T20:05:54Z",
-      "databaseId": 40392592417,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "failure",
-      "createdAt": "2026-10-26T20:05:44Z",
-      "databaseId": 40392568611,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-26T19:59:37Z",
-      "databaseId": 40391660598,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T19:59:31Z",
-      "databaseId": 40391646294,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T19:56:03Z",
-      "databaseId": 40391144808,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -354164,6 +354164,16 @@
         "episode_id": 203838,
         "display_name": "Lupin S04E04 CZ Dabing",
         "video_id": 30543590
+      },
+      {
+        "episode_id": 83830,
+        "display_name": "Vraždy v Midsomeru S06E01 - Umění žít CZ Titulky",
+        "video_id": 30543940
+      },
+      {
+        "episode_id": 203819,
+        "display_name": "Země gangů S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 30543939
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -708046,6 +708056,16 @@
         "episode_id": 203838,
         "display_name": "Lupin S04E04 CZ Dabing",
         "video_id": 30543590
+      },
+      {
+        "episode_id": 83830,
+        "display_name": "Vraždy v Midsomeru S06E01 - Umění žít CZ Titulky",
+        "video_id": 30543940
+      },
+      {
+        "episode_id": 203819,
+        "display_name": "Země gangů S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 30543939
       }
     ],
     "prepared_not_upload_ready": [
@@ -709207,14 +709227,13 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 6,
     "ok": 21,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36985,
-    "whisper_confirmed_cz": 3766,
-    "whisper_non_cz_needs_subtitles": 12254,
+    "whisper_confirmed_cz": 3767,
+    "whisper_non_cz_needs_subtitles": 12253,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
