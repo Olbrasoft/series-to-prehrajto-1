@@ -4,10 +4,17 @@ on:
     paths:
       - "src/build_upload_manifest.py"
       - "src/download.py"
+      - "src/sync_batch.py"
+      - "src/source_download.py"
+      - "src/prehrajto_upload.py"
       - "src/audit_language_sources.py"
       - "src/prepare_episode_sources.py"
       - "src/source_quality.py"
       - "tests/test_stream_size_probe.py"
+      - "tests/test_download_resume.py"
+      - "tests/test_source_download.py"
+      - "tests/test_upload_original_format.py"
+      - "tests/test_sync_complete_download.py"
       - "tests/test_build_upload_manifest.py"
       - "tests/test_source_discovery_recovery.py"
       - "tests/test_prepare_episode_sources.py"
@@ -24,4 +31,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt pytest
-      - run: python -m pytest tests/test_stream_size_probe.py tests/test_build_upload_manifest.py tests/test_source_discovery_recovery.py tests/test_prepare_episode_sources.py tests/test_merge_preparation_results.py -q
+      - run: python -m pytest tests/test_download_resume.py tests/test_stream_size_probe.py tests/test_source_download.py tests/test_upload_original_format.py tests/test_sync_complete_download.py tests/test_build_upload_manifest.py tests/test_source_discovery_recovery.py tests/test_prepare_episode_sources.py tests/test_merge_preparation_results.py -q

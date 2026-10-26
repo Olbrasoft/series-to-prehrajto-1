@@ -16,6 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from download import MAX_FILE_SIZE, DownloadError, download_to, head_size  # noqa: E402
+from source_download import official_download, player_download_limited  # noqa: E402
 from description_quality import is_valid_generated_description  # noqa: E402
 from language_checks import has_probable_czech, whisper_language  # noqa: E402
 from pick_next_episode import BACKLOG, NUM_SHARDS, SHARD_ID, STATE, load_backlog, load_state, pick_next  # noqa: E402
@@ -230,6 +231,17 @@ def try_candidate(episode: dict, candidate: dict, session, state: dict, *, allow
     log(f"  resolved in {resolve_sec}s -> {best.label}")
 
     expected = head_size(best.url)
+    download_url, suffix, download_kind = best.url, ".mp4", "stream"
+    if player_download_limited(download_url, expected):
+        try:
+            original = official_download(session, candidate["url"], source_name=resolved.name or "")
+        except DownloadError as exc:
+            log(f"  complete source unavailable: {exc}")
+            record_failure(state, episode, candidate, f"complete_source_unavailable: {exc}", permanent=False)
+            return False
+        download_url, expected, suffix = original.url, original.size, original.suffix
+        download_kind = "original"
+        log(f"  player preview limited; using official original ({suffix}, {expected} B)")
     if expected is not None and expected > MAX_FILE_SIZE:
         log(f"  oversize: {expected} B > {MAX_FILE_SIZE} B")
         record_failure(state, episode, candidate, f"oversize: {expected} B", permanent=True)
@@ -239,15 +251,16 @@ def try_candidate(episode: dict, candidate: dict, session, state: dict, *, allow
         record_failure(state, episode, candidate, f"undersize: {expected} B (head)", permanent=True)
         return False
 
-    tmp_path = TMP_DIR / f"{safe_filename(episode['display_name'])}.mp4"
+    tmp_path = TMP_DIR / f"{safe_filename(episode['display_name'])}{suffix}"
     t = time.monotonic()
     try:
         size = download_to(
-            best.url,
+            download_url,
             tmp_path,
             timeout_sec=DOWNLOAD_TIMEOUT_SECONDS,
             min_speed_bytes=DOWNLOAD_MIN_SPEED_BYTES,
             speed_time_sec=DOWNLOAD_SPEED_TIME_SECONDS,
+            expected_size=expected,
         )
     except DownloadError as exc:
         dl_sec = round(time.monotonic() - t, 1)
@@ -318,6 +331,8 @@ def try_candidate(episode: dict, candidate: dict, session, state: dict, *, allow
             "source_url": candidate.get("url"),
             "source_lang_class": candidate.get("lang_class"),
             "source_resolution": best.label,
+            "source_download_kind": download_kind,
+            "source_container": suffix.lstrip("."),
             "description_source": episode.get("description_source"),
             "prehrajto_video_id": video_id,
             "size_bytes": size,
