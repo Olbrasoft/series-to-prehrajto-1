@@ -1,29 +1,61 @@
 {
   "counts": {
     "backlog_episodes": 115709,
-    "manifest_upload_ready_episodes": 141,
-    "uploaded_episodes": 75956,
-    "prepared_source_episodes": 65144,
+    "manifest_upload_ready_episodes": 137,
+    "uploaded_episodes": 75957,
+    "prepared_source_episodes": 65145,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 41,
-    "language_whisper_attempted_sources": 41,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54281,
-    "whisper_review_pending_sources": 38261,
+    "whisper_review_pending_sources": 38263,
     "subtitle_followup_sources": 48275,
     "subtitle_followup_pending_sources": 48275
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T20:58:12Z",
+      "databaseId": 40400318370,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T20:57:43Z",
+      "databaseId": 40400249971,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T20:57:23Z",
+      "databaseId": 40400203207,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-26T20:57:18Z",
+      "databaseId": 40400192553,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T20:56:28Z",
       "databaseId": 40400073832,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +75,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-26T20:55:41Z",
       "databaseId": 40399957897,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T20:47:08Z",
-      "databaseId": 40398716589,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T20:46:37Z",
-      "databaseId": 40398640153,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T20:46:33Z",
-      "databaseId": 40398631179,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T20:45:18Z",
-      "databaseId": 40398445287,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -186169,6 +186169,11 @@
         "episode_id": 76681,
         "display_name": "Famílie S02E09 - 9. epizoda CZ Titulky",
         "video_id": 30544245
+      },
+      {
+        "episode_id": 203840,
+        "display_name": "Lupin S04E06 CZ Dabing",
+        "video_id": 30544869
       },
       {
         "episode_id": 114182,
@@ -540103,6 +540108,11 @@
         "video_id": 30544245
       },
       {
+        "episode_id": 203840,
+        "display_name": "Lupin S04E06 CZ Dabing",
+        "video_id": 30544869
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -709307,13 +709317,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 40,
+    "disabled": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36985,
-    "whisper_confirmed_cz": 3767,
-    "whisper_non_cz_needs_subtitles": 12253,
+    "needs_whisper": 36987,
+    "whisper_confirmed_cz": 3766,
+    "whisper_non_cz_needs_subtitles": 12252,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
