@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 115667,
     "manifest_upload_ready_episodes": 20,
-    "uploaded_episodes": 76055,
+    "uploaded_episodes": 76056,
     "prepared_source_episodes": 65222,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 52,
-    "language_whisper_attempted_sources": 47,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54284,
     "whisper_review_pending_sources": 38272,
     "subtitle_followup_sources": 48294,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T23:52:40Z",
+      "databaseId": 40422714854,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T23:51:40Z",
+      "databaseId": 40422604396,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T23:51:13Z",
       "databaseId": 40422554611,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "external-subtitles"
     },
     {
@@ -31,7 +47,7 @@
       "createdAt": "2026-10-26T23:50:39Z",
       "databaseId": 40422489778,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +55,7 @@
       "createdAt": "2026-10-26T23:50:24Z",
       "databaseId": 40422460678,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +67,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-26T23:49:42Z",
       "databaseId": 40422380150,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-26T23:39:52Z",
-      "databaseId": 40421274440,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T23:38:39Z",
-      "databaseId": 40421143753,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -186419,6 +186419,11 @@
         "episode_id": 17677,
         "display_name": "Můj hořkosladký život S01E02 - 2. epizoda CZ Dabing",
         "video_id": 30547312
+      },
+      {
+        "episode_id": 65917,
+        "display_name": "My Royal Nemesis S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30547360
       },
       {
         "episode_id": 114182,
@@ -540848,6 +540853,11 @@
         "video_id": 30547312
       },
       {
+        "episode_id": 65917,
+        "display_name": "My Royal Nemesis S01E07 - 7. epizoda CZ Titulky",
+        "video_id": 30547360
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -710297,8 +710307,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 46,
-    "disabled": 5,
+    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
