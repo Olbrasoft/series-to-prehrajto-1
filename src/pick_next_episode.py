@@ -9,6 +9,7 @@ import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from source_download import legacy_preview_failure
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_BACKLOG = REPO_ROOT / "backlog" / "series-episodes.jsonl.gz"
@@ -136,6 +137,8 @@ def cooling_down_source_ids(state: dict, *, now: datetime | None = None) -> set[
     cooling: set[int] = set()
     for attempt in state.get("failed_attempts", []):
         if attempt.get("permanent"):
+            continue
+        if legacy_preview_failure(attempt):
             continue
         failed_at = _parse_failed_at(attempt.get("failed_at"))
         if not failed_at:
