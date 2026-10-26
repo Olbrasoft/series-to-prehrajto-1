@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 115732,
     "manifest_upload_ready_episodes": 18,
-    "uploaded_episodes": 75916,
+    "uploaded_episodes": 75917,
     "prepared_source_episodes": 65098,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 24,
-    "language_whisper_attempted_sources": 23,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54278,
     "whisper_review_pending_sources": 38250,
     "subtitle_followup_sources": 48254,
@@ -20,10 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T18:08:37Z",
+      "databaseId": 40375102367,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-26T18:07:24Z",
+      "databaseId": 40374920433,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T18:07:13Z",
+      "databaseId": 40374894863,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T18:06:26Z",
+      "databaseId": 40374775510,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T18:06:14Z",
+      "databaseId": 40374743946,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T18:04:50Z",
       "databaseId": 40374532564,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -107,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-26T17:55:33Z",
       "databaseId": 40373156780,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T17:54:20Z",
-      "databaseId": 40372967805,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T17:52:40Z",
-      "databaseId": 40372713868,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-26T17:52:11Z",
-      "databaseId": 40372639733,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T17:48:07Z",
-      "databaseId": 40372013012,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T17:47:35Z",
-      "databaseId": 40371929932,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -354014,6 +354014,11 @@
         "episode_id": 83863,
         "display_name": "Vraždy v Midsomeru S04E02 - Smrtící anděl CZ Titulky",
         "video_id": 30541182
+      },
+      {
+        "episode_id": 83843,
+        "display_name": "Vraždy v Midsomeru S04E03 - Tajemné kruhy v obilí CZ Titulky",
+        "video_id": 30541312
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -707746,6 +707751,11 @@
         "episode_id": 83863,
         "display_name": "Vraždy v Midsomeru S04E02 - Smrtící anděl CZ Titulky",
         "video_id": 30541182
+      },
+      {
+        "episode_id": 83843,
+        "display_name": "Vraždy v Midsomeru S04E03 - Tajemné kruhy v obilí CZ Titulky",
+        "video_id": 30541312
       }
     ],
     "prepared_not_upload_ready": [
@@ -708907,8 +708917,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 22,
-    "disabled": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
