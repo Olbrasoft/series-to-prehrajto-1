@@ -1,29 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 115732,
-    "manifest_upload_ready_episodes": 18,
-    "uploaded_episodes": 75917,
-    "prepared_source_episodes": 65098,
+    "manifest_upload_ready_episodes": 21,
+    "uploaded_episodes": 75918,
+    "prepared_source_episodes": 65092,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 44,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54278,
-    "whisper_review_pending_sources": 38250,
-    "subtitle_followup_sources": 48254,
-    "subtitle_followup_pending_sources": 48254
+    "whisper_review_sources": 54279,
+    "whisper_review_pending_sources": 38252,
+    "subtitle_followup_sources": 48255,
+    "subtitle_followup_pending_sources": 48255
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T18:14:17Z",
+      "databaseId": 40375937272,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T18:13:51Z",
+      "databaseId": 40375872226,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T18:13:20Z",
+      "databaseId": 40375794666,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T18:13:14Z",
+      "databaseId": 40375782555,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-26T18:13:13Z",
+      "databaseId": 40375780448,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T18:08:37Z",
       "databaseId": 40375102367,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-status"
     },
     {
@@ -67,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-26T18:03:30Z",
       "databaseId": 40374334283,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -135,48 +175,8 @@
       "createdAt": "2026-10-26T17:55:37Z",
       "databaseId": 40373165429,
       "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T17:55:36Z",
-      "databaseId": 40373162717,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T17:55:33Z",
-      "databaseId": 40373156780,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T17:55:12Z",
-      "databaseId": 40373101566,
-      "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T17:54:39Z",
-      "databaseId": 40373016269,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T17:54:38Z",
-      "databaseId": 40373015416,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
+      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -354019,6 +354019,11 @@
         "episode_id": 83843,
         "display_name": "Vraždy v Midsomeru S04E03 - Tajemné kruhy v obilí CZ Titulky",
         "video_id": 30541312
+      },
+      {
+        "episode_id": 83831,
+        "display_name": "Vraždy v Midsomeru S04E05 - Temný podzim CZ Titulky",
+        "video_id": 30541384
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -707756,6 +707761,11 @@
         "episode_id": 83843,
         "display_name": "Vraždy v Midsomeru S04E03 - Tajemné kruhy v obilí CZ Titulky",
         "video_id": 30541312
+      },
+      {
+        "episode_id": 83831,
+        "display_name": "Vraždy v Midsomeru S04E05 - Temný podzim CZ Titulky",
+        "video_id": 30541384
       }
     ],
     "prepared_not_upload_ready": [
@@ -708917,16 +708927,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 4,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36974,
-    "whisper_confirmed_cz": 3766,
-    "whisper_non_cz_needs_subtitles": 12262,
+    "needs_whisper": 36976,
+    "whisper_confirmed_cz": 3767,
+    "whisper_non_cz_needs_subtitles": 12260,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48254
+    "needs_subtitle_setup_after_prehrajto_processing": 48255
   }
 }
