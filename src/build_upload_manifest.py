@@ -13,6 +13,7 @@ from pathlib import Path
 
 from description_quality import is_valid_generated_description
 from source_quality import source_meets_size_requirement
+from source_download import legacy_preview_failure
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MIN_UPLOAD_FILE_SIZE = 300 * 1024 * 1024
@@ -128,6 +129,8 @@ def load_upload_state_exclusions() -> tuple[set[int], set[tuple[int, int, int]],
                 continue
             if failure.get("permanent"):
                 unavailable_sources.add(int(failure["source_id"]))
+                continue
+            if legacy_preview_failure(failure):
                 continue
             failed_at = parse_failed_at(failure.get("failed_at"))
             if failed_at is None:

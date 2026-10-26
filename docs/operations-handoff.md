@@ -18,6 +18,12 @@ Failed partial files are removed, and a successful transfer must match its
 expected length before upload. State records `source_download_kind` and
 `source_container` so production acceptance can distinguish the new path.
 
+Legacy curl 18/56 download failures can retry immediately after this upgrade.
+New failures carry `download_policy_version=1` and retain the normal cooldown.
+Both manifest selection and the uploader apply this rule; permanent failures,
+unknown upload outcomes and uploaded/deleted episode exclusions remain active.
+Failure history is preserved.
+
 ## Prepared-source recovery (October 20, 2026)
 
 A green sync can finish without uploading because its manifest is empty.
