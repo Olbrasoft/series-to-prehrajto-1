@@ -1,45 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 115732,
-    "manifest_upload_ready_episodes": 12,
-    "uploaded_episodes": 75902,
-    "prepared_source_episodes": 65105,
+    "manifest_upload_ready_episodes": 9,
+    "uploaded_episodes": 75903,
+    "prepared_source_episodes": 65104,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 42,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 46,
+    "language_whisper_attempted_sources": 45,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54279,
-    "whisper_review_pending_sources": 38257,
-    "subtitle_followup_sources": 48241,
-    "subtitle_followup_pending_sources": 48241
+    "whisper_review_sources": 54278,
+    "whisper_review_pending_sources": 38252,
+    "subtitle_followup_sources": 48242,
+    "subtitle_followup_pending_sources": 48242
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-26T16:02:57Z",
-      "databaseId": 40355311328,
+      "createdAt": "2026-10-26T16:08:35Z",
+      "databaseId": 40356222626,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-26T16:08:31Z",
+      "databaseId": 40356213956,
       "headBranch": "main",
       "status": "pending",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
-      "createdAt": "2026-10-26T16:02:16Z",
-      "databaseId": 40355201344,
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-26T16:05:14Z",
+      "databaseId": 40355679237,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "status": "completed",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-26T16:02:57Z",
+      "databaseId": 40355311328,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-26T16:02:16Z",
+      "databaseId": 40355201344,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-26T16:01:03Z",
       "databaseId": 40355003227,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-26T16:00:05Z",
       "databaseId": 40354835909,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -103,7 +127,7 @@
       "createdAt": "2026-10-26T15:58:03Z",
       "databaseId": 40354501143,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-10-26T15:51:35Z",
       "databaseId": 40353453770,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-26T15:51:28Z",
-      "databaseId": 40353433618,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T15:49:24Z",
-      "databaseId": 40353092909,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T15:48:48Z",
-      "databaseId": 40352996528,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -353944,6 +353944,11 @@
         "episode_id": 67347,
         "display_name": "Ranč S04E13 - Sejde z mysli CZ Titulky",
         "video_id": 30538295
+      },
+      {
+        "episode_id": 67351,
+        "display_name": "Ranč S04E17 - Co jsem si myslel CZ Titulky",
+        "video_id": 30538567
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -707606,6 +707611,11 @@
         "episode_id": 67347,
         "display_name": "Ranč S04E13 - Sejde z mysli CZ Titulky",
         "video_id": 30538295
+      },
+      {
+        "episode_id": 67351,
+        "display_name": "Ranč S04E17 - Co jsem si myslel CZ Titulky",
+        "video_id": 30538567
       }
     ],
     "prepared_not_upload_ready": [
@@ -708767,17 +708777,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 2,
-    "ok": 39,
+    "ok": 44,
+    "disabled": 1,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36981,
-    "whisper_confirmed_cz": 3762,
+    "needs_whisper": 36976,
+    "whisper_confirmed_cz": 3766,
     "whisper_non_cz_needs_subtitles": 12260,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48241
+    "needs_subtitle_setup_after_prehrajto_processing": 48242
   }
 }
