@@ -39,6 +39,9 @@ def official_download(session, source_url: str, *, source_name: str = '') -> Com
                 raise DownloadError(f'Official download unavailable (HTTP {response.status_code})')
             url = urljoin(action, response.headers.get('Location', ''))
         cdn = urlsplit(url)
+        if (cdn.scheme == 'https' and cdn.hostname in PORTAL_HOSTS
+                and cdn.path == parsed.path and not cdn.query):
+            raise DownloadError('Official download unavailable (returned to source page)')
         if cdn.scheme != 'https' or not (cdn.hostname or '').endswith('.premiumcdn.net'):
             raise DownloadError('Official download did not return a trusted CDN URL')
         with requests.head(url, allow_redirects=True, timeout=30,
