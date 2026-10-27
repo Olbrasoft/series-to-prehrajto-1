@@ -61,6 +61,13 @@ def test_paywall_or_error_page_is_never_downloaded_as_video():
         source.official_download(session, 'https://prehraj.to/example/abc')
 
 
+def test_portal_return_to_source_page_reports_missing_original(monkeypatch):
+    session = Session(Response(302, {'Location': '/example/abc'}))
+    monkeypatch.setattr(source.requests, 'head', lambda *a, **kw: pytest.fail('No media was returned'))
+    with pytest.raises(DownloadError, match='unavailable.*returned to source page'):
+        source.official_download(session, 'https://prehraj.to/example/abc')
+
+
 @pytest.mark.parametrize('headers,query', [({'Content-Length': '1000'}, ''),
     ({'Content-Length': '1000', 'Content-Disposition': 'attachment; filename="file.txt"'}, ''),
     ({'Content-Length': '1000', 'Content-Disposition': 'attachment; filename="file.mkv"'}, '?limitsize=500')])

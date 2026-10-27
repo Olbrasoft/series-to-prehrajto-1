@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from audit_language_sources import audit_one, write_latest_index  # noqa: E402
 from language_checks import metadata_language_hint, title_language_hint  # noqa: E402
+from pick_next_episode import cooling_down_source_ids  # noqa: E402
 from prehrajto_search import SearchResult, search_pages as search_prehrajto_pages  # noqa: E402
 from source_quality import source_quality_score, source_quality_tier, source_meets_size_requirement  # noqa: E402
 
@@ -262,8 +263,10 @@ def update_whisper_review_queue(path: Path, prepared_rows: list[dict]) -> None:
     )
 
 
-def burned_source_ids() -> set[int]:
+def source_exclusions(*, now: dt.datetime | None = None) -> tuple[set[int], set[int]]:
+    """Use the uploader's failure policy when deciding whether a plan is usable."""
     burned: set[int] = set()
+    cooling: set[int] = set()
     paths = [REPO_ROOT / "state" / "uploaded.json"]
     paths.extend(sorted((REPO_ROOT / "state").glob("uploaded-shard-*.json")))
     for path in paths:
@@ -273,10 +276,15 @@ def burned_source_ids() -> set[int]:
             state = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             continue
+        cooling.update(cooling_down_source_ids(state, now=now))
         for failure in state.get("failed_attempts", []):
             if failure.get("permanent") and failure.get("source_id") is not None:
                 burned.add(int(failure["source_id"]))
-    return burned
+    return burned, cooling
+
+
+def burned_source_ids() -> set[int]:
+    return source_exclusions()[0]
 
 
 def latest_prepared_rows(path: Path) -> dict[int, dict]:
@@ -312,10 +320,18 @@ def latest_usable_prepared_episode_ids(path: Path, burned: set[int]) -> set[int]
     return completed
 
 
-def retry_due(row: dict | None, *, now: dt.datetime) -> bool:
+def selected_source_unavailable(row: dict | None, unavailable_sources: set[int]) -> bool:
+    selected = (row or {}).get("selected_source") or {}
+    source_id = selected.get("source_id")
+    return source_id is not None and int(source_id) in unavailable_sources
+
+
+def retry_due(row: dict | None, *, now: dt.datetime, unavailable_sources: set[int] | None = None) -> bool:
     if not row or not row.get("prepared_at"):
         return True
     selected = row.get("selected_source") or {}
+    if selected_source_unavailable(row, unavailable_sources or set()):
+        return True
     if selected and not is_resolvable(selected):
         return True
     try:
@@ -468,10 +484,16 @@ def claim_episode_batch(
     return new_claims
 
 
-def queued_episode_exclusions(path: Path) -> tuple[set[int], set[tuple[int, int, int]]]:
+def queued_episode_exclusions(
+    path: Path, unavailable_sources: set[int] | None = None,
+) -> tuple[set[int], set[tuple[int, int, int]]]:
     queued_ids: set[int] = set()
     queued_keys: set[tuple[int, int, int]] = set()
     for row in load_jsonl(path):
+        selected_id = (row.get("source_plan") or {}).get("selected_source_id")
+        if selected_id is not None and int(selected_id) in (unavailable_sources or set()):
+            # A stale manifest must not pin a source that the uploader cannot use.
+            continue
         if row.get("episode_id") is not None:
             queued_ids.add(int(row["episode_id"]))
         if all(row.get(key) is not None for key in ("series_id", "season", "episode")):
@@ -1082,17 +1104,18 @@ def main() -> int:
         episodes = [episode for episode in episodes if int(episode["season"]) == args.season]
     if args.episode is not None:
         episodes = [episode for episode in episodes if int(episode["episode"]) == args.episode]
-    burned = burned_source_ids()
+    now = dt.datetime.now(dt.timezone.utc)
+    burned, cooling = source_exclusions(now=now)
+    unavailable = burned | cooling
     latest = latest_prepared_rows(Path(args.out))
-    restore_prepared_candidates(episodes, latest, burned)
-    done = set() if args.refresh else latest_usable_prepared_episode_ids(Path(args.out), burned)
+    restore_prepared_candidates(episodes, latest, unavailable)
+    done = set() if args.refresh else latest_usable_prepared_episode_ids(Path(args.out), unavailable)
     uploaded_ids, uploaded_keys = uploaded_episode_exclusions()
     queued_ids, queued_keys = (
         (set(), set())
         if args.include_upload_manifest
-        else queued_episode_exclusions(Path(args.upload_manifest))
+        else queued_episode_exclusions(Path(args.upload_manifest), unavailable)
     )
-    now = dt.datetime.now(dt.timezone.utc)
     active_claims = active_preparation_claims(Path(args.claim_file), now=now)
     own_claims = [
         row
@@ -1108,7 +1131,9 @@ def main() -> int:
         episode
         for episode in episodes
         if int(episode["episode_id"]) not in done
-        and (args.refresh or retry_due(latest.get(int(episode["episode_id"])), now=now))
+        and (args.refresh or retry_due(
+            latest.get(int(episode["episode_id"])), now=now, unavailable_sources=unavailable,
+        ))
         and int(episode["episode_id"]) not in uploaded_ids
         and (
             int(episode["series_id"]),
@@ -1127,9 +1152,10 @@ def main() -> int:
     ]
     todo.sort(
         key=lambda episode: (
+            0 if selected_source_unavailable(latest.get(int(episode["episode_id"])), cooling) else 1,
             prepared_revalidation_priority(episode),
             str((latest.get(int(episode["episode_id"])) or {}).get("prepared_at") or ""),
-            tuple(-value for value in episode_preparation_score(episode, burned)),
+            tuple(-value for value in episode_preparation_score(episode, unavailable)),
             -int(episode.get("imdb_votes") or 0),
             -float(episode.get("imdb_rating") or 0),
             -float(episode.get("csfd_rating") or 0),
@@ -1187,7 +1213,7 @@ def main() -> int:
             use_whisper=args.use_whisper,
             sample_seconds=args.sample_seconds,
             source_limit=args.source_limit_per_episode,
-            burned=burned,
+            burned=unavailable,
             require_resolvable_source=args.require_resolvable_source,
             live_search=args.live_search,
             live_search_limit=args.live_search_limit,
@@ -1209,6 +1235,7 @@ def main() -> int:
             f"tested={episode['tested_source_count']} ready={episode['upload_ready']} {selected_text}"
         )
     print(f"Skipped {len(burned)} permanently failed source ids")
+    print(f"Skipped {len(cooling)} temporarily unavailable source ids")
     print(f"Prepared {len(prepared)} episodes into {args.out}")
     return 0
 
