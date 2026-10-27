@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 115667,
-    "manifest_upload_ready_episodes": 15,
-    "uploaded_episodes": 76060,
-    "prepared_source_episodes": 65224,
+    "manifest_upload_ready_episodes": 19,
+    "uploaded_episodes": 76062,
+    "prepared_source_episodes": 65226,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 57,
+    "language_whisper_attempted_sources": 52,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54285,
-    "whisper_review_pending_sources": 38275,
-    "subtitle_followup_sources": 48296,
-    "subtitle_followup_pending_sources": 48296
+    "whisper_review_sources": 54284,
+    "whisper_review_pending_sources": 38272,
+    "subtitle_followup_sources": 48299,
+    "subtitle_followup_pending_sources": 48299
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-27T00:05:28Z",
+      "databaseId": 40424116166,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-27T00:05:24Z",
+      "databaseId": 40424108652,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-27T00:03:37Z",
+      "databaseId": 40423907387,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-27T00:02:23Z",
       "databaseId": 40423772042,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-26T23:52:40Z",
       "databaseId": 40422714854,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -152,30 +176,6 @@
       "databaseId": 40422460678,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-26T23:50:01Z",
-      "databaseId": 40422415605,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-26T23:49:42Z",
-      "databaseId": 40422380150,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-26T23:49:38Z",
-      "databaseId": 40422372906,
-      "headBranch": "main",
-      "status": "completed",
       "workflowName": "prepare-manifest"
     }
   ],
@@ -186411,6 +186411,11 @@
         "video_id": 30547426
       },
       {
+        "episode_id": 203728,
+        "display_name": "Crystal Lake S01E06 - Hlava nehlava CZ Dabing",
+        "video_id": 30547508
+      },
+      {
         "episode_id": 131389,
         "display_name": "Malá Dorritka S01E07 - 7. epizoda CZ Dabing",
         "video_id": 30547211
@@ -354734,6 +354739,11 @@
         "episode_id": 203727,
         "display_name": "Crystal Lake S01E02 - Nová zkušenost CZ Dabing",
         "video_id": 30547314
+      },
+      {
+        "episode_id": 203731,
+        "display_name": "Crystal Lake S01E07 - Modré nebe CZ Dabing",
+        "video_id": 30547464
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -540863,6 +540873,11 @@
         "video_id": 30547426
       },
       {
+        "episode_id": 203728,
+        "display_name": "Crystal Lake S01E06 - Hlava nehlava CZ Dabing",
+        "video_id": 30547508
+      },
+      {
         "episode_id": 131389,
         "display_name": "Malá Dorritka S01E07 - 7. epizoda CZ Dabing",
         "video_id": 30547211
@@ -709186,6 +709201,11 @@
         "episode_id": 203727,
         "display_name": "Crystal Lake S01E02 - Nová zkušenost CZ Dabing",
         "video_id": 30547314
+      },
+      {
+        "episode_id": 203731,
+        "display_name": "Crystal Lake S01E07 - Modré nebe CZ Dabing",
+        "video_id": 30547464
       }
     ],
     "prepared_not_upload_ready": [
@@ -710347,17 +710367,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 51,
     "disabled": 5,
-    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36999,
-    "whisper_confirmed_cz": 3769,
-    "whisper_non_cz_needs_subtitles": 12241,
+    "needs_whisper": 36996,
+    "whisper_confirmed_cz": 3768,
+    "whisper_non_cz_needs_subtitles": 12244,
     "whisper_failed": 1276
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48296
+    "needs_subtitle_setup_after_prehrajto_processing": 48299
   }
 }
