@@ -13,7 +13,7 @@ from pathlib import Path
 
 from description_quality import is_valid_generated_description
 from source_quality import source_meets_size_requirement
-from source_download import legacy_preview_failure
+from download_policy import legacy_preview_failure
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MIN_UPLOAD_FILE_SIZE = 300 * 1024 * 1024

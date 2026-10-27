@@ -1,5 +1,17 @@
 # Operations handoff
 
+## Dependency-free status reporting (October 27, 2026)
+
+`ops-status.yml` uses Python's standard library without installing application
+requirements. Keep the shared failure policy in `download_policy.py` free of
+network dependencies: status reporting imports it through `pick_next_episode`.
+Importing the HTTP downloader here caused repeated status failures with
+`ModuleNotFoundError: requests` after the preview-failure cooldown upgrade.
+The regression test executes the real status CLI with isolated Python and
+site packages disabled, using an empty repository fixture and a local `gh`
+stub. Confirm recovery by dispatching `ops-status.yml` and checking that
+the report is generated and committed successfully.
+
 ## Complete downloads and interrupted transfers (October 26, 2026)
 
 Some player URLs contain a signed `limitsize` below the full stream size.

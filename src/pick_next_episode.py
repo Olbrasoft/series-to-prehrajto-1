@@ -9,7 +9,7 @@ import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from source_download import legacy_preview_failure
+from download_policy import legacy_preview_failure
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_BACKLOG = REPO_ROOT / "backlog" / "series-episodes.jsonl.gz"
