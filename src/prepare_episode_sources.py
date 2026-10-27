@@ -490,7 +490,8 @@ def queued_episode_exclusions(
     queued_ids: set[int] = set()
     queued_keys: set[tuple[int, int, int]] = set()
     for row in load_jsonl(path):
-        selected_id = (row.get("source_plan") or {}).get("selected_source_id")
+        manifest = row.get("upload_manifest") or {}
+        selected_id = (manifest.get("source_plan") or {}).get("selected_source_id")
         if selected_id is not None and int(selected_id) in (unavailable_sources or set()):
             # A stale manifest must not pin a source that the uploader cannot use.
             continue

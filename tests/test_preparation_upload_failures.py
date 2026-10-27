@@ -12,7 +12,7 @@ import prepare_episode_sources as prep
 
 @pytest.mark.parametrize("failure_kind,expected", [
     ("recent", [12]), ("expired", [13]), ("permanent", [12, 13]),
-    ("uploaded", [13]), ("legacy_preview", [13]),
+    ("uploaded", [13]), ("legacy_preview", [13]), ("queued_replacement", [13]),
 ])
 def test_claim_recovers_failed_cached_source_without_duplicates(tmp_path, monkeypatch, failure_kind, expected):
     now = dt.datetime.now(dt.timezone.utc)
@@ -37,7 +37,11 @@ def test_claim_recovers_failed_cached_source_without_duplicates(tmp_path, monkey
     (tmp_path / "state/uploaded-shard-0.json").write_text(json.dumps(state))
     prep.write_jsonl(tmp_path / "backlog.jsonl", [episode, unseen])
     prep.write_jsonl(tmp_path / "prepared.jsonl", [plan])
-    prep.write_jsonl(tmp_path / "manifest.jsonl", [{**episode, "source_plan": {"selected_source_id": 42}}])
+    prep.write_jsonl(tmp_path / "manifest.jsonl", [
+        {**episode, "upload_manifest": {"source_plan": {
+            "selected_source_id": 43 if failure_kind == "queued_replacement" else 42,
+        }}},
+    ])
     monkeypatch.setattr(prep, "REPO_ROOT", tmp_path)
     monkeypatch.setattr(sys, "argv", ["prepare_episode_sources.py", "--queue", str(tmp_path / "empty.jsonl"),
         "--backlog", str(tmp_path / "backlog.jsonl"), "--out", str(tmp_path / "prepared.jsonl"),
