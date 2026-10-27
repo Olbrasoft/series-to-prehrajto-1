@@ -12,14 +12,6 @@ VIDEO_TYPES = {'.mp4': 'video/mp4', '.mkv': 'video/x-matroska', '.avi': 'video/x
                '.mov': 'video/quicktime', '.webm': 'video/webm', '.m4v': 'video/mp4',
                '.ts': 'video/mp2t', '.mpg': 'video/mpeg', '.mpeg': 'video/mpeg'}
 PORTAL_HOSTS = {'prehraj.to', 'www.prehraj.to', 'prehrajto.cz', 'www.prehrajto.cz'}
-DOWNLOAD_POLICY_VERSION = 1
-
-
-def legacy_preview_failure(attempt: dict) -> bool:
-    """Reopen old interrupted downloads once after the complete-file upgrade."""
-    return (not attempt.get('permanent') and not attempt.get('download_policy_version')
-            and str(attempt.get('reason') or '').startswith(
-                ('download_failed: curl exit 18:', 'download_failed: curl exit 56:')))
 
 
 @dataclass

@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
-import source_download as policy
+import download_policy as policy
 import pick_next_episode as picker
 import build_upload_manifest as manifest
 import sync_batch as sync

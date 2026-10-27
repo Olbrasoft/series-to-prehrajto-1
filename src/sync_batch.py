@@ -16,7 +16,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from download import MAX_FILE_SIZE, DownloadError, download_to, head_size  # noqa: E402
-from source_download import DOWNLOAD_POLICY_VERSION, official_download, player_download_limited  # noqa: E402
+from source_download import official_download, player_download_limited  # noqa: E402
+from download_policy import DOWNLOAD_POLICY_VERSION  # noqa: E402
 from description_quality import is_valid_generated_description  # noqa: E402
 from language_checks import has_probable_czech, whisper_language  # noqa: E402
 from pick_next_episode import BACKLOG, NUM_SHARDS, SHARD_ID, STATE, load_backlog, load_state, pick_next  # noqa: E402
