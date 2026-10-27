@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 115431,
-    "manifest_upload_ready_episodes": 5,
-    "uploaded_episodes": 76208,
-    "prepared_source_episodes": 65941,
+    "manifest_upload_ready_episodes": 3,
+    "uploaded_episodes": 76209,
+    "prepared_source_episodes": 65946,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 44,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 83,
+    "language_whisper_attempted_sources": 59,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54295,
     "whisper_review_pending_sources": 38337,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-27T15:50:51Z",
+      "databaseId": 40535030859,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-27T15:50:50Z",
+      "databaseId": 40535028107,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-27T15:49:36Z",
       "databaseId": 40534822925,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +59,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-27T15:46:44Z",
       "databaseId": 40534351448,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "prepare-sources"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-27T15:37:35Z",
-      "databaseId": 40532833792,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-27T15:37:27Z",
-      "databaseId": 40532810242,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -355474,6 +355474,11 @@
         "episode_id": 160819,
         "display_name": "Hostitelka S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30567378
+      },
+      {
+        "episode_id": 120294,
+        "display_name": "Freddyho noční můry S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30567524
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -710666,6 +710671,11 @@
         "episode_id": 160819,
         "display_name": "Hostitelka S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30567378
+      },
+      {
+        "episode_id": 120294,
+        "display_name": "Freddyho noční můry S01E19 - 19. epizoda CZ Titulky",
+        "video_id": 30567524
       }
     ],
     "prepared_not_upload_ready": [
@@ -711827,7 +711837,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 58,
+    "disabled": 24,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
