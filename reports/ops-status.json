@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 115282,
     "manifest_upload_ready_episodes": 6,
-    "uploaded_episodes": 76361,
-    "prepared_source_episodes": 65798,
+    "uploaded_episodes": 76363,
+    "prepared_source_episodes": 65797,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 63,
-    "language_whisper_attempted_sources": 60,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54250,
     "whisper_review_pending_sources": 38134,
     "subtitle_followup_sources": 48504,
@@ -20,18 +20,50 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-28T12:58:52Z",
-      "databaseId": 40692328860,
+      "createdAt": "2026-10-28T13:04:13Z",
+      "databaseId": 40693108338,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "ops-watchdog"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-28T13:01:49Z",
+      "databaseId": 40692761990,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-28T13:01:10Z",
+      "databaseId": 40692664307,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T13:01:06Z",
+      "databaseId": 40692653569,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-28T12:58:52Z",
+      "databaseId": 40692328860,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-28T12:58:47Z",
       "databaseId": 40692315996,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T12:50:19Z",
-      "databaseId": 40691135510,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-28T12:50:05Z",
-      "databaseId": 40691101491,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T12:47:43Z",
-      "databaseId": 40690773991,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T12:47:40Z",
-      "databaseId": 40690765811,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -356239,6 +356239,16 @@
         "episode_id": 160503,
         "display_name": "Windsorovi S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30586480
+      },
+      {
+        "episode_id": 74526,
+        "display_name": "Zig a Sharko S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 30586771
+      },
+      {
+        "episode_id": 160499,
+        "display_name": "Windsorovi S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30586766
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -712196,6 +712206,16 @@
         "episode_id": 160503,
         "display_name": "Windsorovi S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30586480
+      },
+      {
+        "episode_id": 74526,
+        "display_name": "Zig a Sharko S02E04 - 4. epizoda CZ Titulky",
+        "video_id": 30586771
+      },
+      {
+        "episode_id": 160499,
+        "display_name": "Windsorovi S01E02 - 2. epizoda CZ Titulky",
+        "video_id": 30586766
       }
     ],
     "prepared_not_upload_ready": [
@@ -713357,9 +713377,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 58,
-    "resolve_failed": 2,
-    "disabled": 3
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36846,
