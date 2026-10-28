@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 115393,
-    "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 76247,
-    "prepared_source_episodes": 65720,
+    "manifest_upload_ready_episodes": 1,
+    "uploaded_episodes": 76248,
+    "prepared_source_episodes": 65719,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 55,
-    "language_whisper_attempted_sources": 52,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54277,
     "whisper_review_pending_sources": 38255,
@@ -20,18 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-28T01:42:04Z",
-      "databaseId": 40616601726,
+      "createdAt": "2026-10-28T01:46:23Z",
+      "databaseId": 40617025843,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "backfill-subtitles"
+      "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-28T01:46:18Z",
+      "databaseId": 40617017188,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T01:46:13Z",
+      "databaseId": 40617009916,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T01:45:08Z",
+      "databaseId": 40616903736,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-28T01:42:44Z",
+      "databaseId": 40616663370,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-28T01:42:41Z",
+      "databaseId": 40616658838,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-28T01:42:39Z",
+      "databaseId": 40616656046,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T01:42:04Z",
+      "databaseId": 40616601726,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-28T01:41:26Z",
       "databaseId": 40616536771,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +99,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-28T01:41:20Z",
       "databaseId": 40616527419,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -79,7 +135,7 @@
       "createdAt": "2026-10-28T01:39:51Z",
       "databaseId": 40616376619,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -99,11 +155,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-28T01:36:55Z",
       "databaseId": 40616095843,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -115,68 +171,12 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-28T01:36:43Z",
       "databaseId": 40616076051,
       "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T01:35:47Z",
-      "databaseId": 40615982221,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-28T01:35:43Z",
-      "databaseId": 40615975755,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T01:35:37Z",
-      "databaseId": 40615966462,
-      "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T01:35:00Z",
-      "databaseId": 40615905010,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-28T01:34:55Z",
-      "databaseId": 40615896780,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T01:33:11Z",
-      "databaseId": 40615725303,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T01:31:56Z",
-      "databaseId": 40615599725,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -355669,6 +355669,11 @@
         "episode_id": 176554,
         "display_name": "Hra S01E01 - Hra - část 1 CZ Dabing",
         "video_id": 30575032
+      },
+      {
+        "episode_id": 153082,
+        "display_name": "Moji spolubydlící z pekla S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30575666
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -711056,6 +711061,11 @@
         "episode_id": 176554,
         "display_name": "Hra S01E01 - Hra - část 1 CZ Dabing",
         "video_id": 30575032
+      },
+      {
+        "episode_id": 153082,
+        "display_name": "Moji spolubydlící z pekla S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30575666
       }
     ],
     "prepared_not_upload_ready": [
@@ -712217,8 +712227,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 51,
-    "disabled": 3,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
