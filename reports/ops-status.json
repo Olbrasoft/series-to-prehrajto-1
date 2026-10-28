@@ -1,29 +1,69 @@
 {
   "counts": {
     "backlog_episodes": 115282,
-    "manifest_upload_ready_episodes": 3,
-    "uploaded_episodes": 76364,
-    "prepared_source_episodes": 65803,
+    "manifest_upload_ready_episodes": 5,
+    "uploaded_episodes": 76365,
+    "prepared_source_episodes": 65812,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54255,
-    "whisper_review_pending_sources": 38158,
-    "subtitle_followup_sources": 48504,
-    "subtitle_followup_pending_sources": 48504
+    "whisper_review_sources": 54250,
+    "whisper_review_pending_sources": 38134,
+    "subtitle_followup_sources": 48506,
+    "subtitle_followup_pending_sources": 48506
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-28T13:12:27Z",
+      "databaseId": 40694320680,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T13:12:21Z",
+      "databaseId": 40694305886,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T13:12:18Z",
+      "databaseId": 40694297947,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-28T13:11:45Z",
+      "databaseId": 40694212795,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T13:11:41Z",
+      "databaseId": 40694204182,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-28T13:10:17Z",
       "databaseId": 40693998461,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +107,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-28T13:06:43Z",
       "databaseId": 40693481523,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-28T12:58:47Z",
-      "databaseId": 40692315996,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T12:56:48Z",
-      "databaseId": 40692046829,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-28T12:56:03Z",
-      "databaseId": 40691943607,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-28T12:55:29Z",
-      "databaseId": 40691865733,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T12:55:23Z",
-      "databaseId": 40691849700,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -356251,6 +356251,11 @@
         "video_id": 30586771
       },
       {
+        "episode_id": 74530,
+        "display_name": "Zig a Sharko S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 30586906
+      },
+      {
         "episode_id": 160499,
         "display_name": "Windsorovi S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30586766
@@ -712223,6 +712228,11 @@
         "video_id": 30586771
       },
       {
+        "episode_id": 74530,
+        "display_name": "Zig a Sharko S02E08 - 8. epizoda CZ Titulky",
+        "video_id": 30586906
+      },
+      {
         "episode_id": 160499,
         "display_name": "Windsorovi S01E02 - 2. epizoda CZ Titulky",
         "video_id": 30586766
@@ -713387,17 +713397,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "ok": 39,
     "disabled": 1,
-    "ok": 19,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36871,
-    "whisper_confirmed_cz": 3789,
-    "whisper_non_cz_needs_subtitles": 12308,
-    "whisper_failed": 1287
+    "needs_whisper": 36846,
+    "whisper_confirmed_cz": 3800,
+    "whisper_non_cz_needs_subtitles": 12316,
+    "whisper_failed": 1288
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48504
+    "needs_subtitle_setup_after_prehrajto_processing": 48506
   }
 }
