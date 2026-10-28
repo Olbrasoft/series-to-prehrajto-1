@@ -58,6 +58,9 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
           WHISPER_MODEL: tiny
+          CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
+          CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
+          CZ_PROXY_MIN_GAP_SECONDS: "20"
         run: |
           python -u src/process_whisper_review_queue.py \
             --limit "${{ inputs.limit || '20' }}" \
