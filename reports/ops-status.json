@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 115320,
-    "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 76336,
-    "prepared_source_episodes": 65739,
+    "manifest_upload_ready_episodes": 3,
+    "uploaded_episodes": 76337,
+    "prepared_source_episodes": 65735,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 81,
+    "language_whisper_attempted_sources": 80,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54263,
     "whisper_review_pending_sources": 38200,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-28T11:43:12Z",
+      "databaseId": 40682122768,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-28T11:43:09Z",
+      "databaseId": 40682116574,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-28T11:42:39Z",
       "databaseId": 40682056092,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +51,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-28T11:41:56Z",
       "databaseId": 40681965063,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -55,7 +71,7 @@
       "createdAt": "2026-10-28T11:38:42Z",
       "databaseId": 40681556376,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-28T11:32:33Z",
-      "databaseId": 40680755152,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-28T11:32:30Z",
-      "databaseId": 40680747267,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
     }
   ],
   "gaps": {
@@ -187174,6 +187174,11 @@
         "episode_id": 54969,
         "display_name": "Odbor městské zeleně S02E24 - Freddy Spaghetti CZ Titulky",
         "video_id": 30584413
+      },
+      {
+        "episode_id": 54980,
+        "display_name": "Odbor městské zeleně S03E11 - 11. epizoda CZ Titulky",
+        "video_id": 30584798
       },
       {
         "episode_id": 150257,
@@ -543008,6 +543013,11 @@
         "video_id": 30584413
       },
       {
+        "episode_id": 54980,
+        "display_name": "Odbor městské zeleně S03E11 - 11. epizoda CZ Titulky",
+        "video_id": 30584798
+      },
+      {
         "episode_id": 150257,
         "display_name": "Ozn@čená S01E03 - 3. epizoda CZ Titulky",
         "video_id": 30584713
@@ -713107,8 +713117,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "resolve_failed": 1
+    "resolve_failed": 11,
+    "ok": 69,
+    "disabled": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36914,
