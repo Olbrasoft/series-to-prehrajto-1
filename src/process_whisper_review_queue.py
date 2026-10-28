@@ -14,8 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from audit_language_sources import audit_one, append_jsonl, write_latest_index  # noqa: E402
 from prepare_episode_sources import (  # noqa: E402
-    MIN_PLANNED_FILE_SIZE,
-    burned_source_ids,
+    source_exclusions,
     latest_usable_prepared_episode_ids,
     load_jsonl,
     source_quality_tier,
@@ -24,6 +23,7 @@ from prepare_episode_sources import (  # noqa: E402
     write_compacted_prepared,
     write_jsonl,
 )
+from source_quality import MIN_UPLOAD_FILESIZE_BYTES  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -101,7 +101,15 @@ def eligible_review_sources(rows, *, uploaded_ids, uploaded_keys, burned, prepar
             and int(row["source_id"]) not in burned
             and int(row["episode_id"]) not in prepared_ids
             and row.get("provider") == "prehrajto"
-            and int(row.get("filesize_bytes") or 0) >= MIN_PLANNED_FILE_SIZE]
+            and int(row.get("filesize_bytes") or 0) >= MIN_UPLOAD_FILESIZE_BYTES]
+
+
+def audit_has_upload_size(audit: dict) -> bool:
+    """Promotion requires measured media, never a metadata size estimate."""
+    probe = (audit.get("signals") or {}).get("provider_probe") or {}
+    measured = probe.get("stream_filesize_bytes")
+    return (probe.get("status") == "ok" and bool(probe.get("streams"))
+            and measured is not None and int(measured) >= MIN_UPLOAD_FILESIZE_BYTES)
 
 
 def best_promotions(rows: list[dict]) -> list[dict]:
@@ -147,10 +155,11 @@ def main() -> int:
             continue
         wanted.append(row)
     uploaded_ids, uploaded_keys = uploaded_episode_exclusions()
-    burned = burned_source_ids()
-    prepared_ids = latest_usable_prepared_episode_ids(REPO_ROOT / args.prepared, burned)
+    burned, cooling = source_exclusions()
+    unavailable = burned | cooling
+    prepared_ids = latest_usable_prepared_episode_ids(REPO_ROOT / args.prepared, unavailable)
     eligible = eligible_review_sources(wanted, uploaded_ids=uploaded_ids,
-        uploaded_keys=uploaded_keys, burned=burned, prepared_ids=prepared_ids)
+        uploaded_keys=uploaded_keys, burned=unavailable, prepared_ids=prepared_ids)
     print(f"Review selection: pending={len(wanted)} eligible={len(eligible)} skipped={len(wanted) - len(eligible)}", flush=True)
     wanted = eligible[: args.limit]
 
@@ -195,13 +204,13 @@ def main() -> int:
         updated_queue.append(updated)
         if (
             status == "whisper_confirmed_cz"
-            and int(audit.get("filesize_bytes") or 0) >= MIN_PLANNED_FILE_SIZE
+            and audit_has_upload_size(audit)
         ):
             promoted.append(prepared_row_from_audit(audit, upload_kind="audio"))
             promoted_keys.add(queue_key(audit))
         elif (
             status == "whisper_non_cz_needs_subtitles"
-            and int(audit.get("filesize_bytes") or 0) >= MIN_PLANNED_FILE_SIZE
+            and audit_has_upload_size(audit)
         ):
             promoted.append(prepared_row_from_audit(audit, upload_kind="subtitles"))
             promoted_keys.add(queue_key(audit))
