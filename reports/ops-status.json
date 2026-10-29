@@ -1,17 +1,17 @@
 {
   "counts": {
     "backlog_episodes": 115122,
-    "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 76523,
-    "prepared_source_episodes": 65674,
+    "manifest_upload_ready_episodes": 0,
+    "uploaded_episodes": 76524,
+    "prepared_source_episodes": 65673,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 21,
-    "language_whisper_attempted_sources": 20,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 41,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54235,
     "whisper_review_pending_sources": 38087,
     "subtitle_followup_sources": 48660,
@@ -20,26 +20,74 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-29T11:57:19Z",
-      "databaseId": 40869359397,
+      "createdAt": "2026-10-29T12:06:37Z",
+      "databaseId": 40870591741,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "update-descriptions"
+      "workflowName": "ops-status"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-29T11:57:09Z",
-      "databaseId": 40869336765,
+      "createdAt": "2026-10-29T12:04:38Z",
+      "databaseId": 40870325162,
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-29T12:01:22Z",
+      "databaseId": 40869889795,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-29T12:01:20Z",
+      "databaseId": 40869887118,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-29T11:59:05Z",
+      "databaseId": 40869580857,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-29T11:58:31Z",
+      "databaseId": 40869509728,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-29T11:57:19Z",
+      "databaseId": 40869359397,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-29T11:57:09Z",
+      "databaseId": 40869336765,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-29T11:57:00Z",
       "databaseId": 40869316706,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -75,11 +123,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-29T11:55:08Z",
       "databaseId": 40869078656,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -129,54 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "sync"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-29T11:52:25Z",
-      "databaseId": 40868730543,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-29T11:52:19Z",
-      "databaseId": 40868718165,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-29T11:52:10Z",
-      "databaseId": 40868698816,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-29T11:51:09Z",
-      "databaseId": 40868570233,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-29T11:50:29Z",
-      "databaseId": 40868484477,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-29T11:50:25Z",
-      "databaseId": 40868477143,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
     }
   ],
   "gaps": {
@@ -187704,6 +187704,11 @@
         "episode_id": 193652,
         "display_name": "Hlasiťákovi S08E10 - 10. epizoda CZ Titulky",
         "video_id": 30608977
+      },
+      {
+        "episode_id": 80705,
+        "display_name": "Darebák S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30609878
       },
       {
         "episode_id": 114182,
@@ -544473,6 +544478,11 @@
         "video_id": 30608977
       },
       {
+        "episode_id": 80705,
+        "display_name": "Darebák S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30609878
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -714978,7 +714988,7 @@
   "language_verdicts": {},
   "language_whisper_statuses": {
     "disabled": 1,
-    "ok": 19,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
