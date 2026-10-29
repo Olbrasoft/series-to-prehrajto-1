@@ -55,10 +55,33 @@ def test_old_preparation_snapshot_cannot_reset_review_retry_budget():
 
 def test_recovery_checks_longer_episodes_before_likely_undersized_clips():
     clip = dict(episode_id=1, series_id=1, status='whisper_confirmed_cz',
-                duration_sec=600, filesize_bytes=320_000_000)
+                source_title='Example 1080p', duration_sec=600, filesize_bytes=320_000_000)
     episode = dict(episode_id=2, series_id=2, status='whisper_confirmed_cz',
                    duration_sec=2400, filesize_bytes=500_000_000)
     assert review.select_review_batch([clip, episode], limit=1, recovery_limit=1) == [episode]
+
+
+def test_recovery_prioritizes_stream_size_headroom_before_original_resolution():
+    marginal_hd = dict(episode_id=1, series_id=1, status='whisper_confirmed_cz',
+                       source_title='Example 1080p', duration_sec=2400, filesize_bytes=330_000_000)
+    larger_sd = dict(episode_id=2, series_id=2, status='whisper_confirmed_cz',
+                     source_title='Example SD', duration_sec=2400, filesize_bytes=900_000_000)
+    assert review.select_review_batch([marginal_hd, larger_sd], limit=1, recovery_limit=1) == [larger_sd]
+
+
+def test_recovery_prefers_larger_files_with_otherwise_equal_quality():
+    rows = [dict(episode_id=i, series_id=i, status='whisper_confirmed_cz',
+                 source_title='Example 1080p', duration_sec=2400, filesize_bytes=i * 1_000_000_000)
+            for i in [1, 2]]
+    assert review.select_review_batch(rows, limit=1, recovery_limit=1) == [rows[1]]
+
+
+def test_recovery_fills_remaining_slots_without_rechecking_the_same_episode():
+    rows = [dict(episode_id=i, source_id=i, series_id=1, status='whisper_confirmed_cz',
+                 duration_sec=2400, filesize_bytes=1_000_000_000) for i in range(1, 5)]
+    rows.insert(1, dict(rows[0], source_id=99))
+    selected = review.select_review_batch(rows, limit=20, recovery_limit=4)
+    assert [r['episode_id'] for r in selected] == [1, 2, 3, 4]
 
 
 def test_completed_review_without_usable_plan_is_rechecked_once_by_cli(tmp_path, monkeypatch):

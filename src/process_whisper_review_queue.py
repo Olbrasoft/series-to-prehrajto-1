@@ -61,10 +61,14 @@ def select_review_batch(rows: list[dict], *, limit: int, recovery_limit: int) ->
     recovery = [r for r in rows if r.get('status') not in {None, 'needs_whisper'}]
     recovery.sort(key=lambda r: (
         r.get('status') != 'whisper_confirmed_cz',
-        -source_quality_score(r)[1],
+        # Resolution describes the original upload, not the size of its
+        # transcoded stream. Short 1080p cartoons repeatedly starved usable
+        # full-length episodes once the first HD recovery sources ran out.
         int(r.get('duration_sec') or 0) < 1800,
+        int(r.get('filesize_bytes') or 0) < 2 * MIN_UPLOAD_FILESIZE_BYTES,
+        -source_quality_score(r)[1],
         not source_has_cz_audio_hint(r),
-        int(r.get('filesize_bytes') or 0),
+        -int(r.get('filesize_bytes') or 0),
         str(r.get('checked_at') or ''),
     ))
     # Reserve one recovery slot for old failures rather than starving them
@@ -73,14 +77,17 @@ def select_review_batch(rows: list[dict], *, limit: int, recovery_limit: int) ->
     if failures and budget:
         recovery = [failures[0]] + [r for r in recovery if r is not failures[0]]
     chosen, series, identities = [], set(), {int(r['episode_id']) for r in fresh}
-    for row in recovery:
-        if len(chosen) >= budget:
-            break
-        if row['series_id'] in series or int(row['episode_id']) in identities:
-            continue
-        chosen.append(row)
-        series.add(row['series_id'])
-        identities.add(int(row['episode_id']))
+    # Prefer different series, then fill unused slots from the remaining
+    # episodes. A small eligible pool must not leave the recovery budget idle.
+    for require_new_series in (True, False):
+        for row in recovery:
+            if len(chosen) >= budget:
+                break
+            if int(row['episode_id']) in identities or (require_new_series and row['series_id'] in series):
+                continue
+            chosen.append(row)
+            series.add(row['series_id'])
+            identities.add(int(row['episode_id']))
     return fresh + chosen
 
 
@@ -221,6 +228,13 @@ def main() -> int:
     wanted = (eligible[:args.limit] if args.refresh else
               select_review_batch(eligible, limit=args.limit, recovery_limit=args.recovery_limit))
     print(f"Review batch: sources={len(wanted)} recovery={sum(r.get('status') not in {None, 'needs_whisper'} for r in wanted)}", flush=True)
+    for row in wanted:
+        print(json.dumps({
+            'review_selected_episode_id': row['episode_id'],
+            'series_title': row['series_title'],
+            'duration_sec': row.get('duration_sec'),
+            'metadata_filesize_bytes': row.get('filesize_bytes'),
+        }, ensure_ascii=False), flush=True)
 
     old_whisper = os.environ.get("WHISPER_LANGUAGE_CHECK")
     os.environ["WHISPER_LANGUAGE_CHECK"] = "1"
