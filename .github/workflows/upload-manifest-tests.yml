@@ -14,6 +14,10 @@ on:
       - "src/prepare_episode_sources.py"
       - "src/process_whisper_review_queue.py"
       - "src/source_quality.py"
+      - "src/resolve_stream.py"
+      - "src/request_backoff.py"
+      - "src/prehrajto_search.py"
+      - "src/merge_preparation_results.py"
       - "tests/test_stream_size_probe.py"
       - "tests/test_download_resume.py"
       - "tests/test_source_download.py"
@@ -26,9 +30,13 @@ on:
       - "tests/test_preparation_upload_failures.py"
       - "tests/test_whisper_review_sizes.py"
       - "tests/test_upload_recovery.py"
+      - "tests/test_review_recovery.py"
+      - "tests/test_resolver_failure_policy.py"
       - "tests/test_prepare_episode_sources.py"
       - ".github/workflows/upload-manifest-tests.yml"
       - ".github/workflows/process-whisper-review.yml"
+      - ".github/workflows/prepare-manifest.yml"
+      - ".github/workflows/prepare-sources.yml"
   workflow_dispatch:
 permissions:
   contents: read
@@ -41,4 +49,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt pytest
-      - run: python -m pytest tests/test_download_resume.py tests/test_stream_size_probe.py tests/test_source_download.py tests/test_upload_original_format.py tests/test_sync_complete_download.py tests/test_download_policy_upgrade.py tests/test_ops_status_stdlib.py tests/test_build_upload_manifest.py tests/test_source_discovery_recovery.py tests/test_preparation_upload_failures.py tests/test_prepare_episode_sources.py tests/test_merge_preparation_results.py tests/test_upload_recovery.py tests/test_whisper_review_sizes.py -q
+      - run: python -m pytest tests/test_download_resume.py tests/test_stream_size_probe.py tests/test_source_download.py tests/test_upload_original_format.py tests/test_sync_complete_download.py tests/test_download_policy_upgrade.py tests/test_ops_status_stdlib.py tests/test_build_upload_manifest.py tests/test_source_discovery_recovery.py tests/test_preparation_upload_failures.py tests/test_prepare_episode_sources.py tests/test_merge_preparation_results.py tests/test_upload_recovery.py tests/test_whisper_review_sizes.py tests/test_review_recovery.py tests/test_resolver_failure_policy.py -q

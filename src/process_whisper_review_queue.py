@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audit_language_sources import audit_one, append_jsonl, write_latest_index  # noqa: E402
 from prepare_episode_sources import (  # noqa: E402
     source_exclusions,
+    source_has_cz_audio_hint,
     latest_usable_prepared_episode_ids,
     load_jsonl,
     source_quality_tier,
@@ -26,6 +27,60 @@ from prepare_episode_sources import (  # noqa: E402
 from source_quality import MIN_UPLOAD_FILESIZE_BYTES  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+REVIEW_RECOVERY_VERSION = 1
+
+
+def review_due(row: dict, *, now: dt.datetime) -> bool:
+    status = row.get('status')
+    if status in {None, 'needs_whisper'}:
+        return True
+    if status in {'whisper_confirmed_cz', 'whisper_non_cz_needs_subtitles'}:
+        return int(row.get('recovery_version') or 0) < REVIEW_RECOVERY_VERSION
+    if status != 'whisper_failed' or int(row.get('retry_attempts') or 0) >= 3:
+        return False
+    failure = row.get('whisper') or {}
+    legacy_proxy = (not failure.get('failure_policy_version')
+                    and 'wrapping permanent upstream error' in str(failure.get('error') or ''))
+    if failure.get('permanent') and not legacy_proxy:
+        return False
+    if failure.get('status') in {'stream_undersized', 'stream_size_unknown'}:
+        return False
+    try:
+        if row.get('retry_after'):
+            return dt.datetime.fromisoformat(row['retry_after'].replace('Z', '+00:00')) <= now
+        checked = dt.datetime.fromisoformat(row['checked_at'].replace('Z', '+00:00'))
+        return checked + dt.timedelta(hours=6) <= now
+    except (KeyError, ValueError, TypeError, AttributeError):
+        return True
+
+
+def select_review_batch(rows: list[dict], *, limit: int, recovery_limit: int) -> list[dict]:
+    """Fresh work leads; bounded recovery cannot monopolize the review worker."""
+    fresh = [r for r in rows if r.get('status') in {None, 'needs_whisper'}][:limit]
+    budget = min(max(0, limit - len(fresh)), max(0, recovery_limit))
+    recovery = [r for r in rows if r.get('status') not in {None, 'needs_whisper'}]
+    recovery.sort(key=lambda r: (
+        r.get('status') != 'whisper_confirmed_cz',
+        int(r.get('duration_sec') or 0) < 1800,
+        not source_has_cz_audio_hint(r),
+        int(r.get('filesize_bytes') or 0),
+        str(r.get('checked_at') or ''),
+    ))
+    # Reserve one recovery slot for old failures rather than starving them
+    # behind historical successful checks whose prepared rows were lost.
+    failures = [r for r in recovery if r.get('status') == 'whisper_failed']
+    if failures and budget:
+        recovery = [failures[0]] + [r for r in recovery if r is not failures[0]]
+    chosen, series, identities = [], set(), {int(r['episode_id']) for r in fresh}
+    for row in recovery:
+        if len(chosen) >= budget:
+            break
+        if row['series_id'] in series or int(row['episode_id']) in identities:
+            continue
+        chosen.append(row)
+        series.add(row['series_id'])
+        identities.add(int(row['episode_id']))
+    return fresh + chosen
 
 
 def now_iso() -> str:
@@ -134,6 +189,7 @@ def main() -> int:
     ap.add_argument("--audit-latest-out", default="audits/language-audit-latest.jsonl.gz")
     ap.add_argument("--subtitle-followup-out", default="plans/subtitle-followup-queue.jsonl")
     ap.add_argument("--limit", type=int, default=10)
+    ap.add_argument("--recovery-limit", type=int, default=4)
     ap.add_argument("--series-slug")
     ap.add_argument("--season", type=int)
     ap.add_argument("--episode", type=int)
@@ -145,7 +201,7 @@ def main() -> int:
     rows = load_jsonl(queue_path)
     wanted = []
     for row in rows:
-        if not args.refresh and row.get("status") not in {None, "needs_whisper"}:
+        if not args.refresh and not review_due(row, now=dt.datetime.now(dt.timezone.utc)):
             continue
         if args.series_slug and row.get("series_slug") != args.series_slug:
             continue
@@ -161,15 +217,22 @@ def main() -> int:
     eligible = eligible_review_sources(wanted, uploaded_ids=uploaded_ids,
         uploaded_keys=uploaded_keys, burned=unavailable, prepared_ids=prepared_ids)
     print(f"Review selection: pending={len(wanted)} eligible={len(eligible)} skipped={len(wanted) - len(eligible)}", flush=True)
-    wanted = eligible[: args.limit]
+    wanted = (eligible[:args.limit] if args.refresh else
+              select_review_batch(eligible, limit=args.limit, recovery_limit=args.recovery_limit))
+    print(f"Review batch: sources={len(wanted)} recovery={sum(r.get('status') not in {None, 'needs_whisper'} for r in wanted)}", flush=True)
 
     old_whisper = os.environ.get("WHISPER_LANGUAGE_CHECK")
     os.environ["WHISPER_LANGUAGE_CHECK"] = "1"
     try:
-        audits = [
-            audit_one(row, use_whisper=True, sample_seconds=args.sample_seconds, probe_stream=True)
-            for row in wanted
-        ]
+        audits = []
+        for row in wanted:
+            audit = audit_one(row, use_whisper=True, sample_seconds=args.sample_seconds, probe_stream=True,
+                              minimum_stream_bytes=MIN_UPLOAD_FILESIZE_BYTES)
+            audits.append(audit)
+            failure = (audit.get('signals') or {}).get('whisper') or {}
+            if failure.get('retry_after_seconds') is not None:
+                print('Review paused after source rate limit', flush=True)
+                break
     finally:
         if old_whisper is None:
             os.environ.pop("WHISPER_LANGUAGE_CHECK", None)
@@ -200,7 +263,14 @@ def main() -> int:
             "detected_by": audit.get("detected_by"),
             "verification_status": audit.get("verification_status"),
             "whisper": whisper,
+            "recovery_version": REVIEW_RECOVERY_VERSION,
         }
+        if status == 'whisper_failed':
+            attempts = int(row.get('retry_attempts') or 0) + 1
+            updated['retry_attempts'] = attempts
+            delay = max(min(24 * 3600, 6 * 3600 * 2 ** (attempts - 1)),
+                        int(whisper.get('retry_after_seconds') or 0))
+            updated['retry_after'] = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(seconds=delay)).isoformat()
         updated_queue.append(updated)
         if (
             status == "whisper_confirmed_cz"

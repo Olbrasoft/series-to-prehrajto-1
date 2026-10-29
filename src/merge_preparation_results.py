@@ -94,6 +94,14 @@ def newer_timestamp_wins(field: str) -> Callable[[dict, dict], dict]:
     return choose
 
 
+def newer_review_wins(current: dict, incoming: dict) -> dict:
+    """An old preparation snapshot must not reset completed checks or retry budgets."""
+    def version(row):
+        return (str(row.get('checked_at') or ''), str(row.get('created_at') or ''),
+                int(row.get('recovery_version') or 0), int(row.get('retry_attempts') or 0))
+    return incoming if version(incoming) > version(current) else current
+
+
 def prepared_key(row: dict) -> tuple | None:
     if row.get("episode_id") is None:
         return None
@@ -235,6 +243,7 @@ def main() -> int:
             repo / "plans" / "whisper-review-queue.jsonl",
             incoming / "plans" / "whisper-review-queue.jsonl",
             key_fn=whisper_key,
+            winner_fn=newer_review_wins,
             sort_fn=lambda row: (
                 str(row.get("series_slug") or ""),
                 int(row.get("season") or 0),
