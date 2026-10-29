@@ -17,7 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from language_checks import CZECH_AUDIO_LANGS, title_language_hint, whisper_language  # noqa: E402
-from resolve_stream import ResolveError, pick_best, resolve as resolve_prehrajto  # noqa: E402
+from resolve_stream import FAILURE_POLICY_VERSION, ResolveError, pick_best, resolve as resolve_prehrajto  # noqa: E402
 from download import head_size  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -240,7 +240,8 @@ def sample_audio(stream_url: str, out_path: Path, *, start_sec: int, seconds: in
     return True, "ok"
 
 
-def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = False) -> dict:
+def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = False,
+                   minimum_stream_bytes: int | None = None) -> dict:
     if item.get("provider") == "sktorrent" and item.get("source_url"):
         probe = fetch_sktorrent_page(item["source_url"])
         if probe.get("status") != "ok":
@@ -266,7 +267,9 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
         resolved = resolve_prehrajto(item["source_url"], max_retries=1, backoff_seconds=(3,))
         best = pick_best(resolved.videos, prefer=(1080, 720))
     except ResolveError as exc:
-        return {"provider": "prehrajto", "whisper": {"status": "resolve_failed", "error": str(exc), "permanent": exc.permanent}}
+        return {"provider": "prehrajto", "whisper": {"status": "resolve_failed", "error": str(exc),
+                "permanent": exc.permanent, "failure_policy_version": FAILURE_POLICY_VERSION,
+                "retry_after_seconds": getattr(exc, 'retry_after_seconds', None)}}
     except Exception as exc:
         return {"provider": "prehrajto", "whisper": {"status": "resolve_crashed", "error": f"{type(exc).__name__}: {exc}"}}
     probe = {
@@ -287,6 +290,10 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
     }
     if os.environ.get("WHISPER_LANGUAGE_CHECK") != "1":
         return {**probe, "whisper": {"status": "disabled"}}
+    if minimum_stream_bytes is not None:
+        size = probe.get('stream_filesize_bytes')
+        if size is None or size < minimum_stream_bytes:
+            return {**probe, 'whisper': {'status': 'stream_size_unknown' if size is None else 'stream_undersized'}}
     with tempfile.TemporaryDirectory() as td:
         sample = Path(td) / "sample.wav"
         ok, msg = sample_audio(best.url, sample, start_sec=60, seconds=sample_seconds)
@@ -296,13 +303,14 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
         return {**probe, "whisper": {"status": status, "language": lang, "probability": prob, "resolution": best.label}}
 
 
-def audit_one(item: dict, *, use_whisper: bool, sample_seconds: int, probe_stream: bool = False) -> dict:
+def audit_one(item: dict, *, use_whisper: bool, sample_seconds: int, probe_stream: bool = False,
+              minimum_stream_bytes: int | None = None) -> dict:
     old = os.environ.get("WHISPER_LANGUAGE_CHECK")
     try:
         os.environ["WHISPER_LANGUAGE_CHECK"] = "1" if use_whisper else "0"
-        provider_probe = audit_provider(
-            item, sample_seconds=sample_seconds, probe_stream=probe_stream or use_whisper
-        )
+        options = {'minimum_stream_bytes': minimum_stream_bytes} if minimum_stream_bytes is not None else {}
+        provider_probe = audit_provider(item, sample_seconds=sample_seconds,
+            probe_stream=probe_stream or use_whisper, **options)
     finally:
         if old is None:
             os.environ.pop("WHISPER_LANGUAGE_CHECK", None)

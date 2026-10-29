@@ -680,7 +680,7 @@ def live_search_candidates(episode: dict, *, limit: int, query_limit: int, burne
         except Exception as exc:
             if getattr(getattr(exc, "response", None), "status_code", None) == 429:
                 raise PreparationRateLimited(f"Search rate limited for {query!r}") from exc
-            print(f"Live search failed for {query!r}: {type(exc).__name__}: {exc}", file=sys.stderr)
+            print(f"Live search failed for {query!r}: {type(exc).__name__}", file=sys.stderr)
             continue
         for page in pages:
             for source in usable(page):

@@ -26,6 +26,10 @@ from dataclasses import dataclass
 from typing import Optional
 
 import requests
+from request_backoff import retry_after_seconds
+
+FAILURE_POLICY_VERSION = 2
+_rate_limit_until = 0.0
 
 GOOGLEBOT_SMARTPHONE_USER_AGENT = (
     "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) "
@@ -122,11 +126,18 @@ class ResolveError(Exception):
 
 
 class ProxyUnavailableError(ResolveError):
-    """No configured proxy returned an HTTP response after all retries."""
+    """The shared source dependency remained unavailable after bounded retries."""
 
-    def __init__(self, message: str):
+    def __init__(self, message):
         super().__init__(message, permanent=False)
 
+
+class ProxyRateLimitedError(ProxyUnavailableError):
+    """Pause dependency work rather than burning individual source files."""
+
+    def __init__(self, delay):
+        super().__init__('Source requests rate limited; retry later')
+        self.retry_after_seconds = delay
 
 def _parse_video_block(body: str) -> Optional[StreamVariant]:
     props: dict[str, str | bool] = {}
@@ -323,7 +334,9 @@ def resolve(
     the orchestrator records as a transient failed_attempt (retry-able
     on the next batch).
     """
-    global _last_resolve_at
+    global _last_resolve_at, _rate_limit_until
+    if time.monotonic() < _rate_limit_until:
+        raise ProxyRateLimitedError(max(1, int(_rate_limit_until - time.monotonic()) + 1))
     sess = session or requests.Session()
     sess.headers.update(_googlebot_headers())
     localhost_url = _localhost_fetch_url(upload_url)
@@ -351,35 +364,33 @@ def resolve(
                 if via_proxy:
                     _last_resolve_at = time.monotonic()
             except requests.RequestException as e:
-                last_err = f"{fetch_label} network error: {e}"
+                last_err = f"{fetch_label} network error: {type(e).__name__}"
                 continue
             if resp.status_code == 404:
                 # Upload truly gone — give up immediately, burn the upload_id.
                 raise ResolveError(f"upload not found (404): {upload_url}", permanent=True)
+            if resp.status_code == 429:
+                delay = retry_after_seconds(resp.headers.get('Retry-After'))
+                _rate_limit_until = time.monotonic() + delay
+                raise ProxyRateLimitedError(delay)
             if resp.ok:
                 return parse_html(resp.text, upload_url, fetch_via=fetch_label)
             if 500 <= resp.status_code < 600:
-                # Diagnostic: dump response so we can tell a real gateway
-                # 502 (proxy / upstream truly down — retry helps) from the
-                # CZ proxy remapping a per-URL upstream error into 502
-                # (dead upload — retry will never help). The proxy wraps
-                # WebException into a plain-text body like
-                #   "WebException: ConnectionClosed - The request was
-                #    aborted: The connection was closed unexpectedly."
-                #   "Upstream NotFound: …"
-                # When we see that signature, this upload_id is dead.
+                # Only an explicit upstream 404 proves that this file is gone.
+                # ConnectionClosed/Timeout WebExceptions are transport outages.
                 body_preview = (resp.text or "")[:300].replace("\n", " ")
                 ct = resp.headers.get("Content-Type", "")
                 print(
-                    f"[resolve] {fetch_label} HTTP {resp.status_code} ct={ct!r} body[0:300]={body_preview!r}",
+                    f"[resolve] {fetch_label} HTTP {resp.status_code} ct={ct!r}",
                     flush=True,
                 )
-                permanent_markers = ("Upstream NotFound", "WebException:")
-                if any(m in body_preview for m in permanent_markers):
+                if ('upstream notfound' in body_preview.lower()
+                        or re.search(r'WebException:.*\(404\).*Not Found', body_preview, re.I)):
                     raise ResolveError(
                         f"HTTP {resp.status_code} wrapping permanent upstream error: {upload_url}",
                         permanent=True,
                     )
+                proxy_transport_outage = via_proxy
                 last_err = f"{fetch_label} HTTP {resp.status_code}"
                 continue
             last_err = f"{fetch_label} HTTP {resp.status_code}"

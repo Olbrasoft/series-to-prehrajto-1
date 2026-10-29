@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from typing import Callable
 
 import requests
+from request_backoff import retry_after_seconds
 
 BASE_URL = "https://prehraj.to"
 SEARCH_URL = "https://prehraj.to/hledej/{query}"
@@ -272,10 +273,8 @@ def search_pages(
             if response is not None and response.ok:
                 break
             retry_after = response.headers.get("Retry-After") if response is not None else None
-            try:
-                retry_seconds = float(retry_after) if retry_after else 0.0
-            except ValueError:
-                retry_seconds = 0.0
+            retry_seconds = retry_after_seconds(retry_after,
+                default=300 if response is not None and response.status_code == 429 else 0)
             time.sleep(max(retry_seconds, 10.0 * (attempt + 1)))
         else:
             if response is not None:

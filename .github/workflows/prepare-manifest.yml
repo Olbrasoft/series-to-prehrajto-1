@@ -200,10 +200,9 @@ jobs:
         env:
           CZ_PROXY_URL: ${{ secrets.CZ_PROXY_URL }}
           CZ_PROXY_KEY: ${{ secrets.CZ_PROXY_KEY }}
-          # Both runners share one proxy key. Twenty seconds per runner keeps
-          # aggregate traffic at one search per ten seconds without 429 bursts.
-          CZ_PROXY_MIN_GAP_SECONDS: "20"
-          PREHRAJTO_SEARCH_MIN_INTERVAL: "20"
+          # Leave capacity for background preparation, uploads and subtitles.
+          CZ_PROXY_MIN_GAP_SECONDS: "60"
+          PREHRAJTO_SEARCH_MIN_INTERVAL: "60"
         run: |
           ARGS=(
             "--queue" "backlog/enriched-audit-queue.jsonl.gz"
