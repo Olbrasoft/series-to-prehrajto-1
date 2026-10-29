@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 115202,
-    "manifest_upload_ready_episodes": 2,
+    "manifest_upload_ready_episodes": 4,
     "uploaded_episodes": 76446,
-    "prepared_source_episodes": 65876,
+    "prepared_source_episodes": 65885,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 23,
-    "language_whisper_attempted_sources": 21,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54241,
     "whisper_review_pending_sources": 38098,
-    "subtitle_followup_sources": 48592,
-    "subtitle_followup_pending_sources": 48592
+    "subtitle_followup_sources": 48595,
+    "subtitle_followup_pending_sources": 48595
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-29T01:54:13Z",
+      "databaseId": 40803184271,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-29T01:54:03Z",
+      "databaseId": 40803167478,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-29T01:53:54Z",
+      "databaseId": 40803152719,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-29T01:53:51Z",
+      "databaseId": 40803147758,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-29T01:53:31Z",
@@ -27,11 +59,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-29T01:52:50Z",
       "databaseId": 40803048995,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +147,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-29T01:47:06Z",
       "databaseId": 40802491209,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-29T01:45:48Z",
-      "databaseId": 40802363730,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-29T01:45:46Z",
-      "databaseId": 40802359371,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-29T01:43:02Z",
-      "databaseId": 40802080907,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-29T01:42:07Z",
-      "databaseId": 40801995653,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -714207,8 +714207,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 2,
-    "ok": 20,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
@@ -714218,6 +714217,6 @@
     "whisper_failed": 1288
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48592
+    "needs_subtitle_setup_after_prehrajto_processing": 48595
   }
 }
