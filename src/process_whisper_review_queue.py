@@ -24,7 +24,7 @@ from prepare_episode_sources import (  # noqa: E402
     write_compacted_prepared,
     write_jsonl,
 )
-from source_quality import MIN_UPLOAD_FILESIZE_BYTES  # noqa: E402
+from source_quality import MIN_UPLOAD_FILESIZE_BYTES, source_quality_score  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 REVIEW_RECOVERY_VERSION = 1
@@ -61,6 +61,7 @@ def select_review_batch(rows: list[dict], *, limit: int, recovery_limit: int) ->
     recovery = [r for r in rows if r.get('status') not in {None, 'needs_whisper'}]
     recovery.sort(key=lambda r: (
         r.get('status') != 'whisper_confirmed_cz',
+        -source_quality_score(r)[1],
         int(r.get('duration_sec') or 0) < 1800,
         not source_has_cz_audio_hint(r),
         int(r.get('filesize_bytes') or 0),
