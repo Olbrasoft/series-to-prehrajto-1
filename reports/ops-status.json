@@ -2,28 +2,68 @@
   "counts": {
     "backlog_episodes": 115057,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 76602,
-    "prepared_source_episodes": 65869,
+    "uploaded_episodes": 76603,
+    "prepared_source_episodes": 65871,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
     "language_audited_sources": 42,
-    "language_whisper_attempted_sources": 42,
+    "language_whisper_attempted_sources": 41,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54230,
-    "whisper_review_pending_sources": 38371,
+    "whisper_review_pending_sources": 38372,
     "subtitle_followup_sources": 48687,
     "subtitle_followup_pending_sources": 48687
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-30T09:11:22Z",
+      "databaseId": 41031599983,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-30T09:11:18Z",
+      "databaseId": 41031592475,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-30T09:11:17Z",
+      "databaseId": 41031591233,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-30T09:11:13Z",
+      "databaseId": 41031583354,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-30T09:10:54Z",
+      "databaseId": 41031545532,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-30T09:10:04Z",
       "databaseId": 41031441245,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -35,11 +75,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-30T09:08:11Z",
       "databaseId": 41031207430,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,11 +107,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-30T09:07:04Z",
       "databaseId": 41031072024,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -137,46 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T08:59:17Z",
-      "databaseId": 41030138042,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T08:59:13Z",
-      "databaseId": 41030131291,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T08:59:00Z",
-      "databaseId": 41030107402,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T08:57:45Z",
-      "databaseId": 41029968928,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T08:57:11Z",
-      "databaseId": 41029903885,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -357444,6 +357444,11 @@
         "episode_id": 97187,
         "display_name": "Jake a tlusťoch S01E02 - Osudová přitažlivost 1/2 CZ Dabing",
         "video_id": 30629907
+      },
+      {
+        "episode_id": 142971,
+        "display_name": "Znuděný k smrti S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 30630056
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -714606,6 +714611,11 @@
         "episode_id": 97187,
         "display_name": "Jake a tlusťoch S01E02 - Osudová přitažlivost 1/2 CZ Dabing",
         "video_id": 30629907
+      },
+      {
+        "episode_id": 142971,
+        "display_name": "Znuděný k smrti S02E01 - 1. epizoda CZ Titulky",
+        "video_id": 30630056
       }
     ],
     "prepared_not_upload_ready": [
@@ -715767,13 +715777,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 41,
+    "disabled": 1,
+    "ok": 40,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36778,
+    "needs_whisper": 36779,
     "whisper_confirmed_cz": 3520,
-    "whisper_non_cz_needs_subtitles": 12339,
+    "whisper_non_cz_needs_subtitles": 12338,
     "whisper_failed": 1593
   },
   "subtitle_followup_statuses": {
