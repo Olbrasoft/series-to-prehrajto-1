@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 115057,
     "manifest_upload_ready_episodes": 1,
-    "uploaded_episodes": 76598,
+    "uploaded_episodes": 76599,
     "prepared_source_episodes": 65859,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
-    "language_whisper_attempted_sources": 45,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54231,
     "whisper_review_pending_sources": 38368,
     "subtitle_followup_sources": 48685,
@@ -20,10 +20,18 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-30T08:41:38Z",
+      "databaseId": 41028165858,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-30T08:40:31Z",
       "databaseId": 41028038968,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -31,7 +39,7 @@
       "createdAt": "2026-10-30T08:40:30Z",
       "databaseId": 41028038023,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -39,7 +47,7 @@
       "createdAt": "2026-10-30T08:39:51Z",
       "databaseId": 41027959957,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -59,11 +67,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-30T08:37:38Z",
       "databaseId": 41027715118,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -103,15 +111,15 @@
       "createdAt": "2026-10-30T08:37:25Z",
       "databaseId": 41027689717,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "queued",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-30T08:37:22Z",
       "databaseId": 41027684219,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -169,14 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T08:33:55Z",
-      "databaseId": 41027293540,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -187924,6 +187924,11 @@
         "episode_id": 186509,
         "display_name": "Hodně štěstí, Charlie S01E08 - První narozeniny CZ Dabing",
         "video_id": 30629262
+      },
+      {
+        "episode_id": 186556,
+        "display_name": "Hodně štěstí, Charlie S02E10 - Seznámení s rodiči CZ Dabing",
+        "video_id": 30629701
       },
       {
         "episode_id": 114182,
@@ -545068,6 +545073,11 @@
         "video_id": 30629262
       },
       {
+        "episode_id": 186556,
+        "display_name": "Hodně štěstí, Charlie S02E10 - Seznámení s rodiči CZ Dabing",
+        "video_id": 30629701
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -715727,9 +715737,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "stream_undersized": 2,
-    "resolve_failed": 2,
-    "ok": 41
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36783,
