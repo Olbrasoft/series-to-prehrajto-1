@@ -1,23 +1,31 @@
 {
   "counts": {
     "backlog_episodes": 115025,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 76632,
+    "manifest_upload_ready_episodes": 2,
+    "uploaded_episodes": 76634,
     "prepared_source_episodes": 65906,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 40,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 38,
-    "language_whisper_attempted_sources": 30,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54229,
     "whisper_review_pending_sources": 38494,
     "subtitle_followup_sources": 48705,
     "subtitle_followup_pending_sources": 48705
   },
   "workflow_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-30T14:40:22Z",
+      "databaseId": 41073682826,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-30T14:39:43Z",
@@ -47,7 +55,7 @@
       "createdAt": "2026-10-30T14:37:58Z",
       "databaseId": 41073319890,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +71,7 @@
       "createdAt": "2026-10-30T14:36:23Z",
       "databaseId": 41073075075,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +91,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-30T14:34:15Z",
       "databaseId": 41072732273,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -111,7 +119,7 @@
       "createdAt": "2026-10-30T14:33:30Z",
       "databaseId": 41072611990,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "queued",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -127,7 +135,7 @@
       "createdAt": "2026-10-30T14:32:26Z",
       "databaseId": 41072443306,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -169,14 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-30T14:29:08Z",
-      "databaseId": 41071886969,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "prepare-sources"
     }
   ],
   "gaps": {
@@ -187994,6 +187994,16 @@
         "episode_id": 181457,
         "display_name": "Idiot na cestách S02E08 - 8. epizoda CZ Titulky",
         "video_id": 30637538
+      },
+      {
+        "episode_id": 97228,
+        "display_name": "Jake a tlusťoch S03E08 - Zlatíčko Leilani CZ Dabing",
+        "video_id": 30637931
+      },
+      {
+        "episode_id": 97225,
+        "display_name": "Jake a tlusťoch S03E07 - Bez východiska CZ Dabing",
+        "video_id": 30637928
       },
       {
         "episode_id": 114182,
@@ -545308,6 +545318,16 @@
         "video_id": 30637538
       },
       {
+        "episode_id": 97228,
+        "display_name": "Jake a tlusťoch S03E08 - Zlatíčko Leilani CZ Dabing",
+        "video_id": 30637931
+      },
+      {
+        "episode_id": 97225,
+        "display_name": "Jake a tlusťoch S03E07 - Bez východiska CZ Dabing",
+        "video_id": 30637928
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -716067,10 +716087,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 8,
-    "stream_undersized": 6,
-    "ok": 21,
-    "resolve_failed": 3
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36780,
