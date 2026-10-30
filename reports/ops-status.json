@@ -1,29 +1,53 @@
 {
   "counts": {
     "backlog_episodes": 115037,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 76606,
-    "prepared_source_episodes": 65899,
+    "manifest_upload_ready_episodes": 2,
+    "uploaded_episodes": 76607,
+    "prepared_source_episodes": 65896,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 20,
-    "language_whisper_attempted_sources": 20,
+    "language_audited_sources": 25,
+    "language_whisper_attempted_sources": 25,
     "language_pending_whisper_sources": 2624,
-    "whisper_review_sources": 54229,
-    "whisper_review_pending_sources": 38414,
-    "subtitle_followup_sources": 48692,
-    "subtitle_followup_pending_sources": 48692
+    "whisper_review_sources": 54228,
+    "whisper_review_pending_sources": 38416,
+    "subtitle_followup_sources": 48693,
+    "subtitle_followup_pending_sources": 48693
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-30T11:03:32Z",
+      "databaseId": 41045283864,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-30T11:01:46Z",
+      "databaseId": 41045064830,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-30T10:59:34Z",
+      "databaseId": 41044779344,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-30T10:57:55Z",
       "databaseId": 41044582797,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,7 +71,7 @@
       "createdAt": "2026-10-30T10:55:16Z",
       "databaseId": 41044269741,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-manifest"
     },
     {
@@ -55,7 +79,7 @@
       "createdAt": "2026-10-30T10:55:06Z",
       "databaseId": 41044248890,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -83,11 +107,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-30T10:54:13Z",
       "databaseId": 41044144106,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -131,11 +155,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-30T10:51:33Z",
       "databaseId": 41043819125,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T10:50:46Z",
-      "databaseId": 41043725512,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-30T10:49:47Z",
-      "databaseId": 41043602664,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T10:49:35Z",
-      "databaseId": 41043577959,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -187939,6 +187939,11 @@
         "episode_id": 156285,
         "display_name": "Ostrov lebek S01E04 - 4. epizoda CZ Titulky",
         "video_id": 30630433
+      },
+      {
+        "episode_id": 137949,
+        "display_name": "Idiot na cestách S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 30631493
       },
       {
         "episode_id": 114182,
@@ -545123,6 +545128,11 @@
         "video_id": 30630433
       },
       {
+        "episode_id": 137949,
+        "display_name": "Idiot na cestách S02E06 - 6. epizoda CZ Titulky",
+        "video_id": 30631493
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -715807,16 +715817,17 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 19,
-    "resolve_failed": 1
+    "resolve_failed": 2,
+    "ok": 20,
+    "stream_undersized": 3
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36775,
-    "whisper_confirmed_cz": 3475,
+    "needs_whisper": 36774,
+    "whisper_confirmed_cz": 3472,
     "whisper_non_cz_needs_subtitles": 12340,
-    "whisper_failed": 1639
+    "whisper_failed": 1642
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48692
+    "needs_subtitle_setup_after_prehrajto_processing": 48693
   }
 }
