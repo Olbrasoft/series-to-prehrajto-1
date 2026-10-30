@@ -85,7 +85,7 @@ def test_original_requires_measured_minimum_before_whisper(monkeypatch, original
     assert review.audit_has_upload_size(result) is accepted
     assert source_meets_size_requirement(result) is accepted
     assert is_resolvable(result) is accepted
-    assert samples == (['https://cdn.test/transcode'] if accepted else [])
+    assert samples == (['https://cdn.test/original?secret=temporary'] if accepted else [])
     assert 'secret' not in json.dumps(probe)
 
 
@@ -123,3 +123,19 @@ def test_cli_recovers_rejected_stream_using_original_and_persists_evidence(tmp_p
     assert is_resolvable(prepared['selected_source'])
     assert review.main() == 0
     assert calls == [1]
+
+
+@pytest.mark.parametrize('timeout', [True, False])
+def test_audio_errors_are_bounded_and_never_persist_signed_urls(tmp_path, monkeypatch, timeout):
+    import subprocess
+    from types import SimpleNamespace
+    import audit_language_sources as audit
+    def run(cmd, **kwargs):
+        if timeout:
+            raise subprocess.TimeoutExpired(cmd, 180)
+        return SimpleNamespace(returncode=1, stderr='Failed https://cdn.test/original?token=private Server returned 403')
+    monkeypatch.setattr(audit.subprocess, 'run', run)
+    ok, message = audit.sample_audio('https://cdn.test/original?token=private', tmp_path / 'sample.wav',
+                                     start_sec=60, seconds=30)
+    assert not ok
+    assert 'private' not in message and 'https://' not in message

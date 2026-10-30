@@ -236,9 +236,12 @@ def sample_audio(stream_url: str, out_path: Path, *, start_sec: int, seconds: in
         "16000",
         str(out_path),
     ]
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    except subprocess.TimeoutExpired:
+        return False, 'Audio sample timed out'
     if proc.returncode != 0:
-        return False, proc.stderr.strip()[:300]
+        return False, re.sub(r'https?://\S+', '<media-url>', proc.stderr.strip())[:300]
     return True, "ok"
 
 
@@ -292,6 +295,7 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
     }
     if os.environ.get("WHISPER_LANGUAGE_CHECK") != "1":
         return {**probe, "whisper": {"status": "disabled"}}
+    audio_url = best.url
     if minimum_stream_bytes is not None:
         size = measured_upload_filesize(probe)
         if original_session is not None and (size is None or size < minimum_stream_bytes):
@@ -299,6 +303,7 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
                 original = official_download(original_session, item['source_url'], source_name=resolved.name or '')
                 probe['official_original'] = {'status': 'ok', 'filesize_bytes': original.size,
                                               'suffix': original.suffix}
+                audio_url = original.url
             except DownloadError:
                 probe['official_original'] = {'status': 'unavailable'}
             size = measured_upload_filesize(probe)
@@ -306,7 +311,7 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
             return {**probe, 'whisper': {'status': 'stream_size_unknown' if size is None else 'stream_undersized'}}
     with tempfile.TemporaryDirectory() as td:
         sample = Path(td) / "sample.wav"
-        ok, msg = sample_audio(best.url, sample, start_sec=60, seconds=sample_seconds)
+        ok, msg = sample_audio(audio_url, sample, start_sec=60, seconds=sample_seconds)
         if not ok:
             return {**probe, "whisper": {"status": "sample_failed", "error": msg, "resolution": best.label}}
         lang, prob, status = whisper_language(sample, seconds=sample_seconds)
