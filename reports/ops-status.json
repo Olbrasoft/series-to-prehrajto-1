@@ -1,23 +1,39 @@
 {
   "counts": {
     "backlog_episodes": 114962,
-    "manifest_upload_ready_episodes": 33,
-    "uploaded_episodes": 76712,
+    "manifest_upload_ready_episodes": 23,
+    "uploaded_episodes": 76713,
     "prepared_source_episodes": 66070,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 28,
-    "language_whisper_attempted_sources": 24,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54213,
     "whisper_review_pending_sources": 38545,
     "subtitle_followup_sources": 48724,
     "subtitle_followup_pending_sources": 48724
   },
   "workflow_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-30T23:36:32Z",
+      "databaseId": 41145490477,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-30T23:36:30Z",
+      "databaseId": 41145487230,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
     {
       "conclusion": "skipped",
       "createdAt": "2026-10-30T23:35:42Z",
@@ -31,7 +47,7 @@
       "createdAt": "2026-10-30T23:35:11Z",
       "databaseId": 41145355869,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -43,11 +59,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-30T23:33:58Z",
       "databaseId": 41145226669,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-30T23:22:47Z",
-      "databaseId": 41144114771,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-30T23:21:25Z",
-      "databaseId": 41143977042,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
     }
   ],
   "gaps": {
@@ -188154,6 +188154,11 @@
         "episode_id": 133908,
         "display_name": "Doom at Your Service S01E09 - 9. epizoda CZ Titulky",
         "video_id": 30648361
+      },
+      {
+        "episode_id": 119620,
+        "display_name": "Good Trouble S05E03 - Už je sakra nejvyšší čas CZ Titulky",
+        "video_id": 30648513
       },
       {
         "episode_id": 25357,
@@ -545858,6 +545863,11 @@
         "video_id": 30648361
       },
       {
+        "episode_id": 119620,
+        "display_name": "Good Trouble S05E03 - Už je sakra nejvyšší čas CZ Titulky",
+        "video_id": 30648513
+      },
+      {
         "episode_id": 25357,
         "display_name": "Castle na zabití S04E08 - Hotel plný vzpomínek CZ Dabing",
         "video_id": 30647659
@@ -716847,10 +716857,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "stream_undersized": 1,
-    "disabled": 4,
-    "ok": 21,
-    "resolve_failed": 2
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36769,
