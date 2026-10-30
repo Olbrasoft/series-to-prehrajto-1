@@ -1009,6 +1009,23 @@ def prepare_episode(
                     "whisper_review_reason": "quality candidate matches episode but has no Czech title or metadata signal, or has another language signal",
                 }
             )
+    if selected is None:
+        for result in audited:
+            source = sources_by_id[int(result['source_id'])]
+            probe = (result.get('signals') or {}).get('provider_probe') or {}
+            size = probe.get('stream_filesize_bytes')
+            if (source.get('provider') == 'prehrajto'
+                    and result['verdict'] in {'CZ_AUDIO', 'PROBABLE_CZ_AUDIO', 'CZ_SUBTITLES_ONLY'}
+                    and probe.get('status') == 'ok' and probe.get('streams')
+                    and size is not None and size < MIN_UPLOAD_FILE_SIZE
+                    and int(source.get('filesize_bytes') or 0) >= MIN_UPLOAD_FILE_SIZE):
+                # Keep the original metadata only as a lookup hint. The
+                # authenticated review still measures the actual original
+                # and checks its audio before allowing any upload.
+                whisper_review_sources.append({
+                    **result, 'filesize_bytes': source['filesize_bytes'],
+                    'whisper_review_reason': 'Czech source needs complete original size and audio verification',
+                })
     return {
         "prepared_at": (
             audited[-1]["audited_at"]

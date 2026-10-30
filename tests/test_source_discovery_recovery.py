@@ -224,3 +224,32 @@ def test_unavailable_historical_source_still_uses_live_discovery(monkeypatch):
     assert searches == [True]
     assert plan['upload_ready']
     assert plan['selected_source']['source_id'] == -2
+
+
+@pytest.mark.parametrize('use_whisper', [False, True])
+def test_fresh_czech_small_transcode_enters_original_review(monkeypatch, tmp_path, use_whisper):
+    ep = episode()
+    prep.restore_prepared_candidates([ep], {ep['episode_id']: historical_plan(ep)}, set())
+    ep['sources'][0]['filesize_bytes'] = 400_000_000
+    original = prep.audit_one
+    def audited(item, **kwargs):
+        row = original(item, use_whisper=False, sample_seconds=20, probe_stream=False)
+        if kwargs['probe_stream']:
+            row['filesize_bytes'] = 200_000_000
+            row['signals']['provider_probe'] = {'status': 'ok', 'streams': [{'res': 1080}],
+                                               'stream_filesize_bytes': 200_000_000}
+        return row
+    monkeypatch.setattr(prep, 'audit_one', audited)
+    plan = prep.prepare_episode(ep, use_whisper=use_whisper, sample_seconds=20, source_limit=4,
+                                burned=set(), require_resolvable_source=True, live_search=False,
+                                live_search_limit=4, live_search_query_limit=4)
+    assert not plan['upload_ready']
+    assert len(plan['whisper_review_sources']) == 1
+    path = tmp_path / 'review.jsonl'
+    prep.update_whisper_review_queue(path, [plan])
+    queued = prep.load_jsonl(path)[0]
+    assert queued['status'] == 'needs_whisper'
+    assert queued['filesize_bytes'] == ep['sources'][0]['filesize_bytes']
+    from process_whisper_review_queue import eligible_review_sources
+    assert eligible_review_sources([queued], uploaded_ids=set(), uploaded_keys=set(),
+                                    burned=set(), prepared_ids=set()) == [queued]
