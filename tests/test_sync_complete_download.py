@@ -11,14 +11,15 @@ from download import DownloadError
 from resolve_stream import StreamVariant
 
 
-@pytest.mark.parametrize('limited', [True, False])
-def test_worker_selects_complete_original_and_records_actual_container(monkeypatch, tmp_path, limited):
+@pytest.mark.parametrize('limited,stream_size', [(True, 600_000_000), (False, 600_000_000),
+                                               (False, 200_000_000)])
+def test_worker_selects_complete_original_and_records_actual_container(monkeypatch, tmp_path, limited, stream_size):
     stream = 'https://cdn.test/stream' + ('?limitsize=1000' if limited else '')
     monkeypatch.setattr(sync, 'TMP_DIR', tmp_path)
     monkeypatch.setattr(sync, 'has_probable_czech', lambda *a, **kw: (True, 'CZ'))
     monkeypatch.setattr(sync, 'resolve_stream', lambda url: SimpleNamespace(
         name='Example.mkv',videos=[StreamVariant(stream,1080,'1080p',True)]))
-    monkeypatch.setattr(sync, 'head_size', lambda url: 600_000_000)
+    monkeypatch.setattr(sync, 'head_size', lambda url: stream_size)
     original_calls = []
     def original(session, url, **kwargs):
         original_calls.append(url)
@@ -38,24 +39,26 @@ def test_worker_selects_complete_original_and_records_actual_container(monkeypat
     episode = {'episode_id':1,'series_id':1,'series_title':'Example','season':1,'episode':2,'display_name':'Example S01E02 CZ Dabing'}
     candidate = {'source_id':1,'url':'https://prehraj.to/example/id','lang_class':'CZ_DUB'}
     assert sync.try_candidate(episode,candidate,object(),state,allow_subtitles=True,description='')
-    if limited:
+    use_original = limited or stream_size < sync.MIN_UPLOAD_FILE_SIZE
+    if use_original:
         assert original_calls == [candidate['url']]
         assert transfers == [('https://cdn.test/full','.mkv',736_000_000)]
     else:
         assert original_calls == []
         assert transfers == [(stream,'.mp4',600_000_000)]
     row = state['uploads'][0]
-    assert row['source_download_kind'] == ('original' if limited else 'stream')
-    assert row['source_container'] == ('mkv' if limited else 'mp4')
+    assert row['source_download_kind'] == ('original' if use_original else 'stream')
+    assert row['source_container'] == ('mkv' if use_original else 'mp4')
     assert row['size_bytes'] == transfers[0][2]
     assert not list(tmp_path.iterdir())
 
 
-def test_unavailable_official_file_never_uploads_a_preview(monkeypatch):
+@pytest.mark.parametrize('limited', [True, False])
+def test_unavailable_official_file_never_uploads_a_preview(monkeypatch, limited):
     monkeypatch.setattr(sync, 'has_probable_czech', lambda *a, **kw: (True, 'CZ'))
     monkeypatch.setattr(sync, 'resolve_stream', lambda url: SimpleNamespace(
-        name='Example.mkv',videos=[StreamVariant('https://cdn.test/stream?limitsize=1000',1080,'1080p',True)]))
-    monkeypatch.setattr(sync, 'head_size', lambda url: 600_000_000)
+        name='Example.mkv',videos=[StreamVariant('https://cdn.test/stream' + ('?limitsize=1000' if limited else ''),1080,'1080p',True)]))
+    monkeypatch.setattr(sync, 'head_size', lambda url: 600_000_000 if limited else 200_000_000)
     def unavailable(*a, **kw):raise DownloadError('Official download unavailable')
     monkeypatch.setattr(sync, 'official_download', unavailable)
     monkeypatch.setattr(sync, 'download_to', lambda *a, **kw: pytest.fail('Preview must not download'))

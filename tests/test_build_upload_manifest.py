@@ -111,3 +111,15 @@ def test_measured_small_stream_cannot_pass_using_optimistic_metadata(tmp_path, m
                                             'stream_filesize_bytes': 200_000_000}}
     rows, _ = build(tmp_path, monkeypatch, original=original, alternatives=[])
     assert rows == []
+
+
+@pytest.mark.parametrize('status,size,accepted', [('ok', 300 * 1024 ** 2, True),
+    ('ok', 300 * 1024 ** 2 - 1, False), ('unavailable', 800_000_000, False),
+    ('ok', None, False), ('ok', 'unknown', False)])
+def test_manifest_requires_measured_complete_original_for_small_transcode(tmp_path, monkeypatch, status, size, accepted):
+    original = source(11, size=800_000_000)
+    original['signals'] = {'provider_probe': {'status': 'ok', 'streams': [{'res': 720}],
+        'stream_filesize_bytes': 200_000_000,
+        'official_original': {'status': status, 'filesize_bytes': size, 'suffix': '.avi'}}}
+    rows, _ = build(tmp_path, monkeypatch, original=original, alternatives=[])
+    assert bool(rows) is accepted

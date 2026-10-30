@@ -9,13 +9,22 @@ MIN_PREFERRED_FILESIZE_BYTES = 350 * 1024 * 1024
 MIN_UPLOAD_FILESIZE_BYTES = 300 * 1024 * 1024
 
 
+def measured_upload_filesize(probe: dict[str, Any]) -> int | None:
+    """Use a measured complete original when the player transcode is too small."""
+    original = probe.get("official_original") or {}
+    size = original.get("filesize_bytes")
+    if original.get("status") == "ok" and type(size) is int and size > 0:
+        return size
+    return probe.get("stream_filesize_bytes")
+
+
 def source_meets_size_requirement(source: dict[str, Any]) -> bool:
-    """Use the upload minimum for measured streams, a margin for metadata.
+    """Use the upload minimum for measured files, a margin for metadata.
 
     Unknown size still needs a resolvable stream check by the caller.
     """
     probe = (source.get("signals") or {}).get("provider_probe") or {}
-    measured = probe.get("stream_filesize_bytes")
+    measured = measured_upload_filesize(probe)
     if probe.get("status") == "ok" and probe.get("streams") and measured is not None:
         return int(measured) >= MIN_UPLOAD_FILESIZE_BYTES
     size = source.get("filesize_bytes")

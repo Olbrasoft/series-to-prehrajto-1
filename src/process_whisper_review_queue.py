@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
 import datetime as dt
+import io
 import json
 import os
 import sys
@@ -24,26 +26,32 @@ from prepare_episode_sources import (  # noqa: E402
     write_compacted_prepared,
     write_jsonl,
 )
-from source_quality import MIN_UPLOAD_FILESIZE_BYTES, source_quality_score  # noqa: E402
+from source_quality import MIN_UPLOAD_FILESIZE_BYTES, measured_upload_filesize, source_quality_score  # noqa: E402
+from prehrajto_upload import login  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 REVIEW_RECOVERY_VERSION = 1
 
 
-def review_due(row: dict, *, now: dt.datetime) -> bool:
+def review_due(row: dict, *, now: dt.datetime, allow_original: bool = False) -> bool:
     status = row.get('status')
     if status in {None, 'needs_whisper'}:
         return True
     if status in {'whisper_confirmed_cz', 'whisper_non_cz_needs_subtitles'}:
         return int(row.get('recovery_version') or 0) < REVIEW_RECOVERY_VERSION
-    if status != 'whisper_failed' or int(row.get('retry_attempts') or 0) >= 3:
+    if status != 'whisper_failed':
         return False
     failure = row.get('whisper') or {}
+    if failure.get('status') in {'stream_undersized', 'stream_size_unknown'}:
+        # One new capability check, not another attempt against the same
+        # undersized transcode. Persist even unavailable original lookups.
+        return (allow_original and not row.get('official_original')
+                and int(row.get('filesize_bytes') or 0) >= MIN_UPLOAD_FILESIZE_BYTES)
+    if int(row.get('retry_attempts') or 0) >= 3:
+        return False
     legacy_proxy = (not failure.get('failure_policy_version')
                     and 'wrapping permanent upstream error' in str(failure.get('error') or ''))
     if failure.get('permanent') and not legacy_proxy:
-        return False
-    if failure.get('status') in {'stream_undersized', 'stream_size_unknown'}:
         return False
     try:
         if row.get('retry_after'):
@@ -170,7 +178,7 @@ def eligible_review_sources(rows, *, uploaded_ids, uploaded_keys, burned, prepar
 def audit_has_upload_size(audit: dict) -> bool:
     """Promotion requires measured media, never a metadata size estimate."""
     probe = (audit.get("signals") or {}).get("provider_probe") or {}
-    measured = probe.get("stream_filesize_bytes")
+    measured = measured_upload_filesize(probe)
     return (probe.get("status") == "ok" and bool(probe.get("streams"))
             and measured is not None and int(measured) >= MIN_UPLOAD_FILESIZE_BYTES)
 
@@ -205,11 +213,13 @@ def main() -> int:
     ap.add_argument("--refresh", action="store_true")
     args = ap.parse_args()
 
+    original_credentials = (os.environ.get('UPLOAD_PREHRAJTO_EMAIL'), os.environ.get('UPLOAD_PREHRAJTO_PASSWORD'))
+    allow_original = all(original_credentials)
     queue_path = REPO_ROOT / args.queue
     rows = load_jsonl(queue_path)
     wanted = []
     for row in rows:
-        if not args.refresh and not review_due(row, now=dt.datetime.now(dt.timezone.utc)):
+        if not args.refresh and not review_due(row, now=dt.datetime.now(dt.timezone.utc), allow_original=allow_original):
             continue
         if args.series_slug and row.get("series_slug") != args.series_slug:
             continue
@@ -239,10 +249,16 @@ def main() -> int:
     old_whisper = os.environ.get("WHISPER_LANGUAGE_CHECK")
     os.environ["WHISPER_LANGUAGE_CHECK"] = "1"
     try:
+        original_options = {}
+        if wanted and allow_original:
+            # Login diagnostics may contain portal response data; keep them
+            # outside persisted review logs and never store session cookies.
+            with contextlib.redirect_stdout(io.StringIO()):
+                original_options['original_session'] = login(*original_credentials)
         audits = []
         for row in wanted:
             audit = audit_one(row, use_whisper=True, sample_seconds=args.sample_seconds, probe_stream=True,
-                              minimum_stream_bytes=MIN_UPLOAD_FILESIZE_BYTES)
+                              minimum_stream_bytes=MIN_UPLOAD_FILESIZE_BYTES, **original_options)
             audits.append(audit)
             failure = (audit.get('signals') or {}).get('whisper') or {}
             if failure.get('retry_after_seconds') is not None:
@@ -280,6 +296,9 @@ def main() -> int:
             "whisper": whisper,
             "recovery_version": REVIEW_RECOVERY_VERSION,
         }
+        original = ((audit.get('signals') or {}).get('provider_probe') or {}).get('official_original')
+        if original:
+            updated['official_original'] = original
         if status == 'whisper_failed':
             attempts = int(row.get('retry_attempts') or 0) + 1
             updated['retry_attempts'] = attempts
@@ -319,6 +338,7 @@ def main() -> int:
                     "whisper_status": whisper.get("status"),
                     "whisper_language": whisper.get("language"),
                     "whisper_probability": whisper.get("probability"),
+                    "official_original": ((audit.get('signals') or {}).get('provider_probe') or {}).get('official_original'),
                     "promoted": queue_key(audit) in promoted_keys,
                 },
                 ensure_ascii=False,

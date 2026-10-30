@@ -234,7 +234,8 @@ def try_candidate(episode: dict, candidate: dict, session, state: dict, *, allow
 
     expected = head_size(best.url)
     download_url, suffix, download_kind = best.url, ".mp4", "stream"
-    if player_download_limited(download_url, expected):
+    if (player_download_limited(download_url, expected)
+            or (expected is not None and expected < MIN_UPLOAD_FILE_SIZE)):
         try:
             original = official_download(session, candidate["url"], source_name=resolved.name or "")
         except DownloadError as exc:
@@ -243,7 +244,7 @@ def try_candidate(episode: dict, candidate: dict, session, state: dict, *, allow
             return False
         download_url, expected, suffix = original.url, original.size, original.suffix
         download_kind = "original"
-        log(f"  player preview limited; using official original ({suffix}, {expected} B)")
+        log(f"  using official original ({suffix}, {expected} B)")
     if expected is not None and expected > MAX_FILE_SIZE:
         log(f"  oversize: {expected} B > {MAX_FILE_SIZE} B")
         record_failure(state, episode, candidate, f"oversize: {expected} B", permanent=True)
