@@ -19,6 +19,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from language_checks import CZECH_AUDIO_LANGS, title_language_hint, whisper_language  # noqa: E402
 from resolve_stream import FAILURE_POLICY_VERSION, ResolveError, pick_best, resolve as resolve_prehrajto  # noqa: E402
 from download import head_size  # noqa: E402
+from source_download import official_download, DownloadError  # noqa: E402
+from source_quality import measured_upload_filesize  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -241,7 +243,7 @@ def sample_audio(stream_url: str, out_path: Path, *, start_sec: int, seconds: in
 
 
 def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = False,
-                   minimum_stream_bytes: int | None = None) -> dict:
+                   minimum_stream_bytes: int | None = None, original_session=None) -> dict:
     if item.get("provider") == "sktorrent" and item.get("source_url"):
         probe = fetch_sktorrent_page(item["source_url"])
         if probe.get("status") != "ok":
@@ -291,7 +293,15 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
     if os.environ.get("WHISPER_LANGUAGE_CHECK") != "1":
         return {**probe, "whisper": {"status": "disabled"}}
     if minimum_stream_bytes is not None:
-        size = probe.get('stream_filesize_bytes')
+        size = measured_upload_filesize(probe)
+        if original_session is not None and (size is None or size < minimum_stream_bytes):
+            try:
+                original = official_download(original_session, item['source_url'], source_name=resolved.name or '')
+                probe['official_original'] = {'status': 'ok', 'filesize_bytes': original.size,
+                                              'suffix': original.suffix}
+            except DownloadError:
+                probe['official_original'] = {'status': 'unavailable'}
+            size = measured_upload_filesize(probe)
         if size is None or size < minimum_stream_bytes:
             return {**probe, 'whisper': {'status': 'stream_size_unknown' if size is None else 'stream_undersized'}}
     with tempfile.TemporaryDirectory() as td:
@@ -304,11 +314,13 @@ def audit_provider(item: dict, *, sample_seconds: int, probe_stream: bool = Fals
 
 
 def audit_one(item: dict, *, use_whisper: bool, sample_seconds: int, probe_stream: bool = False,
-              minimum_stream_bytes: int | None = None) -> dict:
+              minimum_stream_bytes: int | None = None, original_session=None) -> dict:
     old = os.environ.get("WHISPER_LANGUAGE_CHECK")
     try:
         os.environ["WHISPER_LANGUAGE_CHECK"] = "1" if use_whisper else "0"
         options = {'minimum_stream_bytes': minimum_stream_bytes} if minimum_stream_bytes is not None else {}
+        if original_session is not None:
+            options['original_session'] = original_session
         provider_probe = audit_provider(item, sample_seconds=sample_seconds,
             probe_stream=probe_stream or use_whisper, **options)
     finally:
@@ -357,8 +369,8 @@ def audit_one(item: dict, *, use_whisper: bool, sample_seconds: int, probe_strea
         "source_title": item.get("source_title"),
         "duration_sec": item.get("duration_sec"),
         "resolution_hint": item.get("resolution_hint"),
-        "filesize_bytes": (provider_probe.get("stream_filesize_bytes")
-                           if provider_probe.get("stream_filesize_bytes") is not None
+        "filesize_bytes": (measured_upload_filesize(provider_probe)
+                           if measured_upload_filesize(provider_probe) is not None
                            else item.get("filesize_bytes")),
         "view_count": item.get("view_count"),
         "source_origin": item.get("source_origin"),

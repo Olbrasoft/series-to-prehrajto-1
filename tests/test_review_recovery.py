@@ -53,6 +53,17 @@ def test_old_preparation_snapshot_cannot_reset_review_retry_budget():
     assert newer_review_wins(incoming, current) == current
 
 
+@pytest.mark.parametrize('original,allowed', [(None, True), ({'status': 'unavailable'}, False),
+                                             ({'status': 'ok', 'filesize_bytes': 100_000_000}, False)])
+def test_undersized_reviews_receive_one_original_capability_check(original, allowed):
+    row = dict(status='whisper_failed', retry_attempts=3, filesize_bytes=400_000_000,
+               whisper={'status': 'stream_undersized'})
+    if original:
+        row['official_original'] = original
+    assert not review.review_due(row, now=NOW)
+    assert review.review_due(row, now=NOW, allow_original=True) is allowed
+
+
 def test_recovery_checks_longer_episodes_before_likely_undersized_clips():
     clip = dict(episode_id=1, series_id=1, status='whisper_confirmed_cz',
                 source_title='Example 1080p', duration_sec=600, filesize_bytes=320_000_000)

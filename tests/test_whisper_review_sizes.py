@@ -53,3 +53,73 @@ def test_cli_promotes_only_measured_eligible_streams(tmp_path, monkeypatch):
     assert [r['episode_id'] for r in prepared] == [1]
     assert prepared[0]['selected_source']['filesize_bytes'] == 320 * MIB
     assert len(review.load_jsonl(queue)) == 5
+
+
+@pytest.mark.parametrize('original_size,accepted', [(300 * MIB, True), (300 * MIB - 1, False), (None, False)])
+def test_original_requires_measured_minimum_before_whisper(monkeypatch, original_size, accepted):
+    from types import SimpleNamespace
+    import audit_language_sources as audit
+    from source_download import CompleteDownload, DownloadError
+    from source_quality import source_meets_size_requirement
+    from prepare_episode_sources import is_resolvable
+
+    monkeypatch.setenv('WHISPER_LANGUAGE_CHECK', '1')
+    stream = SimpleNamespace(url='https://cdn.test/transcode', res=720, label='720p', is_default=True)
+    resolved = SimpleNamespace(videos=[stream], tracks=[], video_id=1, name='Example.avi', duration_sec=2400)
+    monkeypatch.setattr(audit, 'resolve_prehrajto', lambda *a, **kw: resolved)
+    monkeypatch.setattr(audit, 'head_size', lambda _: 200 * MIB)
+    def original(*a, **kw):
+        if original_size is None:
+            raise DownloadError('URL with secret must never be persisted')
+        return CompleteDownload('https://cdn.test/original?secret=temporary', original_size, '.avi')
+    monkeypatch.setattr(audit, 'official_download', original)
+    samples = []
+    def sample(url, *a, **kw):
+        samples.append(url)
+        return True, 'ok'
+    monkeypatch.setattr(audit, 'sample_audio', sample)
+    monkeypatch.setattr(audit, 'whisper_language', lambda *a, **kw: ('cs', .99, 'ok'))
+    probe = audit.audit_provider(dict(provider='prehrajto', source_url='https://prehraj.to/example'),
+        sample_seconds=30, probe_stream=True, minimum_stream_bytes=300 * MIB, original_session=object())
+    result = dict(filesize_bytes=500 * MIB, signals={'provider_probe': probe})
+    assert review.audit_has_upload_size(result) is accepted
+    assert source_meets_size_requirement(result) is accepted
+    assert is_resolvable(result) is accepted
+    assert samples == (['https://cdn.test/transcode'] if accepted else [])
+    assert 'secret' not in json.dumps(probe)
+
+
+def test_cli_recovers_rejected_stream_using_original_and_persists_evidence(tmp_path, monkeypatch):
+    row = dict(episode_id=1, source_id=2, series_id=3, season=1, episode=1, series_slug='example',
+               series_title='Example', provider='prehrajto', source_title='Example S01E01',
+               filesize_bytes=400 * MIB, status='whisper_failed', whisper={'status': 'stream_undersized'})
+    queue = tmp_path / 'plans/whisper-review-queue.jsonl'
+    review.write_jsonl(queue, [row])
+    monkeypatch.setattr(review, 'REPO_ROOT', tmp_path)
+    monkeypatch.setattr(review, 'uploaded_episode_exclusions', lambda: (set(), set()))
+    monkeypatch.setattr(review, 'source_exclusions', lambda: (set(), set()))
+    monkeypatch.setenv('UPLOAD_PREHRAJTO_EMAIL', 'example@example.test')
+    monkeypatch.setenv('UPLOAD_PREHRAJTO_PASSWORD', 'test-only')
+    session = object()
+    monkeypatch.setattr(review, 'login', lambda *a: session)
+    calls = []
+    original = dict(status='ok', filesize_bytes=400 * MIB, suffix='.avi')
+    def audit(item, **kwargs):
+        assert kwargs['original_session'] is session
+        calls.append(item['episode_id'])
+        return dict(item, audited_at='2026-10-30T18:00:00Z', verdict='CZ_AUDIO',
+                    detected_by='whisper', verification_status='whisper_confirmed_cz_audio',
+                    signals={'provider_probe': dict(status='ok', streams=[{'res': 720}],
+                              stream_filesize_bytes=200 * MIB, official_original=original),
+                             'whisper': dict(status='ok', language='cs', probability=.99)})
+    monkeypatch.setattr(review, 'audit_one', audit)
+    monkeypatch.setattr(sys, 'argv', ['process_whisper_review_queue.py', '--limit', '4'])
+    assert review.main() == 0
+    assert calls == [1]
+    assert review.load_jsonl(queue)[0]['official_original'] == original
+    prepared = review.load_jsonl(tmp_path / 'plans/prepared-episodes.jsonl')[0]
+    assert prepared['upload_ready']
+    from prepare_episode_sources import is_resolvable
+    assert is_resolvable(prepared['selected_source'])
+    assert review.main() == 0
+    assert calls == [1]

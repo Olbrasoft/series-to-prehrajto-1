@@ -26,7 +26,7 @@ from audit_language_sources import audit_one, write_latest_index  # noqa: E402
 from language_checks import metadata_language_hint, title_language_hint  # noqa: E402
 from pick_next_episode import cooling_down_source_ids  # noqa: E402
 from prehrajto_search import SearchResult, search_pages as search_prehrajto_pages  # noqa: E402
-from source_quality import source_quality_score, source_quality_tier, source_meets_size_requirement  # noqa: E402
+from source_quality import measured_upload_filesize, source_quality_score, source_quality_tier, source_meets_size_requirement  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MIN_UPLOAD_FILE_SIZE = 300 * 1024 * 1024
@@ -755,7 +755,7 @@ def probe_resolution(result: dict, source: dict) -> int:
 
 def is_resolvable(result: dict) -> bool:
     probe = result.get("signals", {}).get("provider_probe") or {}
-    size = probe.get("stream_filesize_bytes")
+    size = measured_upload_filesize(probe)
     return (probe.get("status") == "ok" and bool(probe.get("streams"))
             and (size is None or size >= MIN_UPLOAD_FILE_SIZE))
 
