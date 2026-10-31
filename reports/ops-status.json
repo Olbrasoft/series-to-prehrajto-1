@@ -2,28 +2,52 @@
   "counts": {
     "backlog_episodes": 114464,
     "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 77230,
-    "prepared_source_episodes": 66263,
+    "uploaded_episodes": 77231,
+    "prepared_source_episodes": 66262,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 42,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 26,
-    "language_whisper_attempted_sources": 24,
+    "language_audited_sources": 30,
+    "language_whisper_attempted_sources": 28,
     "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54164,
     "whisper_review_pending_sources": 38437,
-    "subtitle_followup_sources": 48920,
-    "subtitle_followup_pending_sources": 48920
+    "subtitle_followup_sources": 48921,
+    "subtitle_followup_pending_sources": 48921
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T17:28:32Z",
+      "databaseId": 41224697793,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-31T17:26:52Z",
+      "databaseId": 41224568264,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T17:26:48Z",
+      "databaseId": 41224563791,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-31T17:26:18Z",
       "databaseId": 41224524442,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -99,11 +123,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T17:17:45Z",
       "databaseId": 41223823517,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,11 +139,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T17:15:19Z",
       "databaseId": 41223624704,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -150,30 +174,6 @@
       "conclusion": "cancelled",
       "createdAt": "2026-10-31T17:12:16Z",
       "databaseId": 41223381846,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T17:11:20Z",
-      "databaseId": 41223304987,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T17:11:19Z",
-      "databaseId": 41223303548,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-31T17:11:14Z",
-      "databaseId": 41223296152,
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
@@ -189449,6 +189449,11 @@
         "episode_id": 56652,
         "display_name": "Glee S02E06 - Nepolíbená CZ Dabing",
         "video_id": 30673966
+      },
+      {
+        "episode_id": 76852,
+        "display_name": "Dawsonův svět S02E13 - Jeho hlavní představitelka CZ Dabing",
+        "video_id": 30674018
       },
       {
         "episode_id": 81001,
@@ -549738,6 +549743,11 @@
         "video_id": 30673966
       },
       {
+        "episode_id": 76852,
+        "display_name": "Dawsonův svět S02E13 - Jeho hlavní představitelka CZ Dabing",
+        "video_id": 30674018
+      },
+      {
         "episode_id": 81001,
         "display_name": "Král šamanů S01E29 - Emeth CZ Titulky",
         "video_id": 30673860
@@ -722017,9 +722027,9 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "resolve_failed": 5,
     "disabled": 2,
-    "ok": 22,
-    "resolve_failed": 2
+    "ok": 23
   },
   "whisper_review_statuses": {
     "needs_whisper": 36731,
@@ -722028,6 +722038,6 @@
     "whisper_failed": 1706
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 48920
+    "needs_subtitle_setup_after_prehrajto_processing": 48921
   }
 }
