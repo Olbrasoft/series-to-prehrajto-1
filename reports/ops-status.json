@@ -1,23 +1,55 @@
 {
   "counts": {
     "backlog_episodes": 114622,
-    "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 77097,
+    "manifest_upload_ready_episodes": 4,
+    "uploaded_episodes": 77098,
     "prepared_source_episodes": 66180,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 34,
-    "language_whisper_attempted_sources": 30,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54177,
     "whisper_review_pending_sources": 38464,
     "subtitle_followup_sources": 48850,
     "subtitle_followup_pending_sources": 48850
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T11:43:00Z",
+      "databaseId": 41198002135,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T11:42:57Z",
+      "databaseId": 41197998697,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T11:42:31Z",
+      "databaseId": 41197969278,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-31T11:40:23Z",
+      "databaseId": 41197819416,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-10-31T11:38:47Z",
@@ -39,15 +71,15 @@
       "createdAt": "2026-10-31T11:38:18Z",
       "databaseId": 41197679199,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T11:38:11Z",
       "databaseId": 41197671535,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +95,7 @@
       "createdAt": "2026-10-31T11:34:59Z",
       "databaseId": 41197451893,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-31T11:33:40Z",
       "databaseId": 41197359739,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T11:31:55Z",
-      "databaseId": 41197233514,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-31T11:31:53Z",
-      "databaseId": 41197231919,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-31T11:31:49Z",
-      "databaseId": 41197227840,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T11:31:03Z",
-      "databaseId": 41197172572,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
     }
   ],
   "gaps": {
@@ -359901,6 +359901,11 @@
         "video_id": 30664446
       },
       {
+        "episode_id": 81278,
+        "display_name": "Řada nešťastných příhod S01E07 - Ohavná pila (1) CZ Titulky",
+        "video_id": 30664480
+      },
+      {
         "episode_id": 103983,
         "display_name": "Velká šestka: Baymax se vrací S03E03 - Léto pod psa CZ Titulky",
         "video_id": 30664459
@@ -719523,6 +719528,11 @@
         "video_id": 30664446
       },
       {
+        "episode_id": 81278,
+        "display_name": "Řada nešťastných příhod S01E07 - Ohavná pila (1) CZ Titulky",
+        "video_id": 30664480
+      },
+      {
         "episode_id": 103983,
         "display_name": "Velká šestka: Baymax se vrací S03E03 - Léto pod psa CZ Titulky",
         "video_id": 30664459
@@ -720687,9 +720697,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 4,
-    "ok": 28,
-    "sample_failed": 1,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
