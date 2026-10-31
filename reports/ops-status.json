@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 114882,
     "manifest_upload_ready_episodes": 19,
-    "uploaded_episodes": 76779,
+    "uploaded_episodes": 76780,
     "prepared_source_episodes": 66072,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 32,
-    "language_whisper_attempted_sources": 24,
-    "language_pending_whisper_sources": 2624,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
+    "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54209,
     "whisper_review_pending_sources": 38533,
     "subtitle_followup_sources": 48732,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-31T01:27:54Z",
+      "databaseId": 41155470205,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:25:20Z",
+      "databaseId": 41155271299,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-31T01:24:36Z",
       "databaseId": 41155211446,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -43,11 +59,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:24:07Z",
       "databaseId": 41155173606,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -91,11 +107,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:23:09Z",
       "databaseId": 41155097253,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -139,11 +155,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:20:59Z",
       "databaseId": 41154916890,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-31T01:19:54Z",
-      "databaseId": 41154822268,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T01:19:49Z",
-      "databaseId": 41154815561,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -358319,6 +358319,11 @@
         "episode_id": 157746,
         "display_name": "Bojovnice na druhou S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30650836
+      },
+      {
+        "episode_id": 25378,
+        "display_name": "Castle na zabití S05E06 - Nechť vás provází štěstí CZ Dabing",
+        "video_id": 30650997
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -716356,6 +716361,11 @@
         "episode_id": 157746,
         "display_name": "Bojovnice na druhou S01E06 - 6. epizoda CZ Titulky",
         "video_id": 30650836
+      },
+      {
+        "episode_id": 25378,
+        "display_name": "Castle na zabití S05E06 - Nechť vás provází štěstí CZ Dabing",
+        "video_id": 30650997
       }
     ],
     "prepared_not_upload_ready": [
@@ -717517,9 +717527,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 22,
-    "resolve_failed": 2,
-    "disabled": 8
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36765,
