@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 114798,
     "manifest_upload_ready_episodes": 7,
-    "uploaded_episodes": 76887,
-    "prepared_source_episodes": 66092,
+    "uploaded_episodes": 76888,
+    "prepared_source_episodes": 66096,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 46,
-    "language_whisper_attempted_sources": 46,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54195,
     "whisper_review_pending_sources": 38487,
     "subtitle_followup_sources": 48754,
@@ -20,10 +20,42 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-31T04:42:29Z",
+      "databaseId": 41169659786,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T04:42:16Z",
+      "databaseId": 41169646557,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-31T04:41:16Z",
+      "databaseId": 41169579482,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T04:41:13Z",
+      "databaseId": 41169576444,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-31T04:40:14Z",
       "databaseId": 41169507922,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -39,7 +71,7 @@
       "createdAt": "2026-10-31T04:38:47Z",
       "databaseId": 41169414402,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-31T04:36:21Z",
       "databaseId": 41169257137,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T04:35:18Z",
       "databaseId": 41169183892,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T04:31:39Z",
-      "databaseId": 41168924873,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T04:31:35Z",
-      "databaseId": 41168920289,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-31T04:30:23Z",
-      "databaseId": 41168831684,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T04:30:17Z",
-      "databaseId": 41168825350,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "backfill-subtitles"
     }
   ],
   "gaps": {
@@ -188614,6 +188614,11 @@
         "episode_id": 116189,
         "display_name": "Hardyho chlapci S01E06 - Na první pohled CZ Titulky",
         "video_id": 30655002
+      },
+      {
+        "episode_id": 25380,
+        "display_name": "Castle na zabití S05E08 - Po pracovní době CZ Dabing",
+        "video_id": 30655135
       },
       {
         "episode_id": 114182,
@@ -547193,6 +547198,11 @@
         "video_id": 30655002
       },
       {
+        "episode_id": 25380,
+        "display_name": "Castle na zabití S05E08 - Po pracovní době CZ Dabing",
+        "video_id": 30655135
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -718597,8 +718607,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 44,
-    "resolve_failed": 2
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36732,
