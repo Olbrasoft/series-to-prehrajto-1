@@ -2,44 +2,100 @@
   "counts": {
     "backlog_episodes": 114622,
     "manifest_upload_ready_episodes": 15,
-    "uploaded_episodes": 77059,
-    "prepared_source_episodes": 66162,
+    "uploaded_episodes": 77060,
+    "prepared_source_episodes": 66165,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 43,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54179,
-    "whisper_review_pending_sources": 38462,
+    "whisper_review_sources": 54180,
+    "whisper_review_pending_sources": 38464,
     "subtitle_followup_sources": 48830,
     "subtitle_followup_pending_sources": 48830
   },
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-31T10:33:05Z",
-      "databaseId": 41193209962,
+      "createdAt": "2026-10-31T10:34:57Z",
+      "databaseId": 41193339991,
       "headBranch": "main",
       "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T10:34:15Z",
+      "databaseId": 41193291496,
+      "headBranch": "main",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
       "conclusion": "",
-      "createdAt": "2026-10-31T10:33:03Z",
-      "databaseId": 41193207799,
+      "createdAt": "2026-10-31T10:34:11Z",
+      "databaseId": 41193287043,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "update-descriptions"
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-31T10:34:11Z",
+      "databaseId": 41193286421,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T10:34:09Z",
+      "databaseId": 41193283492,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-31T10:33:48Z",
+      "databaseId": 41193258329,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T10:33:45Z",
+      "databaseId": 41193254997,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "sync"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-31T10:33:05Z",
+      "databaseId": 41193209962,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-31T10:33:03Z",
+      "databaseId": 41193207799,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "cancelled",
       "createdAt": "2026-10-31T10:33:02Z",
       "databaseId": 41193206146,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -67,11 +123,11 @@
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T10:32:26Z",
       "databaseId": 41193162999,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -83,11 +139,11 @@
       "workflowName": "ops-status"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T10:28:45Z",
       "databaseId": 41192904812,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -121,62 +177,6 @@
       "headBranch": "main",
       "status": "in_progress",
       "workflowName": "prepare-sources"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-31T10:22:53Z",
-      "databaseId": 41192518221,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-31T10:22:46Z",
-      "databaseId": 41192510750,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T10:21:23Z",
-      "databaseId": 41192415851,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T10:20:24Z",
-      "databaseId": 41192345398,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-31T10:20:19Z",
-      "databaseId": 41192339364,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T10:18:59Z",
-      "databaseId": 41192246836,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T10:18:55Z",
-      "databaseId": 41192242720,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -189024,6 +189024,11 @@
         "episode_id": 201929,
         "display_name": "M.I.A. S01E08 - 8. epizoda CZ Dabing",
         "video_id": 30663467
+      },
+      {
+        "episode_id": 103977,
+        "display_name": "Velká šestka: Baymax se vrací S02E21 - Fred na útěku CZ Titulky",
+        "video_id": 30663610
       },
       {
         "episode_id": 114182,
@@ -548458,6 +548463,11 @@
         "video_id": 30663467
       },
       {
+        "episode_id": 103977,
+        "display_name": "Velká šestka: Baymax se vrací S02E21 - Fred na útěku CZ Titulky",
+        "video_id": 30663610
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -720307,13 +720317,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 3,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36734,
+    "needs_whisper": 36736,
     "whisper_confirmed_cz": 3369,
-    "whisper_non_cz_needs_subtitles": 12348,
+    "whisper_non_cz_needs_subtitles": 12347,
     "whisper_failed": 1728
   },
   "subtitle_followup_statuses": {
