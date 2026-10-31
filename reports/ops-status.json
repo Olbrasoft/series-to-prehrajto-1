@@ -1,16 +1,16 @@
 {
   "counts": {
-    "backlog_episodes": 114712,
-    "manifest_upload_ready_episodes": 10,
-    "uploaded_episodes": 77020,
+    "backlog_episodes": 114622,
+    "manifest_upload_ready_episodes": 5,
+    "uploaded_episodes": 77022,
     "prepared_source_episodes": 66154,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 39,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 50,
-    "language_whisper_attempted_sources": 50,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54184,
     "whisper_review_pending_sources": 38472,
@@ -20,18 +20,98 @@
   "workflow_runs": [
     {
       "conclusion": "",
-      "createdAt": "2026-10-31T09:10:12Z",
-      "databaseId": 41187572522,
+      "createdAt": "2026-10-31T09:15:04Z",
+      "databaseId": 41187918737,
       "headBranch": "main",
       "status": "pending",
-      "workflowName": "audit-language"
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-31T09:14:00Z",
+      "databaseId": 41187846385,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
     },
     {
       "conclusion": "",
+      "createdAt": "2026-10-31T09:13:58Z",
+      "databaseId": 41187844383,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-31T09:13:50Z",
+      "databaseId": 41187834563,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T09:13:25Z",
+      "databaseId": 41187803704,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T09:13:02Z",
+      "databaseId": 41187774469,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-31T09:12:05Z",
+      "databaseId": 41187708643,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T09:12:02Z",
+      "databaseId": 41187704561,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-10-31T09:11:52Z",
+      "databaseId": 41187692375,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "refresh-backlog"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-31T09:11:40Z",
+      "databaseId": 41187677467,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T09:10:12Z",
+      "databaseId": 41187572522,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-10-31T09:07:44Z",
       "databaseId": 41187398849,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -47,7 +127,7 @@
       "createdAt": "2026-10-31T09:07:17Z",
       "databaseId": 41187367747,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "sync"
     },
     {
@@ -67,19 +147,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-31T09:06:33Z",
       "databaseId": 41187313531,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T09:06:26Z",
       "databaseId": 41187305385,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "sync"
     },
     {
@@ -97,86 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-31T09:05:21Z",
-      "databaseId": 41187229185,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T09:04:36Z",
-      "databaseId": 41187171177,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T09:04:33Z",
-      "databaseId": 41187167847,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-31T09:04:30Z",
-      "databaseId": 41187165147,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T09:03:36Z",
-      "databaseId": 41187103069,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-status"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-10-31T09:03:21Z",
-      "databaseId": 41187085416,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T09:03:16Z",
-      "databaseId": 41187078367,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-31T09:03:16Z",
-      "databaseId": 41187078286,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T08:56:58Z",
-      "databaseId": 41186646492,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T08:55:59Z",
-      "databaseId": 41186584914,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -188941,6 +188941,11 @@
         "video_id": 30662181
       },
       {
+        "episode_id": 103968,
+        "display_name": "Velká šestka: Baymax se vrací S02E12 - Město příšer (1) CZ Titulky",
+        "video_id": 30662224
+      },
+      {
         "episode_id": 100593,
         "display_name": "Fotbalový talent S02E15 - 15. epizoda CZ Titulky",
         "video_id": 30662208
@@ -359514,6 +359519,11 @@
         "episode_id": 92842,
         "display_name": "Ghost Wars S01E01 - 1. epizoda CZ Titulky",
         "video_id": 30662188
+      },
+      {
+        "episode_id": 173482,
+        "display_name": "Sun Records S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30662247
       },
       {
         "episode_id": 103967,
@@ -548178,6 +548188,11 @@
         "video_id": 30662181
       },
       {
+        "episode_id": 103968,
+        "display_name": "Velká šestka: Baymax se vrací S02E12 - Město příšer (1) CZ Titulky",
+        "video_id": 30662224
+      },
+      {
         "episode_id": 100593,
         "display_name": "Fotbalový talent S02E15 - 15. epizoda CZ Titulky",
         "video_id": 30662208
@@ -718753,6 +718768,11 @@
         "video_id": 30662188
       },
       {
+        "episode_id": 173482,
+        "display_name": "Sun Records S01E01 - 1. epizoda CZ Titulky",
+        "video_id": 30662247
+      },
+      {
         "episode_id": 103967,
         "display_name": "Velká šestka: Baymax se vrací S02E11 - Společná fanfikce CZ Titulky",
         "video_id": 30662206
@@ -719917,7 +719937,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 49,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
