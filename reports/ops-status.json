@@ -1,45 +1,85 @@
 {
   "counts": {
     "backlog_episodes": 114882,
-    "manifest_upload_ready_episodes": 19,
-    "uploaded_episodes": 76780,
-    "prepared_source_episodes": 66072,
+    "manifest_upload_ready_episodes": 18,
+    "uploaded_episodes": 76785,
+    "prepared_source_episodes": 66070,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 44,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54209,
-    "whisper_review_pending_sources": 38533,
+    "whisper_review_pending_sources": 38532,
     "subtitle_followup_sources": 48732,
     "subtitle_followup_pending_sources": 48732
   },
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-10-31T01:33:53Z",
+      "databaseId": 41155950414,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:33:33Z",
+      "databaseId": 41155922373,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:31:40Z",
+      "databaseId": 41155770519,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:30:25Z",
+      "databaseId": 41155666754,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:29:08Z",
+      "databaseId": 41155563776,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
       "createdAt": "2026-10-31T01:27:54Z",
       "databaseId": 41155470205,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:25:20Z",
       "databaseId": 41155271299,
       "headBranch": "main",
-      "status": "queued",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:24:36Z",
       "databaseId": 41155211446,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -51,11 +91,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-31T01:24:30Z",
       "databaseId": 41155204169,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -71,15 +111,15 @@
       "createdAt": "2026-10-31T01:24:04Z",
       "databaseId": 41155169250,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:23:59Z",
       "databaseId": 41155162666,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -87,7 +127,7 @@
       "createdAt": "2026-10-31T01:23:57Z",
       "databaseId": 41155160346,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "prepare-sources"
     },
     {
@@ -136,46 +176,6 @@
       "databaseId": 41155000582,
       "headBranch": "main",
       "status": "in_progress",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T01:21:26Z",
-      "databaseId": 41154955252,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T01:21:02Z",
-      "databaseId": 41154921897,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T01:20:59Z",
-      "databaseId": 41154916890,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T01:20:51Z",
-      "databaseId": 41154905742,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-31T01:20:47Z",
-      "databaseId": 41154899555,
-      "headBranch": "main",
-      "status": "completed",
       "workflowName": "prepare-manifest"
     }
   ],
@@ -188331,6 +188331,21 @@
         "video_id": 30650157
       },
       {
+        "episode_id": 154280,
+        "display_name": "After the Flood S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30651017
+      },
+      {
+        "episode_id": 151824,
+        "display_name": "Devětatřicet S01E02 - Absurdní den CZ Titulky",
+        "video_id": 30651081
+      },
+      {
+        "episode_id": 119640,
+        "display_name": "Chained Soldier S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 30651140
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -358324,6 +358339,16 @@
         "episode_id": 25378,
         "display_name": "Castle na zabití S05E06 - Nechť vás provází štěstí CZ Dabing",
         "video_id": 30650997
+      },
+      {
+        "episode_id": 50862,
+        "display_name": "Emergence S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30651063
+      },
+      {
+        "episode_id": 25387,
+        "display_name": "Castle na zabití S05E15 - Únos CZ Dabing",
+        "video_id": 30651045
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -546373,6 +546398,21 @@
         "video_id": 30650157
       },
       {
+        "episode_id": 154280,
+        "display_name": "After the Flood S02E02 - 2. epizoda CZ Titulky",
+        "video_id": 30651017
+      },
+      {
+        "episode_id": 151824,
+        "display_name": "Devětatřicet S01E02 - Absurdní den CZ Titulky",
+        "video_id": 30651081
+      },
+      {
+        "episode_id": 119640,
+        "display_name": "Chained Soldier S02E01 - 1. epizoda CZ Dabing",
+        "video_id": 30651140
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -716366,6 +716406,16 @@
         "episode_id": 25378,
         "display_name": "Castle na zabití S05E06 - Nechť vás provází štěstí CZ Dabing",
         "video_id": 30650997
+      },
+      {
+        "episode_id": 50862,
+        "display_name": "Emergence S01E11 - 11. epizoda CZ Titulky",
+        "video_id": 30651063
+      },
+      {
+        "episode_id": 25387,
+        "display_name": "Castle na zabití S05E15 - Únos CZ Dabing",
+        "video_id": 30651045
       }
     ],
     "prepared_not_upload_ready": [
@@ -717527,14 +717577,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
+    "ok": 43,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36765,
-    "whisper_confirmed_cz": 3349,
+    "whisper_confirmed_cz": 3350,
     "whisper_non_cz_needs_subtitles": 12327,
-    "whisper_failed": 1768
+    "whisper_failed": 1767
   },
   "subtitle_followup_statuses": {
     "needs_subtitle_setup_after_prehrajto_processing": 48732
