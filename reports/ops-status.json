@@ -1,16 +1,16 @@
 {
   "counts": {
     "backlog_episodes": 114882,
-    "manifest_upload_ready_episodes": 16,
-    "uploaded_episodes": 76788,
-    "prepared_source_episodes": 66073,
+    "manifest_upload_ready_episodes": 14,
+    "uploaded_episodes": 76789,
+    "prepared_source_episodes": 66076,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 43,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 47,
-    "language_whisper_attempted_sources": 44,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54209,
     "whisper_review_pending_sources": 38532,
@@ -19,19 +19,51 @@
   },
   "workflow_runs": [
     {
+      "conclusion": "skipped",
+      "createdAt": "2026-10-31T01:39:09Z",
+      "databaseId": 41156366126,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:38:49Z",
+      "databaseId": 41156340739,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:38:37Z",
+      "databaseId": 41156324780,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-10-31T01:38:08Z",
+      "databaseId": 41156286593,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "audit-language"
+    },
+    {
       "conclusion": "",
       "createdAt": "2026-10-31T01:37:00Z",
       "databaseId": 41156196497,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-10-31T01:36:56Z",
       "databaseId": 41156190949,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -51,11 +83,11 @@
       "workflowName": "prepare-manifest"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:35:08Z",
       "databaseId": 41156047150,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -67,11 +99,11 @@
       "workflowName": "prepare-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:34:28Z",
       "databaseId": 41155994014,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "update-descriptions"
     },
     {
@@ -83,11 +115,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:33:53Z",
       "databaseId": 41155950414,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -115,19 +147,19 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:29:08Z",
       "databaseId": 41155563776,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-10-31T01:27:54Z",
       "databaseId": 41155470205,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-31T01:24:34Z",
-      "databaseId": 41155209616,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-10-31T01:24:30Z",
-      "databaseId": 41155204169,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-10-31T01:24:07Z",
-      "databaseId": 41155173606,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-10-31T01:24:04Z",
-      "databaseId": 41155169250,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
     }
   ],
   "gaps": {
@@ -358364,6 +358364,11 @@
         "episode_id": 13943,
         "display_name": "Pobřežní hlídka S03E12 - Otázka života a smrti CZ Titulky",
         "video_id": 30651119
+      },
+      {
+        "episode_id": 196511,
+        "display_name": "Klíšťák S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30651273
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -716446,6 +716451,11 @@
         "episode_id": 13943,
         "display_name": "Pobřežní hlídka S03E12 - Otázka života a smrti CZ Titulky",
         "video_id": 30651119
+      },
+      {
+        "episode_id": 196511,
+        "display_name": "Klíšťák S01E12 - 12. epizoda CZ Titulky",
+        "video_id": 30651273
       }
     ],
     "prepared_not_upload_ready": [
@@ -717607,8 +717617,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 3,
-    "ok": 43,
+    "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
