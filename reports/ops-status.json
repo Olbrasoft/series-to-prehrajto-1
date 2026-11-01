@@ -1,29 +1,37 @@
 {
   "counts": {
     "backlog_episodes": 114146,
-    "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 77537,
+    "manifest_upload_ready_episodes": 7,
+    "uploaded_episodes": 77539,
     "prepared_source_episodes": 66423,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
-    "language_whisper_attempted_sources": 40,
+    "language_audited_sources": 44,
+    "language_whisper_attempted_sources": 44,
     "language_pending_whisper_sources": 2604,
-    "whisper_review_sources": 54109,
-    "whisper_review_pending_sources": 38308,
-    "subtitle_followup_sources": 49111,
-    "subtitle_followup_pending_sources": 49111
+    "whisper_review_sources": 54108,
+    "whisper_review_pending_sources": 38307,
+    "subtitle_followup_sources": 49112,
+    "subtitle_followup_pending_sources": 49112
   },
   "workflow_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-11-01T07:56:51Z",
+      "databaseId": 41286786642,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-11-01T07:55:45Z",
       "databaseId": 41286718240,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -67,11 +75,11 @@
       "workflowName": "audit-language"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T07:54:31Z",
       "databaseId": 41286635050,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -87,7 +95,7 @@
       "createdAt": "2026-11-01T07:53:58Z",
       "databaseId": 41286599206,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "prepare-sources"
     },
     {
@@ -95,7 +103,7 @@
       "createdAt": "2026-11-01T07:53:26Z",
       "databaseId": 41286565491,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -115,11 +123,11 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T07:51:57Z",
       "databaseId": 41286470893,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "process-whisper-review"
     },
     {
@@ -169,14 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T07:47:05Z",
-      "databaseId": 41286156828,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
     }
   ],
   "gaps": {
@@ -190251,6 +190251,11 @@
         "video_id": 30688872
       },
       {
+        "episode_id": 86849,
+        "display_name": "Archer S02E02 - A Going Concern CZ Titulky",
+        "video_id": 30688980
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -362104,6 +362109,11 @@
         "episode_id": 161487,
         "display_name": "Profesionálky S01E03 - Rande naslepo a krvácející srdce CZ Titulky",
         "video_id": 30688871
+      },
+      {
+        "episode_id": 113678,
+        "display_name": "Starsky & Hutch S04E14 - 14. epizoda CZ Titulky",
+        "video_id": 30688979
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -552073,6 +552083,11 @@
         "video_id": 30688872
       },
       {
+        "episode_id": 86849,
+        "display_name": "Archer S02E02 - A Going Concern CZ Titulky",
+        "video_id": 30688980
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -723926,6 +723941,11 @@
         "episode_id": 161487,
         "display_name": "Profesionálky S01E03 - Rande naslepo a krvácející srdce CZ Titulky",
         "video_id": 30688871
+      },
+      {
+        "episode_id": 113678,
+        "display_name": "Starsky & Hutch S04E14 - 14. epizoda CZ Titulky",
+        "video_id": 30688979
       }
     ],
     "prepared_not_upload_ready": [
@@ -725087,16 +725107,16 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "ok": 39,
-    "resolve_failed": 1
+    "ok": 42,
+    "resolve_failed": 2
   },
   "whisper_review_statuses": {
     "needs_whisper": 36639,
-    "whisper_confirmed_cz": 3448,
-    "whisper_non_cz_needs_subtitles": 12353,
-    "whisper_failed": 1669
+    "whisper_confirmed_cz": 3449,
+    "whisper_non_cz_needs_subtitles": 12352,
+    "whisper_failed": 1668
   },
   "subtitle_followup_statuses": {
-    "needs_subtitle_setup_after_prehrajto_processing": 49111
+    "needs_subtitle_setup_after_prehrajto_processing": 49112
   }
 }
