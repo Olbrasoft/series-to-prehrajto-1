@@ -2,16 +2,16 @@
   "counts": {
     "backlog_episodes": 114146,
     "manifest_upload_ready_episodes": 6,
-    "uploaded_episodes": 77530,
+    "uploaded_episodes": 77531,
     "prepared_source_episodes": 66424,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 55,
-    "language_whisper_attempted_sources": 50,
-    "language_pending_whisper_sources": 2604,
+    "language_audited_sources": 20,
+    "language_whisper_attempted_sources": 20,
+    "language_pending_whisper_sources": 2624,
     "whisper_review_sources": 54110,
     "whisper_review_pending_sources": 38310,
     "subtitle_followup_sources": 49108,
@@ -20,10 +20,26 @@
   "workflow_runs": [
     {
       "conclusion": "",
+      "createdAt": "2026-11-01T07:45:49Z",
+      "databaseId": 41286072813,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-11-01T07:45:37Z",
+      "databaseId": 41286060644,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "success",
       "createdAt": "2026-11-01T07:43:43Z",
       "databaseId": 41285932233,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -131,11 +147,11 @@
       "workflowName": "prepare-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T07:35:11Z",
       "databaseId": 41285375470,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-11-01T07:33:08Z",
-      "databaseId": 41285233668,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-11-01T07:33:03Z",
-      "databaseId": 41285227199,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -190224,6 +190224,11 @@
         "episode_id": 121097,
         "display_name": "Černé jezero: Dystopie S01E01 - 1. epizoda CZ Dabing",
         "video_id": 30688438
+      },
+      {
+        "episode_id": 163892,
+        "display_name": "Žhavé linky S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30688610
       },
       {
         "episode_id": 113673,
@@ -552013,6 +552018,11 @@
         "video_id": 30688438
       },
       {
+        "episode_id": 163892,
+        "display_name": "Žhavé linky S01E05 - 5. epizoda CZ Titulky",
+        "video_id": 30688610
+      },
+      {
         "episode_id": 113673,
         "display_name": "Starsky & Hutch S04E08 - 8. epizoda CZ Titulky",
         "video_id": 30688565
@@ -725017,9 +725027,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 5,
-    "ok": 47,
-    "resolve_failed": 3
+    "ok": 19,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36640,
