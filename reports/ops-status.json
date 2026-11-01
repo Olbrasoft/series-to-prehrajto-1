@@ -2,14 +2,14 @@
   "counts": {
     "backlog_episodes": 114146,
     "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 77557,
-    "prepared_source_episodes": 66430,
+    "uploaded_episodes": 77558,
+    "prepared_source_episodes": 66433,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 40,
+    "language_audited_sources": 44,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54107,
@@ -18,6 +18,38 @@
     "subtitle_followup_pending_sources": 49117
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T09:40:01Z",
+      "databaseId": 41289813629,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-11-01T09:39:46Z",
+      "databaseId": 41289797378,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T09:39:34Z",
+      "databaseId": 41289784850,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-11-01T09:39:28Z",
+      "databaseId": 41289778726,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-manifest"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-11-01T09:38:59Z",
@@ -47,15 +79,15 @@
       "createdAt": "2026-11-01T09:37:44Z",
       "databaseId": 41289662952,
       "headBranch": "main",
-      "status": "pending",
+      "status": "queued",
       "workflowName": "backfill-subtitles"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T09:37:04Z",
       "databaseId": 41289617582,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -63,7 +95,7 @@
       "createdAt": "2026-11-01T09:36:58Z",
       "databaseId": 41289610137,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "sync"
     },
     {
@@ -91,11 +123,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-11-01T09:35:36Z",
       "databaseId": 41289515554,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -145,38 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T09:30:29Z",
-      "databaseId": 41289149332,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T09:30:26Z",
-      "databaseId": 41289145239,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "process-whisper-review"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T09:30:23Z",
-      "databaseId": 41289141463,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-11-01T09:29:25Z",
-      "databaseId": 41289071773,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -362204,6 +362204,11 @@
         "episode_id": 79339,
         "display_name": "Olymp - Zkáza Bohů S01E10 - 10. epizoda CZ Dabing",
         "video_id": 30689701
+      },
+      {
+        "episode_id": 113670,
+        "display_name": "Starsky & Hutch S04E04 - 4. epizoda CZ Titulky",
+        "video_id": 30689854
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -724126,6 +724131,11 @@
         "episode_id": 79339,
         "display_name": "Olymp - Zkáza Bohů S01E10 - 10. epizoda CZ Dabing",
         "video_id": 30689701
+      },
+      {
+        "episode_id": 113670,
+        "display_name": "Starsky & Hutch S04E04 - 4. epizoda CZ Titulky",
+        "video_id": 30689854
       }
     ],
     "prepared_not_upload_ready": [
@@ -725287,6 +725297,7 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
+    "disabled": 4,
     "ok": 39,
     "resolve_failed": 1
   },
