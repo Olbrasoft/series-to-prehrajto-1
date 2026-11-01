@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 114208,
     "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 77491,
+    "uploaded_episodes": 77495,
     "prepared_source_episodes": 66380,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 41,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 54,
-    "language_whisper_attempted_sources": 46,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54119,
     "whisper_review_pending_sources": 38333,
@@ -18,6 +18,62 @@
     "subtitle_followup_pending_sources": 49086
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T06:06:28Z",
+      "databaseId": 41279466901,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "audit-language"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T06:05:52Z",
+      "databaseId": 41279426564,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-status"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T06:05:21Z",
+      "databaseId": 41279392141,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "ops-watchdog"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T06:05:15Z",
+      "databaseId": 41279384918,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-11-01T05:59:35Z",
+      "databaseId": 41279002776,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "skipped",
+      "createdAt": "2026-11-01T05:59:21Z",
+      "databaseId": 41278989184,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "prepare-subtitles"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T05:59:16Z",
+      "databaseId": 41278983762,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "backfill-subtitles"
+    },
     {
       "conclusion": "success",
       "createdAt": "2026-11-01T05:57:51Z",
@@ -35,19 +91,19 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T05:56:53Z",
       "databaseId": 41278847197,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-11-01T05:56:48Z",
       "databaseId": 41278841808,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -115,68 +171,12 @@
       "workflowName": "update-descriptions"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T05:53:25Z",
       "databaseId": 41278636816,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-11-01T05:53:11Z",
-      "databaseId": 41278623107,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "sync"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-11-01T05:52:24Z",
-      "databaseId": 41278577011,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T05:51:00Z",
-      "databaseId": 41278495282,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "external-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T05:50:08Z",
-      "databaseId": 41278440821,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T05:50:08Z",
-      "databaseId": 41278440138,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-11-01T05:50:03Z",
-      "databaseId": 41278434737,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "skipped",
-      "createdAt": "2026-11-01T05:49:42Z",
-      "databaseId": 41278414738,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-subtitles"
     }
   ],
   "gaps": {
@@ -190109,6 +190109,26 @@
         "episode_id": 113624,
         "display_name": "Starsky & Hutch S02E02 - 2. epizoda CZ Titulky",
         "video_id": 30686014
+      },
+      {
+        "episode_id": 29188,
+        "display_name": "Ženatý se závazky S09E24 - Studentské rádio CZ Titulky",
+        "video_id": 30686126
+      },
+      {
+        "episode_id": 113604,
+        "display_name": "Starsky & Hutch S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30686154
+      },
+      {
+        "episode_id": 148972,
+        "display_name": "Oktoberfest: krev a pivo S01E05 - Úsvit nového století CZ Titulky",
+        "video_id": 30686169
+      },
+      {
+        "episode_id": 66121,
+        "display_name": "Americká manželka S04E16 - 16. epizoda CZ Titulky",
+        "video_id": 30686112
       },
       {
         "episode_id": 114182,
@@ -551703,6 +551723,26 @@
         "video_id": 30686014
       },
       {
+        "episode_id": 29188,
+        "display_name": "Ženatý se závazky S09E24 - Studentské rádio CZ Titulky",
+        "video_id": 30686126
+      },
+      {
+        "episode_id": 113604,
+        "display_name": "Starsky & Hutch S01E03 - 3. epizoda CZ Titulky",
+        "video_id": 30686154
+      },
+      {
+        "episode_id": 148972,
+        "display_name": "Oktoberfest: krev a pivo S01E05 - Úsvit nového století CZ Titulky",
+        "video_id": 30686169
+      },
+      {
+        "episode_id": 66121,
+        "display_name": "Americká manželka S04E16 - 16. epizoda CZ Titulky",
+        "video_id": 30686112
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -724627,9 +724667,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 8,
-    "ok": 44,
-    "resolve_failed": 2
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36664,
