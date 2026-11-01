@@ -2,15 +2,15 @@
   "counts": {
     "backlog_episodes": 114146,
     "manifest_upload_ready_episodes": 4,
-    "uploaded_episodes": 77556,
+    "uploaded_episodes": 77557,
     "prepared_source_episodes": 66430,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 45,
-    "language_whisper_attempted_sources": 45,
+    "language_audited_sources": 40,
+    "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54107,
     "whisper_review_pending_sources": 38306,
@@ -18,6 +18,30 @@
     "subtitle_followup_pending_sources": 49117
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T09:38:59Z",
+      "databaseId": 41289747467,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-sources"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-11-01T09:38:08Z",
+      "databaseId": 41289690097,
+      "headBranch": "main",
+      "status": "completed",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T09:38:05Z",
+      "databaseId": 41289686454,
+      "headBranch": "main",
+      "status": "in_progress",
+      "workflowName": "process-whisper-review"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-11-01T09:37:44Z",
@@ -31,7 +55,7 @@
       "createdAt": "2026-11-01T09:37:04Z",
       "databaseId": 41289617582,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
@@ -59,11 +83,11 @@
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T09:35:40Z",
       "databaseId": 41289520360,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -79,7 +103,7 @@
       "createdAt": "2026-11-01T09:35:11Z",
       "databaseId": 41289483433,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "audit-language"
     },
     {
@@ -139,11 +163,11 @@
       "workflowName": "process-whisper-review"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T09:30:23Z",
       "databaseId": 41289141463,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "audit-language"
     },
     {
@@ -153,30 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-subtitles"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-11-01T09:29:21Z",
-      "databaseId": 41289067123,
-      "headBranch": "main",
-      "status": "in_progress",
-      "workflowName": "backfill-subtitles"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T09:28:41Z",
-      "databaseId": 41289024412,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "update-descriptions"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-11-01T09:28:39Z",
-      "databaseId": 41289021734,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "ops-watchdog"
     }
   ],
   "gaps": {
@@ -190284,6 +190284,11 @@
         "episode_id": 113676,
         "display_name": "Starsky & Hutch S04E11 - 11. epizoda CZ Titulky",
         "video_id": 30689445
+      },
+      {
+        "episode_id": 94732,
+        "display_name": "Krapopolis S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 30689803
       },
       {
         "episode_id": 114182,
@@ -552203,6 +552208,11 @@
         "video_id": 30689445
       },
       {
+        "episode_id": 94732,
+        "display_name": "Krapopolis S02E07 - 7. epizoda CZ Titulky",
+        "video_id": 30689803
+      },
+      {
         "episode_id": 114182,
         "display_name": "Three-body S01E30 - 30. epizoda CZ Titulky",
         "video_id": 27840276
@@ -725277,8 +725287,8 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "resolve_failed": 2,
-    "ok": 43
+    "ok": 39,
+    "resolve_failed": 1
   },
   "whisper_review_statuses": {
     "needs_whisper": 36639,
