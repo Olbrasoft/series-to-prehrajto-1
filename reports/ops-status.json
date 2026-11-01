@@ -1,23 +1,39 @@
 {
   "counts": {
     "backlog_episodes": 114012,
-    "manifest_upload_ready_episodes": 13,
-    "uploaded_episodes": 77660,
-    "prepared_source_episodes": 66517,
+    "manifest_upload_ready_episodes": 14,
+    "uploaded_episodes": 77661,
+    "prepared_source_episodes": 66522,
     "description_series": 60,
     "description_episodes": 753,
     "description_errors": 38,
     "language_audit_rows": 0,
     "language_queue_sources": 2644,
-    "language_audited_sources": 42,
+    "language_audited_sources": 47,
     "language_whisper_attempted_sources": 40,
     "language_pending_whisper_sources": 2604,
     "whisper_review_sources": 54090,
-    "whisper_review_pending_sources": 38260,
+    "whisper_review_pending_sources": 38261,
     "subtitle_followup_sources": 49165,
     "subtitle_followup_pending_sources": 49165
   },
   "workflow_runs": [
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T13:15:53Z",
+      "databaseId": 41310409745,
+      "headBranch": "main",
+      "status": "queued",
+      "workflowName": "update-descriptions"
+    },
+    {
+      "conclusion": "",
+      "createdAt": "2026-11-01T13:15:48Z",
+      "databaseId": 41310404563,
+      "headBranch": "main",
+      "status": "pending",
+      "workflowName": "prepare-manifest"
+    },
     {
       "conclusion": "",
       "createdAt": "2026-11-01T13:14:59Z",
@@ -31,15 +47,15 @@
       "createdAt": "2026-11-01T13:14:46Z",
       "databaseId": 41310316421,
       "headBranch": "main",
-      "status": "pending",
+      "status": "in_progress",
       "workflowName": "ops-watchdog"
     },
     {
-      "conclusion": "",
+      "conclusion": "cancelled",
       "createdAt": "2026-11-01T13:14:42Z",
       "databaseId": 41310311113,
       "headBranch": "main",
-      "status": "pending",
+      "status": "completed",
       "workflowName": "prepare-manifest"
     },
     {
@@ -103,7 +119,7 @@
       "createdAt": "2026-11-01T13:11:08Z",
       "databaseId": 41310027672,
       "headBranch": "main",
-      "status": "queued",
+      "status": "in_progress",
       "workflowName": "backfill-subtitles"
     },
     {
@@ -131,11 +147,11 @@
       "workflowName": "sync"
     },
     {
-      "conclusion": "",
+      "conclusion": "success",
       "createdAt": "2026-11-01T13:05:57Z",
       "databaseId": 41309598805,
       "headBranch": "main",
-      "status": "in_progress",
+      "status": "completed",
       "workflowName": "ops-watchdog"
     },
     {
@@ -161,22 +177,6 @@
       "headBranch": "main",
       "status": "completed",
       "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-11-01T13:05:19Z",
-      "databaseId": 41309544924,
-      "headBranch": "main",
-      "status": "completed",
-      "workflowName": "prepare-manifest"
-    },
-    {
-      "conclusion": "",
-      "createdAt": "2026-11-01T13:05:15Z",
-      "databaseId": 41309539515,
-      "headBranch": "main",
-      "status": "pending",
-      "workflowName": "prepare-descriptions"
     }
   ],
   "gaps": {
@@ -362719,6 +362719,11 @@
         "episode_id": 76610,
         "display_name": "Máma S07E13 - Zatracená Sandra a vikingští předkové CZ Titulky",
         "video_id": 30695330
+      },
+      {
+        "episode_id": 39774,
+        "display_name": "Poslední chlap S08E09 - 9. epizoda CZ Titulky",
+        "video_id": 30695407
       }
     ],
     "uploaded_not_marked_description_updated": [
@@ -725156,6 +725161,11 @@
         "episode_id": 76610,
         "display_name": "Máma S07E13 - Zatracená Sandra a vikingští předkové CZ Titulky",
         "video_id": 30695330
+      },
+      {
+        "episode_id": 39774,
+        "display_name": "Poslední chlap S08E09 - 9. epizoda CZ Titulky",
+        "video_id": 30695407
       }
     ],
     "prepared_not_upload_ready": [
@@ -726317,14 +726327,14 @@
   },
   "language_verdicts": {},
   "language_whisper_statuses": {
-    "disabled": 2,
+    "disabled": 7,
     "ok": 39,
     "resolve_failed": 1
   },
   "whisper_review_statuses": {
-    "needs_whisper": 36633,
+    "needs_whisper": 36634,
     "whisper_confirmed_cz": 3494,
-    "whisper_non_cz_needs_subtitles": 12336,
+    "whisper_non_cz_needs_subtitles": 12335,
     "whisper_failed": 1627
   },
   "subtitle_followup_statuses": {
